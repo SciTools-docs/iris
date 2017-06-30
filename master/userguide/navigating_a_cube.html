@@ -180,17 +180,19 @@ are either a string or <code class="docutils literal"><span class="pre">None</sp
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p>When loading some file formats in Iris, the data itself is not loaded until the <strong>first</strong> time that the data is requested.
+<p>When loading from most file formats in Iris, the data itself is not loaded until the <strong>first</strong> time that the data is requested.
 Hence you may have noticed that running the previous command for the first time takes a little longer than it does for
 subsequent calls.</p>
 <p>For this reason, when you have a large cube it is strongly recommended that you do not access the cube’s data unless
 you need to.
 For convenience <a class="reference internal" href="../iris/iris/cube.html#iris.cube.Cube.shape" title="iris.cube.Cube.shape"><code class="xref py py-attr docutils literal"><span class="pre">shape</span></code></a> and <a class="reference internal" href="../iris/iris/cube.html#iris.cube.Cube.ndim" title="iris.cube.Cube.ndim"><code class="xref py py-attr docutils literal"><span class="pre">ndim</span></code></a> attributes exists on a cube, which
 can tell you the shape of the cube’s data without loading it:</p>
-<div class="last highlight-python"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">ndim</span><span class="p">)</span>
 </pre></div>
 </div>
+<p class="last">For more on the benefits, handling and uses of lazy data, see
+<a class="reference internal" href="real_and_lazy_data.html"><span class="doc">Real and Lazy Data</span></a></p>
 </div>
 <p>You can change the units of a cube using the <a class="reference internal" href="../iris/iris/cube.html#iris.cube.Cube.convert_units" title="iris.cube.Cube.convert_units"><code class="xref py py-meth docutils literal"><span class="pre">convert_units()</span></code></a> method. For example:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">cube</span><span class="o">.</span><span class="n">convert_units</span><span class="p">(</span><span class="s1">&#39;celsius&#39;</span><span class="p">)</span>
