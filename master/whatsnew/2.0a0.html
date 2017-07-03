@@ -5,12 +5,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>What’s New in Iris 2.0a0 &#8212; Iris 2.0a0 documentation</title>
-    
     <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
@@ -123,7 +120,7 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Release:</th><td class="field-body">2.0a0 (<strong>alpha pre-release</strong>)</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Date:</th><td class="field-body">2017-06-XX</td>
+<tr class="field-even field"><th class="field-name">Date:</th><td class="field-body">2017-07-03</td>
 </tr>
 </tbody>
 </table>
@@ -133,14 +130,14 @@
 <h2>Iris 2.0a0 Features<a class="headerlink" href="#iris-2-0a0-features" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-showcase-feature-dask-integration admonition" id="showcase">
 <p class="first admonition-title">Showcase Feature - Dask Integration</p>
-<p>The use of <a class="reference external" href="https://biggus.readthedocs.io/en/latest/">biggus</a> to provide support for <em>virtual arrays</em> and
-<em>lazy evaluation</em> within iris has been replaced with <a class="reference external" href="http://dask.pydata.org/en/latest/">dask</a>.</p>
+<p>The use of <a class="reference external" href="https://biggus.readthedocs.io/en/latest/">Biggus</a> to provide support for <em>virtual arrays</em> and
+<em>lazy evaluation</em> within Iris has been replaced with <a class="reference external" href="http://dask.pydata.org/en/latest/">Dask</a>.</p>
 <p>In addition the concept of <em>lazy data</em>, already used for the
-<a class="reference internal" href="../iris/iris/cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal"><span class="pre">Cube</span></code></a> data component, has now been extended to the data arrays in
-<a class="reference internal" href="../iris/iris/coords.html#iris.coords.Coord" title="iris.coords.Coord"><code class="xref py py-class docutils literal"><span class="pre">Coord</span></code></a> s and <a class="reference internal" href="../iris/iris/aux_factory.html#iris.aux_factory.AuxCoordFactory" title="iris.aux_factory.AuxCoordFactory"><code class="xref py py-class docutils literal"><span class="pre">AuxCoordFactory</span></code></a> s.</p>
-<p>This is a major feature enhancement, because basing Iris data in <a class="reference external" href="http://dask.pydata.org/en/latest/">dask</a>
-allows iris to easily leverage its rich functionality and capabilities.
-In particular, dask’s <em>threaded</em>, <em>multiprocessing</em> or <em>distributed</em>
+<a class="reference internal" href="../iris/iris/cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal"><span class="pre">Cube</span></code></a> data component, has now been extended to the data array
+in a <a class="reference internal" href="../iris/iris/coords.html#iris.coords.Coord" title="iris.coords.Coord"><code class="xref py py-class docutils literal"><span class="pre">Coord</span></code></a> and an <a class="reference internal" href="../iris/iris/aux_factory.html#iris.aux_factory.AuxCoordFactory" title="iris.aux_factory.AuxCoordFactory"><code class="xref py py-class docutils literal"><span class="pre">AuxCoordFactory</span></code></a>.</p>
+<p>This is a major feature enhancement, because basing Iris data in Dask
+allows Iris to easily leverage its rich functionality and capabilities.
+In particular, Dask’s <em>threaded</em>, <em>multiprocessing</em> or <em>distributed</em>
 <a class="reference external" href="http://dask.pydata.org/en/latest/scheduler-overview.html">schedulers</a> can be used in order to fully exploit the available compute
 resource.</p>
 <p class="last">For fuller details, see <a class="reference internal" href="../userguide/real_and_lazy_data.html"><span class="doc">Real and Lazy Data</span></a>.</p>
@@ -206,7 +203,7 @@ a <code class="xref py py-data docutils literal"><span class="pre">float</span><
 </ul>
 <div class="admonition-significant-changes-in-calculated-results admonition">
 <p class="first admonition-title">Significant Changes in Calculated Results</p>
-<p>Due to the replacement of biggus with dask, as described above, the results
+<p>Due to the replacement of <a class="reference external" href="https://biggus.readthedocs.io/en/latest/">Biggus</a> with <a class="reference external" href="http://dask.pydata.org/en/latest/">Dask</a>, as described above, the results
 of certain types of calculation may have significantly different values from
 those obtained in earlier versions.
 This is of a much greater order than the usual small changes in floating
@@ -228,7 +225,7 @@ integer data will perform floating-point rather than integer arithmetic
 operations; and <strong>secondly</strong> that, in long integer (8 byte) typed data,
 values of magnitude more than +/-2^52 (approximately 4.5e+15) may no longer
 be represented exactly.</p>
-<p class="last">It is hoped that, as dask matures, it may later be possible to remove these
+<p class="last">It is hoped that, as Dask matures, it may later be possible to remove these
 particular limitations.</p>
 </div>
 </div>

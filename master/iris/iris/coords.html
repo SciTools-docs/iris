@@ -5,12 +5,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>iris.coords &#8212; Iris 2.0a0 documentation</title>
-    
     <link rel="stylesheet" href="../../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
@@ -128,7 +125,7 @@ everything is inherited from <a class="reference internal" href="#iris.coords.Co
 <blockquote>
 <div><dl class="class">
 <dt id="iris.coords.AuxCoord">
-<em class="property">class </em><code class="descclassname">iris.coords.</code><code class="descname">AuxCoord</code><span class="sig-paren">(</span><em>points</em>, <em>standard_name=None</em>, <em>long_name=None</em>, <em>var_name=None</em>, <em>units=‘1’</em>, <em>bounds=None</em>, <em>attributes=None</em>, <em>coord_system=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.AuxCoord" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">iris.coords.</code><code class="descname">AuxCoord</code><span class="sig-paren">(</span><em>points</em>, <em>standard_name=None</em>, <em>long_name=None</em>, <em>var_name=None</em>, <em>units='1'</em>, <em>bounds=None</em>, <em>attributes=None</em>, <em>coord_system=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.AuxCoord" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#iris.coords.Coord" title="iris.coords.Coord"><code class="xref py py-class docutils literal"><span class="pre">iris.coords.Coord</span></code></a></p>
 <p>Constructs a single coordinate.</p>
 <p>Args:</p>
@@ -473,7 +470,7 @@ Array will be a new lazy array wrapper.</p>
 
 <dl class="method">
 <dt id="iris.coords.AuxCoord.name">
-<code class="descname">name</code><span class="sig-paren">(</span><em>default=’unknown’</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.AuxCoord.name" title="Permalink to this definition">¶</a></dt>
+<code class="descname">name</code><span class="sig-paren">(</span><em>default='unknown'</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.AuxCoord.name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a human-readable name.</p>
 <p>First it tries <a class="reference internal" href="#iris.coords.AuxCoord.standard_name" title="iris.coords.AuxCoord.standard_name"><code class="xref py py-attr docutils literal"><span class="pre">standard_name</span></code></a>, then ‘long_name’, then ‘var_name’
 before falling back to the value of <cite>default</cite> (which itself defaults to
@@ -640,12 +637,12 @@ bounds.</p>
 
 <dl class="method">
 <dt id="iris.coords.Cell.count">
-<code class="descname">count</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span> &#x2192; integer – return number of occurrences of value<a class="headerlink" href="#iris.coords.Cell.count" title="Permalink to this definition">¶</a></dt>
+<code class="descname">count</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span> &#x2192; integer -- return number of occurrences of value<a class="headerlink" href="#iris.coords.Cell.count" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="iris.coords.Cell.index">
-<code class="descname">index</code><span class="sig-paren">(</span><em>value</em><span class="optional">[</span>, <em>start</em><span class="optional">[</span>, <em>stop</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; integer – return first index of value.<a class="headerlink" href="#iris.coords.Cell.index" title="Permalink to this definition">¶</a></dt>
+<code class="descname">index</code><span class="sig-paren">(</span><em>value</em><span class="optional">[</span>, <em>start</em><span class="optional">[</span>, <em>stop</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; integer -- return first index of value.<a class="headerlink" href="#iris.coords.Cell.index" title="Permalink to this definition">¶</a></dt>
 <dd><p>Raises ValueError if the value is not present.</p>
 </dd></dl>
 
@@ -672,7 +669,7 @@ Coordinate Reference System.</p>
 <blockquote>
 <div><dl class="class">
 <dt id="iris.coords.CellMeasure">
-<em class="property">class </em><code class="descclassname">iris.coords.</code><code class="descname">CellMeasure</code><span class="sig-paren">(</span><em>data</em>, <em>standard_name=None</em>, <em>long_name=None</em>, <em>var_name=None</em>, <em>units=‘1’</em>, <em>attributes=None</em>, <em>measure=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.CellMeasure" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">iris.coords.</code><code class="descname">CellMeasure</code><span class="sig-paren">(</span><em>data</em>, <em>standard_name=None</em>, <em>long_name=None</em>, <em>var_name=None</em>, <em>units='1'</em>, <em>attributes=None</em>, <em>measure=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.CellMeasure" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">iris._cube_coord_common.CFVariableMixin</span></code></p>
 <p>Constructs a single cell measure.</p>
 <p>Args:</p>
@@ -737,7 +734,7 @@ cell_measure being copied.</dd>
 
 <dl class="method">
 <dt id="iris.coords.CellMeasure.name">
-<code class="descname">name</code><span class="sig-paren">(</span><em>default=’unknown’</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.CellMeasure.name" title="Permalink to this definition">¶</a></dt>
+<code class="descname">name</code><span class="sig-paren">(</span><em>default='unknown'</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.CellMeasure.name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a human-readable name.</p>
 <p>First it tries <a class="reference internal" href="#iris.coords.CellMeasure.standard_name" title="iris.coords.CellMeasure.standard_name"><code class="xref py py-attr docutils literal"><span class="pre">standard_name</span></code></a>, then ‘long_name’, then ‘var_name’
 before falling back to the value of <cite>default</cite> (which itself defaults to
@@ -888,7 +885,7 @@ was applied.</p>
 <blockquote>
 <div><dl class="class">
 <dt id="iris.coords.Coord">
-<em class="property">class </em><code class="descclassname">iris.coords.</code><code class="descname">Coord</code><span class="sig-paren">(</span><em>points</em>, <em>standard_name=None</em>, <em>long_name=None</em>, <em>var_name=None</em>, <em>units=‘1’</em>, <em>bounds=None</em>, <em>attributes=None</em>, <em>coord_system=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.Coord" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">iris.coords.</code><code class="descname">Coord</code><span class="sig-paren">(</span><em>points</em>, <em>standard_name=None</em>, <em>long_name=None</em>, <em>var_name=None</em>, <em>units='1'</em>, <em>bounds=None</em>, <em>attributes=None</em>, <em>coord_system=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.Coord" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">iris._cube_coord_common.CFVariableMixin</span></code></p>
 <p>Constructs a single coordinate.</p>
 <p>Args:</p>
@@ -1233,7 +1230,7 @@ Array will be a new lazy array wrapper.</p>
 
 <dl class="method">
 <dt id="iris.coords.Coord.name">
-<code class="descname">name</code><span class="sig-paren">(</span><em>default=’unknown’</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.Coord.name" title="Permalink to this definition">¶</a></dt>
+<code class="descname">name</code><span class="sig-paren">(</span><em>default='unknown'</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.Coord.name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a human-readable name.</p>
 <p>First it tries <a class="reference internal" href="#iris.coords.Coord.standard_name" title="iris.coords.Coord.standard_name"><code class="xref py py-attr docutils literal"><span class="pre">standard_name</span></code></a>, then ‘long_name’, then ‘var_name’
 before falling back to the value of <cite>default</cite> (which itself defaults to
@@ -1382,18 +1379,18 @@ bounded dimension).</p>
 <p>Create new instance of CoordDefn(standard_name, long_name, var_name, units, attributes, coord_system)</p>
 <dl class="method">
 <dt id="iris.coords.CoordDefn.count">
-<code class="descname">count</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span> &#x2192; integer – return number of occurrences of value<a class="headerlink" href="#iris.coords.CoordDefn.count" title="Permalink to this definition">¶</a></dt>
+<code class="descname">count</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span> &#x2192; integer -- return number of occurrences of value<a class="headerlink" href="#iris.coords.CoordDefn.count" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="iris.coords.CoordDefn.index">
-<code class="descname">index</code><span class="sig-paren">(</span><em>value</em><span class="optional">[</span>, <em>start</em><span class="optional">[</span>, <em>stop</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; integer – return first index of value.<a class="headerlink" href="#iris.coords.CoordDefn.index" title="Permalink to this definition">¶</a></dt>
+<code class="descname">index</code><span class="sig-paren">(</span><em>value</em><span class="optional">[</span>, <em>start</em><span class="optional">[</span>, <em>stop</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; integer -- return first index of value.<a class="headerlink" href="#iris.coords.CoordDefn.index" title="Permalink to this definition">¶</a></dt>
 <dd><p>Raises ValueError if the value is not present.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.coords.CoordDefn.name">
-<code class="descname">name</code><span class="sig-paren">(</span><em>default=’unknown’</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.CoordDefn.name" title="Permalink to this definition">¶</a></dt>
+<code class="descname">name</code><span class="sig-paren">(</span><em>default='unknown'</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.CoordDefn.name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a human-readable name.</p>
 <p>First it tries self.standard_name, then it tries the ‘long_name’
 attribute, then the ‘var_name’ attribute, before falling back to
@@ -1485,12 +1482,12 @@ in the selection. Default is True.</dd>
 </ul>
 <dl class="method">
 <dt id="iris.coords.CoordExtent.count">
-<code class="descname">count</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span> &#x2192; integer – return number of occurrences of value<a class="headerlink" href="#iris.coords.CoordExtent.count" title="Permalink to this definition">¶</a></dt>
+<code class="descname">count</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span> &#x2192; integer -- return number of occurrences of value<a class="headerlink" href="#iris.coords.CoordExtent.count" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="iris.coords.CoordExtent.index">
-<code class="descname">index</code><span class="sig-paren">(</span><em>value</em><span class="optional">[</span>, <em>start</em><span class="optional">[</span>, <em>stop</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; integer – return first index of value.<a class="headerlink" href="#iris.coords.CoordExtent.index" title="Permalink to this definition">¶</a></dt>
+<code class="descname">index</code><span class="sig-paren">(</span><em>value</em><span class="optional">[</span>, <em>start</em><span class="optional">[</span>, <em>stop</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; integer -- return first index of value.<a class="headerlink" href="#iris.coords.CoordExtent.index" title="Permalink to this definition">¶</a></dt>
 <dd><p>Raises ValueError if the value is not present.</p>
 </dd></dl>
 
@@ -1533,7 +1530,7 @@ in the selection. Default is True.</dd>
 <blockquote>
 <div><dl class="class">
 <dt id="iris.coords.DimCoord">
-<em class="property">class </em><code class="descclassname">iris.coords.</code><code class="descname">DimCoord</code><span class="sig-paren">(</span><em>points</em>, <em>standard_name=None</em>, <em>long_name=None</em>, <em>var_name=None</em>, <em>units=‘1’</em>, <em>bounds=None</em>, <em>attributes=None</em>, <em>coord_system=None</em>, <em>circular=False</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.DimCoord" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">iris.coords.</code><code class="descname">DimCoord</code><span class="sig-paren">(</span><em>points</em>, <em>standard_name=None</em>, <em>long_name=None</em>, <em>var_name=None</em>, <em>units='1'</em>, <em>bounds=None</em>, <em>attributes=None</em>, <em>coord_system=None</em>, <em>circular=False</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.DimCoord" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#iris.coords.Coord" title="iris.coords.Coord"><code class="xref py py-class docutils literal"><span class="pre">iris.coords.Coord</span></code></a></p>
 <p>Create a 1D, numeric, and strictly monotonic <a class="reference internal" href="#iris.coords.Coord" title="iris.coords.Coord"><code class="xref py py-class docutils literal"><span class="pre">Coord</span></code></a> with
 read-only points and bounds.</p>
@@ -1622,7 +1619,7 @@ or a dask array.</p>
 
 <dl class="classmethod">
 <dt id="iris.coords.DimCoord.from_regular">
-<em class="property">classmethod </em><code class="descname">from_regular</code><span class="sig-paren">(</span><em>zeroth</em>, <em>step</em>, <em>count</em>, <em>standard_name=None</em>, <em>long_name=None</em>, <em>var_name=None</em>, <em>units=‘1’</em>, <em>attributes=None</em>, <em>coord_system=None</em>, <em>circular=False</em>, <em>with_bounds=False</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.DimCoord.from_regular" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="descname">from_regular</code><span class="sig-paren">(</span><em>zeroth</em>, <em>step</em>, <em>count</em>, <em>standard_name=None</em>, <em>long_name=None</em>, <em>var_name=None</em>, <em>units='1'</em>, <em>attributes=None</em>, <em>coord_system=None</em>, <em>circular=False</em>, <em>with_bounds=False</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.DimCoord.from_regular" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a <a class="reference internal" href="#iris.coords.DimCoord" title="iris.coords.DimCoord"><code class="xref py py-class docutils literal"><span class="pre">DimCoord</span></code></a> with regularly spaced points, and
 optionally bounds.</p>
 <p>The majority of the arguments are defined as for
@@ -1829,7 +1826,7 @@ Array will be a new lazy array wrapper.</p>
 
 <dl class="method">
 <dt id="iris.coords.DimCoord.name">
-<code class="descname">name</code><span class="sig-paren">(</span><em>default=’unknown’</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.DimCoord.name" title="Permalink to this definition">¶</a></dt>
+<code class="descname">name</code><span class="sig-paren">(</span><em>default='unknown'</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.DimCoord.name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a human-readable name.</p>
 <p>First it tries <a class="reference internal" href="#iris.coords.DimCoord.standard_name" title="iris.coords.DimCoord.standard_name"><code class="xref py py-attr docutils literal"><span class="pre">standard_name</span></code></a>, then ‘long_name’, then ‘var_name’
 before falling back to the value of <cite>default</cite> (which itself defaults to

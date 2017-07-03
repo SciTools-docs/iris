@@ -5,12 +5,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>iris.cube &#8212; Iris 2.0a0 documentation</title>
-    
     <link rel="stylesheet" href="../../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
@@ -843,7 +840,7 @@ returns all coordinates.</p>
 
 <dl class="method">
 <dt id="iris.cube.Cube.copy">
-<code class="descname">copy</code><span class="sig-paren">(</span><em>data=None</em>, <em>dtype=’none’</em>, <em>fill_value=’none’</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.cube.Cube.copy" title="Permalink to this definition">¶</a></dt>
+<code class="descname">copy</code><span class="sig-paren">(</span><em>data=None</em>, <em>dtype='none'</em>, <em>fill_value='none'</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.cube.Cube.copy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a deep copy of this cube.</p>
 <p>Kwargs:</p>
 <ul class="simple">
@@ -873,7 +870,7 @@ returns all coordinates.</p>
 <dt id="iris.cube.Cube.core_data">
 <code class="descname">core_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.cube.Cube.core_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retrieve the data array of this <a class="reference internal" href="#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal"><span class="pre">Cube</span></code></a> in its
-current state, which may be either real or lazy.</p>
+current state, which will either be real or lazy.</p>
 <p>If this <a class="reference internal" href="#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal"><span class="pre">Cube</span></code></a> has lazy data, accessing its data
 array via this method <strong>will not</strong> realise the data array. This means
 you can perform operations using this method that work equivalently
@@ -1110,7 +1107,7 @@ Array will be a new lazy array wrapper.</p>
 
 <dl class="method">
 <dt id="iris.cube.Cube.name">
-<code class="descname">name</code><span class="sig-paren">(</span><em>default=’unknown’</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.cube.Cube.name" title="Permalink to this definition">¶</a></dt>
+<code class="descname">name</code><span class="sig-paren">(</span><em>default='unknown'</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.cube.Cube.name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a human-readable name.</p>
 <p>First it tries <a class="reference internal" href="#iris.cube.Cube.standard_name" title="iris.cube.Cube.standard_name"><code class="xref py py-attr docutils literal"><span class="pre">standard_name</span></code></a>, then ‘long_name’, then ‘var_name’
 before falling back to the value of <cite>default</cite> (which itself defaults to
@@ -1157,7 +1154,7 @@ according to the given regridding scheme.</dd>
 
 <dl class="method">
 <dt id="iris.cube.Cube.regridded">
-<code class="descname">regridded</code><span class="sig-paren">(</span><em>grid_cube</em>, <em>mode=’bilinear’</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.cube.Cube.regridded" title="Permalink to this definition">¶</a></dt>
+<code class="descname">regridded</code><span class="sig-paren">(</span><em>grid_cube</em>, <em>mode='bilinear'</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.cube.Cube.regridded" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a new cube with values derived from this cube on the
 horizontal grid specified by the grid_cube.</p>
 <div class="deprecated">
@@ -1561,12 +1558,12 @@ dimension - instead use the <a class="reference internal" href="#iris.cube.Cube.
 <code class="descname">fill_value</code><a class="headerlink" href="#iris.cube.Cube.fill_value" title="Permalink to this definition">¶</a></dt>
 <dd><p>A fill value for the data of the <a class="reference internal" href="#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal"><span class="pre">Cube</span></code></a>.</p>
 <p>This is a value suitable for filling masked points in this cube’s data.
-It may be None, meaning that no suitable fill value is known.</p>
+It may be <code class="docutils literal"><span class="pre">None</span></code>, meaning that no suitable fill value is known.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">Ideally, this value will not occur anywhere in the cube data.
 Thus, many operations that change cube data will also set
-<cite>fill_value</cite> to None.</p>
+<code class="docutils literal"><span class="pre">fill_value</span></code> to <code class="docutils literal"><span class="pre">None</span></code>.</p>
 </div>
 </dd></dl>
 
@@ -1637,12 +1634,12 @@ context.</p>
 <p>Given a <code class="xref py py-class docutils literal"><span class="pre">list</span></code> of cubes, return a CubeList instance.</p>
 <dl class="method">
 <dt id="iris.cube.CubeList.append">
-<code class="descname">append</code><span class="sig-paren">(</span><em>object</em><span class="sig-paren">)</span> &#x2192; None – append object to end<a class="headerlink" href="#iris.cube.CubeList.append" title="Permalink to this definition">¶</a></dt>
+<code class="descname">append</code><span class="sig-paren">(</span><em>object</em><span class="sig-paren">)</span> &#x2192; None -- append object to end<a class="headerlink" href="#iris.cube.CubeList.append" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="iris.cube.CubeList.clear">
-<code class="descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; None – remove all items from L<a class="headerlink" href="#iris.cube.CubeList.clear" title="Permalink to this definition">¶</a></dt>
+<code class="descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; None -- remove all items from L<a class="headerlink" href="#iris.cube.CubeList.clear" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -1735,17 +1732,17 @@ the concatenation is occuring along. Defaults to True.</dd>
 
 <dl class="method">
 <dt id="iris.cube.CubeList.copy">
-<code class="descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; list – a shallow copy of L<a class="headerlink" href="#iris.cube.CubeList.copy" title="Permalink to this definition">¶</a></dt>
+<code class="descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; list -- a shallow copy of L<a class="headerlink" href="#iris.cube.CubeList.copy" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="iris.cube.CubeList.count">
-<code class="descname">count</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span> &#x2192; integer – return number of occurrences of value<a class="headerlink" href="#iris.cube.CubeList.count" title="Permalink to this definition">¶</a></dt>
+<code class="descname">count</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span> &#x2192; integer -- return number of occurrences of value<a class="headerlink" href="#iris.cube.CubeList.count" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="iris.cube.CubeList.extend">
-<code class="descname">extend</code><span class="sig-paren">(</span><em>iterable</em><span class="sig-paren">)</span> &#x2192; None – extend list by appending elements from the iterable<a class="headerlink" href="#iris.cube.CubeList.extend" title="Permalink to this definition">¶</a></dt>
+<code class="descname">extend</code><span class="sig-paren">(</span><em>iterable</em><span class="sig-paren">)</span> &#x2192; None -- extend list by appending elements from the iterable<a class="headerlink" href="#iris.cube.CubeList.extend" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -1793,7 +1790,7 @@ over which to perform the extraction.</dd>
 
 <dl class="method">
 <dt id="iris.cube.CubeList.index">
-<code class="descname">index</code><span class="sig-paren">(</span><em>value</em><span class="optional">[</span>, <em>start</em><span class="optional">[</span>, <em>stop</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; integer – return first index of value.<a class="headerlink" href="#iris.cube.CubeList.index" title="Permalink to this definition">¶</a></dt>
+<code class="descname">index</code><span class="sig-paren">(</span><em>value</em><span class="optional">[</span>, <em>start</em><span class="optional">[</span>, <em>stop</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; integer -- return first index of value.<a class="headerlink" href="#iris.cube.CubeList.index" title="Permalink to this definition">¶</a></dt>
 <dd><p>Raises ValueError if the value is not present.</p>
 </dd></dl>
 
@@ -1882,13 +1879,13 @@ describing the reason for the failure.</p>
 
 <dl class="method">
 <dt id="iris.cube.CubeList.pop">
-<code class="descname">pop</code><span class="sig-paren">(</span><span class="optional">[</span><em>index</em><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; item – remove and return item at index (default last).<a class="headerlink" href="#iris.cube.CubeList.pop" title="Permalink to this definition">¶</a></dt>
+<code class="descname">pop</code><span class="sig-paren">(</span><span class="optional">[</span><em>index</em><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; item -- remove and return item at index (default last).<a class="headerlink" href="#iris.cube.CubeList.pop" title="Permalink to this definition">¶</a></dt>
 <dd><p>Raises IndexError if list is empty or index is out of range.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.cube.CubeList.remove">
-<code class="descname">remove</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span> &#x2192; None – remove first occurrence of value.<a class="headerlink" href="#iris.cube.CubeList.remove" title="Permalink to this definition">¶</a></dt>
+<code class="descname">remove</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span> &#x2192; None -- remove first occurrence of value.<a class="headerlink" href="#iris.cube.CubeList.remove" title="Permalink to this definition">¶</a></dt>
 <dd><p>Raises ValueError if the value is not present.</p>
 </dd></dl>
 
@@ -1900,7 +1897,7 @@ describing the reason for the failure.</p>
 
 <dl class="method">
 <dt id="iris.cube.CubeList.sort">
-<code class="descname">sort</code><span class="sig-paren">(</span><em>key=None</em>, <em>reverse=False</em><span class="sig-paren">)</span> &#x2192; None – stable sort *IN PLACE*<a class="headerlink" href="#iris.cube.CubeList.sort" title="Permalink to this definition">¶</a></dt>
+<code class="descname">sort</code><span class="sig-paren">(</span><em>key=None</em>, <em>reverse=False</em><span class="sig-paren">)</span> &#x2192; None -- stable sort *IN PLACE*<a class="headerlink" href="#iris.cube.CubeList.sort" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -1923,18 +1920,18 @@ describing the reason for the failure.</p>
 <p>Create new instance of CubeMetadata(standard_name, long_name, var_name, units, attributes, cell_methods)</p>
 <dl class="method">
 <dt id="iris.cube.CubeMetadata.count">
-<code class="descname">count</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span> &#x2192; integer – return number of occurrences of value<a class="headerlink" href="#iris.cube.CubeMetadata.count" title="Permalink to this definition">¶</a></dt>
+<code class="descname">count</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span> &#x2192; integer -- return number of occurrences of value<a class="headerlink" href="#iris.cube.CubeMetadata.count" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="iris.cube.CubeMetadata.index">
-<code class="descname">index</code><span class="sig-paren">(</span><em>value</em><span class="optional">[</span>, <em>start</em><span class="optional">[</span>, <em>stop</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; integer – return first index of value.<a class="headerlink" href="#iris.cube.CubeMetadata.index" title="Permalink to this definition">¶</a></dt>
+<code class="descname">index</code><span class="sig-paren">(</span><em>value</em><span class="optional">[</span>, <em>start</em><span class="optional">[</span>, <em>stop</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; integer -- return first index of value.<a class="headerlink" href="#iris.cube.CubeMetadata.index" title="Permalink to this definition">¶</a></dt>
 <dd><p>Raises ValueError if the value is not present.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.cube.CubeMetadata.name">
-<code class="descname">name</code><span class="sig-paren">(</span><em>default=’unknown’</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.cube.CubeMetadata.name" title="Permalink to this definition">¶</a></dt>
+<code class="descname">name</code><span class="sig-paren">(</span><em>default='unknown'</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.cube.CubeMetadata.name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a human-readable name.</p>
 <p>First it tries self.standard_name, then it tries the ‘long_name’
 attribute, then the ‘var_name’ attribute, before falling back to
