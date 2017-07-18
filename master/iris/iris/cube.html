@@ -346,17 +346,6 @@ given dimension.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="iris.cube.Cube.add_history">
-<code class="descname">add_history</code><span class="sig-paren">(</span><em>string</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.cube.Cube.add_history" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add the given string to the cube’s history.
-If the history coordinate does not exist, then one will be created.</p>
-<div class="deprecated">
-<p><span class="versionmodified">Deprecated since version 1.6: </span>Add/modify history metadata within
-<a class="reference internal" href="#iris.cube.Cube.attributes" title="iris.cube.Cube.attributes"><code class="xref py py-attr docutils literal"><span class="pre">attributes</span></code></a> as needed.</p>
-</div>
-</dd></dl>
-
-<dl class="method">
 <dt id="iris.cube.Cube.aggregated_by">
 <code class="descname">aggregated_by</code><span class="sig-paren">(</span><em>coords</em>, <em>aggregator</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.cube.Cube.aggregated_by" title="Permalink to this definition">¶</a></dt>
 <dd><p>Perform aggregation over the cube given one or more “group
@@ -423,15 +412,6 @@ performed.</dd>
 <span class="go">          mean: month, year</span>
 <span class="go">          mean: year</span>
 </pre></div>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt id="iris.cube.Cube.assert_valid">
-<code class="descname">assert_valid</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.cube.Cube.assert_valid" title="Permalink to this definition">¶</a></dt>
-<dd><p>Does nothing and returns None.</p>
-<div class="deprecated">
-<p><span class="versionmodified">Deprecated since version 0.8.</span></p>
 </div>
 </dd></dl>
 
@@ -666,7 +646,7 @@ the cube’s data array to be loaded into memory.</p>
 
 <dl class="method">
 <dt id="iris.cube.Cube.coord">
-<code class="descname">coord</code><span class="sig-paren">(</span><em>name_or_coord=None</em>, <em>standard_name=None</em>, <em>long_name=None</em>, <em>var_name=None</em>, <em>attributes=None</em>, <em>axis=None</em>, <em>contains_dimension=None</em>, <em>dimensions=None</em>, <em>coord=None</em>, <em>coord_system=None</em>, <em>dim_coords=None</em>, <em>name=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.cube.Cube.coord" title="Permalink to this definition">¶</a></dt>
+<code class="descname">coord</code><span class="sig-paren">(</span><em>name_or_coord=None</em>, <em>standard_name=None</em>, <em>long_name=None</em>, <em>var_name=None</em>, <em>attributes=None</em>, <em>axis=None</em>, <em>contains_dimension=None</em>, <em>dimensions=None</em>, <em>coord_system=None</em>, <em>dim_coords=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.cube.Cube.coord" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a single coord given the same arguments as <a class="reference internal" href="#iris.cube.Cube.coords" title="iris.cube.Cube.coords"><code class="xref py py-meth docutils literal"><span class="pre">Cube.coords()</span></code></a>.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -732,7 +712,7 @@ systems within the <a class="reference internal" href="#iris.cube.Cube" title="i
 
 <dl class="method">
 <dt id="iris.cube.Cube.coords">
-<code class="descname">coords</code><span class="sig-paren">(</span><em>name_or_coord=None</em>, <em>standard_name=None</em>, <em>long_name=None</em>, <em>var_name=None</em>, <em>attributes=None</em>, <em>axis=None</em>, <em>contains_dimension=None</em>, <em>dimensions=None</em>, <em>coord=None</em>, <em>coord_system=None</em>, <em>dim_coords=None</em>, <em>name=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.cube.Cube.coords" title="Permalink to this definition">¶</a></dt>
+<code class="descname">coords</code><span class="sig-paren">(</span><em>name_or_coord=None</em>, <em>standard_name=None</em>, <em>long_name=None</em>, <em>var_name=None</em>, <em>attributes=None</em>, <em>axis=None</em>, <em>contains_dimension=None</em>, <em>dimensions=None</em>, <em>coord_system=None</em>, <em>dim_coords=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.cube.Cube.coords" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of coordinates in this cube fitting the given criteria.</p>
 <p>Kwargs:</p>
 <ul>
@@ -748,14 +728,6 @@ the desired coordinates. Accepts either a
 <a class="reference internal" href="coords.html#iris.coords.DimCoord" title="iris.coords.DimCoord"><code class="xref py py-class docutils literal"><span class="pre">iris.coords.DimCoord</span></code></a>, <a class="reference internal" href="coords.html#iris.coords.AuxCoord" title="iris.coords.AuxCoord"><code class="xref py py-class docutils literal"><span class="pre">iris.coords.AuxCoord</span></code></a>,
 <a class="reference internal" href="aux_factory.html#iris.aux_factory.AuxCoordFactory" title="iris.aux_factory.AuxCoordFactory"><code class="xref py py-class docutils literal"><span class="pre">iris.aux_factory.AuxCoordFactory</span></code></a>
 or <a class="reference internal" href="coords.html#iris.coords.CoordDefn" title="iris.coords.CoordDefn"><code class="xref py py-class docutils literal"><span class="pre">iris.coords.CoordDefn</span></code></a>.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt>name</dt>
-<dd><div class="first last deprecated">
-<p><span class="versionmodified">Deprecated since version 1.6.: </span>Please use the name_or_coord kwarg.</p>
-</div>
 </dd>
 </dl>
 </li>
@@ -807,14 +779,6 @@ not check for the dimension.</p>
 <dd><p class="first last">The exact data dimensions of the desired coordinate. Coordinates
 with no data dimension can be found with an empty tuple or list
 (i.e. <code class="docutils literal"><span class="pre">()</span></code> or <code class="docutils literal"><span class="pre">[]</span></code>). If None, does not check for dimensions.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt>coord</dt>
-<dd><div class="first last deprecated">
-<p><span class="versionmodified">Deprecated since version 1.6.: </span>Please use the name_or_coord kwarg.</p>
-</div>
 </dd>
 </dl>
 </li>
