@@ -512,7 +512,10 @@ The substitutions are identified by braces (‘{‘ and ‘}’).</p>
 <dl class="method">
 <dt id="iris.fileformats.rules.DebugString.index">
 <code class="descname">index</code><span class="sig-paren">(</span><em>sub</em><span class="optional">[</span>, <em>start</em><span class="optional">[</span>, <em>end</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#iris.fileformats.rules.DebugString.index" title="Permalink to this definition">¶</a></dt>
-<dd><p>Like S.find() but raise ValueError when the substring is not found.</p>
+<dd><p>Return the lowest index in S where substring sub is found, 
+such that sub is contained within S[start:end].  Optional
+arguments start and end are interpreted as in slice notation.</p>
+<p>Raises ValueError when the substring is not found.</p>
 </dd></dl>
 
 <dl class="method">
@@ -664,7 +667,10 @@ arguments start and end are interpreted as in slice notation.</p>
 <dl class="method">
 <dt id="iris.fileformats.rules.DebugString.rindex">
 <code class="descname">rindex</code><span class="sig-paren">(</span><em>sub</em><span class="optional">[</span>, <em>start</em><span class="optional">[</span>, <em>end</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#iris.fileformats.rules.DebugString.rindex" title="Permalink to this definition">¶</a></dt>
-<dd><p>Like S.rfind() but raise ValueError when the substring is not found.</p>
+<dd><p>Return the highest index in S where substring sub is found,
+such that sub is contained within S[start:end].  Optional
+arguments start and end are interpreted as in slice notation.</p>
+<p>Raises ValueError when the substring is not found.</p>
 </dd></dl>
 
 <dl class="method">
