@@ -111,9 +111,13 @@
 <li><a class="reference internal" href="#iris.fileformats.pp.save" title="iris.fileformats.pp.save"><code class="xref py py-obj docutils literal"><span class="pre">save</span></code></a></li>
 <li><a class="reference internal" href="#iris.fileformats.pp.load_cubes" title="iris.fileformats.pp.load_cubes"><code class="xref py py-obj docutils literal"><span class="pre">load_cubes</span></code></a></li>
 <li><a class="reference internal" href="#iris.fileformats.pp.PPField" title="iris.fileformats.pp.PPField"><code class="xref py py-obj docutils literal"><span class="pre">PPField</span></code></a></li>
+<li><a class="reference internal" href="#iris.fileformats.pp.reset_load_rules" title="iris.fileformats.pp.reset_load_rules"><code class="xref py py-obj docutils literal"><span class="pre">reset_load_rules</span></code></a></li>
+<li><a class="reference internal" href="#iris.fileformats.pp.add_save_rules" title="iris.fileformats.pp.add_save_rules"><code class="xref py py-obj docutils literal"><span class="pre">add_save_rules</span></code></a></li>
 <li><a class="reference internal" href="#iris.fileformats.pp.as_fields" title="iris.fileformats.pp.as_fields"><code class="xref py py-obj docutils literal"><span class="pre">as_fields</span></code></a></li>
 <li><a class="reference internal" href="#iris.fileformats.pp.load_pairs_from_fields" title="iris.fileformats.pp.load_pairs_from_fields"><code class="xref py py-obj docutils literal"><span class="pre">load_pairs_from_fields</span></code></a></li>
+<li><a class="reference internal" href="#iris.fileformats.pp.as_pairs" title="iris.fileformats.pp.as_pairs"><code class="xref py py-obj docutils literal"><span class="pre">as_pairs</span></code></a></li>
 <li><a class="reference internal" href="#iris.fileformats.pp.save_pairs_from_cube" title="iris.fileformats.pp.save_pairs_from_cube"><code class="xref py py-obj docutils literal"><span class="pre">save_pairs_from_cube</span></code></a></li>
+<li><a class="reference internal" href="#iris.fileformats.pp.reset_save_rules" title="iris.fileformats.pp.reset_save_rules"><code class="xref py py-obj docutils literal"><span class="pre">reset_save_rules</span></code></a></li>
 <li><a class="reference internal" href="#iris.fileformats.pp.save_fields" title="iris.fileformats.pp.save_fields"><code class="xref py py-obj docutils literal"><span class="pre">save_fields</span></code></a></li>
 <li><a class="reference internal" href="#iris.fileformats.pp.STASH" title="iris.fileformats.pp.STASH"><code class="xref py py-obj docutils literal"><span class="pre">STASH</span></code></a></li>
 <li><a class="reference internal" href="#iris.fileformats.pp.EARTH_RADIUS" title="iris.fileformats.pp.EARTH_RADIUS"><code class="xref py py-obj docutils literal"><span class="pre">EARTH_RADIUS</span></code></a></li>
@@ -371,6 +375,32 @@ now supporting __eq__</p>
 <p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
 <!--<hr class="docutils" />
 --><dl class="function">
+<dt id="iris.fileformats.pp.reset_load_rules">
+<code class="descclassname">iris.fileformats.pp.</code><code class="descname">reset_load_rules</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.pp.reset_load_rules" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resets the PP load process to use only the standard conversion rules.</p>
+<div class="deprecated">
+<p><span class="versionmodified">Deprecated since version 1.7.</span></p>
+</div>
+</dd></dl>
+
+<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
+<!--<hr class="docutils" />
+--><dl class="function">
+<dt id="iris.fileformats.pp.add_save_rules">
+<code class="descclassname">iris.fileformats.pp.</code><code class="descname">add_save_rules</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.pp.add_save_rules" title="Permalink to this definition">¶</a></dt>
+<dd><p>Registers a rules file for use during the PP save process.</p>
+<p>Registered files are processed after the standard conversion rules, and in
+the order they were registered.</p>
+<div class="deprecated">
+<p><span class="versionmodified">Deprecated since version 1.10: </span>If you need to customise pp field saving, please refer to the functions
+<a class="reference internal" href="#iris.fileformats.pp.as_fields" title="iris.fileformats.pp.as_fields"><code class="xref py py-func docutils literal"><span class="pre">as_fields()</span></code></a>, <a class="reference internal" href="#iris.fileformats.pp.save_pairs_from_cube" title="iris.fileformats.pp.save_pairs_from_cube"><code class="xref py py-func docutils literal"><span class="pre">save_pairs_from_cube()</span></code></a> and <a class="reference internal" href="#iris.fileformats.pp.save_fields" title="iris.fileformats.pp.save_fields"><code class="xref py py-func docutils literal"><span class="pre">save_fields()</span></code></a>
+for an alternative solution.</p>
+</div>
+</dd></dl>
+
+<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
+<!--<hr class="docutils" />
+--><dl class="function">
 <dt id="iris.fileformats.pp.as_fields">
 <code class="descclassname">iris.fileformats.pp.</code><code class="descname">as_fields</code><span class="sig-paren">(</span><em>cube</em>, <em>field_coords=None</em>, <em>target=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.pp.as_fields" title="Permalink to this definition">¶</a></dt>
 <dd><p>Use the PP saving rules (and any user rules) to convert a cube to
@@ -455,6 +485,18 @@ be cleaned up this way and cubes created:</p>
 <p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
 <!--<hr class="docutils" />
 --><dl class="function">
+<dt id="iris.fileformats.pp.as_pairs">
+<code class="descclassname">iris.fileformats.pp.</code><code class="descname">as_pairs</code><span class="sig-paren">(</span><em>cube</em>, <em>field_coords=None</em>, <em>target=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.pp.as_pairs" title="Permalink to this definition">¶</a></dt>
+<dd><div class="deprecated">
+<p><span class="versionmodified">Deprecated since version 1.10.</span></p>
+</div>
+<p>Please use <a class="reference internal" href="#iris.fileformats.pp.save_pairs_from_cube" title="iris.fileformats.pp.save_pairs_from_cube"><code class="xref py py-func docutils literal"><span class="pre">iris.fileformats.pp.save_pairs_from_cube()</span></code></a> for the same
+functionality.</p>
+</dd></dl>
+
+<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
+<!--<hr class="docutils" />
+--><dl class="function">
 <dt id="iris.fileformats.pp.save_pairs_from_cube">
 <code class="descclassname">iris.fileformats.pp.</code><code class="descname">save_pairs_from_cube</code><span class="sig-paren">(</span><em>cube</em>, <em>field_coords=None</em>, <em>target=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.pp.save_pairs_from_cube" title="Permalink to this definition">¶</a></dt>
 <dd><p>Use the PP saving rules (and any user rules) to convert a cube or
@@ -483,6 +525,19 @@ If None, the final two  dimensions are chosen for slicing.</dd>
 </dl>
 </li>
 </ul>
+</dd></dl>
+
+<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
+<!--<hr class="docutils" />
+--><dl class="function">
+<dt id="iris.fileformats.pp.reset_save_rules">
+<code class="descclassname">iris.fileformats.pp.</code><code class="descname">reset_save_rules</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.pp.reset_save_rules" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resets the PP save process to use only the standard conversion rules.</p>
+<div class="deprecated">
+<p><span class="versionmodified">Deprecated since version 1.10: </span>If you need to customise pp field saving, please refer to the functions
+<a class="reference internal" href="#iris.fileformats.pp.as_fields" title="iris.fileformats.pp.as_fields"><code class="xref py py-func docutils literal"><span class="pre">as_fields()</span></code></a>, <a class="reference internal" href="#iris.fileformats.pp.save_pairs_from_cube" title="iris.fileformats.pp.save_pairs_from_cube"><code class="xref py py-func docutils literal"><span class="pre">save_pairs_from_cube()</span></code></a> and <a class="reference internal" href="#iris.fileformats.pp.save_fields" title="iris.fileformats.pp.save_fields"><code class="xref py py-func docutils literal"><span class="pre">save_fields()</span></code></a>
+for an alternative solution.</p>
+</div>
 </dd></dl>
 
 <p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
