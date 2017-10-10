@@ -184,7 +184,7 @@ attempting to overwrite an existing file.</p>
 </div>
 <p>Similarly a PP field may need to be written out with a specific value for LBEXP.  This can be achieved by:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">tweaked_fields</span><span class="p">(</span><span class="n">cube</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">cube</span><span class="p">,</span> <span class="n">field</span> <span class="ow">in</span> <span class="n">iris</span><span class="o">.</span><span class="n">fileformats</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">as_pairs</span><span class="p">(</span><span class="n">cube</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">cube</span><span class="p">,</span> <span class="n">field</span> <span class="ow">in</span> <span class="n">iris</span><span class="o">.</span><span class="n">fileformats</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">save_pairs_from_cube</span><span class="p">(</span><span class="n">cube</span><span class="p">):</span>
         <span class="c1"># post process the PP field, prior to saving</span>
         <span class="k">if</span> <span class="n">cube</span><span class="o">.</span><span class="n">name</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;air_pressure&#39;</span><span class="p">:</span>
             <span class="n">field</span><span class="o">.</span><span class="n">lbexp</span> <span class="o">=</span> <span class="s1">&#39;meaxp&#39;</span>
