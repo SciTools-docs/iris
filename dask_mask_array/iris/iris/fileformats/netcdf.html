@@ -177,7 +177,7 @@ results are not affected.</p>
 <!--<hr class="docutils" />
 --><dl class="function">
 <dt id="iris.fileformats.netcdf.save">
-<code class="descclassname">iris.fileformats.netcdf.</code><code class="descname">save</code><span class="sig-paren">(</span><em>cube</em>, <em>filename</em>, <em>netcdf_format='NETCDF4'</em>, <em>local_keys=None</em>, <em>unlimited_dimensions=None</em>, <em>zlib=False</em>, <em>complevel=4</em>, <em>shuffle=True</em>, <em>fletcher32=False</em>, <em>contiguous=False</em>, <em>chunksizes=None</em>, <em>endian='native'</em>, <em>least_significant_digit=None</em>, <em>packing=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.netcdf.save" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">iris.fileformats.netcdf.</code><code class="descname">save</code><span class="sig-paren">(</span><em>cube</em>, <em>filename</em>, <em>netcdf_format='NETCDF4'</em>, <em>local_keys=None</em>, <em>unlimited_dimensions=None</em>, <em>zlib=False</em>, <em>complevel=4</em>, <em>shuffle=True</em>, <em>fletcher32=False</em>, <em>contiguous=False</em>, <em>chunksizes=None</em>, <em>endian='native'</em>, <em>least_significant_digit=None</em>, <em>packing=None</em>, <em>fill_value=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.netcdf.save" title="Permalink to this definition">¶</a></dt>
 <dd><p>Save cube(s) to a netCDF file, given the cube and the filename.</p>
 <ul class="simple">
 <li>Iris will write CF 1.5 compliant NetCDF files.</li>
@@ -318,16 +318,27 @@ below or an iterable of such types, strings, or dicts.
 This provides support for netCDF data packing as described in
 <a class="reference external" href="http://www.unidata.ucar.edu/software/netcdf/docs/BestPractices.html#bp_Packed-Data-Values">http://www.unidata.ucar.edu/software/netcdf/docs/BestPractices.html#bp_Packed-Data-Values</a>
 If this argument is a type (or type string), appropriate values of
-scale_factor and add_offset will be automatically calculated based on
-<cite>cube.data</cite> and possible masking. For masked data, <cite>fill_value</cite> is
-taken from netCDF4.default_fillvals. For more control, pass a dict with
-one or more of the following keys: <cite>dtype</cite> (required), <cite>scale_factor</cite>,
-<cite>add_offset</cite>, and <cite>fill_value</cite>. To save multiple cubes with different
-packing parameters, pass an iterable of types, strings, dicts, or
-<cite>None</cite>, one for each cube.  Note that automatic calculation of packing
-parameters will trigger loading of lazy data; set them manually using a
-dict to avoid this. The default is <cite>None</cite>, in which case the datatype
-is determined from the cube and no packing will occur.</p>
+scale_factor and add_offset will be automatically calculated based
+on <cite>cube.data</cite> and possible masking. For more control, pass a dict with
+one or more of the following keys: <cite>dtype</cite> (required), <cite>scale_factor</cite>
+and <cite>add_offset</cite>. Note that automatic calculation of packing parameters
+will trigger loading of lazy data; set them manually using a dict to
+avoid this. The default is <cite>None</cite>, in which case the datatype is
+determined from the cube and no packing will occur. If this argument is
+a list it must have the same number of elements as <cite>cube</cite> if <cite>cube</cite> is
+a <cite>:class:`iris.cube.CubeList</cite>, or one element, and each element of
+this argument will be applied to each cube separately.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>fill_value (numeric or list):</dt>
+<dd><p class="first last">The value to use for the <cite>_FillValue</cite> attribute on the netCDF variable.
+If <cite>packing</cite> is specified the value of <cite>fill_value</cite> should be in the
+domain of the packed data. If this argument is a list it must have the
+same number of elements as <cite>cube</cite> if <cite>cube</cite> is a
+<cite>:class:`iris.cube.CubeList</cite>, or a single element, and each element of
+this argument will be applied to each cube separately.</p>
 </dd>
 </dl>
 </li>
@@ -536,7 +547,7 @@ iterable/dictionary and/or keyword arguments.</p>
 
 <dl class="method">
 <dt id="iris.fileformats.netcdf.Saver.write">
-<code class="descname">write</code><span class="sig-paren">(</span><em>cube</em>, <em>local_keys=None</em>, <em>unlimited_dimensions=None</em>, <em>zlib=False</em>, <em>complevel=4</em>, <em>shuffle=True</em>, <em>fletcher32=False</em>, <em>contiguous=False</em>, <em>chunksizes=None</em>, <em>endian='native'</em>, <em>least_significant_digit=None</em>, <em>packing=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.netcdf.Saver.write" title="Permalink to this definition">¶</a></dt>
+<code class="descname">write</code><span class="sig-paren">(</span><em>cube</em>, <em>local_keys=None</em>, <em>unlimited_dimensions=None</em>, <em>zlib=False</em>, <em>complevel=4</em>, <em>shuffle=True</em>, <em>fletcher32=False</em>, <em>contiguous=False</em>, <em>chunksizes=None</em>, <em>endian='native'</em>, <em>least_significant_digit=None</em>, <em>packing=None</em>, <em>fill_value=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.netcdf.Saver.write" title="Permalink to this definition">¶</a></dt>
 <dd><p>Wrapper for saving cubes to a NetCDF file.</p>
 <p>Args:</p>
 <ul class="simple">
@@ -654,14 +665,21 @@ described in
 <a class="reference external" href="http://www.unidata.ucar.edu/software/netcdf/docs/BestPractices.html#bp_Packed-Data-Values">http://www.unidata.ucar.edu/software/netcdf/docs/BestPractices.html#bp_Packed-Data-Values</a>
 If this argument is a type (or type string), appropriate values of
 scale_factor and add_offset will be automatically calculated based
-on <cite>cube.data</cite> and possible masking. For masked data, <cite>fill_value</cite>
-is taken from netCDF4.default_fillvals. For more control, pass a
-dict with one or more of the following keys: <cite>dtype</cite> (required),
-<cite>scale_factor</cite>, <cite>add_offset</cite>, and <cite>fill_value</cite>. Note that automatic
-calculation of packing parameters will trigger loading of lazy
-data; set them manually using a dict to avoid this. The default is
-<cite>None</cite>, in which case the datatype is determined from the cube and
-no packing will occur.</p>
+on <cite>cube.data</cite> and possible masking. For more control, pass a dict
+with one or more of the following keys: <cite>dtype</cite> (required),
+<cite>scale_factor</cite> and <cite>add_offset</cite>. Note that automatic calculation of
+packing parameters will trigger loading of lazy data; set them
+manually using a dict to avoid this. The default is <cite>None</cite>, in
+which case the datatype is determined from the cube and no packing
+will occur.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>fill_value:</dt>
+<dd><p class="first last">The value to use for the <cite>_FillValue</cite> attribute on the netCDF
+variable. If <cite>packing</cite> is specified the value of <cite>fill_value</cite>
+should be in the domain of the packed data.</p>
 </dd>
 </dl>
 </li>
