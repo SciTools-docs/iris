@@ -832,11 +832,11 @@ of the specified width. The string S is never truncated.</p>
 </div></blockquote>
 <p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
 <!--<hr class="docutils" />
---><p>Loader(field_generator, field_generator_kwargs, converter, legacy_custom_rules)</p>
+--><p>Loader(field_generator, field_generator_kwargs, converter)</p>
 <blockquote>
 <div><dl class="class">
 <dt id="iris.fileformats.rules.Loader">
-<em class="property">class </em><code class="descclassname">iris.fileformats.rules.</code><code class="descname">Loader</code><span class="sig-paren">(</span><em>field_generator</em>, <em>field_generator_kwargs</em>, <em>converter</em>, <em>legacy_custom_rules=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.rules.Loader" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">iris.fileformats.rules.</code><code class="descname">Loader</code><span class="sig-paren">(</span><em>field_generator</em>, <em>field_generator_kwargs</em>, <em>converter</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.rules.Loader" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#iris.fileformats.rules.Loader" title="iris.fileformats.rules.Loader"><code class="xref py py-class docutils literal"><span class="pre">iris.fileformats.rules.Loader</span></code></a></p>
 <p>Create a definition of a field-based Cube loader.</p>
 <p>Args:</p>
@@ -855,20 +855,6 @@ returns an iterable of field objects.</dd>
 <li><dl class="first docutils">
 <dt>converter</dt>
 <dd>A callable that converts a field object into a Cube.</dd>
-</dl>
-</li>
-</ul>
-<p>Kwargs:</p>
-<ul>
-<li><dl class="first docutils">
-<dt>legacy_custom_rules</dt>
-<dd><p class="first">An object with a callable <cite>verify</cite> attribute with two
-parameters: (cube, field). Legacy method for modifying
-Cubes during the load process. Default is None.</p>
-<div class="last deprecated">
-<p><span class="versionmodified">Deprecated since version 1.9.</span></p>
-</div>
-</dd>
 </dl>
 </li>
 </ul>
@@ -899,12 +885,6 @@ Cubes during the load process. Default is None.</p>
 <dt id="iris.fileformats.rules.Loader.field_generator_kwargs">
 <code class="descname">field_generator_kwargs</code><a class="headerlink" href="#iris.fileformats.rules.Loader.field_generator_kwargs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Alias for field number 1</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="iris.fileformats.rules.Loader.legacy_custom_rules">
-<code class="descname">legacy_custom_rules</code><a class="headerlink" href="#iris.fileformats.rules.Loader.legacy_custom_rules" title="Permalink to this definition">¶</a></dt>
-<dd><p>Alias for field number 3</p>
 </dd></dl>
 
 </dd></dl>

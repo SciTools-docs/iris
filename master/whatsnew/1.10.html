@@ -226,7 +226,7 @@ new implementation.</li>
 </li>
 <li><p class="first">Fixed a bug where regridding or interpolation with the <a class="reference internal" href="../iris/iris/analysis.html#iris.analysis.Nearest" title="iris.analysis.Nearest"><code class="xref py py-class docutils literal"><span class="pre">Nearest</span></code></a> scheme returned floating-point results even when the source data was integer typed. It now always returns the same type as the source data.</p>
 </li>
-<li><p class="first">Fixed a bug where regridding circular data would ignore any source masking. This affected any regridding using the <a class="reference internal" href="../iris/iris/analysis.html#iris.analysis.Linear" title="iris.analysis.Linear"><code class="xref py py-class docutils literal"><span class="pre">Linear</span></code></a> and <a class="reference internal" href="../iris/iris/analysis.html#iris.analysis.Nearest" title="iris.analysis.Nearest"><code class="xref py py-class docutils literal"><span class="pre">Nearest</span></code></a> schemes, and also <a class="reference internal" href="../iris/iris/analysis/interpolate.html#iris.analysis.interpolate.linear" title="iris.analysis.interpolate.linear"><code class="xref py py-func docutils literal"><span class="pre">iris.analysis.interpolate.linear()</span></code></a>.</p>
+<li><p class="first">Fixed a bug where regridding circular data would ignore any source masking. This affected any regridding using the <a class="reference internal" href="../iris/iris/analysis.html#iris.analysis.Linear" title="iris.analysis.Linear"><code class="xref py py-class docutils literal"><span class="pre">Linear</span></code></a> and <a class="reference internal" href="../iris/iris/analysis.html#iris.analysis.Nearest" title="iris.analysis.Nearest"><code class="xref py py-class docutils literal"><span class="pre">Nearest</span></code></a> schemes, and also <code class="xref py py-func docutils literal"><span class="pre">iris.analysis.interpolate.linear()</span></code>.</p>
 </li>
 <li><p class="first">The <code class="docutils literal"><span class="pre">coord_name</span></code> parameter to <a class="reference internal" href="../iris/iris/fileformats/rules.html#iris.fileformats.rules.scalar_cell_method" title="iris.fileformats.rules.scalar_cell_method"><code class="xref py py-func docutils literal"><span class="pre">scalar_cell_method()</span></code></a> is now checked correctly.</p>
 </li>
@@ -275,26 +275,26 @@ Please see <a class="reference internal" href="#iris-grib-added"><span class="st
 </li>
 <li><p class="first">The use of <code class="xref py py-data docutils literal"><span class="pre">iris.config.SAMPLE_DATA_DIR</span></code> has been deprecated and replaced by the now importable <a class="reference external" href="https://github.com/SciTools/iris-sample-data">iris_sample_data</a> package.</p>
 </li>
-<li><p class="first">Deprecated the module <a class="reference internal" href="../iris/iris/analysis/interpolate.html#module-iris.analysis.interpolate" title="iris.analysis.interpolate"><code class="xref py py-mod docutils literal"><span class="pre">iris.analysis.interpolate</span></code></a>.
+<li><p class="first">Deprecated the module <code class="xref py py-mod docutils literal"><span class="pre">iris.analysis.interpolate</span></code>.
 This contains the following public items, all of which are now deprecated and
 will be removed in a future release:</p>
 <blockquote>
 <div><ul class="simple">
-<li><a class="reference internal" href="../iris/iris/analysis/interpolate.html#iris.analysis.interpolate.linear" title="iris.analysis.interpolate.linear"><code class="xref py py-func docutils literal"><span class="pre">linear()</span></code></a></li>
-<li><a class="reference internal" href="../iris/iris/analysis/interpolate.html#iris.analysis.interpolate.regrid" title="iris.analysis.interpolate.regrid"><code class="xref py py-func docutils literal"><span class="pre">regrid()</span></code></a></li>
-<li><a class="reference internal" href="../iris/iris/analysis/interpolate.html#iris.analysis.interpolate.regrid_to_max_resolution" title="iris.analysis.interpolate.regrid_to_max_resolution"><code class="xref py py-func docutils literal"><span class="pre">regrid_to_max_resolution()</span></code></a></li>
-<li><a class="reference internal" href="../iris/iris/analysis/interpolate.html#iris.analysis.interpolate.nearest_neighbour_indices" title="iris.analysis.interpolate.nearest_neighbour_indices"><code class="xref py py-func docutils literal"><span class="pre">nearest_neighbour_indices()</span></code></a></li>
-<li><a class="reference internal" href="../iris/iris/analysis/interpolate.html#iris.analysis.interpolate.nearest_neighbour_data_value" title="iris.analysis.interpolate.nearest_neighbour_data_value"><code class="xref py py-func docutils literal"><span class="pre">nearest_neighbour_data_value()</span></code></a></li>
-<li><a class="reference internal" href="../iris/iris/analysis/interpolate.html#iris.analysis.interpolate.extract_nearest_neighbour" title="iris.analysis.interpolate.extract_nearest_neighbour"><code class="xref py py-func docutils literal"><span class="pre">extract_nearest_neighbour()</span></code></a></li>
+<li><code class="xref py py-func docutils literal"><span class="pre">linear()</span></code></li>
+<li><code class="xref py py-func docutils literal"><span class="pre">regrid()</span></code></li>
+<li><code class="xref py py-func docutils literal"><span class="pre">regrid_to_max_resolution()</span></code></li>
+<li><code class="xref py py-func docutils literal"><span class="pre">nearest_neighbour_indices()</span></code></li>
+<li><code class="xref py py-func docutils literal"><span class="pre">nearest_neighbour_data_value()</span></code></li>
+<li><code class="xref py py-func docutils literal"><span class="pre">extract_nearest_neighbour()</span></code></li>
 <li>class <code class="xref py py-class docutils literal"><span class="pre">Linear1dExtrapolator</span></code>.</li>
 </ul>
 </div></blockquote>
 <p>Please use the replacement facilities individually noted in the module
-documentation for <a class="reference internal" href="../iris/iris/analysis/interpolate.html#module-iris.analysis.interpolate" title="iris.analysis.interpolate"><code class="xref py py-mod docutils literal"><span class="pre">iris.analysis.interpolate</span></code></a></p>
+documentation for <code class="xref py py-mod docutils literal"><span class="pre">iris.analysis.interpolate</span></code></p>
 </li>
-<li><p class="first">The method <a class="reference internal" href="../iris/iris/cube.html#iris.cube.Cube.regridded" title="iris.cube.Cube.regridded"><code class="xref py py-meth docutils literal"><span class="pre">iris.cube.Cube.regridded()</span></code></a> has been deprecated.
+<li><p class="first">The method <code class="xref py py-meth docutils literal"><span class="pre">iris.cube.Cube.regridded()</span></code> has been deprecated.
 Please use <a class="reference internal" href="../iris/iris/cube.html#iris.cube.Cube.regrid" title="iris.cube.Cube.regrid"><code class="xref py py-meth docutils literal"><span class="pre">iris.cube.Cube.regrid()</span></code></a> instead (see
-<a class="reference internal" href="../iris/iris/cube.html#iris.cube.Cube.regridded" title="iris.cube.Cube.regridded"><code class="xref py py-meth docutils literal"><span class="pre">regridded()</span></code></a> for details).</p>
+<code class="xref py py-meth docutils literal"><span class="pre">regridded()</span></code> for details).</p>
 </li>
 <li><p class="first">Deprecated <code class="xref py py-data docutils literal"><span class="pre">iris.fileformats.grib.hindcast_workaround</span></code> and <code class="xref py py-class docutils literal"><span class="pre">iris.fileformats.grib.GribWrapper</span></code>. The class <code class="xref py py-class docutils literal"><span class="pre">iris.fileformats.grib.message.GribMessage</span></code> provides alternative means of working with GRIB message instances.</p>
 </li>
