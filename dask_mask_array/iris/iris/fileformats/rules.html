@@ -25,7 +25,7 @@
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="copyright" title="Copyright" href="../../../copyright.html" />
     <link rel="next" title="iris.fileformats.um" href="um.html" />
-    <link rel="prev" title="iris.fileformats.pp_rules" href="pp_rules.html" />
+    <link rel="prev" title="iris.fileformats.pp_save_rules" href="pp_save_rules.html" />
  
     <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
     <META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE"> 
@@ -56,7 +56,7 @@
           <a href="um.html" title="iris.fileformats.um"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="pp_rules.html" title="iris.fileformats.pp_rules"
+          <a href="pp_save_rules.html" title="iris.fileformats.pp_save_rules"
              accesskey="P">previous</a> |</li>
         <li><a href="../../../index.html">home</a>|&nbsp;</li>
         <li><a href="../../../examples/index.html">examples</a>|&nbsp;</li>
@@ -71,8 +71,8 @@
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
-  <p class="topless"><a href="pp_rules.html"
-                        title="previous chapter">iris.fileformats.pp_rules</a></p>
+  <p class="topless"><a href="pp_save_rules.html"
+                        title="previous chapter">iris.fileformats.pp_save_rules</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="um.html"
                         title="next chapter">iris.fileformats.um</a></p>
@@ -108,29 +108,18 @@
 <blockquote>
 <div><ul class="simple">
 <li><a class="reference internal" href="#iris.fileformats.rules.aux_factory" title="iris.fileformats.rules.aux_factory"><code class="xref py py-obj docutils literal"><span class="pre">aux_factory</span></code></a></li>
-<li><a class="reference internal" href="#iris.fileformats.rules.calculate_forecast_period" title="iris.fileformats.rules.calculate_forecast_period"><code class="xref py py-obj docutils literal"><span class="pre">calculate_forecast_period</span></code></a></li>
 <li><a class="reference internal" href="#iris.fileformats.rules.has_aux_factory" title="iris.fileformats.rules.has_aux_factory"><code class="xref py py-obj docutils literal"><span class="pre">has_aux_factory</span></code></a></li>
 <li><a class="reference internal" href="#iris.fileformats.rules.load_cubes" title="iris.fileformats.rules.load_cubes"><code class="xref py py-obj docutils literal"><span class="pre">load_cubes</span></code></a></li>
 <li><a class="reference internal" href="#iris.fileformats.rules.load_pairs_from_fields" title="iris.fileformats.rules.load_pairs_from_fields"><code class="xref py py-obj docutils literal"><span class="pre">load_pairs_from_fields</span></code></a></li>
-<li><a class="reference internal" href="#iris.fileformats.rules.log" title="iris.fileformats.rules.log"><code class="xref py py-obj docutils literal"><span class="pre">log</span></code></a></li>
 <li><a class="reference internal" href="#iris.fileformats.rules.scalar_cell_method" title="iris.fileformats.rules.scalar_cell_method"><code class="xref py py-obj docutils literal"><span class="pre">scalar_cell_method</span></code></a></li>
 <li><a class="reference internal" href="#iris.fileformats.rules.scalar_coord" title="iris.fileformats.rules.scalar_coord"><code class="xref py py-obj docutils literal"><span class="pre">scalar_coord</span></code></a></li>
 <li><a class="reference internal" href="#iris.fileformats.rules.vector_coord" title="iris.fileformats.rules.vector_coord"><code class="xref py py-obj docutils literal"><span class="pre">vector_coord</span></code></a></li>
-<li><a class="reference internal" href="#iris.fileformats.rules.CMAttribute" title="iris.fileformats.rules.CMAttribute"><code class="xref py py-obj docutils literal"><span class="pre">CMAttribute</span></code></a></li>
-<li><a class="reference internal" href="#iris.fileformats.rules.CMCustomAttribute" title="iris.fileformats.rules.CMCustomAttribute"><code class="xref py py-obj docutils literal"><span class="pre">CMCustomAttribute</span></code></a></li>
 <li><a class="reference internal" href="#iris.fileformats.rules.ConcreteReferenceTarget" title="iris.fileformats.rules.ConcreteReferenceTarget"><code class="xref py py-obj docutils literal"><span class="pre">ConcreteReferenceTarget</span></code></a></li>
 <li><a class="reference internal" href="#iris.fileformats.rules.ConversionMetadata" title="iris.fileformats.rules.ConversionMetadata"><code class="xref py py-obj docutils literal"><span class="pre">ConversionMetadata</span></code></a></li>
-<li><a class="reference internal" href="#iris.fileformats.rules.CoordAndDims" title="iris.fileformats.rules.CoordAndDims"><code class="xref py py-obj docutils literal"><span class="pre">CoordAndDims</span></code></a></li>
-<li><a class="reference internal" href="#iris.fileformats.rules.DebugString" title="iris.fileformats.rules.DebugString"><code class="xref py py-obj docutils literal"><span class="pre">DebugString</span></code></a></li>
 <li><a class="reference internal" href="#iris.fileformats.rules.Factory" title="iris.fileformats.rules.Factory"><code class="xref py py-obj docutils literal"><span class="pre">Factory</span></code></a></li>
-<li><a class="reference internal" href="#iris.fileformats.rules.FunctionRule" title="iris.fileformats.rules.FunctionRule"><code class="xref py py-obj docutils literal"><span class="pre">FunctionRule</span></code></a></li>
 <li><a class="reference internal" href="#iris.fileformats.rules.Loader" title="iris.fileformats.rules.Loader"><code class="xref py py-obj docutils literal"><span class="pre">Loader</span></code></a></li>
-<li><a class="reference internal" href="#iris.fileformats.rules.ProcedureRule" title="iris.fileformats.rules.ProcedureRule"><code class="xref py py-obj docutils literal"><span class="pre">ProcedureRule</span></code></a></li>
 <li><a class="reference internal" href="#iris.fileformats.rules.Reference" title="iris.fileformats.rules.Reference"><code class="xref py py-obj docutils literal"><span class="pre">Reference</span></code></a></li>
 <li><a class="reference internal" href="#iris.fileformats.rules.ReferenceTarget" title="iris.fileformats.rules.ReferenceTarget"><code class="xref py py-obj docutils literal"><span class="pre">ReferenceTarget</span></code></a></li>
-<li><a class="reference internal" href="#iris.fileformats.rules.Rule" title="iris.fileformats.rules.Rule"><code class="xref py py-obj docutils literal"><span class="pre">Rule</span></code></a></li>
-<li><a class="reference internal" href="#iris.fileformats.rules.RuleResult" title="iris.fileformats.rules.RuleResult"><code class="xref py py-obj docutils literal"><span class="pre">RuleResult</span></code></a></li>
-<li><a class="reference internal" href="#iris.fileformats.rules.RulesContainer" title="iris.fileformats.rules.RulesContainer"><code class="xref py py-obj docutils literal"><span class="pre">RulesContainer</span></code></a></li>
 </ul>
 </div></blockquote>
 <dl class="function">
@@ -138,18 +127,6 @@
 <code class="descclassname">iris.fileformats.rules.</code><code class="descname">aux_factory</code><span class="sig-paren">(</span><em>cube</em>, <em>aux_factory_class</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.rules.aux_factory" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the class:<cite>~iris.aux_factory.AuxCoordFactory</cite> instance of the
 specified type from a cube.</p>
-</dd></dl>
-
-<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
-<!--<hr class="docutils" />
---><dl class="function">
-<dt id="iris.fileformats.rules.calculate_forecast_period">
-<code class="descclassname">iris.fileformats.rules.</code><code class="descname">calculate_forecast_period</code><span class="sig-paren">(</span><em>time</em>, <em>forecast_reference_time</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.rules.calculate_forecast_period" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the forecast period in hours derived from time and
-forecast_reference_time scalar coordinates.</p>
-<div class="deprecated">
-<p><span class="versionmodified">Deprecated since version 1.10.</span></p>
-</div>
 </dd></dl>
 
 <p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
@@ -198,13 +175,6 @@ See the description in <a class="reference internal" href="#iris.fileformats.rul
 <p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
 <!--<hr class="docutils" />
 --><dl class="function">
-<dt id="iris.fileformats.rules.log">
-<code class="descclassname">iris.fileformats.rules.</code><code class="descname">log</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.rules.log" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
-<!--<hr class="docutils" />
---><dl class="function">
 <dt id="iris.fileformats.rules.scalar_cell_method">
 <code class="descclassname">iris.fileformats.rules.</code><code class="descname">scalar_cell_method</code><span class="sig-paren">(</span><em>cube</em>, <em>method</em>, <em>coord_name</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.rules.scalar_cell_method" title="Permalink to this definition">¶</a></dt>
 <dd><p>Try to find the given type of cell method over a single coord with the given name.</p>
@@ -226,62 +196,6 @@ See the description in <a class="reference internal" href="#iris.fileformats.rul
 <dd><p>Try to find a one-dimensional, multi-valued coord with the given name.</p>
 </dd></dl>
 
-<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
-<!--<hr class="docutils" />
---><p>Used by the rules for defining attributes on the Cube in a consistent manner.</p>
-<div class="deprecated">
-<p><span class="versionmodified">Deprecated since version 1.10.</span></p>
-</div>
-<blockquote>
-<div><dl class="class">
-<dt id="iris.fileformats.rules.CMAttribute">
-<em class="property">class </em><code class="descclassname">iris.fileformats.rules.</code><code class="descname">CMAttribute</code><span class="sig-paren">(</span><em>name</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.rules.CMAttribute" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
-<p>Used by the rules for defining attributes on the Cube in a consistent manner.</p>
-<div class="deprecated">
-<p><span class="versionmodified">Deprecated since version 1.10.</span></p>
-</div>
-<dl class="attribute">
-<dt id="iris.fileformats.rules.CMAttribute.name">
-<code class="descname">name</code><a class="headerlink" href="#iris.fileformats.rules.CMAttribute.name" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="iris.fileformats.rules.CMAttribute.value">
-<code class="descname">value</code><a class="headerlink" href="#iris.fileformats.rules.CMAttribute.value" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-</div></blockquote>
-<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
-<!--<hr class="docutils" />
---><p>Used by the rules for defining custom attributes on the Cube in a consistent manner.</p>
-<div class="deprecated">
-<p><span class="versionmodified">Deprecated since version 1.10.</span></p>
-</div>
-<blockquote>
-<div><dl class="class">
-<dt id="iris.fileformats.rules.CMCustomAttribute">
-<em class="property">class </em><code class="descclassname">iris.fileformats.rules.</code><code class="descname">CMCustomAttribute</code><span class="sig-paren">(</span><em>name</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.rules.CMCustomAttribute" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
-<p>Used by the rules for defining custom attributes on the Cube in a consistent manner.</p>
-<div class="deprecated">
-<p><span class="versionmodified">Deprecated since version 1.10.</span></p>
-</div>
-<dl class="attribute">
-<dt id="iris.fileformats.rules.CMCustomAttribute.name">
-<code class="descname">name</code><a class="headerlink" href="#iris.fileformats.rules.CMCustomAttribute.name" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="iris.fileformats.rules.CMCustomAttribute.value">
-<code class="descname">value</code><a class="headerlink" href="#iris.fileformats.rules.CMCustomAttribute.value" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-</div></blockquote>
 <p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
 <!--<hr class="docutils" />
 --><p>Everything you need to make a real Cube for a named reference.</p>
@@ -395,394 +309,6 @@ See the description in <a class="reference internal" href="#iris.fileformats.rul
 </div></blockquote>
 <p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
 <!--<hr class="docutils" />
---><p>Used within rules to represent a mapping of coordinate to data dimensions.</p>
-<div class="deprecated">
-<p><span class="versionmodified">Deprecated since version 1.10.</span></p>
-</div>
-<blockquote>
-<div><dl class="class">
-<dt id="iris.fileformats.rules.CoordAndDims">
-<em class="property">class </em><code class="descclassname">iris.fileformats.rules.</code><code class="descname">CoordAndDims</code><span class="sig-paren">(</span><em>coord</em>, <em>dims=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.rules.CoordAndDims" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
-<p>Used within rules to represent a mapping of coordinate to data dimensions.</p>
-<div class="deprecated">
-<p><span class="versionmodified">Deprecated since version 1.10.</span></p>
-</div>
-<dl class="method">
-<dt id="iris.fileformats.rules.CoordAndDims.add_coord">
-<code class="descname">add_coord</code><span class="sig-paren">(</span><em>cube</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.rules.CoordAndDims.add_coord" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-</div></blockquote>
-<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
-<!--<hr class="docutils" />
---><p>Used by the rules for debug purposes</p>
-<div class="deprecated">
-<p><span class="versionmodified">Deprecated since version 1.10.</span></p>
-</div>
-<blockquote>
-<div><dl class="class">
-<dt id="iris.fileformats.rules.DebugString">
-<em class="property">class </em><code class="descclassname">iris.fileformats.rules.</code><code class="descname">DebugString</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.rules.DebugString" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2.7/library/functions.html#str" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">str</span></code></a></p>
-<p>Used by the rules for debug purposes</p>
-<div class="deprecated">
-<p><span class="versionmodified">Deprecated since version 1.10.</span></p>
-</div>
-<dl class="method">
-<dt id="iris.fileformats.rules.DebugString.capitalize">
-<code class="descname">capitalize</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#iris.fileformats.rules.DebugString.capitalize" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a capitalized version of S, i.e. make the first character
-have upper case and the rest lower case.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="iris.fileformats.rules.DebugString.casefold">
-<code class="descname">casefold</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#iris.fileformats.rules.DebugString.casefold" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a version of S suitable for caseless comparisons.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="iris.fileformats.rules.DebugString.center">
-<code class="descname">center</code><span class="sig-paren">(</span><em>width</em><span class="optional">[</span>, <em>fillchar</em><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#iris.fileformats.rules.DebugString.center" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return S centered in a string of length width. Padding is
-done using the specified fill character (default is a space)</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="iris.fileformats.rules.DebugString.count">
-<code class="descname">count</code><span class="sig-paren">(</span><em>sub</em><span class="optional">[</span>, <em>start</em><span class="optional">[</span>, <em>end</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#iris.fileformats.rules.DebugString.count" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the number of non-overlapping occurrences of substring sub in
-string S[start:end].  Optional arguments start and end are
-interpreted as in slice notation.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="iris.fileformats.rules.DebugString.encode">
-<code class="descname">encode</code><span class="sig-paren">(</span><em>encoding='utf-8'</em>, <em>errors='strict'</em><span class="sig-paren">)</span> &#x2192; bytes<a class="headerlink" href="#iris.fileformats.rules.DebugString.encode" title="Permalink to this definition">¶</a></dt>
-<dd><p>Encode S using the codec registered for encoding. Default encoding
-is ‘utf-8’. errors may be given to set a different error
-handling scheme. Default is ‘strict’ meaning that encoding errors raise
-a UnicodeEncodeError. Other possible values are ‘ignore’, ‘replace’ and
-‘xmlcharrefreplace’ as well as any other name registered with
-codecs.register_error that can handle UnicodeEncodeErrors.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="iris.fileformats.rules.DebugString.endswith">
-<code class="descname">endswith</code><span class="sig-paren">(</span><em>suffix</em><span class="optional">[</span>, <em>start</em><span class="optional">[</span>, <em>end</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; bool<a class="headerlink" href="#iris.fileformats.rules.DebugString.endswith" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return True if S ends with the specified suffix, False otherwise.
-With optional start, test S beginning at that position.
-With optional end, stop comparing S at that position.
-suffix can also be a tuple of strings to try.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="iris.fileformats.rules.DebugString.expandtabs">
-<code class="descname">expandtabs</code><span class="sig-paren">(</span><em>tabsize=8</em><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#iris.fileformats.rules.DebugString.expandtabs" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a copy of S where all tab characters are expanded using spaces.
-If tabsize is not given, a tab size of 8 characters is assumed.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="iris.fileformats.rules.DebugString.find">
-<code class="descname">find</code><span class="sig-paren">(</span><em>sub</em><span class="optional">[</span>, <em>start</em><span class="optional">[</span>, <em>end</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#iris.fileformats.rules.DebugString.find" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the lowest index in S where substring sub is found,
-such that sub is contained within S[start:end].  Optional
-arguments start and end are interpreted as in slice notation.</p>
-<p>Return -1 on failure.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="iris.fileformats.rules.DebugString.format">
-<code class="descname">format</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#iris.fileformats.rules.DebugString.format" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a formatted version of S, using substitutions from args and kwargs.
-The substitutions are identified by braces (‘{‘ and ‘}’).</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="iris.fileformats.rules.DebugString.format_map">
-<code class="descname">format_map</code><span class="sig-paren">(</span><em>mapping</em><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#iris.fileformats.rules.DebugString.format_map" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a formatted version of S, using substitutions from mapping.
-The substitutions are identified by braces (‘{‘ and ‘}’).</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="iris.fileformats.rules.DebugString.index">
-<code class="descname">index</code><span class="sig-paren">(</span><em>sub</em><span class="optional">[</span>, <em>start</em><span class="optional">[</span>, <em>end</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#iris.fileformats.rules.DebugString.index" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the lowest index in S where substring sub is found, 
-such that sub is contained within S[start:end].  Optional
-arguments start and end are interpreted as in slice notation.</p>
-<p>Raises ValueError when the substring is not found.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="iris.fileformats.rules.DebugString.isalnum">
-<code class="descname">isalnum</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; bool<a class="headerlink" href="#iris.fileformats.rules.DebugString.isalnum" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return True if all characters in S are alphanumeric
-and there is at least one character in S, False otherwise.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="iris.fileformats.rules.DebugString.isalpha">
-<code class="descname">isalpha</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; bool<a class="headerlink" href="#iris.fileformats.rules.DebugString.isalpha" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return True if all characters in S are alphabetic
-and there is at least one character in S, False otherwise.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="iris.fileformats.rules.DebugString.isdecimal">
-<code class="descname">isdecimal</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; bool<a class="headerlink" href="#iris.fileformats.rules.DebugString.isdecimal" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return True if there are only decimal characters in S,
-False otherwise.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="iris.fileformats.rules.DebugString.isdigit">
-<code class="descname">isdigit</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; bool<a class="headerlink" href="#iris.fileformats.rules.DebugString.isdigit" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return True if all characters in S are digits
-and there is at least one character in S, False otherwise.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="iris.fileformats.rules.DebugString.isidentifier">
-<code class="descname">isidentifier</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; bool<a class="headerlink" href="#iris.fileformats.rules.DebugString.isidentifier" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return True if S is a valid identifier according
-to the language definition.</p>
-<p>Use keyword.iskeyword() to test for reserved identifiers
-such as “def” and “class”.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="iris.fileformats.rules.DebugString.islower">
-<code class="descname">islower</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; bool<a class="headerlink" href="#iris.fileformats.rules.DebugString.islower" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return True if all cased characters in S are lowercase and there is
-at least one cased character in S, False otherwise.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="iris.fileformats.rules.DebugString.isnumeric">
-<code class="descname">isnumeric</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; bool<a class="headerlink" href="#iris.fileformats.rules.DebugString.isnumeric" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return True if there are only numeric characters in S,
-False otherwise.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="iris.fileformats.rules.DebugString.isprintable">
-<code class="descname">isprintable</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; bool<a class="headerlink" href="#iris.fileformats.rules.DebugString.isprintable" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return True if all characters in S are considered
-printable in repr() or S is empty, False otherwise.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="iris.fileformats.rules.DebugString.isspace">
-<code class="descname">isspace</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; bool<a class="headerlink" href="#iris.fileformats.rules.DebugString.isspace" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return True if all characters in S are whitespace
-and there is at least one character in S, False otherwise.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="iris.fileformats.rules.DebugString.istitle">
-<code class="descname">istitle</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; bool<a class="headerlink" href="#iris.fileformats.rules.DebugString.istitle" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return True if S is a titlecased string and there is at least one
-character in S, i.e. upper- and titlecase characters may only
-follow uncased characters and lowercase characters only cased ones.
-Return False otherwise.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="iris.fileformats.rules.DebugString.isupper">
-<code class="descname">isupper</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; bool<a class="headerlink" href="#iris.fileformats.rules.DebugString.isupper" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return True if all cased characters in S are uppercase and there is
-at least one cased character in S, False otherwise.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="iris.fileformats.rules.DebugString.join">
-<code class="descname">join</code><span class="sig-paren">(</span><em>iterable</em><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#iris.fileformats.rules.DebugString.join" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a string which is the concatenation of the strings in the
-iterable.  The separator between elements is S.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="iris.fileformats.rules.DebugString.ljust">
-<code class="descname">ljust</code><span class="sig-paren">(</span><em>width</em><span class="optional">[</span>, <em>fillchar</em><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#iris.fileformats.rules.DebugString.ljust" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return S left-justified in a Unicode string of length width. Padding is
-done using the specified fill character (default is a space).</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="iris.fileformats.rules.DebugString.lower">
-<code class="descname">lower</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#iris.fileformats.rules.DebugString.lower" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a copy of the string S converted to lowercase.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="iris.fileformats.rules.DebugString.lstrip">
-<code class="descname">lstrip</code><span class="sig-paren">(</span><span class="optional">[</span><em>chars</em><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#iris.fileformats.rules.DebugString.lstrip" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a copy of the string S with leading whitespace removed.
-If chars is given and not None, remove characters in chars instead.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="iris.fileformats.rules.DebugString.maketrans">
-<code class="descname">maketrans</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.rules.DebugString.maketrans" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a translation table usable for str.translate().</p>
-<p>If there is only one argument, it must be a dictionary mapping Unicode
-ordinals (integers) or characters to Unicode ordinals, strings or None.
-Character keys will be then converted to ordinals.
-If there are two arguments, they must be strings of equal length, and
-in the resulting dictionary, each character in x will be mapped to the
-character at the same position in y. If there is a third argument, it
-must be a string, whose characters will be mapped to None in the result.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="iris.fileformats.rules.DebugString.partition">
-<code class="descname">partition</code><span class="sig-paren">(</span><em>sep) -&gt; (head</em>, <em>sep</em>, <em>tail</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.rules.DebugString.partition" title="Permalink to this definition">¶</a></dt>
-<dd><p>Search for the separator sep in S, and return the part before it,
-the separator itself, and the part after it.  If the separator is not
-found, return S and two empty strings.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="iris.fileformats.rules.DebugString.replace">
-<code class="descname">replace</code><span class="sig-paren">(</span><em>old</em>, <em>new</em><span class="optional">[</span>, <em>count</em><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#iris.fileformats.rules.DebugString.replace" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a copy of S with all occurrences of substring
-old replaced by new.  If the optional argument count is
-given, only the first count occurrences are replaced.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="iris.fileformats.rules.DebugString.rfind">
-<code class="descname">rfind</code><span class="sig-paren">(</span><em>sub</em><span class="optional">[</span>, <em>start</em><span class="optional">[</span>, <em>end</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#iris.fileformats.rules.DebugString.rfind" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the highest index in S where substring sub is found,
-such that sub is contained within S[start:end].  Optional
-arguments start and end are interpreted as in slice notation.</p>
-<p>Return -1 on failure.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="iris.fileformats.rules.DebugString.rindex">
-<code class="descname">rindex</code><span class="sig-paren">(</span><em>sub</em><span class="optional">[</span>, <em>start</em><span class="optional">[</span>, <em>end</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#iris.fileformats.rules.DebugString.rindex" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the highest index in S where substring sub is found,
-such that sub is contained within S[start:end].  Optional
-arguments start and end are interpreted as in slice notation.</p>
-<p>Raises ValueError when the substring is not found.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="iris.fileformats.rules.DebugString.rjust">
-<code class="descname">rjust</code><span class="sig-paren">(</span><em>width</em><span class="optional">[</span>, <em>fillchar</em><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#iris.fileformats.rules.DebugString.rjust" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return S right-justified in a string of length width. Padding is
-done using the specified fill character (default is a space).</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="iris.fileformats.rules.DebugString.rpartition">
-<code class="descname">rpartition</code><span class="sig-paren">(</span><em>sep) -&gt; (head</em>, <em>sep</em>, <em>tail</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.rules.DebugString.rpartition" title="Permalink to this definition">¶</a></dt>
-<dd><p>Search for the separator sep in S, starting at the end of S, and return
-the part before it, the separator itself, and the part after it.  If the
-separator is not found, return two empty strings and S.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="iris.fileformats.rules.DebugString.rsplit">
-<code class="descname">rsplit</code><span class="sig-paren">(</span><em>sep=None</em>, <em>maxsplit=-1</em><span class="sig-paren">)</span> &#x2192; list of strings<a class="headerlink" href="#iris.fileformats.rules.DebugString.rsplit" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a list of the words in S, using sep as the
-delimiter string, starting at the end of the string and
-working to the front.  If maxsplit is given, at most maxsplit
-splits are done. If sep is not specified, any whitespace string
-is a separator.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="iris.fileformats.rules.DebugString.rstrip">
-<code class="descname">rstrip</code><span class="sig-paren">(</span><span class="optional">[</span><em>chars</em><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#iris.fileformats.rules.DebugString.rstrip" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a copy of the string S with trailing whitespace removed.
-If chars is given and not None, remove characters in chars instead.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="iris.fileformats.rules.DebugString.split">
-<code class="descname">split</code><span class="sig-paren">(</span><em>sep=None</em>, <em>maxsplit=-1</em><span class="sig-paren">)</span> &#x2192; list of strings<a class="headerlink" href="#iris.fileformats.rules.DebugString.split" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a list of the words in S, using sep as the
-delimiter string.  If maxsplit is given, at most maxsplit
-splits are done. If sep is not specified or is None, any
-whitespace string is a separator and empty strings are
-removed from the result.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="iris.fileformats.rules.DebugString.splitlines">
-<code class="descname">splitlines</code><span class="sig-paren">(</span><span class="optional">[</span><em>keepends</em><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; list of strings<a class="headerlink" href="#iris.fileformats.rules.DebugString.splitlines" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a list of the lines in S, breaking at line boundaries.
-Line breaks are not included in the resulting list unless keepends
-is given and true.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="iris.fileformats.rules.DebugString.startswith">
-<code class="descname">startswith</code><span class="sig-paren">(</span><em>prefix</em><span class="optional">[</span>, <em>start</em><span class="optional">[</span>, <em>end</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; bool<a class="headerlink" href="#iris.fileformats.rules.DebugString.startswith" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return True if S starts with the specified prefix, False otherwise.
-With optional start, test S beginning at that position.
-With optional end, stop comparing S at that position.
-prefix can also be a tuple of strings to try.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="iris.fileformats.rules.DebugString.strip">
-<code class="descname">strip</code><span class="sig-paren">(</span><span class="optional">[</span><em>chars</em><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#iris.fileformats.rules.DebugString.strip" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a copy of the string S with leading and trailing
-whitespace removed.
-If chars is given and not None, remove characters in chars instead.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="iris.fileformats.rules.DebugString.swapcase">
-<code class="descname">swapcase</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#iris.fileformats.rules.DebugString.swapcase" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a copy of S with uppercase characters converted to lowercase
-and vice versa.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="iris.fileformats.rules.DebugString.title">
-<code class="descname">title</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#iris.fileformats.rules.DebugString.title" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a titlecased version of S, i.e. words start with title case
-characters, all remaining cased characters have lower case.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="iris.fileformats.rules.DebugString.translate">
-<code class="descname">translate</code><span class="sig-paren">(</span><em>table</em><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#iris.fileformats.rules.DebugString.translate" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a copy of the string S in which each character has been mapped
-through the given translation table. The table must implement
-lookup/indexing via __getitem__, for instance a dictionary or list,
-mapping Unicode ordinals to Unicode ordinals, strings, or None. If
-this operation raises LookupError, the character is left untouched.
-Characters mapped to None are deleted.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="iris.fileformats.rules.DebugString.upper">
-<code class="descname">upper</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#iris.fileformats.rules.DebugString.upper" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a copy of S converted to uppercase.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="iris.fileformats.rules.DebugString.zfill">
-<code class="descname">zfill</code><span class="sig-paren">(</span><em>width</em><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#iris.fileformats.rules.DebugString.zfill" title="Permalink to this definition">¶</a></dt>
-<dd><p>Pad a numeric string S with zeros on the left, to fill a field
-of the specified width. The string S is never truncated.</p>
-</dd></dl>
-
-</dd></dl>
-
-</div></blockquote>
-<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
-<!--<hr class="docutils" />
 --><p>Factory(factory_class, args)</p>
 <blockquote>
 <div><dl class="class">
@@ -818,38 +344,11 @@ of the specified width. The string S is never truncated.</p>
 </div></blockquote>
 <p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
 <!--<hr class="docutils" />
---><p>A Rule with values returned by its actions.</p>
-<div class="deprecated">
-<p><span class="versionmodified">Deprecated since version 1.10.</span></p>
-</div>
-<blockquote>
-<div><dl class="class">
-<dt id="iris.fileformats.rules.FunctionRule">
-<em class="property">class </em><code class="descclassname">iris.fileformats.rules.</code><code class="descname">FunctionRule</code><span class="sig-paren">(</span><em>conditions</em>, <em>actions</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.rules.FunctionRule" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#iris.fileformats.rules.Rule" title="iris.fileformats.rules.Rule"><code class="xref py py-class docutils literal"><span class="pre">iris.fileformats.rules.Rule</span></code></a></p>
-<p>Create instance methods from our conditions and actions.</p>
-<dl class="method">
-<dt id="iris.fileformats.rules.FunctionRule.evaluates_true">
-<code class="descname">evaluates_true</code><span class="sig-paren">(</span><em>cube</em>, <em>field</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.rules.FunctionRule.evaluates_true" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns True if and only if all the conditions evaluate to True for the given field.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="iris.fileformats.rules.FunctionRule.run_actions">
-<code class="descname">run_actions</code><span class="sig-paren">(</span><em>cube</em>, <em>field</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.rules.FunctionRule.run_actions" title="Permalink to this definition">¶</a></dt>
-<dd><p>Adds to the given cube based on the return values of all the actions.</p>
-</dd></dl>
-
-</dd></dl>
-
-</div></blockquote>
-<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
-<!--<hr class="docutils" />
---><p>Loader(field_generator, field_generator_kwargs, converter, legacy_custom_rules)</p>
+--><p>Loader(field_generator, field_generator_kwargs, converter)</p>
 <blockquote>
 <div><dl class="class">
 <dt id="iris.fileformats.rules.Loader">
-<em class="property">class </em><code class="descclassname">iris.fileformats.rules.</code><code class="descname">Loader</code><span class="sig-paren">(</span><em>field_generator</em>, <em>field_generator_kwargs</em>, <em>converter</em>, <em>legacy_custom_rules=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.rules.Loader" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">iris.fileformats.rules.</code><code class="descname">Loader</code><span class="sig-paren">(</span><em>field_generator</em>, <em>field_generator_kwargs</em>, <em>converter</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.rules.Loader" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#iris.fileformats.rules.Loader" title="iris.fileformats.rules.Loader"><code class="xref py py-class docutils literal"><span class="pre">iris.fileformats.rules.Loader</span></code></a></p>
 <p>Create a definition of a field-based Cube loader.</p>
 <p>Args:</p>
@@ -868,20 +367,6 @@ returns an iterable of field objects.</dd>
 <li><dl class="first docutils">
 <dt>converter</dt>
 <dd>A callable that converts a field object into a Cube.</dd>
-</dl>
-</li>
-</ul>
-<p>Kwargs:</p>
-<ul>
-<li><dl class="first docutils">
-<dt>legacy_custom_rules</dt>
-<dd><p class="first">An object with a callable <cite>verify</cite> attribute with two
-parameters: (cube, field). Legacy method for modifying
-Cubes during the load process. Default is None.</p>
-<div class="last deprecated">
-<p><span class="versionmodified">Deprecated since version 1.9.</span></p>
-</div>
-</dd>
 </dl>
 </li>
 </ul>
@@ -912,44 +397,6 @@ Cubes during the load process. Default is None.</p>
 <dt id="iris.fileformats.rules.Loader.field_generator_kwargs">
 <code class="descname">field_generator_kwargs</code><a class="headerlink" href="#iris.fileformats.rules.Loader.field_generator_kwargs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Alias for field number 1</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="iris.fileformats.rules.Loader.legacy_custom_rules">
-<code class="descname">legacy_custom_rules</code><a class="headerlink" href="#iris.fileformats.rules.Loader.legacy_custom_rules" title="Permalink to this definition">¶</a></dt>
-<dd><p>Alias for field number 3</p>
-</dd></dl>
-
-</dd></dl>
-
-</div></blockquote>
-<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
-<!--<hr class="docutils" />
---><p>A Rule with nothing returned by its actions.</p>
-<div class="deprecated">
-<p><span class="versionmodified">Deprecated since version 1.10.</span></p>
-</div>
-<blockquote>
-<div><dl class="class">
-<dt id="iris.fileformats.rules.ProcedureRule">
-<em class="property">class </em><code class="descclassname">iris.fileformats.rules.</code><code class="descname">ProcedureRule</code><span class="sig-paren">(</span><em>conditions</em>, <em>actions</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.rules.ProcedureRule" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#iris.fileformats.rules.Rule" title="iris.fileformats.rules.Rule"><code class="xref py py-class docutils literal"><span class="pre">iris.fileformats.rules.Rule</span></code></a></p>
-<p>Create instance methods from our conditions and actions.</p>
-<dl class="method">
-<dt id="iris.fileformats.rules.ProcedureRule.conditional_warning">
-<code class="descname">conditional_warning</code><span class="sig-paren">(</span><em>condition</em>, <em>warning</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.rules.ProcedureRule.conditional_warning" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="iris.fileformats.rules.ProcedureRule.evaluates_true">
-<code class="descname">evaluates_true</code><span class="sig-paren">(</span><em>cube</em>, <em>field</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.rules.ProcedureRule.evaluates_true" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns True if and only if all the conditions evaluate to True for the given field.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="iris.fileformats.rules.ProcedureRule.run_actions">
-<code class="descname">run_actions</code><span class="sig-paren">(</span><em>cube</em>, <em>field</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.rules.ProcedureRule.run_actions" title="Permalink to this definition">¶</a></dt>
-<dd><p>Adds to the given cube based on the return values of all the actions.</p>
 </dd></dl>
 
 </dd></dl>
@@ -1014,134 +461,6 @@ its attributes are themselves hashable.</p>
 </dd></dl>
 
 </div></blockquote>
-<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
-<!--<hr class="docutils" />
---><p>A collection of condition expressions and their associated action expressions.</p>
-<p>Example rule:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">IF</span>
-    <span class="n">f</span><span class="o">.</span><span class="n">lbuser</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span>
-    <span class="n">f</span><span class="o">.</span><span class="n">lbuser</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">==</span> <span class="mi">101</span>
-<span class="n">THEN</span>
-    <span class="n">CMAttribute</span><span class="p">(</span><span class="s1">&#39;standard_name&#39;</span><span class="p">,</span> <span class="s1">&#39;sea_water_potential_temperature&#39;</span><span class="p">)</span>
-    <span class="n">CMAttribute</span><span class="p">(</span><span class="s1">&#39;units&#39;</span><span class="p">,</span> <span class="s1">&#39;Celsius&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="deprecated">
-<p><span class="versionmodified">Deprecated since version 1.10.</span></p>
-</div>
-<blockquote>
-<div><dl class="class">
-<dt id="iris.fileformats.rules.Rule">
-<em class="property">class </em><code class="descclassname">iris.fileformats.rules.</code><code class="descname">Rule</code><span class="sig-paren">(</span><em>conditions</em>, <em>actions</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.rules.Rule" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
-<p>Create instance methods from our conditions and actions.</p>
-<dl class="method">
-<dt id="iris.fileformats.rules.Rule.evaluates_true">
-<code class="descname">evaluates_true</code><span class="sig-paren">(</span><em>cube</em>, <em>field</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.rules.Rule.evaluates_true" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns True if and only if all the conditions evaluate to True for the given field.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="iris.fileformats.rules.Rule.run_actions">
-<code class="descname">run_actions</code><span class="sig-paren">(</span><em>cube</em>, <em>field</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.rules.Rule.run_actions" title="Permalink to this definition">¶</a></dt>
-<dd><p>Adds to the given cube based on the return values of all the actions.</p>
-</dd></dl>
-
-</dd></dl>
-
-</div></blockquote>
-<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
-<!--<hr class="docutils" />
---><p>RuleResult(cube, matching_rules, factories)</p>
-<blockquote>
-<div><dl class="class">
-<dt id="iris.fileformats.rules.RuleResult">
-<em class="property">class </em><code class="descclassname">iris.fileformats.rules.</code><code class="descname">RuleResult</code><span class="sig-paren">(</span><em>_cls</em>, <em>cube</em>, <em>matching_rules</em>, <em>factories</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.rules.RuleResult" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">tuple</span></code></p>
-<p>Create new instance of RuleResult(cube, matching_rules, factories)</p>
-<dl class="method">
-<dt id="iris.fileformats.rules.RuleResult.count">
-<code class="descname">count</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span> &#x2192; integer -- return number of occurrences of value<a class="headerlink" href="#iris.fileformats.rules.RuleResult.count" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="iris.fileformats.rules.RuleResult.index">
-<code class="descname">index</code><span class="sig-paren">(</span><em>value</em><span class="optional">[</span>, <em>start</em><span class="optional">[</span>, <em>stop</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; integer -- return first index of value.<a class="headerlink" href="#iris.fileformats.rules.RuleResult.index" title="Permalink to this definition">¶</a></dt>
-<dd><p>Raises ValueError if the value is not present.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="iris.fileformats.rules.RuleResult.cube">
-<code class="descname">cube</code><a class="headerlink" href="#iris.fileformats.rules.RuleResult.cube" title="Permalink to this definition">¶</a></dt>
-<dd><p>Alias for field number 0</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="iris.fileformats.rules.RuleResult.factories">
-<code class="descname">factories</code><a class="headerlink" href="#iris.fileformats.rules.RuleResult.factories" title="Permalink to this definition">¶</a></dt>
-<dd><p>Alias for field number 2</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="iris.fileformats.rules.RuleResult.matching_rules">
-<code class="descname">matching_rules</code><a class="headerlink" href="#iris.fileformats.rules.RuleResult.matching_rules" title="Permalink to this definition">¶</a></dt>
-<dd><p>Alias for field number 1</p>
-</dd></dl>
-
-</dd></dl>
-
-</div></blockquote>
-<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
-<!--<hr class="docutils" />
---><p>A collection of <a class="reference internal" href="#iris.fileformats.rules.Rule" title="iris.fileformats.rules.Rule"><code class="xref py py-class docutils literal"><span class="pre">Rule</span></code></a> instances, with the ability to read rule
-definitions from files and run the rules against given fields.</p>
-<div class="deprecated">
-<p><span class="versionmodified">Deprecated since version 1.10.</span></p>
-</div>
-<blockquote>
-<div><dl class="class">
-<dt id="iris.fileformats.rules.RulesContainer">
-<em class="property">class </em><code class="descclassname">iris.fileformats.rules.</code><code class="descname">RulesContainer</code><span class="sig-paren">(</span><em>filepath=None</em>, <em>rule_type=&lt;class 'iris.fileformats.rules.FunctionRule'&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.rules.RulesContainer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
-<p>Create a new rule set, optionally adding rules from the specified file.</p>
-<p>The rule_type defaults to <a class="reference internal" href="#iris.fileformats.rules.FunctionRule" title="iris.fileformats.rules.FunctionRule"><code class="xref py py-class docutils literal"><span class="pre">FunctionRule</span></code></a>,
-e.g for CM loading actions that return objects, such as <em>AuxCoord(…)</em></p>
-<p>rule_type can also be set to <a class="reference internal" href="#iris.fileformats.rules.ProcedureRule" title="iris.fileformats.rules.ProcedureRule"><code class="xref py py-class docutils literal"><span class="pre">ProcedureRule</span></code></a>
-e.g for PP saving actions that do not return anything, such as <em>pp.lbuser[3] = 16203</em></p>
-<dl class="method">
-<dt id="iris.fileformats.rules.RulesContainer.import_rules">
-<code class="descname">import_rules</code><span class="sig-paren">(</span><em>filepath</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.rules.RulesContainer.import_rules" title="Permalink to this definition">¶</a></dt>
-<dd><p>Extend the rule collection with the rules defined in the specified file.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="iris.fileformats.rules.RulesContainer.verify">
-<code class="descname">verify</code><span class="sig-paren">(</span><em>cube</em>, <em>field</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.rules.RulesContainer.verify" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add to the given <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal"><span class="pre">iris.cube.Cube</span></code></a> by running this set of
-rules with the given field.</p>
-<p>Args:</p>
-<ul class="simple">
-<li><dl class="first docutils">
-<dt>cube:</dt>
-<dd>An instance of <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal"><span class="pre">iris.cube.Cube</span></code></a>.</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt>field:</dt>
-<dd>A field object relevant to the rule set.</dd>
-</dl>
-</li>
-</ul>
-<p>Returns: (cube, matching_rules)</p>
-<ul class="simple">
-<li>cube - the resultant cube</li>
-<li>matching_rules - a list of rules which matched</li>
-</ul>
-</dd></dl>
-
-</dd></dl>
-
-</div></blockquote>
 </div>
 
 
@@ -1163,7 +482,7 @@ rules with the given field.</p>
           <a href="um.html" title="iris.fileformats.um"
              >next</a> |</li>
         <li class="right" >
-          <a href="pp_rules.html" title="iris.fileformats.pp_rules"
+          <a href="pp_save_rules.html" title="iris.fileformats.pp_save_rules"
              >previous</a> |</li>
         <li><a href="../../../index.html">home</a>|&nbsp;</li>
         <li><a href="../../../examples/index.html">examples</a>|&nbsp;</li>

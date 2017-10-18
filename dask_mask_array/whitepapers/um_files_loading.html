@@ -191,7 +191,7 @@ dimension coordinates arise in this way – for example, ‘time’, ‘height�
 The complete details are implemented as follows:</p>
 <ul class="last simple">
 <li>The conversion of fields to raw cubes is performed by the function
-<a class="reference internal" href="../iris/iris/fileformats/pp_rules.html#iris.fileformats.pp_rules.convert" title="iris.fileformats.pp_rules.convert"><code class="xref py py-func docutils literal"><span class="pre">iris.fileformats.pp_rules.convert()</span></code></a>, which is called from
+<code class="xref py py-func docutils literal"><span class="pre">iris.fileformats.pp_rules.convert()</span></code>, which is called from
 <a class="reference internal" href="../iris/iris/fileformats/pp.html#iris.fileformats.pp.load_cubes" title="iris.fileformats.pp.load_cubes"><code class="xref py py-func docutils literal"><span class="pre">iris.fileformats.pp.load_cubes()</span></code></a> during loading.</li>
 <li>The corresponding save functionality for PP output is implemented by
 the <a class="reference internal" href="../iris/iris/fileformats/pp.html#iris.fileformats.pp.save" title="iris.fileformats.pp.save"><code class="xref py py-func docutils literal"><span class="pre">iris.fileformats.pp.save()</span></code></a> function.  The relevant
@@ -442,7 +442,7 @@ a calendar, so ‘months’ or ‘years’ are not valid.</li>
 <li>The units of calendar-based times (including ‘time’ and
 ‘forecast_reference_time’), are of the general form
 “&lt;time-unit&gt; since &lt;base-date&gt;”, interpreted according to the unit’s
-<a class="reference internal" href="../iris/iris/unit.html#iris.unit.Unit.calendar" title="iris.unit.Unit.calendar"><code class="xref py py-attr docutils literal"><span class="pre">calendar</span></code></a> property.  The base date for this is
+<code class="xref py py-attr docutils literal"><span class="pre">calendar</span></code> property.  The base date for this is
 always 1st Jan 1970 (times before this are represented as negative values).</li>
 </ul>
 <p>The units.calendar property of time coordinates is set from the lowest decimal

@@ -123,8 +123,12 @@ object. See <a class="reference internal" href="../cube.html#iris.cube.Cube.slic
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>plot_func (<a class="reference internal" href="../plot.html#module-iris.plot" title="iris.plot"><code class="xref py py-mod docutils literal"><span class="pre">plot</span></code></a> or <a class="reference internal" href="../quickplot.html#module-iris.quickplot" title="iris.quickplot"><code class="xref py py-mod docutils literal"><span class="pre">quickplot</span></code></a> plot):</dt>
-<dd>Plotting function used to animate.</dd>
+<dt>plot_func (<a class="reference internal" href="../plot.html#module-iris.plot" title="iris.plot"><code class="xref py py-mod docutils literal"><span class="pre">iris.plot</span></code></a> or <a class="reference internal" href="../quickplot.html#module-iris.quickplot" title="iris.quickplot"><code class="xref py py-mod docutils literal"><span class="pre">iris.quickplot</span></code></a> plotting function):</dt>
+<dd>Plotting function used to animate. Must accept the signature
+<code class="docutils literal"><span class="pre">plot_func(cube,</span> <span class="pre">vmin=vmin,</span> <span class="pre">vmax=vmax,</span> <span class="pre">coords=coords)</span></code>.
+<a class="reference internal" href="../plot.html#iris.plot.contourf" title="iris.plot.contourf"><code class="xref py py-func docutils literal"><span class="pre">contourf()</span></code></a>, <a class="reference internal" href="../plot.html#iris.plot.contour" title="iris.plot.contour"><code class="xref py py-func docutils literal"><span class="pre">contour()</span></code></a>,
+<a class="reference internal" href="../plot.html#iris.plot.pcolor" title="iris.plot.pcolor"><code class="xref py py-func docutils literal"><span class="pre">pcolor()</span></code></a> and <a class="reference internal" href="../plot.html#iris.plot.pcolormesh" title="iris.plot.pcolormesh"><code class="xref py py-func docutils literal"><span class="pre">pcolormesh()</span></code></a>
+all conform to this signature.</dd>
 </dl>
 </li>
 </ul>
