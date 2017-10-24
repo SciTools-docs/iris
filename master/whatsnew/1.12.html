@@ -118,7 +118,7 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Release:</th><td class="field-body">1.12</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Date:</th><td class="field-body">2017-01-10</td>
+<tr class="field-even field"><th class="field-name">Date:</th><td class="field-body">2017-01-30</td>
 </tr>
 </tbody>
 </table>
@@ -127,23 +127,26 @@
 <div class="section" id="iris-1-12-features">
 <h2>Iris 1.12 Features<a class="headerlink" href="#iris-1-12-features" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-showcase-feature-new-regridding-schemes admonition" id="showcase">
-<p class="first admonition-title">Showcase Feature - New regridding schemes …</p>
+<p class="first admonition-title">Showcase Feature: New regridding schemes</p>
 <p>A new regridding scheme, <a class="reference internal" href="../iris/iris/analysis.html#iris.analysis.UnstructuredNearest" title="iris.analysis.UnstructuredNearest"><code class="xref py py-class docutils literal"><span class="pre">iris.analysis.UnstructuredNearest</span></code></a>,
-performs nearest-neighbour regridding from “unstructured” onto “structured” grids.
-Here, “unstructured” means that the data has X and Y coordinate values
+performs nearest-neighbour regridding from “unstructured” onto “structured”
+grids. Here, “unstructured” means that the data has X and Y coordinate values
 defined at each horizontal location, instead of the independent X and Y
 dimensions that constitute a structured grid.
-For example, data sampled on a trajectory or a tripolar ocean grid would be unstructured.</p>
-<p>The essential purpose is the same as
-<a class="reference internal" href="../iris/iris/experimental/regrid.html#iris.experimental.regrid.ProjectedUnstructuredNearest" title="iris.experimental.regrid.ProjectedUnstructuredNearest"><code class="xref py py-class docutils literal"><span class="pre">iris.experimental.regrid.ProjectedUnstructuredNearest</span></code></a>.
-This scheme, by comparison, is generally more accurate, but slower.</p>
-<p class="last">In addition : added experimental ProjectedUnstructured regridders which use scipy.interpolate.griddata to regrid unstructured data (see <a class="reference internal" href="../iris/iris/experimental/regrid.html#iris.experimental.regrid.ProjectedUnstructuredLinear" title="iris.experimental.regrid.ProjectedUnstructuredLinear"><code class="xref py py-class docutils literal"><span class="pre">iris.experimental.regrid.ProjectedUnstructuredLinear</span></code></a> and <a class="reference internal" href="../iris/iris/experimental/regrid.html#iris.experimental.regrid.ProjectedUnstructuredNearest" title="iris.experimental.regrid.ProjectedUnstructuredNearest"><code class="xref py py-class docutils literal"><span class="pre">iris.experimental.regrid.ProjectedUnstructuredNearest</span></code></a>)</p>
+For example, data sampled on a trajectory or a tripolar ocean grid would be
+unstructured.</p>
+<p class="last">In addition, added experimental ProjectedUnstructured regridders which use
+scipy.interpolate.griddata to regrid unstructured data
+(see <a class="reference internal" href="../iris/iris/experimental/regrid.html#iris.experimental.regrid.ProjectedUnstructuredLinear" title="iris.experimental.regrid.ProjectedUnstructuredLinear"><code class="xref py py-class docutils literal"><span class="pre">iris.experimental.regrid.ProjectedUnstructuredLinear</span></code></a> and
+<a class="reference internal" href="../iris/iris/experimental/regrid.html#iris.experimental.regrid.ProjectedUnstructuredNearest" title="iris.experimental.regrid.ProjectedUnstructuredNearest"><code class="xref py py-class docutils literal"><span class="pre">iris.experimental.regrid.ProjectedUnstructuredNearest</span></code></a>). The
+essential purpose is the same as <a class="reference internal" href="../iris/iris/analysis.html#iris.analysis.UnstructuredNearest" title="iris.analysis.UnstructuredNearest"><code class="xref py py-class docutils literal"><span class="pre">iris.analysis.UnstructuredNearest</span></code></a>.
+This scheme, by comparison, is generally faster, but less accurate.</p>
 </div>
 <div class="admonition-showcase-feature-fast-um-file-loading admonition">
-<p class="first admonition-title">Showcase Feature - Fast UM file loading</p>
+<p class="first admonition-title">Showcase Feature: Fast UM file loading</p>
 <p>Support has been added for accelerated loading of UM files (PP and
 Fieldsfile), when these have a suitable regular “structured” form.</p>
-<p>A context manager is used to enable fast um loading in all the regular iris
+<p>A context manager is used to enable fast um loading in all the regular Iris
 load functions, such as <a class="reference internal" href="../iris/iris.html#iris.load" title="iris.load"><code class="xref py py-meth docutils literal"><span class="pre">iris.load()</span></code></a> and <a class="reference internal" href="../iris/iris.html#iris.load_cube" title="iris.load_cube"><code class="xref py py-meth docutils literal"><span class="pre">iris.load_cube()</span></code></a>,
 when loading data from UM file types.
 For example:</p>
@@ -207,8 +210,15 @@ match the field length recorded in the file.
 A warning message is printed, and all fields up to the offending one are
 loaded and returned.
 Previously, this simply resulted in an unrecoverable error.</li>
-<li>The transpose method of a Cube now results in a lazy transposed view of the original rather than realising the data then transposing it.</li>
-<li>The <a class="reference internal" href="../iris/iris/analysis/cartography.html#iris.analysis.cartography.area_weights" title="iris.analysis.cartography.area_weights"><code class="xref py py-func docutils literal"><span class="pre">iris.analysis.cartography.area_weights()</span></code></a> function is now more accurate for single precision input bounds.</li>
+<li>The transpose method of a Cube now results in a lazy transposed view of the
+original rather than realising the data then transposing it.</li>
+<li>The <a class="reference internal" href="../iris/iris/analysis/cartography.html#iris.analysis.cartography.area_weights" title="iris.analysis.cartography.area_weights"><code class="xref py py-func docutils literal"><span class="pre">iris.analysis.cartography.area_weights()</span></code></a> function is now more
+accurate for single precision input bounds.</li>
+<li>Iris is now able to read seconds in datetimes provided in NAME trajectory
+files.</li>
+<li>Optimisations to trajectory interpolations have resulted in a significant
+speed improvement.</li>
+<li>Many new and updated translations between CF spec and STASH codes.</li>
 </ul>
 </div>
 <div class="section" id="deprecations">
@@ -222,7 +232,8 @@ of the new fast-loading mechanism provided by
 <div class="section" id="documentation-changes">
 <h2>Documentation Changes<a class="headerlink" href="#documentation-changes" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Corrected documentation of <a class="reference internal" href="../iris/iris/analysis.html#iris.analysis.AreaWeighted" title="iris.analysis.AreaWeighted"><code class="xref py py-class docutils literal"><span class="pre">iris.analysis.AreaWeighted</span></code></a> scheme to make the usage scope clearer.</li>
+<li>Corrected documentation of <a class="reference internal" href="../iris/iris/analysis.html#iris.analysis.AreaWeighted" title="iris.analysis.AreaWeighted"><code class="xref py py-class docutils literal"><span class="pre">iris.analysis.AreaWeighted</span></code></a> scheme to make
+the usage scope clearer.</li>
 </ul>
 </div>
 </div>
