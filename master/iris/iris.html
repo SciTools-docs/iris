@@ -615,12 +615,12 @@ appropriate for general file access.</p>
 <blockquote>
 <div><dl class="class">
 <dt id="iris.Future">
-<em class="property">class </em><code class="descclassname">iris.</code><code class="descname">Future</code><span class="sig-paren">(</span><em>cell_datetime_objects=False</em>, <em>netcdf_promote=False</em>, <em>netcdf_no_unlimited=False</em>, <em>clip_latitudes=False</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.Future" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">iris.</code><code class="descname">Future</code><span class="sig-paren">(</span><em>cell_datetime_objects=True</em>, <em>netcdf_promote=False</em>, <em>netcdf_no_unlimited=False</em>, <em>clip_latitudes=False</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.Future" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">_thread._local</span></code></p>
 <p>A container for run-time options controls.</p>
 <p>To adjust the values simply update the relevant attribute from
 within your code. For example:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">iris</span><span class="o">.</span><span class="n">FUTURE</span><span class="o">.</span><span class="n">cell_datetime_objects</span> <span class="o">=</span> <span class="bp">True</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">iris</span><span class="o">.</span><span class="n">FUTURE</span><span class="o">.</span><span class="n">cell_datetime_objects</span> <span class="o">=</span> <span class="bp">False</span>
 </pre></div>
 </div>
 <p>If Iris code is executed with multiple threads, note the values of
@@ -658,22 +658,19 @@ the option values for the active thread.</p>
 <p>On entry to the <cite>with</cite> statement, all keyword arguments are
 applied to the Future object. On exit from the <cite>with</cite>
 statement, the previous state is restored.</p>
-<p>For example:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">iris</span><span class="o">.</span><span class="n">FUTURE</span><span class="o">.</span><span class="n">context</span><span class="p">():</span>
-    <span class="n">iris</span><span class="o">.</span><span class="n">FUTURE</span><span class="o">.</span><span class="n">cell_datetime_objects</span> <span class="o">=</span> <span class="bp">True</span>
-    <span class="c1"># ... code which expects time objects</span>
-</pre></div>
-</div>
-<p>Or more concisely:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">iris</span><span class="o">.</span><span class="n">FUTURE</span><span class="o">.</span><span class="n">context</span><span class="p">(</span><span class="n">cell_datetime_objects</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
-    <span class="c1"># ... code which expects time objects</span>
-</pre></div>
-</div>
+<dl class="docutils">
+<dt>For example::</dt>
+<dd><dl class="first last docutils">
+<dt>with iris.FUTURE.context(cell_datetime_objects=False):</dt>
+<dd># … code that expects numbers and not datetimes</dd>
+</dl>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="iris.Future.deprecated_options">
-<code class="descname">deprecated_options</code><em class="property"> = {}</em><a class="headerlink" href="#iris.Future.deprecated_options" title="Permalink to this definition">¶</a></dt>
+<code class="descname">deprecated_options</code><em class="property"> = {'cell_datetime_objects': 'warning'}</em><a class="headerlink" href="#iris.Future.deprecated_options" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
