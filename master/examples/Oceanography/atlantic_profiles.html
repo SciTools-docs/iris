@@ -136,10 +136,6 @@ depth values intuitively increase downward on the y-axis.</p>
 
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="c1"># Enable a future option, to ensure that the netcdf load works the same way</span>
-    <span class="c1"># as in future Iris versions.</span>
-    <span class="n">iris</span><span class="o">.</span><span class="n">FUTURE</span><span class="o">.</span><span class="n">netcdf_promote</span> <span class="o">=</span> <span class="bp">True</span>
-
     <span class="c1"># Load the gridded temperature and salinity data.</span>
     <span class="n">fname</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;atlantic_profiles.nc&#39;</span><span class="p">)</span>
     <span class="n">cubes</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>

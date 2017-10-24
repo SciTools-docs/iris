@@ -126,10 +126,6 @@ temperature.</p>
 
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="c1"># Enable a future option, to ensure that the netcdf load works the same way</span>
-    <span class="c1"># as in future Iris versions.</span>
-    <span class="n">iris</span><span class="o">.</span><span class="n">FUTURE</span><span class="o">.</span><span class="n">netcdf_promote</span> <span class="o">=</span> <span class="bp">True</span>
-
     <span class="c1"># load a single cube of surface temperature between +/- 5 latitude</span>
     <span class="n">fname</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;ostia_monthly.nc&#39;</span><span class="p">)</span>
     <span class="n">cube</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span>

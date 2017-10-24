@@ -125,9 +125,7 @@ coordinate, with an inset plot of the data region.</p>
 
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="c1"># Load the data</span>
-    <span class="k">with</span> <span class="n">iris</span><span class="o">.</span><span class="n">FUTURE</span><span class="o">.</span><span class="n">context</span><span class="p">(</span><span class="n">netcdf_promote</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
-        <span class="n">cube1</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;ostia_monthly.nc&#39;</span><span class="p">))</span>
+    <span class="n">cube1</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;ostia_monthly.nc&#39;</span><span class="p">))</span>
     <span class="c1"># Slice into cube to retrieve data for the inset map showing the</span>
     <span class="c1"># data region</span>
     <span class="n">region</span> <span class="o">=</span> <span class="n">cube1</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span>
