@@ -200,6 +200,10 @@ a <code class="xref py py-data docutils literal"><span class="pre">float</span><
 <h2>Incompatible Changes<a class="headerlink" href="#incompatible-changes" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>The <a class="reference internal" href="../iris/iris/cube.html#iris.cube.Cube.lazy_data" title="iris.cube.Cube.lazy_data"><code class="xref py py-meth docutils literal"><span class="pre">lazy_data()</span></code></a> method no longer accepts any arguments.</li>
+<li>Using <a class="reference internal" href="../iris/iris/cube.html#iris.cube.Cube.convert_units" title="iris.cube.Cube.convert_units"><code class="xref py py-meth docutils literal"><span class="pre">convert_units()</span></code></a> on a cube with unknown units will
+result in a <code class="xref py py-data docutils literal"><span class="pre">UnitConversionError</span></code> being raised.</li>
+<li>Using <a class="reference internal" href="../iris/iris/coords.html#iris.coords.Coord.convert_units" title="iris.coords.Coord.convert_units"><code class="xref py py-meth docutils literal"><span class="pre">convert_units()</span></code></a> on a coordinate with unknown
+units will result in a <code class="xref py py-data docutils literal"><span class="pre">UnitConversionError</span></code> being raised.</li>
 </ul>
 <div class="admonition-significant-changes-in-calculated-results admonition">
 <p class="first admonition-title">Significant Changes in Calculated Results</p>
