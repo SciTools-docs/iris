@@ -625,12 +625,17 @@ within your code. For example:</p>
 </div>
 <p>If Iris code is executed with multiple threads, note the values of
 these options are thread-specific.</p>
-<p>The option <cite>cell_datetime_objects</cite> controls whether the
-<a class="reference internal" href="iris/coords.html#iris.coords.Coord.cell" title="iris.coords.Coord.cell"><code class="xref py py-meth docutils literal"><span class="pre">iris.coords.Coord.cell()</span></code></a> method returns time coordinate
-values as simple numbers or as time objects with attributes for
-year, month, day, etc. In particular, this allows one to express
-certain time constraints using a simpler, more transparent
-syntax, such as:</p>
+<div class="deprecated">
+<p><span class="versionmodified">Deprecated since version 2.0.0: </span>The option <cite>cell_datetime_objects</cite> is deprecated and will be
+removed in a future release. <cite>cell_datetime_objects</cite> is set
+to True by default and should not be altered.</p>
+<p>The option <cite>cell_datetime_objects</cite> controlled whether the
+<a class="reference internal" href="iris/coords.html#iris.coords.Coord.cell" title="iris.coords.Coord.cell"><code class="xref py py-meth docutils literal"><span class="pre">iris.coords.Coord.cell()</span></code></a> method would return time
+coordinate values as simple numbers or as time objects with
+attributes for year, month, day, etc.</p>
+<p>Cells are now represented as time objects by default, allowing
+you to express time constraints using a simpler syntax. For
+example:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># To select all data defined at midday.</span>
 <span class="n">Constraint</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="k">lambda</span> <span class="n">cell</span><span class="p">:</span> <span class="n">cell</span><span class="o">.</span><span class="n">point</span><span class="o">.</span><span class="n">hour</span> <span class="o">==</span> <span class="mi">12</span><span class="p">)</span>
 
@@ -640,6 +645,7 @@ syntax, such as:</p>
 </pre></div>
 </div>
 <p>For more details, see <a class="reference internal" href="../userguide/loading_iris_cubes.html#using-time-constraints"><span class="std std-ref">Constraining on Time</span></a>.</p>
+</div>
 <div class="deprecated">
 <p><span class="versionmodified">Deprecated since version 2.0.0: </span>The option <cite>netcdf_promote</cite> is deprecated and will be removed in a
 future release and the deprecated code paths this option used to
