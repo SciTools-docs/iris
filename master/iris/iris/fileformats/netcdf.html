@@ -226,12 +226,11 @@ than global attributes.</p>
 <li><p class="first">unlimited_dimensions (iterable of strings and/or
 <a class="reference internal" href="../coords.html#iris.coords.Coord" title="iris.coords.Coord"><code class="xref py py-class docutils literal"><span class="pre">iris.coords.Coord</span></code></a> objects):</p>
 <blockquote>
-<div><p>Explicit list of coordinate names (or coordinate objects) corresponding
+<div><p>List of coordinate names (or coordinate objects) corresponding
 to coordinate dimensions of <cite>cube</cite> to save with the NetCDF dimension
-variable length ‘UNLIMITED’. By default, the outermost (first)
-dimension for each cube is used. Only the ‘NETCDF4’ format supports
-multiple ‘UNLIMITED’ dimensions. To save no unlimited dimensions, use
-<cite>unlimited_dimensions=[]</cite> (an empty list).</p>
+variable length ‘UNLIMITED’. By default, no unlimited dimensions are
+saved. Only the ‘NETCDF4’ format supports multiple ‘UNLIMITED’
+dimensions.</p>
 </div></blockquote>
 </li>
 <li><dl class="first docutils">
@@ -356,12 +355,6 @@ files that do not use HDF5.</p>
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
 <p class="last">NetCDF Context manager (<a class="reference internal" href="#iris.fileformats.netcdf.Saver" title="iris.fileformats.netcdf.Saver"><code class="xref py py-class docutils literal"><span class="pre">Saver</span></code></a>).</p>
-</div>
-<div class="deprecated">
-<p><span class="versionmodified">Deprecated since version 1.8.0: </span>NetCDF default saving behaviour currently assigns the outermost
-dimensions to unlimited. This behaviour is to be deprecated, in
-favour of no automatic assignment. To switch to the new behaviour,
-set <cite>iris.FUTURE.netcdf_no_unlimited</cite> to True.</p>
 </div>
 </dd></dl>
 
@@ -570,13 +563,11 @@ than global attributes.</p>
 <li><p class="first">unlimited_dimensions (iterable of strings and/or
 <a class="reference internal" href="../coords.html#iris.coords.Coord" title="iris.coords.Coord"><code class="xref py py-class docutils literal"><span class="pre">iris.coords.Coord</span></code></a> objects):</p>
 <blockquote>
-<div><p>Explicit list of coordinate names (or coordinate objects)
+<div><p>List of coordinate names (or coordinate objects)
 corresponding to coordinate dimensions of <cite>cube</cite> to save with the
-NetCDF dimension variable length ‘UNLIMITED’. By default, the
-outermost (first) dimension for each cube is used. Only the
-‘NETCDF4’ format supports multiple ‘UNLIMITED’ dimensions. To save
-no unlimited dimensions, use <cite>unlimited_dimensions=[]</cite> (an empty
-list).</p>
+NetCDF dimension variable length ‘UNLIMITED’. By default, no
+unlimited dimensions are saved. Only the ‘NETCDF4’ format
+supports multiple ‘UNLIMITED’ dimensions.</p>
 </div></blockquote>
 </li>
 <li><dl class="first docutils">
@@ -693,12 +684,6 @@ should be in the domain of the packed data.</p>
 <p class="last">The <cite>zlib</cite>, <cite>complevel</cite>, <cite>shuffle</cite>, <cite>fletcher32</cite>, <cite>contiguous</cite>,
 <cite>chunksizes</cite> and <cite>endian</cite> keywords are silently ignored for netCDF
 3 files that do not use HDF5.</p>
-</div>
-<div class="deprecated">
-<p><span class="versionmodified">Deprecated since version 1.8.0: </span>NetCDF default saving behaviour currently assigns the outermost
-dimension as unlimited. This behaviour is to be deprecated, in
-favour of no automatic assignment. To switch to the new behaviour,
-set <cite>iris.FUTURE.netcdf_no_unlimited</cite> to True.</p>
 </div>
 </dd></dl>
 

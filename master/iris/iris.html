@@ -615,7 +615,7 @@ appropriate for general file access.</p>
 <blockquote>
 <div><dl class="class">
 <dt id="iris.Future">
-<em class="property">class </em><code class="descclassname">iris.</code><code class="descname">Future</code><span class="sig-paren">(</span><em>cell_datetime_objects=True</em>, <em>netcdf_promote=True</em>, <em>netcdf_no_unlimited=False</em>, <em>clip_latitudes=True</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.Future" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">iris.</code><code class="descname">Future</code><span class="sig-paren">(</span><em>cell_datetime_objects=True</em>, <em>netcdf_promote=True</em>, <em>netcdf_no_unlimited=True</em>, <em>clip_latitudes=True</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.Future" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">_thread._local</span></code></p>
 <p>A container for run-time options controls.</p>
 <p>To adjust the values simply update the relevant attribute from
@@ -654,10 +654,14 @@ toggle have been removed.</p>
 exposed variables that defined reference surfaces for
 dimensionless vertical coordinates as independent Cubes.</p>
 </div>
-<p>The option <cite>netcdf_no_unlimited</cite>, when True, changes the
-behaviour of the netCDF saver, such that no dimensions are set to
-unlimited.  The current default is that the leading dimension is
-unlimited unless otherwise specified.</p>
+<div class="deprecated">
+<p><span class="versionmodified">Deprecated since version 2.0.0: </span>The option <cite>netcdf_no_unlimited</cite> is deprecated and will be removed
+in a future release. The deprecated code paths this option used to
+toggle have been removed.</p>
+<p>The option <cite>netcdf_no_unlimited</cite> changed the behaviour of the
+netCDF saver regarding unlimited dimensions. The netCDF saver now
+sets no dimensions to unlimited.</p>
+</div>
 <div class="deprecated">
 <p><span class="versionmodified">Deprecated since version 2.0.0: </span>The option <cite>clip_latitudes</cite> is deprecated and will be removed in a
 future release. <cite>clip_latitudes</cite> is set to True by default and
@@ -686,7 +690,7 @@ statement, the previous state is restored.</p>
 
 <dl class="attribute">
 <dt id="iris.Future.deprecated_options">
-<code class="descname">deprecated_options</code><em class="property"> = {'cell_datetime_objects': 'warning', 'netcdf_promote': 'error', 'clip_latitudes': 'warning'}</em><a class="headerlink" href="#iris.Future.deprecated_options" title="Permalink to this definition">¶</a></dt>
+<code class="descname">deprecated_options</code><em class="property"> = {'cell_datetime_objects': 'warning', 'netcdf_no_unlimited': 'error', 'netcdf_promote': 'error', 'clip_latitudes': 'warning'}</em><a class="headerlink" href="#iris.Future.deprecated_options" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
