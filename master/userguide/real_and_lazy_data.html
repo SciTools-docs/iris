@@ -309,41 +309,10 @@ coordinates’ lazy points and bounds:</p>
 </div>
 <div class="section" id="dask-processing-options">
 <h2>6.5. Dask processing options<a class="headerlink" href="#dask-processing-options" title="Permalink to this headline">¶</a></h2>
-<p>As stated earlier in this discussion, Iris uses dask to provide
-lazy data arrays for both Iris cubes and coordinates. Iris also uses dask
-functionality for processing deferred operations on lazy arrays.</p>
+<p>Iris uses dask to provide lazy data arrays for both Iris cubes and coordinates,
+and for computing deferred operations on lazy arrays.</p>
 <p>Dask provides processing options to control how deferred operations on lazy arrays
-are computed. This is provided via the <code class="docutils literal"><span class="pre">dask.set_options</span></code> interface.
-We can make use of this functionality in Iris. This means we can
-control how dask arrays in Iris are processed, for example giving us power to
-run Iris processing in parallel.</p>
-<p>Iris by default applies a single dask processing option. This specifies that
-all dask processing in Iris should be run in serial (that is, without any
-parallel processing enabled).</p>
-<p>The dask processing option applied by Iris can be overridden by manually setting
-dask processing options for either or both of:</p>
-<blockquote>
-<div><ul class="simple">
-<li>the number of parallel workers to use,</li>
-<li>the scheduler to use.</li>
-</ul>
-</div></blockquote>
-<p>This must be done <strong>before</strong> importing Iris. For example, to specify that dask
-processing within Iris should use four workers in a thread pool:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">multiprocessing.pool</span> <span class="kn">import</span> <span class="n">ThreadPool</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">dask</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">dask</span><span class="o">.</span><span class="n">set_options</span><span class="p">(</span><span class="n">get</span><span class="o">=</span><span class="n">dask</span><span class="o">.</span><span class="n">threaded</span><span class="o">.</span><span class="n">get</span><span class="p">,</span> <span class="n">pool</span><span class="o">=</span><span class="n">ThreadPool</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
-
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">iris</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Iris processing here...</span>
-</pre></div>
-</div>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">These dask processing options will last for the lifetime of the Python session
-and must be re-applied in other or subsequent sessions.</p>
-</div>
-<p>Other dask processing options are also available. See the
+are computed. This is provided via the <code class="docutils literal"><span class="pre">dask.set_options</span></code> interface. See the
 <a class="reference external" href="http://dask.pydata.org/en/latest/scheduler-overview.html">dask documentation</a>
 for more information on setting dask processing options.</p>
 </div>
