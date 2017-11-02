@@ -171,7 +171,7 @@ all existing toggles in <a class="reference internal" href="../iris/iris.html#ir
 <div><ul>
 <li><p class="first"><code class="xref py py-attr docutils literal"><span class="pre">iris.Future.cell_datetime_objects</span></code></p>
 <ul>
-<li><p class="first">Use of this FUTURE toggle is now deprecated</p>
+<li><p class="first">Use of this FUTURE toggle is now deprecated.</p>
 </li>
 <li><p class="first"><a class="reference internal" href="../iris/iris/coords.html#iris.coords.Cell" title="iris.coords.Cell"><code class="xref py py-class docutils literal"><span class="pre">iris.coords.Cell</span></code></a> objects in time coordinates now contain datetime objects by default and not numbers.
 For example:</p>
@@ -188,21 +188,33 @@ See userguide section 2.2.1 for more details on producing time constraints.</p>
 </li>
 <li><p class="first"><code class="xref py py-attr docutils literal"><span class="pre">iris.Future.netcdf_promote</span></code></p>
 <ul class="simple">
-<li>Use of this FUTURE toggle is now deprecated Removed deprecated behaviour</li>
-<li>that does not automatically promote NetCDF variables to cubes. This change</li>
-<li>means that NetCDF variables that define reference surfaces for</li>
-<li>dimensionless vertical coordinates will always be promoted and loaded as</li>
-<li>independent cubes.</li>
+<li>Use of this FUTURE toggle is now deprecated.</li>
+<li>Removed deprecated behaviour that does not automatically promote NetCDF variables to cubes.
+This change means that NetCDF variables that define reference surfaces for
+dimensionless vertical coordinates will always be promoted and loaded as
+independent cubes.</li>
 </ul>
 </li>
 <li><p class="first"><code class="xref py py-attr docutils literal"><span class="pre">iris.Future.netcdf_no_unlimited</span></code></p>
-<ul class="simple">
-<li>Use of this FUTURE toggle is now deprecated</li>
+<ul>
+<li><p class="first">Use of this FUTURE toggle is now deprecated.</p>
+</li>
+<li><p class="first">Removed deprecated behaviour that automatically set the length of the outer
+netCDF variable to ‘UNLIMITED’ on save. This change means that no cube
+dimension coordinates will be automatically saved as netCDF variables with
+‘UNLIMITED’ length.</p>
+</li>
+<li><p class="first">You can manually specify cube dimension coordinates to save with ‘UNLIMITED’
+length. For example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">iris</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">my_cube</span><span class="p">,</span> <span class="s1">&#39;my_result_file.nc&#39;</span><span class="p">,</span> <span class="n">unlimited_dimensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;latitude&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</li>
 </ul>
 </li>
 <li><p class="first"><code class="xref py py-attr docutils literal"><span class="pre">iris.Future.clip_latitudes</span></code></p>
 <ul class="simple">
-<li>Use of this FUTURE toggle is now deprecated</li>
+<li>Use of this FUTURE toggle is now deprecated.</li>
 <li>The <a class="reference internal" href="../iris/iris/coords.html#iris.coords.Coord.guess_bounds" title="iris.coords.Coord.guess_bounds"><code class="xref py py-meth docutils literal"><span class="pre">iris.coords.Coord.guess_bounds()</span></code></a> now limits the guessed bounds
 to [-90, 90] for latitudes by default. The ability to turn this behaviour
 off is now deprecated.</li>
@@ -255,6 +267,26 @@ Intra-cube data sharing is a oft-requested feature that we will be targeting
 in a future Iris release.</li>
 <li>Using <a class="reference internal" href="../iris/iris/cube.html#iris.cube.Cube.convert_units" title="iris.cube.Cube.convert_units"><code class="xref py py-meth docutils literal"><span class="pre">convert_units()</span></code></a> on a cube with unknown units will
 now result in a <code class="xref py py-data docutils literal"><span class="pre">UnitConversionError</span></code> being raised.</li>
+<li><code class="docutils literal"><span class="pre">iris.fileformats.pp_rules</span></code> has been renamed to
+<a class="reference internal" href="../iris/iris/fileformats/pp_load_rules.html#module-iris.fileformats.pp_load_rules" title="iris.fileformats.pp_load_rules"><code class="xref py py-mod docutils literal"><span class="pre">iris.fileformats.pp_load_rules</span></code></a> for consistency with the new
+<a class="reference internal" href="../iris/iris/fileformats/pp_save_rules.html#module-iris.fileformats.pp_save_rules" title="iris.fileformats.pp_save_rules"><code class="xref py py-mod docutils literal"><span class="pre">iris.fileformats.pp_save_rules</span></code></a>.</li>
+<li>Fill values are no longer taken from the cube’s <cite>data</cite> attribute when it is
+a masked array.</li>
+<li>When saving a cube or list of cubes in NetCDF format, a fill value or list of
+fill values can be specified via a new <cite>fill_value</cite> argument. If a list is
+supplied, each fill value will be applied to each cube in turn. If a
+<cite>fill_value</cite> argument is not specified, the default fill value for the file
+format and the cube’s data type will be used.</li>
+<li>When saving to PP, the “standard” BMDI of -1e30 is now always applied in
+<code class="docutils literal"><span class="pre">PPField</span></code> generation. To save PP data with an alternative BMDI, use
+<a class="reference internal" href="../iris/iris/fileformats/pp.html#iris.fileformats.pp.save_pairs_from_cube" title="iris.fileformats.pp.save_pairs_from_cube"><code class="xref py py-func docutils literal"><span class="pre">iris.fileformats.pp.save_pairs_from_cube()</span></code></a> to generate <code class="docutils literal"><span class="pre">PPFields</span></code>,
+and modify these before saving them to file.</li>
+<li>A ‘fill_value’ key can no longer be specified as part of the <cite>packing</cite>
+argument to <cite>iris.save</cite> when saving in netCDF format. Instead, a fill value or
+list of fill values should be specified as a separate <cite>fill_value</cite> argument if
+required.</li>
+<li>If the <cite>packing</cite> argument to <cite>iris.save</cite> is a dictionary, an error is raised
+if it contains any keys other than ‘dtype’, ‘scale_factor’ and ‘add_offset’.</li>
 </ul>
 <div class="section" id="deprecation-removals">
 <h3>Deprecation removals<a class="headerlink" href="#deprecation-removals" title="Permalink to this headline">¶</a></h3>
@@ -344,25 +376,6 @@ Please use facilities in <a class="reference internal" href="../iris/iris/filefo
 </li>
 <li><p class="first">In addition the deprecated keyword argument <code class="docutils literal"><span class="pre">legacy_custom_rules</span></code> has been
 removed from the <a class="reference internal" href="../iris/iris/fileformats/rules.html#iris.fileformats.rules.Loader" title="iris.fileformats.rules.Loader"><code class="xref py py-class docutils literal"><span class="pre">iris.fileformats.rules.Loader</span></code></a> constructor.</p>
-</li>
-<li><p class="first"><code class="docutils literal"><span class="pre">iris.fileformats.pp_rules</span></code> has been renamed to
-<a class="reference internal" href="../iris/iris/fileformats/pp_load_rules.html#module-iris.fileformats.pp_load_rules" title="iris.fileformats.pp_load_rules"><code class="xref py py-mod docutils literal"><span class="pre">iris.fileformats.pp_load_rules</span></code></a> for consistency with the new
-<a class="reference internal" href="../iris/iris/fileformats/pp_save_rules.html#module-iris.fileformats.pp_save_rules" title="iris.fileformats.pp_save_rules"><code class="xref py py-mod docutils literal"><span class="pre">iris.fileformats.pp_save_rules</span></code></a>.</p>
-</li>
-<li><p class="first">When saving a cube or list of cubes in NetCDF format, a fill value or list of
-fill values can be specified via a new <cite>fill_value</cite> argument. If a list is
-supplied, each fill value will be applied to each cube in turn. If a
-<cite>fill_value</cite> argument is not specified, the default fill value for the file
-format and the cube’s data type will be used. Fill values are no longer taken
-from the cube’s <cite>data</cite> attribute when it is a masked array.</p>
-</li>
-<li><p class="first">A ‘fill_value’ key can no longer be specified as part of the <cite>packing</cite>
-argument to <cite>iris.save</cite> when saving in netCDF format. Instead, a fill value or
-list of fill values should be specified as a separate <cite>fill_value</cite> argument if
-required.</p>
-</li>
-<li><p class="first">If the <cite>packing</cite> argument to <cite>iris.save</cite> is a dictionary, an error is raised
-if it contains any keys other than ‘dtype’, ‘scale_factor’ and ‘add_offset’.</p>
 </li>
 </ul>
 </div>
