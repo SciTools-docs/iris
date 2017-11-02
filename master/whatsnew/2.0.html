@@ -243,6 +243,10 @@ relative paths at load, change working directory, and still expect to be able
 to load any un-loaded/lazy data. (#2325)</li>
 <li>The order in which files are passed to iris.load functions is now the order in
 which they are processed. (#2325)</li>
+<li>Loading from netCDF files with <a class="reference internal" href="../iris/iris.html#iris.load" title="iris.load"><code class="xref py py-func docutils literal"><span class="pre">iris.load()</span></code></a> will load a cube for each scalar variable,
+a variable that does not reference a netCDF dimension, unless that scalar variable is identified as
+a CF scalar coordinate, referenced from another data variable via the ‘coordinates’ attribute.
+Previously such data variables were ignored during load.</li>
 </ul>
 </div>
 <div class="section" id="incompatible-changes">
