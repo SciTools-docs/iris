@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>1. Iris handling of PP and Fieldsfiles &#8212; Iris 2.0a0 documentation</title>
+    <title>Iris handling of PP and Fieldsfiles &#8212; Iris 2.0a0 documentation</title>
     <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -24,7 +24,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
-    <link rel="next" title="Iris copyright, licensing and contributors" href="../copyright.html" />
+    <link rel="next" title="Missing Data Handling in Iris" href="missing_data_handling.html" />
     <link rel="prev" title="Iris technical ‘Whitepapers’" href="index.html" />
  
     <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
@@ -53,7 +53,7 @@
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="../copyright.html" title="Iris copyright, licensing and contributors"
+          <a href="missing_data_handling.html" title="Missing Data Handling in Iris"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="index.html" title="Iris technical ‘Whitepapers’"
@@ -71,16 +71,16 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="../contents.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">1. Iris handling of PP and Fieldsfiles</a><ul>
-<li><a class="reference internal" href="#overview-of-loading-process">1.1. Overview of loading process</a></li>
-<li><a class="reference internal" href="#horizontal-grid">1.2. Horizontal Grid</a></li>
-<li><a class="reference internal" href="#phenomenon-identification">1.3. Phenomenon identification</a></li>
-<li><a class="reference internal" href="#vertical-coordinates">1.4. Vertical coordinates</a></li>
-<li><a class="reference internal" href="#time-information">1.5. Time information</a></li>
-<li><a class="reference internal" href="#statistical-measures">1.6. Statistical measures</a></li>
-<li><a class="reference internal" href="#other-metadata">1.7. Other metadata</a><ul>
-<li><a class="reference internal" href="#lbrsvd4">1.7.1. LBRSVD4</a></li>
-<li><a class="reference internal" href="#lbuser5">1.7.2. LBUSER5</a></li>
+<li><a class="reference internal" href="#">Iris handling of PP and Fieldsfiles</a><ul>
+<li><a class="reference internal" href="#overview-of-loading-process">Overview of loading process</a></li>
+<li><a class="reference internal" href="#horizontal-grid">Horizontal Grid</a></li>
+<li><a class="reference internal" href="#phenomenon-identification">Phenomenon identification</a></li>
+<li><a class="reference internal" href="#vertical-coordinates">Vertical coordinates</a></li>
+<li><a class="reference internal" href="#time-information">Time information</a></li>
+<li><a class="reference internal" href="#statistical-measures">Statistical measures</a></li>
+<li><a class="reference internal" href="#other-metadata">Other metadata</a><ul>
+<li><a class="reference internal" href="#lbrsvd4">LBRSVD4</a></li>
+<li><a class="reference internal" href="#lbuser5">LBUSER5</a></li>
 </ul>
 </li>
 </ul>
@@ -91,8 +91,8 @@
   <p class="topless"><a href="index.html"
                         title="previous chapter">Iris technical ‘Whitepapers’</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="../copyright.html"
-                        title="next chapter">Iris copyright, licensing and contributors</a></p>
+  <p class="topless"><a href="missing_data_handling.html"
+                        title="next chapter">Missing Data Handling in Iris</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -119,7 +119,7 @@
           <div class="body" role="main">
             
   <span class="target" id="um-files-loading"></span><div class="section" id="iris-handling-of-pp-and-fieldsfiles">
-<h1>1. Iris handling of PP and Fieldsfiles<a class="headerlink" href="#iris-handling-of-pp-and-fieldsfiles" title="Permalink to this headline">¶</a></h1>
+<h1>Iris handling of PP and Fieldsfiles<a class="headerlink" href="#iris-handling-of-pp-and-fieldsfiles" title="Permalink to this headline">¶</a></h1>
 <p>This document provides a basic account of how PP and Fieldsfiles data is
 represented within Iris.
 It describes how Iris represents data from the Met Office Unified Model (UM),
@@ -140,7 +140,7 @@ easier to discuss in terms of Iris elements.</li>
 <a class="reference internal" href="../userguide/iris_cubes.html#iris-data-structures"><span class="std std-ref">Iris data structures</span></a>.</p>
 <p>For details of CF conventions, see <a class="reference external" href="http://cfconventions.org/">http://cfconventions.org/</a>.</p>
 <div class="section" id="overview-of-loading-process">
-<h2>1.1. Overview of loading process<a class="headerlink" href="#overview-of-loading-process" title="Permalink to this headline">¶</a></h2>
+<h2>Overview of loading process<a class="headerlink" href="#overview-of-loading-process" title="Permalink to this headline">¶</a></h2>
 <p>The basics of Iris loading are explained at <a class="reference internal" href="../userguide/loading_iris_cubes.html#loading-iris-cubes"><span class="std std-ref">Loading Iris cubes</span></a>.
 Loading as it specifically applies to PP and Fieldsfile data can be summarised
 as follows:</p>
@@ -204,7 +204,7 @@ the <a class="reference internal" href="../iris/iris/fileformats/pp.html#iris.fi
 metadata items.</p>
 </div>
 <div class="section" id="horizontal-grid">
-<h2>1.2. Horizontal Grid<a class="headerlink" href="#horizontal-grid" title="Permalink to this headline">¶</a></h2>
+<h2>Horizontal Grid<a class="headerlink" href="#horizontal-grid" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt><strong>UM Field elements</strong></dt>
 <dd>LBCODE, BPLAT, BPLON, BZX, BZY, BDX, BDY, X, Y,
@@ -272,7 +272,7 @@ sections are written only if the actual values are unevenly spaced.</p>
 </div>
 </div>
 <div class="section" id="phenomenon-identification">
-<h2>1.3. Phenomenon identification<a class="headerlink" href="#phenomenon-identification" title="Permalink to this headline">¶</a></h2>
+<h2>Phenomenon identification<a class="headerlink" href="#phenomenon-identification" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt><strong>UM Field elements</strong></dt>
 <dd>LBFC, LBUSER4 (aka “stashcode”), LBUSER7 (aka “model code”)</dd>
@@ -325,7 +325,7 @@ LBUSER4 and LBUSER7 elements.</p>
 </div>
 </div>
 <div class="section" id="vertical-coordinates">
-<h2>1.4. Vertical coordinates<a class="headerlink" href="#vertical-coordinates" title="Permalink to this headline">¶</a></h2>
+<h2>Vertical coordinates<a class="headerlink" href="#vertical-coordinates" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt><strong>UM Field elements</strong></dt>
 <dd>LBVC, LBLEV, BRSVD1 (aka “bulev”), BRSVD2 (aka “bhulev”), BLEV, BRLEV,
@@ -418,7 +418,7 @@ it produces basic coordinates ‘model_level_number’, ‘sigma’ and
 </div>
 </div>
 <div class="section" id="time-information">
-<span id="um-time-metadata"></span><h2>1.5. Time information<a class="headerlink" href="#time-information" title="Permalink to this headline">¶</a></h2>
+<span id="um-time-metadata"></span><h2>Time information<a class="headerlink" href="#time-information" title="Permalink to this headline">¶</a></h2>
 <p><strong>UM Field elements</strong></p>
 <ul class="simple">
 <li>“T1” (i.e. LBYR, LBMON, LBDAT, LBHR, LBMIN, LBDAY/LBSEC),</li>
@@ -483,7 +483,7 @@ forecasts, so ‘time’ is a dimension, ‘forecast_period’ varies with time 
 ‘forecast_reference_time’ is a constant.</div></blockquote>
 </div>
 <div class="section" id="statistical-measures">
-<h2>1.6. Statistical measures<a class="headerlink" href="#statistical-measures" title="Permalink to this headline">¶</a></h2>
+<h2>Statistical measures<a class="headerlink" href="#statistical-measures" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt><strong>UM Field elements</strong></dt>
 <dd>LBPROC, LBTIM</dd>
@@ -538,14 +538,14 @@ this many hours.</p>
 </dl>
 </div>
 <div class="section" id="other-metadata">
-<h2>1.7. Other metadata<a class="headerlink" href="#other-metadata" title="Permalink to this headline">¶</a></h2>
+<h2>Other metadata<a class="headerlink" href="#other-metadata" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="lbrsvd4">
-<h3>1.7.1. LBRSVD4<a class="headerlink" href="#lbrsvd4" title="Permalink to this headline">¶</a></h3>
+<h3>LBRSVD4<a class="headerlink" href="#lbrsvd4" title="Permalink to this headline">¶</a></h3>
 <p>If non-zero, this is interpreted as an ensemble number.  This produces a cube
 scalar coordinate named ‘realization’ (as defined in the CF conventions).</p>
 </div>
 <div class="section" id="lbuser5">
-<h3>1.7.2. LBUSER5<a class="headerlink" href="#lbuser5" title="Permalink to this headline">¶</a></h3>
+<h3>LBUSER5<a class="headerlink" href="#lbuser5" title="Permalink to this headline">¶</a></h3>
 <p>If non-zero, this is interpreted as a ‘pseudo_level’ number.  This produces a
 cube scalar coordinate named ‘pseudo_level’.  In the UM documentation LBUSER5 is also sometimes referred to as LBPLEV.</p>
 </div>
@@ -568,7 +568,7 @@ cube scalar coordinate named ‘pseudo_level’.  In the UM documentation LBUSER
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="../copyright.html" title="Iris copyright, licensing and contributors"
+          <a href="missing_data_handling.html" title="Missing Data Handling in Iris"
              >next</a> |</li>
         <li class="right" >
           <a href="index.html" title="Iris technical ‘Whitepapers’"
