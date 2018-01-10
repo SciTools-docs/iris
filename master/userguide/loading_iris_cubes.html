@@ -75,7 +75,8 @@
 <li><a class="reference internal" href="#loading-multiple-files">2.1. Loading multiple files</a></li>
 <li><a class="reference internal" href="#lazy-loading">2.2. Lazy loading</a></li>
 <li><a class="reference internal" href="#constrained-loading">2.3. Constrained loading</a><ul>
-<li><a class="reference internal" href="#constraining-on-time">2.3.1. Constraining on Time</a></li>
+<li><a class="reference internal" href="#constraining-across-the-dateline">2.3.1. Constraining across the dateline</a></li>
+<li><a class="reference internal" href="#constraining-on-time">2.3.2. Constraining on Time</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#strict-loading">2.4. Strict loading</a></li>
@@ -335,8 +336,17 @@ then specific STASH codes can be filtered:</p>
 <p class="last">For advanced usage there are further examples in the
 <a class="reference internal" href="../iris/iris.html#iris.Constraint" title="iris.Constraint"><code class="xref py py-class docutils literal"><span class="pre">iris.Constraint</span></code></a> reference documentation.</p>
 </div>
+<div class="section" id="constraining-across-the-dateline">
+<h3>2.3.1. Constraining across the dateline<a class="headerlink" href="#constraining-across-the-dateline" title="Permalink to this headline">¶</a></h3>
+<p>Occasionally you may need to constrain your cube with a region that crosses either
+the dateline or the meridian. An example use-case of this is to extract the entire
+Pacific Ocean from a cube whose longitudes are bounded by the dateline.</p>
+<p>This functionality cannot be provided reliably using contraints. Instead you should use the
+functionality provided by <a class="reference internal" href="../iris/iris/cube.html#iris.cube.Cube.intersection" title="iris.cube.Cube.intersection"><code class="xref py py-meth docutils literal"><span class="pre">cube.intersection</span></code></a>
+to extract this region.</p>
+</div>
 <div class="section" id="constraining-on-time">
-<span id="using-time-constraints"></span><h3>2.3.1. Constraining on Time<a class="headerlink" href="#constraining-on-time" title="Permalink to this headline">¶</a></h3>
+<span id="using-time-constraints"></span><h3>2.3.2. Constraining on Time<a class="headerlink" href="#constraining-on-time" title="Permalink to this headline">¶</a></h3>
 <p>Iris follows NetCDF-CF rules in representing time coordinate values as normalised,
 purely numeric, values which are normalised by the calendar specified in the coordinate’s
 units (e.g. “days since 1970-01-01”).
