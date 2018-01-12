@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>What’s New in Iris 2.0.0 &#8212; Iris 2.0.0rc1 documentation</title>
+    <title>What’s New in Iris 2.0.0 &#8212; Iris 2.0.0rc2.dev0 documentation</title>
     <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '2.0.0rc1',
+        VERSION:     '2.0.0rc2.dev0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -309,12 +309,13 @@ if it contains any keys other than ‘dtype’, ‘scale_factor’ and ‘add_of
 <li>The deprecated <code class="xref py py-mod docutils literal"><span class="pre">iris.fileformats.grib</span></code> was removed. All Iris GRIB
 functionality is now delivered through <code class="xref py py-mod docutils literal"><span class="pre">iris-grib</span></code>.</li>
 <li>In Iris v1 it was possible to configure Iris to log at import time through
-<code class="xref py py-attr docutils literal"><span class="pre">iris.config.LOGGING</span></code>. This capability has been removed in iris v2.</li>
-<li>When coordinates have no well defined plot axis, iris.plot and iris.quickplot
-routines now use the order of the cube’s dimensions to determine the
-coordinates to plot as the x and y axis of a plot.</li>
-<li>The cf_units dependency version has been updated to v1.2.0, which prints shorter
-unit strings.</li>
+<cite>iris.config.LOGGING</cite>. This capability has been removed in Iris v2.</li>
+<li>When coordinates have no well defined plot axis, <a class="reference internal" href="../iris/iris/plot.html#module-iris.plot" title="iris.plot"><code class="xref py py-mod docutils literal"><span class="pre">iris.plot</span></code></a> and
+<a class="reference internal" href="../iris/iris/quickplot.html#module-iris.quickplot" title="iris.quickplot"><code class="xref py py-mod docutils literal"><span class="pre">iris.quickplot</span></code></a> routines now use the order of the cube’s dimensions
+to determine the coordinates to plot as the x and y axis of a plot.</li>
+<li>The cf_units dependency version has been updated to v1.2.0, which prints
+shorter unit strings. For example, the unit <code class="docutils literal"><span class="pre">meter-second^-1</span></code> is now
+printed as <code class="docutils literal"><span class="pre">m.s-1</span></code>.</li>
 </ul>
 <div class="section" id="deprecation-removals">
 <h3>Deprecation removals<a class="headerlink" href="#deprecation-removals" title="Permalink to this headline">¶</a></h3>
