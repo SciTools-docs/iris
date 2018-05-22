@@ -219,7 +219,6 @@ an <a class="reference internal" href="iris/exceptions.html#iris.exceptions.Igno
 <li><a class="reference internal" href="#iris.Future" title="iris.Future"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Future</span></code></a></li>
 <li><a class="reference internal" href="#iris.FUTURE" title="iris.FUTURE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FUTURE</span></code></a></li>
 <li><a class="reference internal" href="#iris.IrisDeprecation" title="iris.IrisDeprecation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IrisDeprecation</span></code></a></li>
-<li><a class="reference internal" href="#iris.co_realise_cubes" title="iris.co_realise_cubes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">co_realise_cubes</span></code></a></li>
 </ul>
 </div></blockquote>
 <dl class="function">
@@ -722,41 +721,6 @@ set self.__traceback__ to tb and return self.</p>
 </dd></dl>
 
 </div></blockquote>
-<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
-<!--<hr class="docutils" />
---><dl class="function">
-<dt id="iris.co_realise_cubes">
-<code class="descclassname">iris.</code><code class="descname">co_realise_cubes</code><span class="sig-paren">(</span><em>*cubes</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.co_realise_cubes" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fetch ‘real’ data for multiple cubes, in a shared calculation.</p>
-<p>This computes any lazy data, equivalent to accessing each <cite>cube.data</cite>.
-However, lazy calculations and data fetches can be shared between the
-computations, improving performance.</p>
-<p>Args:</p>
-<ul class="simple">
-<li><dl class="first docutils">
-<dt>cubes (list of <a class="reference internal" href="iris/cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a>):</dt>
-<dd>Arguments, each of which is a cube to be realised.</dd>
-</dl>
-</li>
-</ul>
-<p>For example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Form stats.</span>
-<span class="n">a_std</span> <span class="o">=</span> <span class="n">cube_a</span><span class="o">.</span><span class="n">collapsed</span><span class="p">([</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">],</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">STD_DEV</span><span class="p">)</span>
-<span class="n">b_std</span> <span class="o">=</span> <span class="n">cube_b</span><span class="o">.</span><span class="n">collapsed</span><span class="p">([</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">],</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">STD_DEV</span><span class="p">)</span>
-<span class="n">ab_mean_diff</span> <span class="o">=</span> <span class="p">(</span><span class="n">cube_b</span> <span class="o">-</span> <span class="n">cube_a</span><span class="p">)</span><span class="o">.</span><span class="n">collapsed</span><span class="p">([</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">],</span>
-                                           <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">MEAN</span><span class="p">)</span>
-<span class="n">std_err</span> <span class="o">=</span> <span class="p">(</span><span class="n">a_std</span> <span class="o">*</span> <span class="n">a_std</span> <span class="o">+</span> <span class="n">b_std</span> <span class="o">*</span> <span class="n">b_std</span><span class="p">)</span> <span class="o">**</span> <span class="mf">0.5</span>
-
-<span class="c1"># Compute stats together (to avoid multiple data passes).</span>
-<span class="n">iris</span><span class="o">.</span><span class="n">co_realise_cubes</span><span class="p">(</span><span class="n">a_std</span><span class="p">,</span> <span class="n">b_std</span><span class="p">,</span> <span class="n">ab_mean_diff</span><span class="p">,</span> <span class="n">std_err</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Cubes with non-lazy data may also be passed, with no ill effect.</p>
-</div>
-</dd></dl>
-
 </div>
 
 
