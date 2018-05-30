@@ -884,7 +884,7 @@ the number of scalar coordinates.</dd>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">))</span>
 <span class="go">DimCoord([2009-11-19 10:00:00, 2009-11-19 11:00:00, 2009-11-19 12:00:00], standard_name=&#39;time&#39;, calendar=&#39;gregorian&#39;)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">points</span><span class="p">)</span>
-<span class="go">[ 349618.  349619.  349620.]</span>
+<span class="go">[349618. 349619. 349620.]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">samples</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="mf">349618.5</span><span class="p">)]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">samples</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">Linear</span><span class="p">())</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">summary</span><span class="p">(</span><span class="n">shorten</span><span class="o">=</span><span class="bp">True</span><span class="p">))</span>
@@ -892,7 +892,7 @@ the number of scalar coordinates.</dd>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">))</span>
 <span class="go">DimCoord([2009-11-19 10:30:00], standard_name=&#39;time&#39;, calendar=&#39;gregorian&#39;)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">points</span><span class="p">)</span>
-<span class="go">[ 349618.5]</span>
+<span class="go">[349618.5]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># For datetime-like coordinates, we can also use</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># datetime-like objects.</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">samples</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2009</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">30</span><span class="p">))]</span>
@@ -902,7 +902,7 @@ the number of scalar coordinates.</dd>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">result2</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">))</span>
 <span class="go">DimCoord([2009-11-19 10:30:00], standard_name=&#39;time&#39;, calendar=&#39;gregorian&#39;)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">result2</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">points</span><span class="p">)</span>
-<span class="go">[ 349618.5]</span>
+<span class="go">[349618.5]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">result</span> <span class="o">==</span> <span class="n">result2</span><span class="p">)</span>
 <span class="go">True</span>
 </pre></div>

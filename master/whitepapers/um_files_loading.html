@@ -245,14 +245,14 @@ with a pole defined by BPLAT, BPLON.</li>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># Show grid details and first 5 longitude values.</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">_</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="p">(</span><span class="n">field</span><span class="o">.</span><span class="n">lbcode</span><span class="p">,</span> <span class="n">field</span><span class="o">.</span><span class="n">lbnpt</span><span class="p">,</span> <span class="n">field</span><span class="o">.</span><span class="n">bzx</span><span class="p">,</span>
 <span class="gp">... </span>                                <span class="n">field</span><span class="o">.</span><span class="n">bdx</span><span class="p">)))</span>
-<span class="go">1 96 -3.75 3.75</span>
+<span class="go">1 96 -3.749999 3.749999</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">field</span><span class="o">.</span><span class="n">bzx</span> <span class="o">+</span> <span class="n">field</span><span class="o">.</span><span class="n">bdx</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-<span class="go">[  0.     3.75   7.5   11.25  15.  ]</span>
+<span class="go">[ 0.    3.75  7.5  11.25 15.  ]</span>
 <span class="go">&gt;&gt;&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># Show Iris equivalent information.</span>
 <span class="gp">... </span><span class="n">cube</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="s1">&#39;longitude&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">points</span><span class="p">[:</span><span class="mi">5</span><span class="p">])</span>
-<span class="go">[  0.     3.75   7.5   11.25  15.  ]</span>
+<span class="go">[ 0.    3.75  7.5  11.25 15.  ]</span>
 </pre></div>
 </div>
 </dd>
