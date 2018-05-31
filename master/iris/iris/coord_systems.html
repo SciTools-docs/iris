@@ -99,6 +99,7 @@
 <p>In this module:</p>
 <blockquote>
 <div><ul class="simple">
+<li><a class="reference internal" href="#iris.coord_systems.AlbersEqualArea" title="iris.coord_systems.AlbersEqualArea"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AlbersEqualArea</span></code></a></li>
 <li><a class="reference internal" href="#iris.coord_systems.CoordSystem" title="iris.coord_systems.CoordSystem"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CoordSystem</span></code></a></li>
 <li><a class="reference internal" href="#iris.coord_systems.GeogCS" title="iris.coord_systems.GeogCS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GeogCS</span></code></a></li>
 <li><a class="reference internal" href="#iris.coord_systems.LambertAzimuthalEqualArea" title="iris.coord_systems.LambertAzimuthalEqualArea"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LambertAzimuthalEqualArea</span></code></a></li>
@@ -112,7 +113,120 @@
 <li><a class="reference internal" href="#iris.coord_systems.VerticalPerspective" title="iris.coord_systems.VerticalPerspective"><code class="xref py py-obj docutils literal notranslate"><span class="pre">VerticalPerspective</span></code></a></li>
 </ul>
 </div></blockquote>
-<p>Abstract base class for coordinate systems.</p>
+<p>A coordinate system in the Albers Conical Equal Area projection.</p>
+<blockquote>
+<div><dl class="class">
+<dt id="iris.coord_systems.AlbersEqualArea">
+<em class="property">class </em><code class="descclassname">iris.coord_systems.</code><code class="descname">AlbersEqualArea</code><span class="sig-paren">(</span><em>latitude_of_projection_origin=0.0</em>, <em>longitude_of_central_meridian=0.0</em>, <em>false_easting=0.0</em>, <em>false_northing=0.0</em>, <em>standard_parallels=(20.0</em>, <em>50.0)</em>, <em>ellipsoid=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.AlbersEqualArea" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#iris.coord_systems.CoordSystem" title="iris.coord_systems.CoordSystem"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.coord_systems.CoordSystem</span></code></a></p>
+<p>Constructs a Albers Conical Equal Area coord system.</p>
+<p>Kwargs:</p>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="first docutils">
+<dt>latitude_of_projection_origin</dt>
+<dd>True latitude of planar origin in degrees.
+Defaults to 0.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>longitude_of_central_meridian</dt>
+<dd>True longitude of planar central meridian in degrees.
+Defaults to 0.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>false_easting</dt>
+<dd>X offset from planar origin in metres. Defaults to 0.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>false_northing</dt>
+<dd>Y offset from planar origin in metres. Defaults to 0.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>standard_parallels</dt>
+<dd>The one or two latitudes of correct scale.
+Defaults to (20,50).</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>ellipsoid</dt>
+<dd><a class="reference internal" href="#iris.coord_systems.GeogCS" title="iris.coord_systems.GeogCS"><code class="xref py py-class docutils literal notranslate"><span class="pre">GeogCS</span></code></a> defining the ellipsoid.</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<dl class="method">
+<dt id="iris.coord_systems.AlbersEqualArea.as_cartopy_crs">
+<code class="descname">as_cartopy_crs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.AlbersEqualArea.as_cartopy_crs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a cartopy CRS representing our native coordinate
+system.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="iris.coord_systems.AlbersEqualArea.as_cartopy_projection">
+<code class="descname">as_cartopy_projection</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.AlbersEqualArea.as_cartopy_projection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a cartopy projection representing our native map.</p>
+<p>This will be the same as the <a class="reference internal" href="#iris.coord_systems.CoordSystem.as_cartopy_crs" title="iris.coord_systems.CoordSystem.as_cartopy_crs"><code class="xref py py-func docutils literal notranslate"><span class="pre">as_cartopy_crs()</span></code></a> for
+map projections but for spherical coord systems (which are not map
+projections) we use a map projection, such as PlateCarree.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="iris.coord_systems.AlbersEqualArea.xml_element">
+<code class="descname">xml_element</code><span class="sig-paren">(</span><em>doc</em>, <em>attrs=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.AlbersEqualArea.xml_element" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default behaviour for coord systems.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="iris.coord_systems.AlbersEqualArea.ellipsoid">
+<code class="descname">ellipsoid</code><em class="property"> = None</em><a class="headerlink" href="#iris.coord_systems.AlbersEqualArea.ellipsoid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ellipsoid definition.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="iris.coord_systems.AlbersEqualArea.false_easting">
+<code class="descname">false_easting</code><em class="property"> = None</em><a class="headerlink" href="#iris.coord_systems.AlbersEqualArea.false_easting" title="Permalink to this definition">¶</a></dt>
+<dd><p>X offset from planar origin in metres.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="iris.coord_systems.AlbersEqualArea.false_northing">
+<code class="descname">false_northing</code><em class="property"> = None</em><a class="headerlink" href="#iris.coord_systems.AlbersEqualArea.false_northing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Y offset from planar origin in metres.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="iris.coord_systems.AlbersEqualArea.grid_mapping_name">
+<code class="descname">grid_mapping_name</code><em class="property"> = 'albers_conical_equal_area'</em><a class="headerlink" href="#iris.coord_systems.AlbersEqualArea.grid_mapping_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="iris.coord_systems.AlbersEqualArea.latitude_of_projection_origin">
+<code class="descname">latitude_of_projection_origin</code><em class="property"> = None</em><a class="headerlink" href="#iris.coord_systems.AlbersEqualArea.latitude_of_projection_origin" title="Permalink to this definition">¶</a></dt>
+<dd><p>True latitude of planar origin in degrees.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="iris.coord_systems.AlbersEqualArea.longitude_of_central_meridian">
+<code class="descname">longitude_of_central_meridian</code><em class="property"> = None</em><a class="headerlink" href="#iris.coord_systems.AlbersEqualArea.longitude_of_central_meridian" title="Permalink to this definition">¶</a></dt>
+<dd><p>True longitude of planar central meridian in degrees.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="iris.coord_systems.AlbersEqualArea.standard_parallels">
+<code class="descname">standard_parallels</code><em class="property"> = None</em><a class="headerlink" href="#iris.coord_systems.AlbersEqualArea.standard_parallels" title="Permalink to this definition">¶</a></dt>
+<dd><p>The one or two latitudes of correct scale.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div></blockquote>
+<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
+<!--<hr class="docutils" />
+--><p>Abstract base class for coordinate systems.</p>
 <blockquote>
 <div><dl class="class">
 <dt id="iris.coord_systems.CoordSystem">
