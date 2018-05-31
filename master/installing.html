@@ -64,9 +64,7 @@
 <li><a class="reference internal" href="#">Installing Iris</a><ul>
 <li><a class="reference internal" href="#installing-using-conda">Installing using conda</a></li>
 <li><a class="reference internal" href="#installing-from-source">Installing from source</a><ul>
-<li><a class="reference internal" href="#in-place-build-an-alternative-for-developers">In-place build - an alternative for developers</a></li>
-<li><a class="reference internal" href="#build-and-runtime-requirements">Build and runtime requirements</a><ul>
-<li><a class="reference internal" href="#optional">Optional</a></li>
+<li><a class="reference internal" href="#in-place-build-an-alternative-for-developers">In-place build - an alternative for developers</a><ul>
 <li><a class="reference internal" href="#generating-conda-requirements">Generating conda requirements</a></li>
 </ul>
 </li>
@@ -146,9 +144,9 @@ at <a class="reference external" href="http://conda.pydata.org/docs/intro.html">
 <a class="reference external" href="https://github.com/SciTools/iris">https://github.com/SciTools/iris</a>.</p>
 <p>Iris makes use of a range of other libraries and python modules. These
 dependencies must be in place before you can successfully install
-Iris. Once you have satisfied the requirements detailed below,
-extract the iris source package, cd to the new directory, and enter:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">install</span>
+Iris. Once you have satisfied the requirements detailed in the
+<code class="docutils literal notranslate"><span class="pre">requirements</span></code> directory, go to the root of Iris’ and run:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">.</span>
 </pre></div>
 </div>
 <div class="section" id="in-place-build-an-alternative-for-developers">
@@ -156,94 +154,17 @@ extract the iris source package, cd to the new directory, and enter:</p>
 <p>We are very keen to encourage contributions to Iris. For this type of
 development activity an in-place build can be useful. Once you’ve cloned
 the Iris git repository you can perform an in-place build with:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">develop</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">e</span> <span class="o">.</span>
 </pre></div>
-</div>
-</div>
-<div class="section" id="build-and-runtime-requirements">
-<h3>Build and runtime requirements<a class="headerlink" href="#build-and-runtime-requirements" title="Permalink to this headline">¶</a></h3>
-<p>These are external packages which you will need to have installed before
-installing and running Iris.</p>
-<p>Many of these packages are available in Linux package managers
-such as aptitude and yum. For example, it may be possible to install
-Numpy using:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">numpy</span>
-</pre></div>
-</div>
-<p>If you are installing dependencies with a package manager on Linux,
-you may need to install the development packages (look for a “-dev”
-postfix) in addition to the core packages.</p>
-<dl class="docutils">
-<dt>python 2.7 or 3.5+ (<a class="reference external" href="http://www.python.org/">http://www.python.org/</a>)</dt>
-<dd>Iris requires Python 2.7 or Python 3.5+.</dd>
-<dt>numpy (<a class="reference external" href="http://numpy.scipy.org/">http://numpy.scipy.org/</a>)</dt>
-<dd>Python package for scientific computing including a powerful N-dimensional
-array object.</dd>
-<dt>scipy (<a class="reference external" href="http://www.scipy.org/">http://www.scipy.org/</a>)</dt>
-<dd>Python package for scientific computing.</dd>
-<dt>cartopy v0.11.0 or later (<a class="reference external" href="http://github.com/SciTools/cartopy/">http://github.com/SciTools/cartopy/</a>)</dt>
-<dd>Python package which provides cartographic tools for python.</dd>
-<dt>dask v0.15.0 or later (<a class="reference external" href="https://dask.pydata.org/">https://dask.pydata.org/</a>)</dt>
-<dd>Python package for parallel computing.</dd>
-<dt>PyKE v1.1.1 or later (<a class="reference external" href="http://pyke.sourceforge.net/">http://pyke.sourceforge.net/</a>)</dt>
-<dd>Python knowledge-based inference engine.</dd>
-<dt>netcdf4-python (<a class="reference external" href="http://netcdf4-python.googlecode.com/">http://netcdf4-python.googlecode.com/</a>)</dt>
-<dd>Python interface to the netCDF version 4 C library.
-(It is strongly recommended to ensure your installation uses a
-thread-safe build of HDF5 to avoid segmentation faults when using
-lazy evaluation.)</dd>
-<dt>cf_units v2.0 or later (<a class="reference external" href="https://github.com/SciTools/cf_units">https://github.com/SciTools/cf_units</a>)</dt>
-<dd>CF data units handling, using udunits.</dd>
-<dt>setuptools v36.0 or later (<a class="reference external" href="http://pypi.python.org/pypi/setuptools/">http://pypi.python.org/pypi/setuptools/</a>)</dt>
-<dd>Python package for installing/removing python packages.</dd>
-</dl>
-<p>The full list of packages may be found in the repository at
-<code class="docutils literal notranslate"><span class="pre">requirements/core.txt</span></code>.</p>
-<div class="section" id="optional">
-<h4>Optional<a class="headerlink" href="#optional" title="Permalink to this headline">¶</a></h4>
-<p>These are optional packages which you may want to install to enable
-additonal Iris functionality such as plotting and
-loading/saving GRIB. These packages are required for the full Iris test
-suite to run.</p>
-<dl class="docutils">
-<dt>gdal (<a class="reference external" href="https://pypi.python.org/pypi/GDAL/">https://pypi.python.org/pypi/GDAL/</a>)</dt>
-<dd>Python package for the Geospatial Data Abstraction Library (GDAL).</dd>
-<dt>graphviz (<a class="reference external" href="http://www.graphviz.org/">http://www.graphviz.org/</a>)</dt>
-<dd>Graph visualisation software.</dd>
-<dt>iris-grib (<a class="reference external" href="https://github.com/scitools/iris-grib">https://github.com/scitools/iris-grib</a>)</dt>
-<dd>Iris interface to ECMWF’s GRIB API</dd>
-<dt>matplotlib (<a class="reference external" href="https://matplotlib.org">https://matplotlib.org</a>)</dt>
-<dd>Python package for 2D plotting.</dd>
-<dt>mock (<a class="reference external" href="http://pypi.python.org/pypi/mock/">http://pypi.python.org/pypi/mock/</a>)</dt>
-<dd>Python mocking and patching package for testing. Note that this package
-is only required to support the Iris unit tests.</dd>
-<dt>nose (<a class="reference external" href="https://nose.readthedocs.io/en/latest/">https://nose.readthedocs.io/en/latest/</a>)</dt>
-<dd>Python package for software testing. Iris is not compatible with nose2.</dd>
-<dt>pep8 (<a class="reference external" href="https://pypi.python.org/pypi/pep8">https://pypi.python.org/pypi/pep8</a>)</dt>
-<dd>Python package for software testing.</dd>
-<dt>pandas (<a class="reference external" href="http://pandas.pydata.org">http://pandas.pydata.org</a>)</dt>
-<dd>Python package providing high-performance, easy-to-use data structures and
-data analysis tools.</dd>
-<dt>PythonImagingLibrary (<a class="reference external" href="http://effbot.org/zone/pil-index.htm">http://effbot.org/zone/pil-index.htm</a>)</dt>
-<dd>Python package for image processing.</dd>
-<dt>pyugrid (<a class="reference external" href="https://github.com/pyugrid/pyugrid">https://github.com/pyugrid/pyugrid</a>)</dt>
-<dd>A Python API to utilize data written using the unstructured grid
-UGRID conventions.</dd>
-<dt>shapely (<a class="reference external" href="https://github.com/Toblerity/Shapely">https://github.com/Toblerity/Shapely</a>)</dt>
-<dd>Python package for the manipulation and analysis of planar geometric
-objects.</dd>
-<dt>mo_pack (<a class="reference external" href="https://github.com/SciTools/mo_pack">https://github.com/SciTools/mo_pack</a>)</dt>
-<dd>A Python wrapper to libmo_unpack, giving WGDOS packing and unpacking.</dd>
-</dl>
 </div>
 <div class="section" id="generating-conda-requirements">
 <h4>Generating conda requirements<a class="headerlink" href="#generating-conda-requirements" title="Permalink to this headline">¶</a></h4>
 <p>Requirements for Iris are stored in the <code class="docutils literal notranslate"><span class="pre">requirements</span></code> directory in the root of the source repository.
-It is possible to generate a requirements file suitable for conda use with:</p>
+It is possible to generate a requirements file suitable for use with conda:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">requirements</span><span class="o">/</span><span class="n">gen_conda_requirements</span><span class="o">.</span><span class="n">py</span> <span class="o">&gt;</span> <span class="n">conda_requirements</span><span class="o">.</span><span class="n">txt</span>
 </pre></div>
 </div>
-<p>This may be installed with:</p>
+<p>This may then be installed with:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">my_iris_env</span> <span class="o">--</span><span class="nb">file</span> <span class="n">conda_requirements</span><span class="o">.</span><span class="n">txt</span>
 </pre></div>
 </div>
