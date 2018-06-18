@@ -442,10 +442,11 @@ file format.</dd>
 <blockquote>
 <div><ul>
 <li><dl class="first docutils">
-<dt>saver     - Optional. Specifies the save function to use.</dt>
+<dt>saver     - Optional. Specifies the file format to save.</dt>
 <dd><p class="first">If omitted, Iris will attempt to determine the format.</p>
-<p class="last">This keyword can be used to implement a custom save
-format. Function form must be:
+<p class="last">If a string, this is the recognised filename extension
+(where the actual filename may not have it).
+Otherwise the value is a saver function, of the form:
 <code class="docutils literal notranslate"><span class="pre">my_saver(cube,</span> <span class="pre">target)</span></code> plus any custom keywords. It
 is assumed that a saver will accept an <code class="docutils literal notranslate"><span class="pre">append</span></code> keyword
 if it’s file format can handle multiple cubes. See also
