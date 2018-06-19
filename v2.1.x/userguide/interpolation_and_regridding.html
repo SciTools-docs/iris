@@ -144,15 +144,14 @@ available in Iris:</p>
 <li>nearest-neighbour interpolation (<a class="reference internal" href="../iris/iris/analysis.html#iris.analysis.Nearest" title="iris.analysis.Nearest"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.analysis.Nearest</span></code></a>).</li>
 </ul>
 </div></blockquote>
-<dl class="docutils">
-<dt>The following are the regridding schemes that are currently available in Iris:</dt>
-<dd><ul class="first last simple">
+<p>The following are the regridding schemes that are currently available in Iris:</p>
+<blockquote>
+<div><ul class="simple">
 <li>linear regridding (<a class="reference internal" href="../iris/iris/analysis.html#iris.analysis.Linear" title="iris.analysis.Linear"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.analysis.Linear</span></code></a>),</li>
 <li>nearest-neighbour regridding (<a class="reference internal" href="../iris/iris/analysis.html#iris.analysis.Nearest" title="iris.analysis.Nearest"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.analysis.Nearest</span></code></a>), and</li>
 <li>area-weighted regridding (<a class="reference internal" href="../iris/iris/analysis.html#iris.analysis.AreaWeighted" title="iris.analysis.AreaWeighted"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.analysis.AreaWeighted</span></code></a>, first-order conservative).</li>
 </ul>
-</dd>
-</dl>
+</div></blockquote>
 <div class="section" id="interpolation">
 <span id="id1"></span><h2>8.1. Interpolation<a class="headerlink" href="#interpolation" title="Permalink to this headline">¶</a></h2>
 <p>Interpolating a cube is achieved with the <a class="reference internal" href="../iris/iris/cube.html#iris.cube.Cube.interpolate" title="iris.cube.Cube.interpolate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">interpolate()</span></code></a>
@@ -392,20 +391,23 @@ mode when defining the regridding scheme.</p>
 <p>For the available regridding schemes in Iris, the <code class="docutils literal notranslate"><span class="pre">extrapolation_mode</span></code> keyword
 must be one of:</p>
 <blockquote>
+<div><ul>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">extrapolate</span></code> –</p>
+<blockquote>
 <div><ul class="simple">
-<li><dl class="first docutils">
-<dt><code class="docutils literal notranslate"><span class="pre">extrapolate</span></code> –</dt>
-<dd><ul class="first last">
 <li>for <a class="reference internal" href="../iris/iris/analysis.html#iris.analysis.Linear" title="iris.analysis.Linear"><code class="xref py py-class docutils literal notranslate"><span class="pre">Linear</span></code></a> the extrapolation points will be calculated by extending the gradient of the closest two points.</li>
 <li>for <a class="reference internal" href="../iris/iris/analysis.html#iris.analysis.Nearest" title="iris.analysis.Nearest"><code class="xref py py-class docutils literal notranslate"><span class="pre">Nearest</span></code></a> the extrapolation points will take their value from the nearest source point.</li>
 </ul>
-</dd>
-</dl>
+</div></blockquote>
 </li>
-<li><code class="docutils literal notranslate"><span class="pre">nan</span></code> – the extrapolation points will be be set to NaN.</li>
-<li><code class="docutils literal notranslate"><span class="pre">error</span></code> – a ValueError exception will be raised, notifying an attempt to extrapolate.</li>
-<li><code class="docutils literal notranslate"><span class="pre">mask</span></code> – the extrapolation points will always be masked, even if the source data is not a MaskedArray.</li>
-<li><code class="docutils literal notranslate"><span class="pre">nanmask</span></code> – if the source data is a MaskedArray the extrapolation points will be masked. Otherwise they will be set to NaN.</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">nan</span></code> – the extrapolation points will be be set to NaN.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">error</span></code> – a ValueError exception will be raised, notifying an attempt to extrapolate.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">mask</span></code> – the extrapolation points will always be masked, even if the source data is not a MaskedArray.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">nanmask</span></code> – if the source data is a MaskedArray the extrapolation points will be masked. Otherwise they will be set to NaN.</p>
+</li>
 </ul>
 </div></blockquote>
 <p>The <code class="docutils literal notranslate"><span class="pre">rotated_psl</span></code> cube is defined on a limited area rotated pole grid. If we regridded

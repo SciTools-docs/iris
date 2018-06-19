@@ -203,14 +203,15 @@ all existing toggles in <a class="reference internal" href="../iris/iris.html#ir
 </li>
 <li><p class="first"><a class="reference internal" href="../iris/iris/coords.html#iris.coords.Cell" title="iris.coords.Cell"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.coords.Cell</span></code></a> objects in time coordinates now contain datetime objects by default and not numbers.
 For example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cube</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;air_temp.pp&#39;</span><span class="p">))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">cell</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">point</span><span class="p">)</span>
-<span class="go">    1998-12-01 00:00:00</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>  <span class="o">&gt;&gt;&gt;</span> <span class="n">cube</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;air_temp.pp&#39;</span><span class="p">))</span>
+  <span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">cell</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">point</span><span class="p">)</span>
+      <span class="mi">1998</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mo">01</span> <span class="mo">00</span><span class="p">:</span><span class="mo">00</span><span class="p">:</span><span class="mo">00</span>
+
+<span class="n">This</span> <span class="n">change</span> <span class="n">particularly</span> <span class="n">impacts</span> <span class="n">constraining</span> <span class="n">datasets</span> <span class="n">on</span> <span class="n">time</span><span class="o">.</span> <span class="n">All</span> <span class="n">time</span> <span class="n">constraints</span>
+<span class="n">must</span> <span class="n">now</span> <span class="n">be</span> <span class="n">constructed</span> <span class="k">with</span> <span class="n">datetime</span> <span class="n">objects</span> <span class="ow">or</span> <span class="p">:</span><span class="n">class</span><span class="p">:</span><span class="sb">`~iris.time.PartialDateTime`</span> <span class="n">objects</span><span class="o">.</span>
+<span class="n">See</span> <span class="n">userguide</span> <span class="n">section</span> <span class="mf">2.2</span><span class="o">.</span><span class="mi">1</span> <span class="k">for</span> <span class="n">more</span> <span class="n">details</span> <span class="n">on</span> <span class="n">producing</span> <span class="n">time</span> <span class="n">constraints</span><span class="o">.</span>
 </pre></div>
 </div>
-<p>This change particularly impacts constraining datasets on time. All time constraints
-must now be constructed with datetime objects or <a class="reference internal" href="../iris/iris/time.html#iris.time.PartialDateTime" title="iris.time.PartialDateTime"><code class="xref py py-class docutils literal notranslate"><span class="pre">PartialDateTime</span></code></a> objects.
-See userguide section 2.2.1 for more details on producing time constraints.</p>
 </li>
 </ul>
 </li>
