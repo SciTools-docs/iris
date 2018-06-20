@@ -184,6 +184,11 @@ String conversion results in the MSI format:
     >>> print(iris.fileformats.pp.STASH(1, 16, 203))
     m01s16i203
 
+A stash object can be compared directly
+to its string representation:
+>>> iris.fileformats.pp.STASH(1, 0, 4) == 'm01s0i004'
+True
+
 ..
 
     .. autoclass:: iris.fileformats.pp.STASH
