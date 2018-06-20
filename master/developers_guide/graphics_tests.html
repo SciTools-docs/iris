@@ -21,7 +21,7 @@
     <META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE"> 
 
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    <script type="text/javascript" src="http://docs.python.org/2/_static/copybutton.js"></script>
+    <script type="text/javascript" src="https://docs.python.org/2/_static/copybutton.js"></script>
 
     <link rel="icon" type="image/png" sizes="32x32" href="../_static/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../_static/favicon-16x16.png">
@@ -114,7 +114,7 @@
 <p>The only practical way of testing plotting functionality is to check actual
 output plots.
 For this, a basic ‘graphics test’ assertion operation is provided in the method
-<a href="#id1"><span class="problematic" id="id2">:method:`iris.tests.IrisTest.check_graphic`</span></a> :  This tests plotted output for a
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">iris.tests.IrisTest.check_graphic()</span></code> :  This tests plotted output for a
 match against a stored reference.
 A “graphics test” is any test which employs this.</p>
 <p>At present (Iris version 1.10), such tests include the testing for modules
@@ -157,7 +157,7 @@ This consists of :</p>
 <blockquote>
 <div><ul class="simple">
 <li>using a perceptual ‘image hash’ of the outputs (see
-&lt;&lt;<a class="reference external" href="https://github.com/JohannesBuchner/imagehash">https://github.com/JohannesBuchner/imagehash</a>&gt;) as the basis for checking
+<a class="reference external" href="https://github.com/JohannesBuchner/imagehash">https://github.com/JohannesBuchner/imagehash</a>) as the basis for checking
 test results.</li>
 <li>storing the hashes of ‘known accepted results’ for each test in a
 database in the repo (which is actually stored in
@@ -181,41 +181,38 @@ There should be sufficient work-flow detail here to allow an iris developer to:<
 </div>
 <div class="section" id="basic-workflow">
 <h2>Basic workflow<a class="headerlink" href="#basic-workflow" title="Permalink to this headline">¶</a></h2>
-<dl class="docutils">
-<dt>#   If you notice that a graphics test in the Iris testing suite has failed</dt>
-<dd>following changes in Iris or any of its dependencies, this is the process
-you now need to follow:</dd>
-</dl>
-<p>#1. Create a directory in iris/lib/iris/tests called ‘result_image_comparison’.
-#2. From your Iris root directory, run the tests by using the command:</p>
-<blockquote>
-<div><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">test</span></code>.</div></blockquote>
-<dl class="docutils">
-<dt>#3. Navigate to iris/lib/iris/tests and run the command: <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">idiff.py</span></code>.</dt>
-<dd>This will open a window for you to visually inspect the changes to the
-graphic and then either accept or reject the new result.</dd>
-<dt>#4. Upon acceptance of a change or a new image, a copy of the output PNG file</dt>
-<dd>is added to the reference image repository in
+<p>If you notice that a graphics test in the Iris testing suite has failed
+following changes in Iris or any of its dependencies, this is the process
+you now need to follow:</p>
+<ol class="arabic simple">
+<li>Create a directory in iris/lib/iris/tests called ‘result_image_comparison’.</li>
+<li>From your Iris root directory, run the tests by using the command:
+<code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">test</span></code>.</li>
+<li>Navigate to iris/lib/iris/tests and run the command: <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">idiff.py</span></code>.
+This will open a window for you to visually inspect the changes to the
+graphic and then either accept or reject the new result.</li>
+<li>Upon acceptance of a change or a new image, a copy of the output PNG file
+is added to the reference image repository in
 <a class="reference external" href="https://github.com/SciTools/test-images-scitools">https://github.com/SciTools/test-images-scitools</a>.  The file is named
-according to the image hash value, as <code class="docutils literal notranslate"><span class="pre">&lt;hash&gt;.png</span></code>.</dd>
-<dt>#5. The hash value of the new result is added into the relevant set of ‘valid</dt>
-<dd>result hashes’ in the image result database file,
-<code class="docutils literal notranslate"><span class="pre">tests/results/imagerepo.json</span></code>.</dd>
-<dt>#6. The tests must now be re-run, and the ‘new’ result should be accepted.</dt>
-<dd>Occasionally there are several graphics checks in a single test, only the
+according to the image hash value, as <code class="docutils literal notranslate"><span class="pre">&lt;hash&gt;.png</span></code>.</li>
+<li>The hash value of the new result is added into the relevant set of ‘valid
+result hashes’ in the image result database file,
+<code class="docutils literal notranslate"><span class="pre">tests/results/imagerepo.json</span></code>.</li>
+<li>The tests must now be re-run, and the ‘new’ result should be accepted.
+Occasionally there are several graphics checks in a single test, only the
 first of which will be run should it fail.  If this is the case, then you
 may well encounter further graphical test failures in your next runs, and
-you must repeat the process until all the graphical tests pass.</dd>
-<dt>#7. To add your changes to Iris, you need to make two pull requests.  The first</dt>
-<dd>should be made to the test-images-scitools repository, and this should
+you must repeat the process until all the graphical tests pass.</li>
+<li>To add your changes to Iris, you need to make two pull requests.  The first
+should be made to the test-images-scitools repository, and this should
 contain all the newly-generated png files copied into the folder named
-‘image_files’.</dd>
-<dt>#8. The second pull request should be created in the Iris repository, and should</dt>
-<dd>only include the change to the image results database
+‘image_files’.</li>
+<li>The second pull request should be created in the Iris repository, and should
+only include the change to the image results database
 (<code class="docutils literal notranslate"><span class="pre">tests/results/imagerepo.json</span></code>) :
 This pull request must contain a reference to the matching one in
-test-images-scitools.</dd>
-</dl>
+test-images-scitools.</li>
+</ol>
 <p>Note: the Iris pull-request will not test out successfully in Travis until the
 test-images-scitools pull request has been merged :  This is because there is
 an Iris test which ensures the existence of the reference images (uris) for all

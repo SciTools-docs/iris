@@ -23,7 +23,7 @@
     <META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE"> 
 
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    <script type="text/javascript" src="http://docs.python.org/2/_static/copybutton.js"></script>
+    <script type="text/javascript" src="https://docs.python.org/2/_static/copybutton.js"></script>
 
     <link rel="icon" type="image/png" sizes="32x32" href="../_static/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../_static/favicon-16x16.png">
@@ -219,9 +219,9 @@ These seasons are defined by concatenating the single letter
 abbreviations of the relevant, consecutive months.</p>
 <p>For example, to categorise a Cube based on “winter” and “summer” months,
 one might do:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">seasons</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;mamjja&#39;</span><span class="p">,</span> <span class="s1">&#39;sondjf&#39;</span><span class="p">]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">seasons</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;mamjja&#39;</span><span class="p">,</span> <span class="s1">&#39;sondjf&#39;</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">iris</span><span class="o">.</span><span class="n">coord_categorisation</span><span class="o">.</span><span class="n">add_custom_season</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">seasons</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="s1">&#39;season&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">points</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="s1">&#39;season&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">points</span><span class="p">)</span>
 <span class="go">[&#39;ondjfm&#39; &#39;ondjfm&#39; &#39;mamjja&#39; &#39;mamjja&#39; &#39;mamjja&#39; &#39;mamjja&#39; &#39;mamjja&#39; &#39;mamjja&#39;</span>
 <span class="go"> &#39;ondjfm&#39; &#39;ondjfm&#39; &#39;ondjfm&#39; &#39;ondjfm&#39;]</span>
 </pre></div>

@@ -23,7 +23,7 @@
     <META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE"> 
 
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    <script type="text/javascript" src="http://docs.python.org/2/_static/copybutton.js"></script>
+    <script type="text/javascript" src="https://docs.python.org/2/_static/copybutton.js"></script>
 
     <link rel="icon" type="image/png" sizes="32x32" href="../_static/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../_static/favicon-16x16.png">
@@ -128,13 +128,13 @@
 <p>The section <a class="reference internal" href="navigating_a_cube.html"><span class="doc">Navigating a cube</span></a> highlighted that
 every cube has a data attribute;
 this attribute can then be manipulated directly:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cube</span><span class="o">.</span><span class="n">data</span> <span class="o">-=</span> <span class="mf">273.15</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cube</span><span class="o">.</span><span class="n">data</span> <span class="o">-=</span> <span class="mf">273.15</span>
 </pre></div>
 </div>
 <p>The problem with manipulating the data directly is that other metadata may
 become inconsistent; in this case the units of the cube are no longer what was
 intended. This example could be rectified by changing the units attribute:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cube</span><span class="o">.</span><span class="n">units</span> <span class="o">=</span> <span class="s1">&#39;celsius&#39;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cube</span><span class="o">.</span><span class="n">units</span> <span class="o">=</span> <span class="s1">&#39;celsius&#39;</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -142,7 +142,7 @@ intended. This example could be rectified by changing the units attribute:</p>
 <p><a class="reference internal" href="../iris/iris/cube.html#iris.cube.Cube.convert_units" title="iris.cube.Cube.convert_units"><code class="xref py py-meth docutils literal notranslate"><span class="pre">iris.cube.Cube.convert_units()</span></code></a> can be used to automatically convert a
 cube’s data and update its units attribute.
 So, the two steps above can be achieved by:</p>
-<div class="last highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cube</span><span class="o">.</span><span class="n">convert_units</span><span class="p">(</span><span class="s1">&#39;celsius&#39;</span><span class="p">)</span>
+<div class="last highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cube</span><span class="o">.</span><span class="n">convert_units</span><span class="p">(</span><span class="s1">&#39;celsius&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -152,20 +152,20 @@ and multiplication can be applied directly to any cube.</p>
 <div class="section" id="calculating-the-difference-between-two-cubes">
 <h2>11.1. Calculating the difference between two cubes<a class="headerlink" href="#calculating-the-difference-between-two-cubes" title="Permalink to this headline">¶</a></h2>
 <p>Let’s load some air temperature which runs from 1860 to 2100:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;E1_north_america.nc&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;E1_north_america.nc&#39;</span><span class="p">)</span>
 <span class="n">air_temp</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;air_temperature&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>We can now get the first and last time slices using indexing
 (see <a class="reference internal" href="subsetting_a_cube.html#subsetting-a-cube"><span class="std std-ref">Subsetting a Cube</span></a> for a reminder):</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">t_first</span> <span class="o">=</span> <span class="n">air_temp</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">t_first</span> <span class="o">=</span> <span class="n">air_temp</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span>
 <span class="n">t_last</span> <span class="o">=</span> <span class="n">air_temp</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span>
 </pre></div>
 </div>
 <p>And finally we can subtract the two.
 The result is a cube of the same size as the original two time slices,
 but with the data representing their difference:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">t_last</span> <span class="o">-</span> <span class="n">t_first</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">t_last</span> <span class="o">-</span> <span class="n">t_first</span><span class="p">)</span>
 <span class="go">unknown / (K)                       (latitude: 37; longitude: 49)</span>
 <span class="go">     Dimension coordinates:</span>
 <span class="go">          latitude                           x              -</span>
@@ -192,14 +192,14 @@ which we’ll then use to calculate a time mean anomaly and highlight the powerf
 benefits of cube broadcasting.</p>
 <p>First, let’s remind ourselves of the shape of our air temperature time-series
 cube:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">air_temp</span><span class="o">.</span><span class="n">summary</span><span class="p">(</span><span class="bp">True</span><span class="p">))</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">air_temp</span><span class="o">.</span><span class="n">summary</span><span class="p">(</span><span class="kc">True</span><span class="p">))</span>
 <span class="go">air_temperature / (K)               (time: 240; latitude: 37; longitude: 49)</span>
 </pre></div>
 </div>
 <p>Now, we’ll calculate the time-series mean using the
 <a class="reference internal" href="../iris/iris/cube.html#iris.cube.Cube.collapsed" title="iris.cube.Cube.collapsed"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Cube.collapsed</span></code></a> method:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">air_temp_mean</span> <span class="o">=</span> <span class="n">air_temp</span><span class="o">.</span><span class="n">collapsed</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">MEAN</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">air_temp_mean</span><span class="o">.</span><span class="n">summary</span><span class="p">(</span><span class="bp">True</span><span class="p">))</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">air_temp_mean</span> <span class="o">=</span> <span class="n">air_temp</span><span class="o">.</span><span class="n">collapsed</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">MEAN</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">air_temp_mean</span><span class="o">.</span><span class="n">summary</span><span class="p">(</span><span class="kc">True</span><span class="p">))</span>
 <span class="go">air_temperature / (K)               (latitude: 37; longitude: 49)</span>
 </pre></div>
 </div>
@@ -207,8 +207,8 @@ cube:</p>
 dimensionality of the resultant <em>air_temp_mean</em> cube. This time-series mean can
 now be used to calculate the time mean anomaly against the original
 time-series:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">anomaly</span> <span class="o">=</span> <span class="n">air_temp</span> <span class="o">-</span> <span class="n">air_temp_mean</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">anomaly</span><span class="o">.</span><span class="n">summary</span><span class="p">(</span><span class="bp">True</span><span class="p">))</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">anomaly</span> <span class="o">=</span> <span class="n">air_temp</span> <span class="o">-</span> <span class="n">air_temp_mean</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">anomaly</span><span class="o">.</span><span class="n">summary</span><span class="p">(</span><span class="kc">True</span><span class="p">))</span>
 <span class="go">unknown / (K)                       (time: 240; latitude: 37; longitude: 49)</span>
 </pre></div>
 </div>
@@ -228,29 +228,29 @@ examples. The first of these shows that it is possible to involve the
 transpose of the air temperature time-series in an arithmetic operation with
 itself.</p>
 <p>Let’s first create the transpose of the air temperature time-series:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">air_temp_T</span> <span class="o">=</span> <span class="n">air_temp</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">air_temp_T</span> <span class="o">=</span> <span class="n">air_temp</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">air_temp_T</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">air_temp_T</span><span class="o">.</span><span class="n">summary</span><span class="p">(</span><span class="bp">True</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">air_temp_T</span><span class="o">.</span><span class="n">summary</span><span class="p">(</span><span class="kc">True</span><span class="p">))</span>
 <span class="go">air_temperature / (K)               (longitude: 49; latitude: 37; time: 240)</span>
 </pre></div>
 </div>
 <p>Now add the transpose to the original time-series:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">air_temp</span> <span class="o">+</span> <span class="n">air_temp_T</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">summary</span><span class="p">(</span><span class="bp">True</span><span class="p">))</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">air_temp</span> <span class="o">+</span> <span class="n">air_temp_T</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">summary</span><span class="p">(</span><span class="kc">True</span><span class="p">))</span>
 <span class="go">unknown / (K)                       (time: 240; latitude: 37; longitude: 49)</span>
 </pre></div>
 </div>
 <p>Notice that the <em>result</em> is the same dimensionality and shape as <em>air_temp</em>.
 Let’s check that the arithmetic operation has calculated a result that
 we would intuitively expect:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">==</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">air_temp</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">==</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">air_temp</span>
 <span class="go">True</span>
 </pre></div>
 </div>
 <p>Let’s extend this example slightly, by taking a slice from the middle
 <em>latitude</em> dimension of the transpose cube:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">air_temp_T_slice</span> <span class="o">=</span> <span class="n">air_temp_T</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">:]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">air_temp_T_slice</span><span class="o">.</span><span class="n">summary</span><span class="p">(</span><span class="bp">True</span><span class="p">))</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">air_temp_T_slice</span> <span class="o">=</span> <span class="n">air_temp_T</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">:]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">air_temp_T_slice</span><span class="o">.</span><span class="n">summary</span><span class="p">(</span><span class="kc">True</span><span class="p">))</span>
 <span class="go">air_temperature / (K)               (longitude: 49; time: 240)</span>
 </pre></div>
 </div>
@@ -258,8 +258,8 @@ we would intuitively expect:</p>
 less dimension <em>and</em> it’s shape if different. However, this doesn’t prevent
 us from performing cube arithmetic with it, thanks to the extended cube
 broadcasting behaviour:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">air_temp</span> <span class="o">-</span> <span class="n">air_temp_T_slice</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">summary</span><span class="p">(</span><span class="bp">True</span><span class="p">))</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">air_temp</span> <span class="o">-</span> <span class="n">air_temp_T_slice</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">summary</span><span class="p">(</span><span class="kc">True</span><span class="p">))</span>
 <span class="go">unknown / (K)                       (time: 240; latitude: 37; longitude: 49)</span>
 </pre></div>
 </div>
@@ -272,14 +272,14 @@ the associated temperature using the equation:</p>
 <img src="../_images/mathmpl/math-e76b349545.png" style="position: relative; bottom: -7px"/> is the potential temperature reference pressure
 and <img src="../_images/mathmpl/math-fa4ff731d3.png" style="position: relative; bottom: -3px"/> is temperature.</p>
 <p>First, let’s load pressure and potential temperature cubes:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;colpex.pp&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;colpex.pp&#39;</span><span class="p">)</span>
 <span class="n">phenomenon_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;air_potential_temperature&#39;</span><span class="p">,</span> <span class="s1">&#39;air_pressure&#39;</span><span class="p">]</span>
 <span class="n">pot_temperature</span><span class="p">,</span> <span class="n">pressure</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cubes</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">phenomenon_names</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>In order to calculate <img src="../_images/mathmpl/math-179dee9bcd.png" style="position: relative; bottom: -10px"/> we can define a coordinate which
 represents the standard reference pressure of 1000 hPa:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">iris.coords</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">iris.coords</span>
 <span class="n">p0</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">coords</span><span class="o">.</span><span class="n">AuxCoord</span><span class="p">(</span><span class="mf">1000.0</span><span class="p">,</span>
                           <span class="n">long_name</span><span class="o">=</span><span class="s1">&#39;reference_pressure&#39;</span><span class="p">,</span>
                           <span class="n">units</span><span class="o">=</span><span class="s1">&#39;hPa&#39;</span><span class="p">)</span>
@@ -288,16 +288,16 @@ represents the standard reference pressure of 1000 hPa:</p>
 <p>We must ensure that the units of <code class="docutils literal notranslate"><span class="pre">pressure</span></code> and <code class="docutils literal notranslate"><span class="pre">p0</span></code> are the same,
 so convert the newly created coordinate using
 the <a class="reference internal" href="../iris/iris/coords.html#iris.coords.Coord.convert_units" title="iris.coords.Coord.convert_units"><code class="xref py py-meth docutils literal notranslate"><span class="pre">iris.coords.Coord.convert_units()</span></code></a> method:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">p0</span><span class="o">.</span><span class="n">convert_units</span><span class="p">(</span><span class="n">pressure</span><span class="o">.</span><span class="n">units</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">p0</span><span class="o">.</span><span class="n">convert_units</span><span class="p">(</span><span class="n">pressure</span><span class="o">.</span><span class="n">units</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Now we can combine all of this information to calculate the air temperature
 using the equation above:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">temperature</span> <span class="o">=</span> <span class="n">pot_temperature</span> <span class="o">*</span> <span class="p">(</span> <span class="p">(</span><span class="n">pressure</span> <span class="o">/</span> <span class="n">p0</span><span class="p">)</span> <span class="o">**</span> <span class="p">(</span><span class="mf">287.05</span> <span class="o">/</span> <span class="mi">1005</span><span class="p">)</span> <span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">temperature</span> <span class="o">=</span> <span class="n">pot_temperature</span> <span class="o">*</span> <span class="p">(</span> <span class="p">(</span><span class="n">pressure</span> <span class="o">/</span> <span class="n">p0</span><span class="p">)</span> <span class="o">**</span> <span class="p">(</span><span class="mf">287.05</span> <span class="o">/</span> <span class="mi">1005</span><span class="p">)</span> <span class="p">)</span>
 </pre></div>
 </div>
 <p>Finally, the cube we have created needs to be given a suitable name:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">temperature</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;air_temperature&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">temperature</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;air_temperature&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The result could now be plotted using the guidance provided in the

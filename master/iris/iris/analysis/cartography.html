@@ -23,7 +23,7 @@
     <META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE"> 
 
     <link rel="stylesheet" href="../../../_static/style.css" type="text/css" />
-    <script type="text/javascript" src="http://docs.python.org/2/_static/copybutton.js"></script>
+    <script type="text/javascript" src="https://docs.python.org/2/_static/copybutton.js"></script>
 
     <link rel="icon" type="image/png" sizes="32x32" href="../../../_static/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../../../_static/favicon-16x16.png">
@@ -182,15 +182,15 @@ be clipped to the valid range.</p>
 <div><img src="../../../_images/mathmpl/math-4953676fbd.png" class="center" /></div></blockquote>
 <p>Examples:</p>
 <p>Compute weights suitable for averaging type operations:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">iris.analysis.cartography</span> <span class="kn">import</span> <span class="n">cosine_latitude_weights</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">iris.analysis.cartography</span> <span class="k">import</span> <span class="n">cosine_latitude_weights</span>
 <span class="n">cube</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;air_temp.pp&#39;</span><span class="p">))</span>
 <span class="n">weights</span> <span class="o">=</span> <span class="n">cosine_latitude_weights</span><span class="p">(</span><span class="n">cube</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Compute weights suitable for EOF analysis (or other covariance type
 analyses):</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">iris.analysis.cartography</span> <span class="kn">import</span> <span class="n">cosine_latitude_weights</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">iris.analysis.cartography</span> <span class="k">import</span> <span class="n">cosine_latitude_weights</span>
 <span class="n">cube</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;air_temp.pp&#39;</span><span class="p">))</span>
 <span class="n">weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">cosine_latitude_weights</span><span class="p">(</span><span class="n">cube</span><span class="p">))</span>
 </pre></div>
@@ -205,7 +205,7 @@ analyses):</p>
 <dd><p>Return 2d arrays for x and y bounds.</p>
 <p>Returns array of shape (n+1, m+1).</p>
 <p>Example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">xs</span><span class="p">,</span> <span class="n">ys</span> <span class="o">=</span> <span class="n">get_xy_contiguous_bounded_grids</span><span class="p">(</span><span class="n">cube</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xs</span><span class="p">,</span> <span class="n">ys</span> <span class="o">=</span> <span class="n">get_xy_contiguous_bounded_grids</span><span class="p">(</span><span class="n">cube</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -223,7 +223,7 @@ analyses):</p>
 </ul>
 </div></blockquote>
 <p>Example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">get_xy_grids</span><span class="p">(</span><span class="n">cube</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">get_xy_grids</span><span class="p">(</span><span class="n">cube</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -313,7 +313,7 @@ latitudes are to be rotated onto.</p>
 the arrays of rotated-pole longitudes and latitudes must be of the same
 shape as each other.</p>
 <p>Example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rotated_lons</span><span class="p">,</span> <span class="n">rotated_lats</span> <span class="o">=</span> <span class="n">rotate_pole</span><span class="p">(</span><span class="n">lons</span><span class="p">,</span> <span class="n">lats</span><span class="p">,</span>         <span class="n">pole_lon</span><span class="p">,</span> <span class="n">pole_lat</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rotated_lons</span><span class="p">,</span> <span class="n">rotated_lats</span> <span class="o">=</span> <span class="n">rotate_pole</span><span class="p">(</span><span class="n">lons</span><span class="p">,</span> <span class="n">lats</span><span class="p">,</span>         <span class="n">pole_lon</span><span class="p">,</span> <span class="n">pole_lat</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -430,7 +430,7 @@ describes the arrays of rotated-pole longitudes and latitudes.</p>
 rectilinear grid, the arrays of rotated-pole longitudes and latitudes must
 be of the same shape as each other.</p>
 <p>Example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">lons</span><span class="p">,</span> <span class="n">lats</span> <span class="o">=</span> <span class="n">unrotate_pole</span><span class="p">(</span><span class="n">rotated_lons</span><span class="p">,</span> <span class="n">rotated_lats</span><span class="p">,</span>           <span class="n">pole_lon</span><span class="p">,</span> <span class="n">pole_lat</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lons</span><span class="p">,</span> <span class="n">lats</span> <span class="o">=</span> <span class="n">unrotate_pole</span><span class="p">(</span><span class="n">rotated_lons</span><span class="p">,</span> <span class="n">rotated_lats</span><span class="p">,</span>           <span class="n">pole_lon</span><span class="p">,</span> <span class="n">pole_lat</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -478,7 +478,7 @@ rotated-pole longitudes and latitudes.</dd>
 <dd><p>Wrap longitude values into the range between base and base+period.</p>
 <dl class="docutils">
 <dt>For example:</dt>
-<dd><div class="first last highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">wrap_lons</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">185</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="o">-</span><span class="mi">200</span><span class="p">,</span> <span class="mi">75</span><span class="p">]),</span> <span class="o">-</span><span class="mi">180</span><span class="p">,</span> <span class="mi">360</span><span class="p">))</span>
+<dd><div class="first last highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">wrap_lons</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">185</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="o">-</span><span class="mi">200</span><span class="p">,</span> <span class="mi">75</span><span class="p">]),</span> <span class="o">-</span><span class="mi">180</span><span class="p">,</span> <span class="mi">360</span><span class="p">))</span>
 <span class="go">[-175.   30.  160.   75.]</span>
 </pre></div>
 </div>

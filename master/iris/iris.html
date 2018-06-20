@@ -23,7 +23,7 @@
     <META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE"> 
 
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    <script type="text/javascript" src="http://docs.python.org/2/_static/copybutton.js"></script>
+    <script type="text/javascript" src="https://docs.python.org/2/_static/copybutton.js"></script>
 
     <link rel="icon" type="image/png" sizes="32x32" href="../_static/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../_static/favicon-16x16.png">
@@ -186,7 +186,7 @@ Each constraint can be either a string, an instance of
 <a class="reference internal" href="#iris.AttributeConstraint" title="iris.AttributeConstraint"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.AttributeConstraint</span></code></a>.  If the constraint is a string
 it will be used to match against cube.name().</p>
 <p id="constraint-egs">For example:</p>
-<div class="last highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load air temperature data.</span>
+<div class="last highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load air temperature data.</span>
 <span class="n">load_cube</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="s1">&#39;air_temperature&#39;</span><span class="p">)</span>
 
 <span class="c1"># Load data with a specific model level number.</span>
@@ -211,7 +211,7 @@ returned by the function.</li>
 an <a class="reference internal" href="iris/exceptions.html#iris.exceptions.IgnoreCubeException" title="iris.exceptions.IgnoreCubeException"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.exceptions.IgnoreCubeException</span></code></a>.</li>
 </ol>
 <p>For example:</p>
-<div class="last highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">callback</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+<div class="last highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">callback</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
     <span class="c1"># Extract ID from filenames given as: &lt;prefix&gt;__&lt;exp_id&gt;</span>
     <span class="n">experiment_id</span> <span class="o">=</span> <span class="n">filename</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;__&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
     <span class="n">experiment_coord</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">coords</span><span class="o">.</span><span class="n">AuxCoord</span><span class="p">(</span>
@@ -442,10 +442,11 @@ file format.</dd>
 <blockquote>
 <div><ul>
 <li><dl class="first docutils">
-<dt>saver     - Optional. Specifies the save function to use.</dt>
+<dt>saver     - Optional. Specifies the file format to save.</dt>
 <dd><p class="first">If omitted, Iris will attempt to determine the format.</p>
-<p class="last">This keyword can be used to implement a custom save
-format. Function form must be:
+<p class="last">If a string, this is the recognised filename extension
+(where the actual filename may not have it).
+Otherwise the value is a saver function, of the form:
 <code class="docutils literal notranslate"><span class="pre">my_saver(cube,</span> <span class="pre">target)</span></code> plus any custom keywords. It
 is assumed that a saver will accept an <code class="docutils literal notranslate"><span class="pre">append</span></code> keyword
 if it’s file format can handle multiple cubes. See also
@@ -458,12 +459,12 @@ if it’s file format can handle multiple cubes. See also
 <p>All other keywords are passed through to the saver function; see the
 relevant saver documentation for more information on keyword arguments.</p>
 <p>Examples:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Save a cube to PP</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Save a cube to PP</span>
 <span class="n">iris</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">my_cube</span><span class="p">,</span> <span class="s2">&quot;myfile.pp&quot;</span><span class="p">)</span>
 
 <span class="c1"># Save a cube list to a PP file, appending to the contents of the file</span>
 <span class="c1"># if it already exists</span>
-<span class="n">iris</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">my_cube_list</span><span class="p">,</span> <span class="s2">&quot;myfile.pp&quot;</span><span class="p">,</span> <span class="n">append</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">iris</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">my_cube_list</span><span class="p">,</span> <span class="s2">&quot;myfile.pp&quot;</span><span class="p">,</span> <span class="n">append</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="c1"># Save a cube to netCDF, defaults to NETCDF4 file format</span>
 <span class="n">iris</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">my_cube</span><span class="p">,</span> <span class="s2">&quot;myfile.nc&quot;</span><span class="p">)</span>
@@ -530,7 +531,7 @@ associated coordinate.</p>
 constraints. The name of the argument gives the name of a
 coordinate, and the value of the argument is the condition to meet
 on that coordinate:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Constraint</span><span class="p">(</span><span class="n">model_level_number</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Constraint</span><span class="p">(</span><span class="n">model_level_number</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Coordinate level constraints can be of several types:</p>
@@ -551,7 +552,7 @@ e.g. <code class="docutils literal notranslate"><span class="pre">model_level_nu
 <p>The <a class="reference internal" href="../userguide/loading_iris_cubes.html#loading-iris-cubes"><span class="std std-ref">user guide</span></a> covers cube much of
 constraining in detail, however an example which uses all of the
 features of this class is given here for completeness:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Constraint</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;air_potential_temperature&#39;</span><span class="p">,</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Constraint</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;air_potential_temperature&#39;</span><span class="p">,</span>
            <span class="n">cube_func</span><span class="o">=</span><span class="k">lambda</span> <span class="n">cube</span><span class="p">:</span> <span class="n">cube</span><span class="o">.</span><span class="n">units</span> <span class="o">==</span> <span class="s1">&#39;kelvin&#39;</span><span class="p">,</span>
            <span class="n">coord_values</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;latitude&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">cell</span><span class="p">:</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">cell</span> <span class="o">&lt;</span> <span class="mi">90</span><span class="p">},</span>
            <span class="n">model_level_number</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">])</span>
@@ -580,7 +581,7 @@ else return None.</p>
 <em class="property">class </em><code class="descclassname">iris.</code><code class="descname">AttributeConstraint</code><span class="sig-paren">(</span><em>**attributes</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.AttributeConstraint" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">iris._constraints.Constraint</span></code></p>
 <p>Example usage:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">iris</span><span class="o">.</span><span class="n">AttributeConstraint</span><span class="p">(</span><span class="n">STASH</span><span class="o">=</span><span class="s1">&#39;m01s16i004&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">iris</span><span class="o">.</span><span class="n">AttributeConstraint</span><span class="p">(</span><span class="n">STASH</span><span class="o">=</span><span class="s1">&#39;m01s16i004&#39;</span><span class="p">)</span>
 
 <span class="n">iris</span><span class="o">.</span><span class="n">AttributeConstraint</span><span class="p">(</span>
     <span class="n">STASH</span><span class="o">=</span><span class="k">lambda</span> <span class="n">stash</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">stash</span><span class="p">)</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;i005&#39;</span><span class="p">))</span>
@@ -633,7 +634,7 @@ appropriate for general file access.</p>
 <p>A container for run-time options controls.</p>
 <p>To adjust the values simply update the relevant attribute from
 within your code. For example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">iris</span><span class="o">.</span><span class="n">FUTURE</span><span class="o">.</span><span class="n">cell_datetime_objects</span> <span class="o">=</span> <span class="bp">False</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">iris</span><span class="o">.</span><span class="n">FUTURE</span><span class="o">.</span><span class="n">cell_datetime_objects</span> <span class="o">=</span> <span class="kc">False</span>
 </pre></div>
 </div>
 <p>If Iris code is executed with multiple threads, note the values of
@@ -649,7 +650,7 @@ attributes for year, month, day, etc.</p>
 <p>Cells are now represented as time objects by default, allowing
 you to express time constraints using a simpler syntax. For
 example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># To select all data defined at midday.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># To select all data defined at midday.</span>
 <span class="n">Constraint</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="k">lambda</span> <span class="n">cell</span><span class="p">:</span> <span class="n">cell</span><span class="o">.</span><span class="n">point</span><span class="o">.</span><span class="n">hour</span> <span class="o">==</span> <span class="mi">12</span><span class="p">)</span>
 
 <span class="c1"># To ignore the 29th of February.</span>

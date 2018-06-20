@@ -23,7 +23,7 @@
     <META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE"> 
 
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    <script type="text/javascript" src="http://docs.python.org/2/_static/copybutton.js"></script>
+    <script type="text/javascript" src="https://docs.python.org/2/_static/copybutton.js"></script>
 
     <link rel="icon" type="image/png" sizes="32x32" href="../_static/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../_static/favicon-16x16.png">
@@ -153,15 +153,15 @@ of cubes with data bigger than the available system memory are now possible.</p>
 <p>Other than the improved functionality the changes are mostly
 transparent; for example, before the introduction of biggus, MemoryErrors
 were likely for very large datasets:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">extremely_large_cube</span><span class="o">.</span><span class="n">collapsed</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">analyis</span><span class="o">.</span><span class="n">MEAN</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">extremely_large_cube</span><span class="o">.</span><span class="n">collapsed</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">analyis</span><span class="o">.</span><span class="n">MEAN</span><span class="p">)</span>
 <span class="go">MemoryError</span>
 </pre></div>
 </div>
 <p>Now, for supported operations, the evaluation is lazy (i.e. it doesn’t take
 place until the actual data is subsequently requested) and can handle data
 larger than available system memory:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">extremely_large_cube</span><span class="o">.</span><span class="n">collapsed</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">analyis</span><span class="o">.</span><span class="n">MEAN</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">extremely_large_cube</span><span class="o">.</span><span class="n">collapsed</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">analyis</span><span class="o">.</span><span class="n">MEAN</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>
 <span class="go">&lt;class &#39;iris.cube.Cube&#39;&gt;</span>
 </pre></div>
 </div>
@@ -178,11 +178,11 @@ extend the existing functionality.</p>
 <p>The interfaces are exposed on the cube in the form of the
 <a class="reference internal" href="../iris/iris/cube.html#iris.cube.Cube.interpolate" title="iris.cube.Cube.interpolate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">interpolate()</span></code></a> and <a class="reference internal" href="../iris/iris/cube.html#iris.cube.Cube.regrid" title="iris.cube.Cube.regrid"><code class="xref py py-meth docutils literal notranslate"><span class="pre">regrid()</span></code></a> methods.
 Conceptually the signatures of the methods are:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">interpolated_cube</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">interpolation_points</span><span class="p">,</span> <span class="n">interpolation_scheme</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">interpolated_cube</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">interpolation_points</span><span class="p">,</span> <span class="n">interpolation_scheme</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>and:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">regridded_cube</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">regrid</span><span class="p">(</span><span class="n">target_grid_cube</span><span class="p">,</span> <span class="n">regridding_scheme</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">regridded_cube</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">regrid</span><span class="p">(</span><span class="n">target_grid_cube</span><span class="p">,</span> <span class="n">regridding_scheme</span><span class="p">)</span>
 </pre></div>
 </div>
 <p class="last">Whilst not all schemes have been migrated to the new interface,
@@ -203,7 +203,7 @@ error will be raised that details the differences between the cubes in the
 that describes why the merge process failed.</p>
 <p>The following example demonstrates the error message that describes a merge
 failure caused by cubes having differing attributes:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cube_list</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">cube</span><span class="o">.</span><span class="n">CubeList</span><span class="p">((</span><span class="n">c1</span><span class="p">,</span> <span class="n">c2</span><span class="p">))</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cube_list</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">cube</span><span class="o">.</span><span class="n">CubeList</span><span class="p">((</span><span class="n">c1</span><span class="p">,</span> <span class="n">c2</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cube_list</span><span class="o">.</span><span class="n">merge_cube</span><span class="p">()</span>
 <span class="gt">Traceback (most recent call last):</span>
     <span class="o">...</span>
@@ -231,13 +231,13 @@ enhanced capability beyond the basic broadcasting behaviour of NumPy.</p>
 cubes no longer need to match. For example, if the dimensionality of a cube is
 reduced by collapsing, then the result can be used to subtract from the original
 cube to calculate an anomaly:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">time_mean</span> <span class="o">=</span> <span class="n">original_cube</span><span class="o">.</span><span class="n">collapsed</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">MEAN</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">time_mean</span> <span class="o">=</span> <span class="n">original_cube</span><span class="o">.</span><span class="n">collapsed</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">MEAN</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mean_anomaly</span> <span class="o">=</span> <span class="n">original_cube</span> <span class="o">-</span> <span class="n">time_mean</span>
 </pre></div>
 </div>
 <p>Given both broadcasting <strong>and</strong> coordinate meta-data, Iris can now perform
 arithmetic with cubes that have similar but not identical shape:</p>
-<div class="last highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">similar_cube</span> <span class="o">=</span> <span class="n">original_cube</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<div class="last highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">similar_cube</span> <span class="o">=</span> <span class="n">original_cube</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">similar_cube</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">zero_cube</span> <span class="o">=</span> <span class="n">original_cube</span> <span class="o">-</span> <span class="n">similar_cube</span>
 </pre></div>

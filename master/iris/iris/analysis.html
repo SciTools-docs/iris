@@ -23,7 +23,7 @@
     <META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE"> 
 
     <link rel="stylesheet" href="../../_static/style.css" type="text/css" />
-    <script type="text/javascript" src="http://docs.python.org/2/_static/copybutton.js"></script>
+    <script type="text/javascript" src="https://docs.python.org/2/_static/copybutton.js"></script>
 
     <link rel="icon" type="image/png" sizes="32x32" href="../../_static/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../../_static/favicon-16x16.png">
@@ -201,7 +201,7 @@ array of True/False values.</dd>
 <p><strong>For example</strong>:</p>
 <p>To compute the number of <em>ensemble members</em> with precipitation exceeding 10
 (in cube data units) could be calculated with:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">precip_cube</span><span class="o">.</span><span class="n">collapsed</span><span class="p">(</span><span class="s1">&#39;ensemble_member&#39;</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">COUNT</span><span class="p">,</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">precip_cube</span><span class="o">.</span><span class="n">collapsed</span><span class="p">(</span><span class="s1">&#39;ensemble_member&#39;</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">COUNT</span><span class="p">,</span>
                                <span class="n">function</span><span class="o">=</span><span class="k">lambda</span> <span class="n">values</span><span class="p">:</span> <span class="n">values</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -222,7 +222,7 @@ geometric mean over a <a class="reference internal" href="cube.html#iris.cube.Cu
 <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.mstats.gmean.html#scipy.stats.mstats.gmean" title="(in SciPy v1.1.0)"><code class="xref py py-func docutils literal notranslate"><span class="pre">scipy.stats.mstats.gmean()</span></code></a>.</p>
 <p><strong>For example</strong>:</p>
 <p>To compute zonal geometric means over the <em>longitude</em> axis of a cube:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">collapsed</span><span class="p">(</span><span class="s1">&#39;longitude&#39;</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">GMEAN</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">collapsed</span><span class="p">(</span><span class="s1">&#39;longitude&#39;</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">GMEAN</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>This aggregator handles masked data.</p>
@@ -238,7 +238,7 @@ harmonic mean over a <a class="reference internal" href="cube.html#iris.cube.Cub
 <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.mstats.hmean.html#scipy.stats.mstats.hmean" title="(in SciPy v1.1.0)"><code class="xref py py-func docutils literal notranslate"><span class="pre">scipy.stats.mstats.hmean()</span></code></a>.</p>
 <p><strong>For example</strong>:</p>
 <p>To compute zonal harmonic mean over the <em>longitude</em> axis of a cube:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">collapsed</span><span class="p">(</span><span class="s1">&#39;longitude&#39;</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">HMEAN</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">collapsed</span><span class="p">(</span><span class="s1">&#39;longitude&#39;</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">HMEAN</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -259,7 +259,7 @@ the maximum over a <a class="reference internal" href="cube.html#iris.cube.Cube"
 <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ma.max.html#numpy.ma.max" title="(in NumPy v1.14)"><code class="xref py py-func docutils literal notranslate"><span class="pre">numpy.ma.max()</span></code></a>.</p>
 <p><strong>For example</strong>:</p>
 <p>To compute zonal maximums over the <em>longitude</em> axis of a cube:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">collapsed</span><span class="p">(</span><span class="s1">&#39;longitude&#39;</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">MAX</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">collapsed</span><span class="p">(</span><span class="s1">&#39;longitude&#39;</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">MAX</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>This aggregator handles masked data.</p>
@@ -302,15 +302,15 @@ returned along with the collapsed data. Defaults to False.</dd>
 </ul>
 <p><strong>For example</strong>:</p>
 <p>To compute zonal means over the <em>longitude</em> axis of a cube:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">collapsed</span><span class="p">(</span><span class="s1">&#39;longitude&#39;</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">MEAN</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">collapsed</span><span class="p">(</span><span class="s1">&#39;longitude&#39;</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">MEAN</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>To compute a weighted area average:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">coords</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;longitude&#39;</span><span class="p">,</span> <span class="s1">&#39;latitude&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">coords</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;longitude&#39;</span><span class="p">,</span> <span class="s1">&#39;latitude&#39;</span><span class="p">)</span>
 <span class="n">collapsed_cube</span><span class="p">,</span> <span class="n">collapsed_weights</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">collapsed</span><span class="p">(</span><span class="n">coords</span><span class="p">,</span>
                                                    <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">MEAN</span><span class="p">,</span>
                                                    <span class="n">weights</span><span class="o">=</span><span class="n">weights</span><span class="p">,</span>
-                                                   <span class="n">returned</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+                                                   <span class="n">returned</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -330,7 +330,7 @@ the median over a <a class="reference internal" href="cube.html#iris.cube.Cube" 
 <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ma.median.html#numpy.ma.median" title="(in NumPy v1.14)"><code class="xref py py-func docutils literal notranslate"><span class="pre">numpy.ma.median()</span></code></a>.</p>
 <p><strong>For example</strong>:</p>
 <p>To compute zonal medians over the <em>longitude</em> axis of a cube:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">collapsed</span><span class="p">(</span><span class="s1">&#39;longitude&#39;</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">MEDIAN</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">collapsed</span><span class="p">(</span><span class="s1">&#39;longitude&#39;</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">MEDIAN</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>This aggregator handles masked data.</p>
@@ -346,7 +346,7 @@ the minimum over a <a class="reference internal" href="cube.html#iris.cube.Cube"
 <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ma.min.html#numpy.ma.min" title="(in NumPy v1.14)"><code class="xref py py-func docutils literal notranslate"><span class="pre">numpy.ma.min()</span></code></a>.</p>
 <p><strong>For example</strong>:</p>
 <p>To compute zonal minimums over the <em>longitude</em> axis of a cube:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">collapsed</span><span class="p">(</span><span class="s1">&#39;longitude&#39;</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">MIN</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">collapsed</span><span class="p">(</span><span class="s1">&#39;longitude&#39;</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">MIN</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>This aggregator handles masked data.</p>
@@ -368,7 +368,7 @@ number of non-masked values is zero the result itself will be a masked array.</p
 performed individually, in sequence, for each coordinate specified.</p>
 <p><strong>For example</strong>:</p>
 <p>To compute the peak over the <em>time</em> axis of a cube:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">collapsed</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">PEAK</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">collapsed</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">PEAK</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>This aggregator handles masked data.</p>
@@ -407,7 +407,7 @@ Defaults to 1.</dd>
 </ul>
 <p><strong>For example</strong>:</p>
 <p>To compute the 10th and 90th percentile over <em>time</em>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">collapsed</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">PERCENTILE</span><span class="p">,</span> <span class="n">percent</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">90</span><span class="p">])</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">collapsed</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">PERCENTILE</span><span class="p">,</span> <span class="n">percent</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">90</span><span class="p">])</span>
 </pre></div>
 </div>
 <p>This aggregator handles masked data.</p>
@@ -434,13 +434,13 @@ array of True/False values.</dd>
 <p><strong>For example</strong>:</p>
 <p>To compute the probability of precipitation exceeding 10
 (in cube data units) across <em>ensemble members</em> could be calculated with:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">precip_cube</span><span class="o">.</span><span class="n">collapsed</span><span class="p">(</span><span class="s1">&#39;ensemble_member&#39;</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">PROPORTION</span><span class="p">,</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">precip_cube</span><span class="o">.</span><span class="n">collapsed</span><span class="p">(</span><span class="s1">&#39;ensemble_member&#39;</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">PROPORTION</span><span class="p">,</span>
                                <span class="n">function</span><span class="o">=</span><span class="k">lambda</span> <span class="n">values</span><span class="p">:</span> <span class="n">values</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Similarly, the proportion of <em>time</em> precipitation exceeded 10
 (in cube data units) could be calculated with:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">precip_cube</span><span class="o">.</span><span class="n">collapsed</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">PROPORTION</span><span class="p">,</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">precip_cube</span><span class="o">.</span><span class="n">collapsed</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">PROPORTION</span><span class="p">,</span>
                                <span class="n">function</span><span class="o">=</span><span class="k">lambda</span> <span class="n">values</span><span class="p">:</span> <span class="n">values</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -471,7 +471,7 @@ taking the mean.</dd>
 </ul>
 <p><strong>For example</strong>:</p>
 <p>To compute the zonal root mean square over the <em>longitude</em> axis of a cube:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">collapsed</span><span class="p">(</span><span class="s1">&#39;longitude&#39;</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">RMS</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">collapsed</span><span class="p">(</span><span class="s1">&#39;longitude&#39;</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">RMS</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>This aggregator handles masked data.</p>
@@ -496,11 +496,11 @@ where N represents the number of elements. Defaults to 1.</dd>
 </ul>
 <p><strong>For example</strong>:</p>
 <p>To compute zonal standard deviations over the <em>longitude</em> axis of a cube:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">collapsed</span><span class="p">(</span><span class="s1">&#39;longitude&#39;</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">STD_DEV</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">collapsed</span><span class="p">(</span><span class="s1">&#39;longitude&#39;</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">STD_DEV</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>To obtain the biased standard deviation:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">collapsed</span><span class="p">(</span><span class="s1">&#39;longitude&#39;</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">STD_DEV</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">collapsed</span><span class="p">(</span><span class="s1">&#39;longitude&#39;</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">STD_DEV</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -536,11 +536,11 @@ along with the collapsed data. Defaults to False.</dd>
 </ul>
 <p><strong>For example</strong>:</p>
 <p>To compute an accumulation over the <em>time</em> axis of a cube:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">collapsed</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">SUM</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">collapsed</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">SUM</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>To compute a weighted rolling sum e.g. to apply a digital filter:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">.</span><span class="mi">1</span><span class="p">,</span> <span class="o">.</span><span class="mi">2</span><span class="p">,</span> <span class="o">.</span><span class="mi">4</span><span class="p">,</span> <span class="o">.</span><span class="mi">2</span><span class="p">,</span> <span class="o">.</span><span class="mi">1</span><span class="p">])</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">.</span><span class="mi">1</span><span class="p">,</span> <span class="o">.</span><span class="mi">2</span><span class="p">,</span> <span class="o">.</span><span class="mi">4</span><span class="p">,</span> <span class="o">.</span><span class="mi">2</span><span class="p">,</span> <span class="o">.</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">rolling_window</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">SUM</span><span class="p">,</span>
                              <span class="nb">len</span><span class="p">(</span><span class="n">weights</span><span class="p">),</span> <span class="n">weights</span><span class="o">=</span><span class="n">weights</span><span class="p">)</span>
 </pre></div>
@@ -567,11 +567,11 @@ where N represents the number of elements. Defaults to 1.</dd>
 </ul>
 <p><strong>For example</strong>:</p>
 <p>To compute zonal variance over the <em>longitude</em> axis of a cube:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">collapsed</span><span class="p">(</span><span class="s1">&#39;longitude&#39;</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">VARIANCE</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">collapsed</span><span class="p">(</span><span class="s1">&#39;longitude&#39;</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">VARIANCE</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>To obtain the biased variance:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">collapsed</span><span class="p">(</span><span class="s1">&#39;longitude&#39;</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">VARIANCE</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">collapsed</span><span class="p">(</span><span class="s1">&#39;longitude&#39;</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">VARIANCE</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -714,8 +714,8 @@ their respective cubes</dd>
 </li>
 </ul>
 <p>Example usage:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">coord_comparison</span><span class="p">(</span><span class="n">cube1</span><span class="p">,</span> <span class="n">cube2</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">&#39;All equal coordinates: &#39;</span><span class="p">,</span> <span class="n">result</span><span class="p">[</span><span class="s1">&#39;equal&#39;</span><span class="p">])</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">coord_comparison</span><span class="p">(</span><span class="n">cube1</span><span class="p">,</span> <span class="n">cube2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;All equal coordinates: &#39;</span><span class="p">,</span> <span class="n">result</span><span class="p">[</span><span class="s1">&#39;equal&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -780,7 +780,7 @@ main operation, but should raise an error in unhandled cases.</p>
 <p>Aggregators are used by cube aggregation methods such as
 <a class="reference internal" href="cube.html#iris.cube.Cube.collapsed" title="iris.cube.Cube.collapsed"><code class="xref py py-meth docutils literal notranslate"><span class="pre">collapsed()</span></code></a> and
 <a class="reference internal" href="cube.html#iris.cube.Cube.aggregated_by" title="iris.cube.Cube.aggregated_by"><code class="xref py py-meth docutils literal notranslate"><span class="pre">aggregated_by()</span></code></a>.  For example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">collapsed</span><span class="p">(</span><span class="s1">&#39;longitude&#39;</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">MEAN</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">collapsed</span><span class="p">(</span><span class="s1">&#39;longitude&#39;</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">MEAN</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>A variety of ready-made aggregators are provided in this module, such

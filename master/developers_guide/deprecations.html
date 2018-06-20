@@ -23,7 +23,7 @@
     <META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE"> 
 
     <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    <script type="text/javascript" src="http://docs.python.org/2/_static/copybutton.js"></script>
+    <script type="text/javascript" src="https://docs.python.org/2/_static/copybutton.js"></script>
 
     <link rel="icon" type="image/png" sizes="32x32" href="../_static/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../_static/favicon-16x16.png">
@@ -147,25 +147,18 @@ removed to allow time for user code to be updated. Sometimes the
 deprecation is accompanied by the introduction of a new public API.</p>
 <p>Under these circumstances the following points apply:</p>
 <blockquote>
-<div><ul class="simple">
-<li>Using the deprecated API must result in a concise deprecation warning which
+<div><ul>
+<li><p class="first">Using the deprecated API must result in a concise deprecation warning which
 is an instance of <a class="reference internal" href="../iris/iris.html#iris.IrisDeprecation" title="iris.IrisDeprecation"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.IrisDeprecation</span></code></a>.
 It is easiest to call
 <code class="xref py py-func docutils literal notranslate"><span class="pre">iris._deprecation.warn_deprecated()</span></code>, which is a
 simple wrapper to <a class="reference external" href="https://docs.python.org/2.7/library/warnings.html#warnings.warn" title="(in Python v2.7)"><code class="xref py py-func docutils literal notranslate"><span class="pre">warnings.warn()</span></code></a> with the signature
-<cite>warn_deprecation(message, **kwargs)</cite>.</li>
-</ul>
-</div></blockquote>
-<ul class="simple">
-<li><dl class="first docutils">
-<dt>Where possible, your deprecation warning should include advice on</dt>
-<dd>how to avoid using the deprecated API. For example, you might
-reference a preferred API, or more detailed documentation elsewhere.</dd>
-</dl>
+<cite>warn_deprecation(message, **kwargs)</cite>.</p>
 </li>
-</ul>
-<blockquote>
-<div><ul>
+<li><p class="first">Where possible, your deprecation warning should include advice on
+how to avoid using the deprecated API. For example, you might
+reference a preferred API, or more detailed documentation elsewhere.</p>
+</li>
 <li><p class="first">You must update the docstring for the deprecated API to include a
 Sphinx deprecation directive:</p>
 <blockquote>

@@ -23,7 +23,7 @@
     <META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE"> 
 
     <link rel="stylesheet" href="_static/style.css" type="text/css" />
-    <script type="text/javascript" src="http://docs.python.org/2/_static/copybutton.js"></script>
+    <script type="text/javascript" src="https://docs.python.org/2/_static/copybutton.js"></script>
 
     <link rel="icon" type="image/png" sizes="32x32" href="_static/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="_static/favicon-16x16.png">
@@ -146,13 +146,13 @@
 for example from <a class="reference external" href="http://conda.pydata.org/miniconda.html">http://conda.pydata.org/miniconda.html</a>.</p>
 <p>Once conda is installed, you can install Iris using conda on any platform with
 the following command:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">iris</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">iris</span>
 </pre></div>
 </div>
 <p>If you wish to run any of the code examples
 (see <a class="reference external" href="http://scitools.org.uk/iris/docs/latest/examples/index.html">http://scitools.org.uk/iris/docs/latest/examples/index.html</a>) you will also
 need the Iris sample data. This can also be installed using conda:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">iris</span><span class="o">-</span><span class="n">sample</span><span class="o">-</span><span class="n">data</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">iris</span><span class="o">-</span><span class="n">sample</span><span class="o">-</span><span class="n">data</span>
 </pre></div>
 </div>
 <p>Further documentation on using conda and the features it provides can be found
@@ -166,7 +166,7 @@ at <a class="reference external" href="http://conda.pydata.org/docs/intro.html">
 dependencies must be in place before you can successfully install
 Iris. Once you have satisfied the requirements detailed in the
 <code class="docutils literal notranslate"><span class="pre">requirements</span></code> directory, go to the root of Iris’ and run:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">.</span>
 </pre></div>
 </div>
 <div class="section" id="in-place-build-an-alternative-for-developers">
@@ -174,22 +174,22 @@ Iris. Once you have satisfied the requirements detailed in the
 <p>We are very keen to encourage contributions to Iris. For this type of
 development activity an in-place build can be useful. Once you’ve cloned
 the Iris git repository you can perform an in-place build with:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">e</span> <span class="o">.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">e</span> <span class="o">.</span>
 </pre></div>
 </div>
 <div class="section" id="generating-conda-requirements">
 <h4>Generating conda requirements<a class="headerlink" href="#generating-conda-requirements" title="Permalink to this headline">¶</a></h4>
 <p>Requirements for Iris are stored in the <code class="docutils literal notranslate"><span class="pre">requirements</span></code> directory in the root of the source repository.
 It is possible to generate a requirements file suitable for use with conda:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">requirements</span><span class="o">/</span><span class="n">gen_conda_requirements</span><span class="o">.</span><span class="n">py</span> <span class="o">&gt;</span> <span class="n">conda_requirements</span><span class="o">.</span><span class="n">txt</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">requirements</span><span class="o">/</span><span class="n">gen_conda_requirements</span><span class="o">.</span><span class="n">py</span> <span class="o">&gt;</span> <span class="n">conda_requirements</span><span class="o">.</span><span class="n">txt</span>
 </pre></div>
 </div>
 <p>This may then be installed with:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">my_iris_env</span> <span class="o">--</span><span class="nb">file</span> <span class="n">conda_requirements</span><span class="o">.</span><span class="n">txt</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">my_iris_env</span> <span class="o">--</span><span class="n">file</span> <span class="n">conda_requirements</span><span class="o">.</span><span class="n">txt</span>
 </pre></div>
 </div>
 <p>Alternatively, a full requirements file that includes all optional dependencies can be produced with:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">requirements</span><span class="o">/</span><span class="n">gen_conda_requirements</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">groups</span> <span class="nb">all</span> <span class="o">&gt;</span> <span class="n">conda_requirements</span><span class="o">.</span><span class="n">txt</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">requirements</span><span class="o">/</span><span class="n">gen_conda_requirements</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">groups</span> <span class="nb">all</span> <span class="o">&gt;</span> <span class="n">conda_requirements</span><span class="o">.</span><span class="n">txt</span>
 </pre></div>
 </div>
 </div>
@@ -199,7 +199,7 @@ It is possible to generate a requirements file suitable for use with conda:</p>
 <p>The default site configuration values can be overridden by creating the file
 <code class="docutils literal notranslate"><span class="pre">iris/etc/site.cfg</span></code>. For example, the following snippet can be used to
 specify a non-standard location for your dot executable:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">System</span><span class="p">]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">System</span><span class="p">]</span>
 <span class="n">dot_path</span> <span class="o">=</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">dot</span>
 </pre></div>
 </div>
