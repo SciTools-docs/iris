@@ -257,8 +257,8 @@ interface:</p>
 <blockquote>
 <div><ul>
 <li><p class="first">To draw a cube on its native map project, one can simply draw the cube directly:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">iris.plot</span> <span class="kn">as</span> <span class="nn">iplt</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">iris.plot</span> <span class="k">as</span> <span class="nn">iplt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="n">iplt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">cube</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
@@ -269,8 +269,8 @@ interface:</p>
 <li><p class="first">To draw a cube on the native map and extents of another, one can use the
 <a class="reference internal" href="../iris/iris/plot.html#iris.plot.default_projection" title="iris.plot.default_projection"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.plot.default_projection()</span></code></a> and
 <a class="reference internal" href="../iris/iris/plot.html#iris.plot.default_projection_extent" title="iris.plot.default_projection_extent"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.plot.default_projection_extent()</span></code></a> functions:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">iris.plot</span> <span class="kn">as</span> <span class="nn">iplt</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">iris.plot</span> <span class="k">as</span> <span class="nn">iplt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="n">cube1_projection</span> <span class="o">=</span> <span class="n">iplt</span><span class="o">.</span><span class="n">default_projection</span><span class="p">(</span><span class="n">cube1</span><span class="p">)</span>
 <span class="n">cube1_extent</span> <span class="o">=</span> <span class="n">iplt</span><span class="o">.</span><span class="n">default_projection_extent</span><span class="p">(</span><span class="n">cube1</span><span class="p">)</span>
@@ -323,11 +323,11 @@ dimension as an unlimited/record dimension. In combination with the
 <a class="reference internal" href="../iris/iris/cube.html#iris.cube.Cube.transpose" title="iris.cube.Cube.transpose"><code class="xref py py-meth docutils literal notranslate"><span class="pre">iris.cube.Cube.transpose()</span></code></a> method, this allows any dimension to
 take the role of the unlimited/record dimension.</p>
 <p>For example, a Cube with the structure:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">iris</span> <span class="s1">&#39;Cube&#39;</span> <span class="n">of</span> <span class="n">air_potential_temperature</span> <span class="p">(</span><span class="n">time</span><span class="p">:</span> <span class="mi">6</span><span class="p">;</span> <span class="n">model_level_number</span><span class="p">:</span> <span class="mi">70</span><span class="p">;</span> <span class="n">grid_latitude</span><span class="p">:</span> <span class="mi">100</span><span class="p">;</span> <span class="n">grid_longitude</span><span class="p">:</span> <span class="mi">100</span><span class="p">)</span><span class="o">&gt;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">iris</span> <span class="s1">&#39;Cube&#39;</span> <span class="n">of</span> <span class="n">air_potential_temperature</span> <span class="p">(</span><span class="n">time</span><span class="p">:</span> <span class="mi">6</span><span class="p">;</span> <span class="n">model_level_number</span><span class="p">:</span> <span class="mi">70</span><span class="p">;</span> <span class="n">grid_latitude</span><span class="p">:</span> <span class="mi">100</span><span class="p">;</span> <span class="n">grid_longitude</span><span class="p">:</span> <span class="mi">100</span><span class="p">)</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 <p>would result in a netCDF file whose CDL definition would include:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dimensions</span><span class="p">:</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dimensions</span><span class="p">:</span>
         <span class="n">time</span> <span class="o">=</span> <span class="n">UNLIMITED</span> <span class="p">;</span> <span class="o">//</span> <span class="p">(</span><span class="mi">6</span> <span class="n">currently</span><span class="p">)</span>
         <span class="n">model_level_number</span> <span class="o">=</span> <span class="mi">70</span> <span class="p">;</span>
         <span class="n">grid_latitude</span> <span class="o">=</span> <span class="mi">100</span> <span class="p">;</span>
@@ -345,9 +345,9 @@ processes.</p>
 by Cynthia Brewer. The <a class="reference internal" href="../iris/iris/palette.html#module-iris.palette" title="iris.palette"><code class="xref py py-mod docutils literal notranslate"><span class="pre">iris.palette</span></code></a> module registers the Brewer
 colour palettes with matplotlib, so they are explicitly selectable via
 the <a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.set_cmap.html#matplotlib.pyplot.set_cmap" title="(in Matplotlib v2.2.2)"><code class="xref py py-func docutils literal notranslate"><span class="pre">matplotlib.pyplot.set_cmap()</span></code></a> function. For example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">iris.palette</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">iris.palette</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">set_cmap</span><span class="p">(</span><span class="s1">&#39;brewer_RdBu_11&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -367,7 +367,7 @@ in the citation guidance provided by Cynthia Brewer.</p>
 <h2>Metadata attributes<a class="headerlink" href="#metadata-attributes" title="Permalink to this headline">¶</a></h2>
 <p>Iris now stores “source” and “history” metadata in Cube attributes.
 For example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">tests</span><span class="o">.</span><span class="n">stock</span><span class="o">.</span><span class="n">global_pp</span><span class="p">())</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">tests</span><span class="o">.</span><span class="n">stock</span><span class="o">.</span><span class="n">global_pp</span><span class="p">())</span>
 <span class="go">air_temperature                     (latitude: 73; longitude: 96)</span>
 <span class="go">     ...</span>
 <span class="go">     Attributes:</span>
@@ -377,11 +377,11 @@ For example:</p>
 </pre></div>
 </div>
 <p>Where previously it would have appeared as:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">air_temperature</span>                     <span class="p">(</span><span class="n">latitude</span><span class="p">:</span> <span class="mi">73</span><span class="p">;</span> <span class="n">longitude</span><span class="p">:</span> <span class="mi">96</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">air_temperature</span>                     <span class="p">(</span><span class="n">latitude</span><span class="p">:</span> <span class="mi">73</span><span class="p">;</span> <span class="n">longitude</span><span class="p">:</span> <span class="mi">96</span><span class="p">)</span>
      <span class="o">...</span>
      <span class="n">Scalar</span> <span class="n">coordinates</span><span class="p">:</span>
           <span class="o">...</span>
-          <span class="n">source</span><span class="p">:</span> <span class="n">Data</span> <span class="kn">from</span> <span class="nn">Met</span> <span class="nn">Office</span> <span class="nn">Unified</span> <span class="nn">Model</span>
+          <span class="n">source</span><span class="p">:</span> <span class="n">Data</span> <span class="kn">from</span> <span class="nn">Met</span> <span class="n">Office</span> <span class="n">Unified</span> <span class="n">Model</span>
      <span class="o">...</span>
 </pre></div>
 </div>
@@ -390,7 +390,7 @@ For example:</p>
 <p>This change breaks backwards compatibility with Iris 0.9. But
 if it is desirable to have the “source” metadata expressed as a
 coordinate then it can be done with the following pattern:</p>
-<div class="last highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">src</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">attributes</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;source&#39;</span><span class="p">)</span>
+<div class="last highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">src</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">attributes</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;source&#39;</span><span class="p">)</span>
 <span class="n">src_coord</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">coords</span><span class="o">.</span><span class="n">AuxCoord</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">long_name</span><span class="o">=</span><span class="s1">&#39;source&#39;</span><span class="p">)</span>
 <span class="n">cube</span><span class="o">.</span><span class="n">add_aux_coord</span><span class="p">(</span><span class="n">src_coord</span><span class="p">)</span>
 </pre></div>
@@ -425,9 +425,9 @@ functions instead.</p>
 <p>Iris now has the ability to project a cube into a number of map projections.
 This functionality is provided by <a class="reference internal" href="../iris/iris/analysis/cartography.html#iris.analysis.cartography.project" title="iris.analysis.cartography.project"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.analysis.cartography.project()</span></code></a>.
 For example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">iris</span>
-<span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="kn">as</span> <span class="nn">ccrs</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">iris</span>
+<span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="k">as</span> <span class="nn">ccrs</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="c1"># Load data</span>
 <span class="n">cube</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;air_temp.pp&#39;</span><span class="p">))</span>

@@ -317,7 +317,7 @@ formula:
 <p>Currently, Iris will not allow over-specification (all three ellipsoid
 paramaters).
 Examples:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cs</span> <span class="o">=</span> <span class="n">GeogCS</span><span class="p">(</span><span class="mi">6371229</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cs</span> <span class="o">=</span> <span class="n">GeogCS</span><span class="p">(</span><span class="mi">6371229</span><span class="p">)</span>
 <span class="n">pp_cs</span> <span class="o">=</span> <span class="n">GeogCS</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">fileformats</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">EARTH_RADIUS</span><span class="p">)</span>
 <span class="n">airy1830</span> <span class="o">=</span> <span class="n">GeogCS</span><span class="p">(</span><span class="n">semi_major_axis</span><span class="o">=</span><span class="mf">6377563.396</span><span class="p">,</span>
                   <span class="n">semi_minor_axis</span><span class="o">=</span><span class="mf">6356256.909</span><span class="p">)</span>
@@ -846,7 +846,7 @@ optional <a class="reference internal" href="#iris.coord_systems.GeogCS" title="
 </ul>
 </div></blockquote>
 <p>Examples:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rotated_cs</span> <span class="o">=</span> <span class="n">RotatedGeogCS</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rotated_cs</span> <span class="o">=</span> <span class="n">RotatedGeogCS</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
 <span class="n">another_cs</span> <span class="o">=</span> <span class="n">RotatedGeogCS</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span>
                            <span class="n">ellipsoid</span><span class="o">=</span><span class="n">GeogCS</span><span class="p">(</span><span class="mi">6400000</span><span class="p">,</span> <span class="mi">6300000</span><span class="p">))</span>
 </pre></div>
@@ -1072,7 +1072,7 @@ distortion in the area of interest.</dd>
 </ul>
 </div></blockquote>
 <p>Example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">airy1830</span> <span class="o">=</span> <span class="n">GeogCS</span><span class="p">(</span><span class="mf">6377563.396</span><span class="p">,</span> <span class="mf">6356256.909</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">airy1830</span> <span class="o">=</span> <span class="n">GeogCS</span><span class="p">(</span><span class="mf">6377563.396</span><span class="p">,</span> <span class="mf">6356256.909</span><span class="p">)</span>
 <span class="n">osgb</span> <span class="o">=</span> <span class="n">TransverseMercator</span><span class="p">(</span><span class="mi">49</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">400000</span><span class="p">,</span> <span class="o">-</span><span class="mi">100000</span><span class="p">,</span> <span class="mf">0.9996012717</span><span class="p">,</span>
                           <span class="n">ellipsoid</span><span class="o">=</span><span class="n">airy1830</span><span class="p">)</span>
 </pre></div>

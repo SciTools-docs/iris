@@ -204,7 +204,7 @@ set the CF Conventions version for the saved NetCDF files.</p>
 <ul>
 <li><p class="first">Specify, for the lifetime of the session, that we want all cubes
 written to NetCDF to define their own CF Conventions versions:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">iris</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">netcdf</span><span class="o">.</span><span class="n">conventions_override</span> <span class="o">=</span> <span class="bp">True</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">iris</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">netcdf</span><span class="o">.</span><span class="n">conventions_override</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="n">iris</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;my_cube&#39;</span><span class="p">,</span> <span class="s1">&#39;my_dataset.nc&#39;</span><span class="p">)</span>
 <span class="n">iris</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;my_second_cube&#39;</span><span class="p">,</span> <span class="s1">&#39;my_second_dataset.nc&#39;</span><span class="p">)</span>
 </pre></div>
@@ -212,7 +212,7 @@ written to NetCDF to define their own CF Conventions versions:</p>
 </li>
 <li><p class="first">Specify, with a context manager, that we want a cube written to
 NetCDF to define its own CF Conventions version:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">iris</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">netcdf</span><span class="o">.</span><span class="n">context</span><span class="p">(</span><span class="n">conventions_override</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">iris</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">netcdf</span><span class="o">.</span><span class="n">context</span><span class="p">(</span><span class="n">conventions_override</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
     <span class="n">iris</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;my_cube&#39;</span><span class="p">,</span> <span class="s1">&#39;my_dataset.nc&#39;</span><span class="p">)</span>
 </pre></div>
 </div>

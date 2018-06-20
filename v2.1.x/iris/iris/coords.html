@@ -220,7 +220,7 @@ datetime objects.</p>
 <code class="descname">cells</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.AuxCoord.cells" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns an iterable of Cell instances for this Coord.</p>
 <p>For example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">cell</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cells</span><span class="p">():</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">cell</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cells</span><span class="p">():</span>
    <span class="o">...</span>
 </pre></div>
 </div>
@@ -253,7 +253,7 @@ return bounds positioned halfway between the coordinate’s points.</p>
 and bounds arrays.</p>
 <p>For example, if a coordinate’s <a class="reference internal" href="#iris.coords.Coord.units" title="iris.coords.Coord.units"><code class="xref py py-attr docutils literal notranslate"><span class="pre">units</span></code></a>
 attribute is set to radians then:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">coord</span><span class="o">.</span><span class="n">convert_units</span><span class="p">(</span><span class="s1">&#39;degrees&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">coord</span><span class="o">.</span><span class="n">convert_units</span><span class="p">(</span><span class="s1">&#39;degrees&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>will change the coordinate’s
@@ -502,7 +502,7 @@ the value of <cite>default</cite> (which itself defaults to ‘unknown’).</p>
 <dd><p>Returns the index of the cell nearest to the given point.</p>
 <p>Only works for one-dimensional coordinates.</p>
 <p>For example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cube</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;ostia_monthly.nc&#39;</span><span class="p">))</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cube</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;ostia_monthly.nc&#39;</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cube</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="s1">&#39;latitude&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">nearest_neighbour_index</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="go">9</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cube</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="s1">&#39;longitude&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">nearest_neighbour_index</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
@@ -986,7 +986,7 @@ datetime objects.</p>
 <code class="descname">cells</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.Coord.cells" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns an iterable of Cell instances for this Coord.</p>
 <p>For example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">cell</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cells</span><span class="p">():</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">cell</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cells</span><span class="p">():</span>
    <span class="o">...</span>
 </pre></div>
 </div>
@@ -1019,7 +1019,7 @@ return bounds positioned halfway between the coordinate’s points.</p>
 and bounds arrays.</p>
 <p>For example, if a coordinate’s <a class="reference internal" href="#iris.coords.Coord.units" title="iris.coords.Coord.units"><code class="xref py py-attr docutils literal notranslate"><span class="pre">units</span></code></a>
 attribute is set to radians then:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">coord</span><span class="o">.</span><span class="n">convert_units</span><span class="p">(</span><span class="s1">&#39;degrees&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">coord</span><span class="o">.</span><span class="n">convert_units</span><span class="p">(</span><span class="s1">&#39;degrees&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>will change the coordinate’s
@@ -1268,7 +1268,7 @@ the value of <cite>default</cite> (which itself defaults to ‘unknown’).</p>
 <dd><p>Returns the index of the cell nearest to the given point.</p>
 <p>Only works for one-dimensional coordinates.</p>
 <p>For example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cube</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;ostia_monthly.nc&#39;</span><span class="p">))</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cube</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;ostia_monthly.nc&#39;</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cube</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="s1">&#39;latitude&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">nearest_neighbour_index</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="go">9</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cube</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="s1">&#39;longitude&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">nearest_neighbour_index</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
@@ -1584,7 +1584,7 @@ datetime objects.</p>
 <code class="descname">cells</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.DimCoord.cells" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns an iterable of Cell instances for this Coord.</p>
 <p>For example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">cell</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cells</span><span class="p">():</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">cell</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cells</span><span class="p">():</span>
    <span class="o">...</span>
 </pre></div>
 </div>
@@ -1617,7 +1617,7 @@ return bounds positioned halfway between the coordinate’s points.</p>
 and bounds arrays.</p>
 <p>For example, if a coordinate’s <a class="reference internal" href="#iris.coords.Coord.units" title="iris.coords.Coord.units"><code class="xref py py-attr docutils literal notranslate"><span class="pre">units</span></code></a>
 attribute is set to radians then:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">coord</span><span class="o">.</span><span class="n">convert_units</span><span class="p">(</span><span class="s1">&#39;degrees&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">coord</span><span class="o">.</span><span class="n">convert_units</span><span class="p">(</span><span class="s1">&#39;degrees&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>will change the coordinate’s
@@ -1903,7 +1903,7 @@ the value of <cite>default</cite> (which itself defaults to ‘unknown’).</p>
 <dd><p>Returns the index of the cell nearest to the given point.</p>
 <p>Only works for one-dimensional coordinates.</p>
 <p>For example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cube</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;ostia_monthly.nc&#39;</span><span class="p">))</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cube</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;ostia_monthly.nc&#39;</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cube</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="s1">&#39;latitude&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">nearest_neighbour_index</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="go">9</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cube</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="s1">&#39;longitude&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">nearest_neighbour_index</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
