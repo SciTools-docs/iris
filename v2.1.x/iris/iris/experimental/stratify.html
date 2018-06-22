@@ -164,13 +164,12 @@ will be passed the following positional arguments:</p>
 <p>If the interpolator is None, <code class="xref py py-func docutils literal notranslate"><span class="pre">stratify.interpolate()</span></code> will be used
 with linear interpolation and NaN extrapolation.</p>
 <p>An example of constructing an alternative interpolation scheme:</p>
-<blockquote class="last">
-<div><p>from functools import partial
-interpolator = partial(stratify.interpolate,</p>
-<blockquote>
-<div>interpolation=stratify.INTERPOLATE_NEAREST,
-extrapolation=stratify.EXTRAPOLATE_LINEAR)</div></blockquote>
-</div></blockquote>
+<div class="last highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="k">import</span> <span class="n">partial</span>
+<span class="n">interpolator</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">stratify</span><span class="o">.</span><span class="n">interpolate</span><span class="p">,</span>
+                       <span class="n">interpolation</span><span class="o">=</span><span class="n">stratify</span><span class="o">.</span><span class="n">INTERPOLATE_NEAREST</span><span class="p">,</span>
+                       <span class="n">extrapolation</span><span class="o">=</span><span class="n">stratify</span><span class="o">.</span><span class="n">EXTRAPOLATE_LINEAR</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd>
 </dl>
 </dd></dl>
