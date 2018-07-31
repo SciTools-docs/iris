@@ -313,7 +313,10 @@ in matplotlibrc is used.</dd>
 --><dl class="function">
 <dt id="iris.plot.pcolor">
 <code class="descclassname">iris.plot.</code><code class="descname">pcolor</code><span class="sig-paren">(</span><em>cube</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.plot.pcolor" title="Permalink to this definition">¶</a></dt>
-<dd><p>Draws a pseudocolor plot based on the given Cube.</p>
+<dd><p>Draws a pseudocolor plot based on the given 2-dimensional Cube.</p>
+<p>The cube must have either two 1-dimensional coordinates or two
+2-dimensional coordinates with contiguous bounds to plot against each
+other.</p>
 <p>Kwargs:</p>
 <ul class="simple">
 <li><dl class="first docutils">
@@ -328,6 +331,11 @@ of the plot.</dd>
 <li><dl class="first docutils">
 <dt>axes: the <a class="reference external" href="https://matplotlib.org/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v2.2.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code></a> to use for drawing.</dt>
 <dd>Defaults to the current axes if none provided.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>two_dim_coord_contiguity_atol: absolute tolerance when checking for</dt>
+<dd>contiguity between cells in a two dimensional coordinate.</dd>
 </dl>
 </li>
 </ul>
@@ -340,7 +348,10 @@ keyword arguments.</p>
 --><dl class="function">
 <dt id="iris.plot.pcolormesh">
 <code class="descclassname">iris.plot.</code><code class="descname">pcolormesh</code><span class="sig-paren">(</span><em>cube</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.plot.pcolormesh" title="Permalink to this definition">¶</a></dt>
-<dd><p>Draws a pseudocolor plot based on the given Cube.</p>
+<dd><p>Draws a pseudocolor plot based on the given 2-dimensional Cube.</p>
+<p>The cube must have either two 1-dimensional coordinates or two
+2-dimensional coordinates with contiguous bounds to plot against each
+other.</p>
 <p>Kwargs:</p>
 <ul class="simple">
 <li><dl class="first docutils">
@@ -355,6 +366,11 @@ of the plot.</dd>
 <li><dl class="first docutils">
 <dt>axes: the <a class="reference external" href="https://matplotlib.org/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v2.2.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code></a> to use for drawing.</dt>
 <dd>Defaults to the current axes if none provided.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>two_dim_coord_contiguity_atol: absolute tolerance when checking for</dt>
+<dd>contiguity between cells in a two dimensional coordinate.</dd>
 </dl>
 </li>
 </ul>
