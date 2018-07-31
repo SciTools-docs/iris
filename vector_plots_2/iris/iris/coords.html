@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>iris.coords &#8212; Iris 2.2.0dev0 documentation</title>
+    <title>iris.coords &#8212; Iris 2.2.0a0 documentation</title>
     <link rel="stylesheet" href="../../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
@@ -237,11 +237,14 @@ the specified dimensions.</p>
 <dl class="method">
 <dt id="iris.coords.AuxCoord.contiguous_bounds">
 <code class="descname">contiguous_bounds</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.AuxCoord.contiguous_bounds" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the N+1 bound values for a contiguous bounded coordinate
+<dd><p>Returns the N+1 bound values for a contiguous bounded 1D coordinate
 of length N.</p>
+<p>Returns the (N+1, M+1) bound values for a contiguous bounded 2D
+coordinate of shape (N, M).</p>
+<p>Assumes input is contiguous.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">If the coordinate is does not have bounds, this method will
+<p class="last">If the coordinate does not have bounds, this method will
 return bounds positioned halfway between the coordinate’s points.</p>
 </div>
 </dd></dl>
@@ -1003,11 +1006,14 @@ the specified dimensions.</p>
 <dl class="method">
 <dt id="iris.coords.Coord.contiguous_bounds">
 <code class="descname">contiguous_bounds</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.Coord.contiguous_bounds" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the N+1 bound values for a contiguous bounded coordinate
+<dd><p>Returns the N+1 bound values for a contiguous bounded 1D coordinate
 of length N.</p>
+<p>Returns the (N+1, M+1) bound values for a contiguous bounded 2D
+coordinate of shape (N, M).</p>
+<p>Assumes input is contiguous.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">If the coordinate is does not have bounds, this method will
+<p class="last">If the coordinate does not have bounds, this method will
 return bounds positioned halfway between the coordinate’s points.</p>
 </div>
 </dd></dl>
@@ -1601,11 +1607,14 @@ the specified dimensions.</p>
 <dl class="method">
 <dt id="iris.coords.DimCoord.contiguous_bounds">
 <code class="descname">contiguous_bounds</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.DimCoord.contiguous_bounds" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the N+1 bound values for a contiguous bounded coordinate
+<dd><p>Returns the N+1 bound values for a contiguous bounded 1D coordinate
 of length N.</p>
+<p>Returns the (N+1, M+1) bound values for a contiguous bounded 2D
+coordinate of shape (N, M).</p>
+<p>Assumes input is contiguous.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">If the coordinate is does not have bounds, this method will
+<p class="last">If the coordinate does not have bounds, this method will
 return bounds positioned halfway between the coordinate’s points.</p>
 </div>
 </dd></dl>
