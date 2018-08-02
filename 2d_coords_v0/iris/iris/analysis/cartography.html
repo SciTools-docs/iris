@@ -44,7 +44,7 @@
     </a>
     <div class="strapline">
       <h1>
-          Iris <span class="version">v2.1</span>
+          Iris <span class="version">v2.2</span>
       </h1>
       <p>
          A powerful, format-agnostic, community-driven Python library for analysing and
@@ -124,7 +124,9 @@
 <li><a class="reference internal" href="#iris.analysis.cartography.cosine_latitude_weights" title="iris.analysis.cartography.cosine_latitude_weights"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cosine_latitude_weights</span></code></a></li>
 <li><a class="reference internal" href="#iris.analysis.cartography.get_xy_contiguous_bounded_grids" title="iris.analysis.cartography.get_xy_contiguous_bounded_grids"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_xy_contiguous_bounded_grids</span></code></a></li>
 <li><a class="reference internal" href="#iris.analysis.cartography.get_xy_grids" title="iris.analysis.cartography.get_xy_grids"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_xy_grids</span></code></a></li>
+<li><a class="reference internal" href="#iris.analysis.cartography.gridcell_angles" title="iris.analysis.cartography.gridcell_angles"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gridcell_angles</span></code></a></li>
 <li><a class="reference internal" href="#iris.analysis.cartography.project" title="iris.analysis.cartography.project"><code class="xref py py-obj docutils literal notranslate"><span class="pre">project</span></code></a></li>
+<li><a class="reference internal" href="#iris.analysis.cartography.rotate_grid_vectors" title="iris.analysis.cartography.rotate_grid_vectors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rotate_grid_vectors</span></code></a></li>
 <li><a class="reference internal" href="#iris.analysis.cartography.rotate_pole" title="iris.analysis.cartography.rotate_pole"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rotate_pole</span></code></a></li>
 <li><a class="reference internal" href="#iris.analysis.cartography.rotate_winds" title="iris.analysis.cartography.rotate_winds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rotate_winds</span></code></a></li>
 <li><a class="reference internal" href="#iris.analysis.cartography.unrotate_pole" title="iris.analysis.cartography.unrotate_pole"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unrotate_pole</span></code></a></li>
@@ -231,6 +233,79 @@ analyses):</p>
 <p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
 <!--<hr class="docutils" />
 --><dl class="function">
+<dt id="iris.analysis.cartography.gridcell_angles">
+<code class="descclassname">iris.analysis.cartography.</code><code class="descname">gridcell_angles</code><span class="sig-paren">(</span><em>x</em>, <em>y=None</em>, <em>cell_angle_boundpoints='mid-lhs</em>, <em>mid-rhs'</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.analysis.cartography.gridcell_angles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate gridcell orientations for an arbitrary 2-dimensional grid.</p>
+<p>The input grid is defined by two 2-dimensional coordinate arrays with the
+same dimensions (ny, nx), specifying the geolocations of a 2D mesh.</p>
+<p>Input values may be coordinate points (ny, nx) or bounds (ny, nx, 4).
+However, if points, the edges in the X direction are assumed to be
+connected by wraparound.</p>
+<p>Input can be either two arrays, two coordinates, or a single cube
+containing two suitable coordinates identified with the ‘x’ and’y’ axes.</p>
+<p>Args:</p>
+<p>The inputs (x [,y]) can be any of the folliwing :</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>x (<a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a>):</dt>
+<dd>a grid cube with 2D X and Y coordinates, identified by ‘axis’.
+The coordinates must be 2-dimensional with the same shape.
+The two dimensions represent grid dimensions in the order Y, then X.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>x, y (<a class="reference internal" href="../coords.html#iris.coords.Coord" title="iris.coords.Coord"><code class="xref py py-class docutils literal notranslate"><span class="pre">Coord</span></code></a>):</dt>
+<dd>X and Y coordinates, specifying grid locations on the globe.
+The coordinates must be 2-dimensional with the same shape.
+The two dimensions represent grid dimensions in the order Y, then X.
+If there is no coordinate system, they are assumed to be true
+longitudes and latitudes.  Units must convertible to ‘degrees’.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>x, y (2-dimensional arrays of same shape (ny, nx)):</dt>
+<dd>longitude and latitude cell center locations, in degrees.
+The two dimensions represent grid dimensions in the order Y, then X.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>x, y (3-dimensional arrays of same shape (ny, nx, 4)):</dt>
+<dd>longitude and latitude cell bounds, in degrees.
+The first two dimensions are grid dimensions in the order Y, then X.
+The last index maps cell corners anticlockwise from bottom-left.</dd>
+</dl>
+</li>
+</ul>
+<p>Optional Args:</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>cell_angle_boundpoints (string):</dt>
+<dd>Controls which gridcell bounds locations are used to calculate angles,
+if the inputs are bounds or bounded coordinates.
+Valid values are ‘lower-left, lower-right’, which takes the angle from
+the lower left to the lower right corner, and ‘mid-lhs, mid-rhs’ which
+takes an angles between the average of the left-hand and right-hand
+pairs of corners.  The default is ‘mid-lhs, mid-rhs’.</dd>
+</dl>
+</li>
+</ul>
+<p>Returns:</p>
+<blockquote>
+<div><p>angles : (2-dimensional cube)</p>
+<blockquote>
+<div>Cube of angles of grid-x vector from true Eastward direction for
+each gridcell, in radians.
+It also has longitude and latitude coordinates.  If coordinates
+were input the output has identical ones :  If the input was 2d
+arrays, the output coords have no bounds; or, if the input was 3d
+arrays, the output coords have bounds and centrepoints which are
+the average of the 4 bounds.</div></blockquote>
+</div></blockquote>
+</dd></dl>
+
+<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
+<!--<hr class="docutils" />
+--><dl class="function">
 <dt id="iris.analysis.cartography.project">
 <code class="descclassname">iris.analysis.cartography.</code><code class="descname">project</code><span class="sig-paren">(</span><em>cube</em>, <em>target_proj</em>, <em>nx=None</em>, <em>ny=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.analysis.cartography.project" title="Permalink to this definition">¶</a></dt>
 <dd><p>Nearest neighbour regrid to a specified target projection.</p>
@@ -298,6 +373,64 @@ cell in the resulting cube. Consequently it may have an adverse effect
 on the statistics of the data e.g. the mean and standard deviation
 will not be preserved.</p>
 </div>
+</dd></dl>
+
+<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
+<!--<hr class="docutils" />
+--><dl class="function">
+<dt id="iris.analysis.cartography.rotate_grid_vectors">
+<code class="descclassname">iris.analysis.cartography.</code><code class="descname">rotate_grid_vectors</code><span class="sig-paren">(</span><em>u_cube</em>, <em>v_cube</em>, <em>grid_angles_cube=None</em>, <em>grid_angles_kwargs=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.analysis.cartography.rotate_grid_vectors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rotate distance vectors from grid-oriented to true-latlon-oriented.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This operation overlaps somewhat in function with
+<a class="reference internal" href="#iris.analysis.cartography.rotate_winds" title="iris.analysis.cartography.rotate_winds"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.analysis.cartography.rotate_winds()</span></code></a>.
+However, that routine only rotates vectors according to transformations
+between coordinate systems.
+This function, by contrast, can rotate vectors by arbitrary angles.
+Most commonly, the angles are estimated solely from grid sampling
+points, using <a class="reference internal" href="#iris.analysis.cartography.gridcell_angles" title="iris.analysis.cartography.gridcell_angles"><code class="xref py py-func docutils literal notranslate"><span class="pre">gridcell_angles()</span></code></a> :  This allows operation on
+complex meshes defined by two-dimensional coordinates, such as most
+ocean grids.</p>
+</div>
+<p>Args:</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>u_cube, v_cube <span class="classifier-delimiter">:</span> <span class="classifier">(cube)</span></dt>
+<dd>Cubes of grid-u and grid-v vector components.
+Units should be differentials of true-distance, e.g. ‘m/s’.</dd>
+</dl>
+</li>
+</ul>
+<p>Optional args:</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>grid_angles_cube <span class="classifier-delimiter">:</span> <span class="classifier">(cube)</span></dt>
+<dd>gridcell orientation angles.
+Units must be angular, i.e. can be converted to ‘radians’.
+If not provided, grid angles are estimated from ‘u_cube’ using the
+<a class="reference internal" href="#iris.analysis.cartography.gridcell_angles" title="iris.analysis.cartography.gridcell_angles"><code class="xref py py-func docutils literal notranslate"><span class="pre">gridcell_angles()</span></code></a> method.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>grid_angles_kwargs <span class="classifier-delimiter">:</span> <span class="classifier">(dict or None)</span></dt>
+<dd>Additional keyword args to be passed to the <a class="reference internal" href="#iris.analysis.cartography.gridcell_angles" title="iris.analysis.cartography.gridcell_angles"><code class="xref py py-func docutils literal notranslate"><span class="pre">gridcell_angles()</span></code></a>
+method, if it is used.</dd>
+</dl>
+</li>
+</ul>
+<p>Returns:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>true_u, true_v <span class="classifier-delimiter">:</span> <span class="classifier">(cube)</span></dt>
+<dd>Cubes of true-north oriented vector components.
+Units are same as inputs.</dd>
+</dl>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Vector magnitudes will always be the same as the inputs.</p>
+</div>
+</div></blockquote>
 </dd></dl>
 
 <p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>

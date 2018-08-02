@@ -44,7 +44,7 @@
     </a>
     <div class="strapline">
       <h1>
-          Iris <span class="version">v2.1</span>
+          Iris <span class="version">v2.2</span>
       </h1>
       <p>
          A powerful, format-agnostic, community-driven Python library for analysing and
@@ -133,11 +133,9 @@
 </tr>
 </tbody>
 </table>
-<dl class="docutils">
-<dt>This document explains the new/changed features of Iris in the alpha release</dt>
-<dd>of version 2.2.0</dd>
-</dl>
-<p>(<a class="reference internal" href="index.html"><span class="doc">View all changes</span></a>).</p>
+<p>This document explains the new/changed features of Iris in the alpha release
+of version 2.2.0
+(<a class="reference internal" href="index.html"><span class="doc">View all changes</span></a>).</p>
 <div class="section" id="iris-2-2-0-features">
 <h2>Iris 2.2.0 Features<a class="headerlink" href="#iris-2-2-0-features" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-dimensional-coordinate-plotting admonition" id="showcase">
@@ -145,10 +143,19 @@
 <p>The iris plot functions <a class="reference internal" href="../iris/iris/plot.html#iris.plot.pcolor" title="iris.plot.pcolor"><code class="xref py py-func docutils literal notranslate"><span class="pre">pcolor()</span></code></a> and
 <a class="reference internal" href="../iris/iris/plot.html#iris.plot.pcolormesh" title="iris.plot.pcolormesh"><code class="xref py py-func docutils literal notranslate"><span class="pre">pcolormesh()</span></code></a> now accommodate the plotting of 2-dimensional
 coordinates as well as 1-dimensional coordinates.</p>
-<p class="last">To enable this feature, each coordinate passed in for plotting will be
+<p>To enable this feature, each coordinate passed in for plotting will be
 automatically checked for contiguity.  Coordinate bounds must either be
 contiguous, or the cube’s data must be masked at the discontiguities in
 order to avoid plotting errors.</p>
+<p class="last">The iris plot functions <a class="reference internal" href="../iris/iris/plot.html#iris.plot.quiver" title="iris.plot.quiver"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.plot.quiver()</span></code></a> and
+<a class="reference internal" href="../iris/iris/plot.html#iris.plot.streamplot" title="iris.plot.streamplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.plot.streamplot()</span></code></a> have been added, and these also work with
+2-dimensional plot coordinates.</p>
+</div>
+<div class="admonition-dimensional-grid-vectors admonition">
+<p class="first admonition-title">2-Dimensional Grid Vectors</p>
+<p class="last">The iris functions <a class="reference internal" href="../iris/iris/analysis/cartography.html#iris.analysis.cartography.gridcell_angles" title="iris.analysis.cartography.gridcell_angles"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.analysis.cartography.gridcell_angles()</span></code></a> and
+<a class="reference internal" href="../iris/iris/analysis/cartography.html#iris.analysis.cartography.rotate_grid_vectors" title="iris.analysis.cartography.rotate_grid_vectors"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.analysis.cartography.rotate_grid_vectors()</span></code></a> have been added,
+allowing you to convert gridcell-oriented vectors to true-North/East ones.</p>
 </div>
 </div>
 </div>
