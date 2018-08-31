@@ -317,8 +317,7 @@ in matplotlibrc is used.</dd>
 <code class="descclassname">iris.plot.</code><code class="descname">pcolor</code><span class="sig-paren">(</span><em>cube</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.plot.pcolor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Draws a pseudocolor plot based on the given 2-dimensional Cube.</p>
 <p>The cube must have either two 1-dimensional coordinates or two
-2-dimensional coordinates with contiguous bounds to plot against each
-other.</p>
+2-dimensional coordinates with contiguous bounds to plot the cube against.</p>
 <p>Kwargs:</p>
 <ul class="simple">
 <li><dl class="first docutils">
@@ -336,8 +335,8 @@ of the plot.</dd>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>two_dim_coord_contiguity_atol: absolute tolerance when checking for</dt>
-<dd>contiguity between cells in a two dimensional coordinate.</dd>
+<dt>contiguity_tolerance: The absolute tolerance used when checking for</dt>
+<dd>contiguity between the bounds of the cells. Defaults to None.</dd>
 </dl>
 </li>
 </ul>
@@ -371,8 +370,8 @@ of the plot.</dd>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>two_dim_coord_contiguity_atol: absolute tolerance when checking for</dt>
-<dd>contiguity between cells in a two dimensional coordinate.</dd>
+<dt>contiguity_tolerance: The absolute tolerance used when checking for</dt>
+<dd>contiguity between the bounds of the cells. Defaults to None.</dd>
 </dl>
 </li>
 </ul>
