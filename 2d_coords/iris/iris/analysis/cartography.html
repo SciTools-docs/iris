@@ -294,12 +294,18 @@ pairs of corners.  The default is ‘mid-lhs, mid-rhs’.</dd>
 <div><p>angles : (2-dimensional cube)</p>
 <blockquote>
 <div>Cube of angles of grid-x vector from true Eastward direction for
-each gridcell, in radians.
-It also has longitude and latitude coordinates.  If coordinates
-were input the output has identical ones :  If the input was 2d
-arrays, the output coords have no bounds; or, if the input was 3d
-arrays, the output coords have bounds and centrepoints which are
-the average of the 4 bounds.</div></blockquote>
+each gridcell, in degrees.
+It also has “true” longitude and latitude coordinates, with no
+coordinate system.
+When the input has coords, then the output ones are identical if
+the inputs are true-latlons, otherwise they are transformed
+true-latlon versions.
+When the input has bounded coords, then the output coords have
+matching bounds and centrepoints (possibly transformed).
+When the input is 2d arrays, or has unbounded coords, then the
+output coords have matching points and no bounds.
+When the input is 3d arrays, then the output coords have matching
+bounds, and the centrepoints are an average of the 4 boundpoints.</div></blockquote>
 </div></blockquote>
 </dd></dl>
 
@@ -381,6 +387,7 @@ will not be preserved.</p>
 <dt id="iris.analysis.cartography.rotate_grid_vectors">
 <code class="descclassname">iris.analysis.cartography.</code><code class="descname">rotate_grid_vectors</code><span class="sig-paren">(</span><em>u_cube</em>, <em>v_cube</em>, <em>grid_angles_cube=None</em>, <em>grid_angles_kwargs=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.analysis.cartography.rotate_grid_vectors" title="Permalink to this definition">¶</a></dt>
 <dd><p>Rotate distance vectors from grid-oriented to true-latlon-oriented.</p>
+<p>Can also rotate by arbitrary angles, if they are passed in.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">This operation overlaps somewhat in function with
