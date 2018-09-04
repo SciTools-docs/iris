@@ -135,7 +135,6 @@ interface.</p>
 <li><a class="reference internal" href="#iris.plot.points" title="iris.plot.points"><code class="xref py py-obj docutils literal notranslate"><span class="pre">points</span></code></a></li>
 <li><a class="reference internal" href="#iris.plot.quiver" title="iris.plot.quiver"><code class="xref py py-obj docutils literal notranslate"><span class="pre">quiver</span></code></a></li>
 <li><a class="reference internal" href="#iris.plot.scatter" title="iris.plot.scatter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scatter</span></code></a></li>
-<li><a class="reference internal" href="#iris.plot.streamplot" title="iris.plot.streamplot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">streamplot</span></code></a></li>
 <li><a class="reference internal" href="#iris.plot.symbols" title="iris.plot.symbols"><code class="xref py py-obj docutils literal notranslate"><span class="pre">symbols</span></code></a></li>
 <li><a class="reference internal" href="#iris.plot.PlotDefn" title="iris.plot.PlotDefn"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PlotDefn</span></code></a></li>
 </ul>
@@ -516,46 +515,6 @@ keyword arguments.</p>
 </ul>
 <p>See <a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.scatter.html#matplotlib.pyplot.scatter" title="(in Matplotlib v2.2.3)"><code class="xref py py-func docutils literal notranslate"><span class="pre">matplotlib.pyplot.scatter()</span></code></a> for details of additional
 valid keyword arguments.</p>
-</dd></dl>
-
-<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
-<!--<hr class="docutils" />
---><dl class="function">
-<dt id="iris.plot.streamplot">
-<code class="descclassname">iris.plot.</code><code class="descname">streamplot</code><span class="sig-paren">(</span><em>u_cube</em>, <em>v_cube</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.plot.streamplot" title="Permalink to this definition">¶</a></dt>
-<dd><p>Draws a streamline plot from two vector component cubes.</p>
-<p>Args:</p>
-<ul>
-<li><dl class="first docutils">
-<dt>u_cube, v_cube <span class="classifier-delimiter">:</span> <span class="classifier">(<a class="reference internal" href="cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a>)</span></dt>
-<dd><p class="first last">u and v vector components.  Must have same shape and units.
-If the cubes have geographic coordinates, the values are treated as
-true distance differentials, e.g. windspeeds, and <em>not</em> map coordinate
-vectors.  The components are aligned with the North and East of the
-cube coordinate system.</p>
-</dd>
-</dl>
-</li>
-</ul>
-<p>Kwargs:</p>
-<ul class="simple">
-<li><dl class="first docutils">
-<dt>coords: (list of <a class="reference internal" href="coords.html#iris.coords.Coord" title="iris.coords.Coord"><code class="xref py py-class docutils literal notranslate"><span class="pre">Coord</span></code></a> or string)</dt>
-<dd>Coordinates or coordinate names. Use the given coordinates as the axes
-for the plot. The order of the given coordinates indicates which axis
-to use for each, where the first element is the horizontal
-axis of the plot and the second element is the vertical axis
-of the plot.</dd>
-</dl>
-</li>
-<li><dl class="first docutils">
-<dt>axes: the <a class="reference external" href="https://matplotlib.org/api/axes_api.html#matplotlib.axes.Axes" title="(in Matplotlib v2.2.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code></a> to use for drawing.</dt>
-<dd>Defaults to the current axes if none provided.</dd>
-</dl>
-</li>
-</ul>
-<p>See <a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.quiver.html#matplotlib.pyplot.quiver" title="(in Matplotlib v2.2.3)"><code class="xref py py-func docutils literal notranslate"><span class="pre">matplotlib.pyplot.quiver()</span></code></a> for details of other valid
-keyword arguments.</p>
 </dd></dl>
 
 <p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
