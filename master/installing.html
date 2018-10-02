@@ -88,6 +88,7 @@
 <li><a class="reference internal" href="#installing-from-source">Installing from source</a><ul>
 <li><a class="reference internal" href="#in-place-build-an-alternative-for-developers">In-place build - an alternative for developers</a><ul>
 <li><a class="reference internal" href="#generating-conda-requirements">Generating conda requirements</a></li>
+<li><a class="reference internal" href="#running-the-tests">Running the tests</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#custom-site-configuration">Custom site configuration</a></li>
@@ -194,6 +195,20 @@ It is possible to generate a requirements file suitable for use with conda:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">requirements</span><span class="o">/</span><span class="n">gen_conda_requirements</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">groups</span> <span class="nb">all</span> <span class="o">&gt;</span> <span class="n">conda_requirements</span><span class="o">.</span><span class="n">txt</span>
 </pre></div>
 </div>
+</div>
+<div class="section" id="running-the-tests">
+<h4>Running the tests<a class="headerlink" href="#running-the-tests" title="Permalink to this headline">¶</a></h4>
+<p>In order to run the tests, you will need to use the <cite>test</cite> and <cite>docs</cite> groups (we include the <cite>docs</cite> group so that you can run the pull request tests locally).
+Hence the commands change to:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">requirements</span><span class="o">/</span><span class="n">gen_conda_requirements</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">groups</span> <span class="n">test</span> <span class="n">docs</span> <span class="o">&gt;</span> <span class="n">conda_requirements</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">my_iris_env</span> <span class="o">--</span><span class="n">file</span> <span class="n">conda_requirements</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">conda</span> <span class="n">activate</span> <span class="n">my_iris_env</span>  <span class="c1"># or whatever other name you gave it</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">e</span> <span class="o">.</span>
+</pre></div>
+</div>
+<p>The tests can then be run with</p>
+<blockquote>
+<div>python setup.py test</div></blockquote>
 </div>
 </div>
 <div class="section" id="custom-site-configuration">
