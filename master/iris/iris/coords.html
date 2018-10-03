@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>iris.coords &#8212; Iris 2.2.0dev0 documentation</title>
+    <title>iris.coords &#8212; Iris 2.2.0a0 documentation</title>
     <link rel="stylesheet" href="../../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -46,7 +46,7 @@
     </a>
     <div class="strapline">
       <h1>
-          Iris <span class="version">v2.1</span>
+          Iris <span class="version">v2.2</span>
       </h1>
       <p>
          A powerful, format-agnostic, community-driven Python library for analysing and
@@ -239,12 +239,18 @@ the specified dimensions.</p>
 <dl class="method">
 <dt id="iris.coords.AuxCoord.contiguous_bounds">
 <code class="descname">contiguous_bounds</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.AuxCoord.contiguous_bounds" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the N+1 bound values for a contiguous bounded coordinate
-of length N.</p>
+<dd><p>Returns the N+1 bound values for a contiguous bounded 1D coordinate
+of length N, or the (N+1, M+1) bound values for a contiguous bounded 2D
+coordinate of shape (N, M).</p>
+<p>Only 1D or 2D coordinates are supported.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">If the coordinate is does not have bounds, this method will
+<p>If the coordinate has bounds, this method assumes they are
+contiguous.</p>
+<p>If the coordinate is 1D and does not have bounds, this method will
 return bounds positioned halfway between the coordinate’s points.</p>
+<p class="last">If the coordinate is 2D and does not have bounds, an error will be
+raised.</p>
 </div>
 </dd></dl>
 
@@ -433,6 +439,12 @@ attributes, set this to other.attributes.</dd>
 <code class="descname">is_contiguous</code><span class="sig-paren">(</span><em>rtol=1e-05</em>, <em>atol=1e-08</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.AuxCoord.is_contiguous" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return True if, and only if, this Coord is bounded with contiguous
 bounds to within the specified relative and absolute tolerances.</p>
+<p>1D coords are contiguous if the upper bound of a cell aligns,
+within a tolerance, to the lower bound of the next cell along.</p>
+<p>2D coords, with 4 bounds, are contiguous if the lower right corner of
+each cell aligns with the lower left corner of the cell to the right of
+it, and the upper left corner of each cell aligns with the lower left
+corner of the cell above it.</p>
 <p>Args:</p>
 <ul class="simple">
 <li><dl class="first docutils">
@@ -1005,12 +1017,18 @@ the specified dimensions.</p>
 <dl class="method">
 <dt id="iris.coords.Coord.contiguous_bounds">
 <code class="descname">contiguous_bounds</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.Coord.contiguous_bounds" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the N+1 bound values for a contiguous bounded coordinate
-of length N.</p>
+<dd><p>Returns the N+1 bound values for a contiguous bounded 1D coordinate
+of length N, or the (N+1, M+1) bound values for a contiguous bounded 2D
+coordinate of shape (N, M).</p>
+<p>Only 1D or 2D coordinates are supported.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">If the coordinate is does not have bounds, this method will
+<p>If the coordinate has bounds, this method assumes they are
+contiguous.</p>
+<p>If the coordinate is 1D and does not have bounds, this method will
 return bounds positioned halfway between the coordinate’s points.</p>
+<p class="last">If the coordinate is 2D and does not have bounds, an error will be
+raised.</p>
 </div>
 </dd></dl>
 
@@ -1199,6 +1217,12 @@ attributes, set this to other.attributes.</dd>
 <code class="descname">is_contiguous</code><span class="sig-paren">(</span><em>rtol=1e-05</em>, <em>atol=1e-08</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.Coord.is_contiguous" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return True if, and only if, this Coord is bounded with contiguous
 bounds to within the specified relative and absolute tolerances.</p>
+<p>1D coords are contiguous if the upper bound of a cell aligns,
+within a tolerance, to the lower bound of the next cell along.</p>
+<p>2D coords, with 4 bounds, are contiguous if the lower right corner of
+each cell aligns with the lower left corner of the cell to the right of
+it, and the upper left corner of each cell aligns with the lower left
+corner of the cell above it.</p>
 <p>Args:</p>
 <ul class="simple">
 <li><dl class="first docutils">
@@ -1603,12 +1627,18 @@ the specified dimensions.</p>
 <dl class="method">
 <dt id="iris.coords.DimCoord.contiguous_bounds">
 <code class="descname">contiguous_bounds</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.DimCoord.contiguous_bounds" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the N+1 bound values for a contiguous bounded coordinate
-of length N.</p>
+<dd><p>Returns the N+1 bound values for a contiguous bounded 1D coordinate
+of length N, or the (N+1, M+1) bound values for a contiguous bounded 2D
+coordinate of shape (N, M).</p>
+<p>Only 1D or 2D coordinates are supported.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">If the coordinate is does not have bounds, this method will
+<p>If the coordinate has bounds, this method assumes they are
+contiguous.</p>
+<p>If the coordinate is 1D and does not have bounds, this method will
 return bounds positioned halfway between the coordinate’s points.</p>
+<p class="last">If the coordinate is 2D and does not have bounds, an error will be
+raised.</p>
 </div>
 </dd></dl>
 
@@ -1834,6 +1864,12 @@ attributes, set this to other.attributes.</dd>
 <code class="descname">is_contiguous</code><span class="sig-paren">(</span><em>rtol=1e-05</em>, <em>atol=1e-08</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.DimCoord.is_contiguous" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return True if, and only if, this Coord is bounded with contiguous
 bounds to within the specified relative and absolute tolerances.</p>
+<p>1D coords are contiguous if the upper bound of a cell aligns,
+within a tolerance, to the lower bound of the next cell along.</p>
+<p>2D coords, with 4 bounds, are contiguous if the lower right corner of
+each cell aligns with the lower left corner of the cell to the right of
+it, and the upper left corner of each cell aligns with the lower left
+corner of the cell above it.</p>
 <p>Args:</p>
 <ul class="simple">
 <li><dl class="first docutils">
