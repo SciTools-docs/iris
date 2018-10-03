@@ -764,18 +764,21 @@ demoted to an AuxCoord.</p>
 <!--<hr class="docutils" />
 --><dl class="function">
 <dt id="iris.util.reverse">
-<code class="descclassname">iris.util.</code><code class="descname">reverse</code><span class="sig-paren">(</span><em>array</em>, <em>axes</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.util.reverse" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reverse the array along the given axes.</p>
+<code class="descclassname">iris.util.</code><code class="descname">reverse</code><span class="sig-paren">(</span><em>cube_or_array</em>, <em>coords_or_dims</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.util.reverse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reverse the cube or array along the given dimensions.</p>
 <p>Args:</p>
 <ul class="simple">
 <li><dl class="first docutils">
-<dt>array</dt>
-<dd>The array to reverse</dd>
+<dt>cube_or_array: <a class="reference internal" href="cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.cube.Cube</span></code></a> or <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></dt>
+<dd>The cube or array to reverse.</dd>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>axes</dt>
-<dd>A single value or array of values of axes to reverse</dd>
+<dt>coords_or_dims: int, str, <a class="reference internal" href="coords.html#iris.coords.Coord" title="iris.coords.Coord"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.coords.Coord</span></code></a> or sequence of these</dt>
+<dd>Identify one or more dimensions to reverse.  If cube_or_array is a
+numpy array, use int or a sequence of ints, as in the examples below.
+If cube_or_array is a Cube, a Coord or coordinate name (or sequence of
+these) may be specified instead.</dd>
 </dl>
 </li>
 </ul>
