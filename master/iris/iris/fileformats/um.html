@@ -252,7 +252,9 @@ The callback is called once for each basic <em>structured</em> cube loaded,
 which is normally the whole of one phenomenon from a single input file.
 In particular, the callback’s “field” argument is a
 <a class="reference internal" href="#iris.fileformats.um.FieldCollation" title="iris.fileformats.um.FieldCollation"><code class="xref py py-class docutils literal notranslate"><span class="pre">FieldCollation</span></code></a>, from which “field.fields”
-gives a <em>list</em> of PPFields from which that cube was built.
+gives a <em>list</em> of PPFields from which that cube was built, and the
+properties “field.load_filepath” and “field.load_file_indices”
+reference the original file locations of the cube data.
 The code required is therefore different from a ‘normal’ callback.
 For an example of this, see <a class="reference external" href="https://github.com/SciTools/iris/blob/ddb46f78e54b6ef4110357dfe9cfcffa7d186d90/lib/iris/tests/integration/fast_load/test_fast_load.py#L409">this example in the Iris test code</a>.</div></blockquote>
 <p>Notes on applicability:</p>
@@ -344,9 +346,9 @@ LBRSVD4 (ensemble number).</p>
 be vectorized into a single cube.</p>
 <p>For example:</p>
 <p>Suppose we have a set of 28 fields repeating over 7 vertical levels for
-each of 4 different data times.  If a FieldCollation is created to contain
-these, it can identify that this is a 4*7 regular array structure.</p>
-<p>This FieldCollation will then have the following properties:</p>
+each of 4 different data times.  If a BasicFieldCollation is created to
+contain these, it can identify that this is a 4*7 regular array structure.</p>
+<p>This BasicFieldCollation will then have the following properties:</p>
 <ul class="simple">
 <li><dl class="first docutils">
 <dt>within ‘element_arrays_and_dims’ :</dt>
@@ -365,13 +367,18 @@ either scalar or full-length 1-D vectors.</p>
 <blockquote>
 <div><dl class="class">
 <dt id="iris.fileformats.um.FieldCollation">
-<em class="property">class </em><code class="descclassname">iris.fileformats.um.</code><code class="descname">FieldCollation</code><span class="sig-paren">(</span><em>fields</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.um.FieldCollation" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<em class="property">class </em><code class="descclassname">iris.fileformats.um.</code><code class="descname">FieldCollation</code><span class="sig-paren">(</span><em>fields</em>, <em>filepath</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.um.FieldCollation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">iris.fileformats.um._fast_load_structured_fields.BasicFieldCollation</span></code></p>
 <p>Args:</p>
 <ul class="simple">
 <li><dl class="first docutils">
 <dt>fields (iterable of <a class="reference internal" href="pp.html#iris.fileformats.pp.PPField" title="iris.fileformats.pp.PPField"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.fileformats.pp.PPField</span></code></a>):</dt>
 <dd>The fields in the collation.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>filepath (string):</dt>
+<dd>The path of the file the collation is loaded from.</dd>
 </dl>
 </li>
 </ul>
@@ -388,6 +395,23 @@ either scalar or full-length 1-D vectors.</p>
 <dl class="attribute">
 <dt id="iris.fileformats.um.FieldCollation.data">
 <code class="descname">data</code><a class="headerlink" href="#iris.fileformats.um.FieldCollation.data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="iris.fileformats.um.FieldCollation.data_field_indices">
+<code class="descname">data_field_indices</code><a class="headerlink" href="#iris.fileformats.um.FieldCollation.data_field_indices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Field indices of the contained PPFields in the input file.</p>
+<p>This records the original file location of the individual data fields
+contained, within the input datafile.</p>
+<dl class="docutils">
+<dt>Returns:</dt>
+<dd>An integer array of shape <cite>self.vector_dims_shape</cite>.</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="iris.fileformats.um.FieldCollation.data_filepath">
+<code class="descname">data_filepath</code><a class="headerlink" href="#iris.fileformats.um.FieldCollation.data_filepath" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
