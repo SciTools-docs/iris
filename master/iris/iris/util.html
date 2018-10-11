@@ -133,9 +133,11 @@
 <li><a class="reference internal" href="#iris.util.demote_dim_coord_to_aux_coord" title="iris.util.demote_dim_coord_to_aux_coord"><code class="xref py py-obj docutils literal notranslate"><span class="pre">demote_dim_coord_to_aux_coord</span></code></a></li>
 <li><a class="reference internal" href="#iris.util.describe_diff" title="iris.util.describe_diff"><code class="xref py py-obj docutils literal notranslate"><span class="pre">describe_diff</span></code></a></li>
 <li><a class="reference internal" href="#iris.util.file_is_newer_than" title="iris.util.file_is_newer_than"><code class="xref py py-obj docutils literal notranslate"><span class="pre">file_is_newer_than</span></code></a></li>
+<li><a class="reference internal" href="#iris.util.find_discontiguities" title="iris.util.find_discontiguities"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_discontiguities</span></code></a></li>
 <li><a class="reference internal" href="#iris.util.format_array" title="iris.util.format_array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">format_array</span></code></a></li>
 <li><a class="reference internal" href="#iris.util.guess_coord_axis" title="iris.util.guess_coord_axis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">guess_coord_axis</span></code></a></li>
 <li><a class="reference internal" href="#iris.util.is_regular" title="iris.util.is_regular"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_regular</span></code></a></li>
+<li><a class="reference internal" href="#iris.util.mask_cube" title="iris.util.mask_cube"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mask_cube</span></code></a></li>
 <li><a class="reference internal" href="#iris.util.monotonic" title="iris.util.monotonic"><code class="xref py py-obj docutils literal notranslate"><span class="pre">monotonic</span></code></a></li>
 <li><a class="reference internal" href="#iris.util.new_axis" title="iris.util.new_axis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">new_axis</span></code></a></li>
 <li><a class="reference internal" href="#iris.util.points_step" title="iris.util.points_step"><code class="xref py py-obj docutils literal notranslate"><span class="pre">points_step</span></code></a></li>
@@ -576,6 +578,65 @@ required.  Ideally, an additional check on iris.__version__ is advised.</p>
 <p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
 <!--<hr class="docutils" />
 --><dl class="function">
+<dt id="iris.util.find_discontiguities">
+<code class="descclassname">iris.util.</code><code class="descname">find_discontiguities</code><span class="sig-paren">(</span><em>cube</em>, <em>rel_tol=1e-05</em>, <em>abs_tol=1e-08</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.util.find_discontiguities" title="Permalink to this definition">¶</a></dt>
+<dd><p>Searches coord for discontiguities in the bounds array, returned as a
+boolean array (True where discontiguities are present).</p>
+<p>Args:</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>cube (<cite>iris.cube.Cube</cite>):</dt>
+<dd>The cube to be checked for discontinuities in its ‘x’ and ‘y’
+coordinates.</dd>
+</dl>
+</li>
+</ul>
+<p>Kwargs:</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>rel_tol (float):</dt>
+<dd>The relative equality tolerance to apply in coordinate bounds
+checking.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>abs_tol (float):</dt>
+<dd>The absolute value tolerance to apply in coordinate bounds
+checking.</dd>
+</dl>
+</li>
+</ul>
+<p>Returns:</p>
+<ul>
+<li><dl class="first docutils">
+<dt>result (<cite>numpy.ndarray</cite> of bool) :</dt>
+<dd><p class="first">true/false map of which cells in the cube XY grid have
+discontiguities in the coordinate points array.</p>
+<p class="last">This can be used as the input array for
+<code class="xref py py-func docutils literal notranslate"><span class="pre">iris.util.mask_discontiguities()</span></code>.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Examples:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Find any unknown discontiguities in your cube&#39;s x and y arrays:</span>
+<span class="n">discontiguities</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">find_discontiguities</span><span class="p">(</span><span class="n">cube</span><span class="p">)</span>
+
+<span class="c1"># Pass the resultant boolean array to `iris.util.mask_discontiguities`</span>
+<span class="c1"># with a cube slice; this will use the boolean array to mask</span>
+<span class="c1"># any discontiguous data points before plotting:</span>
+<span class="n">masked_cube_slice</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">mask_discontiguities</span><span class="p">(</span><span class="n">cube</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                                                   <span class="n">discontiguities</span><span class="p">)</span>
+
+<span class="c1"># Plot the masked cube slice:</span>
+<span class="n">iplt</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">masked_cube_slice</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
+<!--<hr class="docutils" />
+--><dl class="function">
 <dt id="iris.util.format_array">
 <code class="descclassname">iris.util.</code><code class="descname">format_array</code><span class="sig-paren">(</span><em>arr</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.util.format_array" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the given array as a string, using the python builtin str
@@ -612,6 +673,37 @@ function on a piecewise basis.</p>
 <dt id="iris.util.is_regular">
 <code class="descclassname">iris.util.</code><code class="descname">is_regular</code><span class="sig-paren">(</span><em>coord</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.util.is_regular" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determine if the given coord is regular.</p>
+</dd></dl>
+
+<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
+<!--<hr class="docutils" />
+--><dl class="function">
+<dt id="iris.util.mask_cube">
+<code class="descclassname">iris.util.</code><code class="descname">mask_cube</code><span class="sig-paren">(</span><em>cube</em>, <em>points_to_mask</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.util.mask_cube" title="Permalink to this definition">¶</a></dt>
+<dd><p>Masks any cells in the data array which correspond to cells marked <cite>True</cite>
+in the <cite>points_to_mask</cite> array.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>cube (<cite>iris.cube.Cube</cite>):</dt>
+<dd>A 2-dimensional instance of <a class="reference internal" href="cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.cube.Cube</span></code></a>.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>points_to_mask (<cite>numpy.ndarray</cite> of bool):</dt>
+<dd>A 2d boolean array of Truth values representing points to mask in the
+x and y arrays of the cube.</dd>
+</dl>
+</li>
+</ul>
+<p>Returns:</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>result (<cite>iris.cube.Cube</cite>):</dt>
+<dd>A cube whose data array is masked at points specified by input array.</dd>
+</dl>
+</li>
+</ul>
 </dd></dl>
 
 <p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
