@@ -14,6 +14,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
@@ -369,10 +370,7 @@ is often not necessary if performed just for visualisation purposes.</p>
 </pre></div>
 </div>
 <p>We can visually confirm that they are on different grids by plotting the two cubes:</p>
-<p>(<a class="reference external" href="../userguide/regridding_plots/regridding_plot.py">Source code</a>, <a class="reference external" href="../userguide/regridding_plots/regridding_plot.png">png</a>)</p>
-<div class="figure" id="regridding-plot">
-<img alt="../_images/regridding_plot.png" src="../_images/regridding_plot.png" />
-</div>
+<p>(<a class="reference external" href="../userguide/regridding_plots/regridding_plot.py">Source code</a>)</p>
 <p>Let’s regrid the <code class="docutils literal notranslate"><span class="pre">global_air_temp</span></code> cube onto a rotated pole grid
 using a linear regridding scheme. To achieve this we pass the <code class="docutils literal notranslate"><span class="pre">rotated_psl</span></code>
 cube to the regridder to supply the target grid to regrid the <code class="docutils literal notranslate"><span class="pre">global_air_temp</span></code>
@@ -380,10 +378,7 @@ cube onto:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">rotated_air_temp</span> <span class="o">=</span> <span class="n">global_air_temp</span><span class="o">.</span><span class="n">regrid</span><span class="p">(</span><span class="n">rotated_psl</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">Linear</span><span class="p">())</span>
 </pre></div>
 </div>
-<p>(<a class="reference external" href="../userguide/regridding_plots/regridded_to_rotated.py">Source code</a>, <a class="reference external" href="../userguide/regridding_plots/regridded_to_rotated.png">png</a>)</p>
-<div class="figure" id="regridded-to-rotated">
-<img alt="../_images/regridded_to_rotated.png" src="../_images/regridded_to_rotated.png" />
-</div>
+<p>(<a class="reference external" href="../userguide/regridding_plots/regridded_to_rotated.py">Source code</a>)</p>
 <p>We could regrid the pressure values onto the global grid, but this will involve
 some form of extrapolation. As with interpolation, we can control the extrapolation
 mode when defining the regridding scheme.</p>
@@ -566,7 +561,7 @@ cached regridder.</p>
 
     <div class="footer">
     <p style="text-align: left; float: left; margin: 0px; padding: 0 0 0 5px;">Documentation licensed under the <a href="http://reference.data.gov.uk/id/open-government-licence" rel="license">Open Government Licence</a></p>
-        &copy; <a href="../copyright.html">British Crown Copyright</a> 2010 - 2018, Met Office
+        &copy; <a href="../copyright.html">British Crown Copyright</a> 2010 - 2019, Met Office
     </div>
 
     <!-- Include a version switcher to easily move between the documentation of different versions -->
