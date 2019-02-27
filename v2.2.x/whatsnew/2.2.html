@@ -87,7 +87,10 @@
 <li><a class="reference internal" href="#">What’s New in Iris 2.2</a><ul>
 <li><a class="reference internal" href="#iris-2-2-features">Iris 2.2 Features</a></li>
 <li><a class="reference internal" href="#iris-2-2-dependency-updates">Iris 2.2 Dependency updates</a></li>
-<li><a class="reference internal" href="#bugs-fixed">Bugs Fixed</a></li>
+<li><a class="reference internal" href="#bugs-fixed">Bugs Fixed</a><ul>
+<li><a class="reference internal" href="#bugs-fixed-in-v2-2-1">Bugs fixed in v2.2.1</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#documentation-changes">Documentation Changes</a></li>
 </ul>
 </li>
@@ -208,9 +211,16 @@ when the time coordinate was measured on a long interval (that is, <code class="
 or <code class="docutils literal notranslate"><span class="pre">years</span></code>).</li>
 <li>“Gracefully filling…” warnings are now only issued when the coordinate or
 bound data is actually masked.</li>
+</ul>
+<div class="section" id="bugs-fixed-in-v2-2-1">
+<h3>Bugs fixed in v2.2.1<a class="headerlink" href="#bugs-fixed-in-v2-2-1" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
 <li>Iris can now correctly unpack a column of header objects when saving a
 pandas DataFrame to a cube.</li>
+<li>fixed a bug in <a class="reference internal" href="../iris/iris/util.html#iris.util.new_axis" title="iris.util.new_axis"><code class="xref py py-meth docutils literal notranslate"><span class="pre">iris.util.new_axis()</span></code></a> : copying the resulting cube
+resulted in an exception, if it contained an aux-factory.</li>
 </ul>
+</div>
 </div>
 <div class="section" id="documentation-changes">
 <h2>Documentation Changes<a class="headerlink" href="#documentation-changes" title="Permalink to this headline">¶</a></h2>
