@@ -613,7 +613,7 @@ checking.</dd>
 <dd><p class="first">true/false map of which cells in the cube XY grid have
 discontiguities in the coordinate points array.</p>
 <p class="last">This can be used as the input array for
-<code class="xref py py-func docutils literal notranslate"><span class="pre">iris.util.mask_discontiguities()</span></code>.</p>
+<a class="reference internal" href="#iris.util.mask_cube" title="iris.util.mask_cube"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.util.mask_cube()</span></code></a>.</p>
 </dd>
 </dl>
 </li>
@@ -622,11 +622,10 @@ discontiguities in the coordinate points array.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Find any unknown discontiguities in your cube&#39;s x and y arrays:</span>
 <span class="n">discontiguities</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">find_discontiguities</span><span class="p">(</span><span class="n">cube</span><span class="p">)</span>
 
-<span class="c1"># Pass the resultant boolean array to `iris.util.mask_discontiguities`</span>
+<span class="c1"># Pass the resultant boolean array to `iris.util.mask_cube`</span>
 <span class="c1"># with a cube slice; this will use the boolean array to mask</span>
 <span class="c1"># any discontiguous data points before plotting:</span>
-<span class="n">masked_cube_slice</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">mask_discontiguities</span><span class="p">(</span><span class="n">cube</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
-                                                   <span class="n">discontiguities</span><span class="p">)</span>
+<span class="n">masked_cube_slice</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">mask_cube</span><span class="p">(</span><span class="n">cube</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">discontiguities</span><span class="p">)</span>
 
 <span class="c1"># Plot the masked cube slice:</span>
 <span class="n">iplt</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">masked_cube_slice</span><span class="p">)</span>
