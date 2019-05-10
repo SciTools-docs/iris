@@ -156,10 +156,29 @@ finite precision of floating point numbers.</p>
 <!--<hr class="docutils" />
 --><dl class="function">
 <dt id="iris.util.array_equal">
-<code class="descclassname">iris.util.</code><code class="descname">array_equal</code><span class="sig-paren">(</span><em>array1</em>, <em>array2</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.util.array_equal" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">iris.util.</code><code class="descname">array_equal</code><span class="sig-paren">(</span><em>array1</em>, <em>array2</em>, <em>withnans=False</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.util.array_equal" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns whether two arrays have the same shape and elements.</p>
-<p>This provides the same functionality as <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array_equal.html#numpy.array_equal" title="(in NumPy v1.16)"><code class="xref py py-func docutils literal notranslate"><span class="pre">numpy.array_equal()</span></code></a> but with
-additional support for arrays of strings.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>array1, array2 (arraylike):</dt><dd><p>args to be compared, after normalising with <code class="xref py py-func docutils literal notranslate"><span class="pre">np.asarray()</span></code>.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Kwargs:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>withnans (bool):</dt><dd><p>When unset (default), the result is False if either input contains NaN
+points.  This is the normal floating-point arithmetic result.
+When set, return True if inputs contain the same value in all elements,
+_including_ any NaN values.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>This provides much the same functionality as <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array_equal.html#numpy.array_equal" title="(in NumPy v1.16)"><code class="xref py py-func docutils literal notranslate"><span class="pre">numpy.array_equal()</span></code></a>, but
+with additional support for arrays of strings and NaN-tolerant operation.</p>
 </dd></dl>
 
 <p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
