@@ -95,10 +95,10 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
     </form>
     </div>
@@ -135,7 +135,7 @@
 </div></blockquote>
 <dl class="function">
 <dt id="iris.analysis.cartography.area_weights">
-<code class="descclassname">iris.analysis.cartography.</code><code class="descname">area_weights</code><span class="sig-paren">(</span><em>cube</em>, <em>normalize=False</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.analysis.cartography.area_weights" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.analysis.cartography.</code><code class="sig-name descname">area_weights</code><span class="sig-paren">(</span><em class="sig-param">cube</em>, <em class="sig-param">normalize=False</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.analysis.cartography.area_weights" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns an array of area weights, with the same dimensions as the cube.</p>
 <p>This is a 2D lat/lon area weights array, repeated over the non lat/lon
 dimensions.</p>
@@ -169,7 +169,7 @@ Defaults to iris.analysis.cartography.DEFAULT_SPHERICAL_EARTH_RADIUS.</p>
 <!--<hr class="docutils" />
 --><dl class="function">
 <dt id="iris.analysis.cartography.cosine_latitude_weights">
-<code class="descclassname">iris.analysis.cartography.</code><code class="descname">cosine_latitude_weights</code><span class="sig-paren">(</span><em>cube</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.analysis.cartography.cosine_latitude_weights" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.analysis.cartography.</code><code class="sig-name descname">cosine_latitude_weights</code><span class="sig-paren">(</span><em class="sig-param">cube</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.analysis.cartography.cosine_latitude_weights" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns an array of latitude weights, with the same dimensions as
 the cube. The weights are the cosine of latitude.</p>
 <p>These are n-dimensional latitude weights repeated over the dimensions
@@ -201,7 +201,7 @@ analyses):</p>
 <!--<hr class="docutils" />
 --><dl class="function">
 <dt id="iris.analysis.cartography.get_xy_contiguous_bounded_grids">
-<code class="descclassname">iris.analysis.cartography.</code><code class="descname">get_xy_contiguous_bounded_grids</code><span class="sig-paren">(</span><em>cube</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.analysis.cartography.get_xy_contiguous_bounded_grids" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.analysis.cartography.</code><code class="sig-name descname">get_xy_contiguous_bounded_grids</code><span class="sig-paren">(</span><em class="sig-param">cube</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.analysis.cartography.get_xy_contiguous_bounded_grids" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return 2d arrays for x and y bounds.</p>
 <p>Returns array of shape (n+1, m+1).</p>
 <p>Example:</p>
@@ -214,7 +214,7 @@ analyses):</p>
 <!--<hr class="docutils" />
 --><dl class="function">
 <dt id="iris.analysis.cartography.get_xy_grids">
-<code class="descclassname">iris.analysis.cartography.</code><code class="descname">get_xy_grids</code><span class="sig-paren">(</span><em>cube</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.analysis.cartography.get_xy_grids" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.analysis.cartography.</code><code class="sig-name descname">get_xy_grids</code><span class="sig-paren">(</span><em class="sig-param">cube</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.analysis.cartography.get_xy_grids" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return 2D X and Y points for a given cube.</p>
 <p>Args:</p>
 <blockquote>
@@ -232,7 +232,7 @@ analyses):</p>
 <!--<hr class="docutils" />
 --><dl class="function">
 <dt id="iris.analysis.cartography.gridcell_angles">
-<code class="descclassname">iris.analysis.cartography.</code><code class="descname">gridcell_angles</code><span class="sig-paren">(</span><em>x</em>, <em>y=None</em>, <em>cell_angle_boundpoints='mid-lhs</em>, <em>mid-rhs'</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.analysis.cartography.gridcell_angles" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.analysis.cartography.</code><code class="sig-name descname">gridcell_angles</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">y=None</em>, <em class="sig-param">cell_angle_boundpoints='mid-lhs</em>, <em class="sig-param">mid-rhs'</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.analysis.cartography.gridcell_angles" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate gridcell orientations for an arbitrary 2-dimensional grid.</p>
 <p>The input grid is defined by two 2-dimensional coordinate arrays with the
 same dimensions (ny, nx), specifying the geolocations of a 2D mesh.</p>
@@ -312,7 +312,7 @@ bounds, and the centrepoints are an average of the 4 boundpoints.</p>
 <!--<hr class="docutils" />
 --><dl class="function">
 <dt id="iris.analysis.cartography.project">
-<code class="descclassname">iris.analysis.cartography.</code><code class="descname">project</code><span class="sig-paren">(</span><em>cube</em>, <em>target_proj</em>, <em>nx=None</em>, <em>ny=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.analysis.cartography.project" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.analysis.cartography.</code><code class="sig-name descname">project</code><span class="sig-paren">(</span><em class="sig-param">cube</em>, <em class="sig-param">target_proj</em>, <em class="sig-param">nx=None</em>, <em class="sig-param">ny=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.analysis.cartography.project" title="Permalink to this definition">¶</a></dt>
 <dd><p>Nearest neighbour regrid to a specified target projection.</p>
 <p>Return a new cube that is the result of projecting a cube with 1 or 2
 dimensional latitude-longitude coordinates from its coordinate system into
@@ -382,7 +382,7 @@ will not be preserved.</p>
 <!--<hr class="docutils" />
 --><dl class="function">
 <dt id="iris.analysis.cartography.rotate_grid_vectors">
-<code class="descclassname">iris.analysis.cartography.</code><code class="descname">rotate_grid_vectors</code><span class="sig-paren">(</span><em>u_cube</em>, <em>v_cube</em>, <em>grid_angles_cube=None</em>, <em>grid_angles_kwargs=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.analysis.cartography.rotate_grid_vectors" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.analysis.cartography.</code><code class="sig-name descname">rotate_grid_vectors</code><span class="sig-paren">(</span><em class="sig-param">u_cube</em>, <em class="sig-param">v_cube</em>, <em class="sig-param">grid_angles_cube=None</em>, <em class="sig-param">grid_angles_kwargs=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.analysis.cartography.rotate_grid_vectors" title="Permalink to this definition">¶</a></dt>
 <dd><p>Rotate distance vectors from grid-oriented to true-latlon-oriented.</p>
 <p>Can also rotate by arbitrary angles, if they are passed in.</p>
 <div class="admonition note">
@@ -441,7 +441,7 @@ Units are same as inputs.</p>
 <!--<hr class="docutils" />
 --><dl class="function">
 <dt id="iris.analysis.cartography.rotate_pole">
-<code class="descclassname">iris.analysis.cartography.</code><code class="descname">rotate_pole</code><span class="sig-paren">(</span><em>lons</em>, <em>lats</em>, <em>pole_lon</em>, <em>pole_lat</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.analysis.cartography.rotate_pole" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.analysis.cartography.</code><code class="sig-name descname">rotate_pole</code><span class="sig-paren">(</span><em class="sig-param">lons</em>, <em class="sig-param">lats</em>, <em class="sig-param">pole_lon</em>, <em class="sig-param">pole_lat</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.analysis.cartography.rotate_pole" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert arrays of longitudes and latitudes to arrays of rotated-pole
 longitudes and latitudes. The values of <code class="docutils literal notranslate"><span class="pre">pole_lon</span></code> and <code class="docutils literal notranslate"><span class="pre">pole_lat</span></code>
 should describe the rotated pole that the arrays of longitudes and
@@ -495,7 +495,7 @@ latitudes.</p>
 <!--<hr class="docutils" />
 --><dl class="function">
 <dt id="iris.analysis.cartography.rotate_winds">
-<code class="descclassname">iris.analysis.cartography.</code><code class="descname">rotate_winds</code><span class="sig-paren">(</span><em>u_cube</em>, <em>v_cube</em>, <em>target_cs</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.analysis.cartography.rotate_winds" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.analysis.cartography.</code><code class="sig-name descname">rotate_winds</code><span class="sig-paren">(</span><em class="sig-param">u_cube</em>, <em class="sig-param">v_cube</em>, <em class="sig-param">target_cs</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.analysis.cartography.rotate_winds" title="Permalink to this definition">¶</a></dt>
 <dd><p>Transform wind vectors to a different coordinate system.</p>
 <p>The input cubes contain U and V components parallel to the local X and Y
 directions of the input grid at each point.</p>
@@ -558,7 +558,7 @@ returned cubes will be masked.</p>
 <!--<hr class="docutils" />
 --><dl class="function">
 <dt id="iris.analysis.cartography.unrotate_pole">
-<code class="descclassname">iris.analysis.cartography.</code><code class="descname">unrotate_pole</code><span class="sig-paren">(</span><em>rotated_lons</em>, <em>rotated_lats</em>, <em>pole_lon</em>, <em>pole_lat</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.analysis.cartography.unrotate_pole" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.analysis.cartography.</code><code class="sig-name descname">unrotate_pole</code><span class="sig-paren">(</span><em class="sig-param">rotated_lons</em>, <em class="sig-param">rotated_lats</em>, <em class="sig-param">pole_lon</em>, <em class="sig-param">pole_lat</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.analysis.cartography.unrotate_pole" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert arrays of rotated-pole longitudes and latitudes to unrotated
 arrays of longitudes and latitudes. The values of <code class="docutils literal notranslate"><span class="pre">pole_lon</span></code> and
 <code class="docutils literal notranslate"><span class="pre">pole_lat</span></code> should describe the location of the rotated pole that
@@ -611,7 +611,7 @@ rotated-pole longitudes and latitudes.</p>
 <!--<hr class="docutils" />
 --><dl class="function">
 <dt id="iris.analysis.cartography.wrap_lons">
-<code class="descclassname">iris.analysis.cartography.</code><code class="descname">wrap_lons</code><span class="sig-paren">(</span><em>lons</em>, <em>base</em>, <em>period</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.analysis.cartography.wrap_lons" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.analysis.cartography.</code><code class="sig-name descname">wrap_lons</code><span class="sig-paren">(</span><em class="sig-param">lons</em>, <em class="sig-param">base</em>, <em class="sig-param">period</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.analysis.cartography.wrap_lons" title="Permalink to this definition">¶</a></dt>
 <dd><p>Wrap longitude values into the range between base and base+period.</p>
 <dl>
 <dt>For example:</dt><dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">wrap_lons</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">185</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="o">-</span><span class="mi">200</span><span class="p">,</span> <span class="mi">75</span><span class="p">]),</span> <span class="o">-</span><span class="mi">180</span><span class="p">,</span> <span class="mi">360</span><span class="p">))</span>
@@ -628,41 +628,41 @@ rotated-pole longitudes and latitudes.</p>
 <blockquote>
 <div><dl class="class">
 <dt id="iris.analysis.cartography.DistanceDifferential">
-<em class="property">class </em><code class="descclassname">iris.analysis.cartography.</code><code class="descname">DistanceDifferential</code><span class="sig-paren">(</span><em>_cls</em>, <em>dx1</em>, <em>dy1</em>, <em>dx2</em>, <em>dy2</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.analysis.cartography.DistanceDifferential" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">iris.analysis.cartography.</code><code class="sig-name descname">DistanceDifferential</code><span class="sig-paren">(</span><em class="sig-param">_cls</em>, <em class="sig-param">dx1</em>, <em class="sig-param">dy1</em>, <em class="sig-param">dx2</em>, <em class="sig-param">dy2</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.analysis.cartography.DistanceDifferential" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></p>
 <p>Create new instance of DistanceDifferential(dx1, dy1, dx2, dy2)</p>
 <dl class="method">
 <dt id="iris.analysis.cartography.DistanceDifferential.count">
-<code class="descname">count</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span> &#x2192; integer -- return number of occurrences of value<a class="headerlink" href="#iris.analysis.cartography.DistanceDifferential.count" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">count</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="sig-paren">)</span> &#x2192; integer -- return number of occurrences of value<a class="headerlink" href="#iris.analysis.cartography.DistanceDifferential.count" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="iris.analysis.cartography.DistanceDifferential.index">
-<code class="descname">index</code><span class="sig-paren">(</span><em>value</em><span class="optional">[</span>, <em>start</em><span class="optional">[</span>, <em>stop</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; integer -- return first index of value.<a class="headerlink" href="#iris.analysis.cartography.DistanceDifferential.index" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">index</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="optional">[</span>, <em class="sig-param">start</em><span class="optional">[</span>, <em class="sig-param">stop</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; integer -- return first index of value.<a class="headerlink" href="#iris.analysis.cartography.DistanceDifferential.index" title="Permalink to this definition">¶</a></dt>
 <dd><p>Raises ValueError if the value is not present.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="iris.analysis.cartography.DistanceDifferential.dx1">
-<code class="descname">dx1</code><a class="headerlink" href="#iris.analysis.cartography.DistanceDifferential.dx1" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">dx1</code><a class="headerlink" href="#iris.analysis.cartography.DistanceDifferential.dx1" title="Permalink to this definition">¶</a></dt>
 <dd><p>Alias for field number 0</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="iris.analysis.cartography.DistanceDifferential.dx2">
-<code class="descname">dx2</code><a class="headerlink" href="#iris.analysis.cartography.DistanceDifferential.dx2" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">dx2</code><a class="headerlink" href="#iris.analysis.cartography.DistanceDifferential.dx2" title="Permalink to this definition">¶</a></dt>
 <dd><p>Alias for field number 2</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="iris.analysis.cartography.DistanceDifferential.dy1">
-<code class="descname">dy1</code><a class="headerlink" href="#iris.analysis.cartography.DistanceDifferential.dy1" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">dy1</code><a class="headerlink" href="#iris.analysis.cartography.DistanceDifferential.dy1" title="Permalink to this definition">¶</a></dt>
 <dd><p>Alias for field number 1</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="iris.analysis.cartography.DistanceDifferential.dy2">
-<code class="descname">dy2</code><a class="headerlink" href="#iris.analysis.cartography.DistanceDifferential.dy2" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">dy2</code><a class="headerlink" href="#iris.analysis.cartography.DistanceDifferential.dy2" title="Permalink to this definition">¶</a></dt>
 <dd><p>Alias for field number 3</p>
 </dd></dl>
 
@@ -675,29 +675,29 @@ rotated-pole longitudes and latitudes.</p>
 <blockquote>
 <div><dl class="class">
 <dt id="iris.analysis.cartography.PartialDifferential">
-<em class="property">class </em><code class="descclassname">iris.analysis.cartography.</code><code class="descname">PartialDifferential</code><span class="sig-paren">(</span><em>_cls</em>, <em>dx1</em>, <em>dy1</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.analysis.cartography.PartialDifferential" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">iris.analysis.cartography.</code><code class="sig-name descname">PartialDifferential</code><span class="sig-paren">(</span><em class="sig-param">_cls</em>, <em class="sig-param">dx1</em>, <em class="sig-param">dy1</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.analysis.cartography.PartialDifferential" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></p>
 <p>Create new instance of PartialDifferential(dx1, dy1)</p>
 <dl class="method">
 <dt id="iris.analysis.cartography.PartialDifferential.count">
-<code class="descname">count</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span> &#x2192; integer -- return number of occurrences of value<a class="headerlink" href="#iris.analysis.cartography.PartialDifferential.count" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">count</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="sig-paren">)</span> &#x2192; integer -- return number of occurrences of value<a class="headerlink" href="#iris.analysis.cartography.PartialDifferential.count" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="iris.analysis.cartography.PartialDifferential.index">
-<code class="descname">index</code><span class="sig-paren">(</span><em>value</em><span class="optional">[</span>, <em>start</em><span class="optional">[</span>, <em>stop</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; integer -- return first index of value.<a class="headerlink" href="#iris.analysis.cartography.PartialDifferential.index" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">index</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="optional">[</span>, <em class="sig-param">start</em><span class="optional">[</span>, <em class="sig-param">stop</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; integer -- return first index of value.<a class="headerlink" href="#iris.analysis.cartography.PartialDifferential.index" title="Permalink to this definition">¶</a></dt>
 <dd><p>Raises ValueError if the value is not present.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="iris.analysis.cartography.PartialDifferential.dx1">
-<code class="descname">dx1</code><a class="headerlink" href="#iris.analysis.cartography.PartialDifferential.dx1" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">dx1</code><a class="headerlink" href="#iris.analysis.cartography.PartialDifferential.dx1" title="Permalink to this definition">¶</a></dt>
 <dd><p>Alias for field number 0</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="iris.analysis.cartography.PartialDifferential.dy1">
-<code class="descname">dy1</code><a class="headerlink" href="#iris.analysis.cartography.PartialDifferential.dy1" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">dy1</code><a class="headerlink" href="#iris.analysis.cartography.PartialDifferential.dy1" title="Permalink to this definition">¶</a></dt>
 <dd><p>Alias for field number 1</p>
 </dd></dl>
 

@@ -111,10 +111,10 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
     </form>
     </div>
@@ -269,7 +269,7 @@ these sample points:</p>
 <p>Let’s look at the original data, the interpolation line and
 the new data in a plot. This will help us to see what is going on:</p>
 <p>(<a class="reference external" href="../userguide/regridding_plots/interpolate_column.py">Source code</a>, <a class="reference external" href="../userguide/regridding_plots/interpolate_column.png">png</a>)</p>
-<div class="figure align-center" id="interpolate-column">
+<div class="figure align-default" id="interpolate-column">
 <img alt="../_images/interpolate_column.png" src="../_images/interpolate_column.png" />
 </div>
 <p>The red diamonds on the extremes of the altitude values show that we have
@@ -367,7 +367,7 @@ is often not necessary if performed just for visualisation purposes.</p>
 </div>
 <p>We can visually confirm that they are on different grids by plotting the two cubes:</p>
 <p>(<a class="reference external" href="../userguide/regridding_plots/regridding_plot.py">Source code</a>, <a class="reference external" href="../userguide/regridding_plots/regridding_plot.png">png</a>)</p>
-<div class="figure align-center" id="regridding-plot">
+<div class="figure align-default" id="regridding-plot">
 <img alt="../_images/regridding_plot.png" src="../_images/regridding_plot.png" />
 </div>
 <p>Let’s regrid the <code class="docutils literal notranslate"><span class="pre">global_air_temp</span></code> cube onto a rotated pole grid
@@ -378,7 +378,7 @@ cube onto:</p>
 </pre></div>
 </div>
 <p>(<a class="reference external" href="../userguide/regridding_plots/regridded_to_rotated.py">Source code</a>, <a class="reference external" href="../userguide/regridding_plots/regridded_to_rotated.png">png</a>)</p>
-<div class="figure align-center" id="regridded-to-rotated">
+<div class="figure align-default" id="regridded-to-rotated">
 <img alt="../_images/regridded_to_rotated.png" src="../_images/regridded_to_rotated.png" />
 </div>
 <p>We could regrid the pressure values onto the global grid, but this will involve
@@ -413,7 +413,7 @@ pole grid:</p>
 </pre></div>
 </div>
 <p>(<a class="reference external" href="../userguide/regridding_plots/regridded_to_global.py">Source code</a>, <a class="reference external" href="../userguide/regridding_plots/regridded_to_global.png">png</a>)</p>
-<div class="figure align-center" id="regridded-to-global">
+<div class="figure align-default" id="regridded-to-global">
 <img alt="../_images/regridded_to_global.png" src="../_images/regridded_to_global.png" />
 </div>
 <p>Notice that although we can still see the approximate shape of the rotated pole grid, the
@@ -489,7 +489,7 @@ some data will be disregarded if it lies close to masked data.</p>
 <p>To visualise the above regrid, let’s plot the original data, along with 3 distinct
 <code class="docutils literal notranslate"><span class="pre">mdtol</span></code> values to compare the result:</p>
 <p>(<a class="reference external" href="../userguide/regridding_plots/regridded_to_global_area_weighted.py">Source code</a>, <a class="reference external" href="../userguide/regridding_plots/regridded_to_global_area_weighted.png">png</a>)</p>
-<div class="figure align-center" id="regridded-to-global-area-weighted">
+<div class="figure align-default" id="regridded-to-global-area-weighted">
 <img alt="../_images/regridded_to_global_area_weighted.png" src="../_images/regridded_to_global_area_weighted.png" />
 </div>
 </div>

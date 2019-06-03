@@ -94,10 +94,10 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
     </form>
     </div>
@@ -126,7 +126,7 @@ color map meta-data mappings.</p>
 </div></blockquote>
 <dl class="function">
 <dt id="iris.palette.auto_palette">
-<code class="descclassname">iris.palette.</code><code class="descname">auto_palette</code><span class="sig-paren">(</span><em>func</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.palette.auto_palette" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.palette.</code><code class="sig-name descname">auto_palette</code><span class="sig-paren">(</span><em class="sig-param">func</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.palette.auto_palette" title="Permalink to this definition">¶</a></dt>
 <dd><p>Decorator wrapper function to control the default behaviour of the
 matplotlib cmap and norm keyword arguments.</p>
 <p>Args:</p>
@@ -147,7 +147,7 @@ matplotlib cmap and norm keyword arguments.</p>
 <!--<hr class="docutils" />
 --><dl class="function">
 <dt id="iris.palette.cmap_norm">
-<code class="descclassname">iris.palette.</code><code class="descname">cmap_norm</code><span class="sig-paren">(</span><em>cube</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.palette.cmap_norm" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.palette.</code><code class="sig-name descname">cmap_norm</code><span class="sig-paren">(</span><em class="sig-param">cube</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.palette.cmap_norm" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determine the default <a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.colors.LinearSegmentedColormap.html#matplotlib.colors.LinearSegmentedColormap" title="(in Matplotlib v3.1.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.colors.LinearSegmentedColormap</span></code></a>
 and <a class="reference internal" href="#iris.palette.SymmetricNormalize" title="iris.palette.SymmetricNormalize"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.palette.SymmetricNormalize</span></code></a> instances associated with
 the cube.</p>
@@ -170,7 +170,7 @@ the cube.</p>
 <!--<hr class="docutils" />
 --><dl class="function">
 <dt id="iris.palette.is_brewer">
-<code class="descclassname">iris.palette.</code><code class="descname">is_brewer</code><span class="sig-paren">(</span><em>cmap</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.palette.is_brewer" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.palette.</code><code class="sig-name descname">is_brewer</code><span class="sig-paren">(</span><em class="sig-param">cmap</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.palette.is_brewer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determine whether the color map is a Cynthia Brewer color map.</p>
 <p>Args:</p>
 <ul class="simple">
@@ -192,29 +192,29 @@ the cube.</p>
 <blockquote>
 <div><dl class="class">
 <dt id="iris.palette.SymmetricNormalize">
-<em class="property">class </em><code class="descclassname">iris.palette.</code><code class="descname">SymmetricNormalize</code><span class="sig-paren">(</span><em>pivot</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.palette.SymmetricNormalize" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">iris.palette.</code><code class="sig-name descname">SymmetricNormalize</code><span class="sig-paren">(</span><em class="sig-param">pivot</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.palette.SymmetricNormalize" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.colors.Normalize.html#matplotlib.colors.Normalize" title="(in Matplotlib v3.1.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.colors.Normalize</span></code></a>, <a class="reference external" href="https://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Provides a symmetric normalization class around a given pivot point.</p>
 <dl class="method">
 <dt id="iris.palette.SymmetricNormalize.autoscale">
-<code class="descname">autoscale</code><span class="sig-paren">(</span><em>A</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.palette.SymmetricNormalize.autoscale" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">autoscale</code><span class="sig-paren">(</span><em class="sig-param">A</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.palette.SymmetricNormalize.autoscale" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set <em>vmin</em>, <em>vmax</em> to min, max of <em>A</em>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.palette.SymmetricNormalize.autoscale_None">
-<code class="descname">autoscale_None</code><span class="sig-paren">(</span><em>A</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.palette.SymmetricNormalize.autoscale_None" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">autoscale_None</code><span class="sig-paren">(</span><em class="sig-param">A</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.palette.SymmetricNormalize.autoscale_None" title="Permalink to this definition">¶</a></dt>
 <dd><p>autoscale only None-valued vmin or vmax.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.palette.SymmetricNormalize.inverse">
-<code class="descname">inverse</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.palette.SymmetricNormalize.inverse" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">inverse</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.palette.SymmetricNormalize.inverse" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="staticmethod">
+<dl class="method">
 <dt id="iris.palette.SymmetricNormalize.process_value">
-<em class="property">static </em><code class="descname">process_value</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.palette.SymmetricNormalize.process_value" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">process_value</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.palette.SymmetricNormalize.process_value" title="Permalink to this definition">¶</a></dt>
 <dd><p>Homogenize the input <em>value</em> for easy and efficient normalization.</p>
 <p><em>value</em> can be a scalar or sequence.</p>
 <p>Returns <em>result</em>, <em>is_scalar</em>, where <em>result</em> is a
@@ -229,18 +229,18 @@ use of float32.</p>
 
 <dl class="method">
 <dt id="iris.palette.SymmetricNormalize.scaled">
-<code class="descname">scaled</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.palette.SymmetricNormalize.scaled" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">scaled</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.palette.SymmetricNormalize.scaled" title="Permalink to this definition">¶</a></dt>
 <dd><p>return true if vmin and vmax set</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="iris.palette.SymmetricNormalize.vmax">
-<code class="descname">vmax</code><a class="headerlink" href="#iris.palette.SymmetricNormalize.vmax" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">vmax</code><a class="headerlink" href="#iris.palette.SymmetricNormalize.vmax" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="iris.palette.SymmetricNormalize.vmin">
-<code class="descname">vmin</code><a class="headerlink" href="#iris.palette.SymmetricNormalize.vmin" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">vmin</code><a class="headerlink" href="#iris.palette.SymmetricNormalize.vmin" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>

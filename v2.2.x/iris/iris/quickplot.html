@@ -94,10 +94,10 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
     </form>
     </div>
@@ -132,7 +132,7 @@ automatically add a plot title, axis titles, and a colour bar when appropriate.<
 </div></blockquote>
 <dl class="function">
 <dt id="iris.quickplot.contour">
-<code class="descclassname">iris.quickplot.</code><code class="descname">contour</code><span class="sig-paren">(</span><em>cube</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.quickplot.contour" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.quickplot.</code><code class="sig-name descname">contour</code><span class="sig-paren">(</span><em class="sig-param">cube</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.quickplot.contour" title="Permalink to this definition">¶</a></dt>
 <dd><p>Draws contour lines on a labelled plot based on the given Cube.</p>
 <p>With the basic call signature, contour “level” values are chosen
 automatically:</p>
@@ -154,7 +154,7 @@ automatically:</p>
 <!--<hr class="docutils" />
 --><dl class="function">
 <dt id="iris.quickplot.contourf">
-<code class="descclassname">iris.quickplot.</code><code class="descname">contourf</code><span class="sig-paren">(</span><em>cube</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.quickplot.contourf" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.quickplot.</code><code class="sig-name descname">contourf</code><span class="sig-paren">(</span><em class="sig-param">cube</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.quickplot.contourf" title="Permalink to this definition">¶</a></dt>
 <dd><p>Draws filled contours on a labelled plot based on the given Cube.</p>
 <p>With the basic call signature, contour “level” values are chosen
 automatically:</p>
@@ -176,7 +176,7 @@ automatically:</p>
 <!--<hr class="docutils" />
 --><dl class="function">
 <dt id="iris.quickplot.outline">
-<code class="descclassname">iris.quickplot.</code><code class="descname">outline</code><span class="sig-paren">(</span><em>cube</em>, <em>coords=None</em>, <em>color='k'</em>, <em>linewidth=None</em>, <em>axes=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.quickplot.outline" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.quickplot.</code><code class="sig-name descname">outline</code><span class="sig-paren">(</span><em class="sig-param">cube</em>, <em class="sig-param">coords=None</em>, <em class="sig-param">color='k'</em>, <em class="sig-param">linewidth=None</em>, <em class="sig-param">axes=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.quickplot.outline" title="Permalink to this definition">¶</a></dt>
 <dd><p>Draws cell outlines on a labelled plot based on the given Cube.</p>
 <p>Kwargs:</p>
 <ul class="simple">
@@ -207,7 +207,7 @@ width in patch.linewidth in matplotlibrc is used.</p>
 <!--<hr class="docutils" />
 --><dl class="function">
 <dt id="iris.quickplot.pcolor">
-<code class="descclassname">iris.quickplot.</code><code class="descname">pcolor</code><span class="sig-paren">(</span><em>cube</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.quickplot.pcolor" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.quickplot.</code><code class="sig-name descname">pcolor</code><span class="sig-paren">(</span><em class="sig-param">cube</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.quickplot.pcolor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Draws a labelled pseudocolor plot based on the given Cube.</p>
 <p>See <a class="reference internal" href="plot.html#iris.plot.pcolor" title="iris.plot.pcolor"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.plot.pcolor()</span></code></a> for details of valid keyword arguments.</p>
 </dd></dl>
@@ -216,7 +216,7 @@ width in patch.linewidth in matplotlibrc is used.</p>
 <!--<hr class="docutils" />
 --><dl class="function">
 <dt id="iris.quickplot.pcolormesh">
-<code class="descclassname">iris.quickplot.</code><code class="descname">pcolormesh</code><span class="sig-paren">(</span><em>cube</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.quickplot.pcolormesh" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.quickplot.</code><code class="sig-name descname">pcolormesh</code><span class="sig-paren">(</span><em class="sig-param">cube</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.quickplot.pcolormesh" title="Permalink to this definition">¶</a></dt>
 <dd><p>Draws a labelled pseudocolour plot based on the given Cube.</p>
 <p>See <a class="reference internal" href="plot.html#iris.plot.pcolormesh" title="iris.plot.pcolormesh"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.plot.pcolormesh()</span></code></a> for details of valid keyword arguments.</p>
 </dd></dl>
@@ -225,7 +225,7 @@ width in patch.linewidth in matplotlibrc is used.</p>
 <!--<hr class="docutils" />
 --><dl class="function">
 <dt id="iris.quickplot.plot">
-<code class="descclassname">iris.quickplot.</code><code class="descname">plot</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.quickplot.plot" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.quickplot.</code><code class="sig-name descname">plot</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.quickplot.plot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Draws a labelled line plot based on the given cube(s) or
 coordinate(s).</p>
 <p>See <a class="reference internal" href="plot.html#iris.plot.plot" title="iris.plot.plot"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.plot.plot()</span></code></a> for details of valid arguments and
@@ -236,7 +236,7 @@ keyword arguments.</p>
 <!--<hr class="docutils" />
 --><dl class="function">
 <dt id="iris.quickplot.points">
-<code class="descclassname">iris.quickplot.</code><code class="descname">points</code><span class="sig-paren">(</span><em>cube</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.quickplot.points" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.quickplot.</code><code class="sig-name descname">points</code><span class="sig-paren">(</span><em class="sig-param">cube</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.quickplot.points" title="Permalink to this definition">¶</a></dt>
 <dd><p>Draws sample point positions on a labelled plot based on the given Cube.</p>
 <p>See <a class="reference internal" href="plot.html#iris.plot.points" title="iris.plot.points"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.plot.points()</span></code></a> for details of valid keyword arguments.</p>
 </dd></dl>
@@ -245,7 +245,7 @@ keyword arguments.</p>
 <!--<hr class="docutils" />
 --><dl class="function">
 <dt id="iris.quickplot.scatter">
-<code class="descclassname">iris.quickplot.</code><code class="descname">scatter</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.quickplot.scatter" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.quickplot.</code><code class="sig-name descname">scatter</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">y</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.quickplot.scatter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Draws a labelled scatter plot based on the given cubes or
 coordinates.</p>
 <p>See <a class="reference internal" href="plot.html#iris.plot.scatter" title="iris.plot.scatter"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.plot.scatter()</span></code></a> for details of valid arguments and

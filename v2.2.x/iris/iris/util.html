@@ -94,10 +94,10 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
     </form>
     </div>
@@ -147,7 +147,7 @@
 </div></blockquote>
 <dl class="function">
 <dt id="iris.util.approx_equal">
-<code class="descclassname">iris.util.</code><code class="descname">approx_equal</code><span class="sig-paren">(</span><em>a</em>, <em>b</em>, <em>max_absolute_error=1e-10</em>, <em>max_relative_error=1e-10</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.util.approx_equal" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.util.</code><code class="sig-name descname">approx_equal</code><span class="sig-paren">(</span><em class="sig-param">a</em>, <em class="sig-param">b</em>, <em class="sig-param">max_absolute_error=1e-10</em>, <em class="sig-param">max_relative_error=1e-10</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.util.approx_equal" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns whether two numbers are almost equal, allowing for the
 finite precision of floating point numbers.</p>
 </dd></dl>
@@ -156,7 +156,7 @@ finite precision of floating point numbers.</p>
 <!--<hr class="docutils" />
 --><dl class="function">
 <dt id="iris.util.array_equal">
-<code class="descclassname">iris.util.</code><code class="descname">array_equal</code><span class="sig-paren">(</span><em>array1</em>, <em>array2</em>, <em>withnans=False</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.util.array_equal" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.util.</code><code class="sig-name descname">array_equal</code><span class="sig-paren">(</span><em class="sig-param">array1</em>, <em class="sig-param">array2</em>, <em class="sig-param">withnans=False</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.util.array_equal" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns whether two arrays have the same shape and elements.</p>
 <p>Args:</p>
 <ul class="simple">
@@ -185,7 +185,7 @@ with additional support for arrays of strings and NaN-tolerant operation.</p>
 <!--<hr class="docutils" />
 --><dl class="function">
 <dt id="iris.util.as_compatible_shape">
-<code class="descclassname">iris.util.</code><code class="descname">as_compatible_shape</code><span class="sig-paren">(</span><em>src_cube</em>, <em>target_cube</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.util.as_compatible_shape" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.util.</code><code class="sig-name descname">as_compatible_shape</code><span class="sig-paren">(</span><em class="sig-param">src_cube</em>, <em class="sig-param">target_cube</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.util.as_compatible_shape" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a cube with added length one dimensions to match the dimensionality
 and dimension ordering of <cite>target_cube</cite>.</p>
 <p>This function can be used to add the dimensions that have been collapsed,
@@ -223,7 +223,7 @@ suitably reshaped to fit.</p>
 <!--<hr class="docutils" />
 --><dl class="function">
 <dt id="iris.util.between">
-<code class="descclassname">iris.util.</code><code class="descname">between</code><span class="sig-paren">(</span><em>lh</em>, <em>rh</em>, <em>lh_inclusive=True</em>, <em>rh_inclusive=True</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.util.between" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.util.</code><code class="sig-name descname">between</code><span class="sig-paren">(</span><em class="sig-param">lh</em>, <em class="sig-param">rh</em>, <em class="sig-param">lh_inclusive=True</em>, <em class="sig-param">rh_inclusive=True</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.util.between" title="Permalink to this definition">¶</a></dt>
 <dd><p>Provides a convenient way of defining a 3 element inequality such as
 <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&lt;</span> <span class="pre">number</span> <span class="pre">&lt;</span> <span class="pre">b</span></code>.</p>
 <p>Arguments:</p>
@@ -270,7 +270,7 @@ True for <code class="docutils literal notranslate"><span class="pre">&lt;=</spa
 <!--<hr class="docutils" />
 --><dl class="function">
 <dt id="iris.util.broadcast_to_shape">
-<code class="descclassname">iris.util.</code><code class="descname">broadcast_to_shape</code><span class="sig-paren">(</span><em>array</em>, <em>shape</em>, <em>dim_map</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.util.broadcast_to_shape" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.util.</code><code class="sig-name descname">broadcast_to_shape</code><span class="sig-paren">(</span><em class="sig-param">array</em>, <em class="sig-param">shape</em>, <em class="sig-param">dim_map</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.util.broadcast_to_shape" title="Permalink to this definition">¶</a></dt>
 <dd><p>Broadcast an array to a given shape.</p>
 <p>Each dimension of the array must correspond to a dimension in the
 given shape. Striding is used to repeat the array until it matches
@@ -320,7 +320,7 @@ corresponds to the fourth element of the desired shape:</p>
 <!--<hr class="docutils" />
 --><dl class="function">
 <dt id="iris.util.clip_string">
-<code class="descclassname">iris.util.</code><code class="descname">clip_string</code><span class="sig-paren">(</span><em>the_str</em>, <em>clip_length=70</em>, <em>rider='...'</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.util.clip_string" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.util.</code><code class="sig-name descname">clip_string</code><span class="sig-paren">(</span><em class="sig-param">the_str</em>, <em class="sig-param">clip_length=70</em>, <em class="sig-param">rider='...'</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.util.clip_string" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a clipped version of the string based on the specified clip
 length and whether or not any graceful clip points can be found.</p>
 <p>If the string to be clipped is shorter than the specified clip
@@ -363,7 +363,7 @@ original string is returned unaltered.</p>
 <!--<hr class="docutils" />
 --><dl class="function">
 <dt id="iris.util.column_slices_generator">
-<code class="descclassname">iris.util.</code><code class="descname">column_slices_generator</code><span class="sig-paren">(</span><em>full_slice</em>, <em>ndims</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.util.column_slices_generator" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.util.</code><code class="sig-name descname">column_slices_generator</code><span class="sig-paren">(</span><em class="sig-param">full_slice</em>, <em class="sig-param">ndims</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.util.column_slices_generator" title="Permalink to this definition">¶</a></dt>
 <dd><p>Given a full slice full of tuples, return a dictionary mapping old
 data dimensions to new and a generator which gives the successive
 slices needed to index correctly (across columns).</p>
@@ -380,7 +380,7 @@ approach of [(3, 5), : , (1, 6, 8)] for column based indexing.</p>
 <!--<hr class="docutils" />
 --><dl class="function">
 <dt id="iris.util.create_temp_filename">
-<code class="descclassname">iris.util.</code><code class="descname">create_temp_filename</code><span class="sig-paren">(</span><em>suffix=''</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.util.create_temp_filename" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.util.</code><code class="sig-name descname">create_temp_filename</code><span class="sig-paren">(</span><em class="sig-param">suffix=''</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.util.create_temp_filename" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a temporary file name.</p>
 <p>Args:</p>
 <blockquote>
@@ -394,7 +394,7 @@ approach of [(3, 5), : , (1, 6, 8)] for column based indexing.</p>
 <!--<hr class="docutils" />
 --><dl class="function">
 <dt id="iris.util.delta">
-<code class="descclassname">iris.util.</code><code class="descname">delta</code><span class="sig-paren">(</span><em>ndarray</em>, <em>dimension</em>, <em>circular=False</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.util.delta" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.util.</code><code class="sig-name descname">delta</code><span class="sig-paren">(</span><em class="sig-param">ndarray</em>, <em class="sig-param">dimension</em>, <em class="sig-param">circular=False</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.util.delta" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the difference between values along a given dimension.</p>
 <p>Args:</p>
 <ul>
@@ -445,7 +445,7 @@ from the last element.</p>
 <!--<hr class="docutils" />
 --><dl class="function">
 <dt id="iris.util.demote_dim_coord_to_aux_coord">
-<code class="descclassname">iris.util.</code><code class="descname">demote_dim_coord_to_aux_coord</code><span class="sig-paren">(</span><em>cube</em>, <em>name_or_coord</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.util.demote_dim_coord_to_aux_coord" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.util.</code><code class="sig-name descname">demote_dim_coord_to_aux_coord</code><span class="sig-paren">(</span><em class="sig-param">cube</em>, <em class="sig-param">name_or_coord</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.util.demote_dim_coord_to_aux_coord" title="Permalink to this definition">¶</a></dt>
 <dd><p>Demotes a dimension coordinate  on the cube to an auxiliary coordinate.</p>
 <p>The DimCoord is demoted to an auxiliary coordinate on the cube.
 The dimension of the cube that was associated with the DimCoord becomes
@@ -497,7 +497,7 @@ recast as an AuxCoord instance.</p>
 <!--<hr class="docutils" />
 --><dl class="function">
 <dt id="iris.util.describe_diff">
-<code class="descclassname">iris.util.</code><code class="descname">describe_diff</code><span class="sig-paren">(</span><em>cube_a</em>, <em>cube_b</em>, <em>output_file=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.util.describe_diff" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.util.</code><code class="sig-name descname">describe_diff</code><span class="sig-paren">(</span><em class="sig-param">cube_a</em>, <em class="sig-param">cube_b</em>, <em class="sig-param">output_file=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.util.describe_diff" title="Permalink to this definition">¶</a></dt>
 <dd><p>Prints the differences that prevent compatibility between two cubes, as
 defined by <a class="reference internal" href="cube.html#iris.cube.Cube.is_compatible" title="iris.cube.Cube.is_compatible"><code class="xref py py-meth docutils literal notranslate"><span class="pre">iris.cube.Cube.is_compatible()</span></code></a>.</p>
 <p>Args:</p>
@@ -539,7 +539,7 @@ scope of this function.</p>
 <!--<hr class="docutils" />
 --><dl class="function">
 <dt id="iris.util.file_is_newer_than">
-<code class="descclassname">iris.util.</code><code class="descname">file_is_newer_than</code><span class="sig-paren">(</span><em>result_path</em>, <em>source_paths</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.util.file_is_newer_than" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.util.</code><code class="sig-name descname">file_is_newer_than</code><span class="sig-paren">(</span><em class="sig-param">result_path</em>, <em class="sig-param">source_paths</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.util.file_is_newer_than" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return whether the ‘result’ file has a later modification time than all of
 the ‘source’ files.</p>
 <p>If a stored result depends entirely on known ‘sources’, it need only be
@@ -588,7 +588,7 @@ required.  Ideally, an additional check on iris.__version__ is advised.</p>
 <!--<hr class="docutils" />
 --><dl class="function">
 <dt id="iris.util.find_discontiguities">
-<code class="descclassname">iris.util.</code><code class="descname">find_discontiguities</code><span class="sig-paren">(</span><em>cube</em>, <em>rel_tol=1e-05</em>, <em>abs_tol=1e-08</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.util.find_discontiguities" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.util.</code><code class="sig-name descname">find_discontiguities</code><span class="sig-paren">(</span><em class="sig-param">cube</em>, <em class="sig-param">rel_tol=1e-05</em>, <em class="sig-param">abs_tol=1e-08</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.util.find_discontiguities" title="Permalink to this definition">¶</a></dt>
 <dd><p>Searches coord for discontiguities in the bounds array, returned as a
 boolean array (True where discontiguities are present).</p>
 <p>Args:</p>
@@ -646,7 +646,7 @@ discontiguities in the coordinate points array.</p>
 <!--<hr class="docutils" />
 --><dl class="function">
 <dt id="iris.util.format_array">
-<code class="descclassname">iris.util.</code><code class="descname">format_array</code><span class="sig-paren">(</span><em>arr</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.util.format_array" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.util.</code><code class="sig-name descname">format_array</code><span class="sig-paren">(</span><em class="sig-param">arr</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.util.format_array" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the given array as a string, using the python builtin str
 function on a piecewise basis.</p>
 <p>Useful for xml representation of arrays.</p>
@@ -657,7 +657,7 @@ function on a piecewise basis.</p>
 <!--<hr class="docutils" />
 --><dl class="function">
 <dt id="iris.util.guess_coord_axis">
-<code class="descclassname">iris.util.</code><code class="descname">guess_coord_axis</code><span class="sig-paren">(</span><em>coord</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.util.guess_coord_axis" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.util.</code><code class="sig-name descname">guess_coord_axis</code><span class="sig-paren">(</span><em class="sig-param">coord</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.util.guess_coord_axis" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a “best guess” axis name of the coordinate.</p>
 <p>Heuristic categorisation of the coordinate into either label
 ‘T’, ‘Z’, ‘Y’, ‘X’ or None.</p>
@@ -679,7 +679,7 @@ function on a piecewise basis.</p>
 <!--<hr class="docutils" />
 --><dl class="function">
 <dt id="iris.util.is_regular">
-<code class="descclassname">iris.util.</code><code class="descname">is_regular</code><span class="sig-paren">(</span><em>coord</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.util.is_regular" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.util.</code><code class="sig-name descname">is_regular</code><span class="sig-paren">(</span><em class="sig-param">coord</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.util.is_regular" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determine if the given coord is regular.</p>
 </dd></dl>
 
@@ -687,7 +687,7 @@ function on a piecewise basis.</p>
 <!--<hr class="docutils" />
 --><dl class="function">
 <dt id="iris.util.mask_cube">
-<code class="descclassname">iris.util.</code><code class="descname">mask_cube</code><span class="sig-paren">(</span><em>cube</em>, <em>points_to_mask</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.util.mask_cube" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.util.</code><code class="sig-name descname">mask_cube</code><span class="sig-paren">(</span><em class="sig-param">cube</em>, <em class="sig-param">points_to_mask</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.util.mask_cube" title="Permalink to this definition">¶</a></dt>
 <dd><p>Masks any cells in the data array which correspond to cells marked <cite>True</cite>
 in the <cite>points_to_mask</cite> array.</p>
 <p>Args:</p>
@@ -718,7 +718,7 @@ x and y arrays of the cube.</p>
 <!--<hr class="docutils" />
 --><dl class="function">
 <dt id="iris.util.monotonic">
-<code class="descclassname">iris.util.</code><code class="descname">monotonic</code><span class="sig-paren">(</span><em>array</em>, <em>strict=False</em>, <em>return_direction=False</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.util.monotonic" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.util.</code><code class="sig-name descname">monotonic</code><span class="sig-paren">(</span><em class="sig-param">array</em>, <em class="sig-param">strict=False</em>, <em class="sig-param">return_direction=False</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.util.monotonic" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return whether the given 1d array is monotonic.</p>
 <p>Note that, the array must not contain missing data.</p>
 <p>Kwargs:</p>
@@ -756,7 +756,7 @@ will be:</p>
 <!--<hr class="docutils" />
 --><dl class="function">
 <dt id="iris.util.new_axis">
-<code class="descclassname">iris.util.</code><code class="descname">new_axis</code><span class="sig-paren">(</span><em>src_cube</em>, <em>scalar_coord=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.util.new_axis" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.util.</code><code class="sig-name descname">new_axis</code><span class="sig-paren">(</span><em class="sig-param">src_cube</em>, <em class="sig-param">scalar_coord=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.util.new_axis" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a new axis as the leading dimension of the cube, promoting a scalar
 coordinate if specified.</p>
 <p>Args:</p>
@@ -794,7 +794,7 @@ coordinate if specified.</p>
 <!--<hr class="docutils" />
 --><dl class="function">
 <dt id="iris.util.points_step">
-<code class="descclassname">iris.util.</code><code class="descname">points_step</code><span class="sig-paren">(</span><em>points</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.util.points_step" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.util.</code><code class="sig-name descname">points_step</code><span class="sig-paren">(</span><em class="sig-param">points</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.util.points_step" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determine whether a NumPy array has a regular step.</p>
 </dd></dl>
 
@@ -802,7 +802,7 @@ coordinate if specified.</p>
 <!--<hr class="docutils" />
 --><dl class="function">
 <dt id="iris.util.promote_aux_coord_to_dim_coord">
-<code class="descclassname">iris.util.</code><code class="descname">promote_aux_coord_to_dim_coord</code><span class="sig-paren">(</span><em>cube</em>, <em>name_or_coord</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.util.promote_aux_coord_to_dim_coord" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.util.</code><code class="sig-name descname">promote_aux_coord_to_dim_coord</code><span class="sig-paren">(</span><em class="sig-param">cube</em>, <em class="sig-param">name_or_coord</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.util.promote_aux_coord_to_dim_coord" title="Permalink to this definition">¶</a></dt>
 <dd><p>Promotes an AuxCoord on the cube to a DimCoord. This AuxCoord must be
 associated with a single cube dimension. If the AuxCoord is associated
 with a dimension that already has a DimCoord, that DimCoord gets
@@ -853,7 +853,7 @@ demoted to an AuxCoord.</p>
 <!--<hr class="docutils" />
 --><dl class="function">
 <dt id="iris.util.regular_step">
-<code class="descclassname">iris.util.</code><code class="descname">regular_step</code><span class="sig-paren">(</span><em>coord</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.util.regular_step" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.util.</code><code class="sig-name descname">regular_step</code><span class="sig-paren">(</span><em class="sig-param">coord</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.util.regular_step" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the regular step from a coord or fail.</p>
 </dd></dl>
 
@@ -861,7 +861,7 @@ demoted to an AuxCoord.</p>
 <!--<hr class="docutils" />
 --><dl class="function">
 <dt id="iris.util.reverse">
-<code class="descclassname">iris.util.</code><code class="descname">reverse</code><span class="sig-paren">(</span><em>cube_or_array</em>, <em>coords_or_dims</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.util.reverse" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.util.</code><code class="sig-name descname">reverse</code><span class="sig-paren">(</span><em class="sig-param">cube_or_array</em>, <em class="sig-param">coords_or_dims</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.util.reverse" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reverse the cube or array along the given dimensions.</p>
 <p>Args:</p>
 <ul class="simple">
@@ -913,7 +913,7 @@ these) may be specified instead.</p>
 <!--<hr class="docutils" />
 --><dl class="function">
 <dt id="iris.util.rolling_window">
-<code class="descclassname">iris.util.</code><code class="descname">rolling_window</code><span class="sig-paren">(</span><em>a</em>, <em>window=1</em>, <em>step=1</em>, <em>axis=-1</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.util.rolling_window" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.util.</code><code class="sig-name descname">rolling_window</code><span class="sig-paren">(</span><em class="sig-param">a</em>, <em class="sig-param">window=1</em>, <em class="sig-param">step=1</em>, <em class="sig-param">axis=-1</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.util.rolling_window" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make an ndarray with a rolling window of the last dimension</p>
 <p>Args:</p>
 <ul class="simple">
@@ -965,7 +965,7 @@ of the size of the given window at axis + 1.</p>
 <!--<hr class="docutils" />
 --><dl class="function">
 <dt id="iris.util.squeeze">
-<code class="descclassname">iris.util.</code><code class="descname">squeeze</code><span class="sig-paren">(</span><em>cube</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.util.squeeze" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.util.</code><code class="sig-name descname">squeeze</code><span class="sig-paren">(</span><em class="sig-param">cube</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.util.squeeze" title="Permalink to this definition">¶</a></dt>
 <dd><p>Removes any dimension of length one. If it has an associated DimCoord or
 AuxCoord, this becomes a scalar coord.</p>
 <p>Args:</p>
@@ -995,7 +995,7 @@ length 1.</p>
 <!--<hr class="docutils" />
 --><dl class="function">
 <dt id="iris.util.unify_time_units">
-<code class="descclassname">iris.util.</code><code class="descname">unify_time_units</code><span class="sig-paren">(</span><em>cubes</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.util.unify_time_units" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.util.</code><code class="sig-name descname">unify_time_units</code><span class="sig-paren">(</span><em class="sig-param">cubes</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.util.unify_time_units" title="Permalink to this definition">¶</a></dt>
 <dd><p>Performs an in-place conversion of the time units of all time coords in the
 cubes in a given iterable. One common epoch is defined for each calendar
 found in the cubes to prevent units being defined with inconsistencies

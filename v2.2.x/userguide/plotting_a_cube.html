@@ -126,10 +126,10 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
     </form>
     </div>
@@ -233,7 +233,7 @@ function can be used to control the output file format of the plot
 see <a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.savefig.html#matplotlib.pyplot.savefig" title="(in Matplotlib v3.1.0)"><code class="xref py py-func docutils literal notranslate"><span class="pre">matplotlib.pyplot.savefig()</span></code></a>).</p>
 <p>Some of the formats which are supported by <strong>plt.savefig</strong>:</p>
 <blockquote>
-<div><table class="docutils align-center">
+<div><table class="docutils align-default">
 <colgroup>
 <col style="width: 7%" />
 <col style="width: 7%" />
@@ -332,7 +332,7 @@ keyword arguments are equivalent:</p>
 </pre></div>
 </div>
 <p>(<a class="reference external" href="../userguide/plotting_examples/1d_simple.py">Source code</a>, <a class="reference external" href="../userguide/plotting_examples/1d_simple.png">png</a>)</p>
-<div class="figure align-center" id="1d-simple">
+<div class="figure align-default" id="1d-simple">
 <img alt="../_images/1d_simple.png" src="../_images/1d_simple.png" />
 </div>
 <p>For more information on how this example reduced the 2D cube to 1 dimension see
@@ -369,7 +369,7 @@ For example, the previous plot can be improved quickly by replacing
 </pre></div>
 </div>
 <p>(<a class="reference external" href="../userguide/plotting_examples/1d_quickplot_simple.py">Source code</a>, <a class="reference external" href="../userguide/plotting_examples/1d_quickplot_simple.png">png</a>)</p>
-<div class="figure align-center" id="1d-quickplot-simple">
+<div class="figure align-default" id="1d-quickplot-simple">
 <img alt="../_images/1d_quickplot_simple.png" src="../_images/1d_quickplot_simple.png" />
 </div>
 <div class="section" id="multi-line-plot">
@@ -429,7 +429,7 @@ function can be called to indicate that a legend is desired:</p>
 </pre></div>
 </div>
 <p>(<a class="reference external" href="../../example_code/General/lineplot_with_legend.py">Source code</a>, <a class="reference external" href="../../example_code/General/lineplot_with_legend.png">png</a>)</p>
-<div class="figure align-center" id="lineplot-with-legend">
+<div class="figure align-default" id="lineplot-with-legend">
 <img alt="../_images/lineplot_with_legend1.png" src="../_images/lineplot_with_legend1.png" />
 </div>
 <p>This example of consecutive <code class="docutils literal notranslate"><span class="pre">qplt.plot</span></code> calls coupled with the
@@ -493,7 +493,7 @@ things.</p>
 </pre></div>
 </div>
 <p>(<a class="reference external" href="../userguide/plotting_examples/cube_contour.py">Source code</a>, <a class="reference external" href="../userguide/plotting_examples/cube_contour.png">png</a>)</p>
-<div class="figure align-center" id="cube-contour">
+<div class="figure align-default" id="cube-contour">
 <img alt="../_images/cube_contour.png" src="../_images/cube_contour.png" />
 </div>
 </div>
@@ -523,7 +523,7 @@ things.</p>
 </pre></div>
 </div>
 <p>(<a class="reference external" href="../userguide/plotting_examples/cube_contourf.py">Source code</a>, <a class="reference external" href="../userguide/plotting_examples/cube_contourf.png">png</a>)</p>
-<div class="figure align-center" id="cube-contourf">
+<div class="figure align-default" id="cube-contourf">
 <img alt="../_images/cube_contourf.png" src="../_images/cube_contourf.png" />
 </div>
 </div>
@@ -561,7 +561,7 @@ based on their points (see also <a class="reference internal" href="../iris/iris
 </pre></div>
 </div>
 <p>(<a class="reference external" href="../userguide/plotting_examples/cube_blockplot.py">Source code</a>, <a class="reference external" href="../userguide/plotting_examples/cube_blockplot.png">png</a>)</p>
-<div class="figure align-center" id="cube-blockplot">
+<div class="figure align-default" id="cube-blockplot">
 <img alt="../_images/cube_blockplot.png" src="../_images/cube_blockplot.png" />
 </div>
 </div>
@@ -596,7 +596,7 @@ in the citation guidance provided by Cynthia Brewer.</p>
 <p>The following subset of Brewer palettes found at
 <a class="reference external" href="http://colorbrewer.org/">colorbrewer.org</a> are available within Iris.</p>
 <p>(<a class="reference external" href="../userguide/plotting_examples/brewer.py">Source code</a>, <a class="reference external" href="../userguide/plotting_examples/brewer.png">png</a>)</p>
-<div class="figure align-center" id="brewer">
+<div class="figure align-default" id="brewer">
 <img alt="../_images/brewer.png" src="../_images/brewer.png" />
 </div>
 </div>
@@ -632,7 +632,7 @@ become available once <a class="reference internal" href="../iris/iris/plot.html
 </pre></div>
 </div>
 <p>(<a class="reference external" href="../userguide/plotting_examples/cube_brewer_contourf.py">Source code</a>, <a class="reference external" href="../userguide/plotting_examples/cube_brewer_contourf.png">png</a>)</p>
-<div class="figure align-center" id="cube-brewer-contourf">
+<div class="figure align-default" id="cube-brewer-contourf">
 <img alt="../_images/cube_brewer_contourf.png" src="../_images/cube_brewer_contourf.png" />
 </div>
 </div>
@@ -673,7 +673,7 @@ The recommended text for the Cynthia Brewer citation is provided by
 </pre></div>
 </div>
 <p>(<a class="reference external" href="../userguide/plotting_examples/cube_brewer_cite_contourf.py">Source code</a>, <a class="reference external" href="../userguide/plotting_examples/cube_brewer_cite_contourf.png">png</a>)</p>
-<div class="figure align-center" id="cube-brewer-cite-contourf">
+<div class="figure align-default" id="cube-brewer-cite-contourf">
 <img alt="../_images/cube_brewer_cite_contourf.png" src="../_images/cube_brewer_cite_contourf.png" />
 </div>
 </div>

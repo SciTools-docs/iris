@@ -95,10 +95,10 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
     </form>
     </div>
@@ -124,7 +124,7 @@ Z direction.</p>
 </div></blockquote>
 <dl class="function">
 <dt id="iris.experimental.stratify.relevel">
-<code class="descclassname">iris.experimental.stratify.</code><code class="descname">relevel</code><span class="sig-paren">(</span><em>cube</em>, <em>src_levels</em>, <em>tgt_levels</em>, <em>axis=None</em>, <em>interpolator=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.experimental.stratify.relevel" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.experimental.stratify.</code><code class="sig-name descname">relevel</code><span class="sig-paren">(</span><em class="sig-param">cube</em>, <em class="sig-param">src_levels</em>, <em class="sig-param">tgt_levels</em>, <em class="sig-param">axis=None</em>, <em class="sig-param">interpolator=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.experimental.stratify.relevel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Interpolate the cube onto the specified target levels, given the
 source levels of the cube.</p>
 <p>For example, suppose we have two datasets <cite>P(i,j,k)</cite> and <cite>H(i,j,k)</cite>

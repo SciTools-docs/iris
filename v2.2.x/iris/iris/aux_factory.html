@@ -94,10 +94,10 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
     </form>
     </div>
@@ -137,7 +137,7 @@ properties of the resulting auxiliary coordinates.</p>
 <blockquote>
 <div><dl class="class">
 <dt id="iris.aux_factory.AuxCoordFactory">
-<em class="property">class </em><code class="descclassname">iris.aux_factory.</code><code class="descname">AuxCoordFactory</code><a class="headerlink" href="#iris.aux_factory.AuxCoordFactory" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">iris.aux_factory.</code><code class="sig-name descname">AuxCoordFactory</code><a class="headerlink" href="#iris.aux_factory.AuxCoordFactory" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">iris._cube_coord_common.CFVariableMixin</span></code></p>
 <p>Represents a “factory” which can manufacture an additional auxiliary
 coordinate on demand, by combining the values of other coordinates.</p>
@@ -148,7 +148,7 @@ values from other coordinates.</p>
 properties of the resulting auxiliary coordinates.</p>
 <dl class="method">
 <dt id="iris.aux_factory.AuxCoordFactory.derived_dims">
-<code class="descname">derived_dims</code><span class="sig-paren">(</span><em>coord_dims_func</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.AuxCoordFactory.derived_dims" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">derived_dims</code><span class="sig-paren">(</span><em class="sig-param">coord_dims_func</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.AuxCoordFactory.derived_dims" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the cube dimensions for the derived coordinate.</p>
 <p>Args:</p>
 <ul class="simple">
@@ -168,7 +168,7 @@ See <a class="reference internal" href="cube.html#iris.cube.Cube.coord_dims" tit
 
 <dl class="method">
 <dt id="iris.aux_factory.AuxCoordFactory.make_coord">
-<code class="descname">make_coord</code><span class="sig-paren">(</span><em>coord_dims_func</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.AuxCoordFactory.make_coord" title="Permalink to this definition">¶</a></dt>
+<em class="property">abstract </em><code class="sig-name descname">make_coord</code><span class="sig-paren">(</span><em class="sig-param">coord_dims_func</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.AuxCoordFactory.make_coord" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a new <a class="reference internal" href="coords.html#iris.coords.AuxCoord" title="iris.coords.AuxCoord"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.coords.AuxCoord</span></code></a> as defined by this
 factory.</p>
 <p>Args:</p>
@@ -185,7 +185,7 @@ See <a class="reference internal" href="cube.html#iris.cube.Cube.coord_dims" tit
 
 <dl class="method">
 <dt id="iris.aux_factory.AuxCoordFactory.name">
-<code class="descname">name</code><span class="sig-paren">(</span><em>default='unknown'</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.AuxCoordFactory.name" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">name</code><span class="sig-paren">(</span><em class="sig-param">default='unknown'</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.AuxCoordFactory.name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a human-readable name.</p>
 <p>First it tries <a class="reference internal" href="#iris.aux_factory.AuxCoordFactory.standard_name" title="iris.aux_factory.AuxCoordFactory.standard_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">standard_name</span></code></a>, then ‘long_name’, then
 ‘var_name’, then the STASH attribute before falling back to
@@ -194,7 +194,7 @@ the value of <cite>default</cite> (which itself defaults to ‘unknown’).</p>
 
 <dl class="method">
 <dt id="iris.aux_factory.AuxCoordFactory.rename">
-<code class="descname">rename</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.AuxCoordFactory.rename" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">rename</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.AuxCoordFactory.rename" title="Permalink to this definition">¶</a></dt>
 <dd><p>Changes the human-readable name.</p>
 <p>If ‘name’ is a valid standard name it will assign it to
 <a class="reference internal" href="#iris.aux_factory.AuxCoordFactory.standard_name" title="iris.aux_factory.AuxCoordFactory.standard_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">standard_name</span></code></a>, otherwise it will assign it to
@@ -203,7 +203,7 @@ the value of <cite>default</cite> (which itself defaults to ‘unknown’).</p>
 
 <dl class="method">
 <dt id="iris.aux_factory.AuxCoordFactory.update">
-<code class="descname">update</code><span class="sig-paren">(</span><em>old_coord</em>, <em>new_coord=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.AuxCoordFactory.update" title="Permalink to this definition">¶</a></dt>
+<em class="property">abstract </em><code class="sig-name descname">update</code><span class="sig-paren">(</span><em class="sig-param">old_coord</em>, <em class="sig-param">new_coord=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.AuxCoordFactory.update" title="Permalink to this definition">¶</a></dt>
 <dd><p>Notifies the factory of a removal/replacement of a dependency.</p>
 <p>Args:</p>
 <ul class="simple">
@@ -223,7 +223,7 @@ the dependency is updated to use new_coord.</p>
 
 <dl class="method">
 <dt id="iris.aux_factory.AuxCoordFactory.updated">
-<code class="descname">updated</code><span class="sig-paren">(</span><em>new_coord_mapping</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.AuxCoordFactory.updated" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">updated</code><span class="sig-paren">(</span><em class="sig-param">new_coord_mapping</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.AuxCoordFactory.updated" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a new instance of this factory where the dependencies
 are replaced according to the given mapping.</p>
 <p>Args:</p>
@@ -240,49 +240,49 @@ used instead.</p>
 
 <dl class="method">
 <dt id="iris.aux_factory.AuxCoordFactory.xml_element">
-<code class="descname">xml_element</code><span class="sig-paren">(</span><em>doc</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.AuxCoordFactory.xml_element" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">xml_element</code><span class="sig-paren">(</span><em class="sig-param">doc</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.AuxCoordFactory.xml_element" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a DOM element describing this coordinate factory.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="iris.aux_factory.AuxCoordFactory.attributes">
-<code class="descname">attributes</code><a class="headerlink" href="#iris.aux_factory.AuxCoordFactory.attributes" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">attributes</code><a class="headerlink" href="#iris.aux_factory.AuxCoordFactory.attributes" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="iris.aux_factory.AuxCoordFactory.coord_system">
-<code class="descname">coord_system</code><em class="property"> = None</em><a class="headerlink" href="#iris.aux_factory.AuxCoordFactory.coord_system" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">coord_system</code><em class="property"> = None</em><a class="headerlink" href="#iris.aux_factory.AuxCoordFactory.coord_system" title="Permalink to this definition">¶</a></dt>
 <dd><p>Coordinate system (if any) of the coordinate made by the factory</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="iris.aux_factory.AuxCoordFactory.dependencies">
-<code class="descname">dependencies</code><a class="headerlink" href="#iris.aux_factory.AuxCoordFactory.dependencies" title="Permalink to this definition">¶</a></dt>
+<em class="property">abstract property </em><code class="sig-name descname">dependencies</code><a class="headerlink" href="#iris.aux_factory.AuxCoordFactory.dependencies" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a dictionary mapping from constructor argument names to
 the corresponding coordinates.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="iris.aux_factory.AuxCoordFactory.long_name">
-<code class="descname">long_name</code><em class="property"> = None</em><a class="headerlink" href="#iris.aux_factory.AuxCoordFactory.long_name" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">long_name</code><em class="property"> = None</em><a class="headerlink" href="#iris.aux_factory.AuxCoordFactory.long_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Descriptive name of the coordinate made by the factory</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="iris.aux_factory.AuxCoordFactory.standard_name">
-<code class="descname">standard_name</code><a class="headerlink" href="#iris.aux_factory.AuxCoordFactory.standard_name" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">standard_name</code><a class="headerlink" href="#iris.aux_factory.AuxCoordFactory.standard_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>The standard name for the Cube’s data.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="iris.aux_factory.AuxCoordFactory.units">
-<code class="descname">units</code><a class="headerlink" href="#iris.aux_factory.AuxCoordFactory.units" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">units</code><a class="headerlink" href="#iris.aux_factory.AuxCoordFactory.units" title="Permalink to this definition">¶</a></dt>
 <dd><p>The <code class="xref py py-mod docutils literal notranslate"><span class="pre">Unit</span></code> instance of the object.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="iris.aux_factory.AuxCoordFactory.var_name">
-<code class="descname">var_name</code><a class="headerlink" href="#iris.aux_factory.AuxCoordFactory.var_name" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">var_name</code><a class="headerlink" href="#iris.aux_factory.AuxCoordFactory.var_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>netCDF variable name for the coordinate made by the factory</p>
 </dd></dl>
 
@@ -298,7 +298,7 @@ the corresponding coordinates.</p>
 <blockquote>
 <div><dl class="class">
 <dt id="iris.aux_factory.HybridHeightFactory">
-<em class="property">class </em><code class="descclassname">iris.aux_factory.</code><code class="descname">HybridHeightFactory</code><span class="sig-paren">(</span><em>delta=None</em>, <em>sigma=None</em>, <em>orography=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.HybridHeightFactory" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">iris.aux_factory.</code><code class="sig-name descname">HybridHeightFactory</code><span class="sig-paren">(</span><em class="sig-param">delta=None</em>, <em class="sig-param">sigma=None</em>, <em class="sig-param">orography=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.HybridHeightFactory" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#iris.aux_factory.AuxCoordFactory" title="iris.aux_factory.AuxCoordFactory"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.aux_factory.AuxCoordFactory</span></code></a></p>
 <dl class="simple">
 <dt>Creates a hybrid-height coordinate factory with the formula:</dt><dd><p>z = a + b * orog</p>
@@ -325,7 +325,7 @@ the corresponding coordinates.</p>
 </ul>
 <dl class="method">
 <dt id="iris.aux_factory.HybridHeightFactory.derived_dims">
-<code class="descname">derived_dims</code><span class="sig-paren">(</span><em>coord_dims_func</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.HybridHeightFactory.derived_dims" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">derived_dims</code><span class="sig-paren">(</span><em class="sig-param">coord_dims_func</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.HybridHeightFactory.derived_dims" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the cube dimensions for the derived coordinate.</p>
 <p>Args:</p>
 <ul class="simple">
@@ -345,7 +345,7 @@ See <a class="reference internal" href="cube.html#iris.cube.Cube.coord_dims" tit
 
 <dl class="method">
 <dt id="iris.aux_factory.HybridHeightFactory.make_coord">
-<code class="descname">make_coord</code><span class="sig-paren">(</span><em>coord_dims_func</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.HybridHeightFactory.make_coord" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">make_coord</code><span class="sig-paren">(</span><em class="sig-param">coord_dims_func</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.HybridHeightFactory.make_coord" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a new <a class="reference internal" href="coords.html#iris.coords.AuxCoord" title="iris.coords.AuxCoord"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.coords.AuxCoord</span></code></a> as defined by this
 factory.</p>
 <p>Args:</p>
@@ -362,7 +362,7 @@ See <a class="reference internal" href="cube.html#iris.cube.Cube.coord_dims" tit
 
 <dl class="method">
 <dt id="iris.aux_factory.HybridHeightFactory.name">
-<code class="descname">name</code><span class="sig-paren">(</span><em>default='unknown'</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.HybridHeightFactory.name" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">name</code><span class="sig-paren">(</span><em class="sig-param">default='unknown'</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.HybridHeightFactory.name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a human-readable name.</p>
 <p>First it tries <a class="reference internal" href="#iris.aux_factory.HybridHeightFactory.standard_name" title="iris.aux_factory.HybridHeightFactory.standard_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">standard_name</span></code></a>, then ‘long_name’, then
 ‘var_name’, then the STASH attribute before falling back to
@@ -371,7 +371,7 @@ the value of <cite>default</cite> (which itself defaults to ‘unknown’).</p>
 
 <dl class="method">
 <dt id="iris.aux_factory.HybridHeightFactory.rename">
-<code class="descname">rename</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.HybridHeightFactory.rename" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">rename</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.HybridHeightFactory.rename" title="Permalink to this definition">¶</a></dt>
 <dd><p>Changes the human-readable name.</p>
 <p>If ‘name’ is a valid standard name it will assign it to
 <a class="reference internal" href="#iris.aux_factory.HybridHeightFactory.standard_name" title="iris.aux_factory.HybridHeightFactory.standard_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">standard_name</span></code></a>, otherwise it will assign it to
@@ -380,7 +380,7 @@ the value of <cite>default</cite> (which itself defaults to ‘unknown’).</p>
 
 <dl class="method">
 <dt id="iris.aux_factory.HybridHeightFactory.update">
-<code class="descname">update</code><span class="sig-paren">(</span><em>old_coord</em>, <em>new_coord=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.HybridHeightFactory.update" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">update</code><span class="sig-paren">(</span><em class="sig-param">old_coord</em>, <em class="sig-param">new_coord=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.HybridHeightFactory.update" title="Permalink to this definition">¶</a></dt>
 <dd><p>Notifies the factory of the removal/replacement of a coordinate
 which might be a dependency.</p>
 <p>Args:</p>
@@ -401,7 +401,7 @@ any dependency using old_coord is updated to use new_coord.</p>
 
 <dl class="method">
 <dt id="iris.aux_factory.HybridHeightFactory.updated">
-<code class="descname">updated</code><span class="sig-paren">(</span><em>new_coord_mapping</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.HybridHeightFactory.updated" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">updated</code><span class="sig-paren">(</span><em class="sig-param">new_coord_mapping</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.HybridHeightFactory.updated" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a new instance of this factory where the dependencies
 are replaced according to the given mapping.</p>
 <p>Args:</p>
@@ -418,37 +418,37 @@ used instead.</p>
 
 <dl class="method">
 <dt id="iris.aux_factory.HybridHeightFactory.xml_element">
-<code class="descname">xml_element</code><span class="sig-paren">(</span><em>doc</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.HybridHeightFactory.xml_element" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">xml_element</code><span class="sig-paren">(</span><em class="sig-param">doc</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.HybridHeightFactory.xml_element" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a DOM element describing this coordinate factory.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="iris.aux_factory.HybridHeightFactory.attributes">
-<code class="descname">attributes</code><a class="headerlink" href="#iris.aux_factory.HybridHeightFactory.attributes" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">attributes</code><a class="headerlink" href="#iris.aux_factory.HybridHeightFactory.attributes" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="iris.aux_factory.HybridHeightFactory.dependencies">
-<code class="descname">dependencies</code><a class="headerlink" href="#iris.aux_factory.HybridHeightFactory.dependencies" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">dependencies</code><a class="headerlink" href="#iris.aux_factory.HybridHeightFactory.dependencies" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a dictionary mapping from constructor argument names to
 the corresponding coordinates.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="iris.aux_factory.HybridHeightFactory.standard_name">
-<code class="descname">standard_name</code><a class="headerlink" href="#iris.aux_factory.HybridHeightFactory.standard_name" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">standard_name</code><a class="headerlink" href="#iris.aux_factory.HybridHeightFactory.standard_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>The standard name for the Cube’s data.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="iris.aux_factory.HybridHeightFactory.units">
-<code class="descname">units</code><a class="headerlink" href="#iris.aux_factory.HybridHeightFactory.units" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">units</code><a class="headerlink" href="#iris.aux_factory.HybridHeightFactory.units" title="Permalink to this definition">¶</a></dt>
 <dd><p>The <code class="xref py py-mod docutils literal notranslate"><span class="pre">Unit</span></code> instance of the object.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="iris.aux_factory.HybridHeightFactory.var_name">
-<code class="descname">var_name</code><a class="headerlink" href="#iris.aux_factory.HybridHeightFactory.var_name" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">var_name</code><a class="headerlink" href="#iris.aux_factory.HybridHeightFactory.var_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>The netCDF variable name for the object.</p>
 </dd></dl>
 
@@ -464,7 +464,7 @@ the corresponding coordinates.</p>
 <blockquote>
 <div><dl class="class">
 <dt id="iris.aux_factory.HybridPressureFactory">
-<em class="property">class </em><code class="descclassname">iris.aux_factory.</code><code class="descname">HybridPressureFactory</code><span class="sig-paren">(</span><em>delta=None</em>, <em>sigma=None</em>, <em>surface_air_pressure=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.HybridPressureFactory" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">iris.aux_factory.</code><code class="sig-name descname">HybridPressureFactory</code><span class="sig-paren">(</span><em class="sig-param">delta=None</em>, <em class="sig-param">sigma=None</em>, <em class="sig-param">surface_air_pressure=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.HybridPressureFactory" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#iris.aux_factory.AuxCoordFactory" title="iris.aux_factory.AuxCoordFactory"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.aux_factory.AuxCoordFactory</span></code></a></p>
 <dl class="simple">
 <dt>Creates a hybrid-height coordinate factory with the formula:</dt><dd><p>p = ap + b * ps</p>
@@ -491,7 +491,7 @@ the corresponding coordinates.</p>
 </ul>
 <dl class="method">
 <dt id="iris.aux_factory.HybridPressureFactory.derived_dims">
-<code class="descname">derived_dims</code><span class="sig-paren">(</span><em>coord_dims_func</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.HybridPressureFactory.derived_dims" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">derived_dims</code><span class="sig-paren">(</span><em class="sig-param">coord_dims_func</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.HybridPressureFactory.derived_dims" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the cube dimensions for the derived coordinate.</p>
 <p>Args:</p>
 <ul class="simple">
@@ -511,7 +511,7 @@ See <a class="reference internal" href="cube.html#iris.cube.Cube.coord_dims" tit
 
 <dl class="method">
 <dt id="iris.aux_factory.HybridPressureFactory.make_coord">
-<code class="descname">make_coord</code><span class="sig-paren">(</span><em>coord_dims_func</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.HybridPressureFactory.make_coord" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">make_coord</code><span class="sig-paren">(</span><em class="sig-param">coord_dims_func</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.HybridPressureFactory.make_coord" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a new <a class="reference internal" href="coords.html#iris.coords.AuxCoord" title="iris.coords.AuxCoord"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.coords.AuxCoord</span></code></a> as defined by this
 factory.</p>
 <p>Args:</p>
@@ -528,7 +528,7 @@ See <a class="reference internal" href="cube.html#iris.cube.Cube.coord_dims" tit
 
 <dl class="method">
 <dt id="iris.aux_factory.HybridPressureFactory.name">
-<code class="descname">name</code><span class="sig-paren">(</span><em>default='unknown'</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.HybridPressureFactory.name" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">name</code><span class="sig-paren">(</span><em class="sig-param">default='unknown'</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.HybridPressureFactory.name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a human-readable name.</p>
 <p>First it tries <a class="reference internal" href="#iris.aux_factory.HybridPressureFactory.standard_name" title="iris.aux_factory.HybridPressureFactory.standard_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">standard_name</span></code></a>, then ‘long_name’, then
 ‘var_name’, then the STASH attribute before falling back to
@@ -537,7 +537,7 @@ the value of <cite>default</cite> (which itself defaults to ‘unknown’).</p>
 
 <dl class="method">
 <dt id="iris.aux_factory.HybridPressureFactory.rename">
-<code class="descname">rename</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.HybridPressureFactory.rename" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">rename</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.HybridPressureFactory.rename" title="Permalink to this definition">¶</a></dt>
 <dd><p>Changes the human-readable name.</p>
 <p>If ‘name’ is a valid standard name it will assign it to
 <a class="reference internal" href="#iris.aux_factory.HybridPressureFactory.standard_name" title="iris.aux_factory.HybridPressureFactory.standard_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">standard_name</span></code></a>, otherwise it will assign it to
@@ -546,7 +546,7 @@ the value of <cite>default</cite> (which itself defaults to ‘unknown’).</p>
 
 <dl class="method">
 <dt id="iris.aux_factory.HybridPressureFactory.update">
-<code class="descname">update</code><span class="sig-paren">(</span><em>old_coord</em>, <em>new_coord=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.HybridPressureFactory.update" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">update</code><span class="sig-paren">(</span><em class="sig-param">old_coord</em>, <em class="sig-param">new_coord=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.HybridPressureFactory.update" title="Permalink to this definition">¶</a></dt>
 <dd><p>Notifies the factory of the removal/replacement of a coordinate
 which might be a dependency.</p>
 <p>Args:</p>
@@ -567,7 +567,7 @@ any dependency using old_coord is updated to use new_coord.</p>
 
 <dl class="method">
 <dt id="iris.aux_factory.HybridPressureFactory.updated">
-<code class="descname">updated</code><span class="sig-paren">(</span><em>new_coord_mapping</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.HybridPressureFactory.updated" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">updated</code><span class="sig-paren">(</span><em class="sig-param">new_coord_mapping</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.HybridPressureFactory.updated" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a new instance of this factory where the dependencies
 are replaced according to the given mapping.</p>
 <p>Args:</p>
@@ -584,37 +584,37 @@ used instead.</p>
 
 <dl class="method">
 <dt id="iris.aux_factory.HybridPressureFactory.xml_element">
-<code class="descname">xml_element</code><span class="sig-paren">(</span><em>doc</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.HybridPressureFactory.xml_element" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">xml_element</code><span class="sig-paren">(</span><em class="sig-param">doc</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.HybridPressureFactory.xml_element" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a DOM element describing this coordinate factory.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="iris.aux_factory.HybridPressureFactory.attributes">
-<code class="descname">attributes</code><a class="headerlink" href="#iris.aux_factory.HybridPressureFactory.attributes" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">attributes</code><a class="headerlink" href="#iris.aux_factory.HybridPressureFactory.attributes" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="iris.aux_factory.HybridPressureFactory.dependencies">
-<code class="descname">dependencies</code><a class="headerlink" href="#iris.aux_factory.HybridPressureFactory.dependencies" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">dependencies</code><a class="headerlink" href="#iris.aux_factory.HybridPressureFactory.dependencies" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a dictionary mapping from constructor argument names to
 the corresponding coordinates.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="iris.aux_factory.HybridPressureFactory.standard_name">
-<code class="descname">standard_name</code><a class="headerlink" href="#iris.aux_factory.HybridPressureFactory.standard_name" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">standard_name</code><a class="headerlink" href="#iris.aux_factory.HybridPressureFactory.standard_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>The standard name for the Cube’s data.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="iris.aux_factory.HybridPressureFactory.units">
-<code class="descname">units</code><a class="headerlink" href="#iris.aux_factory.HybridPressureFactory.units" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">units</code><a class="headerlink" href="#iris.aux_factory.HybridPressureFactory.units" title="Permalink to this definition">¶</a></dt>
 <dd><p>The <code class="xref py py-mod docutils literal notranslate"><span class="pre">Unit</span></code> instance of the object.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="iris.aux_factory.HybridPressureFactory.var_name">
-<code class="descname">var_name</code><a class="headerlink" href="#iris.aux_factory.HybridPressureFactory.var_name" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">var_name</code><a class="headerlink" href="#iris.aux_factory.HybridPressureFactory.var_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>The netCDF variable name for the object.</p>
 </dd></dl>
 
@@ -627,7 +627,7 @@ the corresponding coordinates.</p>
 <blockquote>
 <div><dl class="class">
 <dt id="iris.aux_factory.OceanSFactory">
-<em class="property">class </em><code class="descclassname">iris.aux_factory.</code><code class="descname">OceanSFactory</code><span class="sig-paren">(</span><em>s=None</em>, <em>eta=None</em>, <em>depth=None</em>, <em>a=None</em>, <em>b=None</em>, <em>depth_c=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSFactory" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">iris.aux_factory.</code><code class="sig-name descname">OceanSFactory</code><span class="sig-paren">(</span><em class="sig-param">s=None</em>, <em class="sig-param">eta=None</em>, <em class="sig-param">depth=None</em>, <em class="sig-param">a=None</em>, <em class="sig-param">b=None</em>, <em class="sig-param">depth_c=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSFactory" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#iris.aux_factory.AuxCoordFactory" title="iris.aux_factory.AuxCoordFactory"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.aux_factory.AuxCoordFactory</span></code></a></p>
 <p>Creates an Ocean s-coordinate factory with the formula:</p>
 <dl class="simple">
@@ -641,7 +641,7 @@ the corresponding coordinates.</p>
 </dl>
 <dl class="method">
 <dt id="iris.aux_factory.OceanSFactory.derived_dims">
-<code class="descname">derived_dims</code><span class="sig-paren">(</span><em>coord_dims_func</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSFactory.derived_dims" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">derived_dims</code><span class="sig-paren">(</span><em class="sig-param">coord_dims_func</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSFactory.derived_dims" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the cube dimensions for the derived coordinate.</p>
 <p>Args:</p>
 <ul class="simple">
@@ -661,7 +661,7 @@ See <a class="reference internal" href="cube.html#iris.cube.Cube.coord_dims" tit
 
 <dl class="method">
 <dt id="iris.aux_factory.OceanSFactory.make_coord">
-<code class="descname">make_coord</code><span class="sig-paren">(</span><em>coord_dims_func</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSFactory.make_coord" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">make_coord</code><span class="sig-paren">(</span><em class="sig-param">coord_dims_func</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSFactory.make_coord" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a new <a class="reference internal" href="coords.html#iris.coords.AuxCoord" title="iris.coords.AuxCoord"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.coords.AuxCoord</span></code></a> as defined by this factory.</p>
 <p>Args:</p>
 <ul class="simple">
@@ -676,7 +676,7 @@ to a given coordinate. See <a class="reference internal" href="cube.html#iris.cu
 
 <dl class="method">
 <dt id="iris.aux_factory.OceanSFactory.name">
-<code class="descname">name</code><span class="sig-paren">(</span><em>default='unknown'</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSFactory.name" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">name</code><span class="sig-paren">(</span><em class="sig-param">default='unknown'</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSFactory.name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a human-readable name.</p>
 <p>First it tries <a class="reference internal" href="#iris.aux_factory.OceanSFactory.standard_name" title="iris.aux_factory.OceanSFactory.standard_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">standard_name</span></code></a>, then ‘long_name’, then
 ‘var_name’, then the STASH attribute before falling back to
@@ -685,7 +685,7 @@ the value of <cite>default</cite> (which itself defaults to ‘unknown’).</p>
 
 <dl class="method">
 <dt id="iris.aux_factory.OceanSFactory.rename">
-<code class="descname">rename</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSFactory.rename" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">rename</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSFactory.rename" title="Permalink to this definition">¶</a></dt>
 <dd><p>Changes the human-readable name.</p>
 <p>If ‘name’ is a valid standard name it will assign it to
 <a class="reference internal" href="#iris.aux_factory.OceanSFactory.standard_name" title="iris.aux_factory.OceanSFactory.standard_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">standard_name</span></code></a>, otherwise it will assign it to
@@ -694,7 +694,7 @@ the value of <cite>default</cite> (which itself defaults to ‘unknown’).</p>
 
 <dl class="method">
 <dt id="iris.aux_factory.OceanSFactory.update">
-<code class="descname">update</code><span class="sig-paren">(</span><em>old_coord</em>, <em>new_coord=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSFactory.update" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">update</code><span class="sig-paren">(</span><em class="sig-param">old_coord</em>, <em class="sig-param">new_coord=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSFactory.update" title="Permalink to this definition">¶</a></dt>
 <dd><p>Notifies the factory of the removal/replacement of a coordinate
 which might be a dependency.</p>
 <p>Args:</p>
@@ -715,7 +715,7 @@ any dependency using old_coord is updated to use new_coord.</p>
 
 <dl class="method">
 <dt id="iris.aux_factory.OceanSFactory.updated">
-<code class="descname">updated</code><span class="sig-paren">(</span><em>new_coord_mapping</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSFactory.updated" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">updated</code><span class="sig-paren">(</span><em class="sig-param">new_coord_mapping</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSFactory.updated" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a new instance of this factory where the dependencies
 are replaced according to the given mapping.</p>
 <p>Args:</p>
@@ -732,37 +732,37 @@ used instead.</p>
 
 <dl class="method">
 <dt id="iris.aux_factory.OceanSFactory.xml_element">
-<code class="descname">xml_element</code><span class="sig-paren">(</span><em>doc</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSFactory.xml_element" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">xml_element</code><span class="sig-paren">(</span><em class="sig-param">doc</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSFactory.xml_element" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a DOM element describing this coordinate factory.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="iris.aux_factory.OceanSFactory.attributes">
-<code class="descname">attributes</code><a class="headerlink" href="#iris.aux_factory.OceanSFactory.attributes" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">attributes</code><a class="headerlink" href="#iris.aux_factory.OceanSFactory.attributes" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="iris.aux_factory.OceanSFactory.dependencies">
-<code class="descname">dependencies</code><a class="headerlink" href="#iris.aux_factory.OceanSFactory.dependencies" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">dependencies</code><a class="headerlink" href="#iris.aux_factory.OceanSFactory.dependencies" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a dictionary mapping from constructor argument names to
 the corresponding coordinates.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="iris.aux_factory.OceanSFactory.standard_name">
-<code class="descname">standard_name</code><a class="headerlink" href="#iris.aux_factory.OceanSFactory.standard_name" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">standard_name</code><a class="headerlink" href="#iris.aux_factory.OceanSFactory.standard_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>The standard name for the Cube’s data.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="iris.aux_factory.OceanSFactory.units">
-<code class="descname">units</code><a class="headerlink" href="#iris.aux_factory.OceanSFactory.units" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">units</code><a class="headerlink" href="#iris.aux_factory.OceanSFactory.units" title="Permalink to this definition">¶</a></dt>
 <dd><p>The <code class="xref py py-mod docutils literal notranslate"><span class="pre">Unit</span></code> instance of the object.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="iris.aux_factory.OceanSFactory.var_name">
-<code class="descname">var_name</code><a class="headerlink" href="#iris.aux_factory.OceanSFactory.var_name" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">var_name</code><a class="headerlink" href="#iris.aux_factory.OceanSFactory.var_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>The netCDF variable name for the object.</p>
 </dd></dl>
 
@@ -775,7 +775,7 @@ the corresponding coordinates.</p>
 <blockquote>
 <div><dl class="class">
 <dt id="iris.aux_factory.OceanSg1Factory">
-<em class="property">class </em><code class="descclassname">iris.aux_factory.</code><code class="descname">OceanSg1Factory</code><span class="sig-paren">(</span><em>s=None</em>, <em>c=None</em>, <em>eta=None</em>, <em>depth=None</em>, <em>depth_c=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSg1Factory" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">iris.aux_factory.</code><code class="sig-name descname">OceanSg1Factory</code><span class="sig-paren">(</span><em class="sig-param">s=None</em>, <em class="sig-param">c=None</em>, <em class="sig-param">eta=None</em>, <em class="sig-param">depth=None</em>, <em class="sig-param">depth_c=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSg1Factory" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#iris.aux_factory.AuxCoordFactory" title="iris.aux_factory.AuxCoordFactory"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.aux_factory.AuxCoordFactory</span></code></a></p>
 <p>Creates an Ocean s-coordinate, generic form 1 factory with the formula:</p>
 <p>z(n,k,j,i) = S(k,j,i) + eta(n,j,i) * (1 + S(k,j,i) / depth(j,i))</p>
@@ -785,7 +785,7 @@ the corresponding coordinates.</p>
 </dl>
 <dl class="method">
 <dt id="iris.aux_factory.OceanSg1Factory.derived_dims">
-<code class="descname">derived_dims</code><span class="sig-paren">(</span><em>coord_dims_func</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSg1Factory.derived_dims" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">derived_dims</code><span class="sig-paren">(</span><em class="sig-param">coord_dims_func</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSg1Factory.derived_dims" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the cube dimensions for the derived coordinate.</p>
 <p>Args:</p>
 <ul class="simple">
@@ -805,7 +805,7 @@ See <a class="reference internal" href="cube.html#iris.cube.Cube.coord_dims" tit
 
 <dl class="method">
 <dt id="iris.aux_factory.OceanSg1Factory.make_coord">
-<code class="descname">make_coord</code><span class="sig-paren">(</span><em>coord_dims_func</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSg1Factory.make_coord" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">make_coord</code><span class="sig-paren">(</span><em class="sig-param">coord_dims_func</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSg1Factory.make_coord" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a new <a class="reference internal" href="coords.html#iris.coords.AuxCoord" title="iris.coords.AuxCoord"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.coords.AuxCoord</span></code></a> as defined by this factory.</p>
 <p>Args:</p>
 <ul class="simple">
@@ -820,7 +820,7 @@ to a given coordinate. See <a class="reference internal" href="cube.html#iris.cu
 
 <dl class="method">
 <dt id="iris.aux_factory.OceanSg1Factory.name">
-<code class="descname">name</code><span class="sig-paren">(</span><em>default='unknown'</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSg1Factory.name" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">name</code><span class="sig-paren">(</span><em class="sig-param">default='unknown'</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSg1Factory.name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a human-readable name.</p>
 <p>First it tries <a class="reference internal" href="#iris.aux_factory.OceanSg1Factory.standard_name" title="iris.aux_factory.OceanSg1Factory.standard_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">standard_name</span></code></a>, then ‘long_name’, then
 ‘var_name’, then the STASH attribute before falling back to
@@ -829,7 +829,7 @@ the value of <cite>default</cite> (which itself defaults to ‘unknown’).</p>
 
 <dl class="method">
 <dt id="iris.aux_factory.OceanSg1Factory.rename">
-<code class="descname">rename</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSg1Factory.rename" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">rename</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSg1Factory.rename" title="Permalink to this definition">¶</a></dt>
 <dd><p>Changes the human-readable name.</p>
 <p>If ‘name’ is a valid standard name it will assign it to
 <a class="reference internal" href="#iris.aux_factory.OceanSg1Factory.standard_name" title="iris.aux_factory.OceanSg1Factory.standard_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">standard_name</span></code></a>, otherwise it will assign it to
@@ -838,7 +838,7 @@ the value of <cite>default</cite> (which itself defaults to ‘unknown’).</p>
 
 <dl class="method">
 <dt id="iris.aux_factory.OceanSg1Factory.update">
-<code class="descname">update</code><span class="sig-paren">(</span><em>old_coord</em>, <em>new_coord=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSg1Factory.update" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">update</code><span class="sig-paren">(</span><em class="sig-param">old_coord</em>, <em class="sig-param">new_coord=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSg1Factory.update" title="Permalink to this definition">¶</a></dt>
 <dd><p>Notifies the factory of the removal/replacement of a coordinate
 which might be a dependency.</p>
 <p>Args:</p>
@@ -859,7 +859,7 @@ any dependency using old_coord is updated to use new_coord.</p>
 
 <dl class="method">
 <dt id="iris.aux_factory.OceanSg1Factory.updated">
-<code class="descname">updated</code><span class="sig-paren">(</span><em>new_coord_mapping</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSg1Factory.updated" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">updated</code><span class="sig-paren">(</span><em class="sig-param">new_coord_mapping</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSg1Factory.updated" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a new instance of this factory where the dependencies
 are replaced according to the given mapping.</p>
 <p>Args:</p>
@@ -876,37 +876,37 @@ used instead.</p>
 
 <dl class="method">
 <dt id="iris.aux_factory.OceanSg1Factory.xml_element">
-<code class="descname">xml_element</code><span class="sig-paren">(</span><em>doc</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSg1Factory.xml_element" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">xml_element</code><span class="sig-paren">(</span><em class="sig-param">doc</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSg1Factory.xml_element" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a DOM element describing this coordinate factory.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="iris.aux_factory.OceanSg1Factory.attributes">
-<code class="descname">attributes</code><a class="headerlink" href="#iris.aux_factory.OceanSg1Factory.attributes" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">attributes</code><a class="headerlink" href="#iris.aux_factory.OceanSg1Factory.attributes" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="iris.aux_factory.OceanSg1Factory.dependencies">
-<code class="descname">dependencies</code><a class="headerlink" href="#iris.aux_factory.OceanSg1Factory.dependencies" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">dependencies</code><a class="headerlink" href="#iris.aux_factory.OceanSg1Factory.dependencies" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a dictionary mapping from constructor argument names to
 the corresponding coordinates.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="iris.aux_factory.OceanSg1Factory.standard_name">
-<code class="descname">standard_name</code><a class="headerlink" href="#iris.aux_factory.OceanSg1Factory.standard_name" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">standard_name</code><a class="headerlink" href="#iris.aux_factory.OceanSg1Factory.standard_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>The standard name for the Cube’s data.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="iris.aux_factory.OceanSg1Factory.units">
-<code class="descname">units</code><a class="headerlink" href="#iris.aux_factory.OceanSg1Factory.units" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">units</code><a class="headerlink" href="#iris.aux_factory.OceanSg1Factory.units" title="Permalink to this definition">¶</a></dt>
 <dd><p>The <code class="xref py py-mod docutils literal notranslate"><span class="pre">Unit</span></code> instance of the object.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="iris.aux_factory.OceanSg1Factory.var_name">
-<code class="descname">var_name</code><a class="headerlink" href="#iris.aux_factory.OceanSg1Factory.var_name" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">var_name</code><a class="headerlink" href="#iris.aux_factory.OceanSg1Factory.var_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>The netCDF variable name for the object.</p>
 </dd></dl>
 
@@ -919,7 +919,7 @@ the corresponding coordinates.</p>
 <blockquote>
 <div><dl class="class">
 <dt id="iris.aux_factory.OceanSg2Factory">
-<em class="property">class </em><code class="descclassname">iris.aux_factory.</code><code class="descname">OceanSg2Factory</code><span class="sig-paren">(</span><em>s=None</em>, <em>c=None</em>, <em>eta=None</em>, <em>depth=None</em>, <em>depth_c=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSg2Factory" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">iris.aux_factory.</code><code class="sig-name descname">OceanSg2Factory</code><span class="sig-paren">(</span><em class="sig-param">s=None</em>, <em class="sig-param">c=None</em>, <em class="sig-param">eta=None</em>, <em class="sig-param">depth=None</em>, <em class="sig-param">depth_c=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSg2Factory" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#iris.aux_factory.AuxCoordFactory" title="iris.aux_factory.AuxCoordFactory"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.aux_factory.AuxCoordFactory</span></code></a></p>
 <p>Creates an Ocean s-coordinate, generic form 2 factory with the formula:</p>
 <p>z(n,k,j,i) = eta(n,j,i) + (eta(n,j,i) + depth(j,i)) * S(k,j,i)</p>
@@ -932,7 +932,7 @@ the corresponding coordinates.</p>
 </dl>
 <dl class="method">
 <dt id="iris.aux_factory.OceanSg2Factory.derived_dims">
-<code class="descname">derived_dims</code><span class="sig-paren">(</span><em>coord_dims_func</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSg2Factory.derived_dims" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">derived_dims</code><span class="sig-paren">(</span><em class="sig-param">coord_dims_func</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSg2Factory.derived_dims" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the cube dimensions for the derived coordinate.</p>
 <p>Args:</p>
 <ul class="simple">
@@ -952,7 +952,7 @@ See <a class="reference internal" href="cube.html#iris.cube.Cube.coord_dims" tit
 
 <dl class="method">
 <dt id="iris.aux_factory.OceanSg2Factory.make_coord">
-<code class="descname">make_coord</code><span class="sig-paren">(</span><em>coord_dims_func</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSg2Factory.make_coord" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">make_coord</code><span class="sig-paren">(</span><em class="sig-param">coord_dims_func</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSg2Factory.make_coord" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a new <a class="reference internal" href="coords.html#iris.coords.AuxCoord" title="iris.coords.AuxCoord"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.coords.AuxCoord</span></code></a> as defined by this factory.</p>
 <p>Args:</p>
 <ul class="simple">
@@ -967,7 +967,7 @@ to a given coordinate. See <a class="reference internal" href="cube.html#iris.cu
 
 <dl class="method">
 <dt id="iris.aux_factory.OceanSg2Factory.name">
-<code class="descname">name</code><span class="sig-paren">(</span><em>default='unknown'</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSg2Factory.name" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">name</code><span class="sig-paren">(</span><em class="sig-param">default='unknown'</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSg2Factory.name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a human-readable name.</p>
 <p>First it tries <a class="reference internal" href="#iris.aux_factory.OceanSg2Factory.standard_name" title="iris.aux_factory.OceanSg2Factory.standard_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">standard_name</span></code></a>, then ‘long_name’, then
 ‘var_name’, then the STASH attribute before falling back to
@@ -976,7 +976,7 @@ the value of <cite>default</cite> (which itself defaults to ‘unknown’).</p>
 
 <dl class="method">
 <dt id="iris.aux_factory.OceanSg2Factory.rename">
-<code class="descname">rename</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSg2Factory.rename" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">rename</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSg2Factory.rename" title="Permalink to this definition">¶</a></dt>
 <dd><p>Changes the human-readable name.</p>
 <p>If ‘name’ is a valid standard name it will assign it to
 <a class="reference internal" href="#iris.aux_factory.OceanSg2Factory.standard_name" title="iris.aux_factory.OceanSg2Factory.standard_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">standard_name</span></code></a>, otherwise it will assign it to
@@ -985,7 +985,7 @@ the value of <cite>default</cite> (which itself defaults to ‘unknown’).</p>
 
 <dl class="method">
 <dt id="iris.aux_factory.OceanSg2Factory.update">
-<code class="descname">update</code><span class="sig-paren">(</span><em>old_coord</em>, <em>new_coord=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSg2Factory.update" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">update</code><span class="sig-paren">(</span><em class="sig-param">old_coord</em>, <em class="sig-param">new_coord=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSg2Factory.update" title="Permalink to this definition">¶</a></dt>
 <dd><p>Notifies the factory of the removal/replacement of a coordinate
 which might be a dependency.</p>
 <p>Args:</p>
@@ -1006,7 +1006,7 @@ any dependency using old_coord is updated to use new_coord.</p>
 
 <dl class="method">
 <dt id="iris.aux_factory.OceanSg2Factory.updated">
-<code class="descname">updated</code><span class="sig-paren">(</span><em>new_coord_mapping</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSg2Factory.updated" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">updated</code><span class="sig-paren">(</span><em class="sig-param">new_coord_mapping</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSg2Factory.updated" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a new instance of this factory where the dependencies
 are replaced according to the given mapping.</p>
 <p>Args:</p>
@@ -1023,37 +1023,37 @@ used instead.</p>
 
 <dl class="method">
 <dt id="iris.aux_factory.OceanSg2Factory.xml_element">
-<code class="descname">xml_element</code><span class="sig-paren">(</span><em>doc</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSg2Factory.xml_element" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">xml_element</code><span class="sig-paren">(</span><em class="sig-param">doc</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSg2Factory.xml_element" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a DOM element describing this coordinate factory.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="iris.aux_factory.OceanSg2Factory.attributes">
-<code class="descname">attributes</code><a class="headerlink" href="#iris.aux_factory.OceanSg2Factory.attributes" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">attributes</code><a class="headerlink" href="#iris.aux_factory.OceanSg2Factory.attributes" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="iris.aux_factory.OceanSg2Factory.dependencies">
-<code class="descname">dependencies</code><a class="headerlink" href="#iris.aux_factory.OceanSg2Factory.dependencies" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">dependencies</code><a class="headerlink" href="#iris.aux_factory.OceanSg2Factory.dependencies" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a dictionary mapping from constructor argument names to
 the corresponding coordinates.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="iris.aux_factory.OceanSg2Factory.standard_name">
-<code class="descname">standard_name</code><a class="headerlink" href="#iris.aux_factory.OceanSg2Factory.standard_name" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">standard_name</code><a class="headerlink" href="#iris.aux_factory.OceanSg2Factory.standard_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>The standard name for the Cube’s data.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="iris.aux_factory.OceanSg2Factory.units">
-<code class="descname">units</code><a class="headerlink" href="#iris.aux_factory.OceanSg2Factory.units" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">units</code><a class="headerlink" href="#iris.aux_factory.OceanSg2Factory.units" title="Permalink to this definition">¶</a></dt>
 <dd><p>The <code class="xref py py-mod docutils literal notranslate"><span class="pre">Unit</span></code> instance of the object.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="iris.aux_factory.OceanSg2Factory.var_name">
-<code class="descname">var_name</code><a class="headerlink" href="#iris.aux_factory.OceanSg2Factory.var_name" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">var_name</code><a class="headerlink" href="#iris.aux_factory.OceanSg2Factory.var_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>The netCDF variable name for the object.</p>
 </dd></dl>
 
@@ -1066,7 +1066,7 @@ the corresponding coordinates.</p>
 <blockquote>
 <div><dl class="class">
 <dt id="iris.aux_factory.OceanSigmaFactory">
-<em class="property">class </em><code class="descclassname">iris.aux_factory.</code><code class="descname">OceanSigmaFactory</code><span class="sig-paren">(</span><em>sigma=None</em>, <em>eta=None</em>, <em>depth=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSigmaFactory" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">iris.aux_factory.</code><code class="sig-name descname">OceanSigmaFactory</code><span class="sig-paren">(</span><em class="sig-param">sigma=None</em>, <em class="sig-param">eta=None</em>, <em class="sig-param">depth=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSigmaFactory" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#iris.aux_factory.AuxCoordFactory" title="iris.aux_factory.AuxCoordFactory"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.aux_factory.AuxCoordFactory</span></code></a></p>
 <p>Creates an ocean sigma coordinate factory with the formula:</p>
 <dl class="simple">
@@ -1075,7 +1075,7 @@ the corresponding coordinates.</p>
 </dl>
 <dl class="method">
 <dt id="iris.aux_factory.OceanSigmaFactory.derived_dims">
-<code class="descname">derived_dims</code><span class="sig-paren">(</span><em>coord_dims_func</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSigmaFactory.derived_dims" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">derived_dims</code><span class="sig-paren">(</span><em class="sig-param">coord_dims_func</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSigmaFactory.derived_dims" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the cube dimensions for the derived coordinate.</p>
 <p>Args:</p>
 <ul class="simple">
@@ -1095,7 +1095,7 @@ See <a class="reference internal" href="cube.html#iris.cube.Cube.coord_dims" tit
 
 <dl class="method">
 <dt id="iris.aux_factory.OceanSigmaFactory.make_coord">
-<code class="descname">make_coord</code><span class="sig-paren">(</span><em>coord_dims_func</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSigmaFactory.make_coord" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">make_coord</code><span class="sig-paren">(</span><em class="sig-param">coord_dims_func</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSigmaFactory.make_coord" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a new <a class="reference internal" href="coords.html#iris.coords.AuxCoord" title="iris.coords.AuxCoord"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.coords.AuxCoord</span></code></a> as defined by this factory.</p>
 <p>Args:</p>
 <ul class="simple">
@@ -1110,7 +1110,7 @@ to a given coordinate. See <a class="reference internal" href="cube.html#iris.cu
 
 <dl class="method">
 <dt id="iris.aux_factory.OceanSigmaFactory.name">
-<code class="descname">name</code><span class="sig-paren">(</span><em>default='unknown'</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSigmaFactory.name" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">name</code><span class="sig-paren">(</span><em class="sig-param">default='unknown'</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSigmaFactory.name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a human-readable name.</p>
 <p>First it tries <a class="reference internal" href="#iris.aux_factory.OceanSigmaFactory.standard_name" title="iris.aux_factory.OceanSigmaFactory.standard_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">standard_name</span></code></a>, then ‘long_name’, then
 ‘var_name’, then the STASH attribute before falling back to
@@ -1119,7 +1119,7 @@ the value of <cite>default</cite> (which itself defaults to ‘unknown’).</p>
 
 <dl class="method">
 <dt id="iris.aux_factory.OceanSigmaFactory.rename">
-<code class="descname">rename</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSigmaFactory.rename" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">rename</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSigmaFactory.rename" title="Permalink to this definition">¶</a></dt>
 <dd><p>Changes the human-readable name.</p>
 <p>If ‘name’ is a valid standard name it will assign it to
 <a class="reference internal" href="#iris.aux_factory.OceanSigmaFactory.standard_name" title="iris.aux_factory.OceanSigmaFactory.standard_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">standard_name</span></code></a>, otherwise it will assign it to
@@ -1128,7 +1128,7 @@ the value of <cite>default</cite> (which itself defaults to ‘unknown’).</p>
 
 <dl class="method">
 <dt id="iris.aux_factory.OceanSigmaFactory.update">
-<code class="descname">update</code><span class="sig-paren">(</span><em>old_coord</em>, <em>new_coord=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSigmaFactory.update" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">update</code><span class="sig-paren">(</span><em class="sig-param">old_coord</em>, <em class="sig-param">new_coord=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSigmaFactory.update" title="Permalink to this definition">¶</a></dt>
 <dd><p>Notifies the factory of the removal/replacement of a coordinate
 which might be a dependency.</p>
 <p>Args:</p>
@@ -1149,7 +1149,7 @@ any dependency using old_coord is updated to use new_coord.</p>
 
 <dl class="method">
 <dt id="iris.aux_factory.OceanSigmaFactory.updated">
-<code class="descname">updated</code><span class="sig-paren">(</span><em>new_coord_mapping</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSigmaFactory.updated" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">updated</code><span class="sig-paren">(</span><em class="sig-param">new_coord_mapping</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSigmaFactory.updated" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a new instance of this factory where the dependencies
 are replaced according to the given mapping.</p>
 <p>Args:</p>
@@ -1166,37 +1166,37 @@ used instead.</p>
 
 <dl class="method">
 <dt id="iris.aux_factory.OceanSigmaFactory.xml_element">
-<code class="descname">xml_element</code><span class="sig-paren">(</span><em>doc</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSigmaFactory.xml_element" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">xml_element</code><span class="sig-paren">(</span><em class="sig-param">doc</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSigmaFactory.xml_element" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a DOM element describing this coordinate factory.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="iris.aux_factory.OceanSigmaFactory.attributes">
-<code class="descname">attributes</code><a class="headerlink" href="#iris.aux_factory.OceanSigmaFactory.attributes" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">attributes</code><a class="headerlink" href="#iris.aux_factory.OceanSigmaFactory.attributes" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="iris.aux_factory.OceanSigmaFactory.dependencies">
-<code class="descname">dependencies</code><a class="headerlink" href="#iris.aux_factory.OceanSigmaFactory.dependencies" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">dependencies</code><a class="headerlink" href="#iris.aux_factory.OceanSigmaFactory.dependencies" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a dictionary mapping from constructor argument names to
 the corresponding coordinates.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="iris.aux_factory.OceanSigmaFactory.standard_name">
-<code class="descname">standard_name</code><a class="headerlink" href="#iris.aux_factory.OceanSigmaFactory.standard_name" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">standard_name</code><a class="headerlink" href="#iris.aux_factory.OceanSigmaFactory.standard_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>The standard name for the Cube’s data.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="iris.aux_factory.OceanSigmaFactory.units">
-<code class="descname">units</code><a class="headerlink" href="#iris.aux_factory.OceanSigmaFactory.units" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">units</code><a class="headerlink" href="#iris.aux_factory.OceanSigmaFactory.units" title="Permalink to this definition">¶</a></dt>
 <dd><p>The <code class="xref py py-mod docutils literal notranslate"><span class="pre">Unit</span></code> instance of the object.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="iris.aux_factory.OceanSigmaFactory.var_name">
-<code class="descname">var_name</code><a class="headerlink" href="#iris.aux_factory.OceanSigmaFactory.var_name" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">var_name</code><a class="headerlink" href="#iris.aux_factory.OceanSigmaFactory.var_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>The netCDF variable name for the object.</p>
 </dd></dl>
 
@@ -1209,7 +1209,7 @@ the corresponding coordinates.</p>
 <blockquote>
 <div><dl class="class">
 <dt id="iris.aux_factory.OceanSigmaZFactory">
-<em class="property">class </em><code class="descclassname">iris.aux_factory.</code><code class="descname">OceanSigmaZFactory</code><span class="sig-paren">(</span><em>sigma=None</em>, <em>eta=None</em>, <em>depth=None</em>, <em>depth_c=None</em>, <em>nsigma=None</em>, <em>zlev=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSigmaZFactory" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">iris.aux_factory.</code><code class="sig-name descname">OceanSigmaZFactory</code><span class="sig-paren">(</span><em class="sig-param">sigma=None</em>, <em class="sig-param">eta=None</em>, <em class="sig-param">depth=None</em>, <em class="sig-param">depth_c=None</em>, <em class="sig-param">nsigma=None</em>, <em class="sig-param">zlev=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSigmaZFactory" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#iris.aux_factory.AuxCoordFactory" title="iris.aux_factory.AuxCoordFactory"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.aux_factory.AuxCoordFactory</span></code></a></p>
 <p>Creates a ocean sigma over z coordinate factory with the formula:</p>
 <dl class="simple">
@@ -1225,7 +1225,7 @@ the corresponding coordinates.</p>
 either <cite>eta</cite>, or ‘sigma’ and <cite>depth</cite> and <cite>depth_c</cite> coordinates.</p>
 <dl class="method">
 <dt id="iris.aux_factory.OceanSigmaZFactory.derived_dims">
-<code class="descname">derived_dims</code><span class="sig-paren">(</span><em>coord_dims_func</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSigmaZFactory.derived_dims" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">derived_dims</code><span class="sig-paren">(</span><em class="sig-param">coord_dims_func</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSigmaZFactory.derived_dims" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the cube dimensions for the derived coordinate.</p>
 <p>Args:</p>
 <ul class="simple">
@@ -1245,7 +1245,7 @@ See <a class="reference internal" href="cube.html#iris.cube.Cube.coord_dims" tit
 
 <dl class="method">
 <dt id="iris.aux_factory.OceanSigmaZFactory.make_coord">
-<code class="descname">make_coord</code><span class="sig-paren">(</span><em>coord_dims_func</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSigmaZFactory.make_coord" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">make_coord</code><span class="sig-paren">(</span><em class="sig-param">coord_dims_func</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSigmaZFactory.make_coord" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a new <a class="reference internal" href="coords.html#iris.coords.AuxCoord" title="iris.coords.AuxCoord"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.coords.AuxCoord</span></code></a> as defined by this factory.</p>
 <p>Args:</p>
 <ul class="simple">
@@ -1260,7 +1260,7 @@ to a given coordinate. See <a class="reference internal" href="cube.html#iris.cu
 
 <dl class="method">
 <dt id="iris.aux_factory.OceanSigmaZFactory.name">
-<code class="descname">name</code><span class="sig-paren">(</span><em>default='unknown'</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSigmaZFactory.name" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">name</code><span class="sig-paren">(</span><em class="sig-param">default='unknown'</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSigmaZFactory.name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a human-readable name.</p>
 <p>First it tries <a class="reference internal" href="#iris.aux_factory.OceanSigmaZFactory.standard_name" title="iris.aux_factory.OceanSigmaZFactory.standard_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">standard_name</span></code></a>, then ‘long_name’, then
 ‘var_name’, then the STASH attribute before falling back to
@@ -1269,7 +1269,7 @@ the value of <cite>default</cite> (which itself defaults to ‘unknown’).</p>
 
 <dl class="method">
 <dt id="iris.aux_factory.OceanSigmaZFactory.rename">
-<code class="descname">rename</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSigmaZFactory.rename" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">rename</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSigmaZFactory.rename" title="Permalink to this definition">¶</a></dt>
 <dd><p>Changes the human-readable name.</p>
 <p>If ‘name’ is a valid standard name it will assign it to
 <a class="reference internal" href="#iris.aux_factory.OceanSigmaZFactory.standard_name" title="iris.aux_factory.OceanSigmaZFactory.standard_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">standard_name</span></code></a>, otherwise it will assign it to
@@ -1278,7 +1278,7 @@ the value of <cite>default</cite> (which itself defaults to ‘unknown’).</p>
 
 <dl class="method">
 <dt id="iris.aux_factory.OceanSigmaZFactory.update">
-<code class="descname">update</code><span class="sig-paren">(</span><em>old_coord</em>, <em>new_coord=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSigmaZFactory.update" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">update</code><span class="sig-paren">(</span><em class="sig-param">old_coord</em>, <em class="sig-param">new_coord=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSigmaZFactory.update" title="Permalink to this definition">¶</a></dt>
 <dd><p>Notifies the factory of the removal/replacement of a coordinate
 which might be a dependency.</p>
 <p>Args:</p>
@@ -1299,7 +1299,7 @@ any dependency using old_coord is updated to use new_coord.</p>
 
 <dl class="method">
 <dt id="iris.aux_factory.OceanSigmaZFactory.updated">
-<code class="descname">updated</code><span class="sig-paren">(</span><em>new_coord_mapping</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSigmaZFactory.updated" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">updated</code><span class="sig-paren">(</span><em class="sig-param">new_coord_mapping</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSigmaZFactory.updated" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a new instance of this factory where the dependencies
 are replaced according to the given mapping.</p>
 <p>Args:</p>
@@ -1316,37 +1316,37 @@ used instead.</p>
 
 <dl class="method">
 <dt id="iris.aux_factory.OceanSigmaZFactory.xml_element">
-<code class="descname">xml_element</code><span class="sig-paren">(</span><em>doc</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSigmaZFactory.xml_element" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">xml_element</code><span class="sig-paren">(</span><em class="sig-param">doc</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSigmaZFactory.xml_element" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a DOM element describing this coordinate factory.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="iris.aux_factory.OceanSigmaZFactory.attributes">
-<code class="descname">attributes</code><a class="headerlink" href="#iris.aux_factory.OceanSigmaZFactory.attributes" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">attributes</code><a class="headerlink" href="#iris.aux_factory.OceanSigmaZFactory.attributes" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="iris.aux_factory.OceanSigmaZFactory.dependencies">
-<code class="descname">dependencies</code><a class="headerlink" href="#iris.aux_factory.OceanSigmaZFactory.dependencies" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">dependencies</code><a class="headerlink" href="#iris.aux_factory.OceanSigmaZFactory.dependencies" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a dictionary mapping from constructor argument names to
 the corresponding coordinates.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="iris.aux_factory.OceanSigmaZFactory.standard_name">
-<code class="descname">standard_name</code><a class="headerlink" href="#iris.aux_factory.OceanSigmaZFactory.standard_name" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">standard_name</code><a class="headerlink" href="#iris.aux_factory.OceanSigmaZFactory.standard_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>The standard name for the Cube’s data.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="iris.aux_factory.OceanSigmaZFactory.units">
-<code class="descname">units</code><a class="headerlink" href="#iris.aux_factory.OceanSigmaZFactory.units" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">units</code><a class="headerlink" href="#iris.aux_factory.OceanSigmaZFactory.units" title="Permalink to this definition">¶</a></dt>
 <dd><p>The <code class="xref py py-mod docutils literal notranslate"><span class="pre">Unit</span></code> instance of the object.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="iris.aux_factory.OceanSigmaZFactory.var_name">
-<code class="descname">var_name</code><a class="headerlink" href="#iris.aux_factory.OceanSigmaZFactory.var_name" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">var_name</code><a class="headerlink" href="#iris.aux_factory.OceanSigmaZFactory.var_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>The netCDF variable name for the object.</p>
 </dd></dl>
 

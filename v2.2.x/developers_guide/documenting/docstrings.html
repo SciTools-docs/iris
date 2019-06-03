@@ -112,10 +112,10 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
     </form>
     </div>
@@ -186,48 +186,15 @@
 </div>
 <p>This would be rendered as:</p>
 <blockquote>
-<div><span class="target" id="module-documenting.docstrings_sample_routine"></span><dl class="function">
+<div><span class="target" id="module-documenting.docstrings_sample_routine"></span><dl class="data">
 <dt id="documenting.docstrings_sample_routine.sample_routine">
-<code class="descclassname">documenting.docstrings_sample_routine.</code><code class="descname">sample_routine</code><span class="sig-paren">(</span><em>arg1</em>, <em>arg2</em>, <em>kwarg1='foo'</em>, <em>kwarg2=None</em><span class="sig-paren">)</span><a class="headerlink" href="#documenting.docstrings_sample_routine.sample_routine" title="Permalink to this definition">¶</a></dt>
-<dd><p>Purpose section text goes here.</p>
-<p>Description section longer text goes here.</p>
-<p>Args:</p>
-<ul class="simple">
-<li><dl class="simple">
-<dt>arg1 (numpy.ndarray):</dt><dd><p>First argument description.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>arg2 (numpy.ndarray):</dt><dd><p>Second argument description.</p>
-</dd>
-</dl>
-</li>
-</ul>
-<p>Kwargs:</p>
-<ul class="simple">
-<li><dl class="simple">
-<dt>kwarg1 (string):</dt><dd><p>The first keyword argument. This argument description
-can be multi-lined.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>kwarg2 (Boolean or None):</dt><dd><p>The second keyword argument.</p>
-</dd>
-</dl>
-</li>
-</ul>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>numpy.ndarray of arg1 * arg2</p>
-</dd>
-</dl>
-</dd></dl>
+<code class="sig-prename descclassname">documenting.docstrings_sample_routine.</code><code class="sig-name descname">sample_routine</code><a class="headerlink" href="#documenting.docstrings_sample_routine.sample_routine" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 </div></blockquote>
 <p>Additionally, a summary can be extracted automatically, which would result in:</p>
 <blockquote>
-<div><table class="longtable docutils align-center">
+<div><table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
@@ -291,7 +258,7 @@ can be multi-lined.</p>
 <blockquote>
 <div><span class="target" id="module-documenting.docstrings_attribute"></span><dl class="class">
 <dt id="documenting.docstrings_attribute.ExampleClass">
-<em class="property">class </em><code class="descclassname">documenting.docstrings_attribute.</code><code class="descname">ExampleClass</code><span class="sig-paren">(</span><em>arg1</em>, <em>arg2</em><span class="sig-paren">)</span><a class="headerlink" href="#documenting.docstrings_attribute.ExampleClass" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">documenting.docstrings_attribute.</code><code class="sig-name descname">ExampleClass</code><span class="sig-paren">(</span><em class="sig-param">arg1</em>, <em class="sig-param">arg2</em><span class="sig-paren">)</span><a class="headerlink" href="#documenting.docstrings_attribute.ExampleClass" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Purpose section description.</p>
 <p>Description section text.</p>
@@ -314,19 +281,19 @@ can be multi-lined.</p>
 </dl>
 <dl class="attribute">
 <dt id="documenting.docstrings_attribute.ExampleClass.a">
-<code class="descname">a</code><em class="property"> = None</em><a class="headerlink" href="#documenting.docstrings_attribute.ExampleClass.a" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">a</code><em class="property"> = None</em><a class="headerlink" href="#documenting.docstrings_attribute.ExampleClass.a" title="Permalink to this definition">¶</a></dt>
 <dd><p>Attribute arg1 docstring.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="documenting.docstrings_attribute.ExampleClass.b">
-<code class="descname">b</code><em class="property"> = None</em><a class="headerlink" href="#documenting.docstrings_attribute.ExampleClass.b" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">b</code><em class="property"> = None</em><a class="headerlink" href="#documenting.docstrings_attribute.ExampleClass.b" title="Permalink to this definition">¶</a></dt>
 <dd><p>Attribute arg2 docstring.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="documenting.docstrings_attribute.ExampleClass.square">
-<code class="descname">square</code><a class="headerlink" href="#documenting.docstrings_attribute.ExampleClass.square" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">square</code><a class="headerlink" href="#documenting.docstrings_attribute.ExampleClass.square" title="Permalink to this definition">¶</a></dt>
 <dd><p><em>(read-only)</em> Purpose section description.</p>
 <dl class="simple">
 <dt>Returns:</dt><dd><p>int.</p>

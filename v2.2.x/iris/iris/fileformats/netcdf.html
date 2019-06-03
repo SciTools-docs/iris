@@ -95,10 +95,10 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
     </form>
     </div>
@@ -132,7 +132,7 @@ Version 1.4, 27 February 2009.</p>
 </div></blockquote>
 <dl class="function">
 <dt id="iris.fileformats.netcdf.load_cubes">
-<code class="descclassname">iris.fileformats.netcdf.</code><code class="descname">load_cubes</code><span class="sig-paren">(</span><em>filenames</em>, <em>callback=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.netcdf.load_cubes" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.fileformats.netcdf.</code><code class="sig-name descname">load_cubes</code><span class="sig-paren">(</span><em class="sig-param">filenames</em>, <em class="sig-param">callback=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.netcdf.load_cubes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Loads cubes from a list of NetCDF filenames/URLs.</p>
 <p>Args:</p>
 <ul class="simple">
@@ -160,7 +160,7 @@ Version 1.4, 27 February 2009.</p>
 <!--<hr class="docutils" />
 --><dl class="function">
 <dt id="iris.fileformats.netcdf.parse_cell_methods">
-<code class="descclassname">iris.fileformats.netcdf.</code><code class="descname">parse_cell_methods</code><span class="sig-paren">(</span><em>nc_cell_methods</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.netcdf.parse_cell_methods" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.fileformats.netcdf.</code><code class="sig-name descname">parse_cell_methods</code><span class="sig-paren">(</span><em class="sig-param">nc_cell_methods</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.netcdf.parse_cell_methods" title="Permalink to this definition">¶</a></dt>
 <dd><p>Parse a CF cell_methods attribute string into a tuple of zero or
 more CellMethod instances.</p>
 <p>Args:</p>
@@ -188,7 +188,7 @@ results are not affected.</p>
 <!--<hr class="docutils" />
 --><dl class="function">
 <dt id="iris.fileformats.netcdf.save">
-<code class="descclassname">iris.fileformats.netcdf.</code><code class="descname">save</code><span class="sig-paren">(</span><em>cube</em>, <em>filename</em>, <em>netcdf_format='NETCDF4'</em>, <em>local_keys=None</em>, <em>unlimited_dimensions=None</em>, <em>zlib=False</em>, <em>complevel=4</em>, <em>shuffle=True</em>, <em>fletcher32=False</em>, <em>contiguous=False</em>, <em>chunksizes=None</em>, <em>endian='native'</em>, <em>least_significant_digit=None</em>, <em>packing=None</em>, <em>fill_value=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.netcdf.save" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.fileformats.netcdf.</code><code class="sig-name descname">save</code><span class="sig-paren">(</span><em class="sig-param">cube</em>, <em class="sig-param">filename</em>, <em class="sig-param">netcdf_format='NETCDF4'</em>, <em class="sig-param">local_keys=None</em>, <em class="sig-param">unlimited_dimensions=None</em>, <em class="sig-param">zlib=False</em>, <em class="sig-param">complevel=4</em>, <em class="sig-param">shuffle=True</em>, <em class="sig-param">fletcher32=False</em>, <em class="sig-param">contiguous=False</em>, <em class="sig-param">chunksizes=None</em>, <em class="sig-param">endian='native'</em>, <em class="sig-param">least_significant_digit=None</em>, <em class="sig-param">packing=None</em>, <em class="sig-param">fill_value=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.netcdf.save" title="Permalink to this definition">¶</a></dt>
 <dd><p>Save cube(s) to a netCDF file, given the cube and the filename.</p>
 <ul class="simple">
 <li><p>Iris will write CF 1.5 compliant NetCDF files.</p></li>
@@ -363,12 +363,12 @@ files that do not use HDF5.</p>
 <blockquote>
 <div><dl class="class">
 <dt id="iris.fileformats.netcdf.CFNameCoordMap">
-<em class="property">class </em><code class="descclassname">iris.fileformats.netcdf.</code><code class="descname">CFNameCoordMap</code><a class="headerlink" href="#iris.fileformats.netcdf.CFNameCoordMap" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">iris.fileformats.netcdf.</code><code class="sig-name descname">CFNameCoordMap</code><a class="headerlink" href="#iris.fileformats.netcdf.CFNameCoordMap" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Provide a simple CF name to CF coordinate mapping.</p>
 <dl class="method">
 <dt id="iris.fileformats.netcdf.CFNameCoordMap.append">
-<code class="descname">append</code><span class="sig-paren">(</span><em>name</em>, <em>coord</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.netcdf.CFNameCoordMap.append" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">append</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">coord</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.netcdf.CFNameCoordMap.append" title="Permalink to this definition">¶</a></dt>
 <dd><p>Append the given name and coordinate pair to the mapping.</p>
 <p>Args:</p>
 <ul class="simple">
@@ -391,7 +391,7 @@ files that do not use HDF5.</p>
 
 <dl class="method">
 <dt id="iris.fileformats.netcdf.CFNameCoordMap.coord">
-<code class="descname">coord</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.netcdf.CFNameCoordMap.coord" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">coord</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.netcdf.CFNameCoordMap.coord" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the coordinate, given a CF name.</p>
 <p>Args:</p>
 <ul class="simple">
@@ -409,7 +409,7 @@ files that do not use HDF5.</p>
 
 <dl class="method">
 <dt id="iris.fileformats.netcdf.CFNameCoordMap.name">
-<code class="descname">name</code><span class="sig-paren">(</span><em>coord</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.netcdf.CFNameCoordMap.name" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">name</code><span class="sig-paren">(</span><em class="sig-param">coord</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.netcdf.CFNameCoordMap.name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the CF name, given a coordinate</p>
 <p>Args:</p>
 <ul class="simple">
@@ -425,15 +425,15 @@ files that do not use HDF5.</p>
 </dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="iris.fileformats.netcdf.CFNameCoordMap.coords">
-<code class="descname">coords</code><a class="headerlink" href="#iris.fileformats.netcdf.CFNameCoordMap.coords" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">coords</code><a class="headerlink" href="#iris.fileformats.netcdf.CFNameCoordMap.coords" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return all the coordinates.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="iris.fileformats.netcdf.CFNameCoordMap.names">
-<code class="descname">names</code><a class="headerlink" href="#iris.fileformats.netcdf.CFNameCoordMap.names" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">names</code><a class="headerlink" href="#iris.fileformats.netcdf.CFNameCoordMap.names" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return all the CF names.</p>
 </dd></dl>
 
@@ -446,37 +446,37 @@ files that do not use HDF5.</p>
 <blockquote>
 <div><dl class="class">
 <dt id="iris.fileformats.netcdf.NetCDFDataProxy">
-<em class="property">class </em><code class="descclassname">iris.fileformats.netcdf.</code><code class="descname">NetCDFDataProxy</code><span class="sig-paren">(</span><em>shape</em>, <em>dtype</em>, <em>path</em>, <em>variable_name</em>, <em>fill_value</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.netcdf.NetCDFDataProxy" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">iris.fileformats.netcdf.</code><code class="sig-name descname">NetCDFDataProxy</code><span class="sig-paren">(</span><em class="sig-param">shape</em>, <em class="sig-param">dtype</em>, <em class="sig-param">path</em>, <em class="sig-param">variable_name</em>, <em class="sig-param">fill_value</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.netcdf.NetCDFDataProxy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>A reference to the data payload of a single NetCDF file variable.</p>
 <dl class="attribute">
 <dt id="iris.fileformats.netcdf.NetCDFDataProxy.dtype">
-<code class="descname">dtype</code><a class="headerlink" href="#iris.fileformats.netcdf.NetCDFDataProxy.dtype" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">dtype</code><a class="headerlink" href="#iris.fileformats.netcdf.NetCDFDataProxy.dtype" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="iris.fileformats.netcdf.NetCDFDataProxy.fill_value">
-<code class="descname">fill_value</code><a class="headerlink" href="#iris.fileformats.netcdf.NetCDFDataProxy.fill_value" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">fill_value</code><a class="headerlink" href="#iris.fileformats.netcdf.NetCDFDataProxy.fill_value" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="iris.fileformats.netcdf.NetCDFDataProxy.ndim">
-<code class="descname">ndim</code><a class="headerlink" href="#iris.fileformats.netcdf.NetCDFDataProxy.ndim" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">ndim</code><a class="headerlink" href="#iris.fileformats.netcdf.NetCDFDataProxy.ndim" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="iris.fileformats.netcdf.NetCDFDataProxy.path">
-<code class="descname">path</code><a class="headerlink" href="#iris.fileformats.netcdf.NetCDFDataProxy.path" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">path</code><a class="headerlink" href="#iris.fileformats.netcdf.NetCDFDataProxy.path" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="iris.fileformats.netcdf.NetCDFDataProxy.shape">
-<code class="descname">shape</code><a class="headerlink" href="#iris.fileformats.netcdf.NetCDFDataProxy.shape" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">shape</code><a class="headerlink" href="#iris.fileformats.netcdf.NetCDFDataProxy.shape" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="iris.fileformats.netcdf.NetCDFDataProxy.variable_name">
-<code class="descname">variable_name</code><a class="headerlink" href="#iris.fileformats.netcdf.NetCDFDataProxy.variable_name" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">variable_name</code><a class="headerlink" href="#iris.fileformats.netcdf.NetCDFDataProxy.variable_name" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -488,7 +488,7 @@ files that do not use HDF5.</p>
 <blockquote>
 <div><dl class="class">
 <dt id="iris.fileformats.netcdf.Saver">
-<em class="property">class </em><code class="descclassname">iris.fileformats.netcdf.</code><code class="descname">Saver</code><span class="sig-paren">(</span><em>filename</em>, <em>netcdf_format</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.netcdf.Saver" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">iris.fileformats.netcdf.</code><code class="sig-name descname">Saver</code><span class="sig-paren">(</span><em class="sig-param">filename</em>, <em class="sig-param">netcdf_format</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.netcdf.Saver" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>A manager for saving netcdf files.</p>
 <p>Args:</p>
@@ -517,9 +517,9 @@ files that do not use HDF5.</p>
         <span class="n">sman</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cube</span><span class="p">)</span>
 </pre></div>
 </div>
-<dl class="staticmethod">
+<dl class="method">
 <dt id="iris.fileformats.netcdf.Saver.cf_valid_var_name">
-<em class="property">static </em><code class="descname">cf_valid_var_name</code><span class="sig-paren">(</span><em>var_name</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.netcdf.Saver.cf_valid_var_name" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">cf_valid_var_name</code><span class="sig-paren">(</span><em class="sig-param">var_name</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.netcdf.Saver.cf_valid_var_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a valid CF var_name given a potentially invalid name.</p>
 <p>Args:</p>
 <ul class="simple">
@@ -535,14 +535,14 @@ files that do not use HDF5.</p>
 </dl>
 </dd></dl>
 
-<dl class="staticmethod">
+<dl class="method">
 <dt id="iris.fileformats.netcdf.Saver.check_attribute_compliance">
-<em class="property">static </em><code class="descname">check_attribute_compliance</code><span class="sig-paren">(</span><em>container</em>, <em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.netcdf.Saver.check_attribute_compliance" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">check_attribute_compliance</code><span class="sig-paren">(</span><em class="sig-param">container</em>, <em class="sig-param">data</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.netcdf.Saver.check_attribute_compliance" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="iris.fileformats.netcdf.Saver.update_global_attributes">
-<code class="descname">update_global_attributes</code><span class="sig-paren">(</span><em>attributes=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.netcdf.Saver.update_global_attributes" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">update_global_attributes</code><span class="sig-paren">(</span><em class="sig-param">attributes=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.netcdf.Saver.update_global_attributes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update the CF global attributes based on the provided
 iterable/dictionary and/or keyword arguments.</p>
 <p>Args:</p>
@@ -557,7 +557,7 @@ iterable/dictionary and/or keyword arguments.</p>
 
 <dl class="method">
 <dt id="iris.fileformats.netcdf.Saver.write">
-<code class="descname">write</code><span class="sig-paren">(</span><em>cube</em>, <em>local_keys=None</em>, <em>unlimited_dimensions=None</em>, <em>zlib=False</em>, <em>complevel=4</em>, <em>shuffle=True</em>, <em>fletcher32=False</em>, <em>contiguous=False</em>, <em>chunksizes=None</em>, <em>endian='native'</em>, <em>least_significant_digit=None</em>, <em>packing=None</em>, <em>fill_value=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.netcdf.Saver.write" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">write</code><span class="sig-paren">(</span><em class="sig-param">cube</em>, <em class="sig-param">local_keys=None</em>, <em class="sig-param">unlimited_dimensions=None</em>, <em class="sig-param">zlib=False</em>, <em class="sig-param">complevel=4</em>, <em class="sig-param">shuffle=True</em>, <em class="sig-param">fletcher32=False</em>, <em class="sig-param">contiguous=False</em>, <em class="sig-param">chunksizes=None</em>, <em class="sig-param">endian='native'</em>, <em class="sig-param">least_significant_digit=None</em>, <em class="sig-param">packing=None</em>, <em class="sig-param">fill_value=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.netcdf.Saver.write" title="Permalink to this definition">¶</a></dt>
 <dd><p>Wrapper for saving cubes to a NetCDF file.</p>
 <p>Args:</p>
 <ul class="simple">
@@ -702,18 +702,18 @@ should be in the domain of the packed data.</p>
 <blockquote>
 <div><dl class="class">
 <dt id="iris.fileformats.netcdf.UnknownCellMethodWarning">
-<em class="property">class </em><code class="descclassname">iris.fileformats.netcdf.</code><code class="descname">UnknownCellMethodWarning</code><a class="headerlink" href="#iris.fileformats.netcdf.UnknownCellMethodWarning" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">iris.fileformats.netcdf.</code><code class="sig-name descname">UnknownCellMethodWarning</code><a class="headerlink" href="#iris.fileformats.netcdf.UnknownCellMethodWarning" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Warning</span></code></p>
 <dl class="method">
 <dt id="iris.fileformats.netcdf.UnknownCellMethodWarning.with_traceback">
-<code class="descname">with_traceback</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.netcdf.UnknownCellMethodWarning.with_traceback" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">with_traceback</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.netcdf.UnknownCellMethodWarning.with_traceback" title="Permalink to this definition">¶</a></dt>
 <dd><p>Exception.with_traceback(tb) –
 set self.__traceback__ to tb and return self.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="iris.fileformats.netcdf.UnknownCellMethodWarning.args">
-<code class="descname">args</code><a class="headerlink" href="#iris.fileformats.netcdf.UnknownCellMethodWarning.args" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">args</code><a class="headerlink" href="#iris.fileformats.netcdf.UnknownCellMethodWarning.args" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>

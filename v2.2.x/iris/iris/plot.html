@@ -94,10 +94,10 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
     </form>
     </div>
@@ -139,7 +139,7 @@ interface.</p>
 </div></blockquote>
 <dl class="function">
 <dt id="iris.plot.citation">
-<code class="descclassname">iris.plot.</code><code class="descname">citation</code><span class="sig-paren">(</span><em>text</em>, <em>figure=None</em>, <em>axes=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.plot.citation" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.plot.</code><code class="sig-name descname">citation</code><span class="sig-paren">(</span><em class="sig-param">text</em>, <em class="sig-param">figure=None</em>, <em class="sig-param">axes=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.plot.citation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a text citation to a plot.</p>
 <p>Places an anchored text citation in the bottom right
 hand corner of the plot.</p>
@@ -171,7 +171,7 @@ to the current figure if none provided.</p>
 <!--<hr class="docutils" />
 --><dl class="function">
 <dt id="iris.plot.contour">
-<code class="descclassname">iris.plot.</code><code class="descname">contour</code><span class="sig-paren">(</span><em>cube</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.plot.contour" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.plot.</code><code class="sig-name descname">contour</code><span class="sig-paren">(</span><em class="sig-param">cube</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.plot.contour" title="Permalink to this definition">¶</a></dt>
 <dd><p>Draws contour lines based on the given Cube.</p>
 <p>Kwargs:</p>
 <ul class="simple">
@@ -198,7 +198,7 @@ keyword arguments.</p>
 <!--<hr class="docutils" />
 --><dl class="function">
 <dt id="iris.plot.contourf">
-<code class="descclassname">iris.plot.</code><code class="descname">contourf</code><span class="sig-paren">(</span><em>cube</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.plot.contourf" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.plot.</code><code class="sig-name descname">contourf</code><span class="sig-paren">(</span><em class="sig-param">cube</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.plot.contourf" title="Permalink to this definition">¶</a></dt>
 <dd><p>Draws filled contours based on the given Cube.</p>
 <p>Kwargs:</p>
 <ul class="simple">
@@ -225,7 +225,7 @@ keyword arguments.</p>
 <!--<hr class="docutils" />
 --><dl class="function">
 <dt id="iris.plot.default_projection">
-<code class="descclassname">iris.plot.</code><code class="descname">default_projection</code><span class="sig-paren">(</span><em>cube</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.plot.default_projection" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.plot.</code><code class="sig-name descname">default_projection</code><span class="sig-paren">(</span><em class="sig-param">cube</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.plot.default_projection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the primary map projection for the given cube.</p>
 <p>Using the returned projection, one can create a cartopy map with:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -238,7 +238,7 @@ keyword arguments.</p>
 <!--<hr class="docutils" />
 --><dl class="function">
 <dt id="iris.plot.default_projection_extent">
-<code class="descclassname">iris.plot.</code><code class="descname">default_projection_extent</code><span class="sig-paren">(</span><em>cube</em>, <em>mode=0</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.plot.default_projection_extent" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.plot.</code><code class="sig-name descname">default_projection_extent</code><span class="sig-paren">(</span><em class="sig-param">cube</em>, <em class="sig-param">mode=0</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.plot.default_projection_extent" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the cube’s extents <code class="docutils literal notranslate"><span class="pre">(x0,</span> <span class="pre">x1,</span> <span class="pre">y0,</span> <span class="pre">y1)</span></code> in its default projection.</p>
 <p>Keyword arguments:</p>
 <blockquote>
@@ -258,7 +258,7 @@ The default is iris.coords.POINT_MODE.</p>
 <!--<hr class="docutils" />
 --><dl class="function">
 <dt id="iris.plot.orography_at_bounds">
-<code class="descclassname">iris.plot.</code><code class="descname">orography_at_bounds</code><span class="sig-paren">(</span><em>cube</em>, <em>facecolor='#888888'</em>, <em>coords=None</em>, <em>axes=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.plot.orography_at_bounds" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.plot.</code><code class="sig-name descname">orography_at_bounds</code><span class="sig-paren">(</span><em class="sig-param">cube</em>, <em class="sig-param">facecolor='#888888'</em>, <em class="sig-param">coords=None</em>, <em class="sig-param">axes=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.plot.orography_at_bounds" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plots orography defined at cell boundaries from the given Cube.</p>
 </dd></dl>
 
@@ -266,7 +266,7 @@ The default is iris.coords.POINT_MODE.</p>
 <!--<hr class="docutils" />
 --><dl class="function">
 <dt id="iris.plot.orography_at_points">
-<code class="descclassname">iris.plot.</code><code class="descname">orography_at_points</code><span class="sig-paren">(</span><em>cube</em>, <em>facecolor='#888888'</em>, <em>coords=None</em>, <em>axes=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.plot.orography_at_points" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.plot.</code><code class="sig-name descname">orography_at_points</code><span class="sig-paren">(</span><em class="sig-param">cube</em>, <em class="sig-param">facecolor='#888888'</em>, <em class="sig-param">coords=None</em>, <em class="sig-param">axes=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.plot.orography_at_points" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plots orography defined at sample points from the given Cube.</p>
 </dd></dl>
 
@@ -274,7 +274,7 @@ The default is iris.coords.POINT_MODE.</p>
 <!--<hr class="docutils" />
 --><dl class="function">
 <dt id="iris.plot.outline">
-<code class="descclassname">iris.plot.</code><code class="descname">outline</code><span class="sig-paren">(</span><em>cube</em>, <em>coords=None</em>, <em>color='k'</em>, <em>linewidth=None</em>, <em>axes=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.plot.outline" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.plot.</code><code class="sig-name descname">outline</code><span class="sig-paren">(</span><em class="sig-param">cube</em>, <em class="sig-param">coords=None</em>, <em class="sig-param">color='k'</em>, <em class="sig-param">linewidth=None</em>, <em class="sig-param">axes=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.plot.outline" title="Permalink to this definition">¶</a></dt>
 <dd><p>Draws cell outlines based on the given Cube.</p>
 <p>Kwargs:</p>
 <ul class="simple">
@@ -311,7 +311,7 @@ in matplotlibrc is used.</p>
 <!--<hr class="docutils" />
 --><dl class="function">
 <dt id="iris.plot.pcolor">
-<code class="descclassname">iris.plot.</code><code class="descname">pcolor</code><span class="sig-paren">(</span><em>cube</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.plot.pcolor" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.plot.</code><code class="sig-name descname">pcolor</code><span class="sig-paren">(</span><em class="sig-param">cube</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.plot.pcolor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Draws a pseudocolor plot based on the given 2-dimensional Cube.</p>
 <p>The cube must have either two 1-dimensional coordinates or two
 2-dimensional coordinates with contiguous bounds to plot the cube against.</p>
@@ -345,7 +345,7 @@ keyword arguments.</p>
 <!--<hr class="docutils" />
 --><dl class="function">
 <dt id="iris.plot.pcolormesh">
-<code class="descclassname">iris.plot.</code><code class="descname">pcolormesh</code><span class="sig-paren">(</span><em>cube</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.plot.pcolormesh" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.plot.</code><code class="sig-name descname">pcolormesh</code><span class="sig-paren">(</span><em class="sig-param">cube</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.plot.pcolormesh" title="Permalink to this definition">¶</a></dt>
 <dd><p>Draws a pseudocolor plot based on the given 2-dimensional Cube.</p>
 <p>The cube must have either two 1-dimensional coordinates or two
 2-dimensional coordinates with contiguous bounds to plot against each
@@ -380,7 +380,7 @@ valid keyword arguments.</p>
 <!--<hr class="docutils" />
 --><dl class="function">
 <dt id="iris.plot.plot">
-<code class="descclassname">iris.plot.</code><code class="descname">plot</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.plot.plot" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.plot.</code><code class="sig-name descname">plot</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.plot.plot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Draws a line plot based on the given cube(s) or coordinate(s).</p>
 <p>The first one or two arguments may be cubes or coordinates to plot.
 Each of the following is valid:</p>
@@ -421,7 +421,7 @@ keyword arguments.</p>
 <!--<hr class="docutils" />
 --><dl class="function">
 <dt id="iris.plot.points">
-<code class="descclassname">iris.plot.</code><code class="descname">points</code><span class="sig-paren">(</span><em>cube</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.plot.points" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.plot.</code><code class="sig-name descname">points</code><span class="sig-paren">(</span><em class="sig-param">cube</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.plot.points" title="Permalink to this definition">¶</a></dt>
 <dd><p>Draws sample point positions based on the given Cube.</p>
 <p>Kwargs:</p>
 <ul class="simple">
@@ -448,7 +448,7 @@ keyword arguments.</p>
 <!--<hr class="docutils" />
 --><dl class="function">
 <dt id="iris.plot.quiver">
-<code class="descclassname">iris.plot.</code><code class="descname">quiver</code><span class="sig-paren">(</span><em>u_cube</em>, <em>v_cube</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.plot.quiver" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.plot.</code><code class="sig-name descname">quiver</code><span class="sig-paren">(</span><em class="sig-param">u_cube</em>, <em class="sig-param">v_cube</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.plot.quiver" title="Permalink to this definition">¶</a></dt>
 <dd><p>Draws an arrow plot from two vector component cubes.</p>
 <p>Args:</p>
 <ul>
@@ -487,7 +487,7 @@ keyword arguments.</p>
 <!--<hr class="docutils" />
 --><dl class="function">
 <dt id="iris.plot.scatter">
-<code class="descclassname">iris.plot.</code><code class="descname">scatter</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.plot.scatter" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.plot.</code><code class="sig-name descname">scatter</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">y</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.plot.scatter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Draws a scatter plot based on the given cube(s) or coordinate(s).</p>
 <p>Args:</p>
 <ul class="simple">
@@ -518,7 +518,7 @@ valid keyword arguments.</p>
 <!--<hr class="docutils" />
 --><dl class="function">
 <dt id="iris.plot.symbols">
-<code class="descclassname">iris.plot.</code><code class="descname">symbols</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>symbols</em>, <em>size</em>, <em>axes=None</em>, <em>units='inches'</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.plot.symbols" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.plot.</code><code class="sig-name descname">symbols</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">y</em>, <em class="sig-param">symbols</em>, <em class="sig-param">size</em>, <em class="sig-param">axes=None</em>, <em class="sig-param">units='inches'</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.plot.symbols" title="Permalink to this definition">¶</a></dt>
 <dd><p>Draws fixed-size symbols.</p>
 <p>See <a class="reference internal" href="symbols.html#module-iris.symbols" title="iris.symbols"><code class="xref py py-mod docutils literal notranslate"><span class="pre">iris.symbols</span></code></a> for available symbols.</p>
 <p>Args:</p>
@@ -565,29 +565,29 @@ valid keyword arguments.</p>
 <blockquote>
 <div><dl class="class">
 <dt id="iris.plot.PlotDefn">
-<em class="property">class </em><code class="descclassname">iris.plot.</code><code class="descname">PlotDefn</code><span class="sig-paren">(</span><em>_cls</em>, <em>coords</em>, <em>transpose</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.plot.PlotDefn" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">iris.plot.</code><code class="sig-name descname">PlotDefn</code><span class="sig-paren">(</span><em class="sig-param">_cls</em>, <em class="sig-param">coords</em>, <em class="sig-param">transpose</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.plot.PlotDefn" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></p>
 <p>Create new instance of PlotDefn(coords, transpose)</p>
 <dl class="method">
 <dt id="iris.plot.PlotDefn.count">
-<code class="descname">count</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span> &#x2192; integer -- return number of occurrences of value<a class="headerlink" href="#iris.plot.PlotDefn.count" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">count</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="sig-paren">)</span> &#x2192; integer -- return number of occurrences of value<a class="headerlink" href="#iris.plot.PlotDefn.count" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="iris.plot.PlotDefn.index">
-<code class="descname">index</code><span class="sig-paren">(</span><em>value</em><span class="optional">[</span>, <em>start</em><span class="optional">[</span>, <em>stop</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; integer -- return first index of value.<a class="headerlink" href="#iris.plot.PlotDefn.index" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">index</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="optional">[</span>, <em class="sig-param">start</em><span class="optional">[</span>, <em class="sig-param">stop</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; integer -- return first index of value.<a class="headerlink" href="#iris.plot.PlotDefn.index" title="Permalink to this definition">¶</a></dt>
 <dd><p>Raises ValueError if the value is not present.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="iris.plot.PlotDefn.coords">
-<code class="descname">coords</code><a class="headerlink" href="#iris.plot.PlotDefn.coords" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">coords</code><a class="headerlink" href="#iris.plot.PlotDefn.coords" title="Permalink to this definition">¶</a></dt>
 <dd><p>Alias for field number 0</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="iris.plot.PlotDefn.transpose">
-<code class="descname">transpose</code><a class="headerlink" href="#iris.plot.PlotDefn.transpose" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">transpose</code><a class="headerlink" href="#iris.plot.PlotDefn.transpose" title="Permalink to this definition">¶</a></dt>
 <dd><p>Alias for field number 1</p>
 </dd></dl>
 

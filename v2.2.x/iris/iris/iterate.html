@@ -94,10 +94,10 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
     </form>
     </div>
@@ -122,7 +122,7 @@
 </div></blockquote>
 <dl class="function">
 <dt id="iris.iterate.izip">
-<code class="descclassname">iris.iterate.</code><code class="descname">izip</code><span class="sig-paren">(</span><em>*cubes</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.iterate.izip" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.iterate.</code><code class="sig-name descname">izip</code><span class="sig-paren">(</span><em class="sig-param">*cubes</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.iterate.izip" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return an iterator for iterating over a collection of cubes in step.</p>
 <p>If the input cubes have dimensions for which there are no common
 coordinates, those dimensions will be treated as orthogonal. The

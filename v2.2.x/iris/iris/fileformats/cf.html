@@ -95,10 +95,10 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
     </form>
     </div>
@@ -143,7 +143,7 @@ about the individual values of another data variable.</p>
 <blockquote>
 <div><dl class="class">
 <dt id="iris.fileformats.cf.CFAncillaryDataVariable">
-<em class="property">class </em><code class="descclassname">iris.fileformats.cf.</code><code class="descname">CFAncillaryDataVariable</code><span class="sig-paren">(</span><em>name</em>, <em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFAncillaryDataVariable" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">iris.fileformats.cf.</code><code class="sig-name descname">CFAncillaryDataVariable</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">data</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFAncillaryDataVariable" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#iris.fileformats.cf.CFVariable" title="iris.fileformats.cf.CFVariable"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.fileformats.cf.CFVariable</span></code></a></p>
 <p>A CF-netCDF ancillary data variable is a variable that provides metadata
 about the individual values of another data variable.</p>
@@ -151,7 +151,7 @@ about the individual values of another data variable.</p>
 <p>Ref: [CF] Section 3.4. Ancillary Data.</p>
 <dl class="method">
 <dt id="iris.fileformats.cf.CFAncillaryDataVariable.add_formula_term">
-<code class="descname">add_formula_term</code><span class="sig-paren">(</span><em>root</em>, <em>term</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFAncillaryDataVariable.add_formula_term" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">add_formula_term</code><span class="sig-paren">(</span><em class="sig-param">root</em>, <em class="sig-param">term</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFAncillaryDataVariable.add_formula_term" title="Permalink to this definition">¶</a></dt>
 <dd><p>Register the participation of this CF-netCDF variable in a CF-netCDF formula term.</p>
 <p>Args:</p>
 <ul class="simple">
@@ -174,37 +174,37 @@ about the individual values of another data variable.</p>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFAncillaryDataVariable.cf_attrs">
-<code class="descname">cf_attrs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFAncillaryDataVariable.cf_attrs" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cf_attrs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFAncillaryDataVariable.cf_attrs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of all attribute name and value pairs of the CF-netCDF variable.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFAncillaryDataVariable.cf_attrs_ignored">
-<code class="descname">cf_attrs_ignored</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFAncillaryDataVariable.cf_attrs_ignored" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cf_attrs_ignored</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFAncillaryDataVariable.cf_attrs_ignored" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of all ignored attribute name and value pairs of the CF-netCDF variable.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFAncillaryDataVariable.cf_attrs_reset">
-<code class="descname">cf_attrs_reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFAncillaryDataVariable.cf_attrs_reset" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cf_attrs_reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFAncillaryDataVariable.cf_attrs_reset" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reset the history of accessed attribute names of the CF-netCDF variable.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFAncillaryDataVariable.cf_attrs_unused">
-<code class="descname">cf_attrs_unused</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFAncillaryDataVariable.cf_attrs_unused" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cf_attrs_unused</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFAncillaryDataVariable.cf_attrs_unused" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of all non-accessed attribute name and value pairs of the CF-netCDF variable.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFAncillaryDataVariable.cf_attrs_used">
-<code class="descname">cf_attrs_used</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFAncillaryDataVariable.cf_attrs_used" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cf_attrs_used</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFAncillaryDataVariable.cf_attrs_used" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of all accessed attribute name and value pairs of the CF-netCDF variable.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFAncillaryDataVariable.has_formula_terms">
-<code class="descname">has_formula_terms</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFAncillaryDataVariable.has_formula_terms" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">has_formula_terms</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFAncillaryDataVariable.has_formula_terms" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determine whether this CF-netCDF variable participates in a CF-netcdf formula term.</p>
 <dl class="simple">
 <dt>Returns:</dt><dd><p>Boolean.</p>
@@ -212,9 +212,9 @@ about the individual values of another data variable.</p>
 </dl>
 </dd></dl>
 
-<dl class="classmethod">
+<dl class="method">
 <dt id="iris.fileformats.cf.CFAncillaryDataVariable.identify">
-<em class="property">classmethod </em><code class="descname">identify</code><span class="sig-paren">(</span><em>variables</em>, <em>ignore=None</em>, <em>target=None</em>, <em>warn=True</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFAncillaryDataVariable.identify" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="sig-name descname">identify</code><span class="sig-paren">(</span><em class="sig-param">variables</em>, <em class="sig-param">ignore=None</em>, <em class="sig-param">target=None</em>, <em class="sig-param">warn=True</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFAncillaryDataVariable.identify" title="Permalink to this definition">¶</a></dt>
 <dd><p>Identify all variables that match the criterion for this CF-netCDF variable class.</p>
 <p>Args:</p>
 <ul class="simple">
@@ -250,7 +250,7 @@ about the individual values of another data variable.</p>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFAncillaryDataVariable.spans">
-<code class="descname">spans</code><span class="sig-paren">(</span><em>cf_variable</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFAncillaryDataVariable.spans" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">spans</code><span class="sig-paren">(</span><em class="sig-param">cf_variable</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFAncillaryDataVariable.spans" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determine whether the dimensionality of this variable
 is a subset of the specified target variable.</p>
 <p>Note that, by default scalar variables always span the
@@ -271,7 +271,7 @@ dimensionality of the target variable.</p>
 
 <dl class="attribute">
 <dt id="iris.fileformats.cf.CFAncillaryDataVariable.cf_identity">
-<code class="descname">cf_identity</code><em class="property"> = 'ancillary_variables'</em><a class="headerlink" href="#iris.fileformats.cf.CFAncillaryDataVariable.cf_identity" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cf_identity</code><em class="property"> = 'ancillary_variables'</em><a class="headerlink" href="#iris.fileformats.cf.CFAncillaryDataVariable.cf_identity" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -292,7 +292,7 @@ Also see <a class="reference internal" href="#iris.fileformats.cf.CFLabelVariabl
 <blockquote>
 <div><dl class="class">
 <dt id="iris.fileformats.cf.CFAuxiliaryCoordinateVariable">
-<em class="property">class </em><code class="descclassname">iris.fileformats.cf.</code><code class="descname">CFAuxiliaryCoordinateVariable</code><span class="sig-paren">(</span><em>name</em>, <em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFAuxiliaryCoordinateVariable" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">iris.fileformats.cf.</code><code class="sig-name descname">CFAuxiliaryCoordinateVariable</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">data</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFAuxiliaryCoordinateVariable" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#iris.fileformats.cf.CFVariable" title="iris.fileformats.cf.CFVariable"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.fileformats.cf.CFVariable</span></code></a></p>
 <p>A CF-netCDF auxiliary coordinate variable is any netCDF variable that contains
 coordinate data, but is not a CF-netCDF coordinate variable by definition.</p>
@@ -306,7 +306,7 @@ Also see <a class="reference internal" href="#iris.fileformats.cf.CFLabelVariabl
 </dl>
 <dl class="method">
 <dt id="iris.fileformats.cf.CFAuxiliaryCoordinateVariable.add_formula_term">
-<code class="descname">add_formula_term</code><span class="sig-paren">(</span><em>root</em>, <em>term</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFAuxiliaryCoordinateVariable.add_formula_term" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">add_formula_term</code><span class="sig-paren">(</span><em class="sig-param">root</em>, <em class="sig-param">term</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFAuxiliaryCoordinateVariable.add_formula_term" title="Permalink to this definition">¶</a></dt>
 <dd><p>Register the participation of this CF-netCDF variable in a CF-netCDF formula term.</p>
 <p>Args:</p>
 <ul class="simple">
@@ -329,37 +329,37 @@ Also see <a class="reference internal" href="#iris.fileformats.cf.CFLabelVariabl
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFAuxiliaryCoordinateVariable.cf_attrs">
-<code class="descname">cf_attrs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFAuxiliaryCoordinateVariable.cf_attrs" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cf_attrs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFAuxiliaryCoordinateVariable.cf_attrs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of all attribute name and value pairs of the CF-netCDF variable.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFAuxiliaryCoordinateVariable.cf_attrs_ignored">
-<code class="descname">cf_attrs_ignored</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFAuxiliaryCoordinateVariable.cf_attrs_ignored" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cf_attrs_ignored</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFAuxiliaryCoordinateVariable.cf_attrs_ignored" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of all ignored attribute name and value pairs of the CF-netCDF variable.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFAuxiliaryCoordinateVariable.cf_attrs_reset">
-<code class="descname">cf_attrs_reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFAuxiliaryCoordinateVariable.cf_attrs_reset" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cf_attrs_reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFAuxiliaryCoordinateVariable.cf_attrs_reset" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reset the history of accessed attribute names of the CF-netCDF variable.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFAuxiliaryCoordinateVariable.cf_attrs_unused">
-<code class="descname">cf_attrs_unused</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFAuxiliaryCoordinateVariable.cf_attrs_unused" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cf_attrs_unused</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFAuxiliaryCoordinateVariable.cf_attrs_unused" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of all non-accessed attribute name and value pairs of the CF-netCDF variable.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFAuxiliaryCoordinateVariable.cf_attrs_used">
-<code class="descname">cf_attrs_used</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFAuxiliaryCoordinateVariable.cf_attrs_used" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cf_attrs_used</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFAuxiliaryCoordinateVariable.cf_attrs_used" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of all accessed attribute name and value pairs of the CF-netCDF variable.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFAuxiliaryCoordinateVariable.has_formula_terms">
-<code class="descname">has_formula_terms</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFAuxiliaryCoordinateVariable.has_formula_terms" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">has_formula_terms</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFAuxiliaryCoordinateVariable.has_formula_terms" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determine whether this CF-netCDF variable participates in a CF-netcdf formula term.</p>
 <dl class="simple">
 <dt>Returns:</dt><dd><p>Boolean.</p>
@@ -367,9 +367,9 @@ Also see <a class="reference internal" href="#iris.fileformats.cf.CFLabelVariabl
 </dl>
 </dd></dl>
 
-<dl class="classmethod">
+<dl class="method">
 <dt id="iris.fileformats.cf.CFAuxiliaryCoordinateVariable.identify">
-<em class="property">classmethod </em><code class="descname">identify</code><span class="sig-paren">(</span><em>variables</em>, <em>ignore=None</em>, <em>target=None</em>, <em>warn=True</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFAuxiliaryCoordinateVariable.identify" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="sig-name descname">identify</code><span class="sig-paren">(</span><em class="sig-param">variables</em>, <em class="sig-param">ignore=None</em>, <em class="sig-param">target=None</em>, <em class="sig-param">warn=True</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFAuxiliaryCoordinateVariable.identify" title="Permalink to this definition">¶</a></dt>
 <dd><p>Identify all variables that match the criterion for this CF-netCDF variable class.</p>
 <p>Args:</p>
 <ul class="simple">
@@ -405,7 +405,7 @@ Also see <a class="reference internal" href="#iris.fileformats.cf.CFLabelVariabl
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFAuxiliaryCoordinateVariable.spans">
-<code class="descname">spans</code><span class="sig-paren">(</span><em>cf_variable</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFAuxiliaryCoordinateVariable.spans" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">spans</code><span class="sig-paren">(</span><em class="sig-param">cf_variable</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFAuxiliaryCoordinateVariable.spans" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determine whether the dimensionality of this variable
 is a subset of the specified target variable.</p>
 <p>Note that, by default scalar variables always span the
@@ -426,7 +426,7 @@ dimensionality of the target variable.</p>
 
 <dl class="attribute">
 <dt id="iris.fileformats.cf.CFAuxiliaryCoordinateVariable.cf_identity">
-<code class="descname">cf_identity</code><em class="property"> = 'coordinates'</em><a class="headerlink" href="#iris.fileformats.cf.CFAuxiliaryCoordinateVariable.cf_identity" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cf_identity</code><em class="property"> = 'coordinates'</em><a class="headerlink" href="#iris.fileformats.cf.CFAuxiliaryCoordinateVariable.cf_identity" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -445,7 +445,7 @@ CF-netCDF coordinate variable or CF-netCDF auxiliary coordinate variable.</p>
 <blockquote>
 <div><dl class="class">
 <dt id="iris.fileformats.cf.CFBoundaryVariable">
-<em class="property">class </em><code class="descclassname">iris.fileformats.cf.</code><code class="descname">CFBoundaryVariable</code><span class="sig-paren">(</span><em>name</em>, <em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFBoundaryVariable" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">iris.fileformats.cf.</code><code class="sig-name descname">CFBoundaryVariable</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">data</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFBoundaryVariable" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#iris.fileformats.cf.CFVariable" title="iris.fileformats.cf.CFVariable"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.fileformats.cf.CFVariable</span></code></a></p>
 <p>A CF-netCDF boundary variable is associated with a CF-netCDF variable that contains
 coordinate data. When a data value provides information about conditions in a cell
@@ -457,7 +457,7 @@ CF-netCDF coordinate variable or CF-netCDF auxiliary coordinate variable.</p>
 <p>Ref: [CF] Section 7.1. Cell Boundaries.</p>
 <dl class="method">
 <dt id="iris.fileformats.cf.CFBoundaryVariable.add_formula_term">
-<code class="descname">add_formula_term</code><span class="sig-paren">(</span><em>root</em>, <em>term</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFBoundaryVariable.add_formula_term" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">add_formula_term</code><span class="sig-paren">(</span><em class="sig-param">root</em>, <em class="sig-param">term</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFBoundaryVariable.add_formula_term" title="Permalink to this definition">¶</a></dt>
 <dd><p>Register the participation of this CF-netCDF variable in a CF-netCDF formula term.</p>
 <p>Args:</p>
 <ul class="simple">
@@ -480,37 +480,37 @@ CF-netCDF coordinate variable or CF-netCDF auxiliary coordinate variable.</p>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFBoundaryVariable.cf_attrs">
-<code class="descname">cf_attrs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFBoundaryVariable.cf_attrs" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cf_attrs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFBoundaryVariable.cf_attrs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of all attribute name and value pairs of the CF-netCDF variable.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFBoundaryVariable.cf_attrs_ignored">
-<code class="descname">cf_attrs_ignored</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFBoundaryVariable.cf_attrs_ignored" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cf_attrs_ignored</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFBoundaryVariable.cf_attrs_ignored" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of all ignored attribute name and value pairs of the CF-netCDF variable.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFBoundaryVariable.cf_attrs_reset">
-<code class="descname">cf_attrs_reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFBoundaryVariable.cf_attrs_reset" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cf_attrs_reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFBoundaryVariable.cf_attrs_reset" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reset the history of accessed attribute names of the CF-netCDF variable.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFBoundaryVariable.cf_attrs_unused">
-<code class="descname">cf_attrs_unused</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFBoundaryVariable.cf_attrs_unused" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cf_attrs_unused</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFBoundaryVariable.cf_attrs_unused" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of all non-accessed attribute name and value pairs of the CF-netCDF variable.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFBoundaryVariable.cf_attrs_used">
-<code class="descname">cf_attrs_used</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFBoundaryVariable.cf_attrs_used" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cf_attrs_used</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFBoundaryVariable.cf_attrs_used" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of all accessed attribute name and value pairs of the CF-netCDF variable.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFBoundaryVariable.has_formula_terms">
-<code class="descname">has_formula_terms</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFBoundaryVariable.has_formula_terms" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">has_formula_terms</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFBoundaryVariable.has_formula_terms" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determine whether this CF-netCDF variable participates in a CF-netcdf formula term.</p>
 <dl class="simple">
 <dt>Returns:</dt><dd><p>Boolean.</p>
@@ -518,9 +518,9 @@ CF-netCDF coordinate variable or CF-netCDF auxiliary coordinate variable.</p>
 </dl>
 </dd></dl>
 
-<dl class="classmethod">
+<dl class="method">
 <dt id="iris.fileformats.cf.CFBoundaryVariable.identify">
-<em class="property">classmethod </em><code class="descname">identify</code><span class="sig-paren">(</span><em>variables</em>, <em>ignore=None</em>, <em>target=None</em>, <em>warn=True</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFBoundaryVariable.identify" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="sig-name descname">identify</code><span class="sig-paren">(</span><em class="sig-param">variables</em>, <em class="sig-param">ignore=None</em>, <em class="sig-param">target=None</em>, <em class="sig-param">warn=True</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFBoundaryVariable.identify" title="Permalink to this definition">¶</a></dt>
 <dd><p>Identify all variables that match the criterion for this CF-netCDF variable class.</p>
 <p>Args:</p>
 <ul class="simple">
@@ -556,7 +556,7 @@ CF-netCDF coordinate variable or CF-netCDF auxiliary coordinate variable.</p>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFBoundaryVariable.spans">
-<code class="descname">spans</code><span class="sig-paren">(</span><em>cf_variable</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFBoundaryVariable.spans" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">spans</code><span class="sig-paren">(</span><em class="sig-param">cf_variable</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFBoundaryVariable.spans" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determine whether the dimensionality of this variable
 is a subset of the specified target variable.</p>
 <p>Note that, by default scalar variables always span the
@@ -577,7 +577,7 @@ dimensionality of the target variable.</p>
 
 <dl class="attribute">
 <dt id="iris.fileformats.cf.CFBoundaryVariable.cf_identity">
-<code class="descname">cf_identity</code><em class="property"> = 'bounds'</em><a class="headerlink" href="#iris.fileformats.cf.CFBoundaryVariable.cf_identity" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cf_identity</code><em class="property"> = 'bounds'</em><a class="headerlink" href="#iris.fileformats.cf.CFBoundaryVariable.cf_identity" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -596,7 +596,7 @@ CF-netCDF coordinate variable.</p>
 <blockquote>
 <div><dl class="class">
 <dt id="iris.fileformats.cf.CFClimatologyVariable">
-<em class="property">class </em><code class="descclassname">iris.fileformats.cf.</code><code class="descname">CFClimatologyVariable</code><span class="sig-paren">(</span><em>name</em>, <em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFClimatologyVariable" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">iris.fileformats.cf.</code><code class="sig-name descname">CFClimatologyVariable</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">data</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFClimatologyVariable" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#iris.fileformats.cf.CFVariable" title="iris.fileformats.cf.CFVariable"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.fileformats.cf.CFVariable</span></code></a></p>
 <p>A CF-netCDF climatology variable is associated with a CF-netCDF variable that contains
 coordinate data. When a data value provides information about conditions in a cell
@@ -608,7 +608,7 @@ CF-netCDF coordinate variable.</p>
 <p>Ref: [CF] Section 7.4. Climatological Statistics</p>
 <dl class="method">
 <dt id="iris.fileformats.cf.CFClimatologyVariable.add_formula_term">
-<code class="descname">add_formula_term</code><span class="sig-paren">(</span><em>root</em>, <em>term</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFClimatologyVariable.add_formula_term" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">add_formula_term</code><span class="sig-paren">(</span><em class="sig-param">root</em>, <em class="sig-param">term</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFClimatologyVariable.add_formula_term" title="Permalink to this definition">¶</a></dt>
 <dd><p>Register the participation of this CF-netCDF variable in a CF-netCDF formula term.</p>
 <p>Args:</p>
 <ul class="simple">
@@ -631,37 +631,37 @@ CF-netCDF coordinate variable.</p>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFClimatologyVariable.cf_attrs">
-<code class="descname">cf_attrs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFClimatologyVariable.cf_attrs" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cf_attrs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFClimatologyVariable.cf_attrs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of all attribute name and value pairs of the CF-netCDF variable.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFClimatologyVariable.cf_attrs_ignored">
-<code class="descname">cf_attrs_ignored</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFClimatologyVariable.cf_attrs_ignored" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cf_attrs_ignored</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFClimatologyVariable.cf_attrs_ignored" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of all ignored attribute name and value pairs of the CF-netCDF variable.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFClimatologyVariable.cf_attrs_reset">
-<code class="descname">cf_attrs_reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFClimatologyVariable.cf_attrs_reset" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cf_attrs_reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFClimatologyVariable.cf_attrs_reset" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reset the history of accessed attribute names of the CF-netCDF variable.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFClimatologyVariable.cf_attrs_unused">
-<code class="descname">cf_attrs_unused</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFClimatologyVariable.cf_attrs_unused" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cf_attrs_unused</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFClimatologyVariable.cf_attrs_unused" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of all non-accessed attribute name and value pairs of the CF-netCDF variable.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFClimatologyVariable.cf_attrs_used">
-<code class="descname">cf_attrs_used</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFClimatologyVariable.cf_attrs_used" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cf_attrs_used</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFClimatologyVariable.cf_attrs_used" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of all accessed attribute name and value pairs of the CF-netCDF variable.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFClimatologyVariable.has_formula_terms">
-<code class="descname">has_formula_terms</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFClimatologyVariable.has_formula_terms" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">has_formula_terms</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFClimatologyVariable.has_formula_terms" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determine whether this CF-netCDF variable participates in a CF-netcdf formula term.</p>
 <dl class="simple">
 <dt>Returns:</dt><dd><p>Boolean.</p>
@@ -669,9 +669,9 @@ CF-netCDF coordinate variable.</p>
 </dl>
 </dd></dl>
 
-<dl class="classmethod">
+<dl class="method">
 <dt id="iris.fileformats.cf.CFClimatologyVariable.identify">
-<em class="property">classmethod </em><code class="descname">identify</code><span class="sig-paren">(</span><em>variables</em>, <em>ignore=None</em>, <em>target=None</em>, <em>warn=True</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFClimatologyVariable.identify" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="sig-name descname">identify</code><span class="sig-paren">(</span><em class="sig-param">variables</em>, <em class="sig-param">ignore=None</em>, <em class="sig-param">target=None</em>, <em class="sig-param">warn=True</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFClimatologyVariable.identify" title="Permalink to this definition">¶</a></dt>
 <dd><p>Identify all variables that match the criterion for this CF-netCDF variable class.</p>
 <p>Args:</p>
 <ul class="simple">
@@ -707,7 +707,7 @@ CF-netCDF coordinate variable.</p>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFClimatologyVariable.spans">
-<code class="descname">spans</code><span class="sig-paren">(</span><em>cf_variable</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFClimatologyVariable.spans" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">spans</code><span class="sig-paren">(</span><em class="sig-param">cf_variable</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFClimatologyVariable.spans" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determine whether the dimensionality of this variable
 is a subset of the specified target variable.</p>
 <p>Note that, by default scalar variables always span the
@@ -728,7 +728,7 @@ dimensionality of the target variable.</p>
 
 <dl class="attribute">
 <dt id="iris.fileformats.cf.CFClimatologyVariable.cf_identity">
-<code class="descname">cf_identity</code><em class="property"> = 'climatology'</em><a class="headerlink" href="#iris.fileformats.cf.CFClimatologyVariable.cf_identity" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cf_identity</code><em class="property"> = 'climatology'</em><a class="headerlink" href="#iris.fileformats.cf.CFClimatologyVariable.cf_identity" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -746,7 +746,7 @@ attribute.</p>
 <blockquote>
 <div><dl class="class">
 <dt id="iris.fileformats.cf.CFCoordinateVariable">
-<em class="property">class </em><code class="descclassname">iris.fileformats.cf.</code><code class="descname">CFCoordinateVariable</code><span class="sig-paren">(</span><em>name</em>, <em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFCoordinateVariable" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">iris.fileformats.cf.</code><code class="sig-name descname">CFCoordinateVariable</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">data</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFCoordinateVariable" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#iris.fileformats.cf.CFVariable" title="iris.fileformats.cf.CFVariable"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.fileformats.cf.CFVariable</span></code></a></p>
 <p>A CF-netCDF coordinate variable is a one-dimensional variable with the same name
 as its dimension, and it is defined as a numeric data type with values that are
@@ -757,7 +757,7 @@ attribute.</p>
 <p>Ref: [CF] 1.2. Terminology.</p>
 <dl class="method">
 <dt id="iris.fileformats.cf.CFCoordinateVariable.add_formula_term">
-<code class="descname">add_formula_term</code><span class="sig-paren">(</span><em>root</em>, <em>term</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFCoordinateVariable.add_formula_term" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">add_formula_term</code><span class="sig-paren">(</span><em class="sig-param">root</em>, <em class="sig-param">term</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFCoordinateVariable.add_formula_term" title="Permalink to this definition">¶</a></dt>
 <dd><p>Register the participation of this CF-netCDF variable in a CF-netCDF formula term.</p>
 <p>Args:</p>
 <ul class="simple">
@@ -780,37 +780,37 @@ attribute.</p>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFCoordinateVariable.cf_attrs">
-<code class="descname">cf_attrs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFCoordinateVariable.cf_attrs" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cf_attrs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFCoordinateVariable.cf_attrs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of all attribute name and value pairs of the CF-netCDF variable.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFCoordinateVariable.cf_attrs_ignored">
-<code class="descname">cf_attrs_ignored</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFCoordinateVariable.cf_attrs_ignored" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cf_attrs_ignored</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFCoordinateVariable.cf_attrs_ignored" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of all ignored attribute name and value pairs of the CF-netCDF variable.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFCoordinateVariable.cf_attrs_reset">
-<code class="descname">cf_attrs_reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFCoordinateVariable.cf_attrs_reset" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cf_attrs_reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFCoordinateVariable.cf_attrs_reset" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reset the history of accessed attribute names of the CF-netCDF variable.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFCoordinateVariable.cf_attrs_unused">
-<code class="descname">cf_attrs_unused</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFCoordinateVariable.cf_attrs_unused" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cf_attrs_unused</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFCoordinateVariable.cf_attrs_unused" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of all non-accessed attribute name and value pairs of the CF-netCDF variable.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFCoordinateVariable.cf_attrs_used">
-<code class="descname">cf_attrs_used</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFCoordinateVariable.cf_attrs_used" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cf_attrs_used</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFCoordinateVariable.cf_attrs_used" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of all accessed attribute name and value pairs of the CF-netCDF variable.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFCoordinateVariable.has_formula_terms">
-<code class="descname">has_formula_terms</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFCoordinateVariable.has_formula_terms" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">has_formula_terms</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFCoordinateVariable.has_formula_terms" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determine whether this CF-netCDF variable participates in a CF-netcdf formula term.</p>
 <dl class="simple">
 <dt>Returns:</dt><dd><p>Boolean.</p>
@@ -818,9 +818,9 @@ attribute.</p>
 </dl>
 </dd></dl>
 
-<dl class="classmethod">
+<dl class="method">
 <dt id="iris.fileformats.cf.CFCoordinateVariable.identify">
-<em class="property">classmethod </em><code class="descname">identify</code><span class="sig-paren">(</span><em>variables</em>, <em>ignore=None</em>, <em>target=None</em>, <em>warn=True</em>, <em>monotonic=False</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFCoordinateVariable.identify" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="sig-name descname">identify</code><span class="sig-paren">(</span><em class="sig-param">variables</em>, <em class="sig-param">ignore=None</em>, <em class="sig-param">target=None</em>, <em class="sig-param">warn=True</em>, <em class="sig-param">monotonic=False</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFCoordinateVariable.identify" title="Permalink to this definition">¶</a></dt>
 <dd><p>Identify all variables that match the criterion for this CF-netCDF variable class.</p>
 <p>Args:</p>
 <ul class="simple">
@@ -856,7 +856,7 @@ attribute.</p>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFCoordinateVariable.spans">
-<code class="descname">spans</code><span class="sig-paren">(</span><em>cf_variable</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFCoordinateVariable.spans" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">spans</code><span class="sig-paren">(</span><em class="sig-param">cf_variable</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFCoordinateVariable.spans" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determine whether the dimensionality of this variable
 is a subset of the specified target variable.</p>
 <p>Note that, by default scalar variables always span the
@@ -877,7 +877,7 @@ dimensionality of the target variable.</p>
 
 <dl class="attribute">
 <dt id="iris.fileformats.cf.CFCoordinateVariable.cf_identity">
-<code class="descname">cf_identity</code><em class="property"> = None</em><a class="headerlink" href="#iris.fileformats.cf.CFCoordinateVariable.cf_identity" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cf_identity</code><em class="property"> = None</em><a class="headerlink" href="#iris.fileformats.cf.CFCoordinateVariable.cf_identity" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -889,12 +889,12 @@ dimensionality of the target variable.</p>
 <blockquote>
 <div><dl class="class">
 <dt id="iris.fileformats.cf.CFDataVariable">
-<em class="property">class </em><code class="descclassname">iris.fileformats.cf.</code><code class="descname">CFDataVariable</code><span class="sig-paren">(</span><em>name</em>, <em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFDataVariable" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">iris.fileformats.cf.</code><code class="sig-name descname">CFDataVariable</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">data</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFDataVariable" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#iris.fileformats.cf.CFVariable" title="iris.fileformats.cf.CFVariable"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.fileformats.cf.CFVariable</span></code></a></p>
 <p>A CF-netCDF variable containing data pay-load that maps to an Iris <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.cube.Cube</span></code></a>.</p>
 <dl class="method">
 <dt id="iris.fileformats.cf.CFDataVariable.add_formula_term">
-<code class="descname">add_formula_term</code><span class="sig-paren">(</span><em>root</em>, <em>term</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFDataVariable.add_formula_term" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">add_formula_term</code><span class="sig-paren">(</span><em class="sig-param">root</em>, <em class="sig-param">term</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFDataVariable.add_formula_term" title="Permalink to this definition">¶</a></dt>
 <dd><p>Register the participation of this CF-netCDF variable in a CF-netCDF formula term.</p>
 <p>Args:</p>
 <ul class="simple">
@@ -917,37 +917,37 @@ dimensionality of the target variable.</p>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFDataVariable.cf_attrs">
-<code class="descname">cf_attrs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFDataVariable.cf_attrs" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cf_attrs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFDataVariable.cf_attrs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of all attribute name and value pairs of the CF-netCDF variable.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFDataVariable.cf_attrs_ignored">
-<code class="descname">cf_attrs_ignored</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFDataVariable.cf_attrs_ignored" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cf_attrs_ignored</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFDataVariable.cf_attrs_ignored" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of all ignored attribute name and value pairs of the CF-netCDF variable.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFDataVariable.cf_attrs_reset">
-<code class="descname">cf_attrs_reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFDataVariable.cf_attrs_reset" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cf_attrs_reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFDataVariable.cf_attrs_reset" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reset the history of accessed attribute names of the CF-netCDF variable.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFDataVariable.cf_attrs_unused">
-<code class="descname">cf_attrs_unused</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFDataVariable.cf_attrs_unused" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cf_attrs_unused</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFDataVariable.cf_attrs_unused" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of all non-accessed attribute name and value pairs of the CF-netCDF variable.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFDataVariable.cf_attrs_used">
-<code class="descname">cf_attrs_used</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFDataVariable.cf_attrs_used" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cf_attrs_used</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFDataVariable.cf_attrs_used" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of all accessed attribute name and value pairs of the CF-netCDF variable.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFDataVariable.has_formula_terms">
-<code class="descname">has_formula_terms</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFDataVariable.has_formula_terms" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">has_formula_terms</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFDataVariable.has_formula_terms" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determine whether this CF-netCDF variable participates in a CF-netcdf formula term.</p>
 <dl class="simple">
 <dt>Returns:</dt><dd><p>Boolean.</p>
@@ -955,9 +955,9 @@ dimensionality of the target variable.</p>
 </dl>
 </dd></dl>
 
-<dl class="classmethod">
+<dl class="method">
 <dt id="iris.fileformats.cf.CFDataVariable.identify">
-<em class="property">classmethod </em><code class="descname">identify</code><span class="sig-paren">(</span><em>variables</em>, <em>ignore=None</em>, <em>target=None</em>, <em>warn=True</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFDataVariable.identify" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="sig-name descname">identify</code><span class="sig-paren">(</span><em class="sig-param">variables</em>, <em class="sig-param">ignore=None</em>, <em class="sig-param">target=None</em>, <em class="sig-param">warn=True</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFDataVariable.identify" title="Permalink to this definition">¶</a></dt>
 <dd><p>Identify all variables that match the criterion for this CF-netCDF variable class.</p>
 <p>Args:</p>
 <ul class="simple">
@@ -993,7 +993,7 @@ dimensionality of the target variable.</p>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFDataVariable.spans">
-<code class="descname">spans</code><span class="sig-paren">(</span><em>cf_variable</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFDataVariable.spans" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">spans</code><span class="sig-paren">(</span><em class="sig-param">cf_variable</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFDataVariable.spans" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determine whether the dimensionality of this variable
 is a subset of the specified target variable.</p>
 <p>Note that, by default scalar variables always span the
@@ -1014,7 +1014,7 @@ dimensionality of the target variable.</p>
 
 <dl class="attribute">
 <dt id="iris.fileformats.cf.CFDataVariable.cf_identity">
-<code class="descname">cf_identity</code><em class="property"> = None</em><a class="headerlink" href="#iris.fileformats.cf.CFDataVariable.cf_identity" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cf_identity</code><em class="property"> = None</em><a class="headerlink" href="#iris.fileformats.cf.CFDataVariable.cf_identity" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -1036,7 +1036,7 @@ independent variables.</p>
 <blockquote>
 <div><dl class="class">
 <dt id="iris.fileformats.cf.CFGridMappingVariable">
-<em class="property">class </em><code class="descclassname">iris.fileformats.cf.</code><code class="descname">CFGridMappingVariable</code><span class="sig-paren">(</span><em>name</em>, <em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFGridMappingVariable" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">iris.fileformats.cf.</code><code class="sig-name descname">CFGridMappingVariable</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">data</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFGridMappingVariable" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#iris.fileformats.cf.CFVariable" title="iris.fileformats.cf.CFVariable"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.fileformats.cf.CFVariable</span></code></a></p>
 <p>A CF-netCDF grid mapping variable contains a list of specific attributes that
 define a particular grid mapping. A CF-netCDF grid mapping variable must contain
@@ -1051,7 +1051,7 @@ independent variables.</p>
 </dl>
 <dl class="method">
 <dt id="iris.fileformats.cf.CFGridMappingVariable.add_formula_term">
-<code class="descname">add_formula_term</code><span class="sig-paren">(</span><em>root</em>, <em>term</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFGridMappingVariable.add_formula_term" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">add_formula_term</code><span class="sig-paren">(</span><em class="sig-param">root</em>, <em class="sig-param">term</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFGridMappingVariable.add_formula_term" title="Permalink to this definition">¶</a></dt>
 <dd><p>Register the participation of this CF-netCDF variable in a CF-netCDF formula term.</p>
 <p>Args:</p>
 <ul class="simple">
@@ -1074,37 +1074,37 @@ independent variables.</p>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFGridMappingVariable.cf_attrs">
-<code class="descname">cf_attrs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFGridMappingVariable.cf_attrs" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cf_attrs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFGridMappingVariable.cf_attrs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of all attribute name and value pairs of the CF-netCDF variable.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFGridMappingVariable.cf_attrs_ignored">
-<code class="descname">cf_attrs_ignored</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFGridMappingVariable.cf_attrs_ignored" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cf_attrs_ignored</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFGridMappingVariable.cf_attrs_ignored" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of all ignored attribute name and value pairs of the CF-netCDF variable.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFGridMappingVariable.cf_attrs_reset">
-<code class="descname">cf_attrs_reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFGridMappingVariable.cf_attrs_reset" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cf_attrs_reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFGridMappingVariable.cf_attrs_reset" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reset the history of accessed attribute names of the CF-netCDF variable.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFGridMappingVariable.cf_attrs_unused">
-<code class="descname">cf_attrs_unused</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFGridMappingVariable.cf_attrs_unused" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cf_attrs_unused</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFGridMappingVariable.cf_attrs_unused" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of all non-accessed attribute name and value pairs of the CF-netCDF variable.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFGridMappingVariable.cf_attrs_used">
-<code class="descname">cf_attrs_used</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFGridMappingVariable.cf_attrs_used" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cf_attrs_used</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFGridMappingVariable.cf_attrs_used" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of all accessed attribute name and value pairs of the CF-netCDF variable.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFGridMappingVariable.has_formula_terms">
-<code class="descname">has_formula_terms</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFGridMappingVariable.has_formula_terms" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">has_formula_terms</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFGridMappingVariable.has_formula_terms" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determine whether this CF-netCDF variable participates in a CF-netcdf formula term.</p>
 <dl class="simple">
 <dt>Returns:</dt><dd><p>Boolean.</p>
@@ -1112,9 +1112,9 @@ independent variables.</p>
 </dl>
 </dd></dl>
 
-<dl class="classmethod">
+<dl class="method">
 <dt id="iris.fileformats.cf.CFGridMappingVariable.identify">
-<em class="property">classmethod </em><code class="descname">identify</code><span class="sig-paren">(</span><em>variables</em>, <em>ignore=None</em>, <em>target=None</em>, <em>warn=True</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFGridMappingVariable.identify" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="sig-name descname">identify</code><span class="sig-paren">(</span><em class="sig-param">variables</em>, <em class="sig-param">ignore=None</em>, <em class="sig-param">target=None</em>, <em class="sig-param">warn=True</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFGridMappingVariable.identify" title="Permalink to this definition">¶</a></dt>
 <dd><p>Identify all variables that match the criterion for this CF-netCDF variable class.</p>
 <p>Args:</p>
 <ul class="simple">
@@ -1150,7 +1150,7 @@ independent variables.</p>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFGridMappingVariable.spans">
-<code class="descname">spans</code><span class="sig-paren">(</span><em>cf_variable</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFGridMappingVariable.spans" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">spans</code><span class="sig-paren">(</span><em class="sig-param">cf_variable</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFGridMappingVariable.spans" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determine whether the dimensionality of this variable
 is a subset of the specified target variable.</p>
 <p>Note that, by default scalar variables always span the
@@ -1171,7 +1171,7 @@ dimensionality of the target variable.</p>
 
 <dl class="attribute">
 <dt id="iris.fileformats.cf.CFGridMappingVariable.cf_identity">
-<code class="descname">cf_identity</code><em class="property"> = 'grid_mapping'</em><a class="headerlink" href="#iris.fileformats.cf.CFGridMappingVariable.cf_identity" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cf_identity</code><em class="property"> = 'grid_mapping'</em><a class="headerlink" href="#iris.fileformats.cf.CFGridMappingVariable.cf_identity" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -1184,51 +1184,51 @@ Conventions’ variables and netCDF global attributes.</p>
 <blockquote>
 <div><dl class="class">
 <dt id="iris.fileformats.cf.CFGroup">
-<em class="property">class </em><code class="descclassname">iris.fileformats.cf.</code><code class="descname">CFGroup</code><a class="headerlink" href="#iris.fileformats.cf.CFGroup" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">iris.fileformats.cf.</code><code class="sig-name descname">CFGroup</code><a class="headerlink" href="#iris.fileformats.cf.CFGroup" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">collections.abc.MutableMapping</span></code>, <a class="reference external" href="https://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Represents a collection of ‘NetCDF Climate and Forecast (CF) Metadata
 Conventions’ variables and netCDF global attributes.</p>
 <dl class="method">
 <dt id="iris.fileformats.cf.CFGroup.clear">
-<code class="descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; None.  Remove all items from D.<a class="headerlink" href="#iris.fileformats.cf.CFGroup.clear" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; None.  Remove all items from D.<a class="headerlink" href="#iris.fileformats.cf.CFGroup.clear" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFGroup.get">
-<code class="descname">get</code><span class="sig-paren">(</span><em>k</em><span class="optional">[</span>, <em>d</em><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; D[k] if k in D, else d.  d defaults to None.<a class="headerlink" href="#iris.fileformats.cf.CFGroup.get" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="sig-param">k</em><span class="optional">[</span>, <em class="sig-param">d</em><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; D[k] if k in D, else d.  d defaults to None.<a class="headerlink" href="#iris.fileformats.cf.CFGroup.get" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFGroup.items">
-<code class="descname">items</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; a set-like object providing a view on D's items<a class="headerlink" href="#iris.fileformats.cf.CFGroup.items" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">items</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; a set-like object providing a view on D's items<a class="headerlink" href="#iris.fileformats.cf.CFGroup.items" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFGroup.keys">
-<code class="descname">keys</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFGroup.keys" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">keys</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFGroup.keys" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the names of all the CF-netCDF variables in the group.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFGroup.pop">
-<code class="descname">pop</code><span class="sig-paren">(</span><em>k</em><span class="optional">[</span>, <em>d</em><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; v, remove specified key and return the corresponding value.<a class="headerlink" href="#iris.fileformats.cf.CFGroup.pop" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">pop</code><span class="sig-paren">(</span><em class="sig-param">k</em><span class="optional">[</span>, <em class="sig-param">d</em><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; v, remove specified key and return the corresponding value.<a class="headerlink" href="#iris.fileformats.cf.CFGroup.pop" title="Permalink to this definition">¶</a></dt>
 <dd><p>If key is not found, d is returned if given, otherwise KeyError is raised.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFGroup.popitem">
-<code class="descname">popitem</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; (k, v), remove and return some (key, value) pair<a class="headerlink" href="#iris.fileformats.cf.CFGroup.popitem" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">popitem</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; (k, v), remove and return some (key, value) pair<a class="headerlink" href="#iris.fileformats.cf.CFGroup.popitem" title="Permalink to this definition">¶</a></dt>
 <dd><p>as a 2-tuple; but raise KeyError if D is empty.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFGroup.setdefault">
-<code class="descname">setdefault</code><span class="sig-paren">(</span><em>k</em><span class="optional">[</span>, <em>d</em><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; D.get(k,d), also set D[k]=d if k not in D<a class="headerlink" href="#iris.fileformats.cf.CFGroup.setdefault" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">setdefault</code><span class="sig-paren">(</span><em class="sig-param">k</em><span class="optional">[</span>, <em class="sig-param">d</em><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; D.get(k,d), also set D[k]=d if k not in D<a class="headerlink" href="#iris.fileformats.cf.CFGroup.setdefault" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFGroup.update">
-<code class="descname">update</code><span class="sig-paren">(</span><span class="optional">[</span><em>E</em>, <span class="optional">]</span><em>**F</em><span class="sig-paren">)</span> &#x2192; None.  Update D from mapping/iterable E and F.<a class="headerlink" href="#iris.fileformats.cf.CFGroup.update" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">update</code><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param">E</em>, <span class="optional">]</span><em class="sig-param">**F</em><span class="sig-paren">)</span> &#x2192; None.  Update D from mapping/iterable E and F.<a class="headerlink" href="#iris.fileformats.cf.CFGroup.update" title="Permalink to this definition">¶</a></dt>
 <dd><p>If E present and has a .keys() method, does:     for k in E: D[k] = E[k]
 If E present and lacks .keys() method, does:     for (k, v) in E: D[k] = v
 In either case, this is followed by: for k, v in F.items(): D[k] = v</p>
@@ -1236,78 +1236,78 @@ In either case, this is followed by: for k, v in F.items(): D[k] = v</p>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFGroup.values">
-<code class="descname">values</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; an object providing a view on D's values<a class="headerlink" href="#iris.fileformats.cf.CFGroup.values" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">values</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; an object providing a view on D's values<a class="headerlink" href="#iris.fileformats.cf.CFGroup.values" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="iris.fileformats.cf.CFGroup.ancillary_variables">
-<code class="descname">ancillary_variables</code><a class="headerlink" href="#iris.fileformats.cf.CFGroup.ancillary_variables" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">ancillary_variables</code><a class="headerlink" href="#iris.fileformats.cf.CFGroup.ancillary_variables" title="Permalink to this definition">¶</a></dt>
 <dd><p>Collection of CF-netCDF ancillary variables.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="iris.fileformats.cf.CFGroup.auxiliary_coordinates">
-<code class="descname">auxiliary_coordinates</code><a class="headerlink" href="#iris.fileformats.cf.CFGroup.auxiliary_coordinates" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">auxiliary_coordinates</code><a class="headerlink" href="#iris.fileformats.cf.CFGroup.auxiliary_coordinates" title="Permalink to this definition">¶</a></dt>
 <dd><p>Collection of CF-netCDF auxiliary coordinate variables.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="iris.fileformats.cf.CFGroup.bounds">
-<code class="descname">bounds</code><a class="headerlink" href="#iris.fileformats.cf.CFGroup.bounds" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">bounds</code><a class="headerlink" href="#iris.fileformats.cf.CFGroup.bounds" title="Permalink to this definition">¶</a></dt>
 <dd><p>Collection of CF-netCDF boundary variables.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="iris.fileformats.cf.CFGroup.cell_measures">
-<code class="descname">cell_measures</code><a class="headerlink" href="#iris.fileformats.cf.CFGroup.cell_measures" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">cell_measures</code><a class="headerlink" href="#iris.fileformats.cf.CFGroup.cell_measures" title="Permalink to this definition">¶</a></dt>
 <dd><p>Collection of CF-netCDF measure variables.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="iris.fileformats.cf.CFGroup.climatology">
-<code class="descname">climatology</code><a class="headerlink" href="#iris.fileformats.cf.CFGroup.climatology" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">climatology</code><a class="headerlink" href="#iris.fileformats.cf.CFGroup.climatology" title="Permalink to this definition">¶</a></dt>
 <dd><p>Collection of CF-netCDF climatology variables.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="iris.fileformats.cf.CFGroup.coordinates">
-<code class="descname">coordinates</code><a class="headerlink" href="#iris.fileformats.cf.CFGroup.coordinates" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">coordinates</code><a class="headerlink" href="#iris.fileformats.cf.CFGroup.coordinates" title="Permalink to this definition">¶</a></dt>
 <dd><p>Collection of CF-netCDF coordinate variables.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="iris.fileformats.cf.CFGroup.data_variables">
-<code class="descname">data_variables</code><a class="headerlink" href="#iris.fileformats.cf.CFGroup.data_variables" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">data_variables</code><a class="headerlink" href="#iris.fileformats.cf.CFGroup.data_variables" title="Permalink to this definition">¶</a></dt>
 <dd><p>Collection of CF-netCDF data pay-load variables.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="iris.fileformats.cf.CFGroup.formula_terms">
-<code class="descname">formula_terms</code><a class="headerlink" href="#iris.fileformats.cf.CFGroup.formula_terms" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">formula_terms</code><a class="headerlink" href="#iris.fileformats.cf.CFGroup.formula_terms" title="Permalink to this definition">¶</a></dt>
 <dd><p>Collection of CF-netCDF variables that participate in a CF-netCDF formula term.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="iris.fileformats.cf.CFGroup.global_attributes">
-<code class="descname">global_attributes</code><em class="property"> = None</em><a class="headerlink" href="#iris.fileformats.cf.CFGroup.global_attributes" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">global_attributes</code><em class="property"> = None</em><a class="headerlink" href="#iris.fileformats.cf.CFGroup.global_attributes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Collection of netCDF global attributes</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="iris.fileformats.cf.CFGroup.grid_mappings">
-<code class="descname">grid_mappings</code><a class="headerlink" href="#iris.fileformats.cf.CFGroup.grid_mappings" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">grid_mappings</code><a class="headerlink" href="#iris.fileformats.cf.CFGroup.grid_mappings" title="Permalink to this definition">¶</a></dt>
 <dd><p>Collection of CF-netCDF grid mapping variables.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="iris.fileformats.cf.CFGroup.labels">
-<code class="descname">labels</code><a class="headerlink" href="#iris.fileformats.cf.CFGroup.labels" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">labels</code><a class="headerlink" href="#iris.fileformats.cf.CFGroup.labels" title="Permalink to this definition">¶</a></dt>
 <dd><p>Collection of CF-netCDF label variables.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="iris.fileformats.cf.CFGroup.promoted">
-<code class="descname">promoted</code><em class="property"> = None</em><a class="headerlink" href="#iris.fileformats.cf.CFGroup.promoted" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">promoted</code><em class="property"> = None</em><a class="headerlink" href="#iris.fileformats.cf.CFGroup.promoted" title="Permalink to this definition">¶</a></dt>
 <dd><p>Collection of CF-netCDF variables promoted to a CFDataVariable.</p>
 </dd></dl>
 
@@ -1324,7 +1324,7 @@ Also see <a class="reference internal" href="#iris.fileformats.cf.CFAuxiliaryCoo
 <blockquote>
 <div><dl class="class">
 <dt id="iris.fileformats.cf.CFLabelVariable">
-<em class="property">class </em><code class="descclassname">iris.fileformats.cf.</code><code class="descname">CFLabelVariable</code><span class="sig-paren">(</span><em>name</em>, <em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFLabelVariable" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">iris.fileformats.cf.</code><code class="sig-name descname">CFLabelVariable</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">data</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFLabelVariable" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#iris.fileformats.cf.CFVariable" title="iris.fileformats.cf.CFVariable"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.fileformats.cf.CFVariable</span></code></a></p>
 <p>A CF-netCDF CF label variable is any netCDF variable that contain string
 textual information, or labels.</p>
@@ -1333,7 +1333,7 @@ Also see <a class="reference internal" href="#iris.fileformats.cf.CFAuxiliaryCoo
 <p>Ref: [CF] Section 6.1. Labels.</p>
 <dl class="method">
 <dt id="iris.fileformats.cf.CFLabelVariable.add_formula_term">
-<code class="descname">add_formula_term</code><span class="sig-paren">(</span><em>root</em>, <em>term</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFLabelVariable.add_formula_term" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">add_formula_term</code><span class="sig-paren">(</span><em class="sig-param">root</em>, <em class="sig-param">term</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFLabelVariable.add_formula_term" title="Permalink to this definition">¶</a></dt>
 <dd><p>Register the participation of this CF-netCDF variable in a CF-netCDF formula term.</p>
 <p>Args:</p>
 <ul class="simple">
@@ -1356,37 +1356,37 @@ Also see <a class="reference internal" href="#iris.fileformats.cf.CFAuxiliaryCoo
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFLabelVariable.cf_attrs">
-<code class="descname">cf_attrs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFLabelVariable.cf_attrs" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cf_attrs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFLabelVariable.cf_attrs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of all attribute name and value pairs of the CF-netCDF variable.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFLabelVariable.cf_attrs_ignored">
-<code class="descname">cf_attrs_ignored</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFLabelVariable.cf_attrs_ignored" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cf_attrs_ignored</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFLabelVariable.cf_attrs_ignored" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of all ignored attribute name and value pairs of the CF-netCDF variable.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFLabelVariable.cf_attrs_reset">
-<code class="descname">cf_attrs_reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFLabelVariable.cf_attrs_reset" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cf_attrs_reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFLabelVariable.cf_attrs_reset" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reset the history of accessed attribute names of the CF-netCDF variable.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFLabelVariable.cf_attrs_unused">
-<code class="descname">cf_attrs_unused</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFLabelVariable.cf_attrs_unused" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cf_attrs_unused</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFLabelVariable.cf_attrs_unused" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of all non-accessed attribute name and value pairs of the CF-netCDF variable.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFLabelVariable.cf_attrs_used">
-<code class="descname">cf_attrs_used</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFLabelVariable.cf_attrs_used" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cf_attrs_used</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFLabelVariable.cf_attrs_used" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of all accessed attribute name and value pairs of the CF-netCDF variable.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFLabelVariable.cf_label_data">
-<code class="descname">cf_label_data</code><span class="sig-paren">(</span><em>cf_data_var</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFLabelVariable.cf_label_data" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cf_label_data</code><span class="sig-paren">(</span><em class="sig-param">cf_data_var</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFLabelVariable.cf_label_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the associated CF-netCDF label variable strings.</p>
 <p>Args:</p>
 <ul class="simple">
@@ -1404,7 +1404,7 @@ Also see <a class="reference internal" href="#iris.fileformats.cf.CFAuxiliaryCoo
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFLabelVariable.cf_label_dimensions">
-<code class="descname">cf_label_dimensions</code><span class="sig-paren">(</span><em>cf_data_var</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFLabelVariable.cf_label_dimensions" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cf_label_dimensions</code><span class="sig-paren">(</span><em class="sig-param">cf_data_var</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFLabelVariable.cf_label_dimensions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the name of the associated CF-netCDF label variable data dimensions.</p>
 <p>Args:</p>
 <ul class="simple">
@@ -1422,7 +1422,7 @@ Also see <a class="reference internal" href="#iris.fileformats.cf.CFAuxiliaryCoo
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFLabelVariable.has_formula_terms">
-<code class="descname">has_formula_terms</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFLabelVariable.has_formula_terms" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">has_formula_terms</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFLabelVariable.has_formula_terms" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determine whether this CF-netCDF variable participates in a CF-netcdf formula term.</p>
 <dl class="simple">
 <dt>Returns:</dt><dd><p>Boolean.</p>
@@ -1430,9 +1430,9 @@ Also see <a class="reference internal" href="#iris.fileformats.cf.CFAuxiliaryCoo
 </dl>
 </dd></dl>
 
-<dl class="classmethod">
+<dl class="method">
 <dt id="iris.fileformats.cf.CFLabelVariable.identify">
-<em class="property">classmethod </em><code class="descname">identify</code><span class="sig-paren">(</span><em>variables</em>, <em>ignore=None</em>, <em>target=None</em>, <em>warn=True</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFLabelVariable.identify" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="sig-name descname">identify</code><span class="sig-paren">(</span><em class="sig-param">variables</em>, <em class="sig-param">ignore=None</em>, <em class="sig-param">target=None</em>, <em class="sig-param">warn=True</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFLabelVariable.identify" title="Permalink to this definition">¶</a></dt>
 <dd><p>Identify all variables that match the criterion for this CF-netCDF variable class.</p>
 <p>Args:</p>
 <ul class="simple">
@@ -1468,7 +1468,7 @@ Also see <a class="reference internal" href="#iris.fileformats.cf.CFAuxiliaryCoo
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFLabelVariable.spans">
-<code class="descname">spans</code><span class="sig-paren">(</span><em>cf_variable</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFLabelVariable.spans" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">spans</code><span class="sig-paren">(</span><em class="sig-param">cf_variable</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFLabelVariable.spans" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determine whether the dimensionality of this variable
 is a subset of the specified target variable.</p>
 <p>Note that, by default scalar variables always span the
@@ -1489,7 +1489,7 @@ dimensionality of the target variable.</p>
 
 <dl class="attribute">
 <dt id="iris.fileformats.cf.CFLabelVariable.cf_identity">
-<code class="descname">cf_identity</code><em class="property"> = 'coordinates'</em><a class="headerlink" href="#iris.fileformats.cf.CFLabelVariable.cf_identity" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cf_identity</code><em class="property"> = 'coordinates'</em><a class="headerlink" href="#iris.fileformats.cf.CFLabelVariable.cf_identity" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -1503,14 +1503,14 @@ dimensionality of the target variable.</p>
 <blockquote>
 <div><dl class="class">
 <dt id="iris.fileformats.cf.CFMeasureVariable">
-<em class="property">class </em><code class="descclassname">iris.fileformats.cf.</code><code class="descname">CFMeasureVariable</code><span class="sig-paren">(</span><em>name</em>, <em>data</em>, <em>measure</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFMeasureVariable" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">iris.fileformats.cf.</code><code class="sig-name descname">CFMeasureVariable</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">data</em>, <em class="sig-param">measure</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFMeasureVariable" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#iris.fileformats.cf.CFVariable" title="iris.fileformats.cf.CFVariable"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.fileformats.cf.CFVariable</span></code></a></p>
 <p>A CF-netCDF measure variable is a variable that contains cell areas or volumes.</p>
 <p>Identified by the CF-netCDF variable attribute ‘cell_measures’.</p>
 <p>Ref: [CF] Section 7.2. Cell Measures.</p>
 <dl class="method">
 <dt id="iris.fileformats.cf.CFMeasureVariable.add_formula_term">
-<code class="descname">add_formula_term</code><span class="sig-paren">(</span><em>root</em>, <em>term</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFMeasureVariable.add_formula_term" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">add_formula_term</code><span class="sig-paren">(</span><em class="sig-param">root</em>, <em class="sig-param">term</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFMeasureVariable.add_formula_term" title="Permalink to this definition">¶</a></dt>
 <dd><p>Register the participation of this CF-netCDF variable in a CF-netCDF formula term.</p>
 <p>Args:</p>
 <ul class="simple">
@@ -1533,37 +1533,37 @@ dimensionality of the target variable.</p>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFMeasureVariable.cf_attrs">
-<code class="descname">cf_attrs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFMeasureVariable.cf_attrs" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cf_attrs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFMeasureVariable.cf_attrs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of all attribute name and value pairs of the CF-netCDF variable.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFMeasureVariable.cf_attrs_ignored">
-<code class="descname">cf_attrs_ignored</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFMeasureVariable.cf_attrs_ignored" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cf_attrs_ignored</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFMeasureVariable.cf_attrs_ignored" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of all ignored attribute name and value pairs of the CF-netCDF variable.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFMeasureVariable.cf_attrs_reset">
-<code class="descname">cf_attrs_reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFMeasureVariable.cf_attrs_reset" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cf_attrs_reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFMeasureVariable.cf_attrs_reset" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reset the history of accessed attribute names of the CF-netCDF variable.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFMeasureVariable.cf_attrs_unused">
-<code class="descname">cf_attrs_unused</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFMeasureVariable.cf_attrs_unused" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cf_attrs_unused</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFMeasureVariable.cf_attrs_unused" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of all non-accessed attribute name and value pairs of the CF-netCDF variable.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFMeasureVariable.cf_attrs_used">
-<code class="descname">cf_attrs_used</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFMeasureVariable.cf_attrs_used" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cf_attrs_used</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFMeasureVariable.cf_attrs_used" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of all accessed attribute name and value pairs of the CF-netCDF variable.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFMeasureVariable.has_formula_terms">
-<code class="descname">has_formula_terms</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFMeasureVariable.has_formula_terms" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">has_formula_terms</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFMeasureVariable.has_formula_terms" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determine whether this CF-netCDF variable participates in a CF-netcdf formula term.</p>
 <dl class="simple">
 <dt>Returns:</dt><dd><p>Boolean.</p>
@@ -1571,9 +1571,9 @@ dimensionality of the target variable.</p>
 </dl>
 </dd></dl>
 
-<dl class="classmethod">
+<dl class="method">
 <dt id="iris.fileformats.cf.CFMeasureVariable.identify">
-<em class="property">classmethod </em><code class="descname">identify</code><span class="sig-paren">(</span><em>variables</em>, <em>ignore=None</em>, <em>target=None</em>, <em>warn=True</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFMeasureVariable.identify" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="sig-name descname">identify</code><span class="sig-paren">(</span><em class="sig-param">variables</em>, <em class="sig-param">ignore=None</em>, <em class="sig-param">target=None</em>, <em class="sig-param">warn=True</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFMeasureVariable.identify" title="Permalink to this definition">¶</a></dt>
 <dd><p>Identify all variables that match the criterion for this CF-netCDF variable class.</p>
 <p>Args:</p>
 <ul class="simple">
@@ -1609,7 +1609,7 @@ dimensionality of the target variable.</p>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFMeasureVariable.spans">
-<code class="descname">spans</code><span class="sig-paren">(</span><em>cf_variable</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFMeasureVariable.spans" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">spans</code><span class="sig-paren">(</span><em class="sig-param">cf_variable</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFMeasureVariable.spans" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determine whether the dimensionality of this variable
 is a subset of the specified target variable.</p>
 <p>Note that, by default scalar variables always span the
@@ -1630,12 +1630,12 @@ dimensionality of the target variable.</p>
 
 <dl class="attribute">
 <dt id="iris.fileformats.cf.CFMeasureVariable.cf_identity">
-<code class="descname">cf_identity</code><em class="property"> = 'cell_measures'</em><a class="headerlink" href="#iris.fileformats.cf.CFMeasureVariable.cf_identity" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cf_identity</code><em class="property"> = 'cell_measures'</em><a class="headerlink" href="#iris.fileformats.cf.CFMeasureVariable.cf_identity" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="iris.fileformats.cf.CFMeasureVariable.cf_measure">
-<code class="descname">cf_measure</code><em class="property"> = None</em><a class="headerlink" href="#iris.fileformats.cf.CFMeasureVariable.cf_measure" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cf_measure</code><em class="property"> = None</em><a class="headerlink" href="#iris.fileformats.cf.CFMeasureVariable.cf_measure" title="Permalink to this definition">¶</a></dt>
 <dd><p>Associated cell measure of the cell variable</p>
 </dd></dl>
 
@@ -1649,13 +1649,13 @@ to the ‘NetCDF Climate and Forecast (CF) Metadata Conventions’.</p>
 <blockquote>
 <div><dl class="class">
 <dt id="iris.fileformats.cf.CFReader">
-<em class="property">class </em><code class="descclassname">iris.fileformats.cf.</code><code class="descname">CFReader</code><span class="sig-paren">(</span><em>filename</em>, <em>warn=False</em>, <em>monotonic=False</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFReader" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">iris.fileformats.cf.</code><code class="sig-name descname">CFReader</code><span class="sig-paren">(</span><em class="sig-param">filename</em>, <em class="sig-param">warn=False</em>, <em class="sig-param">monotonic=False</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFReader" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>This class allows the contents of a netCDF file to be interpreted according
 to the ‘NetCDF Climate and Forecast (CF) Metadata Conventions’.</p>
 <dl class="attribute">
 <dt id="iris.fileformats.cf.CFReader.cf_group">
-<code class="descname">cf_group</code><em class="property"> = None</em><a class="headerlink" href="#iris.fileformats.cf.CFReader.cf_group" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cf_group</code><em class="property"> = None</em><a class="headerlink" href="#iris.fileformats.cf.CFReader.cf_group" title="Permalink to this definition">¶</a></dt>
 <dd><p>Collection of CF-netCDF variables associated with this netCDF file</p>
 </dd></dl>
 
@@ -1668,12 +1668,12 @@ to the ‘NetCDF Climate and Forecast (CF) Metadata Conventions’.</p>
 <blockquote>
 <div><dl class="class">
 <dt id="iris.fileformats.cf.CFVariable">
-<em class="property">class </em><code class="descclassname">iris.fileformats.cf.</code><code class="descname">CFVariable</code><span class="sig-paren">(</span><em>name</em>, <em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFVariable" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">iris.fileformats.cf.</code><code class="sig-name descname">CFVariable</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">data</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFVariable" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Abstract base class wrapper for a CF-netCDF variable.</p>
 <dl class="method">
 <dt id="iris.fileformats.cf.CFVariable.add_formula_term">
-<code class="descname">add_formula_term</code><span class="sig-paren">(</span><em>root</em>, <em>term</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFVariable.add_formula_term" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">add_formula_term</code><span class="sig-paren">(</span><em class="sig-param">root</em>, <em class="sig-param">term</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFVariable.add_formula_term" title="Permalink to this definition">¶</a></dt>
 <dd><p>Register the participation of this CF-netCDF variable in a CF-netCDF formula term.</p>
 <p>Args:</p>
 <ul class="simple">
@@ -1696,37 +1696,37 @@ to the ‘NetCDF Climate and Forecast (CF) Metadata Conventions’.</p>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFVariable.cf_attrs">
-<code class="descname">cf_attrs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFVariable.cf_attrs" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cf_attrs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFVariable.cf_attrs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of all attribute name and value pairs of the CF-netCDF variable.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFVariable.cf_attrs_ignored">
-<code class="descname">cf_attrs_ignored</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFVariable.cf_attrs_ignored" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cf_attrs_ignored</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFVariable.cf_attrs_ignored" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of all ignored attribute name and value pairs of the CF-netCDF variable.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFVariable.cf_attrs_reset">
-<code class="descname">cf_attrs_reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFVariable.cf_attrs_reset" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cf_attrs_reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFVariable.cf_attrs_reset" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reset the history of accessed attribute names of the CF-netCDF variable.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFVariable.cf_attrs_unused">
-<code class="descname">cf_attrs_unused</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFVariable.cf_attrs_unused" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cf_attrs_unused</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFVariable.cf_attrs_unused" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of all non-accessed attribute name and value pairs of the CF-netCDF variable.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFVariable.cf_attrs_used">
-<code class="descname">cf_attrs_used</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFVariable.cf_attrs_used" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cf_attrs_used</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFVariable.cf_attrs_used" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of all accessed attribute name and value pairs of the CF-netCDF variable.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFVariable.has_formula_terms">
-<code class="descname">has_formula_terms</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFVariable.has_formula_terms" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">has_formula_terms</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFVariable.has_formula_terms" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determine whether this CF-netCDF variable participates in a CF-netcdf formula term.</p>
 <dl class="simple">
 <dt>Returns:</dt><dd><p>Boolean.</p>
@@ -1736,7 +1736,7 @@ to the ‘NetCDF Climate and Forecast (CF) Metadata Conventions’.</p>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFVariable.identify">
-<code class="descname">identify</code><span class="sig-paren">(</span><em>variables</em>, <em>ignore=None</em>, <em>target=None</em>, <em>warn=True</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFVariable.identify" title="Permalink to this definition">¶</a></dt>
+<em class="property">abstract </em><code class="sig-name descname">identify</code><span class="sig-paren">(</span><em class="sig-param">variables</em>, <em class="sig-param">ignore=None</em>, <em class="sig-param">target=None</em>, <em class="sig-param">warn=True</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFVariable.identify" title="Permalink to this definition">¶</a></dt>
 <dd><p>Identify all variables that match the criterion for this CF-netCDF variable class.</p>
 <p>Args:</p>
 <ul class="simple">
@@ -1772,7 +1772,7 @@ to the ‘NetCDF Climate and Forecast (CF) Metadata Conventions’.</p>
 
 <dl class="method">
 <dt id="iris.fileformats.cf.CFVariable.spans">
-<code class="descname">spans</code><span class="sig-paren">(</span><em>cf_variable</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFVariable.spans" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">spans</code><span class="sig-paren">(</span><em class="sig-param">cf_variable</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.cf.CFVariable.spans" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determine whether the dimensionality of this variable
 is a subset of the specified target variable.</p>
 <p>Note that, by default scalar variables always span the
@@ -1793,32 +1793,32 @@ dimensionality of the target variable.</p>
 
 <dl class="attribute">
 <dt id="iris.fileformats.cf.CFVariable.cf_data">
-<code class="descname">cf_data</code><em class="property"> = None</em><a class="headerlink" href="#iris.fileformats.cf.CFVariable.cf_data" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cf_data</code><em class="property"> = None</em><a class="headerlink" href="#iris.fileformats.cf.CFVariable.cf_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>NetCDF4 Variable data instance.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="iris.fileformats.cf.CFVariable.cf_group">
-<code class="descname">cf_group</code><em class="property"> = None</em><a class="headerlink" href="#iris.fileformats.cf.CFVariable.cf_group" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cf_group</code><em class="property"> = None</em><a class="headerlink" href="#iris.fileformats.cf.CFVariable.cf_group" title="Permalink to this definition">¶</a></dt>
 <dd><p>Collection of CF-netCDF variables associated with this variable.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="iris.fileformats.cf.CFVariable.cf_identity">
-<code class="descname">cf_identity</code><em class="property"> = None</em><a class="headerlink" href="#iris.fileformats.cf.CFVariable.cf_identity" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cf_identity</code><em class="property"> = None</em><a class="headerlink" href="#iris.fileformats.cf.CFVariable.cf_identity" title="Permalink to this definition">¶</a></dt>
 <dd><p>Name of the netCDF variable attribute that identifies this
 CF-netCDF variable.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="iris.fileformats.cf.CFVariable.cf_name">
-<code class="descname">cf_name</code><em class="property"> = None</em><a class="headerlink" href="#iris.fileformats.cf.CFVariable.cf_name" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cf_name</code><em class="property"> = None</em><a class="headerlink" href="#iris.fileformats.cf.CFVariable.cf_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>NetCDF variable name.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="iris.fileformats.cf.CFVariable.cf_terms_by_root">
-<code class="descname">cf_terms_by_root</code><em class="property"> = None</em><a class="headerlink" href="#iris.fileformats.cf.CFVariable.cf_terms_by_root" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">cf_terms_by_root</code><em class="property"> = None</em><a class="headerlink" href="#iris.fileformats.cf.CFVariable.cf_terms_by_root" title="Permalink to this definition">¶</a></dt>
 <dd><p>CF-netCDF formula terms that his variable participates in.</p>
 </dd></dl>
 

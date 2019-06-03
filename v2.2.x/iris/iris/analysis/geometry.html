@@ -95,10 +95,10 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
     </form>
     </div>
@@ -127,7 +127,7 @@
 </div></blockquote>
 <dl class="function">
 <dt id="iris.analysis.geometry.geometry_area_weights">
-<code class="descclassname">iris.analysis.geometry.</code><code class="descname">geometry_area_weights</code><span class="sig-paren">(</span><em>cube</em>, <em>geometry</em>, <em>normalize=False</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.analysis.geometry.geometry_area_weights" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.analysis.geometry.</code><code class="sig-name descname">geometry_area_weights</code><span class="sig-paren">(</span><em class="sig-param">cube</em>, <em class="sig-param">geometry</em>, <em class="sig-param">normalize=False</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.analysis.geometry.geometry_area_weights" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the array of weights corresponding to the area of overlap between
 the cells of cube’s horizontal grid, and the given shapely geometry.</p>
 <p>The returned array is suitable for use with <a class="reference internal" href="../analysis.html#iris.analysis.MEAN" title="iris.analysis.MEAN"><code class="xref py py-const docutils literal notranslate"><span class="pre">iris.analysis.MEAN</span></code></a>.</p>
