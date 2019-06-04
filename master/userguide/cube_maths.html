@@ -1,11 +1,9 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>11. Basic cube mathematics &#8212; Iris 2.3.0dev0 documentation</title>
     <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -106,13 +104,11 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
@@ -140,11 +136,11 @@ intended. This example could be rectified by changing the units attribute:</p>
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="admonition-title">Note</p>
 <p><a class="reference internal" href="../iris/iris/cube.html#iris.cube.Cube.convert_units" title="iris.cube.Cube.convert_units"><code class="xref py py-meth docutils literal notranslate"><span class="pre">iris.cube.Cube.convert_units()</span></code></a> can be used to automatically convert a
 cube’s data and update its units attribute.
 So, the two steps above can be achieved by:</p>
-<div class="last highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cube</span><span class="o">.</span><span class="n">convert_units</span><span class="p">(</span><span class="s1">&#39;celsius&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cube</span><span class="o">.</span><span class="n">convert_units</span><span class="p">(</span><span class="s1">&#39;celsius&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -178,8 +174,8 @@ but with the data representing their difference:</p>
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Notice that the coordinates “time” and “forecast_period” have been removed
+<p class="admonition-title">Note</p>
+<p>Notice that the coordinates “time” and “forecast_period” have been removed
 from the resultant cube;
 this is because these coordinates differed between the two input cubes.</p>
 </div>
@@ -304,8 +300,9 @@ using the equation above:</p>
 </div>
 <p>The result could now be plotted using the guidance provided in the
 <a class="reference internal" href="plotting_a_cube.html"><span class="doc">Plotting a cube</span></a> section.</p>
-A very similar example to this can be found in
-<a class="reference internal" href="../examples/Meteorology/deriving_phenomena.html"><span class="doc">Deriving Exner Pressure and Air Temperature</span></a>.</div>
+<p>A very similar example to this can be found in
+<a class="reference internal" href="../examples/Meteorology/deriving_phenomena.html"><span class="doc">Deriving Exner Pressure and Air Temperature</span></a>.</p>
+</div>
 </div>
 
 
