@@ -1,0 +1,43 @@
+What's New in Iris <interim>
+****************************
+
+:Release: <interim>
+:Date: <unreleased>
+
+This document explains the new/changed features of Iris in version <interim>
+(:doc:`View all changes <index>`.)
+
+Iris <interim> Features
+=======================
+* :class:`iris.experimental.regrid.PointInCell` moved to
+:class:`iris.analysis.PointInCell` to make this regridding scheme public
+
+----
+
+* Iris now makes better choices of dask chunk sizes, when loading from netcdf
+  files:  If a file variable has specified, small chunks, Iris will now choose
+  dask chunks which are a multiple of these, up to a default target size.
+  This is particularly relevant to files with an unlimited dimension, which
+  previously could produce a large number of small chunks.
+  In addition, Iris now takes its default chunksize from the default configured
+  in dask itself, i.e. `dask.config.get('array.chunk-size')`.
+
+----
+
+
+Bugs Fixed
+==========
+* The name of cubes loaded from abf/abl files has been corrected.
+
+----
+
+* :meth:`iris.cube.Cube.collapsed` now handles partial collapsing of
+multidimensional coordinates that have bounds.
+
+----
+
+* :meth:`iris.cube.Cube.aggregated_by` now gives correct values in points and
+bounds when handling multidimensional coordinates.
+
+----
+
