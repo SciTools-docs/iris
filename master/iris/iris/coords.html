@@ -499,11 +499,31 @@ Array will be a new lazy array wrapper.</p>
 
 <dl class="method">
 <dt id="iris.coords.AuxCoord.name">
-<code class="sig-name descname">name</code><span class="sig-paren">(</span><em class="sig-param">default='unknown'</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.AuxCoord.name" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">name</code><span class="sig-paren">(</span><em class="sig-param">default=None</em>, <em class="sig-param">token=False</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.AuxCoord.name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a human-readable name.</p>
 <p>First it tries <a class="reference internal" href="#iris.coords.AuxCoord.standard_name" title="iris.coords.AuxCoord.standard_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">standard_name</span></code></a>, then ‘long_name’, then
 ‘var_name’, then the STASH attribute before falling back to
 the value of <cite>default</cite> (which itself defaults to ‘unknown’).</p>
+<p>Kwargs:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>default:</dt><dd><p>The value of the default name.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>token:</dt><dd><p>If true, ensure that the name returned satisfies the criteria for
+the characters required by a valid NetCDF name. If it is not
+possible to return a valid name, then a ValueError exception is
+raised.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>String.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
@@ -538,6 +558,25 @@ to the other end of the values.</p>
 <p>If ‘name’ is a valid standard name it will assign it to
 <a class="reference internal" href="#iris.coords.AuxCoord.standard_name" title="iris.coords.AuxCoord.standard_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">standard_name</span></code></a>, otherwise it will assign it to
 <code class="xref py py-attr docutils literal notranslate"><span class="pre">long_name</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="iris.coords.AuxCoord.token">
+<em class="property">static </em><code class="sig-name descname">token</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.AuxCoord.token" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine whether the provided name is a valid NetCDF name and thus
+safe to represent a single parsable token.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>name:</dt><dd><p>The string name to verify</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>The provided name if valid, otherwise None.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
@@ -765,11 +804,31 @@ cell_measure being copied.</p>
 
 <dl class="method">
 <dt id="iris.coords.CellMeasure.name">
-<code class="sig-name descname">name</code><span class="sig-paren">(</span><em class="sig-param">default='unknown'</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.CellMeasure.name" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">name</code><span class="sig-paren">(</span><em class="sig-param">default=None</em>, <em class="sig-param">token=False</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.CellMeasure.name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a human-readable name.</p>
 <p>First it tries <a class="reference internal" href="#iris.coords.CellMeasure.standard_name" title="iris.coords.CellMeasure.standard_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">standard_name</span></code></a>, then ‘long_name’, then
 ‘var_name’, then the STASH attribute before falling back to
 the value of <cite>default</cite> (which itself defaults to ‘unknown’).</p>
+<p>Kwargs:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>default:</dt><dd><p>The value of the default name.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>token:</dt><dd><p>If true, ensure that the name returned satisfies the criteria for
+the characters required by a valid NetCDF name. If it is not
+possible to return a valid name, then a ValueError exception is
+raised.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>String.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
@@ -779,6 +838,25 @@ the value of <cite>default</cite> (which itself defaults to ‘unknown’).</p>
 <p>If ‘name’ is a valid standard name it will assign it to
 <a class="reference internal" href="#iris.coords.CellMeasure.standard_name" title="iris.coords.CellMeasure.standard_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">standard_name</span></code></a>, otherwise it will assign it to
 <a class="reference internal" href="#iris.coords.CellMeasure.long_name" title="iris.coords.CellMeasure.long_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">long_name</span></code></a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="iris.coords.CellMeasure.token">
+<em class="property">static </em><code class="sig-name descname">token</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.CellMeasure.token" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine whether the provided name is a valid NetCDF name and thus
+safe to represent a single parsable token.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>name:</dt><dd><p>The string name to verify</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>The provided name if valid, otherwise None.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
@@ -1279,11 +1357,31 @@ Array will be a new lazy array wrapper.</p>
 
 <dl class="method">
 <dt id="iris.coords.Coord.name">
-<code class="sig-name descname">name</code><span class="sig-paren">(</span><em class="sig-param">default='unknown'</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.Coord.name" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">name</code><span class="sig-paren">(</span><em class="sig-param">default=None</em>, <em class="sig-param">token=False</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.Coord.name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a human-readable name.</p>
 <p>First it tries <a class="reference internal" href="#iris.coords.Coord.standard_name" title="iris.coords.Coord.standard_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">standard_name</span></code></a>, then ‘long_name’, then
 ‘var_name’, then the STASH attribute before falling back to
 the value of <cite>default</cite> (which itself defaults to ‘unknown’).</p>
+<p>Kwargs:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>default:</dt><dd><p>The value of the default name.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>token:</dt><dd><p>If true, ensure that the name returned satisfies the criteria for
+the characters required by a valid NetCDF name. If it is not
+possible to return a valid name, then a ValueError exception is
+raised.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>String.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
@@ -1318,6 +1416,25 @@ to the other end of the values.</p>
 <p>If ‘name’ is a valid standard name it will assign it to
 <a class="reference internal" href="#iris.coords.Coord.standard_name" title="iris.coords.Coord.standard_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">standard_name</span></code></a>, otherwise it will assign it to
 <a class="reference internal" href="#iris.coords.Coord.long_name" title="iris.coords.Coord.long_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">long_name</span></code></a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="iris.coords.Coord.token">
+<em class="property">static </em><code class="sig-name descname">token</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.Coord.token" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine whether the provided name is a valid NetCDF name and thus
+safe to represent a single parsable token.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>name:</dt><dd><p>The string name to verify</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>The provided name if valid, otherwise None.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
@@ -1930,11 +2047,31 @@ Array will be a new lazy array wrapper.</p>
 
 <dl class="method">
 <dt id="iris.coords.DimCoord.name">
-<code class="sig-name descname">name</code><span class="sig-paren">(</span><em class="sig-param">default='unknown'</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.DimCoord.name" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">name</code><span class="sig-paren">(</span><em class="sig-param">default=None</em>, <em class="sig-param">token=False</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.DimCoord.name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a human-readable name.</p>
 <p>First it tries <a class="reference internal" href="#iris.coords.DimCoord.standard_name" title="iris.coords.DimCoord.standard_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">standard_name</span></code></a>, then ‘long_name’, then
 ‘var_name’, then the STASH attribute before falling back to
 the value of <cite>default</cite> (which itself defaults to ‘unknown’).</p>
+<p>Kwargs:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>default:</dt><dd><p>The value of the default name.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>token:</dt><dd><p>If true, ensure that the name returned satisfies the criteria for
+the characters required by a valid NetCDF name. If it is not
+possible to return a valid name, then a ValueError exception is
+raised.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>String.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
@@ -1969,6 +2106,25 @@ to the other end of the values.</p>
 <p>If ‘name’ is a valid standard name it will assign it to
 <a class="reference internal" href="#iris.coords.DimCoord.standard_name" title="iris.coords.DimCoord.standard_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">standard_name</span></code></a>, otherwise it will assign it to
 <code class="xref py py-attr docutils literal notranslate"><span class="pre">long_name</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="iris.coords.DimCoord.token">
+<em class="property">static </em><code class="sig-name descname">token</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.DimCoord.token" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine whether the provided name is a valid NetCDF name and thus
+safe to represent a single parsable token.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>name:</dt><dd><p>The string name to verify</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>The provided name if valid, otherwise None.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">

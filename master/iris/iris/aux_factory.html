@@ -185,11 +185,31 @@ See <a class="reference internal" href="cube.html#iris.cube.Cube.coord_dims" tit
 
 <dl class="method">
 <dt id="iris.aux_factory.AuxCoordFactory.name">
-<code class="sig-name descname">name</code><span class="sig-paren">(</span><em class="sig-param">default='unknown'</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.AuxCoordFactory.name" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">name</code><span class="sig-paren">(</span><em class="sig-param">default=None</em>, <em class="sig-param">token=False</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.AuxCoordFactory.name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a human-readable name.</p>
 <p>First it tries <a class="reference internal" href="#iris.aux_factory.AuxCoordFactory.standard_name" title="iris.aux_factory.AuxCoordFactory.standard_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">standard_name</span></code></a>, then ‘long_name’, then
 ‘var_name’, then the STASH attribute before falling back to
 the value of <cite>default</cite> (which itself defaults to ‘unknown’).</p>
+<p>Kwargs:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>default:</dt><dd><p>The value of the default name.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>token:</dt><dd><p>If true, ensure that the name returned satisfies the criteria for
+the characters required by a valid NetCDF name. If it is not
+possible to return a valid name, then a ValueError exception is
+raised.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>String.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
@@ -199,6 +219,25 @@ the value of <cite>default</cite> (which itself defaults to ‘unknown’).</p>
 <p>If ‘name’ is a valid standard name it will assign it to
 <a class="reference internal" href="#iris.aux_factory.AuxCoordFactory.standard_name" title="iris.aux_factory.AuxCoordFactory.standard_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">standard_name</span></code></a>, otherwise it will assign it to
 <a class="reference internal" href="#iris.aux_factory.AuxCoordFactory.long_name" title="iris.aux_factory.AuxCoordFactory.long_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">long_name</span></code></a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="iris.aux_factory.AuxCoordFactory.token">
+<em class="property">static </em><code class="sig-name descname">token</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.AuxCoordFactory.token" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine whether the provided name is a valid NetCDF name and thus
+safe to represent a single parsable token.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>name:</dt><dd><p>The string name to verify</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>The provided name if valid, otherwise None.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
@@ -362,11 +401,31 @@ See <a class="reference internal" href="cube.html#iris.cube.Cube.coord_dims" tit
 
 <dl class="method">
 <dt id="iris.aux_factory.HybridHeightFactory.name">
-<code class="sig-name descname">name</code><span class="sig-paren">(</span><em class="sig-param">default='unknown'</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.HybridHeightFactory.name" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">name</code><span class="sig-paren">(</span><em class="sig-param">default=None</em>, <em class="sig-param">token=False</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.HybridHeightFactory.name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a human-readable name.</p>
 <p>First it tries <a class="reference internal" href="#iris.aux_factory.HybridHeightFactory.standard_name" title="iris.aux_factory.HybridHeightFactory.standard_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">standard_name</span></code></a>, then ‘long_name’, then
 ‘var_name’, then the STASH attribute before falling back to
 the value of <cite>default</cite> (which itself defaults to ‘unknown’).</p>
+<p>Kwargs:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>default:</dt><dd><p>The value of the default name.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>token:</dt><dd><p>If true, ensure that the name returned satisfies the criteria for
+the characters required by a valid NetCDF name. If it is not
+possible to return a valid name, then a ValueError exception is
+raised.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>String.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
@@ -376,6 +435,25 @@ the value of <cite>default</cite> (which itself defaults to ‘unknown’).</p>
 <p>If ‘name’ is a valid standard name it will assign it to
 <a class="reference internal" href="#iris.aux_factory.HybridHeightFactory.standard_name" title="iris.aux_factory.HybridHeightFactory.standard_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">standard_name</span></code></a>, otherwise it will assign it to
 <code class="xref py py-attr docutils literal notranslate"><span class="pre">long_name</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="iris.aux_factory.HybridHeightFactory.token">
+<em class="property">static </em><code class="sig-name descname">token</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.HybridHeightFactory.token" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine whether the provided name is a valid NetCDF name and thus
+safe to represent a single parsable token.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>name:</dt><dd><p>The string name to verify</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>The provided name if valid, otherwise None.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
@@ -528,11 +606,31 @@ See <a class="reference internal" href="cube.html#iris.cube.Cube.coord_dims" tit
 
 <dl class="method">
 <dt id="iris.aux_factory.HybridPressureFactory.name">
-<code class="sig-name descname">name</code><span class="sig-paren">(</span><em class="sig-param">default='unknown'</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.HybridPressureFactory.name" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">name</code><span class="sig-paren">(</span><em class="sig-param">default=None</em>, <em class="sig-param">token=False</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.HybridPressureFactory.name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a human-readable name.</p>
 <p>First it tries <a class="reference internal" href="#iris.aux_factory.HybridPressureFactory.standard_name" title="iris.aux_factory.HybridPressureFactory.standard_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">standard_name</span></code></a>, then ‘long_name’, then
 ‘var_name’, then the STASH attribute before falling back to
 the value of <cite>default</cite> (which itself defaults to ‘unknown’).</p>
+<p>Kwargs:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>default:</dt><dd><p>The value of the default name.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>token:</dt><dd><p>If true, ensure that the name returned satisfies the criteria for
+the characters required by a valid NetCDF name. If it is not
+possible to return a valid name, then a ValueError exception is
+raised.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>String.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
@@ -542,6 +640,25 @@ the value of <cite>default</cite> (which itself defaults to ‘unknown’).</p>
 <p>If ‘name’ is a valid standard name it will assign it to
 <a class="reference internal" href="#iris.aux_factory.HybridPressureFactory.standard_name" title="iris.aux_factory.HybridPressureFactory.standard_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">standard_name</span></code></a>, otherwise it will assign it to
 <code class="xref py py-attr docutils literal notranslate"><span class="pre">long_name</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="iris.aux_factory.HybridPressureFactory.token">
+<em class="property">static </em><code class="sig-name descname">token</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.HybridPressureFactory.token" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine whether the provided name is a valid NetCDF name and thus
+safe to represent a single parsable token.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>name:</dt><dd><p>The string name to verify</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>The provided name if valid, otherwise None.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
@@ -676,11 +793,31 @@ to a given coordinate. See <a class="reference internal" href="cube.html#iris.cu
 
 <dl class="method">
 <dt id="iris.aux_factory.OceanSFactory.name">
-<code class="sig-name descname">name</code><span class="sig-paren">(</span><em class="sig-param">default='unknown'</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSFactory.name" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">name</code><span class="sig-paren">(</span><em class="sig-param">default=None</em>, <em class="sig-param">token=False</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSFactory.name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a human-readable name.</p>
 <p>First it tries <a class="reference internal" href="#iris.aux_factory.OceanSFactory.standard_name" title="iris.aux_factory.OceanSFactory.standard_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">standard_name</span></code></a>, then ‘long_name’, then
 ‘var_name’, then the STASH attribute before falling back to
 the value of <cite>default</cite> (which itself defaults to ‘unknown’).</p>
+<p>Kwargs:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>default:</dt><dd><p>The value of the default name.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>token:</dt><dd><p>If true, ensure that the name returned satisfies the criteria for
+the characters required by a valid NetCDF name. If it is not
+possible to return a valid name, then a ValueError exception is
+raised.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>String.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
@@ -690,6 +827,25 @@ the value of <cite>default</cite> (which itself defaults to ‘unknown’).</p>
 <p>If ‘name’ is a valid standard name it will assign it to
 <a class="reference internal" href="#iris.aux_factory.OceanSFactory.standard_name" title="iris.aux_factory.OceanSFactory.standard_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">standard_name</span></code></a>, otherwise it will assign it to
 <code class="xref py py-attr docutils literal notranslate"><span class="pre">long_name</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="iris.aux_factory.OceanSFactory.token">
+<em class="property">static </em><code class="sig-name descname">token</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSFactory.token" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine whether the provided name is a valid NetCDF name and thus
+safe to represent a single parsable token.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>name:</dt><dd><p>The string name to verify</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>The provided name if valid, otherwise None.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
@@ -820,11 +976,31 @@ to a given coordinate. See <a class="reference internal" href="cube.html#iris.cu
 
 <dl class="method">
 <dt id="iris.aux_factory.OceanSg1Factory.name">
-<code class="sig-name descname">name</code><span class="sig-paren">(</span><em class="sig-param">default='unknown'</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSg1Factory.name" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">name</code><span class="sig-paren">(</span><em class="sig-param">default=None</em>, <em class="sig-param">token=False</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSg1Factory.name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a human-readable name.</p>
 <p>First it tries <a class="reference internal" href="#iris.aux_factory.OceanSg1Factory.standard_name" title="iris.aux_factory.OceanSg1Factory.standard_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">standard_name</span></code></a>, then ‘long_name’, then
 ‘var_name’, then the STASH attribute before falling back to
 the value of <cite>default</cite> (which itself defaults to ‘unknown’).</p>
+<p>Kwargs:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>default:</dt><dd><p>The value of the default name.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>token:</dt><dd><p>If true, ensure that the name returned satisfies the criteria for
+the characters required by a valid NetCDF name. If it is not
+possible to return a valid name, then a ValueError exception is
+raised.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>String.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
@@ -834,6 +1010,25 @@ the value of <cite>default</cite> (which itself defaults to ‘unknown’).</p>
 <p>If ‘name’ is a valid standard name it will assign it to
 <a class="reference internal" href="#iris.aux_factory.OceanSg1Factory.standard_name" title="iris.aux_factory.OceanSg1Factory.standard_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">standard_name</span></code></a>, otherwise it will assign it to
 <code class="xref py py-attr docutils literal notranslate"><span class="pre">long_name</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="iris.aux_factory.OceanSg1Factory.token">
+<em class="property">static </em><code class="sig-name descname">token</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSg1Factory.token" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine whether the provided name is a valid NetCDF name and thus
+safe to represent a single parsable token.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>name:</dt><dd><p>The string name to verify</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>The provided name if valid, otherwise None.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
@@ -967,11 +1162,31 @@ to a given coordinate. See <a class="reference internal" href="cube.html#iris.cu
 
 <dl class="method">
 <dt id="iris.aux_factory.OceanSg2Factory.name">
-<code class="sig-name descname">name</code><span class="sig-paren">(</span><em class="sig-param">default='unknown'</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSg2Factory.name" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">name</code><span class="sig-paren">(</span><em class="sig-param">default=None</em>, <em class="sig-param">token=False</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSg2Factory.name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a human-readable name.</p>
 <p>First it tries <a class="reference internal" href="#iris.aux_factory.OceanSg2Factory.standard_name" title="iris.aux_factory.OceanSg2Factory.standard_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">standard_name</span></code></a>, then ‘long_name’, then
 ‘var_name’, then the STASH attribute before falling back to
 the value of <cite>default</cite> (which itself defaults to ‘unknown’).</p>
+<p>Kwargs:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>default:</dt><dd><p>The value of the default name.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>token:</dt><dd><p>If true, ensure that the name returned satisfies the criteria for
+the characters required by a valid NetCDF name. If it is not
+possible to return a valid name, then a ValueError exception is
+raised.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>String.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
@@ -981,6 +1196,25 @@ the value of <cite>default</cite> (which itself defaults to ‘unknown’).</p>
 <p>If ‘name’ is a valid standard name it will assign it to
 <a class="reference internal" href="#iris.aux_factory.OceanSg2Factory.standard_name" title="iris.aux_factory.OceanSg2Factory.standard_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">standard_name</span></code></a>, otherwise it will assign it to
 <code class="xref py py-attr docutils literal notranslate"><span class="pre">long_name</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="iris.aux_factory.OceanSg2Factory.token">
+<em class="property">static </em><code class="sig-name descname">token</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSg2Factory.token" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine whether the provided name is a valid NetCDF name and thus
+safe to represent a single parsable token.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>name:</dt><dd><p>The string name to verify</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>The provided name if valid, otherwise None.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
@@ -1110,11 +1344,31 @@ to a given coordinate. See <a class="reference internal" href="cube.html#iris.cu
 
 <dl class="method">
 <dt id="iris.aux_factory.OceanSigmaFactory.name">
-<code class="sig-name descname">name</code><span class="sig-paren">(</span><em class="sig-param">default='unknown'</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSigmaFactory.name" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">name</code><span class="sig-paren">(</span><em class="sig-param">default=None</em>, <em class="sig-param">token=False</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSigmaFactory.name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a human-readable name.</p>
 <p>First it tries <a class="reference internal" href="#iris.aux_factory.OceanSigmaFactory.standard_name" title="iris.aux_factory.OceanSigmaFactory.standard_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">standard_name</span></code></a>, then ‘long_name’, then
 ‘var_name’, then the STASH attribute before falling back to
 the value of <cite>default</cite> (which itself defaults to ‘unknown’).</p>
+<p>Kwargs:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>default:</dt><dd><p>The value of the default name.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>token:</dt><dd><p>If true, ensure that the name returned satisfies the criteria for
+the characters required by a valid NetCDF name. If it is not
+possible to return a valid name, then a ValueError exception is
+raised.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>String.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
@@ -1124,6 +1378,25 @@ the value of <cite>default</cite> (which itself defaults to ‘unknown’).</p>
 <p>If ‘name’ is a valid standard name it will assign it to
 <a class="reference internal" href="#iris.aux_factory.OceanSigmaFactory.standard_name" title="iris.aux_factory.OceanSigmaFactory.standard_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">standard_name</span></code></a>, otherwise it will assign it to
 <code class="xref py py-attr docutils literal notranslate"><span class="pre">long_name</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="iris.aux_factory.OceanSigmaFactory.token">
+<em class="property">static </em><code class="sig-name descname">token</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSigmaFactory.token" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine whether the provided name is a valid NetCDF name and thus
+safe to represent a single parsable token.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>name:</dt><dd><p>The string name to verify</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>The provided name if valid, otherwise None.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
@@ -1260,11 +1533,31 @@ to a given coordinate. See <a class="reference internal" href="cube.html#iris.cu
 
 <dl class="method">
 <dt id="iris.aux_factory.OceanSigmaZFactory.name">
-<code class="sig-name descname">name</code><span class="sig-paren">(</span><em class="sig-param">default='unknown'</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSigmaZFactory.name" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">name</code><span class="sig-paren">(</span><em class="sig-param">default=None</em>, <em class="sig-param">token=False</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSigmaZFactory.name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a human-readable name.</p>
 <p>First it tries <a class="reference internal" href="#iris.aux_factory.OceanSigmaZFactory.standard_name" title="iris.aux_factory.OceanSigmaZFactory.standard_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">standard_name</span></code></a>, then ‘long_name’, then
 ‘var_name’, then the STASH attribute before falling back to
 the value of <cite>default</cite> (which itself defaults to ‘unknown’).</p>
+<p>Kwargs:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>default:</dt><dd><p>The value of the default name.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>token:</dt><dd><p>If true, ensure that the name returned satisfies the criteria for
+the characters required by a valid NetCDF name. If it is not
+possible to return a valid name, then a ValueError exception is
+raised.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>String.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
@@ -1274,6 +1567,25 @@ the value of <cite>default</cite> (which itself defaults to ‘unknown’).</p>
 <p>If ‘name’ is a valid standard name it will assign it to
 <a class="reference internal" href="#iris.aux_factory.OceanSigmaZFactory.standard_name" title="iris.aux_factory.OceanSigmaZFactory.standard_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">standard_name</span></code></a>, otherwise it will assign it to
 <code class="xref py py-attr docutils literal notranslate"><span class="pre">long_name</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="iris.aux_factory.OceanSigmaZFactory.token">
+<em class="property">static </em><code class="sig-name descname">token</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.aux_factory.OceanSigmaZFactory.token" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine whether the provided name is a valid NetCDF name and thus
+safe to represent a single parsable token.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>name:</dt><dd><p>The string name to verify</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>The provided name if valid, otherwise None.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
