@@ -36,4 +36,5 @@ images[28] = ['examples/Meteorology/thumbnails/wind_speed_00.png', '_images/wind
 images[29] = ['examples/Meteorology/thumbnails/wind_speed_01.png', '_images/wind_speed_01.png', 'examples/Meteorology/wind_speed.html#wind-speed-01'];
 images[30] = ['examples/Oceanography/thumbnails/atlantic_profiles_00.png', '_images/atlantic_profiles_00.png', 'examples/Oceanography/atlantic_profiles.html#atlantic-profiles-00'];
 images[31] = ['examples/Oceanography/thumbnails/atlantic_profiles_01.png', '_images/atlantic_profiles_01.png', 'examples/Oceanography/atlantic_profiles.html#atlantic-profiles-01'];
+images[32] = ['examples/Oceanography/thumbnails/load_nemo.png', '_images/load_nemo.png', 'examples/Oceanography/load_nemo.html#load-nemo'];
 
