@@ -140,6 +140,10 @@
 <p><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.analysis.PointInCell</span></code> to make this regridding scheme public</p>
 <hr class="docutils" />
 <ul class="simple">
+<li><p>Iris now supports standard name modifiers. See <a class="reference external" href="http://cfconventions.org/Data/cf-conventions/cf-conventions-1.7/cf-conventions.html#standard-name-modifiers">Appendix C, Standard Name Modifiers</a> for more information.</p></li>
+</ul>
+<hr class="docutils" />
+<ul class="simple">
 <li><p>Iris now makes better choices of dask chunk sizes, when loading from netcdf
 files:  If a file variable has specified, small chunks, Iris will now choose
 dask chunks which are a multiple of these, up to a default target size.
