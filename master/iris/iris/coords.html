@@ -136,7 +136,7 @@ everything is inherited from <a class="reference internal" href="#iris.coords.Co
 <blockquote>
 <div><dl class="class">
 <dt id="iris.coords.AuxCoord">
-<em class="property">class </em><code class="sig-prename descclassname">iris.coords.</code><code class="sig-name descname">AuxCoord</code><span class="sig-paren">(</span><em class="sig-param">points</em>, <em class="sig-param">standard_name=None</em>, <em class="sig-param">long_name=None</em>, <em class="sig-param">var_name=None</em>, <em class="sig-param">units='1'</em>, <em class="sig-param">bounds=None</em>, <em class="sig-param">attributes=None</em>, <em class="sig-param">coord_system=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.AuxCoord" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">iris.coords.</code><code class="sig-name descname">AuxCoord</code><span class="sig-paren">(</span><em class="sig-param">points</em>, <em class="sig-param">standard_name=None</em>, <em class="sig-param">long_name=None</em>, <em class="sig-param">var_name=None</em>, <em class="sig-param">units='1'</em>, <em class="sig-param">bounds=None</em>, <em class="sig-param">attributes=None</em>, <em class="sig-param">coord_system=None</em>, <em class="sig-param">climatological=False</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.AuxCoord" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#iris.coords.Coord" title="iris.coords.Coord"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.coords.Coord</span></code></a></p>
 <p>Constructs a single coordinate.</p>
 <p>Args:</p>
@@ -176,7 +176,9 @@ Can be a string, which will be converted to a Unit object.</p>
 bounds for each cell, the shape of the bounds array should be
 points.shape + (n,). For example, a 1d coordinate with 100 points
 and two bounds per cell would have a bounds array of shape
-(100, 2)</p>
+(100, 2)
+Note if the data is a climatology, <cite>climatological</cite>
+should be set.</p>
 </dd>
 </dl>
 </li>
@@ -189,6 +191,17 @@ and two bounds per cell would have a bounds array of shape
 <dt>coord_system</dt><dd><p>A <a class="reference internal" href="coord_systems.html#iris.coord_systems.CoordSystem" title="iris.coord_systems.CoordSystem"><code class="xref py py-class docutils literal notranslate"><span class="pre">CoordSystem</span></code></a> representing the
 coordinate system of the coordinate,
 e.g. a <a class="reference internal" href="coord_systems.html#iris.coord_systems.GeogCS" title="iris.coord_systems.GeogCS"><code class="xref py py-class docutils literal notranslate"><span class="pre">GeogCS</span></code></a> for a longitude Coord.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>climatological (bool):</dt><dd><p>When True: the coordinate is a NetCDF climatological time axis.
+When True: saving in NetCDF will label the time axis with
+‘climatology’ and ‘climatology_bounds’ in place of standard
+bounds labels.
+Will set to True when a climatological time axis is loaded
+from NetCDF.
+Always False if no bounds exist.</p>
 </dd>
 </dl>
 </li>
@@ -610,6 +623,17 @@ does not have bounds.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="iris.coords.AuxCoord.climatological">
+<em class="property">property </em><code class="sig-name descname">climatological</code><a class="headerlink" href="#iris.coords.AuxCoord.climatological" title="Permalink to this definition">¶</a></dt>
+<dd><p>A boolean that controls whether the coordinate is a climatological
+time axis, in which case the bounds represent a climatological period
+rather than a normal period.</p>
+<p>Always reads as False if there are no bounds.
+On set, the input value is cast to a boolean, exceptions raised
+if units are not time units or if there are no bounds.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="iris.coords.AuxCoord.dtype">
 <em class="property">property </em><code class="sig-name descname">dtype</code><a class="headerlink" href="#iris.coords.AuxCoord.dtype" title="Permalink to this definition">¶</a></dt>
 <dd><p>The NumPy dtype of the coord, as specified by its points.</p>
@@ -994,7 +1018,7 @@ was applied.</p>
 <blockquote>
 <div><dl class="class">
 <dt id="iris.coords.Coord">
-<em class="property">class </em><code class="sig-prename descclassname">iris.coords.</code><code class="sig-name descname">Coord</code><span class="sig-paren">(</span><em class="sig-param">points</em>, <em class="sig-param">standard_name=None</em>, <em class="sig-param">long_name=None</em>, <em class="sig-param">var_name=None</em>, <em class="sig-param">units='1'</em>, <em class="sig-param">bounds=None</em>, <em class="sig-param">attributes=None</em>, <em class="sig-param">coord_system=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.Coord" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">iris.coords.</code><code class="sig-name descname">Coord</code><span class="sig-paren">(</span><em class="sig-param">points</em>, <em class="sig-param">standard_name=None</em>, <em class="sig-param">long_name=None</em>, <em class="sig-param">var_name=None</em>, <em class="sig-param">units='1'</em>, <em class="sig-param">bounds=None</em>, <em class="sig-param">attributes=None</em>, <em class="sig-param">coord_system=None</em>, <em class="sig-param">climatological=False</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.Coord" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">iris._cube_coord_common.CFVariableMixin</span></code></p>
 <p>Constructs a single coordinate.</p>
 <p>Args:</p>
@@ -1034,7 +1058,9 @@ Can be a string, which will be converted to a Unit object.</p>
 bounds for each cell, the shape of the bounds array should be
 points.shape + (n,). For example, a 1d coordinate with 100 points
 and two bounds per cell would have a bounds array of shape
-(100, 2)</p>
+(100, 2)
+Note if the data is a climatology, <cite>climatological</cite>
+should be set.</p>
 </dd>
 </dl>
 </li>
@@ -1047,6 +1073,17 @@ and two bounds per cell would have a bounds array of shape
 <dt>coord_system</dt><dd><p>A <a class="reference internal" href="coord_systems.html#iris.coord_systems.CoordSystem" title="iris.coord_systems.CoordSystem"><code class="xref py py-class docutils literal notranslate"><span class="pre">CoordSystem</span></code></a> representing the
 coordinate system of the coordinate,
 e.g. a <a class="reference internal" href="coord_systems.html#iris.coord_systems.GeogCS" title="iris.coord_systems.GeogCS"><code class="xref py py-class docutils literal notranslate"><span class="pre">GeogCS</span></code></a> for a longitude Coord.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>climatological (bool):</dt><dd><p>When True: the coordinate is a NetCDF climatological time axis.
+When True: saving in NetCDF will label the time axis with
+‘climatology’ and ‘climatology_bounds’ in place of standard
+bounds labels.
+Will set to True when a climatological time axis is loaded
+from NetCDF.
+Always False if no bounds exist.</p>
 </dd>
 </dl>
 </li>
@@ -1469,6 +1506,17 @@ or None if no bound values are defined.</p>
 does not have bounds.</p>
 </dd></dl>
 
+<dl class="method">
+<dt id="iris.coords.Coord.climatological">
+<em class="property">property </em><code class="sig-name descname">climatological</code><a class="headerlink" href="#iris.coords.Coord.climatological" title="Permalink to this definition">¶</a></dt>
+<dd><p>A boolean that controls whether the coordinate is a climatological
+time axis, in which case the bounds represent a climatological period
+rather than a normal period.</p>
+<p>Always reads as False if there are no bounds.
+On set, the input value is cast to a boolean, exceptions raised
+if units are not time units or if there are no bounds.</p>
+</dd></dl>
+
 <dl class="attribute">
 <dt id="iris.coords.Coord.coord_system">
 <code class="sig-name descname">coord_system</code><em class="property"> = None</em><a class="headerlink" href="#iris.coords.Coord.coord_system" title="Permalink to this definition">¶</a></dt>
@@ -1540,9 +1588,9 @@ bounded dimension).</p>
 <blockquote>
 <div><dl class="class">
 <dt id="iris.coords.CoordDefn">
-<em class="property">class </em><code class="sig-prename descclassname">iris.coords.</code><code class="sig-name descname">CoordDefn</code><span class="sig-paren">(</span><em class="sig-param">_cls</em>, <em class="sig-param">standard_name</em>, <em class="sig-param">long_name</em>, <em class="sig-param">var_name</em>, <em class="sig-param">units</em>, <em class="sig-param">attributes</em>, <em class="sig-param">coord_system</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.CoordDefn" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">iris.coords.</code><code class="sig-name descname">CoordDefn</code><span class="sig-paren">(</span><em class="sig-param">_cls</em>, <em class="sig-param">standard_name</em>, <em class="sig-param">long_name</em>, <em class="sig-param">var_name</em>, <em class="sig-param">units</em>, <em class="sig-param">attributes</em>, <em class="sig-param">coord_system</em>, <em class="sig-param">climatological</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.CoordDefn" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#iris.coords.CoordDefn" title="iris.coords.CoordDefn"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.coords.CoordDefn</span></code></a></p>
-<p>Create new instance of CoordDefn(standard_name, long_name, var_name, units, attributes, coord_system)</p>
+<p>Create new instance of CoordDefn(standard_name, long_name, var_name, units, attributes, coord_system, climatological)</p>
 <dl class="method">
 <dt id="iris.coords.CoordDefn.count">
 <code class="sig-name descname">count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.CoordDefn.count" title="Permalink to this definition">¶</a></dt>
@@ -1569,6 +1617,12 @@ the value of <cite>default</cite> (which itself defaults to ‘unknown’).</p>
 <dt id="iris.coords.CoordDefn.attributes">
 <em class="property">property </em><code class="sig-name descname">attributes</code><a class="headerlink" href="#iris.coords.CoordDefn.attributes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Alias for field number 4</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="iris.coords.CoordDefn.climatological">
+<em class="property">property </em><code class="sig-name descname">climatological</code><a class="headerlink" href="#iris.coords.CoordDefn.climatological" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 6</p>
 </dd></dl>
 
 <dl class="method">
@@ -1700,7 +1754,7 @@ in the selection. Default is True.</p>
 <blockquote>
 <div><dl class="class">
 <dt id="iris.coords.DimCoord">
-<em class="property">class </em><code class="sig-prename descclassname">iris.coords.</code><code class="sig-name descname">DimCoord</code><span class="sig-paren">(</span><em class="sig-param">points</em>, <em class="sig-param">standard_name=None</em>, <em class="sig-param">long_name=None</em>, <em class="sig-param">var_name=None</em>, <em class="sig-param">units='1'</em>, <em class="sig-param">bounds=None</em>, <em class="sig-param">attributes=None</em>, <em class="sig-param">coord_system=None</em>, <em class="sig-param">circular=False</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.DimCoord" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">iris.coords.</code><code class="sig-name descname">DimCoord</code><span class="sig-paren">(</span><em class="sig-param">points</em>, <em class="sig-param">standard_name=None</em>, <em class="sig-param">long_name=None</em>, <em class="sig-param">var_name=None</em>, <em class="sig-param">units='1'</em>, <em class="sig-param">bounds=None</em>, <em class="sig-param">attributes=None</em>, <em class="sig-param">coord_system=None</em>, <em class="sig-param">circular=False</em>, <em class="sig-param">climatological=False</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.DimCoord" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#iris.coords.Coord" title="iris.coords.Coord"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.coords.Coord</span></code></a></p>
 <p>Create a 1D, numeric, and strictly monotonic <a class="reference internal" href="#iris.coords.Coord" title="iris.coords.Coord"><code class="xref py py-class docutils literal notranslate"><span class="pre">Coord</span></code></a> with
 read-only points and bounds.</p>
@@ -2161,6 +2215,17 @@ does not have bounds.</p>
 <dt id="iris.coords.DimCoord.circular">
 <code class="sig-name descname">circular</code><em class="property"> = None</em><a class="headerlink" href="#iris.coords.DimCoord.circular" title="Permalink to this definition">¶</a></dt>
 <dd><p>Whether the coordinate wraps by <code class="docutils literal notranslate"><span class="pre">coord.units.modulus</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="iris.coords.DimCoord.climatological">
+<em class="property">property </em><code class="sig-name descname">climatological</code><a class="headerlink" href="#iris.coords.DimCoord.climatological" title="Permalink to this definition">¶</a></dt>
+<dd><p>A boolean that controls whether the coordinate is a climatological
+time axis, in which case the bounds represent a climatological period
+rather than a normal period.</p>
+<p>Always reads as False if there are no bounds.
+On set, the input value is cast to a boolean, exceptions raised
+if units are not time units or if there are no bounds.</p>
 </dd></dl>
 
 <dl class="method">
