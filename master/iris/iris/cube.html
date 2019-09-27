@@ -1110,15 +1110,29 @@ this function is not applicable.</p>
 <code class="sig-name descname">remove_cell_measure</code><span class="sig-paren">(</span><em class="sig-param">cell_measure</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.cube.Cube.remove_cell_measure" title="Permalink to this definition">¶</a></dt>
 <dd><p>Removes a cell measure from the cube.</p>
 <p>Args:</p>
-<ul class="simple">
-<li><dl class="simple">
-<dt>cell_measure (CellMeasure)</dt><dd><p>The CellMeasure to remove from the cube.</p>
+<ul>
+<li><dl>
+<dt>cell_measure (string or cell_measure)</dt><dd><p>The (name of the) cell measure to remove from the cube. As either</p>
+<p>(a) a <a class="reference internal" href="#iris.cube.Cube.standard_name" title="iris.cube.Cube.standard_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">standard_name</span></code></a>, <a class="reference internal" href="#iris.cube.Cube.long_name" title="iris.cube.Cube.long_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">long_name</span></code></a>, or
+<a class="reference internal" href="#iris.cube.Cube.var_name" title="iris.cube.Cube.var_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">var_name</span></code></a>. Defaults to value of <cite>default</cite>
+(which itself defaults to <cite>unknown</cite>) as defined in
+<code class="xref py py-class docutils literal notranslate"><span class="pre">iris._cube_coord_common.CFVariableMixin</span></code>.</p>
+<p>(b) a cell_measure instance with metadata equal to that of
+the desired cell_measures.</p>
 </dd>
 </dl>
 </li>
 </ul>
-<p>See also
-<a class="reference internal" href="#iris.cube.Cube.add_cell_measure" title="iris.cube.Cube.add_cell_measure"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Cube.add_cell_measure()</span></code></a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the argument given does not represent a valid cell_measure on
+the cube, an <a class="reference internal" href="exceptions.html#iris.exceptions.CellMeasureNotFoundError" title="iris.exceptions.CellMeasureNotFoundError"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.exceptions.CellMeasureNotFoundError</span></code></a>
+is raised.</p>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#iris.cube.Cube.add_cell_measure" title="iris.cube.Cube.add_cell_measure"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Cube.add_cell_measure()</span></code></a></p>
+</div>
 </dd></dl>
 
 <dl class="method">

@@ -151,6 +151,11 @@ cube coordinate.</p>
 </ul>
 <hr class="docutils" />
 <ul class="simple">
+<li><p><a class="reference internal" href="../iris/iris/cube.html#iris.cube.Cube.remove_cell_measure" title="iris.cube.Cube.remove_cell_measure"><code class="xref py py-meth docutils literal notranslate"><span class="pre">iris.cube.Cube.remove_cell_measure()</span></code></a> now also allows removal of a cell</p></li>
+</ul>
+<p>measure by its name (previously only accepted a CellMeasure object).</p>
+<hr class="docutils" />
+<ul class="simple">
 <li><p>Iris now makes better choices of dask chunk sizes, when loading from netcdf
 files:  If a file variable has specified, small chunks, Iris will now choose
 dask chunks which are a multiple of these, up to a default target size.
