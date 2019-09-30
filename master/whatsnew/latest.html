@@ -136,6 +136,13 @@
 <div class="section" id="iris-interim-features">
 <h2>Iris &lt;interim&gt; Features<a class="headerlink" href="#iris-interim-features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
+<li><p>New coordinate system: <a class="reference internal" href="../iris/iris/coord_systems.html#iris.coord_systems.Geostationary" title="iris.coord_systems.Geostationary"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.coord_systems.Geostationary</span></code></a>, based on</p></li>
+</ul>
+<p>the <a class="reference external" href="http://cfconventions.org/cf-conventions/cf-conventions.html#_geostationary_projection">CF Geostationary projection definition</a>.
+* <a class="reference internal" href="../iris/iris/coord_systems.html#iris.coord_systems.VerticalPerspective" title="iris.coord_systems.VerticalPerspective"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.coord_systems.VerticalPerspective</span></code></a> can now be saved to and
+loaded from NetCDF files.</p>
+<hr class="docutils" />
+<ul class="simple">
 <li><p>Support for loading, storing and saving of NetCDF climatological coordinates.</p></li>
 </ul>
 <p>Stored as a boolean property - <code class="docutils literal notranslate"><span class="pre">climatological</span></code> - of the relevant
@@ -168,6 +175,12 @@ in dask itself, i.e. <cite>dask.config.get(‘array.chunk-size’)</cite>.</p></
 <hr class="docutils" />
 <div class="section" id="bugs-fixed">
 <h2>Bugs Fixed<a class="headerlink" href="#bugs-fixed" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../iris/iris/coord_systems.html#iris.coord_systems.VerticalPerspective" title="iris.coord_systems.VerticalPerspective"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.coord_systems.VerticalPerspective</span></code></a> coordinate system now uses</p></li>
+</ul>
+<p>the <a class="reference external" href="http://cfconventions.org/cf-conventions/cf-conventions.html#vertical-perspective">CF Vertical perspective definition</a>; had been
+erroneously using Geostationary.</p>
+<hr class="docutils" />
 <ul class="simple">
 <li><p><a class="reference internal" href="../iris/iris/coords.html#iris.coords.CellMethod" title="iris.coords.CellMethod"><code class="xref py py-class docutils literal notranslate"><span class="pre">CellMethod</span></code></a> will now only use valid <a class="reference external" href="https://www.unidata.ucar.edu/software/netcdf/docs/netcdf_data_set_components.html#object_name">NetCDF name tokens</a> to reference the coordinates involved in the statistical operation.</p></li>
 </ul>

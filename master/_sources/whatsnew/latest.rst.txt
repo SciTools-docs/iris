@@ -9,6 +9,14 @@ This document explains the new/changed features of Iris in version <interim>
 
 Iris <interim> Features
 =======================
+* New coordinate system: :class:`iris.coord_systems.Geostationary`, based on
+the `CF Geostationary projection definition <http://cfconventions
+.org/cf-conventions/cf-conventions.html#_geostationary_projection>`_.
+* :class:`iris.coord_systems.VerticalPerspective` can now be saved to and
+loaded from NetCDF files.
+
+----
+
 * Support for loading, storing and saving of NetCDF climatological coordinates.
 Stored as a boolean property - ``climatological`` - of the relevant
 cube coordinate.
@@ -42,6 +50,13 @@ measure by its name (previously only accepted a CellMeasure object).
 
 Bugs Fixed
 ==========
+* :class:`iris.coord_systems.VerticalPerspective` coordinate system now uses
+the `CF Vertical perspective definition <http://cfconventions
+.org/cf-conventions/cf-conventions.html#vertical-perspective>`_; had been
+erroneously using Geostationary.
+
+----
+
 * :class:`~iris.coords.CellMethod` will now only use valid `NetCDF name tokens <https://www.unidata.ucar.edu/software/netcdf/docs/netcdf_data_set_components.html#object_name>`_ to reference the coordinates involved in the statistical operation.
 
 ----
