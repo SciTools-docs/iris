@@ -159,7 +159,9 @@ cell areas divided by the total grid area.</p>
 <p>The cube must have coordinates ‘latitude’ and ‘longitude’ with bounds.</p>
 <p>Area weights are calculated for each lat/lon cell as:</p>
 <blockquote>
-<div><img src="../../../_images/mathmpl/math-77f776be00.png" class="center" /></div></blockquote>
+<div><div class="math">
+<p><span class="math">r^2 (lon_1 - lon_0) (\sin(lat_1) - \sin(lat_0))</span></p>
+</div></div></blockquote>
 <p>Currently, only supports a spherical datum.
 Uses earth radius from the cube, if present and spherical.
 Defaults to iris.analysis.cartography.DEFAULT_SPHERICAL_EARTH_RADIUS.</p>
@@ -179,7 +181,9 @@ range values (greater than 90 degrees or less than -90 degrees) will
 be clipped to the valid range.</p>
 <p>Weights are calculated for each latitude as:</p>
 <blockquote>
-<div><img src="../../../_images/mathmpl/math-4953676fbd.png" class="center" /></div></blockquote>
+<div><div class="math">
+<p><span class="math">w_l = \cos \phi_l</span></p>
+</div></div></blockquote>
 <p>Examples:</p>
 <p>Compute weights suitable for averaging type operations:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">iris.analysis.cartography</span> <span class="k">import</span> <span class="n">cosine_latitude_weights</span>

@@ -172,7 +172,9 @@ exist on the cube.</p>
 </pre></div>
 </div>
 <p>The algorithm used is equivalent to:</p>
-<img src="../../../_images/mathmpl/math-ac108f9e00.png" class="center" /><p>Where <code class="docutils literal notranslate"><span class="pre">d</span></code> is the differential, <code class="docutils literal notranslate"><span class="pre">v</span></code> is the data value, <code class="docutils literal notranslate"><span class="pre">c</span></code> is
+<div class="math">
+<p><span class="math">d_i = \frac{v_{i+1}-v_i}{c_{i+1}-c_i}</span></p>
+</div><p>Where <code class="docutils literal notranslate"><span class="pre">d</span></code> is the differential, <code class="docutils literal notranslate"><span class="pre">v</span></code> is the data value, <code class="docutils literal notranslate"><span class="pre">c</span></code> is
 the coordinate value and <code class="docutils literal notranslate"><span class="pre">i</span></code> is the index in the differential
 direction. Hence, in a normal situation if a cube has a shape
 (x: n; y: m) differentiating with respect to x will result in a cube
@@ -254,14 +256,32 @@ the cartesian curl will be calculated:</p>
 <div><p>When cartesian calculus is used, i_cube is the u component,
 j_cube is the v component and k_cube is the w component.</p>
 <p>The Cartesian curl is defined as:</p>
-<img src="../../../_images/mathmpl/math-0891b450a9.png" class="center" /></div></blockquote>
+<div class="math">
+<p><span class="math">\nabla\times \vec u =
+(\frac{\delta w}{\delta y} - \frac{\delta v}{\delta z})\vec a_i
+-
+(\frac{\delta w}{\delta x} - \frac{\delta u}{\delta z})\vec a_j
++
+(\frac{\delta v}{\delta x} - \frac{\delta u}{\delta y})\vec a_k</span></p>
+</div></div></blockquote>
 <p>Spherical curl</p>
 <blockquote>
-<div><p>When spherical calculus is used, i_cube is the <img src="../../../_images/mathmpl/math-e22cc525ec.png" style="position: relative; bottom: -7px"/> vector
-component (e.g. eastward), j_cube is the <img src="../../../_images/mathmpl/math-5dc8912759.png" style="position: relative; bottom: -3px"/> component
+<div><p>When spherical calculus is used, i_cube is the <span class="math">\phi</span> vector
+component (e.g. eastward), j_cube is the <span class="math">\theta</span> component
 (e.g. northward) and k_cube is the radial component.</p>
 <p>The spherical curl is defined as:</p>
-<img src="../../../_images/mathmpl/math-b10cb386a5.png" class="center" /><p>where phi is longitude, theta is latitude.</p>
+<div class="math">
+<p><span class="math">\nabla\times \vec A = \frac{1}{r cos \theta}
+(\frac{\delta}{\delta \theta}
+(\vec A_\phi cos \theta) -
+\frac{\delta \vec A_\theta}{\delta \phi}) \vec r +
+\frac{1}{r}(\frac{1}{cos \theta}
+\frac{\delta \vec A_r}{\delta \phi} -
+\frac{\delta}{\delta r} (r \vec A_\phi))\vec \theta +
+\frac{1}{r}
+(\frac{\delta}{\delta r}(r \vec A_\theta) -
+\frac{\delta \vec A_r}{\delta \theta}) \vec \phi</span></p>
+</div><p>where phi is longitude, theta is latitude.</p>
 </div></blockquote>
 </div></blockquote>
 </dd></dl>
