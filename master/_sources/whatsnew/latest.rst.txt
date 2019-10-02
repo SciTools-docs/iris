@@ -9,6 +9,15 @@ This document explains the new/changed features of Iris in version <interim>
 
 Iris <interim> Features
 =======================
+* Cube data equality testing (and hence cube equality) now uses a more relaxed
+  tolerance : This means that some cubes may now test 'equal' that previously
+  did not.
+  Previously, Iris compared cube data arrays using "abs(a - b) < 1.e-8".
+  We now apply the default operation of :func:`numpy.allclose` instead,
+  which is equivalent to "abs(a - b) < (1.e-8 + 1.e-5 * b)".
+
+----
+
 * Loading CellMeasures with non-float values is now supported.
 
 ----
@@ -59,6 +68,10 @@ measure by its name (previously only accepted a CellMeasure object).
 
 Bugs Fixed
 ==========
+* Cube equality of boolean data is now handled correctly.
+
+----
+
 * Iris now supports NetCDF Climate and Forecast (CF) Metadata Conventions 1.7 (see `CF 1.7 Conventions Document <http://cfconventions.org/Data/cf-conventions/cf-conventions-1.7/cf-conventions.html>`_ for more information)
 
 ----

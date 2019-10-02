@@ -136,6 +136,15 @@
 <div class="section" id="iris-interim-features">
 <h2>Iris &lt;interim&gt; Features<a class="headerlink" href="#iris-interim-features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
+<li><p>Cube data equality testing (and hence cube equality) now uses a more relaxed
+tolerance : This means that some cubes may now test ‘equal’ that previously
+did not.
+Previously, Iris compared cube data arrays using “abs(a - b) &lt; 1.e-8”.
+We now apply the default operation of <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.allclose.html#numpy.allclose" title="(in NumPy v1.17)"><code class="xref py py-func docutils literal notranslate"><span class="pre">numpy.allclose()</span></code></a> instead,
+which is equivalent to “abs(a - b) &lt; (1.e-8 + 1.e-5 * b)”.</p></li>
+</ul>
+<hr class="docutils" />
+<ul class="simple">
 <li><p>Loading CellMeasures with non-float values is now supported.</p></li>
 </ul>
 <hr class="docutils" />
@@ -184,6 +193,10 @@ in dask itself, i.e. <cite>dask.config.get(‘array.chunk-size’)</cite>.</p></
 <hr class="docutils" />
 <div class="section" id="bugs-fixed">
 <h2>Bugs Fixed<a class="headerlink" href="#bugs-fixed" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Cube equality of boolean data is now handled correctly.</p></li>
+</ul>
+<hr class="docutils" />
 <ul class="simple">
 <li><p>Iris now supports NetCDF Climate and Forecast (CF) Metadata Conventions 1.7 (see <a class="reference external" href="http://cfconventions.org/Data/cf-conventions/cf-conventions-1.7/cf-conventions.html">CF 1.7 Conventions Document</a> for more information)</p></li>
 </ul>
