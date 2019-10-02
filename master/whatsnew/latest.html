@@ -206,6 +206,12 @@ in dask itself, i.e. <cite>dask.config.get(‘array.chunk-size’)</cite>.</p></
 </ul>
 <hr class="docutils" />
 <ul class="simple">
+<li><p>The <a class="reference internal" href="../iris/iris/coords.html#iris.coords.AuxCoord" title="iris.coords.AuxCoord"><code class="xref py py-class docutils literal notranslate"><span class="pre">AuxCoord</span></code></a> disregarded masked points and bounds, as did the <a class="reference internal" href="../iris/iris/coords.html#iris.coords.DimCoord" title="iris.coords.DimCoord"><code class="xref py py-class docutils literal notranslate"><span class="pre">DimCoord</span></code></a>.
+Fix permits an <a class="reference internal" href="../iris/iris/coords.html#iris.coords.AuxCoord" title="iris.coords.AuxCoord"><code class="xref py py-class docutils literal notranslate"><span class="pre">AuxCoord</span></code></a> to contain masked points/bounds, and an TypeError exception is now
+raised when attempting to create or set the points/bounds of a <a class="reference internal" href="../iris/iris/coords.html#iris.coords.DimCoord" title="iris.coords.DimCoord"><code class="xref py py-class docutils literal notranslate"><span class="pre">DimCoord</span></code></a> with masked arrays.</p></li>
+</ul>
+<hr class="docutils" />
+<ul class="simple">
 <li><p>Cell measures are now handled correctly when a cube is transposed.</p></li>
 </ul>
 <hr class="docutils" />
