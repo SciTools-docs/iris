@@ -185,6 +185,13 @@ cube coordinate.</p>
 <p>measure by its name (previously only accepted a CellMeasure object).</p>
 <hr class="docutils" />
 <ul class="simple">
+<li><p>The <a class="reference internal" href="../iris/iris/analysis.html#iris.analysis.RMS" title="iris.analysis.RMS"><code class="xref py py-data docutils literal notranslate"><span class="pre">iris.analysis.RMS</span></code></a> aggregator now supports a lazy calculation.
+However, the “weights” keyword is not currently supported by this, so a
+<em>weighted</em> calculation will still return a realised result, <em>and</em> force
+realisation of the original cube data.</p></li>
+</ul>
+<hr class="docutils" />
+<ul class="simple">
 <li><p>Iris now makes better choices of dask chunk sizes, when loading from netcdf
 files:  If a file variable has specified, small chunks, Iris will now choose
 dask chunks which are a multiple of these, up to a default target size.
@@ -212,7 +219,9 @@ raised when attempting to create or set the points/bounds of a <a class="referen
 </ul>
 <hr class="docutils" />
 <ul class="simple">
-<li><p>Cell measures are now handled correctly when a cube is transposed.</p></li>
+<li><p>Fixed a bug where cell measures were incorrect after a cube
+<a class="reference internal" href="../iris/iris/cube.html#iris.cube.Cube.transpose" title="iris.cube.Cube.transpose"><code class="xref py py-meth docutils literal notranslate"><span class="pre">transpose()</span></code></a> operation.  Previously, this resulted in
+cell-measures that were no longer correctly mapped to the cube dimensions.</p></li>
 </ul>
 <hr class="docutils" />
 <ul class="simple">
@@ -248,20 +257,72 @@ attributes containing ‘n’.</p>
 </ul>
 <hr class="docutils" />
 <ul class="simple">
+<li><p>Fixed a bug in UM file loading, where any landsea-mask-compressed fields</p></li>
+</ul>
+<blockquote>
+<div><p>(i.e. with LBPACK=x2x) would cause an error later, when realising the data.</p>
+</div></blockquote>
+<hr class="docutils" />
+<ul class="simple">
 <li><p><a class="reference internal" href="../iris/iris/cube.html#iris.cube.Cube.collapsed" title="iris.cube.Cube.collapsed"><code class="xref py py-meth docutils literal notranslate"><span class="pre">iris.cube.Cube.collapsed()</span></code></a> now handles partial collapsing of</p></li>
 </ul>
 <p>multidimensional coordinates that have bounds.</p>
 <hr class="docutils" />
 <ul class="simple">
+<li><p>Fixed a bug in the <a class="reference internal" href="../iris/iris/analysis.html#iris.analysis.PROPORTION" title="iris.analysis.PROPORTION"><code class="xref py py-data docutils literal notranslate"><span class="pre">PROPORTION</span></code></a> aggregator, where cube
+data in the form of a masked array with “array.mask=False” would cause an
+error, but possibly only later when the values are actually realised.
+( Note: since netCDF4 version 1.4.0, this is now a common form for data
+loaded from netCDF files ).</p></li>
+</ul>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>Fixed a bug where plotting a cube with a
+<code class="xref py py-class docutils literal notranslate"><span class="pre">iris.coord_systems.LamberConformal</span></code> coordinate system would result
+in an error.  This would happen if the coordinate system was defined with one
+standard parallel, rather than two.
+In these cases, a call to
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">as_cartopy_crs()</span></code> would fail.</p></li>
+</ul>
+<hr class="docutils" />
+<ul class="simple">
 <li><p><a class="reference internal" href="../iris/iris/cube.html#iris.cube.Cube.aggregated_by" title="iris.cube.Cube.aggregated_by"><code class="xref py py-meth docutils literal notranslate"><span class="pre">iris.cube.Cube.aggregated_by()</span></code></a> now gives correct values in points and</p></li>
 </ul>
 <p>bounds when handling multidimensional coordinates.</p>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>Fixed a bug in the <code class="xref py py-meth docutils literal notranslate"><span class="pre">iris.cube.Cube.collapse()</span></code> operation, which caused
+the unexpected realization of any attached auxiliary coordinates that were
+_bounded_.  It now correctly produces a lazy result and does not realise the
+original attached AuxCoords.</p></li>
+</ul>
 </div>
 <hr class="docutils" />
 <div class="section" id="documentation-changes">
 <h2>Documentation Changes<a class="headerlink" href="#documentation-changes" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Added a gallery example showing how to concatenate NEMO ocean model data.</p></li>
+</ul>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>Added an example in the
+<a class="reference external" href="https://scitools.org.uk/iris/docs/latest/userguide/loading_iris_cubes.html#constraining-on-time">Loading Iris Cubes: Constraining on Time</a>
+Userguide section, demonstrating how to load data within a specified date
+range.</p></li>
+</ul>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>Added notes to the <a class="reference internal" href="../iris/iris.html#iris.load" title="iris.load"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.load()</span></code></a> documentation, and the userguide
+<a class="reference external" href="https://scitools.org.uk/iris/docs/latest/userguide/loading_iris_cubes.html">Loading Iris Cubes</a>
+chapter, emphasizing that the _order_ of the cubes returned by an iris load
+operation is effectively random and unstable, and should not be relied on.</p></li>
+</ul>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>Fixed references in the documentation of
+<code class="xref py py-func docutils literal notranslate"><span class="pre">iris.utils.find_discontiguities()</span></code> to a nonexistent
+“mask_discontiguities” routine : these now refer to
+<code class="xref py py-func docutils literal notranslate"><span class="pre">mask_cube()</span></code>.</p></li>
 </ul>
 <hr class="docutils" />
 </div>

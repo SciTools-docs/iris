@@ -59,6 +59,13 @@ measure by its name (previously only accepted a CellMeasure object).
 
 ----
 
+* The :data:`iris.analysis.RMS` aggregator now supports a lazy calculation.
+  However, the "weights" keyword is not currently supported by this, so a
+  *weighted* calculation will still return a realised result, *and* force
+  realisation of the original cube data.
+
+----
+
 * Iris now makes better choices of dask chunk sizes, when loading from netcdf
   files:  If a file variable has specified, small chunks, Iris will now choose
   dask chunks which are a multiple of these, up to a default target size.
@@ -86,7 +93,9 @@ Bugs Fixed
 
 ----
 
-* Cell measures are now handled correctly when a cube is transposed.
+* Fixed a bug where cell measures were incorrect after a cube 
+  :meth:`~iris.cube.Cube.transpose` operation.  Previously, this resulted in
+  cell-measures that were no longer correctly mapped to the cube dimensions.
 
 ----
 
@@ -123,8 +132,30 @@ attributes containing '\n'.
 
 ----
 
+* Fixed a bug in UM file loading, where any landsea-mask-compressed fields
+ (i.e. with LBPACK=x2x) would cause an error later, when realising the data.
+
+----
+
 * :meth:`iris.cube.Cube.collapsed` now handles partial collapsing of
 multidimensional coordinates that have bounds.
+
+----
+
+* Fixed a bug in the :data:`~iris.analysis.PROPORTION` aggregator, where cube
+  data in the form of a masked array with "array.mask=False" would cause an
+  error, but possibly only later when the values are actually realised.
+  ( Note: since netCDF4 version 1.4.0, this is now a common form for data
+  loaded from netCDF files ).
+
+----
+
+* Fixed a bug where plotting a cube with a
+  :class:`iris.coord_systems.LamberConformal` coordinate system would result
+  in an error.  This would happen if the coordinate system was defined with one
+  standard parallel, rather than two.
+  In these cases, a call to
+  :meth:`~iris.coord_systems.LambertConform.as_cartopy_crs` would fail.
 
 ----
 
@@ -133,10 +164,38 @@ bounds when handling multidimensional coordinates.
 
 ----
 
+* Fixed a bug in the :meth:`iris.cube.Cube.collapse` operation, which caused
+  the unexpected realization of any attached auxiliary coordinates that were
+  _bounded_.  It now correctly produces a lazy result and does not realise the
+  original attached AuxCoords.
+
+----
+
 
 Documentation Changes
 =====================
 * Added a gallery example showing how to concatenate NEMO ocean model data.
+
+----
+
+* Added an example in the 
+  `Loading Iris Cubes: Constraining on Time <https://scitools.org.uk/iris/docs/latest/userguide/loading_iris_cubes.html#constraining-on-time>`_
+  Userguide section, demonstrating how to load data within a specified date
+  range.
+
+----
+
+* Added notes to the :func:`iris.load` documentation, and the userguide
+  `Loading Iris Cubes <https://scitools.org.uk/iris/docs/latest/userguide/loading_iris_cubes.html>`_
+  chapter, emphasizing that the _order_ of the cubes returned by an iris load
+  operation is effectively random and unstable, and should not be relied on.
+
+----
+
+* Fixed references in the documentation of
+  :func:`iris.utils.find_discontiguities` to a nonexistent
+  "mask_discontiguities" routine : these now refer to
+  :func:`~iris.utils.mask_cube`.
 
 ----
 
