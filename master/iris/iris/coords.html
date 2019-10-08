@@ -196,9 +196,10 @@ e.g. a <a class="reference internal" href="coord_systems.html#iris.coord_systems
 </li>
 <li><dl class="simple">
 <dt>climatological (bool):</dt><dd><p>When True: the coordinate is a NetCDF climatological time axis.
-When True: saving in NetCDF will label the time axis with
-‘climatology’ and ‘climatology_bounds’ in place of standard
-bounds labels.
+When True: saving in NetCDF will give the coordinate variable a
+‘climatology’ attribute and will create a boundary variable called
+‘&lt;coordinate-name&gt;_climatology’ in place of a standard bounds
+attribute and bounds variable.
 Will set to True when a climatological time axis is loaded
 from NetCDF.
 Always False if no bounds exist.</p>
@@ -1078,9 +1079,10 @@ e.g. a <a class="reference internal" href="coord_systems.html#iris.coord_systems
 </li>
 <li><dl class="simple">
 <dt>climatological (bool):</dt><dd><p>When True: the coordinate is a NetCDF climatological time axis.
-When True: saving in NetCDF will label the time axis with
-‘climatology’ and ‘climatology_bounds’ in place of standard
-bounds labels.
+When True: saving in NetCDF will give the coordinate variable a
+‘climatology’ attribute and will create a boundary variable called
+‘&lt;coordinate-name&gt;_climatology’ in place of a standard bounds
+attribute and bounds variable.
 Will set to True when a climatological time axis is loaded
 from NetCDF.
 Always False if no bounds exist.</p>
