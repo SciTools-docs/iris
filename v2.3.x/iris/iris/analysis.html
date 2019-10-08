@@ -179,6 +179,7 @@ in that dimension.</p>
 <li><p><a class="reference internal" href="#iris.analysis.AreaWeighted" title="iris.analysis.AreaWeighted"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AreaWeighted</span></code></a></p></li>
 <li><p><a class="reference internal" href="#iris.analysis.Nearest" title="iris.analysis.Nearest"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Nearest</span></code></a></p></li>
 <li><p><a class="reference internal" href="#iris.analysis.UnstructuredNearest" title="iris.analysis.UnstructuredNearest"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UnstructuredNearest</span></code></a></p></li>
+<li><p><a class="reference internal" href="#iris.analysis.PointInCell" title="iris.analysis.PointInCell"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PointInCell</span></code></a></p></li>
 </ul>
 </div></blockquote>
 <dl class="data">
@@ -1564,6 +1565,76 @@ All other cube components are ignored.</p>
 <div><p><cite>callable(cube)</cite></p>
 </div></blockquote>
 <p>where <cite>cube</cite> is a cube with the same grid as <cite>src_cube</cite>
+that is to be regridded to the <cite>target_grid</cite>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div></blockquote>
+<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
+<!--<hr class="docutils" />
+--><p>This class describes the point-in-cell regridding scheme for use
+typically with <a class="reference internal" href="cube.html#iris.cube.Cube.regrid" title="iris.cube.Cube.regrid"><code class="xref py py-meth docutils literal notranslate"><span class="pre">iris.cube.Cube.regrid()</span></code></a>.</p>
+<p>The PointInCell regridder can regrid data from a source grid of any
+dimensionality and in any coordinate system.
+The location of each source point is specified by X and Y coordinates
+mapped over the same cube dimensions, aka “grid dimensions” : the grid may
+have any dimensionality.  The X and Y coordinates must also have the same,
+defined coord_system.
+The weights, if specified, must have the same shape as the X and Y
+coordinates.
+The output grid can be any ‘normal’ XY grid, specified by <em>separate</em> X
+and Y coordinates :  That is, X and Y have two different cube dimensions.
+The output X and Y coordinates must also have a common, specified
+coord_system.</p>
+<blockquote>
+<div><dl class="class">
+<dt id="iris.analysis.PointInCell">
+<em class="property">class </em><code class="sig-prename descclassname">iris.analysis.</code><code class="sig-name descname">PointInCell</code><span class="sig-paren">(</span><em class="sig-param">weights=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.analysis.PointInCell" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Point-in-cell regridding scheme suitable for regridding over one
+or more orthogonal coordinates.</p>
+<p>Optional Args:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>weights:</dt><dd><p>A <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.17)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> instance that defines the weights
+for the grid cells of the source grid. Must have the same shape
+as the data of the source grid.
+If unspecified, equal weighting is assumed.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="method">
+<dt id="iris.analysis.PointInCell.regridder">
+<code class="sig-name descname">regridder</code><span class="sig-paren">(</span><em class="sig-param">src_grid</em>, <em class="sig-param">target_grid</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.analysis.PointInCell.regridder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a point-in-cell regridder to perform regridding from the
+source grid to the target grid.</p>
+<p>Typically you should use <a class="reference internal" href="cube.html#iris.cube.Cube.regrid" title="iris.cube.Cube.regrid"><code class="xref py py-meth docutils literal notranslate"><span class="pre">iris.cube.Cube.regrid()</span></code></a> for
+regridding a cube. There are, however, some situations when
+constructing your own regridder is preferable. These are detailed in
+the <a class="reference internal" href="../../userguide/interpolation_and_regridding.html#caching-a-regridder"><span class="std std-ref">user guide</span></a>.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>src_grid:</dt><dd><p>The <a class="reference internal" href="cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a> defining the source grid.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>target_grid:</dt><dd><p>The <a class="reference internal" href="cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a> defining the target grid.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl>
+<dt>Returns:</dt><dd><p>A callable with the interface:</p>
+<blockquote>
+<div><p><cite>callable(cube)</cite></p>
+</div></blockquote>
+<p>where <cite>cube</cite> is a cube with the same grid as <cite>src_grid</cite>
 that is to be regridded to the <cite>target_grid</cite>.</p>
 </dd>
 </dl>
