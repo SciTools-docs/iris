@@ -212,19 +212,6 @@ Always False if no bounds exist.</p>
 <code class="sig-name descname">cell</code><span class="sig-paren">(</span><em class="sig-param">index</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.AuxCoord.cell" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the single <a class="reference internal" href="#iris.coords.Cell" title="iris.coords.Cell"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cell</span></code></a> instance which results from slicing the
 points/bounds with the given index.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If <cite>iris.FUTURE.cell_datetime_objects</cite> is True, then this
-method will return Cell objects whose <cite>points</cite> and <cite>bounds</cite>
-attributes contain either datetime.datetime instances or
-cftime.datetime instances (depending on the calendar).</p>
-</div>
-<div class="deprecated">
-<p><span class="versionmodified deprecated">Deprecated since version 2.0.0: </span>The option <cite>iris.FUTURE.cell_datetime_objects</cite> is deprecated and
-will be removed in a future release; it is now set to True by
-default. Please update your code to support using cells as
-datetime objects.</p>
-</div>
 </dd></dl>
 
 <dl class="method">
@@ -358,22 +345,6 @@ one-dimensional, or is not monotonic.</p>
 <p>Unevenly spaced values, such from a wrapped longitude range, can
 produce unexpected results :  In such cases you should assign
 suitable values directly to the bounds property, instead.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If <cite>iris.FUTURE.clip_latitudes</cite> is True, then this method
-will clip the coordinate bounds to the range [-90, 90] when:</p>
-<ul class="simple">
-<li><p>it is a <cite>latitude</cite> or <cite>grid_latitude</cite> coordinate,</p></li>
-<li><p>the units are degrees,</p></li>
-<li><p>all the points are in the range [-90, 90].</p></li>
-</ul>
-</div>
-<div class="deprecated">
-<p><span class="versionmodified deprecated">Deprecated since version 2.0.0: </span>The <cite>iris.FUTURE.clip_latitudes</cite> option is now deprecated
-and is set to True by default. Please remove code which
-relies on coordinate bounds being outside the range
-[-90, 90].</p>
 </div>
 </dd></dl>
 
@@ -1095,19 +1066,6 @@ Always False if no bounds exist.</p>
 <code class="sig-name descname">cell</code><span class="sig-paren">(</span><em class="sig-param">index</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.Coord.cell" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the single <a class="reference internal" href="#iris.coords.Cell" title="iris.coords.Cell"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cell</span></code></a> instance which results from slicing the
 points/bounds with the given index.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If <cite>iris.FUTURE.cell_datetime_objects</cite> is True, then this
-method will return Cell objects whose <cite>points</cite> and <cite>bounds</cite>
-attributes contain either datetime.datetime instances or
-cftime.datetime instances (depending on the calendar).</p>
-</div>
-<div class="deprecated">
-<p><span class="versionmodified deprecated">Deprecated since version 2.0.0: </span>The option <cite>iris.FUTURE.cell_datetime_objects</cite> is deprecated and
-will be removed in a future release; it is now set to True by
-default. Please update your code to support using cells as
-datetime objects.</p>
-</div>
 </dd></dl>
 
 <dl class="method">
@@ -1241,22 +1199,6 @@ one-dimensional, or is not monotonic.</p>
 <p>Unevenly spaced values, such from a wrapped longitude range, can
 produce unexpected results :  In such cases you should assign
 suitable values directly to the bounds property, instead.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If <cite>iris.FUTURE.clip_latitudes</cite> is True, then this method
-will clip the coordinate bounds to the range [-90, 90] when:</p>
-<ul class="simple">
-<li><p>it is a <cite>latitude</cite> or <cite>grid_latitude</cite> coordinate,</p></li>
-<li><p>the units are degrees,</p></li>
-<li><p>all the points are in the range [-90, 90].</p></li>
-</ul>
-</div>
-<div class="deprecated">
-<p><span class="versionmodified deprecated">Deprecated since version 2.0.0: </span>The <cite>iris.FUTURE.clip_latitudes</cite> option is now deprecated
-and is set to True by default. Please remove code which
-relies on coordinate bounds being outside the range
-[-90, 90].</p>
 </div>
 </dd></dl>
 
@@ -1765,19 +1707,6 @@ read-only points and bounds.</p>
 <code class="sig-name descname">cell</code><span class="sig-paren">(</span><em class="sig-param">index</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.DimCoord.cell" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the single <a class="reference internal" href="#iris.coords.Cell" title="iris.coords.Cell"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cell</span></code></a> instance which results from slicing the
 points/bounds with the given index.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If <cite>iris.FUTURE.cell_datetime_objects</cite> is True, then this
-method will return Cell objects whose <cite>points</cite> and <cite>bounds</cite>
-attributes contain either datetime.datetime instances or
-cftime.datetime instances (depending on the calendar).</p>
-</div>
-<div class="deprecated">
-<p><span class="versionmodified deprecated">Deprecated since version 2.0.0: </span>The option <cite>iris.FUTURE.cell_datetime_objects</cite> is deprecated and
-will be removed in a future release; it is now set to True by
-default. Please update your code to support using cells as
-datetime objects.</p>
-</div>
 </dd></dl>
 
 <dl class="method">
@@ -1948,22 +1877,6 @@ one-dimensional, or is not monotonic.</p>
 <p>Unevenly spaced values, such from a wrapped longitude range, can
 produce unexpected results :  In such cases you should assign
 suitable values directly to the bounds property, instead.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If <cite>iris.FUTURE.clip_latitudes</cite> is True, then this method
-will clip the coordinate bounds to the range [-90, 90] when:</p>
-<ul class="simple">
-<li><p>it is a <cite>latitude</cite> or <cite>grid_latitude</cite> coordinate,</p></li>
-<li><p>the units are degrees,</p></li>
-<li><p>all the points are in the range [-90, 90].</p></li>
-</ul>
-</div>
-<div class="deprecated">
-<p><span class="versionmodified deprecated">Deprecated since version 2.0.0: </span>The <cite>iris.FUTURE.clip_latitudes</cite> option is now deprecated
-and is set to True by default. Please remove code which
-relies on coordinate bounds being outside the range
-[-90, 90].</p>
 </div>
 </dd></dl>
 
