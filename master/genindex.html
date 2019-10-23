@@ -131,6 +131,8 @@
 </li>
       <li><a href="iris/iris/analysis/maths.html#iris.analysis.maths.add">add() (in module iris.analysis.maths)</a>
 </li>
+      <li><a href="iris/iris/cube.html#iris.cube.Cube.add_ancillary_variable">add_ancillary_variable() (iris.cube.Cube method)</a>
+</li>
       <li><a href="iris/iris/cube.html#iris.cube.Cube.add_aux_coord">add_aux_coord() (iris.cube.Cube method)</a>
 </li>
       <li><a href="iris/iris/cube.html#iris.cube.Cube.add_aux_factory">add_aux_factory() (iris.cube.Cube method)</a>
@@ -217,7 +219,19 @@
 </li>
       <li><a href="iris/iris/coord_systems.html#iris.coord_systems.AlbersEqualArea">AlbersEqualArea (class in iris.coord_systems)</a>
 </li>
-      <li><a href="iris/iris/fileformats/cf.html#iris.fileformats.cf.CFGroup.ancillary_variables">ancillary_variables() (iris.fileformats.cf.CFGroup property)</a>
+      <li><a href="iris/iris/cube.html#iris.cube.Cube.ancillary_variable">ancillary_variable() (iris.cube.Cube method)</a>
+</li>
+      <li><a href="iris/iris/cube.html#iris.cube.Cube.ancillary_variable_dims">ancillary_variable_dims() (iris.cube.Cube method)</a>
+</li>
+      <li><a href="iris/iris/cube.html#iris.cube.Cube.ancillary_variables">ancillary_variables() (iris.cube.Cube method)</a>
+
+      <ul>
+        <li><a href="iris/iris/fileformats/cf.html#iris.fileformats.cf.CFGroup.ancillary_variables">(iris.fileformats.cf.CFGroup property)</a>
+</li>
+      </ul></li>
+      <li><a href="iris/iris/coords.html#iris.coords.AncillaryVariable">AncillaryVariable (class in iris.coords)</a>
+</li>
+      <li><a href="iris/iris/exceptions.html#iris.exceptions.AncillaryVariableNotFoundError">AncillaryVariableNotFoundError (class in iris.exceptions)</a>
 </li>
       <li><a href="iris/iris/experimental/animate.html#iris.experimental.animate.animate">animate() (in module iris.experimental.animate)</a>
 </li>
@@ -235,9 +249,11 @@
 </li>
       <li><a href="iris/iris/analysis.html#iris.analysis.AreaWeighted">AreaWeighted (class in iris.analysis)</a>
 </li>
-      <li><a href="iris/iris/exceptions.html#iris.exceptions.CellMeasureNotFoundError.args">args (iris.exceptions.CellMeasureNotFoundError attribute)</a>
+      <li><a href="iris/iris/exceptions.html#iris.exceptions.AncillaryVariableNotFoundError.args">args (iris.exceptions.AncillaryVariableNotFoundError attribute)</a>
 
       <ul>
+        <li><a href="iris/iris/exceptions.html#iris.exceptions.CellMeasureNotFoundError.args">(iris.exceptions.CellMeasureNotFoundError attribute)</a>
+</li>
         <li><a href="iris/iris/exceptions.html#iris.exceptions.ConcatenateError.args">(iris.exceptions.ConcatenateError attribute)</a>
 </li>
         <li><a href="iris/iris/exceptions.html#iris.exceptions.ConstraintMismatchError.args">(iris.exceptions.ConstraintMismatchError attribute)</a>
@@ -369,6 +385,8 @@
         <li><a href="iris/iris/aux_factory.html#iris.aux_factory.OceanSigmaFactory.attributes">(iris.aux_factory.OceanSigmaFactory property)</a>
 </li>
         <li><a href="iris/iris/aux_factory.html#iris.aux_factory.OceanSigmaZFactory.attributes">(iris.aux_factory.OceanSigmaZFactory property)</a>
+</li>
+        <li><a href="iris/iris/coords.html#iris.coords.AncillaryVariable.attributes">(iris.coords.AncillaryVariable property)</a>
 </li>
         <li><a href="iris/iris/coords.html#iris.coords.AuxCoord.attributes">(iris.coords.AuxCoord property)</a>
 </li>
@@ -691,8 +709,6 @@
 </li>
       <li><a href="iris/iris/fileformats/netcdf.html#iris.fileformats.netcdf.Saver.check_attribute_compliance">check_attribute_compliance() (iris.fileformats.netcdf.Saver static method)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="iris/iris/coords.html#iris.coords.DimCoord.circular">circular (iris.coords.DimCoord attribute)</a>
 </li>
       <li><a href="iris/iris/plot.html#iris.plot.citation">citation() (in module iris.plot)</a>
@@ -703,6 +719,8 @@
         <li><a href="iris/iris/fileformats/cf.html#iris.fileformats.cf.CFGroup.clear">(iris.fileformats.cf.CFGroup method)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="iris/iris/analysis.html#iris.analysis.clear_phenomenon_identity">clear_phenomenon_identity() (in module iris.analysis)</a>
 </li>
       <li><a href="iris/iris/coords.html#iris.coords.AuxCoord.climatological">climatological() (iris.coords.AuxCoord property)</a>
@@ -785,9 +803,13 @@
 </li>
       <li><a href="iris/iris/fileformats/pp_load_rules.html#iris.fileformats.pp_load_rules.convert">convert() (in module iris.fileformats.pp_load_rules)</a>
 </li>
-      <li><a href="iris/iris/coords.html#iris.coords.AuxCoord.convert_units">convert_units() (iris.coords.AuxCoord method)</a>
+      <li><a href="iris/iris/coords.html#iris.coords.AncillaryVariable.convert_units">convert_units() (iris.coords.AncillaryVariable method)</a>
 
       <ul>
+        <li><a href="iris/iris/coords.html#iris.coords.AuxCoord.convert_units">(iris.coords.AuxCoord method)</a>
+</li>
+        <li><a href="iris/iris/coords.html#iris.coords.CellMeasure.convert_units">(iris.coords.CellMeasure method)</a>
+</li>
         <li><a href="iris/iris/coords.html#iris.coords.Coord.convert_units">(iris.coords.Coord method)</a>
 </li>
         <li><a href="iris/iris/coords.html#iris.coords.DimCoord.convert_units">(iris.coords.DimCoord method)</a>
@@ -849,9 +871,11 @@
       </ul></li>
       <li><a href="iris/iris/coord_systems.html#iris.coord_systems.CoordSystem">CoordSystem (class in iris.coord_systems)</a>
 </li>
-      <li><a href="iris/iris/coords.html#iris.coords.AuxCoord.copy">copy() (iris.coords.AuxCoord method)</a>
+      <li><a href="iris/iris/coords.html#iris.coords.AncillaryVariable.copy">copy() (iris.coords.AncillaryVariable method)</a>
 
       <ul>
+        <li><a href="iris/iris/coords.html#iris.coords.AuxCoord.copy">(iris.coords.AuxCoord method)</a>
+</li>
         <li><a href="iris/iris/coords.html#iris.coords.CellMeasure.copy">(iris.coords.CellMeasure method)</a>
 </li>
         <li><a href="iris/iris/coords.html#iris.coords.Coord.copy">(iris.coords.Coord method)</a>
@@ -873,9 +897,13 @@
         <li><a href="iris/iris/coords.html#iris.coords.DimCoord.core_bounds">(iris.coords.DimCoord method)</a>
 </li>
       </ul></li>
-      <li><a href="iris/iris/cube.html#iris.cube.Cube.core_data">core_data() (iris.cube.Cube method)</a>
+      <li><a href="iris/iris/coords.html#iris.coords.AncillaryVariable.core_data">core_data() (iris.coords.AncillaryVariable method)</a>
 
       <ul>
+        <li><a href="iris/iris/coords.html#iris.coords.CellMeasure.core_data">(iris.coords.CellMeasure method)</a>
+</li>
+        <li><a href="iris/iris/cube.html#iris.cube.Cube.core_data">(iris.cube.Cube method)</a>
+</li>
         <li><a href="iris/iris/fileformats/pp.html#iris.fileformats.pp.PPField.core_data">(iris.fileformats.pp.PPField method)</a>
 </li>
         <li><a href="iris/iris/fileformats/um.html#iris.fileformats.um.FieldCollation.core_data">(iris.fileformats.um.FieldCollation method)</a>
@@ -949,9 +977,11 @@
 <h2 id="D">D</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="iris/iris/coords.html#iris.coords.CellMeasure.data">data() (iris.coords.CellMeasure property)</a>
+      <li><a href="iris/iris/coords.html#iris.coords.AncillaryVariable.data">data() (iris.coords.AncillaryVariable property)</a>
 
       <ul>
+        <li><a href="iris/iris/coords.html#iris.coords.CellMeasure.data">(iris.coords.CellMeasure property)</a>
+</li>
         <li><a href="iris/iris/cube.html#iris.cube.Cube.data">(iris.cube.Cube property)</a>
 </li>
         <li><a href="iris/iris/fileformats/pp.html#iris.fileformats.pp.PPField.data">(iris.fileformats.pp.PPField property)</a>
@@ -1043,9 +1073,13 @@
 </li>
       <li><a href="iris/iris/fileformats/netcdf.html#iris.fileformats.netcdf.NetCDFDataProxy.dtype">dtype (iris.fileformats.netcdf.NetCDFDataProxy attribute)</a>
 </li>
-      <li><a href="iris/iris/coords.html#iris.coords.AuxCoord.dtype">dtype() (iris.coords.AuxCoord property)</a>
+      <li><a href="iris/iris/coords.html#iris.coords.AncillaryVariable.dtype">dtype() (iris.coords.AncillaryVariable property)</a>
 
       <ul>
+        <li><a href="iris/iris/coords.html#iris.coords.AuxCoord.dtype">(iris.coords.AuxCoord property)</a>
+</li>
+        <li><a href="iris/iris/coords.html#iris.coords.CellMeasure.dtype">(iris.coords.CellMeasure property)</a>
+</li>
         <li><a href="iris/iris/coords.html#iris.coords.Coord.dtype">(iris.coords.Coord property)</a>
 </li>
         <li><a href="iris/iris/coords.html#iris.coords.DimCoord.dtype">(iris.coords.DimCoord property)</a>
@@ -1329,9 +1363,13 @@
 </li>
       <li><a href="iris/iris/fileformats/rules.html#iris.fileformats.rules.has_aux_factory">has_aux_factory() (in module iris.fileformats.rules)</a>
 </li>
-      <li><a href="iris/iris/coords.html#iris.coords.AuxCoord.has_bounds">has_bounds() (iris.coords.AuxCoord method)</a>
+      <li><a href="iris/iris/coords.html#iris.coords.AncillaryVariable.has_bounds">has_bounds() (iris.coords.AncillaryVariable method)</a>
 
       <ul>
+        <li><a href="iris/iris/coords.html#iris.coords.AuxCoord.has_bounds">(iris.coords.AuxCoord method)</a>
+</li>
+        <li><a href="iris/iris/coords.html#iris.coords.CellMeasure.has_bounds">(iris.coords.CellMeasure method)</a>
+</li>
         <li><a href="iris/iris/coords.html#iris.coords.Coord.has_bounds">(iris.coords.Coord method)</a>
 </li>
         <li><a href="iris/iris/coords.html#iris.coords.DimCoord.has_bounds">(iris.coords.DimCoord method)</a>
@@ -1369,8 +1407,14 @@
         <li><a href="iris/iris/coords.html#iris.coords.DimCoord.has_lazy_bounds">(iris.coords.DimCoord method)</a>
 </li>
       </ul></li>
-      <li><a href="iris/iris/cube.html#iris.cube.Cube.has_lazy_data">has_lazy_data() (iris.cube.Cube method)</a>
+      <li><a href="iris/iris/coords.html#iris.coords.AncillaryVariable.has_lazy_data">has_lazy_data() (iris.coords.AncillaryVariable method)</a>
+
+      <ul>
+        <li><a href="iris/iris/coords.html#iris.coords.CellMeasure.has_lazy_data">(iris.coords.CellMeasure method)</a>
 </li>
+        <li><a href="iris/iris/cube.html#iris.cube.Cube.has_lazy_data">(iris.cube.Cube method)</a>
+</li>
+      </ul></li>
       <li><a href="iris/iris/coords.html#iris.coords.AuxCoord.has_lazy_points">has_lazy_points() (iris.coords.AuxCoord method)</a>
 
       <ul>
@@ -1515,10 +1559,10 @@
 </li>
       <li><a href="iris/iris/coord_categorisation.html#module-iris.coord_categorisation">iris.coord_categorisation (module)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="iris/iris/coord_systems.html#module-iris.coord_systems">iris.coord_systems (module)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="iris/iris/coords.html#module-iris.coords">iris.coords (module)</a>
 </li>
       <li><a href="iris/iris/cube.html#module-iris.cube">iris.cube (module)</a>
@@ -1601,9 +1645,13 @@
 </li>
       <li><a href="iris/iris/palette.html#iris.palette.is_brewer">is_brewer() (in module iris.palette)</a>
 </li>
-      <li><a href="iris/iris/coords.html#iris.coords.AuxCoord.is_compatible">is_compatible() (iris.coords.AuxCoord method)</a>
+      <li><a href="iris/iris/coords.html#iris.coords.AncillaryVariable.is_compatible">is_compatible() (iris.coords.AncillaryVariable method)</a>
 
       <ul>
+        <li><a href="iris/iris/coords.html#iris.coords.AuxCoord.is_compatible">(iris.coords.AuxCoord method)</a>
+</li>
+        <li><a href="iris/iris/coords.html#iris.coords.CellMeasure.is_compatible">(iris.coords.CellMeasure method)</a>
+</li>
         <li><a href="iris/iris/coords.html#iris.coords.Coord.is_compatible">(iris.coords.Coord method)</a>
 </li>
         <li><a href="iris/iris/coords.html#iris.coords.DimCoord.is_compatible">(iris.coords.DimCoord method)</a>
@@ -1685,8 +1733,14 @@
         <li><a href="iris/iris/coords.html#iris.coords.DimCoord.lazy_bounds">(iris.coords.DimCoord method)</a>
 </li>
       </ul></li>
-      <li><a href="iris/iris/cube.html#iris.cube.Cube.lazy_data">lazy_data() (iris.cube.Cube method)</a>
+      <li><a href="iris/iris/coords.html#iris.coords.AncillaryVariable.lazy_data">lazy_data() (iris.coords.AncillaryVariable method)</a>
+
+      <ul>
+        <li><a href="iris/iris/coords.html#iris.coords.CellMeasure.lazy_data">(iris.coords.CellMeasure method)</a>
 </li>
+        <li><a href="iris/iris/cube.html#iris.cube.Cube.lazy_data">(iris.cube.Cube method)</a>
+</li>
+      </ul></li>
       <li><a href="iris/iris/coords.html#iris.coords.AuxCoord.lazy_points">lazy_points() (iris.coords.AuxCoord method)</a>
 
       <ul>
@@ -1782,10 +1836,6 @@
       <li><a href="iris/iris/aux_factory.html#iris.aux_factory.AuxCoordFactory.long_name">long_name (iris.aux_factory.AuxCoordFactory attribute)</a>
 
       <ul>
-        <li><a href="iris/iris/coords.html#iris.coords.CellMeasure.long_name">(iris.coords.CellMeasure attribute)</a>
-</li>
-        <li><a href="iris/iris/coords.html#iris.coords.Coord.long_name">(iris.coords.Coord attribute)</a>
-</li>
         <li><a href="iris/iris/cube.html#iris.cube.Cube.long_name">(iris.cube.Cube attribute)</a>
 </li>
       </ul></li>
@@ -1922,6 +1972,8 @@
 </li>
         <li><a href="iris/iris/aux_factory.html#iris.aux_factory.OceanSigmaZFactory.name">(iris.aux_factory.OceanSigmaZFactory method)</a>
 </li>
+        <li><a href="iris/iris/coords.html#iris.coords.AncillaryVariable.name">(iris.coords.AncillaryVariable method)</a>
+</li>
         <li><a href="iris/iris/coords.html#iris.coords.AuxCoord.name">(iris.coords.AuxCoord method)</a>
 </li>
         <li><a href="iris/iris/coords.html#iris.coords.CellMeasure.name">(iris.coords.CellMeasure method)</a>
@@ -1961,9 +2013,11 @@
         <li><a href="iris/iris/coords.html#iris.coords.DimCoord.nbounds">(iris.coords.DimCoord property)</a>
 </li>
       </ul></li>
-      <li><a href="iris/iris/coords.html#iris.coords.AuxCoord.ndim">ndim() (iris.coords.AuxCoord property)</a>
+      <li><a href="iris/iris/coords.html#iris.coords.AncillaryVariable.ndim">ndim() (iris.coords.AncillaryVariable property)</a>
 
       <ul>
+        <li><a href="iris/iris/coords.html#iris.coords.AuxCoord.ndim">(iris.coords.AuxCoord property)</a>
+</li>
         <li><a href="iris/iris/coords.html#iris.coords.CellMeasure.ndim">(iris.coords.CellMeasure property)</a>
 </li>
         <li><a href="iris/iris/coords.html#iris.coords.Coord.ndim">(iris.coords.Coord property)</a>
@@ -2177,6 +2231,8 @@
 </li>
       <li><a href="iris/iris/cube.html#iris.cube.CubeList.remove">remove() (iris.cube.CubeList method)</a>
 </li>
+      <li><a href="iris/iris/cube.html#iris.cube.Cube.remove_ancillary_variable">remove_ancillary_variable() (iris.cube.Cube method)</a>
+</li>
       <li><a href="iris/iris/cube.html#iris.cube.Cube.remove_aux_factory">remove_aux_factory() (iris.cube.Cube method)</a>
 </li>
       <li><a href="iris/iris/cube.html#iris.cube.Cube.remove_cell_measure">remove_cell_measure() (iris.cube.Cube method)</a>
@@ -2199,6 +2255,8 @@
         <li><a href="iris/iris/aux_factory.html#iris.aux_factory.OceanSigmaFactory.rename">(iris.aux_factory.OceanSigmaFactory method)</a>
 </li>
         <li><a href="iris/iris/aux_factory.html#iris.aux_factory.OceanSigmaZFactory.rename">(iris.aux_factory.OceanSigmaZFactory method)</a>
+</li>
+        <li><a href="iris/iris/coords.html#iris.coords.AncillaryVariable.rename">(iris.coords.AncillaryVariable method)</a>
 </li>
         <li><a href="iris/iris/coords.html#iris.coords.AuxCoord.rename">(iris.coords.AuxCoord method)</a>
 </li>
@@ -2307,9 +2365,11 @@
 </li>
       <li><a href="iris/iris/fileformats/netcdf.html#iris.fileformats.netcdf.NetCDFDataProxy.shape">shape (iris.fileformats.netcdf.NetCDFDataProxy attribute)</a>
 </li>
-      <li><a href="iris/iris/coords.html#iris.coords.AuxCoord.shape">shape() (iris.coords.AuxCoord property)</a>
+      <li><a href="iris/iris/coords.html#iris.coords.AncillaryVariable.shape">shape() (iris.coords.AncillaryVariable property)</a>
 
       <ul>
+        <li><a href="iris/iris/coords.html#iris.coords.AuxCoord.shape">(iris.coords.AuxCoord property)</a>
+</li>
         <li><a href="iris/iris/coords.html#iris.coords.CellMeasure.shape">(iris.coords.CellMeasure property)</a>
 </li>
         <li><a href="iris/iris/coords.html#iris.coords.Coord.shape">(iris.coords.Coord property)</a>
@@ -2371,6 +2431,8 @@
         <li><a href="iris/iris/aux_factory.html#iris.aux_factory.OceanSigmaFactory.standard_name">(iris.aux_factory.OceanSigmaFactory property)</a>
 </li>
         <li><a href="iris/iris/aux_factory.html#iris.aux_factory.OceanSigmaZFactory.standard_name">(iris.aux_factory.OceanSigmaZFactory property)</a>
+</li>
+        <li><a href="iris/iris/coords.html#iris.coords.AncillaryVariable.standard_name">(iris.coords.AncillaryVariable property)</a>
 </li>
         <li><a href="iris/iris/coords.html#iris.coords.AuxCoord.standard_name">(iris.coords.AuxCoord property)</a>
 </li>
@@ -2452,6 +2514,8 @@
 </li>
         <li><a href="iris/iris/aux_factory.html#iris.aux_factory.OceanSigmaZFactory.token">(iris.aux_factory.OceanSigmaZFactory static method)</a>
 </li>
+        <li><a href="iris/iris/coords.html#iris.coords.AncillaryVariable.token">(iris.coords.AncillaryVariable static method)</a>
+</li>
         <li><a href="iris/iris/coords.html#iris.coords.AuxCoord.token">(iris.coords.AuxCoord static method)</a>
 </li>
         <li><a href="iris/iris/coords.html#iris.coords.CellMeasure.token">(iris.coords.CellMeasure static method)</a>
@@ -2513,6 +2577,8 @@
         <li><a href="iris/iris/aux_factory.html#iris.aux_factory.OceanSigmaFactory.units">(iris.aux_factory.OceanSigmaFactory property)</a>
 </li>
         <li><a href="iris/iris/aux_factory.html#iris.aux_factory.OceanSigmaZFactory.units">(iris.aux_factory.OceanSigmaZFactory property)</a>
+</li>
+        <li><a href="iris/iris/coords.html#iris.coords.AncillaryVariable.units">(iris.coords.AncillaryVariable property)</a>
 </li>
         <li><a href="iris/iris/coords.html#iris.coords.AuxCoord.units">(iris.coords.AuxCoord property)</a>
 </li>
@@ -2622,6 +2688,8 @@
 </li>
         <li><a href="iris/iris/aux_factory.html#iris.aux_factory.OceanSigmaZFactory.var_name">(iris.aux_factory.OceanSigmaZFactory property)</a>
 </li>
+        <li><a href="iris/iris/coords.html#iris.coords.AncillaryVariable.var_name">(iris.coords.AncillaryVariable property)</a>
+</li>
         <li><a href="iris/iris/coords.html#iris.coords.AuxCoord.var_name">(iris.coords.AuxCoord property)</a>
 </li>
         <li><a href="iris/iris/coords.html#iris.coords.CellMeasure.var_name">(iris.coords.CellMeasure property)</a>
@@ -2663,9 +2731,11 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="iris/iris/analysis.html#iris.analysis.WeightedAggregator">WeightedAggregator (class in iris.analysis)</a>
 </li>
-      <li><a href="iris/iris/exceptions.html#iris.exceptions.CellMeasureNotFoundError.with_traceback">with_traceback() (iris.exceptions.CellMeasureNotFoundError method)</a>
+      <li><a href="iris/iris/exceptions.html#iris.exceptions.AncillaryVariableNotFoundError.with_traceback">with_traceback() (iris.exceptions.AncillaryVariableNotFoundError method)</a>
 
       <ul>
+        <li><a href="iris/iris/exceptions.html#iris.exceptions.CellMeasureNotFoundError.with_traceback">(iris.exceptions.CellMeasureNotFoundError method)</a>
+</li>
         <li><a href="iris/iris/exceptions.html#iris.exceptions.ConcatenateError.with_traceback">(iris.exceptions.ConcatenateError method)</a>
 </li>
         <li><a href="iris/iris/exceptions.html#iris.exceptions.ConstraintMismatchError.with_traceback">(iris.exceptions.ConstraintMismatchError method)</a>
@@ -2766,7 +2836,11 @@
 </li>
         <li><a href="iris/iris/coord_systems.html#iris.coord_systems.VerticalPerspective.xml_element">(iris.coord_systems.VerticalPerspective method)</a>
 </li>
+        <li><a href="iris/iris/coords.html#iris.coords.AncillaryVariable.xml_element">(iris.coords.AncillaryVariable method)</a>
+</li>
         <li><a href="iris/iris/coords.html#iris.coords.AuxCoord.xml_element">(iris.coords.AuxCoord method)</a>
+</li>
+        <li><a href="iris/iris/coords.html#iris.coords.CellMeasure.xml_element">(iris.coords.CellMeasure method)</a>
 </li>
         <li><a href="iris/iris/coords.html#iris.coords.CellMethod.xml_element">(iris.coords.CellMethod method)</a>
 </li>

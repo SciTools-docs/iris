@@ -113,10 +113,11 @@
             
   <div class="section" id="iris-coords">
 <span id="id1"></span><h1>iris.coords<a class="headerlink" href="#iris-coords" title="Permalink to this headline">¶</a></h1>
-<span class="target" id="module-iris.coords"></span><p>Definitions of coordinates.</p>
+<span class="target" id="module-iris.coords"></span><p>Definitions of coordinates and other dimensional metadata.</p>
 <p>In this module:</p>
 <blockquote>
 <div><ul class="simple">
+<li><p><a class="reference internal" href="#iris.coords.AncillaryVariable" title="iris.coords.AncillaryVariable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AncillaryVariable</span></code></a></p></li>
 <li><p><a class="reference internal" href="#iris.coords.AuxCoord" title="iris.coords.AuxCoord"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AuxCoord</span></code></a></p></li>
 <li><p><a class="reference internal" href="#iris.coords.Cell" title="iris.coords.Cell"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Cell</span></code></a></p></li>
 <li><p><a class="reference internal" href="#iris.coords.CellMeasure" title="iris.coords.CellMeasure"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CellMeasure</span></code></a></p></li>
@@ -127,7 +128,232 @@
 <li><p><a class="reference internal" href="#iris.coords.DimCoord" title="iris.coords.DimCoord"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DimCoord</span></code></a></p></li>
 </ul>
 </div></blockquote>
-<p>A CF auxiliary coordinate.</p>
+<p>Superclass for dimensional metadata.</p>
+<blockquote>
+<div><dl class="class">
+<dt id="iris.coords.AncillaryVariable">
+<em class="property">class </em><code class="sig-prename descclassname">iris.coords.</code><code class="sig-name descname">AncillaryVariable</code><span class="sig-paren">(</span><em class="sig-param">data</em>, <em class="sig-param">standard_name=None</em>, <em class="sig-param">long_name=None</em>, <em class="sig-param">var_name=None</em>, <em class="sig-param">units='no-unit'</em>, <em class="sig-param">attributes=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.AncillaryVariable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">iris.coords._DimensionalMetadata</span></code></p>
+<p>Constructs a single ancillary variable.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>values:</dt><dd><p>The values of the ancillary variable.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Kwargs:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>standard_name:</dt><dd><p>CF standard name of the ancillary variable.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>long_name:</dt><dd><p>Descriptive name of the ancillary variable.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>var_name:</dt><dd><p>The netCDF variable name for the ancillary variable.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>units</dt><dd><p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">Unit</span></code> of the ancillary variable’s values.
+Can be a string, which will be converted to a Unit object.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>attributes</dt><dd><p>A dictionary containing other cf and user-defined attributes.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="method">
+<dt id="iris.coords.AncillaryVariable.convert_units">
+<code class="sig-name descname">convert_units</code><span class="sig-paren">(</span><em class="sig-param">unit</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.AncillaryVariable.convert_units" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change the units, converting the values of the metadata.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="iris.coords.AncillaryVariable.copy">
+<code class="sig-name descname">copy</code><span class="sig-paren">(</span><em class="sig-param">values=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.AncillaryVariable.copy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a copy of this dimensional metadata object.</p>
+<p>Kwargs:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>values</dt><dd><p>An array of values for the new dimensional metadata object.
+This may be a different shape to the orginal values array being
+copied.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="iris.coords.AncillaryVariable.core_data">
+<code class="sig-name descname">core_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.AncillaryVariable.core_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>The data array at the core of this ancillary variable, which may be a
+NumPy array or a dask array.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="iris.coords.AncillaryVariable.has_bounds">
+<code class="sig-name descname">has_bounds</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.AncillaryVariable.has_bounds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a boolean indicating whether the current dimensional metadata
+object has a bounds array.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="iris.coords.AncillaryVariable.has_lazy_data">
+<code class="sig-name descname">has_lazy_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.AncillaryVariable.has_lazy_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a boolean indicating whether the ancillary variable’s data array
+is a lazy dask array or not.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="iris.coords.AncillaryVariable.is_compatible">
+<code class="sig-name descname">is_compatible</code><span class="sig-paren">(</span><em class="sig-param">other</em>, <em class="sig-param">ignore=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.AncillaryVariable.is_compatible" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether the current dimensional metadata object is compatible
+with another.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="iris.coords.AncillaryVariable.lazy_data">
+<code class="sig-name descname">lazy_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.AncillaryVariable.lazy_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a lazy array representing the ancillary variable’s data.</p>
+<p>Accessing this method will never cause the data values to be loaded.
+Similarly, calling methods on, or indexing, the returned Array
+will not cause the ancillary variable to have loaded data.</p>
+<p>If the data have already been loaded for the ancillary variable, the
+returned Array will be a new lazy array wrapper.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>A lazy array, representing the ancillary variable data array.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="iris.coords.AncillaryVariable.name">
+<code class="sig-name descname">name</code><span class="sig-paren">(</span><em class="sig-param">default=None</em>, <em class="sig-param">token=False</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.AncillaryVariable.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a human-readable name.</p>
+<p>First it tries <a class="reference internal" href="#iris.coords.AncillaryVariable.standard_name" title="iris.coords.AncillaryVariable.standard_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">standard_name</span></code></a>, then ‘long_name’, then
+‘var_name’, then the STASH attribute before falling back to
+the value of <cite>default</cite> (which itself defaults to ‘unknown’).</p>
+<p>Kwargs:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>default:</dt><dd><p>The value of the default name.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>token:</dt><dd><p>If true, ensure that the name returned satisfies the criteria for
+the characters required by a valid NetCDF name. If it is not
+possible to return a valid name, then a ValueError exception is
+raised.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>String.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="iris.coords.AncillaryVariable.rename">
+<code class="sig-name descname">rename</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.AncillaryVariable.rename" title="Permalink to this definition">¶</a></dt>
+<dd><p>Changes the human-readable name.</p>
+<p>If ‘name’ is a valid standard name it will assign it to
+<a class="reference internal" href="#iris.coords.AncillaryVariable.standard_name" title="iris.coords.AncillaryVariable.standard_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">standard_name</span></code></a>, otherwise it will assign it to
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">long_name</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="iris.coords.AncillaryVariable.token">
+<em class="property">static </em><code class="sig-name descname">token</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.AncillaryVariable.token" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine whether the provided name is a valid NetCDF name and thus
+safe to represent a single parsable token.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>name:</dt><dd><p>The string name to verify</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>The provided name if valid, otherwise None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="iris.coords.AncillaryVariable.xml_element">
+<code class="sig-name descname">xml_element</code><span class="sig-paren">(</span><em class="sig-param">doc</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.AncillaryVariable.xml_element" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a DOM element describing this metadata.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="iris.coords.AncillaryVariable.attributes">
+<em class="property">property </em><code class="sig-name descname">attributes</code><a class="headerlink" href="#iris.coords.AncillaryVariable.attributes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="iris.coords.AncillaryVariable.data">
+<em class="property">property </em><code class="sig-name descname">data</code><a class="headerlink" href="#iris.coords.AncillaryVariable.data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="iris.coords.AncillaryVariable.dtype">
+<em class="property">property </em><code class="sig-name descname">dtype</code><a class="headerlink" href="#iris.coords.AncillaryVariable.dtype" title="Permalink to this definition">¶</a></dt>
+<dd><p>The NumPy dtype of the current dimensional metadata object, as
+specified by its values.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="iris.coords.AncillaryVariable.ndim">
+<em class="property">property </em><code class="sig-name descname">ndim</code><a class="headerlink" href="#iris.coords.AncillaryVariable.ndim" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the number of dimensions of the current dimensional metadata
+object.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="iris.coords.AncillaryVariable.shape">
+<em class="property">property </em><code class="sig-name descname">shape</code><a class="headerlink" href="#iris.coords.AncillaryVariable.shape" title="Permalink to this definition">¶</a></dt>
+<dd><p>The fundamental shape of the metadata, expressed as a tuple.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="iris.coords.AncillaryVariable.standard_name">
+<em class="property">property </em><code class="sig-name descname">standard_name</code><a class="headerlink" href="#iris.coords.AncillaryVariable.standard_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The standard name for the Cube’s data.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="iris.coords.AncillaryVariable.units">
+<em class="property">property </em><code class="sig-name descname">units</code><a class="headerlink" href="#iris.coords.AncillaryVariable.units" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <code class="xref py py-mod docutils literal notranslate"><span class="pre">Unit</span></code> instance of the object.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="iris.coords.AncillaryVariable.var_name">
+<em class="property">property </em><code class="sig-name descname">var_name</code><a class="headerlink" href="#iris.coords.AncillaryVariable.var_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The netCDF variable name for the object.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div></blockquote>
+<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
+<!--<hr class="docutils" />
+--><p>A CF auxiliary coordinate.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>There are currently no specific properties of <a class="reference internal" href="#iris.coords.AuxCoord" title="iris.coords.AuxCoord"><code class="xref py py-class docutils literal notranslate"><span class="pre">AuxCoord</span></code></a>,
@@ -608,7 +834,8 @@ if units are not time units or if there are no bounds.</p>
 <dl class="method">
 <dt id="iris.coords.AuxCoord.dtype">
 <em class="property">property </em><code class="sig-name descname">dtype</code><a class="headerlink" href="#iris.coords.AuxCoord.dtype" title="Permalink to this definition">¶</a></dt>
-<dd><p>The NumPy dtype of the coord, as specified by its points.</p>
+<dd><p>The NumPy dtype of the current dimensional metadata object, as
+specified by its values.</p>
 </dd></dl>
 
 <dl class="method">
@@ -620,8 +847,8 @@ if units are not time units or if there are no bounds.</p>
 <dl class="method">
 <dt id="iris.coords.AuxCoord.ndim">
 <em class="property">property </em><code class="sig-name descname">ndim</code><a class="headerlink" href="#iris.coords.AuxCoord.ndim" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the number of dimensions of the coordinate (not including the
-bounded dimension).</p>
+<dd><p>Return the number of dimensions of the current dimensional metadata
+object.</p>
 </dd></dl>
 
 <dl class="method">
@@ -633,7 +860,7 @@ bounded dimension).</p>
 <dl class="method">
 <dt id="iris.coords.AuxCoord.shape">
 <em class="property">property </em><code class="sig-name descname">shape</code><a class="headerlink" href="#iris.coords.AuxCoord.shape" title="Permalink to this definition">¶</a></dt>
-<dd><p>The fundamental shape of the Coord, expressed as a tuple.</p>
+<dd><p>The fundamental shape of the metadata, expressed as a tuple.</p>
 </dd></dl>
 
 <dl class="method">
@@ -736,7 +963,7 @@ Coordinate Reference System.</p>
 <div><dl class="class">
 <dt id="iris.coords.CellMeasure">
 <em class="property">class </em><code class="sig-prename descclassname">iris.coords.</code><code class="sig-name descname">CellMeasure</code><span class="sig-paren">(</span><em class="sig-param">data</em>, <em class="sig-param">standard_name=None</em>, <em class="sig-param">long_name=None</em>, <em class="sig-param">var_name=None</em>, <em class="sig-param">units='1'</em>, <em class="sig-param">attributes=None</em>, <em class="sig-param">measure=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.CellMeasure" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">iris._cube_coord_common.CFVariableMixin</span></code></p>
+<dd><p>Bases: <a class="reference internal" href="#iris.coords.AncillaryVariable" title="iris.coords.AncillaryVariable"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.coords.AncillaryVariable</span></code></a></p>
 <p>Constructs a single cell measure.</p>
 <p>Args:</p>
 <ul class="simple">
@@ -751,22 +978,22 @@ Either a ‘real’ array (<a class="reference external" href="https://docs.scip
 <p>Kwargs:</p>
 <ul class="simple">
 <li><dl class="simple">
-<dt>standard_name:</dt><dd><p>CF standard name of the cell measure.</p>
+<dt>standard_name:</dt><dd><p>CF standard name of the coordinate.</p>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>long_name:</dt><dd><p>Descriptive name of the cell measure.</p>
+<dt>long_name:</dt><dd><p>Descriptive name of the coordinate.</p>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>var_name:</dt><dd><p>The netCDF variable name for the cell measure.</p>
+<dt>var_name:</dt><dd><p>The netCDF variable name for the coordinate.</p>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>units</dt><dd><p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">Unit</span></code> of the cell measure’s values.
+<dt>units</dt><dd><p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">Unit</span></code> of the coordinate’s values.
 Can be a string, which will be converted to a Unit object.</p>
 </dd>
 </dl>
@@ -784,18 +1011,68 @@ are the only valid entries.</p>
 </li>
 </ul>
 <dl class="method">
+<dt id="iris.coords.CellMeasure.convert_units">
+<code class="sig-name descname">convert_units</code><span class="sig-paren">(</span><em class="sig-param">unit</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.CellMeasure.convert_units" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change the units, converting the values of the metadata.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="iris.coords.CellMeasure.copy">
-<code class="sig-name descname">copy</code><span class="sig-paren">(</span><em class="sig-param">data=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.CellMeasure.copy" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a copy of this CellMeasure.</p>
+<code class="sig-name descname">copy</code><span class="sig-paren">(</span><em class="sig-param">values=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.CellMeasure.copy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a copy of this dimensional metadata object.</p>
 <p>Kwargs:</p>
 <ul class="simple">
 <li><dl class="simple">
-<dt>data: A data array for the new cell_measure.</dt><dd><p>This may be a different shape to the data of the
-cell_measure being copied.</p>
+<dt>values</dt><dd><p>An array of values for the new dimensional metadata object.
+This may be a different shape to the orginal values array being
+copied.</p>
 </dd>
 </dl>
 </li>
 </ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="iris.coords.CellMeasure.core_data">
+<code class="sig-name descname">core_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.CellMeasure.core_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>The data array at the core of this ancillary variable, which may be a
+NumPy array or a dask array.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="iris.coords.CellMeasure.has_bounds">
+<code class="sig-name descname">has_bounds</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.CellMeasure.has_bounds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a boolean indicating whether the current dimensional metadata
+object has a bounds array.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="iris.coords.CellMeasure.has_lazy_data">
+<code class="sig-name descname">has_lazy_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.CellMeasure.has_lazy_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a boolean indicating whether the ancillary variable’s data array
+is a lazy dask array or not.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="iris.coords.CellMeasure.is_compatible">
+<code class="sig-name descname">is_compatible</code><span class="sig-paren">(</span><em class="sig-param">other</em>, <em class="sig-param">ignore=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.CellMeasure.is_compatible" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether the current dimensional metadata object is compatible
+with another.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="iris.coords.CellMeasure.lazy_data">
+<code class="sig-name descname">lazy_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.CellMeasure.lazy_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a lazy array representing the ancillary variable’s data.</p>
+<p>Accessing this method will never cause the data values to be loaded.
+Similarly, calling methods on, or indexing, the returned Array
+will not cause the ancillary variable to have loaded data.</p>
+<p>If the data have already been loaded for the ancillary variable, the
+returned Array will be a new lazy array wrapper.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>A lazy array, representing the ancillary variable data array.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
@@ -833,7 +1110,7 @@ raised.</p>
 <dd><p>Changes the human-readable name.</p>
 <p>If ‘name’ is a valid standard name it will assign it to
 <a class="reference internal" href="#iris.coords.CellMeasure.standard_name" title="iris.coords.CellMeasure.standard_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">standard_name</span></code></a>, otherwise it will assign it to
-<a class="reference internal" href="#iris.coords.CellMeasure.long_name" title="iris.coords.CellMeasure.long_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">long_name</span></code></a>.</p>
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">long_name</span></code>.</p>
 </dd></dl>
 
 <dl class="method">
@@ -856,22 +1133,26 @@ safe to represent a single parsable token.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="iris.coords.CellMeasure.xml_element">
+<code class="sig-name descname">xml_element</code><span class="sig-paren">(</span><em class="sig-param">doc</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.CellMeasure.xml_element" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a DOM element describing this metadata.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="iris.coords.CellMeasure.attributes">
 <em class="property">property </em><code class="sig-name descname">attributes</code><a class="headerlink" href="#iris.coords.CellMeasure.attributes" title="Permalink to this definition">¶</a></dt>
-<dd><p>Other attributes, including user specified attributes that
-have no meaning to Iris.</p>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="iris.coords.CellMeasure.data">
 <em class="property">property </em><code class="sig-name descname">data</code><a class="headerlink" href="#iris.coords.CellMeasure.data" title="Permalink to this definition">¶</a></dt>
-<dd><p>Property containing the data values as a numpy array</p>
-</dd></dl>
+<dd></dd></dl>
 
-<dl class="attribute">
-<dt id="iris.coords.CellMeasure.long_name">
-<code class="sig-name descname">long_name</code><em class="property"> = None</em><a class="headerlink" href="#iris.coords.CellMeasure.long_name" title="Permalink to this definition">¶</a></dt>
-<dd><p>Descriptive name of the cell measure.</p>
+<dl class="method">
+<dt id="iris.coords.CellMeasure.dtype">
+<em class="property">property </em><code class="sig-name descname">dtype</code><a class="headerlink" href="#iris.coords.CellMeasure.dtype" title="Permalink to this definition">¶</a></dt>
+<dd><p>The NumPy dtype of the current dimensional metadata object, as
+specified by its values.</p>
 </dd></dl>
 
 <dl class="method">
@@ -883,31 +1164,32 @@ have no meaning to Iris.</p>
 <dl class="method">
 <dt id="iris.coords.CellMeasure.ndim">
 <em class="property">property </em><code class="sig-name descname">ndim</code><a class="headerlink" href="#iris.coords.CellMeasure.ndim" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the number of dimensions of the cell measure.</p>
+<dd><p>Return the number of dimensions of the current dimensional metadata
+object.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.coords.CellMeasure.shape">
 <em class="property">property </em><code class="sig-name descname">shape</code><a class="headerlink" href="#iris.coords.CellMeasure.shape" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the shape of the Cell Measure, expressed as a tuple.</p>
+<dd><p>The fundamental shape of the metadata, expressed as a tuple.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.coords.CellMeasure.standard_name">
 <em class="property">property </em><code class="sig-name descname">standard_name</code><a class="headerlink" href="#iris.coords.CellMeasure.standard_name" title="Permalink to this definition">¶</a></dt>
-<dd><p>CF standard name of the quantity that the cell measure represents.</p>
+<dd><p>The standard name for the Cube’s data.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.coords.CellMeasure.units">
 <em class="property">property </em><code class="sig-name descname">units</code><a class="headerlink" href="#iris.coords.CellMeasure.units" title="Permalink to this definition">¶</a></dt>
-<dd><p>Unit of the quantity that the cell measure represents.</p>
+<dd><p>The <code class="xref py py-mod docutils literal notranslate"><span class="pre">Unit</span></code> instance of the object.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.coords.CellMeasure.var_name">
 <em class="property">property </em><code class="sig-name descname">var_name</code><a class="headerlink" href="#iris.coords.CellMeasure.var_name" title="Permalink to this definition">¶</a></dt>
-<dd><p>The netCDF variable name for the cell measure.</p>
+<dd><p>The netCDF variable name for the object.</p>
 </dd></dl>
 
 </dd></dl>
@@ -986,12 +1268,12 @@ was applied.</p>
 </div></blockquote>
 <p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
 <!--<hr class="docutils" />
---><p>Abstract superclass for coordinates.</p>
+--><p>Superclass for coordinates.</p>
 <blockquote>
 <div><dl class="class">
 <dt id="iris.coords.Coord">
 <em class="property">class </em><code class="sig-prename descclassname">iris.coords.</code><code class="sig-name descname">Coord</code><span class="sig-paren">(</span><em class="sig-param">points</em>, <em class="sig-param">standard_name=None</em>, <em class="sig-param">long_name=None</em>, <em class="sig-param">var_name=None</em>, <em class="sig-param">units='1'</em>, <em class="sig-param">bounds=None</em>, <em class="sig-param">attributes=None</em>, <em class="sig-param">coord_system=None</em>, <em class="sig-param">climatological=False</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.Coord" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">iris._cube_coord_common.CFVariableMixin</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">iris.coords._DimensionalMetadata</span></code></p>
 <p>Constructs a single coordinate.</p>
 <p>Args:</p>
 <ul class="simple">
@@ -1396,7 +1678,7 @@ to the other end of the values.</p>
 <dd><p>Changes the human-readable name.</p>
 <p>If ‘name’ is a valid standard name it will assign it to
 <a class="reference internal" href="#iris.coords.Coord.standard_name" title="iris.coords.Coord.standard_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">standard_name</span></code></a>, otherwise it will assign it to
-<a class="reference internal" href="#iris.coords.Coord.long_name" title="iris.coords.Coord.long_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">long_name</span></code></a>.</p>
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">long_name</span></code>.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1427,9 +1709,7 @@ safe to represent a single parsable token.</p>
 <dl class="method">
 <dt id="iris.coords.Coord.attributes">
 <em class="property">property </em><code class="sig-name descname">attributes</code><a class="headerlink" href="#iris.coords.Coord.attributes" title="Permalink to this definition">¶</a></dt>
-<dd><p>Other attributes, including user specified attributes that
-have no meaning to Iris.</p>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="iris.coords.Coord.bounds">
@@ -1470,13 +1750,8 @@ if units are not time units or if there are no bounds.</p>
 <dl class="method">
 <dt id="iris.coords.Coord.dtype">
 <em class="property">property </em><code class="sig-name descname">dtype</code><a class="headerlink" href="#iris.coords.Coord.dtype" title="Permalink to this definition">¶</a></dt>
-<dd><p>The NumPy dtype of the coord, as specified by its points.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="iris.coords.Coord.long_name">
-<code class="sig-name descname">long_name</code><em class="property"> = None</em><a class="headerlink" href="#iris.coords.Coord.long_name" title="Permalink to this definition">¶</a></dt>
-<dd><p>Descriptive name of the coordinate.</p>
+<dd><p>The NumPy dtype of the current dimensional metadata object, as
+specified by its values.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1488,8 +1763,8 @@ if units are not time units or if there are no bounds.</p>
 <dl class="method">
 <dt id="iris.coords.Coord.ndim">
 <em class="property">property </em><code class="sig-name descname">ndim</code><a class="headerlink" href="#iris.coords.Coord.ndim" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the number of dimensions of the coordinate (not including the
-bounded dimension).</p>
+<dd><p>Return the number of dimensions of the current dimensional metadata
+object.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1501,25 +1776,25 @@ bounded dimension).</p>
 <dl class="method">
 <dt id="iris.coords.Coord.shape">
 <em class="property">property </em><code class="sig-name descname">shape</code><a class="headerlink" href="#iris.coords.Coord.shape" title="Permalink to this definition">¶</a></dt>
-<dd><p>The fundamental shape of the Coord, expressed as a tuple.</p>
+<dd><p>The fundamental shape of the metadata, expressed as a tuple.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.coords.Coord.standard_name">
 <em class="property">property </em><code class="sig-name descname">standard_name</code><a class="headerlink" href="#iris.coords.Coord.standard_name" title="Permalink to this definition">¶</a></dt>
-<dd><p>CF standard name of the quantity that the coordinate represents.</p>
+<dd><p>The standard name for the Cube’s data.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.coords.Coord.units">
 <em class="property">property </em><code class="sig-name descname">units</code><a class="headerlink" href="#iris.coords.Coord.units" title="Permalink to this definition">¶</a></dt>
-<dd><p>Unit of the quantity that the coordinate represents.</p>
+<dd><p>The <code class="xref py py-mod docutils literal notranslate"><span class="pre">Unit</span></code> instance of the object.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.coords.Coord.var_name">
 <em class="property">property </em><code class="sig-name descname">var_name</code><a class="headerlink" href="#iris.coords.Coord.var_name" title="Permalink to this definition">¶</a></dt>
-<dd><p>The netCDF variable name for the coordinate.</p>
+<dd><p>The netCDF variable name for the object.</p>
 </dd></dl>
 
 </dd></dl>
@@ -2146,7 +2421,8 @@ if units are not time units or if there are no bounds.</p>
 <dl class="method">
 <dt id="iris.coords.DimCoord.dtype">
 <em class="property">property </em><code class="sig-name descname">dtype</code><a class="headerlink" href="#iris.coords.DimCoord.dtype" title="Permalink to this definition">¶</a></dt>
-<dd><p>The NumPy dtype of the coord, as specified by its points.</p>
+<dd><p>The NumPy dtype of the current dimensional metadata object, as
+specified by its values.</p>
 </dd></dl>
 
 <dl class="method">
@@ -2158,8 +2434,8 @@ if units are not time units or if there are no bounds.</p>
 <dl class="method">
 <dt id="iris.coords.DimCoord.ndim">
 <em class="property">property </em><code class="sig-name descname">ndim</code><a class="headerlink" href="#iris.coords.DimCoord.ndim" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the number of dimensions of the coordinate (not including the
-bounded dimension).</p>
+<dd><p>Return the number of dimensions of the current dimensional metadata
+object.</p>
 </dd></dl>
 
 <dl class="method">
@@ -2171,7 +2447,7 @@ bounded dimension).</p>
 <dl class="method">
 <dt id="iris.coords.DimCoord.shape">
 <em class="property">property </em><code class="sig-name descname">shape</code><a class="headerlink" href="#iris.coords.DimCoord.shape" title="Permalink to this definition">¶</a></dt>
-<dd><p>The fundamental shape of the Coord, expressed as a tuple.</p>
+<dd><p>The fundamental shape of the metadata, expressed as a tuple.</p>
 </dd></dl>
 
 <dl class="method">
