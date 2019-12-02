@@ -136,11 +136,11 @@ We also add some lines and text annotations drawn in various projections.</p>
 <span class="sd">We plot these over a specified region, in two different map projections.</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="kn">as</span> <span class="nn">ccrs</span>
+<span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="k">as</span> <span class="nn">ccrs</span>
 <span class="kn">import</span> <span class="nn">iris</span>
-<span class="kn">import</span> <span class="nn">iris.plot</span> <span class="kn">as</span> <span class="nn">iplt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">iris.plot</span> <span class="k">as</span> <span class="nn">iplt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 
 <span class="c1"># Define a Cartopy &#39;ordinary&#39; lat-lon coordinate reference system.</span>
@@ -223,7 +223,7 @@ We also add some lines and text annotations drawn in various projections.</p>
             <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">arrowstyle</span><span class="o">=</span><span class="s1">&#39;-&gt;&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.5</span><span class="p">))</span>
 
     <span class="c1"># Add a title, and display.</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;A pseudocolour plot on the {} projection,</span><span class="se">\n</span><span class="s1">&#39;</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;A pseudocolour plot on the </span><span class="si">{}</span><span class="s1"> projection,</span><span class="se">\n</span><span class="s1">&#39;</span>
               <span class="s1">&#39;with overlaid contours.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">projection_name</span><span class="p">))</span>
     <span class="n">iplt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 

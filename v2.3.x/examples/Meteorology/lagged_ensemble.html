@@ -148,11 +148,11 @@ model, from each ensemble member.</p></li>
 <span class="sd">   model, from each ensemble member.</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="kn">import</span> <span class="nn">iris</span>
-<span class="kn">import</span> <span class="nn">iris.plot</span> <span class="kn">as</span> <span class="nn">iplt</span>
+<span class="kn">import</span> <span class="nn">iris.plot</span> <span class="k">as</span> <span class="nn">iplt</span>
 
 
 <span class="k">def</span> <span class="nf">realization_metadata</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">fname</span><span class="p">):</span>
@@ -179,7 +179,7 @@ model, from each ensemble member.</p></li>
     <span class="c1"># coordinate, adding appropriate lagged ensemble metadata</span>
     <span class="n">surface_temp</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span>
         <span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;GloSea4&#39;</span><span class="p">,</span> <span class="s1">&#39;ensemble_???.pp&#39;</span><span class="p">),</span>
-        <span class="n">iris</span><span class="o">.</span><span class="n">Constraint</span><span class="p">(</span><span class="s1">&#39;surface_temperature&#39;</span><span class="p">,</span> <span class="n">realization</span><span class="o">=</span><span class="k">lambda</span> <span class="n">value</span><span class="p">:</span> <span class="bp">True</span><span class="p">),</span>
+        <span class="n">iris</span><span class="o">.</span><span class="n">Constraint</span><span class="p">(</span><span class="s1">&#39;surface_temperature&#39;</span><span class="p">,</span> <span class="n">realization</span><span class="o">=</span><span class="k">lambda</span> <span class="n">value</span><span class="p">:</span> <span class="kc">True</span><span class="p">),</span>
         <span class="n">callback</span><span class="o">=</span><span class="n">realization_metadata</span><span class="p">,</span>
     <span class="p">)</span>
 
@@ -256,7 +256,7 @@ model, from each ensemble member.</p></li>
 
     <span class="c1"># Subsetting a circular longitude coordinate always results in a circular</span>
     <span class="c1"># coordinate, so set the coordinate to be non-circular</span>
-    <span class="n">nino_cube</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="s1">&#39;longitude&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">circular</span> <span class="o">=</span> <span class="bp">False</span>
+    <span class="n">nino_cube</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="s1">&#39;longitude&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">circular</span> <span class="o">=</span> <span class="kc">False</span>
 
     <span class="c1"># Calculate the horizontal mean for the nino region</span>
     <span class="n">mean</span> <span class="o">=</span> <span class="n">nino_cube</span><span class="o">.</span><span class="n">collapsed</span><span class="p">([</span><span class="s1">&#39;latitude&#39;</span><span class="p">,</span> <span class="s1">&#39;longitude&#39;</span><span class="p">],</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">MEAN</span><span class="p">)</span>

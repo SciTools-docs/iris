@@ -209,7 +209,7 @@ In the meantime:</p>
 can be used to regrid a cube onto a horizontal grid defined in a different coordinate system.
 The data values are calculated using bilinear interpolation.</p>
 <p>For example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">iris.experimental.regrid</span> <span class="k">import</span> <span class="n">regrid_bilinear_rectilinear_src_and_grid</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">iris.experimental.regrid</span> <span class="kn">import</span> <span class="n">regrid_bilinear_rectilinear_src_and_grid</span>
 <span class="n">regridded_cube</span> <span class="o">=</span> <span class="n">regrid_bilinear_rectilinear_src_and_grid</span><span class="p">(</span><span class="n">source_cube</span><span class="p">,</span> <span class="n">target_grid_cube</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -220,7 +220,7 @@ The data values are calculated using bilinear interpolation.</p>
 such that the data values of the resulting cube are calculated using the
 area-weighted mean.</p>
 <p>For example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">iris.experimental.regrid</span> <span class="k">import</span> <span class="n">regrid_area_weighted_rectilinear_src_and_grid</span> <span class="k">as</span> <span class="n">regrid_area_weighted</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">iris.experimental.regrid</span> <span class="kn">import</span> <span class="n">regrid_area_weighted_rectilinear_src_and_grid</span> <span class="k">as</span> <span class="n">regrid_area_weighted</span>
 <span class="n">regridded_cube</span> <span class="o">=</span> <span class="n">regrid_area_weighted</span><span class="p">(</span><span class="n">source_cube</span><span class="p">,</span> <span class="n">target_grid_cube</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -231,7 +231,7 @@ area-weighted mean.</p>
 can be used for area-conservative regridding between geographical coordinate systems.
 This uses the ESMF library functions, via the ESMPy interface.</p>
 <p>For example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">iris.experimental.regrid_conservative</span> <span class="k">import</span> <span class="n">regrid_conservative_via_esmpy</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">iris.experimental.regrid_conservative</span> <span class="kn">import</span> <span class="n">regrid_conservative_via_esmpy</span>
 <span class="n">regridded_cube</span> <span class="o">=</span> <span class="n">regrid_conservative_via_esmpy</span><span class="p">(</span><span class="n">source_cube</span><span class="p">,</span> <span class="n">target_grid_cube</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -254,7 +254,7 @@ See <a class="reference internal" href="../iris/iris/pandas.html#module-iris.pan
 <span id="id1"></span><h2>GeoTiff export<a class="headerlink" href="#geotiff-export" title="Permalink to this headline">¶</a></h2>
 <p>With this experimental feature, two dimensional cubes can now be exported to GeoTiff files.</p>
 <p>For example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">iris.experimental.raster</span> <span class="k">import</span> <span class="n">export_geotiff</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">iris.experimental.raster</span> <span class="kn">import</span> <span class="n">export_geotiff</span>
 <span class="n">export_geotiff</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
 </pre></div>
 </div>

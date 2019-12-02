@@ -153,9 +153,9 @@ instance that controls the run-time behaviour of Iris.</p>
 reference coordinate will return <em>datetime-like</em> objects when invoked
 with <a class="reference internal" href="../iris/iris/coords.html#iris.coords.Coord.cell" title="iris.coords.Coord.cell"><code class="xref py py-meth docutils literal notranslate"><span class="pre">iris.coords.Coord.cell()</span></code></a> or <a class="reference internal" href="../iris/iris/coords.html#iris.coords.Coord.cells" title="iris.coords.Coord.cells"><code class="xref py py-meth docutils literal notranslate"><span class="pre">iris.coords.Coord.cells()</span></code></a>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">iris.coords</span> <span class="kn">import</span> <span class="n">DimCoord</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">iris</span><span class="o">.</span><span class="n">FUTURE</span><span class="o">.</span><span class="n">cell_datetime_objects</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">iris</span><span class="o">.</span><span class="n">FUTURE</span><span class="o">.</span><span class="n">cell_datetime_objects</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">coord</span> <span class="o">=</span> <span class="n">DimCoord</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;hours since epoch&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">cell</span><span class="p">)</span> <span class="k">for</span> <span class="n">cell</span> <span class="ow">in</span> <span class="n">coord</span><span class="o">.</span><span class="n">cells</span><span class="p">()])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">cell</span><span class="p">)</span> <span class="k">for</span> <span class="n">cell</span> <span class="ow">in</span> <span class="n">coord</span><span class="o">.</span><span class="n">cells</span><span class="p">()])</span>
 <span class="go">[&#39;1970-01-01 01:00:00&#39;, &#39;1970-01-01 02:00:00&#39;, &#39;1970-01-01 03:00:00&#39;]</span>
 </pre></div>
 </div>
@@ -170,14 +170,14 @@ naturally when the cell represents a <em>datetime-like</em> object.</p>
 </div>
 <p>Note that, <a class="reference internal" href="../iris/iris.html#iris.Future" title="iris.Future"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.Future</span></code></a> also supports a <a class="reference external" href="http://docs.python.org/2/reference/datamodel.html#context-managers">context manager</a>
 which allows multiple sections of code to execute with different run-time behaviour.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">FUTURE</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">FUTURE</span><span class="p">)</span>
 <span class="go">Future(cell_datetime_objects=False)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">iris</span><span class="o">.</span><span class="n">FUTURE</span><span class="o">.</span><span class="n">context</span><span class="p">(</span><span class="n">cell_datetime_objects</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">iris</span><span class="o">.</span><span class="n">FUTURE</span><span class="o">.</span><span class="n">context</span><span class="p">(</span><span class="n">cell_datetime_objects</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="c1"># Code that expects to deal with datetime-like objects.</span>
-<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">FUTURE</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">FUTURE</span><span class="p">)</span>
 <span class="gp">...</span>
 <span class="go">Future(cell_datetime_objects=True)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">FUTURE</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">FUTURE</span><span class="p">)</span>
 <span class="go">Future(cell_datetime_objects=False)</span>
 </pre></div>
 </div>

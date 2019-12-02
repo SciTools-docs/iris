@@ -218,17 +218,17 @@ The cube returned from the load function is then used to produce a plot.</p>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="kn">import</span> <span class="nn">datetime</span>
 
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="kn">from</span> <span class="nn">cf_units</span> <span class="kn">import</span> <span class="n">Unit</span><span class="p">,</span> <span class="n">CALENDAR_GREGORIAN</span>
 
 <span class="kn">import</span> <span class="nn">iris</span>
-<span class="kn">import</span> <span class="nn">iris.coords</span> <span class="kn">as</span> <span class="nn">icoords</span>
-<span class="kn">import</span> <span class="nn">iris.coord_systems</span> <span class="kn">as</span> <span class="nn">icoord_systems</span>
+<span class="kn">import</span> <span class="nn">iris.coords</span> <span class="k">as</span> <span class="nn">icoords</span>
+<span class="kn">import</span> <span class="nn">iris.coord_systems</span> <span class="k">as</span> <span class="nn">icoord_systems</span>
 <span class="kn">import</span> <span class="nn">iris.fileformats</span>
-<span class="kn">import</span> <span class="nn">iris.io.format_picker</span> <span class="kn">as</span> <span class="nn">format_picker</span>
-<span class="kn">import</span> <span class="nn">iris.plot</span> <span class="kn">as</span> <span class="nn">iplt</span>
+<span class="kn">import</span> <span class="nn">iris.io.format_picker</span> <span class="k">as</span> <span class="nn">format_picker</span>
+<span class="kn">import</span> <span class="nn">iris.plot</span> <span class="k">as</span> <span class="nn">iplt</span>
 
 
 <span class="n">UTC_format</span> <span class="o">=</span> <span class="s1">&#39;%H%M%Z </span><span class="si">%d</span><span class="s1">/%m/%Y&#39;</span>
@@ -441,7 +441,7 @@ The cube returned from the load function is then used to produce a plot.</p>
 
     <span class="c1"># Callback shown as None to illustrate where a cube-level callback function</span>
     <span class="c1"># would be used if required</span>
-    <span class="n">cube</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">boundary_volc_ash_constraint</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+    <span class="n">cube</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">boundary_volc_ash_constraint</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 
     <span class="c1"># draw contour levels for the data (the top level is just a catch-all)</span>
     <span class="n">levels</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.0002</span><span class="p">,</span> <span class="mf">0.002</span><span class="p">,</span> <span class="mf">0.004</span><span class="p">,</span> <span class="mf">1e10</span><span class="p">)</span>

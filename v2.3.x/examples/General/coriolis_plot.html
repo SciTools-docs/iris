@@ -127,12 +127,12 @@ projection.</p>
 
 <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="kn">as</span> <span class="nn">ccrs</span>
+<span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="k">as</span> <span class="nn">ccrs</span>
 <span class="kn">import</span> <span class="nn">iris</span>
 <span class="kn">from</span> <span class="nn">iris.coord_systems</span> <span class="kn">import</span> <span class="n">GeogCS</span>
-<span class="kn">import</span> <span class="nn">iris.plot</span> <span class="kn">as</span> <span class="nn">iplt</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">iris.plot</span> <span class="k">as</span> <span class="nn">iplt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
@@ -189,7 +189,7 @@ projection.</p>
     <span class="n">mesh</span> <span class="o">=</span> <span class="n">iplt</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">new_cube</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;seismic&#39;</span><span class="p">)</span>
     <span class="n">tick_levels</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.00012</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.00006</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.00006</span><span class="p">,</span> <span class="mf">0.00012</span><span class="p">]</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;horizontal&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;s-1&#39;</span><span class="p">,</span>
-                 <span class="n">ticks</span><span class="o">=</span><span class="n">tick_levels</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%.1e</span><span class="s1">&#39;</span><span class="p">)</span>
+                 <span class="n">ticks</span><span class="o">=</span><span class="n">tick_levels</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%.1e</span><span class="s1">&#39;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Coriolis frequency&#39;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
