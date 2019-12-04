@@ -125,38 +125,42 @@ cube which features a hybrid height vertical coordinate system.</p>
 
 <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="kn">import</span> <span class="nn">iris</span>
-<span class="kn">import</span> <span class="nn">iris.plot</span> <span class="kn">as</span> <span class="nn">iplt</span>
-<span class="kn">import</span> <span class="nn">iris.quickplot</span> <span class="kn">as</span> <span class="nn">qplt</span>
+<span class="kn">import</span> <span class="nn">iris.plot</span> <span class="k">as</span> <span class="nn">iplt</span>
+<span class="kn">import</span> <span class="nn">iris.quickplot</span> <span class="k">as</span> <span class="nn">qplt</span>
 
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
     <span class="c1"># Load some test data.</span>
-    <span class="n">fname</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;hybrid_height.nc&#39;</span><span class="p">)</span>
-    <span class="n">theta</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s1">&#39;air_potential_temperature&#39;</span><span class="p">)</span>
+    <span class="n">fname</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s2">&quot;hybrid_height.nc&quot;</span><span class="p">)</span>
+    <span class="n">theta</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s2">&quot;air_potential_temperature&quot;</span><span class="p">)</span>
 
     <span class="c1"># Extract a single height vs longitude cross-section. N.B. This could</span>
     <span class="c1"># easily be changed to extract a specific slice, or even to loop over *all*</span>
     <span class="c1"># cross section slices.</span>
-    <span class="n">cross_section</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">theta</span><span class="o">.</span><span class="n">slices</span><span class="p">([</span><span class="s1">&#39;grid_longitude&#39;</span><span class="p">,</span>
-                                       <span class="s1">&#39;model_level_number&#39;</span><span class="p">]))</span>
+    <span class="n">cross_section</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span>
+        <span class="n">theta</span><span class="o">.</span><span class="n">slices</span><span class="p">([</span><span class="s2">&quot;grid_longitude&quot;</span><span class="p">,</span> <span class="s2">&quot;model_level_number&quot;</span><span class="p">])</span>
+    <span class="p">)</span>
 
-    <span class="n">qplt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">cross_section</span><span class="p">,</span> <span class="n">coords</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;grid_longitude&#39;</span><span class="p">,</span> <span class="s1">&#39;altitude&#39;</span><span class="p">],</span>
-                  <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;RdBu_r&#39;</span><span class="p">)</span>
+    <span class="n">qplt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span>
+        <span class="n">cross_section</span><span class="p">,</span> <span class="n">coords</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;grid_longitude&quot;</span><span class="p">,</span> <span class="s2">&quot;altitude&quot;</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;RdBu_r&quot;</span>
+    <span class="p">)</span>
     <span class="n">iplt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
     <span class="c1"># Now do the equivalent plot, only against model level</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 
-    <span class="n">qplt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">cross_section</span><span class="p">,</span>
-                  <span class="n">coords</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;grid_longitude&#39;</span><span class="p">,</span> <span class="s1">&#39;model_level_number&#39;</span><span class="p">],</span>
-                  <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;RdBu_r&#39;</span><span class="p">)</span>
+    <span class="n">qplt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span>
+        <span class="n">cross_section</span><span class="p">,</span>
+        <span class="n">coords</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;grid_longitude&quot;</span><span class="p">,</span> <span class="s2">&quot;model_level_number&quot;</span><span class="p">],</span>
+        <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;RdBu_r&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
     <span class="n">iplt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </pre></div>
 </div>

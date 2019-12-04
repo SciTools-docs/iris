@@ -174,83 +174,90 @@ can be found in <a class="reference internal" href="../../userguide/cube_statist
 <span class="sd">    can be found in :ref:`cube-statistics`.</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">iris</span>
-<span class="kn">import</span> <span class="nn">iris.plot</span> <span class="kn">as</span> <span class="nn">iplt</span>
-<span class="kn">import</span> <span class="nn">iris.quickplot</span> <span class="kn">as</span> <span class="nn">qplt</span>
+<span class="kn">import</span> <span class="nn">iris.plot</span> <span class="k">as</span> <span class="nn">iplt</span>
+<span class="kn">import</span> <span class="nn">iris.quickplot</span> <span class="k">as</span> <span class="nn">qplt</span>
 
 <span class="kn">import</span> <span class="nn">iris.analysis.cartography</span>
 
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
     <span class="c1"># Load data into three Cubes, one for each set of NetCDF files.</span>
-    <span class="n">e1</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;E1_north_america.nc&#39;</span><span class="p">))</span>
+    <span class="n">e1</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s2">&quot;E1_north_america.nc&quot;</span><span class="p">))</span>
 
-    <span class="n">a1b</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;A1B_north_america.nc&#39;</span><span class="p">))</span>
+    <span class="n">a1b</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s2">&quot;A1B_north_america.nc&quot;</span><span class="p">))</span>
 
     <span class="c1"># load in the global pre-industrial mean temperature, and limit the domain</span>
     <span class="c1"># to the same North American region that e1 and a1b are at.</span>
-    <span class="n">north_america</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">Constraint</span><span class="p">(</span><span class="n">longitude</span><span class="o">=</span><span class="k">lambda</span> <span class="n">v</span><span class="p">:</span> <span class="mi">225</span> <span class="o">&lt;=</span> <span class="n">v</span> <span class="o">&lt;=</span> <span class="mi">315</span><span class="p">,</span>
-                                    <span class="n">latitude</span><span class="o">=</span><span class="k">lambda</span> <span class="n">v</span><span class="p">:</span> <span class="mi">15</span> <span class="o">&lt;=</span> <span class="n">v</span> <span class="o">&lt;=</span> <span class="mi">60</span><span class="p">)</span>
-    <span class="n">pre_industrial</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;pre-industrial.pp&#39;</span><span class="p">),</span>
-                                    <span class="n">north_america</span><span class="p">)</span>
+    <span class="n">north_america</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">Constraint</span><span class="p">(</span>
+        <span class="n">longitude</span><span class="o">=</span><span class="k">lambda</span> <span class="n">v</span><span class="p">:</span> <span class="mi">225</span> <span class="o">&lt;=</span> <span class="n">v</span> <span class="o">&lt;=</span> <span class="mi">315</span><span class="p">,</span> <span class="n">latitude</span><span class="o">=</span><span class="k">lambda</span> <span class="n">v</span><span class="p">:</span> <span class="mi">15</span> <span class="o">&lt;=</span> <span class="n">v</span> <span class="o">&lt;=</span> <span class="mi">60</span>
+    <span class="p">)</span>
+    <span class="n">pre_industrial</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span>
+        <span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s2">&quot;pre-industrial.pp&quot;</span><span class="p">),</span> <span class="n">north_america</span>
+    <span class="p">)</span>
 
     <span class="c1"># Generate area-weights array. As e1 and a1b are on the same grid we can</span>
     <span class="c1"># do this just once and re-use. This method requires bounds on lat/lon</span>
     <span class="c1"># coords, so let&#39;s add some in sensible locations using the &quot;guess_bounds&quot;</span>
     <span class="c1"># method.</span>
-    <span class="n">e1</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="s1">&#39;latitude&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">guess_bounds</span><span class="p">()</span>
-    <span class="n">e1</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="s1">&#39;longitude&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">guess_bounds</span><span class="p">()</span>
+    <span class="n">e1</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="s2">&quot;latitude&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">guess_bounds</span><span class="p">()</span>
+    <span class="n">e1</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="s2">&quot;longitude&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">guess_bounds</span><span class="p">()</span>
     <span class="n">e1_grid_areas</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">cartography</span><span class="o">.</span><span class="n">area_weights</span><span class="p">(</span><span class="n">e1</span><span class="p">)</span>
-    <span class="n">pre_industrial</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="s1">&#39;latitude&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">guess_bounds</span><span class="p">()</span>
-    <span class="n">pre_industrial</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="s1">&#39;longitude&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">guess_bounds</span><span class="p">()</span>
+    <span class="n">pre_industrial</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="s2">&quot;latitude&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">guess_bounds</span><span class="p">()</span>
+    <span class="n">pre_industrial</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="s2">&quot;longitude&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">guess_bounds</span><span class="p">()</span>
     <span class="n">pre_grid_areas</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">cartography</span><span class="o">.</span><span class="n">area_weights</span><span class="p">(</span><span class="n">pre_industrial</span><span class="p">)</span>
 
     <span class="c1"># Perform the area-weighted mean for each of the datasets using the</span>
     <span class="c1"># computed grid-box areas.</span>
-    <span class="n">pre_industrial_mean</span> <span class="o">=</span> <span class="n">pre_industrial</span><span class="o">.</span><span class="n">collapsed</span><span class="p">([</span><span class="s1">&#39;latitude&#39;</span><span class="p">,</span> <span class="s1">&#39;longitude&#39;</span><span class="p">],</span>
-                                                   <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">MEAN</span><span class="p">,</span>
-                                                   <span class="n">weights</span><span class="o">=</span><span class="n">pre_grid_areas</span><span class="p">)</span>
-    <span class="n">e1_mean</span> <span class="o">=</span> <span class="n">e1</span><span class="o">.</span><span class="n">collapsed</span><span class="p">([</span><span class="s1">&#39;latitude&#39;</span><span class="p">,</span> <span class="s1">&#39;longitude&#39;</span><span class="p">],</span>
-                           <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">MEAN</span><span class="p">,</span>
-                           <span class="n">weights</span><span class="o">=</span><span class="n">e1_grid_areas</span><span class="p">)</span>
-    <span class="n">a1b_mean</span> <span class="o">=</span> <span class="n">a1b</span><span class="o">.</span><span class="n">collapsed</span><span class="p">([</span><span class="s1">&#39;latitude&#39;</span><span class="p">,</span> <span class="s1">&#39;longitude&#39;</span><span class="p">],</span>
-                             <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">MEAN</span><span class="p">,</span>
-                             <span class="n">weights</span><span class="o">=</span><span class="n">e1_grid_areas</span><span class="p">)</span>
+    <span class="n">pre_industrial_mean</span> <span class="o">=</span> <span class="n">pre_industrial</span><span class="o">.</span><span class="n">collapsed</span><span class="p">(</span>
+        <span class="p">[</span><span class="s2">&quot;latitude&quot;</span><span class="p">,</span> <span class="s2">&quot;longitude&quot;</span><span class="p">],</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">MEAN</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="n">pre_grid_areas</span>
+    <span class="p">)</span>
+    <span class="n">e1_mean</span> <span class="o">=</span> <span class="n">e1</span><span class="o">.</span><span class="n">collapsed</span><span class="p">(</span>
+        <span class="p">[</span><span class="s2">&quot;latitude&quot;</span><span class="p">,</span> <span class="s2">&quot;longitude&quot;</span><span class="p">],</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">MEAN</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="n">e1_grid_areas</span>
+    <span class="p">)</span>
+    <span class="n">a1b_mean</span> <span class="o">=</span> <span class="n">a1b</span><span class="o">.</span><span class="n">collapsed</span><span class="p">(</span>
+        <span class="p">[</span><span class="s2">&quot;latitude&quot;</span><span class="p">,</span> <span class="s2">&quot;longitude&quot;</span><span class="p">],</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">MEAN</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="n">e1_grid_areas</span>
+    <span class="p">)</span>
 
     <span class="c1"># Plot the datasets</span>
-    <span class="n">qplt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">e1_mean</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;E1 scenario&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
-    <span class="n">qplt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">a1b_mean</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;A1B-Image scenario&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+    <span class="n">qplt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">e1_mean</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;E1 scenario&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">)</span>
+    <span class="n">qplt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">a1b_mean</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;A1B-Image scenario&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
 
     <span class="c1"># Draw a horizontal line showing the pre-industrial mean</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">pre_industrial_mean</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span>
-                <span class="n">label</span><span class="o">=</span><span class="s1">&#39;pre-industrial&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span>
+        <span class="n">y</span><span class="o">=</span><span class="n">pre_industrial_mean</span><span class="o">.</span><span class="n">data</span><span class="p">,</span>
+        <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span>
+        <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;dashed&quot;</span><span class="p">,</span>
+        <span class="n">label</span><span class="o">=</span><span class="s2">&quot;pre-industrial&quot;</span><span class="p">,</span>
+        <span class="n">lw</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span>
+    <span class="p">)</span>
 
     <span class="c1"># Constrain the period 1860-1999 and extract the observed data from a1b</span>
-    <span class="n">constraint</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">Constraint</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="k">lambda</span>
-                                 <span class="n">cell</span><span class="p">:</span> <span class="mi">1860</span> <span class="o">&lt;=</span> <span class="n">cell</span><span class="o">.</span><span class="n">point</span><span class="o">.</span><span class="n">year</span> <span class="o">&lt;=</span> <span class="mi">1999</span><span class="p">)</span>
+    <span class="n">constraint</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">Constraint</span><span class="p">(</span>
+        <span class="n">time</span><span class="o">=</span><span class="k">lambda</span> <span class="n">cell</span><span class="p">:</span> <span class="mi">1860</span> <span class="o">&lt;=</span> <span class="n">cell</span><span class="o">.</span><span class="n">point</span><span class="o">.</span><span class="n">year</span> <span class="o">&lt;=</span> <span class="mi">1999</span>
+    <span class="p">)</span>
     <span class="n">observed</span> <span class="o">=</span> <span class="n">a1b_mean</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="n">constraint</span><span class="p">)</span>
     <span class="c1"># Assert that this data set is the same as the e1 scenario:</span>
     <span class="c1"># they share data up to the 1999 cut off.</span>
-    <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">observed</span><span class="o">.</span><span class="n">data</span><span class="p">,</span>
-                             <span class="n">e1_mean</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="n">constraint</span><span class="p">)</span><span class="o">.</span><span class="n">data</span><span class="p">))</span>
+    <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">observed</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">e1_mean</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="n">constraint</span><span class="p">)</span><span class="o">.</span><span class="n">data</span><span class="p">))</span>
 
     <span class="c1"># Plot the observed data</span>
-    <span class="n">qplt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">observed</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;observed&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
+    <span class="n">qplt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">observed</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;observed&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
 
     <span class="c1"># Add a legend and title</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper left&quot;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;North American mean air temperature&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;North American mean air temperature&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
 
-    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time / year&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time / year&quot;</span><span class="p">)</span>
 
     <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
 
     <span class="n">iplt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </pre></div>
 </div>

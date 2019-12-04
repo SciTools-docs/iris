@@ -161,12 +161,12 @@ doi:10.1029/2009EO210001.</p>
 
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="kn">import</span> <span class="nn">os.path</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="kn">import</span> <span class="nn">iris</span>
-<span class="kn">import</span> <span class="nn">iris.coords</span> <span class="kn">as</span> <span class="nn">coords</span>
-<span class="kn">import</span> <span class="nn">iris.plot</span> <span class="kn">as</span> <span class="nn">iplt</span>
+<span class="kn">import</span> <span class="nn">iris.coords</span> <span class="k">as</span> <span class="nn">coords</span>
+<span class="kn">import</span> <span class="nn">iris.plot</span> <span class="k">as</span> <span class="nn">iplt</span>
 
 
 <span class="k">def</span> <span class="nf">cop_metadata_callback</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
@@ -181,8 +181,9 @@ doi:10.1029/2009EO210001.</p>
     <span class="n">experiment_label</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">containing_folder</span><span class="p">)</span>
 
     <span class="c1"># Create a coordinate with the experiment label in it</span>
-    <span class="n">exp_coord</span> <span class="o">=</span> <span class="n">coords</span><span class="o">.</span><span class="n">AuxCoord</span><span class="p">(</span><span class="n">experiment_label</span><span class="p">,</span> <span class="n">long_name</span><span class="o">=</span><span class="s1">&#39;Experiment&#39;</span><span class="p">,</span>
-                                <span class="n">units</span><span class="o">=</span><span class="s1">&#39;no_unit&#39;</span><span class="p">)</span>
+    <span class="n">exp_coord</span> <span class="o">=</span> <span class="n">coords</span><span class="o">.</span><span class="n">AuxCoord</span><span class="p">(</span>
+        <span class="n">experiment_label</span><span class="p">,</span> <span class="n">long_name</span><span class="o">=</span><span class="s2">&quot;Experiment&quot;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;no_unit&quot;</span>
+    <span class="p">)</span>
 
     <span class="c1"># and add it to the cube</span>
     <span class="n">cube</span><span class="o">.</span><span class="n">add_aux_coord</span><span class="p">(</span><span class="n">exp_coord</span><span class="p">)</span>
@@ -190,23 +191,97 @@ doi:10.1029/2009EO210001.</p>
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
     <span class="c1"># Load e1 and a1 using the callback to update the metadata</span>
-    <span class="n">e1</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;E1.2098.pp&#39;</span><span class="p">),</span>
-                        <span class="n">callback</span><span class="o">=</span><span class="n">cop_metadata_callback</span><span class="p">)</span>
-    <span class="n">a1b</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;A1B.2098.pp&#39;</span><span class="p">),</span>
-                         <span class="n">callback</span><span class="o">=</span><span class="n">cop_metadata_callback</span><span class="p">)</span>
+    <span class="n">e1</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span>
+        <span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s2">&quot;E1.2098.pp&quot;</span><span class="p">),</span> <span class="n">callback</span><span class="o">=</span><span class="n">cop_metadata_callback</span>
+    <span class="p">)</span>
+    <span class="n">a1b</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span>
+        <span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s2">&quot;A1B.2098.pp&quot;</span><span class="p">),</span> <span class="n">callback</span><span class="o">=</span><span class="n">cop_metadata_callback</span>
+    <span class="p">)</span>
 
     <span class="c1"># Load the global average data and add an &#39;Experiment&#39; coord it</span>
-    <span class="n">global_avg</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;pre-industrial.pp&#39;</span><span class="p">))</span>
+    <span class="n">global_avg</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s2">&quot;pre-industrial.pp&quot;</span><span class="p">))</span>
 
     <span class="c1"># Define evenly spaced contour levels: -2.5, -1.5, ... 15.5, 16.5 with the</span>
     <span class="c1"># specific colours</span>
     <span class="n">levels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="o">-</span> <span class="mf">2.5</span>
-    <span class="n">red</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">221</span><span class="p">,</span> <span class="mi">239</span><span class="p">,</span> <span class="mi">229</span><span class="p">,</span> <span class="mi">217</span><span class="p">,</span> <span class="mi">239</span><span class="p">,</span> <span class="mi">234</span><span class="p">,</span> <span class="mi">228</span><span class="p">,</span> <span class="mi">222</span><span class="p">,</span> <span class="mi">205</span><span class="p">,</span> <span class="mi">196</span><span class="p">,</span>
-                    <span class="mi">161</span><span class="p">,</span> <span class="mi">137</span><span class="p">,</span> <span class="mi">116</span><span class="p">,</span> <span class="mi">89</span><span class="p">,</span> <span class="mi">77</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">51</span><span class="p">])</span> <span class="o">/</span> <span class="mf">256.</span>
-    <span class="n">green</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">16</span><span class="p">,</span> <span class="mi">217</span><span class="p">,</span> <span class="mi">242</span><span class="p">,</span> <span class="mi">243</span><span class="p">,</span> <span class="mi">235</span><span class="p">,</span> <span class="mi">225</span><span class="p">,</span> <span class="mi">190</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">87</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">59</span><span class="p">,</span>
-                      <span class="mi">33</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">26</span><span class="p">])</span> <span class="o">/</span> <span class="mf">256.</span>
-    <span class="n">blue</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">243</span><span class="p">,</span> <span class="mi">169</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">37</span><span class="p">,</span> <span class="mi">39</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span>
-                     <span class="mi">26</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">22</span><span class="p">])</span> <span class="o">/</span> <span class="mf">256.</span>
+    <span class="n">red</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+            <span class="p">[</span>
+                <span class="mi">0</span><span class="p">,</span>
+                <span class="mi">0</span><span class="p">,</span>
+                <span class="mi">221</span><span class="p">,</span>
+                <span class="mi">239</span><span class="p">,</span>
+                <span class="mi">229</span><span class="p">,</span>
+                <span class="mi">217</span><span class="p">,</span>
+                <span class="mi">239</span><span class="p">,</span>
+                <span class="mi">234</span><span class="p">,</span>
+                <span class="mi">228</span><span class="p">,</span>
+                <span class="mi">222</span><span class="p">,</span>
+                <span class="mi">205</span><span class="p">,</span>
+                <span class="mi">196</span><span class="p">,</span>
+                <span class="mi">161</span><span class="p">,</span>
+                <span class="mi">137</span><span class="p">,</span>
+                <span class="mi">116</span><span class="p">,</span>
+                <span class="mi">89</span><span class="p">,</span>
+                <span class="mi">77</span><span class="p">,</span>
+                <span class="mi">60</span><span class="p">,</span>
+                <span class="mi">51</span><span class="p">,</span>
+            <span class="p">]</span>
+        <span class="p">)</span>
+        <span class="o">/</span> <span class="mf">256.0</span>
+    <span class="p">)</span>
+    <span class="n">green</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+            <span class="p">[</span>
+                <span class="mi">16</span><span class="p">,</span>
+                <span class="mi">217</span><span class="p">,</span>
+                <span class="mi">242</span><span class="p">,</span>
+                <span class="mi">243</span><span class="p">,</span>
+                <span class="mi">235</span><span class="p">,</span>
+                <span class="mi">225</span><span class="p">,</span>
+                <span class="mi">190</span><span class="p">,</span>
+                <span class="mi">160</span><span class="p">,</span>
+                <span class="mi">128</span><span class="p">,</span>
+                <span class="mi">87</span><span class="p">,</span>
+                <span class="mi">72</span><span class="p">,</span>
+                <span class="mi">59</span><span class="p">,</span>
+                <span class="mi">33</span><span class="p">,</span>
+                <span class="mi">21</span><span class="p">,</span>
+                <span class="mi">29</span><span class="p">,</span>
+                <span class="mi">30</span><span class="p">,</span>
+                <span class="mi">30</span><span class="p">,</span>
+                <span class="mi">29</span><span class="p">,</span>
+                <span class="mi">26</span><span class="p">,</span>
+            <span class="p">]</span>
+        <span class="p">)</span>
+        <span class="o">/</span> <span class="mf">256.0</span>
+    <span class="p">)</span>
+    <span class="n">blue</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+            <span class="p">[</span>
+                <span class="mi">255</span><span class="p">,</span>
+                <span class="mi">255</span><span class="p">,</span>
+                <span class="mi">243</span><span class="p">,</span>
+                <span class="mi">169</span><span class="p">,</span>
+                <span class="mi">99</span><span class="p">,</span>
+                <span class="mi">51</span><span class="p">,</span>
+                <span class="mi">63</span><span class="p">,</span>
+                <span class="mi">37</span><span class="p">,</span>
+                <span class="mi">39</span><span class="p">,</span>
+                <span class="mi">21</span><span class="p">,</span>
+                <span class="mi">27</span><span class="p">,</span>
+                <span class="mi">23</span><span class="p">,</span>
+                <span class="mi">22</span><span class="p">,</span>
+                <span class="mi">26</span><span class="p">,</span>
+                <span class="mi">29</span><span class="p">,</span>
+                <span class="mi">28</span><span class="p">,</span>
+                <span class="mi">27</span><span class="p">,</span>
+                <span class="mi">25</span><span class="p">,</span>
+                <span class="mi">22</span><span class="p">,</span>
+            <span class="p">]</span>
+        <span class="p">)</span>
+        <span class="o">/</span> <span class="mf">256.0</span>
+    <span class="p">)</span>
 
     <span class="c1"># Put those colours into an array which can be passed to contourf as the</span>
     <span class="c1"># specific colours for each level</span>
@@ -216,10 +291,12 @@ doi:10.1029/2009EO210001.</p>
 
     <span class="c1"># Iterate over each latitude longitude slice for both e1 and a1b scenarios</span>
     <span class="c1"># simultaneously</span>
-    <span class="k">for</span> <span class="n">e1_slice</span><span class="p">,</span> <span class="n">a1b_slice</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">e1</span><span class="o">.</span><span class="n">slices</span><span class="p">([</span><span class="s1">&#39;latitude&#39;</span><span class="p">,</span> <span class="s1">&#39;longitude&#39;</span><span class="p">]),</span>
-                                   <span class="n">a1b</span><span class="o">.</span><span class="n">slices</span><span class="p">([</span><span class="s1">&#39;latitude&#39;</span><span class="p">,</span> <span class="s1">&#39;longitude&#39;</span><span class="p">])):</span>
+    <span class="k">for</span> <span class="n">e1_slice</span><span class="p">,</span> <span class="n">a1b_slice</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span>
+        <span class="n">e1</span><span class="o">.</span><span class="n">slices</span><span class="p">([</span><span class="s2">&quot;latitude&quot;</span><span class="p">,</span> <span class="s2">&quot;longitude&quot;</span><span class="p">]),</span>
+        <span class="n">a1b</span><span class="o">.</span><span class="n">slices</span><span class="p">([</span><span class="s2">&quot;latitude&quot;</span><span class="p">,</span> <span class="s2">&quot;longitude&quot;</span><span class="p">]),</span>
+    <span class="p">):</span>
 
-        <span class="n">time_coord</span> <span class="o">=</span> <span class="n">a1b_slice</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+        <span class="n">time_coord</span> <span class="o">=</span> <span class="n">a1b_slice</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
 
         <span class="c1"># Calculate the difference from the mean</span>
         <span class="n">delta_e1</span> <span class="o">=</span> <span class="n">e1_slice</span> <span class="o">-</span> <span class="n">global_avg</span>
@@ -234,23 +311,25 @@ doi:10.1029/2009EO210001.</p>
         <span class="c1"># of &quot;MonthName Year&quot;. Also, set the y value for the title so that it</span>
         <span class="c1"># is not tight to the top of the plot.</span>
         <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span>
-            <span class="s1">&#39;Annual Temperature Predictions for &#39;</span> <span class="o">+</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y&quot;</span><span class="p">),</span>
+            <span class="s2">&quot;Annual Temperature Predictions for &quot;</span> <span class="o">+</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y&quot;</span><span class="p">),</span>
             <span class="n">y</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span>
-            <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+            <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">,</span>
+        <span class="p">)</span>
 
         <span class="c1"># Add the first subplot showing the E1 scenario</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;HadGEM2 E1 Scenario&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-        <span class="n">iplt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">delta_e1</span><span class="p">,</span> <span class="n">levels</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="n">colors</span><span class="p">,</span> <span class="n">extend</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;HadGEM2 E1 Scenario&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+        <span class="n">iplt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">delta_e1</span><span class="p">,</span> <span class="n">levels</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="n">colors</span><span class="p">,</span> <span class="n">extend</span><span class="o">=</span><span class="s2">&quot;both&quot;</span><span class="p">)</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
         <span class="c1"># get the current axes&#39; subplot for use later on</span>
         <span class="n">plt1_ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
 
         <span class="c1"># Add the second subplot showing the A1B scenario</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;HadGEM2 A1B-Image Scenario&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-        <span class="n">contour_result</span> <span class="o">=</span> <span class="n">iplt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">delta_a1b</span><span class="p">,</span> <span class="n">levels</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="n">colors</span><span class="p">,</span>
-                                       <span class="n">extend</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;HadGEM2 A1B-Image Scenario&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+        <span class="n">contour_result</span> <span class="o">=</span> <span class="n">iplt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span>
+            <span class="n">delta_a1b</span><span class="p">,</span> <span class="n">levels</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="n">colors</span><span class="p">,</span> <span class="n">extend</span><span class="o">=</span><span class="s2">&quot;both&quot;</span>
+        <span class="p">)</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
         <span class="c1"># get the current axes&#39; subplot for use later on</span>
         <span class="n">plt2_ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
@@ -271,8 +350,9 @@ doi:10.1029/2009EO210001.</p>
         <span class="n">colorbar_axes</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_axes</span><span class="p">([</span><span class="n">first_plot_left</span><span class="p">,</span> <span class="mf">0.18</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">])</span>
 
         <span class="c1"># Add the colour bar</span>
-        <span class="n">cbar</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">contour_result</span><span class="p">,</span> <span class="n">colorbar_axes</span><span class="p">,</span>
-                            <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;horizontal&#39;</span><span class="p">)</span>
+        <span class="n">cbar</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span>
+            <span class="n">contour_result</span><span class="p">,</span> <span class="n">colorbar_axes</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="s2">&quot;horizontal&quot;</span>
+        <span class="p">)</span>
 
         <span class="c1"># Label the colour bar and add ticks</span>
         <span class="n">cbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="n">e1_slice</span><span class="o">.</span><span class="n">units</span><span class="p">)</span>
@@ -281,7 +361,7 @@ doi:10.1029/2009EO210001.</p>
         <span class="n">iplt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </pre></div>
 </div>

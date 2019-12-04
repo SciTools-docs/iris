@@ -218,27 +218,38 @@ The cube returned from the load function is then used to produce a plot.</p>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="kn">import</span> <span class="nn">datetime</span>
 
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="kn">from</span> <span class="nn">cf_units</span> <span class="kn">import</span> <span class="n">Unit</span><span class="p">,</span> <span class="n">CALENDAR_GREGORIAN</span>
 
 <span class="kn">import</span> <span class="nn">iris</span>
-<span class="kn">import</span> <span class="nn">iris.coords</span> <span class="kn">as</span> <span class="nn">icoords</span>
-<span class="kn">import</span> <span class="nn">iris.coord_systems</span> <span class="kn">as</span> <span class="nn">icoord_systems</span>
+<span class="kn">import</span> <span class="nn">iris.coords</span> <span class="k">as</span> <span class="nn">icoords</span>
+<span class="kn">import</span> <span class="nn">iris.coord_systems</span> <span class="k">as</span> <span class="nn">icoord_systems</span>
 <span class="kn">import</span> <span class="nn">iris.fileformats</span>
-<span class="kn">import</span> <span class="nn">iris.io.format_picker</span> <span class="kn">as</span> <span class="nn">format_picker</span>
-<span class="kn">import</span> <span class="nn">iris.plot</span> <span class="kn">as</span> <span class="nn">iplt</span>
+<span class="kn">import</span> <span class="nn">iris.io.format_picker</span> <span class="k">as</span> <span class="nn">format_picker</span>
+<span class="kn">import</span> <span class="nn">iris.plot</span> <span class="k">as</span> <span class="nn">iplt</span>
 
 
-<span class="n">UTC_format</span> <span class="o">=</span> <span class="s1">&#39;%H%M%Z </span><span class="si">%d</span><span class="s1">/%m/%Y&#39;</span>
+<span class="n">UTC_format</span> <span class="o">=</span> <span class="s2">&quot;%H%M%Z </span><span class="si">%d</span><span class="s2">/%m/%Y&quot;</span>
 
-<span class="n">FLOAT_HEADERS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;X grid origin&#39;</span><span class="p">,</span> <span class="s1">&#39;Y grid origin&#39;</span><span class="p">,</span>
-                 <span class="s1">&#39;X grid resolution&#39;</span><span class="p">,</span> <span class="s1">&#39;Y grid resolution&#39;</span><span class="p">]</span>
-<span class="n">INT_HEADERS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;X grid size&#39;</span><span class="p">,</span> <span class="s1">&#39;Y grid size&#39;</span><span class="p">,</span> <span class="s1">&#39;Number of fields&#39;</span><span class="p">]</span>
-<span class="n">DATE_HEADERS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Run time&#39;</span><span class="p">,</span> <span class="s1">&#39;Start of release&#39;</span><span class="p">,</span> <span class="s1">&#39;End of release&#39;</span><span class="p">]</span>
-<span class="n">COLUMN_NAMES</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;species_category&#39;</span><span class="p">,</span> <span class="s1">&#39;species&#39;</span><span class="p">,</span> <span class="s1">&#39;cell_measure&#39;</span><span class="p">,</span> <span class="s1">&#39;quantity&#39;</span><span class="p">,</span>
-                <span class="s1">&#39;unit&#39;</span><span class="p">,</span> <span class="s1">&#39;z_level&#39;</span><span class="p">,</span> <span class="s1">&#39;time&#39;</span><span class="p">]</span>
+<span class="n">FLOAT_HEADERS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;X grid origin&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Y grid origin&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;X grid resolution&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Y grid resolution&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+<span class="n">INT_HEADERS</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;X grid size&quot;</span><span class="p">,</span> <span class="s2">&quot;Y grid size&quot;</span><span class="p">,</span> <span class="s2">&quot;Number of fields&quot;</span><span class="p">]</span>
+<span class="n">DATE_HEADERS</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Run time&quot;</span><span class="p">,</span> <span class="s2">&quot;Start of release&quot;</span><span class="p">,</span> <span class="s2">&quot;End of release&quot;</span><span class="p">]</span>
+<span class="n">COLUMN_NAMES</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;species_category&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;species&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;cell_measure&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;quantity&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;unit&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;z_level&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;time&quot;</span><span class="p">,</span>
+<span class="p">]</span>
 
 
 <span class="k">def</span> <span class="nf">load_NAME_III</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
@@ -262,7 +273,7 @@ The cube returned from the load function is then used to produce a plot.</p>
         <span class="c1"># Read the next 16 lines of header information, putting the form</span>
         <span class="c1"># &quot;header name:    header value&quot; into a dictionary.</span>
         <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">16</span><span class="p">):</span>
-            <span class="n">header_name</span><span class="p">,</span> <span class="n">header_value</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">file_handle</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+            <span class="n">header_name</span><span class="p">,</span> <span class="n">header_value</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">file_handle</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
 
             <span class="c1"># Strip off any spurious space characters in the header name and</span>
             <span class="c1"># value.</span>
@@ -277,8 +288,9 @@ The cube returned from the load function is then used to produce a plot.</p>
                 <span class="n">header_value</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">header_value</span><span class="p">)</span>
             <span class="k">elif</span> <span class="n">header_name</span> <span class="ow">in</span> <span class="n">DATE_HEADERS</span><span class="p">:</span>
                 <span class="c1"># convert the time to python datetimes</span>
-                <span class="n">header_value</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">header_value</span><span class="p">,</span>
-                                                          <span class="n">UTC_format</span><span class="p">)</span>
+                <span class="n">header_value</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span>
+                    <span class="n">header_value</span><span class="p">,</span> <span class="n">UTC_format</span>
+                <span class="p">)</span>
 
             <span class="n">headers</span><span class="p">[</span><span class="n">header_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">header_value</span>
 
@@ -289,33 +301,35 @@ The cube returned from the load function is then used to produce a plot.</p>
         <span class="n">column_headings</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="k">for</span> <span class="n">column_header_name</span> <span class="ow">in</span> <span class="n">COLUMN_NAMES</span><span class="p">:</span>
             <span class="n">column_headings</span><span class="p">[</span><span class="n">column_header_name</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
-                <span class="n">col</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">next</span><span class="p">(</span><span class="n">file_handle</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+                <span class="n">col</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">next</span><span class="p">(</span><span class="n">file_handle</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
             <span class="p">][:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 
         <span class="c1"># Convert the time to python datetimes.</span>
         <span class="n">new_time_column_header</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">column_headings</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]):</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">column_headings</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">]):</span>
             <span class="c1"># The first 4 columns aren&#39;t time at all, so don&#39;t convert them to</span>
             <span class="c1"># datetimes.</span>
             <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">4</span><span class="p">:</span>
                 <span class="n">t</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">UTC_format</span><span class="p">)</span>
             <span class="n">new_time_column_header</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-        <span class="n">column_headings</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_time_column_header</span>
+        <span class="n">column_headings</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_time_column_header</span>
 
         <span class="c1"># Skip the blank line after the column headers.</span>
         <span class="nb">next</span><span class="p">(</span><span class="n">file_handle</span><span class="p">)</span>
 
         <span class="c1"># Make a list of data arrays to hold the data for each column.</span>
-        <span class="n">data_shape</span> <span class="o">=</span> <span class="p">(</span><span class="n">headers</span><span class="p">[</span><span class="s1">&#39;Y grid size&#39;</span><span class="p">],</span> <span class="n">headers</span><span class="p">[</span><span class="s1">&#39;X grid size&#39;</span><span class="p">])</span>
-        <span class="n">data_arrays</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">data_shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
-                       <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">headers</span><span class="p">[</span><span class="s1">&#39;Number of fields&#39;</span><span class="p">])]</span>
+        <span class="n">data_shape</span> <span class="o">=</span> <span class="p">(</span><span class="n">headers</span><span class="p">[</span><span class="s2">&quot;Y grid size&quot;</span><span class="p">],</span> <span class="n">headers</span><span class="p">[</span><span class="s2">&quot;X grid size&quot;</span><span class="p">])</span>
+        <span class="n">data_arrays</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">data_shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">headers</span><span class="p">[</span><span class="s2">&quot;Number of fields&quot;</span><span class="p">])</span>
+        <span class="p">]</span>
 
         <span class="c1"># Iterate over the remaining lines which represent the data in a column</span>
         <span class="c1"># form.</span>
         <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file_handle</span><span class="p">:</span>
             <span class="c1"># Split the line by comma, removing the last empty column caused by</span>
             <span class="c1"># the trailing comma.</span>
-            <span class="n">vals</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">vals</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 
             <span class="c1"># Cast the x and y grid positions to floats and convert them to</span>
             <span class="c1"># zero based indices (the numbers are 1 based grid positions where</span>
@@ -343,35 +357,43 @@ The cube returned from the load function is then used to produce a plot.</p>
             <span class="c1"># information for each field into a dictionary of headers for just</span>
             <span class="c1"># this field. Ignore the first 4 columns of grid position (data was</span>
             <span class="c1"># located with the data array).</span>
-            <span class="n">field_headings</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">((</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">4</span><span class="p">])</span>
-                                  <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">column_headings</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+            <span class="n">field_headings</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+                <span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">4</span><span class="p">])</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">column_headings</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+            <span class="p">)</span>
 
             <span class="c1"># make an cube</span>
             <span class="n">cube</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">cube</span><span class="o">.</span><span class="n">Cube</span><span class="p">(</span><span class="n">data_array</span><span class="p">)</span>
 
             <span class="c1"># define the name and unit</span>
-            <span class="n">name</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1"> </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">field_headings</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">],</span>
-                               <span class="n">field_headings</span><span class="p">[</span><span class="s1">&#39;quantity&#39;</span><span class="p">]))</span>
-            <span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;_&#39;</span><span class="p">)</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span>
+                <span class="n">field_headings</span><span class="p">[</span><span class="s2">&quot;species&quot;</span><span class="p">],</span>
+                <span class="n">field_headings</span><span class="p">[</span><span class="s2">&quot;quantity&quot;</span><span class="p">],</span>
+            <span class="p">)</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;_&quot;</span><span class="p">)</span>
             <span class="n">cube</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
             <span class="c1"># Some units are badly encoded in the file, fix this by putting a</span>
             <span class="c1"># space in between. (if gs is not found, then the string will be</span>
             <span class="c1"># returned unchanged)</span>
-            <span class="n">cube</span><span class="o">.</span><span class="n">units</span> <span class="o">=</span> <span class="n">field_headings</span><span class="p">[</span><span class="s1">&#39;unit&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;gs&#39;</span><span class="p">,</span> <span class="s1">&#39;g s&#39;</span><span class="p">)</span>
+            <span class="n">cube</span><span class="o">.</span><span class="n">units</span> <span class="o">=</span> <span class="n">field_headings</span><span class="p">[</span><span class="s2">&quot;unit&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;gs&quot;</span><span class="p">,</span> <span class="s2">&quot;g s&quot;</span><span class="p">)</span>
 
             <span class="c1"># define and add the singular coordinates of the field (flight</span>
             <span class="c1"># level, time etc.)</span>
-            <span class="n">cube</span><span class="o">.</span><span class="n">add_aux_coord</span><span class="p">(</span><span class="n">icoords</span><span class="o">.</span><span class="n">AuxCoord</span><span class="p">(</span><span class="n">field_headings</span><span class="p">[</span><span class="s1">&#39;z_level&#39;</span><span class="p">],</span>
-                                                <span class="n">long_name</span><span class="o">=</span><span class="s1">&#39;flight_level&#39;</span><span class="p">,</span>
-                                                <span class="n">units</span><span class="o">=</span><span class="s1">&#39;1&#39;</span><span class="p">))</span>
+            <span class="n">cube</span><span class="o">.</span><span class="n">add_aux_coord</span><span class="p">(</span>
+                <span class="n">icoords</span><span class="o">.</span><span class="n">AuxCoord</span><span class="p">(</span>
+                    <span class="n">field_headings</span><span class="p">[</span><span class="s2">&quot;z_level&quot;</span><span class="p">],</span>
+                    <span class="n">long_name</span><span class="o">=</span><span class="s2">&quot;flight_level&quot;</span><span class="p">,</span>
+                    <span class="n">units</span><span class="o">=</span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
 
             <span class="c1"># define the time unit and use it to serialise the datetime for the</span>
             <span class="c1"># time coordinate</span>
-            <span class="n">time_unit</span> <span class="o">=</span> <span class="n">Unit</span><span class="p">(</span><span class="s1">&#39;hours since epoch&#39;</span><span class="p">,</span> <span class="n">calendar</span><span class="o">=</span><span class="n">CALENDAR_GREGORIAN</span><span class="p">)</span>
+            <span class="n">time_unit</span> <span class="o">=</span> <span class="n">Unit</span><span class="p">(</span><span class="s2">&quot;hours since epoch&quot;</span><span class="p">,</span> <span class="n">calendar</span><span class="o">=</span><span class="n">CALENDAR_GREGORIAN</span><span class="p">)</span>
             <span class="n">time_coord</span> <span class="o">=</span> <span class="n">icoords</span><span class="o">.</span><span class="n">AuxCoord</span><span class="p">(</span>
-                <span class="n">time_unit</span><span class="o">.</span><span class="n">date2num</span><span class="p">(</span><span class="n">field_headings</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]),</span>
-                <span class="n">standard_name</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span>
-                <span class="n">units</span><span class="o">=</span><span class="n">time_unit</span><span class="p">)</span>
+                <span class="n">time_unit</span><span class="o">.</span><span class="n">date2num</span><span class="p">(</span><span class="n">field_headings</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">]),</span>
+                <span class="n">standard_name</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span>
+                <span class="n">units</span><span class="o">=</span><span class="n">time_unit</span><span class="p">,</span>
+            <span class="p">)</span>
             <span class="n">cube</span><span class="o">.</span><span class="n">add_aux_coord</span><span class="p">(</span><span class="n">time_coord</span><span class="p">)</span>
 
             <span class="c1"># build a coordinate system which can be referenced by latitude and</span>
@@ -380,22 +402,28 @@ The cube returned from the load function is then used to produce a plot.</p>
 
             <span class="c1"># build regular latitude and longitude coordinates which have</span>
             <span class="c1"># bounds</span>
-            <span class="n">start</span> <span class="o">=</span> <span class="n">header</span><span class="p">[</span><span class="s1">&#39;X grid origin&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">header</span><span class="p">[</span><span class="s1">&#39;X grid resolution&#39;</span><span class="p">]</span>
-            <span class="n">step</span> <span class="o">=</span> <span class="n">header</span><span class="p">[</span><span class="s1">&#39;X grid resolution&#39;</span><span class="p">]</span>
-            <span class="n">count</span> <span class="o">=</span> <span class="n">header</span><span class="p">[</span><span class="s1">&#39;X grid size&#39;</span><span class="p">]</span>
+            <span class="n">start</span> <span class="o">=</span> <span class="n">header</span><span class="p">[</span><span class="s2">&quot;X grid origin&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">header</span><span class="p">[</span><span class="s2">&quot;X grid resolution&quot;</span><span class="p">]</span>
+            <span class="n">step</span> <span class="o">=</span> <span class="n">header</span><span class="p">[</span><span class="s2">&quot;X grid resolution&quot;</span><span class="p">]</span>
+            <span class="n">count</span> <span class="o">=</span> <span class="n">header</span><span class="p">[</span><span class="s2">&quot;X grid size&quot;</span><span class="p">]</span>
             <span class="n">pts</span> <span class="o">=</span> <span class="n">start</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">count</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> <span class="o">*</span> <span class="n">step</span>
-            <span class="n">lon_coord</span> <span class="o">=</span> <span class="n">icoords</span><span class="o">.</span><span class="n">DimCoord</span><span class="p">(</span><span class="n">pts</span><span class="p">,</span> <span class="n">standard_name</span><span class="o">=</span><span class="s1">&#39;longitude&#39;</span><span class="p">,</span>
-                                         <span class="n">units</span><span class="o">=</span><span class="s1">&#39;degrees&#39;</span><span class="p">,</span>
-                                         <span class="n">coord_system</span><span class="o">=</span><span class="n">lat_lon_coord_system</span><span class="p">)</span>
+            <span class="n">lon_coord</span> <span class="o">=</span> <span class="n">icoords</span><span class="o">.</span><span class="n">DimCoord</span><span class="p">(</span>
+                <span class="n">pts</span><span class="p">,</span>
+                <span class="n">standard_name</span><span class="o">=</span><span class="s2">&quot;longitude&quot;</span><span class="p">,</span>
+                <span class="n">units</span><span class="o">=</span><span class="s2">&quot;degrees&quot;</span><span class="p">,</span>
+                <span class="n">coord_system</span><span class="o">=</span><span class="n">lat_lon_coord_system</span><span class="p">,</span>
+            <span class="p">)</span>
             <span class="n">lon_coord</span><span class="o">.</span><span class="n">guess_bounds</span><span class="p">()</span>
 
-            <span class="n">start</span> <span class="o">=</span> <span class="n">header</span><span class="p">[</span><span class="s1">&#39;Y grid origin&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">header</span><span class="p">[</span><span class="s1">&#39;Y grid resolution&#39;</span><span class="p">]</span>
-            <span class="n">step</span> <span class="o">=</span> <span class="n">header</span><span class="p">[</span><span class="s1">&#39;Y grid resolution&#39;</span><span class="p">]</span>
-            <span class="n">count</span> <span class="o">=</span> <span class="n">header</span><span class="p">[</span><span class="s1">&#39;Y grid size&#39;</span><span class="p">]</span>
+            <span class="n">start</span> <span class="o">=</span> <span class="n">header</span><span class="p">[</span><span class="s2">&quot;Y grid origin&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">header</span><span class="p">[</span><span class="s2">&quot;Y grid resolution&quot;</span><span class="p">]</span>
+            <span class="n">step</span> <span class="o">=</span> <span class="n">header</span><span class="p">[</span><span class="s2">&quot;Y grid resolution&quot;</span><span class="p">]</span>
+            <span class="n">count</span> <span class="o">=</span> <span class="n">header</span><span class="p">[</span><span class="s2">&quot;Y grid size&quot;</span><span class="p">]</span>
             <span class="n">pts</span> <span class="o">=</span> <span class="n">start</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">count</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> <span class="o">*</span> <span class="n">step</span>
-            <span class="n">lat_coord</span> <span class="o">=</span> <span class="n">icoords</span><span class="o">.</span><span class="n">DimCoord</span><span class="p">(</span><span class="n">pts</span><span class="p">,</span> <span class="n">standard_name</span><span class="o">=</span><span class="s1">&#39;latitude&#39;</span><span class="p">,</span>
-                                         <span class="n">units</span><span class="o">=</span><span class="s1">&#39;degrees&#39;</span><span class="p">,</span>
-                                         <span class="n">coord_system</span><span class="o">=</span><span class="n">lat_lon_coord_system</span><span class="p">)</span>
+            <span class="n">lat_coord</span> <span class="o">=</span> <span class="n">icoords</span><span class="o">.</span><span class="n">DimCoord</span><span class="p">(</span>
+                <span class="n">pts</span><span class="p">,</span>
+                <span class="n">standard_name</span><span class="o">=</span><span class="s2">&quot;latitude&quot;</span><span class="p">,</span>
+                <span class="n">units</span><span class="o">=</span><span class="s2">&quot;degrees&quot;</span><span class="p">,</span>
+                <span class="n">coord_system</span><span class="o">=</span><span class="n">lat_lon_coord_system</span><span class="p">,</span>
+            <span class="p">)</span>
             <span class="n">lat_coord</span><span class="o">.</span><span class="n">guess_bounds</span><span class="p">()</span>
 
             <span class="c1"># add the latitude and longitude coordinates to the cube, with</span>
@@ -406,9 +434,9 @@ The cube returned from the load function is then used to produce a plot.</p>
             <span class="c1"># implement standard iris callback capability. Although callbacks</span>
             <span class="c1"># are not used in this example, the standard mechanism for a custom</span>
             <span class="c1"># loader to implement a callback is shown:</span>
-            <span class="n">cube</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">run_callback</span><span class="p">(</span><span class="n">callback</span><span class="p">,</span> <span class="n">cube</span><span class="p">,</span>
-                                        <span class="p">[</span><span class="n">header</span><span class="p">,</span> <span class="n">field_headings</span><span class="p">,</span> <span class="n">data_array</span><span class="p">],</span>
-                                        <span class="n">filename</span><span class="p">)</span>
+            <span class="n">cube</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">run_callback</span><span class="p">(</span>
+                <span class="n">callback</span><span class="p">,</span> <span class="n">cube</span><span class="p">,</span> <span class="p">[</span><span class="n">header</span><span class="p">,</span> <span class="n">field_headings</span><span class="p">,</span> <span class="n">data_array</span><span class="p">],</span> <span class="n">filename</span>
+            <span class="p">)</span>
 
             <span class="c1"># yield the cube created (the loop will continue when the next()</span>
             <span class="c1"># element is requested)</span>
@@ -418,11 +446,12 @@ The cube returned from the load function is then used to produce a plot.</p>
 <span class="c1"># Create a format_picker specification of the NAME file format giving it a</span>
 <span class="c1"># priority greater than the built in NAME loader.</span>
 <span class="n">_NAME_III_spec</span> <span class="o">=</span> <span class="n">format_picker</span><span class="o">.</span><span class="n">FormatSpecification</span><span class="p">(</span>
-    <span class="s1">&#39;Name III&#39;</span><span class="p">,</span>
+    <span class="s2">&quot;Name III&quot;</span><span class="p">,</span>
     <span class="n">format_picker</span><span class="o">.</span><span class="n">LeadingLine</span><span class="p">(),</span>
     <span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;NAME III&quot;</span><span class="p">),</span>
     <span class="n">NAME_to_cube</span><span class="p">,</span>
-    <span class="n">priority</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+    <span class="n">priority</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span>
+<span class="p">)</span>
 
 <span class="c1"># Register the NAME loader with iris</span>
 <span class="n">iris</span><span class="o">.</span><span class="n">fileformats</span><span class="o">.</span><span class="n">FORMAT_AGENT</span><span class="o">.</span><span class="n">add_spec</span><span class="p">(</span><span class="n">_NAME_III_spec</span><span class="p">)</span>
@@ -432,50 +461,51 @@ The cube returned from the load function is then used to produce a plot.</p>
 <span class="c1"># |          Using the new loader             |</span>
 <span class="c1"># ---------------------------------------------</span>
 
+
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="n">fname</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;NAME_output.txt&#39;</span><span class="p">)</span>
+    <span class="n">fname</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s2">&quot;NAME_output.txt&quot;</span><span class="p">)</span>
 
     <span class="n">boundary_volc_ash_constraint</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">Constraint</span><span class="p">(</span>
-        <span class="s1">&#39;VOLCANIC_ASH_AIR_CONCENTRATION&#39;</span><span class="p">,</span>
-        <span class="n">flight_level</span><span class="o">=</span><span class="s1">&#39;From FL000 - FL200&#39;</span><span class="p">)</span>
+        <span class="s2">&quot;VOLCANIC_ASH_AIR_CONCENTRATION&quot;</span><span class="p">,</span> <span class="n">flight_level</span><span class="o">=</span><span class="s2">&quot;From FL000 - FL200&quot;</span>
+    <span class="p">)</span>
 
     <span class="c1"># Callback shown as None to illustrate where a cube-level callback function</span>
     <span class="c1"># would be used if required</span>
-    <span class="n">cube</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">boundary_volc_ash_constraint</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+    <span class="n">cube</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">boundary_volc_ash_constraint</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 
     <span class="c1"># draw contour levels for the data (the top level is just a catch-all)</span>
     <span class="n">levels</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.0002</span><span class="p">,</span> <span class="mf">0.002</span><span class="p">,</span> <span class="mf">0.004</span><span class="p">,</span> <span class="mf">1e10</span><span class="p">)</span>
-    <span class="n">cs</span> <span class="o">=</span> <span class="n">iplt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="n">levels</span><span class="p">,</span>
-                       <span class="n">colors</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;#80ffff&#39;</span><span class="p">,</span> <span class="s1">&#39;#939598&#39;</span><span class="p">,</span> <span class="s1">&#39;#e00404&#39;</span><span class="p">),</span>
-                       <span class="p">)</span>
+    <span class="n">cs</span> <span class="o">=</span> <span class="n">iplt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span>
+        <span class="n">cube</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="n">levels</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;#80ffff&quot;</span><span class="p">,</span> <span class="s2">&quot;#939598&quot;</span><span class="p">,</span> <span class="s2">&quot;#e00404&quot;</span><span class="p">),</span>
+    <span class="p">)</span>
 
     <span class="c1"># draw a black outline at the lowest contour to highlight affected areas</span>
-    <span class="n">iplt</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="p">(</span><span class="n">levels</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">100</span><span class="p">),</span>
-                 <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+    <span class="n">iplt</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="p">(</span><span class="n">levels</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">100</span><span class="p">),</span> <span class="n">colors</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
 
     <span class="c1"># set an extent and a background image for the map</span>
     <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_extent</span><span class="p">((</span><span class="o">-</span><span class="mi">90</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">75</span><span class="p">))</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">stock_img</span><span class="p">(</span><span class="s1">&#39;ne_shaded&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">stock_img</span><span class="p">(</span><span class="s2">&quot;ne_shaded&quot;</span><span class="p">)</span>
 
     <span class="c1"># make a legend, with custom labels, for the coloured contour set</span>
     <span class="n">artists</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">cs</span><span class="o">.</span><span class="n">legend_elements</span><span class="p">()</span>
     <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span>
-        <span class="sa">r</span><span class="s1">&#39;$</span><span class="si">%s</span><span class="s1"> &lt; x \leq </span><span class="si">%s</span><span class="s1">$&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">levels</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">levels</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span>
-        <span class="sa">r</span><span class="s1">&#39;$</span><span class="si">%s</span><span class="s1"> &lt; x \leq </span><span class="si">%s</span><span class="s1">$&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">levels</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">levels</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span>
-        <span class="sa">r</span><span class="s1">&#39;$x &gt; </span><span class="si">%s</span><span class="s1">$&#39;</span> <span class="o">%</span> <span class="n">levels</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+        <span class="sa">r</span><span class="s2">&quot;$</span><span class="si">%s</span><span class="s2"> &lt; x \leq </span><span class="si">%s</span><span class="s2">$&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">levels</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">levels</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span>
+        <span class="sa">r</span><span class="s2">&quot;$</span><span class="si">%s</span><span class="s2"> &lt; x \leq </span><span class="si">%s</span><span class="s2">$&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">levels</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">levels</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span>
+        <span class="sa">r</span><span class="s2">&quot;$x &gt; </span><span class="si">%s</span><span class="s2">$&quot;</span> <span class="o">%</span> <span class="n">levels</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
     <span class="p">]</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">artists</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Ash concentration / g m-3&#39;</span><span class="p">,</span>
-              <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span>
+        <span class="n">artists</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Ash concentration / g m-3&quot;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper left&quot;</span>
+    <span class="p">)</span>
 
-    <span class="n">time</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+    <span class="n">time</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
     <span class="n">time_date</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">units</span><span class="o">.</span><span class="n">num2date</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">points</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="n">UTC_format</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Volcanic ash concentration forecast</span><span class="se">\n</span><span class="s1">valid at </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">time_date</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Volcanic ash concentration forecast</span><span class="se">\n</span><span class="s2">valid at </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">time_date</span><span class="p">)</span>
 
     <span class="n">iplt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </pre></div>
 </div>

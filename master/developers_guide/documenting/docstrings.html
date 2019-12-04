@@ -156,7 +156,7 @@
 <div class="section" id="sample-multi-line-docstring">
 <h3>Sample multi-line docstring<a class="headerlink" href="#sample-multi-line-docstring" title="Permalink to this headline">¶</a></h3>
 <p>Here is a simple example of a standard dosctring:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sample_routine</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="n">kwarg1</span><span class="o">=</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="n">kwarg2</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sample_routine</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="n">kwarg1</span><span class="o">=</span><span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="n">kwarg2</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Purpose section text goes here.</span>
 
@@ -253,7 +253,8 @@ can be multi-lined.</p>
 <span class="sd">    Class Summary</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Purpose section description.</span>
 
@@ -271,9 +272,9 @@ can be multi-lined.</p>
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span> <span class="n">arg1</span>
-        <span class="s1">&#39;Attribute arg1 docstring.&#39;</span>
+        <span class="s2">&quot;Attribute arg1 docstring.&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="n">arg2</span>
-        <span class="s1">&#39;Attribute arg2 docstring.&#39;</span>
+        <span class="s2">&quot;Attribute arg2 docstring.&quot;</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">square</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -284,7 +285,7 @@ can be multi-lined.</p>
 <span class="sd">            int.</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">a</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">a</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">a</span>
 </pre></div>
 </div>
 <p>This would be rendered as:</p>

@@ -130,29 +130,29 @@ them without the intervention shown here.</p>
 <span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">unicode_literals</span>
 
 <span class="kn">import</span> <span class="nn">iris</span>
-<span class="kn">import</span> <span class="nn">iris.plot</span> <span class="kn">as</span> <span class="nn">iplt</span>
-<span class="kn">import</span> <span class="nn">iris.quickplot</span> <span class="kn">as</span> <span class="nn">qplt</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">iris.plot</span> <span class="k">as</span> <span class="nn">iplt</span>
+<span class="kn">import</span> <span class="nn">iris.quickplot</span> <span class="k">as</span> <span class="nn">qplt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">iris.util</span> <span class="kn">import</span> <span class="n">promote_aux_coord_to_dim_coord</span>
 
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
     <span class="c1"># Load the three files of sample NEMO data.</span>
-    <span class="n">fname</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;NEMO/nemo_1m_*.nc&#39;</span><span class="p">)</span>
+    <span class="n">fname</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s2">&quot;NEMO/nemo_1m_*.nc&quot;</span><span class="p">)</span>
     <span class="n">cubes</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
 
     <span class="c1"># Some attributes are unique to each file and must be blanked</span>
     <span class="c1"># to allow concatenation.</span>
-    <span class="n">differing_attrs</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;file_name&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;timeStamp&#39;</span><span class="p">,</span> <span class="s1">&#39;TimeStamp&#39;</span><span class="p">]</span>
+    <span class="n">differing_attrs</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;file_name&quot;</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;timeStamp&quot;</span><span class="p">,</span> <span class="s2">&quot;TimeStamp&quot;</span><span class="p">]</span>
     <span class="k">for</span> <span class="n">cube</span> <span class="ow">in</span> <span class="n">cubes</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">attribute</span> <span class="ow">in</span> <span class="n">differing_attrs</span><span class="p">:</span>
-            <span class="n">cube</span><span class="o">.</span><span class="n">attributes</span><span class="p">[</span><span class="n">attribute</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+            <span class="n">cube</span><span class="o">.</span><span class="n">attributes</span><span class="p">[</span><span class="n">attribute</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
 
     <span class="c1"># The cubes still cannot be concatenated because their time dimension is</span>
     <span class="c1"># time_counter rather than time. time needs to be promoted to allow</span>
     <span class="c1"># concatenation.</span>
     <span class="k">for</span> <span class="n">cube</span> <span class="ow">in</span> <span class="n">cubes</span><span class="p">:</span>
-        <span class="n">promote_aux_coord_to_dim_coord</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="s1">&#39;time&#39;</span><span class="p">)</span>
+        <span class="n">promote_aux_coord_to_dim_coord</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="s2">&quot;time&quot;</span><span class="p">)</span>
 
     <span class="c1"># The cubes can now be concatenated into a single time series.</span>
     <span class="n">cube</span> <span class="o">=</span> <span class="n">cubes</span><span class="o">.</span><span class="n">concatenate_cube</span><span class="p">()</span>
@@ -161,21 +161,26 @@ them without the intervention shown here.</p>
     <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
     <span class="n">y_point_index</span> <span class="o">=</span> <span class="mi">100</span>
     <span class="n">x_point_index</span> <span class="o">=</span> <span class="mi">100</span>
-    <span class="n">qplt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cube</span><span class="p">[:,</span> <span class="n">y_point_index</span><span class="p">,</span> <span class="n">x_point_index</span><span class="p">],</span> <span class="s1">&#39;o-&#39;</span><span class="p">)</span>
+    <span class="n">qplt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cube</span><span class="p">[:,</span> <span class="n">y_point_index</span><span class="p">,</span> <span class="n">x_point_index</span><span class="p">],</span> <span class="s2">&quot;o-&quot;</span><span class="p">)</span>
 
     <span class="c1"># Include the point&#39;s position in the plot&#39;s title</span>
-    <span class="n">lat_point</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="s1">&#39;latitude&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">points</span><span class="p">[</span><span class="n">y_point_index</span><span class="p">,</span> <span class="n">x_point_index</span><span class="p">]</span>
-    <span class="n">lat_string</span> <span class="o">=</span> <span class="s1">&#39;{:.3f}</span><span class="se">\u00B0</span><span class="s1"> {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">lat_point</span><span class="p">),</span>
-                                          <span class="s1">&#39;N&#39;</span> <span class="k">if</span> <span class="n">lat_point</span> <span class="o">&gt;</span> <span class="mf">0.</span> <span class="k">else</span> <span class="s1">&#39;S&#39;</span><span class="p">)</span>
-    <span class="n">lon_point</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="s1">&#39;longitude&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">points</span><span class="p">[</span><span class="n">y_point_index</span><span class="p">,</span> <span class="n">x_point_index</span><span class="p">]</span>
-    <span class="n">lon_string</span> <span class="o">=</span> <span class="s1">&#39;{:.3f}</span><span class="se">\u00B0</span><span class="s1"> {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">lon_point</span><span class="p">),</span>
-                                          <span class="s1">&#39;E&#39;</span> <span class="k">if</span> <span class="n">lon_point</span> <span class="o">&gt;</span> <span class="mf">0.</span> <span class="k">else</span> <span class="s1">&#39;W&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;{} at {} {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">long_name</span><span class="o">.</span><span class="n">capitalize</span><span class="p">(),</span>
-                                   <span class="n">lat_string</span><span class="p">,</span> <span class="n">lon_string</span><span class="p">))</span>
+    <span class="n">lat_point</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="s2">&quot;latitude&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">points</span><span class="p">[</span><span class="n">y_point_index</span><span class="p">,</span> <span class="n">x_point_index</span><span class="p">]</span>
+    <span class="n">lat_string</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{:.3f}</span><span class="se">\u00B0</span><span class="s2"> </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+        <span class="nb">abs</span><span class="p">(</span><span class="n">lat_point</span><span class="p">),</span> <span class="s2">&quot;N&quot;</span> <span class="k">if</span> <span class="n">lat_point</span> <span class="o">&gt;</span> <span class="mf">0.0</span> <span class="k">else</span> <span class="s2">&quot;S&quot;</span>
+    <span class="p">)</span>
+    <span class="n">lon_point</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="s2">&quot;longitude&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">points</span><span class="p">[</span><span class="n">y_point_index</span><span class="p">,</span> <span class="n">x_point_index</span><span class="p">]</span>
+    <span class="n">lon_string</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{:.3f}</span><span class="se">\u00B0</span><span class="s2"> </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+        <span class="nb">abs</span><span class="p">(</span><span class="n">lon_point</span><span class="p">),</span> <span class="s2">&quot;E&quot;</span> <span class="k">if</span> <span class="n">lon_point</span> <span class="o">&gt;</span> <span class="mf">0.0</span> <span class="k">else</span> <span class="s2">&quot;W&quot;</span>
+    <span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span>
+        <span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> at </span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="n">cube</span><span class="o">.</span><span class="n">long_name</span><span class="o">.</span><span class="n">capitalize</span><span class="p">(),</span> <span class="n">lat_string</span><span class="p">,</span> <span class="n">lon_string</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
     <span class="n">iplt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </pre></div>
 </div>

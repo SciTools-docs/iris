@@ -202,6 +202,13 @@ NumPy array or a dask array.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="iris.coords.AncillaryVariable.cube_dims">
+<code class="sig-name descname">cube_dims</code><span class="sig-paren">(</span><em class="sig-param">cube</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.AncillaryVariable.cube_dims" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the cube dimensions of this AncillaryVariable.</p>
+<p>Equivalent to “cube.ancillary_variable_dims(self)”.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="iris.coords.AncillaryVariable.has_bounds">
 <code class="sig-name descname">has_bounds</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.AncillaryVariable.has_bounds" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a boolean indicating whether the current dimensional metadata
@@ -318,6 +325,14 @@ specified by its values.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="iris.coords.AncillaryVariable.names">
+<em class="property">property </em><code class="sig-name descname">names</code><a class="headerlink" href="#iris.coords.AncillaryVariable.names" title="Permalink to this definition">¶</a></dt>
+<dd><p>A tuple containing all of the metadata names. This includes the
+standard name, long name, NetCDF variable name, and attributes
+STASH name.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="iris.coords.AncillaryVariable.ndim">
 <em class="property">property </em><code class="sig-name descname">ndim</code><a class="headerlink" href="#iris.coords.AncillaryVariable.ndim" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the number of dimensions of the current dimensional metadata
@@ -362,7 +377,7 @@ everything is inherited from <a class="reference internal" href="#iris.coords.Co
 <blockquote>
 <div><dl class="class">
 <dt id="iris.coords.AuxCoord">
-<em class="property">class </em><code class="sig-prename descclassname">iris.coords.</code><code class="sig-name descname">AuxCoord</code><span class="sig-paren">(</span><em class="sig-param">points</em>, <em class="sig-param">standard_name=None</em>, <em class="sig-param">long_name=None</em>, <em class="sig-param">var_name=None</em>, <em class="sig-param">units='1'</em>, <em class="sig-param">bounds=None</em>, <em class="sig-param">attributes=None</em>, <em class="sig-param">coord_system=None</em>, <em class="sig-param">climatological=False</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.AuxCoord" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">iris.coords.</code><code class="sig-name descname">AuxCoord</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.AuxCoord" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#iris.coords.Coord" title="iris.coords.Coord"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.coords.Coord</span></code></a></p>
 <p>Constructs a single coordinate.</p>
 <p>Args:</p>
@@ -533,6 +548,13 @@ or a dask array.</p>
 <code class="sig-name descname">core_points</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.AuxCoord.core_points" title="Permalink to this definition">¶</a></dt>
 <dd><p>The points array at the core of this coord, which may be a NumPy array
 or a dask array.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="iris.coords.AuxCoord.cube_dims">
+<code class="sig-name descname">cube_dims</code><span class="sig-paren">(</span><em class="sig-param">cube</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.AuxCoord.cube_dims" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the cube dimensions of this Coord.</p>
+<p>Equivalent to “cube.coord_dims(self)”.</p>
 </dd></dl>
 
 <dl class="method">
@@ -839,6 +861,14 @@ specified by its values.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="iris.coords.AuxCoord.names">
+<em class="property">property </em><code class="sig-name descname">names</code><a class="headerlink" href="#iris.coords.AuxCoord.names" title="Permalink to this definition">¶</a></dt>
+<dd><p>A tuple containing all of the metadata names. This includes the
+standard name, long name, NetCDF variable name, and attributes
+STASH name.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="iris.coords.AuxCoord.nbounds">
 <em class="property">property </em><code class="sig-name descname">nbounds</code><a class="headerlink" href="#iris.coords.AuxCoord.nbounds" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the number of bounds that this coordinate has (0 for no bounds).</p>
@@ -1004,8 +1034,8 @@ Can be a string, which will be converted to a Unit object.</p>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>measure</dt><dd><p>A string describing the type of measure.  ‘area’ and ‘volume’
-are the only valid entries.</p>
+<dt>measure</dt><dd><p>A string describing the type of measure. Supported values are
+‘area’ and ‘volume’. The default is ‘area’.</p>
 </dd>
 </dl>
 </li>
@@ -1037,6 +1067,13 @@ copied.</p>
 <code class="sig-name descname">core_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.CellMeasure.core_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>The data array at the core of this ancillary variable, which may be a
 NumPy array or a dask array.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="iris.coords.CellMeasure.cube_dims">
+<code class="sig-name descname">cube_dims</code><span class="sig-paren">(</span><em class="sig-param">cube</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.CellMeasure.cube_dims" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the cube dimensions of this CellMeasure.</p>
+<p>Equivalent to “cube.cell_measure_dims(self)”.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1159,6 +1196,14 @@ specified by its values.</p>
 <dt id="iris.coords.CellMeasure.measure">
 <em class="property">property </em><code class="sig-name descname">measure</code><a class="headerlink" href="#iris.coords.CellMeasure.measure" title="Permalink to this definition">¶</a></dt>
 <dd><p>String naming the measure type.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="iris.coords.CellMeasure.names">
+<em class="property">property </em><code class="sig-name descname">names</code><a class="headerlink" href="#iris.coords.CellMeasure.names" title="Permalink to this definition">¶</a></dt>
+<dd><p>A tuple containing all of the metadata names. This includes the
+standard name, long name, NetCDF variable name, and attributes
+STASH name.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1443,6 +1488,13 @@ or a dask array.</p>
 <code class="sig-name descname">core_points</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.Coord.core_points" title="Permalink to this definition">¶</a></dt>
 <dd><p>The points array at the core of this coord, which may be a NumPy array
 or a dask array.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="iris.coords.Coord.cube_dims">
+<code class="sig-name descname">cube_dims</code><span class="sig-paren">(</span><em class="sig-param">cube</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.Coord.cube_dims" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the cube dimensions of this Coord.</p>
+<p>Equivalent to “cube.coord_dims(self)”.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1752,6 +1804,14 @@ if units are not time units or if there are no bounds.</p>
 <em class="property">property </em><code class="sig-name descname">dtype</code><a class="headerlink" href="#iris.coords.Coord.dtype" title="Permalink to this definition">¶</a></dt>
 <dd><p>The NumPy dtype of the current dimensional metadata object, as
 specified by its values.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="iris.coords.Coord.names">
+<em class="property">property </em><code class="sig-name descname">names</code><a class="headerlink" href="#iris.coords.Coord.names" title="Permalink to this definition">¶</a></dt>
+<dd><p>A tuple containing all of the metadata names. This includes the
+standard name, long name, NetCDF variable name, and attributes
+STASH name.</p>
 </dd></dl>
 
 <dl class="method">
@@ -2077,6 +2137,13 @@ or a dask array.</p>
 <code class="sig-name descname">core_points</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.DimCoord.core_points" title="Permalink to this definition">¶</a></dt>
 <dd><p>The points array at the core of this coord, which may be a NumPy array
 or a dask array.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="iris.coords.DimCoord.cube_dims">
+<code class="sig-name descname">cube_dims</code><span class="sig-paren">(</span><em class="sig-param">cube</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.DimCoord.cube_dims" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the cube dimensions of this Coord.</p>
+<p>Equivalent to “cube.coord_dims(self)”.</p>
 </dd></dl>
 
 <dl class="method">
@@ -2423,6 +2490,14 @@ if units are not time units or if there are no bounds.</p>
 <em class="property">property </em><code class="sig-name descname">dtype</code><a class="headerlink" href="#iris.coords.DimCoord.dtype" title="Permalink to this definition">¶</a></dt>
 <dd><p>The NumPy dtype of the current dimensional metadata object, as
 specified by its values.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="iris.coords.DimCoord.names">
+<em class="property">property </em><code class="sig-name descname">names</code><a class="headerlink" href="#iris.coords.DimCoord.names" title="Permalink to this definition">¶</a></dt>
+<dd><p>A tuple containing all of the metadata names. This includes the
+standard name, long name, NetCDF variable name, and attributes
+STASH name.</p>
 </dd></dl>
 
 <dl class="method">

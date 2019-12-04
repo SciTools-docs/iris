@@ -128,6 +128,7 @@
 <li><p><a class="reference internal" href="#iris.util.delta" title="iris.util.delta"><code class="xref py py-obj docutils literal notranslate"><span class="pre">delta</span></code></a></p></li>
 <li><p><a class="reference internal" href="#iris.util.demote_dim_coord_to_aux_coord" title="iris.util.demote_dim_coord_to_aux_coord"><code class="xref py py-obj docutils literal notranslate"><span class="pre">demote_dim_coord_to_aux_coord</span></code></a></p></li>
 <li><p><a class="reference internal" href="#iris.util.describe_diff" title="iris.util.describe_diff"><code class="xref py py-obj docutils literal notranslate"><span class="pre">describe_diff</span></code></a></p></li>
+<li><p><a class="reference internal" href="#iris.util.equalise_attributes" title="iris.util.equalise_attributes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">equalise_attributes</span></code></a></p></li>
 <li><p><a class="reference internal" href="#iris.util.file_is_newer_than" title="iris.util.file_is_newer_than"><code class="xref py py-obj docutils literal notranslate"><span class="pre">file_is_newer_than</span></code></a></p></li>
 <li><p><a class="reference internal" href="#iris.util.find_discontiguities" title="iris.util.find_discontiguities"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_discontiguities</span></code></a></p></li>
 <li><p><a class="reference internal" href="#iris.util.format_array" title="iris.util.format_array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">format_array</span></code></a></p></li>
@@ -533,6 +534,25 @@ of the differences in metadata between two cubes. Determining whether
 two cubes will merge requires additional logic that is beyond the
 scope of this function.</p>
 </div>
+</dd></dl>
+
+<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
+<!--<hr class="docutils" />
+--><dl class="function">
+<dt id="iris.util.equalise_attributes">
+<code class="sig-prename descclassname">iris.util.</code><code class="sig-name descname">equalise_attributes</code><span class="sig-paren">(</span><em class="sig-param">cubes</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.util.equalise_attributes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete cube attributes that are not identical over all cubes in a group.</p>
+<p>This function simply deletes any attributes which are not the same for
+all the given cubes.  The cubes will then have identical attributes.  The
+given cubes are modified in-place.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>cubes (iterable of <a class="reference internal" href="cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.cube.Cube</span></code></a>):</dt><dd><p>A collection of cubes to compare and adjust.</p>
+</dd>
+</dl>
+</li>
+</ul>
 </dd></dl>
 
 <p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>

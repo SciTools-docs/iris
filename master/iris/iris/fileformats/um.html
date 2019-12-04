@@ -156,7 +156,7 @@ the FieldsFile.  Default value is False.</p>
 </li>
 </ul>
 <dl class="simple">
-<dt>Returns:</dt><dd><p>Iteration of <a class="reference internal" href="pp.html#iris.fileformats.pp.PPField" title="iris.fileformats.pp.PPField"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.fileformats.pp.PPField</span></code></a>s.</p>
+<dt>Returns:</dt><dd><p>Iteration of <a class="reference internal" href="pp.html#iris.fileformats.pp.PPField" title="iris.fileformats.pp.PPField"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.fileformats.pp.PPField</span></code></a>.</p>
 </dd>
 </dl>
 <p>For example:</p>
@@ -223,7 +223,7 @@ format files (PP or fieldsfiles).</p>
 <p>For example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">iris</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">filepath</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;uk_hires.pp&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">iris.fileformats.um</span> <span class="k">import</span> <span class="n">structured_um_loading</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">iris.fileformats.um</span> <span class="kn">import</span> <span class="n">structured_um_loading</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">structured_um_loading</span><span class="p">():</span>
 <span class="gp">... </span>    <span class="n">cube</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="s1">&#39;air_potential_temperature&#39;</span><span class="p">)</span>
 <span class="gp">...</span>

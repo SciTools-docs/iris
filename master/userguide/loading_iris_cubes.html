@@ -278,17 +278,35 @@ from a specific subset of data that is of particular interest.</p>
 </pre></div>
 </div>
 <p>Specifying a name as a constraint argument to <a class="reference internal" href="../iris/iris.html#iris.load" title="iris.load"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.load()</span></code></a> will mean
-only cubes with a matching <a class="reference internal" href="../iris/iris/cube.html#iris.cube.Cube.name" title="iris.cube.Cube.name"><code class="xref py py-meth docutils literal notranslate"><span class="pre">name</span></code></a>
+only cubes with matching <a class="reference internal" href="../iris/iris/cube.html#iris.cube.Cube.names" title="iris.cube.Cube.names"><code class="xref py py-meth docutils literal notranslate"><span class="pre">name</span></code></a>
 will be returned:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;uk_hires.pp&#39;</span><span class="p">)</span>
-<span class="n">cubes</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;specific_humidity&#39;</span><span class="p">)</span>
+<span class="n">cubes</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;surface_altitude&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Note that, the provided name will match against either the standard name,
+long name, NetCDF variable name or STASH metadata of a cube. Therefore, the
+previous example using the <code class="docutils literal notranslate"><span class="pre">surface_altitude</span></code> standard name constraint can
+also be achieved using the STASH value of <code class="docutils literal notranslate"><span class="pre">m01s00i033</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;uk_hires.pp&#39;</span><span class="p">)</span>
+<span class="n">cubes</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;m01s00i033&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If further specific name constraint control is required i.e., to constrain
+against a combination of standard name, long name, NetCDF variable name and/or
+STASH metadata, consider using the <a class="reference internal" href="../iris/iris.html#iris.NameConstraint" title="iris.NameConstraint"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.NameConstraint</span></code></a>. For example,
+to constrain against both a standard name of <code class="docutils literal notranslate"><span class="pre">surface_altitude</span></code> <strong>and</strong> a STASH
+of <code class="docutils literal notranslate"><span class="pre">m01s00i033</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;uk_hires.pp&#39;</span><span class="p">)</span>
+<span class="n">constraint</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">NameConstraint</span><span class="p">(</span><span class="n">standard_name</span><span class="o">=</span><span class="s1">&#39;surface_altitude&#39;</span><span class="p">,</span> <span class="n">STASH</span><span class="o">=</span><span class="s1">&#39;m01s00i033&#39;</span><span class="p">)</span>
+<span class="n">cubes</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">constraint</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>To constrain the load to multiple distinct constraints, a list of constraints
 can be provided.  This is equivalent to running load once for each constraint
 but is likely to be more efficient:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;uk_hires.pp&#39;</span><span class="p">)</span>
-<span class="n">cubes</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;air_potential_temperature&#39;</span><span class="p">,</span> <span class="s1">&#39;specific_humidity&#39;</span><span class="p">])</span>
+<span class="n">cubes</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;air_potential_temperature&#39;</span><span class="p">,</span> <span class="s1">&#39;surface_altitude&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 <p>The <a class="reference internal" href="../iris/iris.html#iris.Constraint" title="iris.Constraint"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.Constraint</span></code></a> class can be used to restrict coordinate values
@@ -389,7 +407,7 @@ facilities.  An <a class="reference internal" href="../iris/iris/time.html#iris.
 objects such as <a class="reference external" href="https://docs.python.org/2.7/library/datetime.html#datetime.datetime" title="(in Python v2.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a> instances, and this comparison will
 then test only those ‘aspects’ which the PartialDateTime instance defines:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">datetime</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">iris.time</span> <span class="k">import</span> <span class="n">PartialDateTime</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">iris.time</span> <span class="kn">import</span> <span class="n">PartialDateTime</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2011</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">dt</span> <span class="o">&gt;</span> <span class="n">PartialDateTime</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2010</span><span class="p">,</span> <span class="n">month</span><span class="o">=</span><span class="mi">6</span><span class="p">))</span>
 <span class="go">True</span>

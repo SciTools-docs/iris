@@ -409,7 +409,7 @@ what you can do to avoid them.</p>
 <p>Differences in the <a class="reference internal" href="../iris/iris/cube.html#iris.cube.Cube.attributes" title="iris.cube.Cube.attributes"><code class="xref py py-data docutils literal notranslate"><span class="pre">attributes</span></code></a> the input cubes probably
 cause the greatest amount of merge-related difficulties.
 In recognition of this, Iris has a helper function,
-<a class="reference internal" href="../iris/iris/experimental/equalise_cubes.html#iris.experimental.equalise_cubes.equalise_attributes" title="iris.experimental.equalise_cubes.equalise_attributes"><code class="xref py py-func docutils literal notranslate"><span class="pre">equalise_attributes()</span></code></a>, to equalise
+<a class="reference internal" href="../iris/iris/util.html#iris.util.equalise_attributes" title="iris.util.equalise_attributes"><code class="xref py py-func docutils literal notranslate"><span class="pre">equalise_attributes()</span></code></a>, to equalise
 attributes differences in the input cubes.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -417,12 +417,12 @@ attributes differences in the input cubes.</p>
 <a class="reference internal" href="../iris/iris/cube.html#iris.cube.Cube.is_compatible" title="iris.cube.Cube.is_compatible"><code class="xref py py-meth docutils literal notranslate"><span class="pre">iris.cube.Cube.is_compatible()</span></code></a> are <strong>not</strong> designed to give user
 indication of whether two cubes can be merged.</p>
 </div>
-<p>To demonstrate using <a class="reference internal" href="../iris/iris/experimental/equalise_cubes.html#iris.experimental.equalise_cubes.equalise_attributes" title="iris.experimental.equalise_cubes.equalise_attributes"><code class="xref py py-func docutils literal notranslate"><span class="pre">equalise_attributes()</span></code></a>,
+<p>To demonstrate using <a class="reference internal" href="../iris/iris/util.html#iris.util.equalise_attributes" title="iris.util.equalise_attributes"><code class="xref py py-func docutils literal notranslate"><span class="pre">equalise_attributes()</span></code></a>,
 let’s return to our non-merging list of input cubes from the merge_cube example
 from earlier.
-We’ll call <a class="reference internal" href="../iris/iris/experimental/equalise_cubes.html#iris.experimental.equalise_cubes.equalise_attributes" title="iris.experimental.equalise_cubes.equalise_attributes"><code class="xref py py-func docutils literal notranslate"><span class="pre">equalise_attributes()</span></code></a> on the
+We’ll call <a class="reference internal" href="../iris/iris/util.html#iris.util.equalise_attributes" title="iris.util.equalise_attributes"><code class="xref py py-func docutils literal notranslate"><span class="pre">equalise_attributes()</span></code></a> on the
 input cubes before merging the input cubes using <a class="reference internal" href="../iris/iris/cube.html#iris.cube.CubeList.merge_cube" title="iris.cube.CubeList.merge_cube"><code class="xref py py-meth docutils literal notranslate"><span class="pre">merge_cube()</span></code></a>:</p>
-<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">iris.experimental.equalise_cubes</span> <span class="k">import</span> <span class="n">equalise_attributes</span>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">iris.util</span> <span class="kn">import</span> <span class="n">equalise_attributes</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">cubes</span><span class="p">)</span>
 <span class="go">0: air_temperature / (kelvin)          (y: 4; x: 5)</span>
 <span class="go">1: air_temperature / (kelvin)          (y: 4; x: 5)</span>
@@ -566,7 +566,7 @@ let’s adapt our list of input cubes from the <code class="docutils literal not
 We’ll give the input cubes unequal time coordinate units and call
 <a class="reference internal" href="../iris/iris/util.html#iris.util.unify_time_units" title="iris.util.unify_time_units"><code class="xref py py-func docutils literal notranslate"><span class="pre">unify_time_units()</span></code></a> on the input cubes before concatenating
 the input cubes using <a class="reference internal" href="../iris/iris/cube.html#iris.cube.CubeList.concatenate_cube" title="iris.cube.CubeList.concatenate_cube"><code class="xref py py-meth docutils literal notranslate"><span class="pre">concatenate_cube()</span></code></a>:</p>
-<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">iris.util</span> <span class="k">import</span> <span class="n">unify_time_units</span>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">iris.util</span> <span class="kn">import</span> <span class="n">unify_time_units</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">cubes</span><span class="p">)</span>
 <span class="go">0: air_temperature / (kelvin)          (t: 31; y: 3; x: 4)</span>
 <span class="go">1: air_temperature / (kelvin)          (t: 28; y: 3; x: 4)</span>
