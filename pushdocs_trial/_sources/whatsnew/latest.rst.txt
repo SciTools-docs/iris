@@ -1,0 +1,88 @@
+What's New in Iris <interim>
+****************************
+
+:Release: <interim>
+:Date: <unreleased>
+
+This document explains the new/changed features of Iris in version <interim>
+(:doc:`View all changes <index>`.)
+
+Iris <interim> Features
+=======================
+* Statistical operations :meth:`iris.cube.Cube.collapsed`,
+  :meth:`iris.cube.Cube.aggregated_by` and :meth:`iris.cube.Cube.rolling_window`
+  previously removed every :class:`iris.coord.CellMeasure` attached to the cube.
+  Now, a :class:`iris.coord.CellMeasure` will only be removed if it is associated
+  with an axis over which the statistic is being run.
+
+----
+
+* Supporting Iris for both Python2 and Python3 resulted in pinning our dependency on matplotlib at v2.x. 
+  Now that Python2 support has been dropped, Iris is free to use the latest version of matplotlib.
+
+----
+
+* Name constraint matching against cubes during loading or extracting has been relaxed from strictly matching against the :meth:`~iris.cube.Cube.name`, to matching against either the ``standard_name``, ``long_name``, NetCDF ``var_name``, or ``STASH`` attributes metadata of a cube.
+
+----
+
+* The :class:`~iris.NameConstraint` provides richer name constraint matching when loading or extracting against cubes, by supporting a constraint against any combination of ``standard_name``, ``long_name``, NetCDF ``var_name`` and ``STASH`` from the attributes dictionary of a :class:`~iris.cube.Cube`.
+
+----
+
+* Cubes and coordinates now have a new ``names`` property that contains a tuple of the ``standard_name``, ``long_name``, NetCDF ``var_name``, and ``STASH`` attributes metadata.
+
+----
+
+* CF Ancillary Variables are now supported in cubes.
+
+----
+
+
+Bugs Fixed
+==========
+* Copying a cube would previously ignore any attached class:`iris.coords.CellMeasure`.
+  These are now copied over.
+
+----
+
+* A :class:`iris.coords.CellMeasure` requires a string ``measure`` attribute to be defined, which can only have a value
+  of ``area`` or ``volume``. Previously, the ``measure`` was provided as a keyword argument to
+  :class:`~iris.coords.CellMeasure` with an default value of ``None``, which caused a ``TypeError`` when no
+  ``measure`` was provided. The default value of ``area`` is now used.
+
+----
+
+
+Incompatible Changes
+====================
+* The former function "iris.analysis.coord_comparison" has been removed.
+
+----
+
+* The :func:`iris.experimental.equalise_cubes.equalise_attributes` function has been moved from the
+  :mod:`iris.experimental` module into the :mod:`iris.util` module. Please use the :func:`iris.util.equalise_attributes`
+  function instead.
+
+----
+
+* The :mod:`iris.experimental.concatenate` module has now been removed. In ``v1.6.0`` the experimental `concatenate`
+  functionality was moved to the :meth:`iris.cube.CubeList.concatenate` method. Since then, calling the
+  :func:`iris.experimental.concatenate.concatenate` function raised an exception.
+
+----
+
+
+Deprecations
+============
+* The deprecated :class:`iris.Future` flags `cell_date_time_objects`,
+  `netcdf_promote`, `netcdf_no_unlimited` and `clip_latitudes` have
+  been removed.
+
+----
+
+* :attr:`iris.fileformats.pp.PPField.lbproc` is now an `int`. The
+  deprecated attributes `flag1`, `flag2` etc. have been removed from it.
+
+----
+
