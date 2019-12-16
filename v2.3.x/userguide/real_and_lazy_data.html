@@ -97,10 +97,10 @@
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="subsetting_a_cube.html"
-                        title="previous chapter">5. Subsetting a Cube</a></p>
+                        title="previous chapter"><span class="section-number">5. </span>Subsetting a Cube</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="plotting_a_cube.html"
-                        title="next chapter">7. Plotting a cube</a></p>
+                        title="next chapter"><span class="section-number">7. </span>Plotting a cube</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -127,14 +127,14 @@
           <div class="body" role="main">
             
   <span class="target" id="real-and-lazy-data"></span><div class="section" id="id1">
-<h1>6. Real and Lazy Data<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">6. </span>Real and Lazy Data<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
 <p>We have seen in the <a class="reference internal" href="iris_cubes.html"><span class="doc">Introduction</span></a> section of the user guide that
 Iris cubes contain data and metadata about a phenomenon. The data element of a cube
 is always an array, but the array may be either “real” or “lazy”.</p>
 <p>In this section of the user guide we will look specifically at the concepts of
 real and lazy data as they apply to the cube and other data structures in Iris.</p>
 <div class="section" id="what-is-real-and-lazy-data">
-<h2>6.1. What is real and lazy data?<a class="headerlink" href="#what-is-real-and-lazy-data" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.1. </span>What is real and lazy data?<a class="headerlink" href="#what-is-real-and-lazy-data" title="Permalink to this headline">¶</a></h2>
 <p>In Iris, we use the term <strong>real data</strong> to describe data arrays that are loaded
 into memory. Real data is typically provided as a
 <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html">NumPy array</a>,
@@ -177,7 +177,7 @@ for more examples of this.</p>
 </div>
 </div>
 <div class="section" id="benefits">
-<h2>6.2. Benefits<a class="headerlink" href="#benefits" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.2. </span>Benefits<a class="headerlink" href="#benefits" title="Permalink to this headline">¶</a></h2>
 <p>The primary advantage of using lazy data is that it enables
 <a class="reference external" href="https://en.wikipedia.org/wiki/Out-of-core_algorithm">out-of-core processing</a>;
 that is, the loading and manipulating of datasets without loading the full data into memory.</p>
@@ -195,7 +195,7 @@ dataset, of which only a certain portion is required at any one time
 In such cases, a required portion can be extracted and realised without calculating the entire result.</p>
 </div>
 <div class="section" id="when-does-my-data-become-real">
-<span id="when-real-data"></span><h2>6.3. When does my data become real?<a class="headerlink" href="#when-does-my-data-become-real" title="Permalink to this headline">¶</a></h2>
+<span id="when-real-data"></span><h2><span class="section-number">6.3. </span>When does my data become real?<a class="headerlink" href="#when-does-my-data-become-real" title="Permalink to this headline">¶</a></h2>
 <p>Certain operations, such as cube indexing and statistics, can be
 performed in a lazy fashion, producing a ‘lazy’ result from a lazy input, so
 that no realisation immediately occurs.
@@ -226,7 +226,7 @@ Calling such operations on lazy data will automatically realise your lazy data.<
 To ‘touch’ the data means directly accessing the data by calling <code class="docutils literal notranslate"><span class="pre">cube.data</span></code>,
 as in the previous example.</p>
 <div class="section" id="core-data">
-<h3>6.3.1. Core data<a class="headerlink" href="#core-data" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.3.1. </span>Core data<a class="headerlink" href="#core-data" title="Permalink to this headline">¶</a></h3>
 <p>Cubes have the concept of “core data”. This returns the cube’s data in its
 current state:</p>
 <blockquote>
@@ -261,7 +261,7 @@ will return the cube’s real NumPy array.</p></li>
 </div>
 </div>
 <div class="section" id="coordinates">
-<h2>6.4. Coordinates<a class="headerlink" href="#coordinates" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.4. </span>Coordinates<a class="headerlink" href="#coordinates" title="Permalink to this headline">¶</a></h2>
 <p>In the same way that Iris cubes contain a data array, Iris coordinates contain a
 points array and an optional bounds array.
 Coordinate points and bounds arrays can also be real or lazy:</p>
@@ -319,7 +319,7 @@ coordinates’ lazy points and bounds:</p>
 </div>
 </div>
 <div class="section" id="dask-processing-options">
-<h2>6.5. Dask processing options<a class="headerlink" href="#dask-processing-options" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.5. </span>Dask processing options<a class="headerlink" href="#dask-processing-options" title="Permalink to this headline">¶</a></h2>
 <p>Iris uses dask to provide lazy data arrays for both Iris cubes and coordinates,
 and for computing deferred operations on lazy arrays.</p>
 <p>Dask provides processing options to control how deferred operations on lazy arrays

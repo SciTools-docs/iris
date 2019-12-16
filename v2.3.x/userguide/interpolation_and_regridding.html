@@ -99,10 +99,10 @@
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="plotting_a_cube.html"
-                        title="previous chapter">7. Plotting a cube</a></p>
+                        title="previous chapter"><span class="section-number">7. </span>Plotting a cube</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="merge_and_concat.html"
-                        title="next chapter">9. Merge and Concatenate</a></p>
+                        title="next chapter"><span class="section-number">9. </span>Merge and Concatenate</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -129,7 +129,7 @@
           <div class="body" role="main">
             
   <span class="target" id="interpolation-and-regridding"></span><div class="section" id="cube-interpolation-and-regridding">
-<h1>8. Cube interpolation and regridding<a class="headerlink" href="#cube-interpolation-and-regridding" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">8. </span>Cube interpolation and regridding<a class="headerlink" href="#cube-interpolation-and-regridding" title="Permalink to this headline">¶</a></h1>
 <p>Iris provides powerful cube-aware interpolation and regridding functionality,
 exposed through Iris cube methods. This functionality is provided by building
 upon existing interpolation schemes implemented by SciPy.</p>
@@ -151,7 +151,7 @@ available in Iris:</p>
 </ul>
 </div></blockquote>
 <div class="section" id="interpolation">
-<span id="id1"></span><h2>8.1. Interpolation<a class="headerlink" href="#interpolation" title="Permalink to this headline">¶</a></h2>
+<span id="id1"></span><h2><span class="section-number">8.1. </span>Interpolation<a class="headerlink" href="#interpolation" title="Permalink to this headline">¶</a></h2>
 <p>Interpolating a cube is achieved with the <a class="reference internal" href="../iris/iris/cube.html#iris.cube.Cube.interpolate" title="iris.cube.Cube.interpolate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">interpolate()</span></code></a>
 method. This method expects two arguments:</p>
 <blockquote>
@@ -176,7 +176,7 @@ The specified coordinate must exist on the cube being interpolated! For example:
 datetime.datetime or cftime.datetime instances,
 e.g. <code class="docutils literal notranslate"><span class="pre">[('time',</span> <span class="pre">datetime.datetime(2009,</span> <span class="pre">11,</span> <span class="pre">19,</span> <span class="pre">10,</span> <span class="pre">30))]</span></code>).</p>
 <p>Let’s take the air temperature cube we’ve seen previously:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">air_temp</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;air_temp.pp&#39;</span><span class="p">))</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">air_temp</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;air_temp.pp&#39;</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">air_temp</span><span class="p">)</span>
 <span class="go">air_temperature / (K)               (latitude: 73; longitude: 96)</span>
 <span class="go">     Dimension coordinates:</span>
@@ -196,7 +196,7 @@ e.g. <code class="docutils literal notranslate"><span class="pre">[('time',</spa
 </pre></div>
 </div>
 <p>We can interpolate specific values from the coordinates of the cube:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sample_points</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;latitude&#39;</span><span class="p">,</span> <span class="mf">51.48</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;longitude&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)]</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sample_points</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;latitude&#39;</span><span class="p">,</span> <span class="mf">51.48</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;longitude&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">air_temp</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">sample_points</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">Linear</span><span class="p">()))</span>
 <span class="go">air_temperature / (K)               (scalar cube)</span>
 <span class="go">     Scalar coordinates:</span>
@@ -218,7 +218,7 @@ e.g. <code class="docutils literal notranslate"><span class="pre">[('time',</spa
 the values defined in our sample points.</p>
 <p>It isn’t necessary to specify sample points for every dimension, only those that you
 wish to interpolate over:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">air_temp</span><span class="o">.</span><span class="n">interpolate</span><span class="p">([(</span><span class="s1">&#39;longitude&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)],</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">Linear</span><span class="p">())</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">air_temp</span><span class="o">.</span><span class="n">interpolate</span><span class="p">([(</span><span class="s1">&#39;longitude&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)],</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">Linear</span><span class="p">())</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Original: &#39;</span> <span class="o">+</span> <span class="n">air_temp</span><span class="o">.</span><span class="n">summary</span><span class="p">(</span><span class="n">shorten</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
 <span class="go">Original: air_temperature / (K)               (latitude: 73; longitude: 96)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Interpolated: &#39;</span> <span class="o">+</span> <span class="n">result</span><span class="o">.</span><span class="n">summary</span><span class="p">(</span><span class="n">shorten</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
@@ -228,7 +228,7 @@ wish to interpolate over:</p>
 <p>The sample points for a coordinate can be an array of values. When multiple coordinates are
 provided with arrays instead of scalar sample points, the coordinates on the resulting cube
 will be orthogonal:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sample_points</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;longitude&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">11</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">14</span><span class="p">)),</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sample_points</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;longitude&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">11</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">14</span><span class="p">)),</span>
 <span class="gp">... </span>                 <span class="p">(</span><span class="s1">&#39;latitude&#39;</span><span class="p">,</span>  <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">48</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">13</span><span class="p">))]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">air_temp</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">sample_points</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">Linear</span><span class="p">())</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">summary</span><span class="p">(</span><span class="n">shorten</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
@@ -236,14 +236,14 @@ will be orthogonal:</p>
 </pre></div>
 </div>
 <div class="section" id="interpolating-non-horizontal-coordinates">
-<h3>8.1.1. Interpolating non-horizontal coordinates<a class="headerlink" href="#interpolating-non-horizontal-coordinates" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">8.1.1. </span>Interpolating non-horizontal coordinates<a class="headerlink" href="#interpolating-non-horizontal-coordinates" title="Permalink to this headline">¶</a></h3>
 <p>Interpolation in Iris is not limited to horizontal-spatial coordinates - any
 coordinate satisfying the prerequisites of the chosen scheme may be interpolated
 over.</p>
 <p>For instance, the <a class="reference internal" href="../iris/iris/analysis.html#iris.analysis.Linear" title="iris.analysis.Linear"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.analysis.Linear</span></code></a> scheme requires 1D numeric,
 monotonic, coordinates. Supposing we have a single column cube such as
 the one defined below:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cube</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;hybrid_height.nc&#39;</span><span class="p">),</span> <span class="s1">&#39;air_potential_temperature&#39;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cube</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;hybrid_height.nc&#39;</span><span class="p">),</span> <span class="s1">&#39;air_potential_temperature&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">column</span> <span class="o">=</span> <span class="n">cube</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">column</span><span class="o">.</span><span class="n">summary</span><span class="p">(</span><span class="n">shorten</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
 <span class="go">air_potential_temperature / (K)     (model_level_number: 15)</span>
@@ -251,7 +251,7 @@ the one defined below:</p>
 </div>
 <p>This cube has a “hybrid-height” vertical coordinate system, meaning that the vertical
 coordinate is unevenly spaced in altitude:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">column</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="s1">&#39;altitude&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">points</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">column</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="s1">&#39;altitude&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">points</span><span class="p">)</span>
 <span class="go">[ 418.69836  434.5705   456.7928   485.3665   520.2933   561.5752</span>
 <span class="go">  609.2145   663.2141   723.57697  790.30664  863.4072   942.8823</span>
 <span class="go"> 1028.737   1120.9764  1219.6051 ]</span>
@@ -260,7 +260,7 @@ coordinate is unevenly spaced in altitude:</p>
 <p>We could regularise the vertical coordinate by defining 10 equally spaced altitude
 sample points between 400 and 1250 and interpolating our vertical coordinate onto
 these sample points:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sample_points</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;altitude&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">1250</span><span class="p">,</span> <span class="mi">10</span><span class="p">))]</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sample_points</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;altitude&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">1250</span><span class="p">,</span> <span class="mi">10</span><span class="p">))]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">new_column</span> <span class="o">=</span> <span class="n">column</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">sample_points</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">Linear</span><span class="p">())</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">new_column</span><span class="o">.</span><span class="n">summary</span><span class="p">(</span><span class="n">shorten</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
 <span class="go">air_potential_temperature / (K)     (model_level_number: 10)</span>
@@ -296,7 +296,7 @@ keyword must be one of:</p>
 with the extrapolation mode keyword set as required. The constructed scheme
 is then passed to the <a class="reference internal" href="../iris/iris/cube.html#iris.cube.Cube.interpolate" title="iris.cube.Cube.interpolate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">interpolate()</span></code></a> method.
 For example, to mask values that lie beyond the range of the original data:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">scheme</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">extrapolation_mode</span><span class="o">=</span><span class="s1">&#39;mask&#39;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">scheme</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">extrapolation_mode</span><span class="o">=</span><span class="s1">&#39;mask&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">new_column</span> <span class="o">=</span> <span class="n">column</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">sample_points</span><span class="p">,</span> <span class="n">scheme</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">new_column</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="s1">&#39;altitude&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">points</span><span class="p">)</span>
 <span class="go">[-- 494.44451904296875 588.888916015625 683.333251953125 777.77783203125</span>
@@ -305,7 +305,7 @@ For example, to mask values that lie beyond the range of the original data:</p>
 </div>
 </div>
 <div class="section" id="caching-an-interpolator">
-<span id="id2"></span><h3>8.1.2. Caching an interpolator<a class="headerlink" href="#caching-an-interpolator" title="Permalink to this headline">¶</a></h3>
+<span id="id2"></span><h3><span class="section-number">8.1.2. </span>Caching an interpolator<a class="headerlink" href="#caching-an-interpolator" title="Permalink to this headline">¶</a></h3>
 <p>If you need to interpolate a cube on multiple sets of sample points you can
 ‘cache’ an interpolator to be used for each of these interpolations. This can
 shorten the execution time of your code as the most computationally
@@ -319,14 +319,14 @@ scheme’s interpolator method. The interpolator method takes as arguments:</p>
 </ol>
 </div></blockquote>
 <p>For example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">air_temp</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;air_temp.pp&#39;</span><span class="p">))</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">air_temp</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;air_temp.pp&#39;</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">interpolator</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">Nearest</span><span class="p">()</span><span class="o">.</span><span class="n">interpolator</span><span class="p">(</span><span class="n">air_temp</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;latitude&#39;</span><span class="p">,</span> <span class="s1">&#39;longitude&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 <p>When this cached interpolator is called you must pass it an iterable of sample points
 that have the same form as the iterable of coordinates passed to the constructor.
 So, to use the cached interpolator defined above:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">latitudes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">48</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">13</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">latitudes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">48</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">13</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">longitudes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">11</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">14</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">lat</span><span class="p">,</span> <span class="n">lon</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">latitudes</span><span class="p">,</span> <span class="n">longitudes</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="n">result</span> <span class="o">=</span> <span class="n">interpolator</span><span class="p">([</span><span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">])</span>
@@ -342,7 +342,7 @@ For example:</p>
 </div>
 </div>
 <div class="section" id="regridding">
-<span id="id3"></span><h2>8.2. Regridding<a class="headerlink" href="#regridding" title="Permalink to this headline">¶</a></h2>
+<span id="id3"></span><h2><span class="section-number">8.2. </span>Regridding<a class="headerlink" href="#regridding" title="Permalink to this headline">¶</a></h2>
 <p>Regridding is conceptually a very similar process to interpolation in Iris.
 The primary difference is that interpolation is based on sample points, while
 regridding is based on the <strong>horizontal</strong> grid of <em>another cube</em>.</p>
@@ -361,7 +361,7 @@ The powerful mapping functionality provided by cartopy, however, means that regr
 is often not necessary if performed just for visualisation purposes.</p>
 </div>
 <p>Let’s load two cubes that have different grids and coordinate systems:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">global_air_temp</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;air_temp.pp&#39;</span><span class="p">))</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">global_air_temp</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;air_temp.pp&#39;</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">rotated_psl</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;rotated_pole.nc&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -374,7 +374,7 @@ is often not necessary if performed just for visualisation purposes.</p>
 using a linear regridding scheme. To achieve this we pass the <code class="docutils literal notranslate"><span class="pre">rotated_psl</span></code>
 cube to the regridder to supply the target grid to regrid the <code class="docutils literal notranslate"><span class="pre">global_air_temp</span></code>
 cube onto:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">rotated_air_temp</span> <span class="o">=</span> <span class="n">global_air_temp</span><span class="o">.</span><span class="n">regrid</span><span class="p">(</span><span class="n">rotated_psl</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">Linear</span><span class="p">())</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">rotated_air_temp</span> <span class="o">=</span> <span class="n">global_air_temp</span><span class="o">.</span><span class="n">regrid</span><span class="p">(</span><span class="n">rotated_psl</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">Linear</span><span class="p">())</span>
 </pre></div>
 </div>
 <p>(<a class="reference external" href="../userguide/regridding_plots/regridded_to_rotated.py">Source code</a>, <a class="reference external" href="../userguide/regridding_plots/regridded_to_rotated.png">png</a>)</p>
@@ -408,7 +408,7 @@ any linearly extrapolated values would quickly become dominant and highly inaccu
 We can control this behaviour by defining the <code class="docutils literal notranslate"><span class="pre">extrapolation_mode</span></code> in the constructor
 of the regridding scheme to mask values that lie outside of the domain of the rotated
 pole grid:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">scheme</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">extrapolation_mode</span><span class="o">=</span><span class="s1">&#39;mask&#39;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">scheme</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">extrapolation_mode</span><span class="o">=</span><span class="s1">&#39;mask&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">global_psl</span> <span class="o">=</span> <span class="n">rotated_psl</span><span class="o">.</span><span class="n">regrid</span><span class="p">(</span><span class="n">global_air_temp</span><span class="p">,</span> <span class="n">scheme</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -421,7 +421,7 @@ cells have now become rectangular in a plate carrée (equirectangular) projectio
 The spatial grid of the resulting cube is really global, with a large proportion of the
 data being masked.</p>
 <div class="section" id="area-weighted-regridding">
-<h3>8.2.1. Area-weighted regridding<a class="headerlink" href="#area-weighted-regridding" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">8.2.1. </span>Area-weighted regridding<a class="headerlink" href="#area-weighted-regridding" title="Permalink to this headline">¶</a></h3>
 <p>It is often the case that a point-based regridding scheme (such as
 <a class="reference internal" href="../iris/iris/analysis.html#iris.analysis.Linear" title="iris.analysis.Linear"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.analysis.Linear</span></code></a> or <a class="reference internal" href="../iris/iris/analysis.html#iris.analysis.Nearest" title="iris.analysis.Nearest"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.analysis.Nearest</span></code></a>) is not
 appropriate when you need to conserve quantities when regridding. The
@@ -437,7 +437,7 @@ resolution source grid to a lower resolution target grid, since all source data
 points will be accounted for in the target grid.</p>
 <p>Let’s demonstrate this with the global air temperature cube we saw previously,
 along with a limited area cube containing total concentration of volcanic ash:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">global_air_temp</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;air_temp.pp&#39;</span><span class="p">))</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">global_air_temp</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;air_temp.pp&#39;</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">global_air_temp</span><span class="o">.</span><span class="n">summary</span><span class="p">(</span><span class="n">shorten</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
 <span class="go">air_temperature / (K)               (latitude: 73; longitude: 96)</span>
 <span class="go">&gt;&gt;&gt;</span>
@@ -457,19 +457,19 @@ bounded, 1D spatial coordinates.</p>
 areas, therefore the longitude and latitude coordinates must be bounded.
 If the longitude and latitude bounds are not defined in the cube we can
 guess the bounds based on the coordinates’ point values:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">global_air_temp</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="s1">&#39;longitude&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">guess_bounds</span><span class="p">()</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">global_air_temp</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="s1">&#39;longitude&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">guess_bounds</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">global_air_temp</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="s1">&#39;latitude&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">guess_bounds</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <p>Using NumPy’s masked array module we can mask any data that falls below a meaningful
 concentration:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">regional_ash</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_less</span><span class="p">(</span><span class="n">regional_ash</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="mf">5e-6</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">regional_ash</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_less</span><span class="p">(</span><span class="n">regional_ash</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="mf">5e-6</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Finally, we can regrid the data using the <a class="reference internal" href="../iris/iris/analysis.html#iris.analysis.AreaWeighted" title="iris.analysis.AreaWeighted"><code class="xref py py-class docutils literal notranslate"><span class="pre">AreaWeighted</span></code></a>
 regridding scheme:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">scheme</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">AreaWeighted</span><span class="p">(</span><span class="n">mdtol</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">scheme</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">AreaWeighted</span><span class="p">(</span><span class="n">mdtol</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">global_ash</span> <span class="o">=</span> <span class="n">regional_ash</span><span class="o">.</span><span class="n">regrid</span><span class="p">(</span><span class="n">global_air_temp</span><span class="p">,</span> <span class="n">scheme</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">global_ash</span><span class="o">.</span><span class="n">summary</span><span class="p">(</span><span class="n">shorten</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
 <span class="go">VOLCANIC_ASH_AIR_CONCENTRATION / (g/m3) (latitude: 73; longitude: 96)</span>
@@ -494,7 +494,7 @@ some data will be disregarded if it lies close to masked data.</p>
 </div>
 </div>
 <div class="section" id="caching-a-regridder">
-<span id="id4"></span><h3>8.2.2. Caching a regridder<a class="headerlink" href="#caching-a-regridder" title="Permalink to this headline">¶</a></h3>
+<span id="id4"></span><h3><span class="section-number">8.2.2. </span>Caching a regridder<a class="headerlink" href="#caching-a-regridder" title="Permalink to this headline">¶</a></h3>
 <p>If you need to regrid multiple cubes with a common source grid onto a common
 target grid you can ‘cache’ a regridder to be used for each of these regrids.
 This can shorten the execution time of your code as the most computationally
@@ -508,7 +508,7 @@ scheme’s regridder method. The regridder method takes as arguments:</p>
 </ol>
 </div></blockquote>
 <p>For example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">global_air_temp</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;air_temp.pp&#39;</span><span class="p">))</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">global_air_temp</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;air_temp.pp&#39;</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">rotated_psl</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;rotated_pole.nc&#39;</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">regridder</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">Nearest</span><span class="p">()</span><span class="o">.</span><span class="n">regridder</span><span class="p">(</span><span class="n">global_air_temp</span><span class="p">,</span> <span class="n">rotated_psl</span><span class="p">)</span>
 </pre></div>
