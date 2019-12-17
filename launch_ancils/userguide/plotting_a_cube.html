@@ -114,10 +114,10 @@
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="real_and_lazy_data.html"
-                        title="previous chapter">6. Real and Lazy Data</a></p>
+                        title="previous chapter"><span class="section-number">6. </span>Real and Lazy Data</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="interpolation_and_regridding.html"
-                        title="next chapter">8. Cube interpolation and regridding</a></p>
+                        title="next chapter"><span class="section-number">8. </span>Cube interpolation and regridding</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -144,7 +144,7 @@
           <div class="body" role="main">
             
   <div class="section" id="plotting-a-cube">
-<span id="id1"></span><h1>7. Plotting a cube<a class="headerlink" href="#plotting-a-cube" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h1><span class="section-number">7. </span>Plotting a cube<a class="headerlink" href="#plotting-a-cube" title="Permalink to this headline">¶</a></h1>
 <p>Iris utilises the power of Python’s
 <a class="reference external" href="http://matplotlib.sourceforge.net/">Matplotlib</a> package in order to generate
 high quality, production ready 1D and 2D plots.
@@ -152,7 +152,7 @@ The functionality of the Matplotlib
 <a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html">pyplot</a> module has
 been extended within Iris to facilitate easy visualisation of a cube’s data.</p>
 <div class="section" id="matplotlib-s-pyplot-basics">
-<h2>7.1. Matplotlib’s pyplot basics<a class="headerlink" href="#matplotlib-s-pyplot-basics" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">7.1. </span>Matplotlib’s pyplot basics<a class="headerlink" href="#matplotlib-s-pyplot-basics" title="Permalink to this headline">¶</a></h2>
 <p>A simple line plot can be created using the
 <a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.plot.html#matplotlib.pyplot.plot" title="(in Matplotlib v3.1.1)"><code class="xref py py-func docutils literal notranslate"><span class="pre">matplotlib.pyplot.plot()</span></code></a> function:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -170,7 +170,7 @@ This is an example of using matplotlib in <em>non-interactive</em> mode.</p>
 <p>There are two modes of rendering within Matplotlib; <strong>interactive</strong> and
 <strong>non-interactive</strong>.</p>
 <div class="section" id="interactive-plot-rendering">
-<h3>7.1.1. Interactive plot rendering<a class="headerlink" href="#interactive-plot-rendering" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">7.1.1. </span>Interactive plot rendering<a class="headerlink" href="#interactive-plot-rendering" title="Permalink to this headline">¶</a></h3>
 <p>The previous example was <em>non-interactive</em> as the figure is only rendered
 <em>after</em> the call to <a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="(in Matplotlib v3.1.1)"><code class="xref py py-func docutils literal notranslate"><span class="pre">plt.show()</span></code></a>.
 Rendering plots <em>interactively</em> can be achieved by changing the interactive
@@ -218,7 +218,7 @@ so ensure that interactive mode is turned off with:</p>
 </div>
 </div>
 <div class="section" id="saving-a-plot">
-<h3>7.1.2. Saving a plot<a class="headerlink" href="#saving-a-plot" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">7.1.2. </span>Saving a plot<a class="headerlink" href="#saving-a-plot" title="Permalink to this headline">¶</a></h3>
 <p>The <a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.savefig.html#matplotlib.pyplot.savefig" title="(in Matplotlib v3.1.1)"><code class="xref py py-func docutils literal notranslate"><span class="pre">matplotlib.pyplot.savefig()</span></code></a> function is similar to <strong>plt.show()</strong>
 in that they are both <em>non-interactive</em> visualisation modes.
 As you might expect, <strong>plt.savefig</strong> saves your figure as an image:</p>
@@ -272,7 +272,7 @@ see <a class="reference external" href="https://matplotlib.org/api/_as_gen/matpl
 </div>
 </div>
 <div class="section" id="iris-cube-plotting">
-<h2>7.2. Iris cube plotting<a class="headerlink" href="#iris-cube-plotting" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">7.2. </span>Iris cube plotting<a class="headerlink" href="#iris-cube-plotting" title="Permalink to this headline">¶</a></h2>
 <p>The Iris modules <a class="reference internal" href="../iris/iris/quickplot.html#module-iris.quickplot" title="iris.quickplot"><code class="xref py py-mod docutils literal notranslate"><span class="pre">iris.quickplot</span></code></a> and <a class="reference internal" href="../iris/iris/plot.html#module-iris.plot" title="iris.plot"><code class="xref py py-mod docutils literal notranslate"><span class="pre">iris.plot</span></code></a> extend the
 Matplotlib pyplot interface by implementing thin <em>wrapper</em> functions.
 These wrapper functions simply bridge the gap between an Iris cube and
@@ -307,7 +307,7 @@ This is equivalent to:</p>
 </div>
 </div>
 <div class="section" id="plotting-1-dimensional-cubes">
-<h3>7.2.1. Plotting 1-dimensional cubes<a class="headerlink" href="#plotting-1-dimensional-cubes" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">7.2.1. </span>Plotting 1-dimensional cubes<a class="headerlink" href="#plotting-1-dimensional-cubes" title="Permalink to this headline">¶</a></h3>
 <p>The simplest 1D plot is achieved with the <a class="reference internal" href="../iris/iris/plot.html#iris.plot.plot" title="iris.plot.plot"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.plot.plot()</span></code></a> function.
 The syntax is very similar to that which you would provide to Matplotlib’s
 equivalent <a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.plot.html#matplotlib.pyplot.plot" title="(in Matplotlib v3.1.1)"><code class="xref py py-func docutils literal notranslate"><span class="pre">matplotlib.pyplot.plot()</span></code></a> and indeed all of the
@@ -367,7 +367,7 @@ For example, the previous plot can be improved quickly by replacing
 <img alt="../_images/1d_quickplot_simple.png" src="../_images/1d_quickplot_simple.png" />
 </div>
 <div class="section" id="multi-line-plot">
-<h4>7.2.1.1. Multi-line plot<a class="headerlink" href="#multi-line-plot" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">7.2.1.1. </span>Multi-line plot<a class="headerlink" href="#multi-line-plot" title="Permalink to this headline">¶</a></h4>
 <p>A multi-lined (or over-plotted) plot, with a legend, can be achieved easily by
 calling <a class="reference internal" href="../iris/iris/plot.html#iris.plot.plot" title="iris.plot.plot"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.plot.plot()</span></code></a> or <a class="reference internal" href="../iris/iris/quickplot.html#iris.quickplot.plot" title="iris.quickplot.plot"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.quickplot.plot()</span></code></a> consecutively
 and providing the label keyword to identify it.
@@ -445,9 +445,9 @@ and run it using <code class="docutils literal notranslate"><span class="pre">py
 </div>
 </div>
 <div class="section" id="plotting-2-dimensional-cubes">
-<h3>7.2.2. Plotting 2-dimensional cubes<a class="headerlink" href="#plotting-2-dimensional-cubes" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">7.2.2. </span>Plotting 2-dimensional cubes<a class="headerlink" href="#plotting-2-dimensional-cubes" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="creating-maps">
-<h4>7.2.2.1. Creating maps<a class="headerlink" href="#creating-maps" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">7.2.2.1. </span>Creating maps<a class="headerlink" href="#creating-maps" title="Permalink to this headline">¶</a></h4>
 <p>Whenever a 2D plot is created using an <a class="reference internal" href="../iris/iris/coord_systems.html#iris.coord_systems.CoordSystem" title="iris.coord_systems.CoordSystem"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.coord_systems.CoordSystem</span></code></a>,
 a cartopy <code class="xref py py-class docutils literal notranslate"><span class="pre">GeoAxes</span></code> instance is created, which can be
 accessed with the <a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.gca.html#matplotlib.pyplot.gca" title="(in Matplotlib v3.1.1)"><code class="xref py py-func docutils literal notranslate"><span class="pre">matplotlib.pyplot.gca()</span></code></a> function.</p>
@@ -460,7 +460,7 @@ things.</p>
 </div>
 </div>
 <div class="section" id="cube-contour">
-<h4>7.2.2.2. Cube contour<a class="headerlink" href="#cube-contour" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">7.2.2.2. </span>Cube contour<a class="headerlink" href="#cube-contour" title="Permalink to this headline">¶</a></h4>
 <p>A simple contour plot of a cube can be created with either the
 <a class="reference internal" href="../iris/iris/plot.html#iris.plot.contour" title="iris.plot.contour"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.plot.contour()</span></code></a> or <a class="reference internal" href="../iris/iris/quickplot.html#iris.quickplot.contour" title="iris.quickplot.contour"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.quickplot.contour()</span></code></a> functions:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -490,7 +490,7 @@ things.</p>
 </div>
 </div>
 <div class="section" id="cube-filled-contour">
-<h4>7.2.2.3. Cube filled contour<a class="headerlink" href="#cube-filled-contour" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">7.2.2.3. </span>Cube filled contour<a class="headerlink" href="#cube-filled-contour" title="Permalink to this headline">¶</a></h4>
 <p>Similarly a filled contour plot of a cube can be created with the
 <a class="reference internal" href="../iris/iris/plot.html#iris.plot.contourf" title="iris.plot.contourf"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.plot.contourf()</span></code></a> or <a class="reference internal" href="../iris/iris/quickplot.html#iris.quickplot.contourf" title="iris.quickplot.contourf"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.quickplot.contourf()</span></code></a> functions:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -517,7 +517,7 @@ things.</p>
 </div>
 </div>
 <div class="section" id="cube-block-plot">
-<h4>7.2.2.4. Cube block plot<a class="headerlink" href="#cube-block-plot" title="Permalink to this headline">¶</a></h4>
+<h4><span class="section-number">7.2.2.4. </span>Cube block plot<a class="headerlink" href="#cube-block-plot" title="Permalink to this headline">¶</a></h4>
 <p>In some situations the underlying coordinates are better represented with a
 continuous bounded coordinate, in which case a “block” plot may be more
 appropriate.
@@ -553,7 +553,7 @@ based on their points (see also <a class="reference internal" href="../iris/iris
 </div>
 </div>
 <div class="section" id="brewer-colour-palettes">
-<span id="brewer-info"></span><h2>7.3. Brewer colour palettes<a class="headerlink" href="#brewer-colour-palettes" title="Permalink to this headline">¶</a></h2>
+<span id="brewer-info"></span><h2><span class="section-number">7.3. </span>Brewer colour palettes<a class="headerlink" href="#brewer-colour-palettes" title="Permalink to this headline">¶</a></h2>
 <p>Iris includes colour specifications and designs developed by
 <a class="reference external" href="http://colorbrewer.org/">Cynthia Brewer</a>.
 These colour schemes are freely available under the following licence:</p>
@@ -577,7 +577,7 @@ These colour schemes are freely available under the following licence:</p>
 in the citation guidance provided by Cynthia Brewer.</p>
 <p>For adding citations to Iris plots, see <a class="reference internal" href="#brewer-cite"><span class="std std-ref">Adding a citation</span></a> (below).</p>
 <div class="section" id="available-brewer-schemes">
-<h3>7.3.1. Available Brewer Schemes<a class="headerlink" href="#available-brewer-schemes" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">7.3.1. </span>Available Brewer Schemes<a class="headerlink" href="#available-brewer-schemes" title="Permalink to this headline">¶</a></h3>
 <p>The following subset of Brewer palettes found at
 <a class="reference external" href="http://colorbrewer.org/">colorbrewer.org</a> are available within Iris.</p>
 <p>(<a class="reference external" href="../userguide/plotting_examples/brewer.py">Source code</a>, <a class="reference external" href="../userguide/plotting_examples/brewer.png">png</a>)</p>
@@ -586,7 +586,7 @@ in the citation guidance provided by Cynthia Brewer.</p>
 </div>
 </div>
 <div class="section" id="plotting-with-brewer">
-<h3>7.3.2. Plotting with Brewer<a class="headerlink" href="#plotting-with-brewer" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">7.3.2. </span>Plotting with Brewer<a class="headerlink" href="#plotting-with-brewer" title="Permalink to this headline">¶</a></h3>
 <p>To plot a cube using a Brewer colour palette, simply select one of the Iris
 registered Brewer colour palettes and plot the cube as normal. The Brewer palettes
 become available once <a class="reference internal" href="../iris/iris/plot.html#module-iris.plot" title="iris.plot"><code class="xref py py-mod docutils literal notranslate"><span class="pre">iris.plot</span></code></a> or <a class="reference internal" href="../iris/iris/quickplot.html#module-iris.quickplot" title="iris.quickplot"><code class="xref py py-mod docutils literal notranslate"><span class="pre">iris.quickplot</span></code></a> are imported.</p>
@@ -619,7 +619,7 @@ become available once <a class="reference internal" href="../iris/iris/plot.html
 </div>
 </div>
 <div class="section" id="adding-a-citation">
-<span id="brewer-cite"></span><h3>7.3.3. Adding a citation<a class="headerlink" href="#adding-a-citation" title="Permalink to this headline">¶</a></h3>
+<span id="brewer-cite"></span><h3><span class="section-number">7.3.3. </span>Adding a citation<a class="headerlink" href="#adding-a-citation" title="Permalink to this headline">¶</a></h3>
 <p>Citations can be easily added to a plot using the
 <a class="reference internal" href="../iris/iris/plot.html#iris.plot.citation" title="iris.plot.citation"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.plot.citation()</span></code></a> function.
 The recommended text for the Cynthia Brewer citation is provided by

@@ -146,6 +146,10 @@ with an axis over which the statistic is being run.</p></li>
 </ul>
 <hr class="docutils" />
 <ul class="simple">
+<li><p>CF Ancillary Variables are now loaded from and saved to netcdf-CF files.</p></li>
+</ul>
+<hr class="docutils" />
+<ul class="simple">
 <li><p>Supporting Iris for both Python2 and Python3 resulted in pinning our dependency on matplotlib at v2.x.
 Now that Python2 support has been dropped, Iris is free to use the latest version of matplotlib.</p></li>
 </ul>
@@ -169,6 +173,11 @@ Now that Python2 support has been dropped, Iris is free to use the latest versio
 <hr class="docutils" />
 <div class="section" id="bugs-fixed">
 <h2>Bugs Fixed<a class="headerlink" href="#bugs-fixed" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Fixed a bug where the attributes of cell measures in netcdf-CF files were discarded on
+loading.  They now appear on the CellMeasure in the loaded cube.</p></li>
+</ul>
+<hr class="docutils" />
 <ul class="simple">
 <li><p>Copying a cube would previously ignore any attached class:<cite>iris.coords.CellMeasure</cite>.
 These are now copied over.</p></li>

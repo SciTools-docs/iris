@@ -17,6 +17,11 @@ Iris <interim> Features
 
 ----
 
+* CF Ancillary Variables are now loaded from and saved to netcdf-CF files.
+
+
+----
+
 * Supporting Iris for both Python2 and Python3 resulted in pinning our dependency on matplotlib at v2.x. 
   Now that Python2 support has been dropped, Iris is free to use the latest version of matplotlib.
 
@@ -41,6 +46,11 @@ Iris <interim> Features
 
 Bugs Fixed
 ==========
+* Fixed a bug where the attributes of cell measures in netcdf-CF files were discarded on
+  loading.  They now appear on the CellMeasure in the loaded cube.
+
+----
+
 * Copying a cube would previously ignore any attached class:`iris.coords.CellMeasure`.
   These are now copied over.
 
