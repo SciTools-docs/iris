@@ -121,6 +121,7 @@
 <li><p><a class="reference internal" href="#iris.coords.AuxCoord" title="iris.coords.AuxCoord"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AuxCoord</span></code></a></p></li>
 <li><p><a class="reference internal" href="#iris.coords.Cell" title="iris.coords.Cell"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Cell</span></code></a></p></li>
 <li><p><a class="reference internal" href="#iris.coords.CellMeasure" title="iris.coords.CellMeasure"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CellMeasure</span></code></a></p></li>
+<li><p><a class="reference internal" href="#iris.coords.CellMeasureDefn" title="iris.coords.CellMeasureDefn"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CellMeasureDefn</span></code></a></p></li>
 <li><p><a class="reference internal" href="#iris.coords.CellMethod" title="iris.coords.CellMethod"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CellMethod</span></code></a></p></li>
 <li><p><a class="reference internal" href="#iris.coords.Coord" title="iris.coords.Coord"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Coord</span></code></a></p></li>
 <li><p><a class="reference internal" href="#iris.coords.CoordDefn" title="iris.coords.CoordDefn"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CoordDefn</span></code></a></p></li>
@@ -765,7 +766,7 @@ raised.</p>
 <dd><p>Returns the index of the cell nearest to the given point.</p>
 <p>Only works for one-dimensional coordinates.</p>
 <p>For example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cube</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;ostia_monthly.nc&#39;</span><span class="p">))</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cube</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;ostia_monthly.nc&#39;</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cube</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="s1">&#39;latitude&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">nearest_neighbour_index</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="go">9</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cube</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="s1">&#39;longitude&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">nearest_neighbour_index</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
@@ -1242,6 +1243,77 @@ object.</p>
 </div></blockquote>
 <p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
 <!--<hr class="docutils" />
+--><p>Criterion for identifying a specific type of <a class="reference internal" href="#iris.coords.CellMeasure" title="iris.coords.CellMeasure"><code class="xref py py-class docutils literal notranslate"><span class="pre">CellMeasure</span></code></a>
+based on its metadata.</p>
+<blockquote>
+<div><dl class="class">
+<dt id="iris.coords.CellMeasureDefn">
+<em class="property">class </em><code class="sig-prename descclassname">iris.coords.</code><code class="sig-name descname">CellMeasureDefn</code><span class="sig-paren">(</span><em class="sig-param">_cls</em>, <em class="sig-param">standard_name</em>, <em class="sig-param">long_name</em>, <em class="sig-param">var_name</em>, <em class="sig-param">units</em>, <em class="sig-param">attributes</em>, <em class="sig-param">measure</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.CellMeasureDefn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#iris.coords.CellMeasureDefn" title="iris.coords.CellMeasureDefn"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.coords.CellMeasureDefn</span></code></a></p>
+<p>Create new instance of CellMeasureDefn(standard_name, long_name, var_name, units, attributes, measure)</p>
+<dl class="method">
+<dt id="iris.coords.CellMeasureDefn.count">
+<code class="sig-name descname">count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.CellMeasureDefn.count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return number of occurrences of value.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="iris.coords.CellMeasureDefn.index">
+<code class="sig-name descname">index</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.CellMeasureDefn.index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return first index of value.</p>
+<p>Raises ValueError if the value is not present.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="iris.coords.CellMeasureDefn.name">
+<code class="sig-name descname">name</code><span class="sig-paren">(</span><em class="sig-param">default='unknown'</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.CellMeasureDefn.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a human-readable name.</p>
+<p>First it tries self.standard_name, then it tries the ‘long_name’
+attribute, then the ‘var_name’ attribute, before falling back to
+the value of <cite>default</cite> (which itself defaults to ‘unknown’).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="iris.coords.CellMeasureDefn.attributes">
+<em class="property">property </em><code class="sig-name descname">attributes</code><a class="headerlink" href="#iris.coords.CellMeasureDefn.attributes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 4</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="iris.coords.CellMeasureDefn.long_name">
+<em class="property">property </em><code class="sig-name descname">long_name</code><a class="headerlink" href="#iris.coords.CellMeasureDefn.long_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="iris.coords.CellMeasureDefn.measure">
+<em class="property">property </em><code class="sig-name descname">measure</code><a class="headerlink" href="#iris.coords.CellMeasureDefn.measure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 5</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="iris.coords.CellMeasureDefn.standard_name">
+<em class="property">property </em><code class="sig-name descname">standard_name</code><a class="headerlink" href="#iris.coords.CellMeasureDefn.standard_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="iris.coords.CellMeasureDefn.units">
+<em class="property">property </em><code class="sig-name descname">units</code><a class="headerlink" href="#iris.coords.CellMeasureDefn.units" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 3</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="iris.coords.CellMeasureDefn.var_name">
+<em class="property">property </em><code class="sig-name descname">var_name</code><a class="headerlink" href="#iris.coords.CellMeasureDefn.var_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 2</p>
+</dd></dl>
+
+</dd></dl>
+
+</div></blockquote>
+<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
+<!--<hr class="docutils" />
 --><p>Represents a sub-cell pre-processing operation.</p>
 <blockquote>
 <div><dl class="class">
@@ -1705,7 +1777,7 @@ raised.</p>
 <dd><p>Returns the index of the cell nearest to the given point.</p>
 <p>Only works for one-dimensional coordinates.</p>
 <p>For example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cube</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;ostia_monthly.nc&#39;</span><span class="p">))</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cube</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;ostia_monthly.nc&#39;</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cube</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="s1">&#39;latitude&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">nearest_neighbour_index</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="go">9</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cube</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="s1">&#39;longitude&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">nearest_neighbour_index</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
@@ -2391,7 +2463,7 @@ raised.</p>
 <dd><p>Returns the index of the cell nearest to the given point.</p>
 <p>Only works for one-dimensional coordinates.</p>
 <p>For example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cube</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;ostia_monthly.nc&#39;</span><span class="p">))</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cube</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;ostia_monthly.nc&#39;</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cube</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="s1">&#39;latitude&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">nearest_neighbour_index</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="go">9</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cube</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="s1">&#39;longitude&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">nearest_neighbour_index</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>

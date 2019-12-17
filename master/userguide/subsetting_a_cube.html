@@ -92,10 +92,10 @@
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="navigating_a_cube.html"
-                        title="previous chapter">4. Navigating a cube</a></p>
+                        title="previous chapter"><span class="section-number">4. </span>Navigating a cube</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="real_and_lazy_data.html"
-                        title="next chapter">6. Real and Lazy Data</a></p>
+                        title="next chapter"><span class="section-number">6. </span>Real and Lazy Data</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -122,15 +122,15 @@
           <div class="body" role="main">
             
   <div class="section" id="subsetting-a-cube">
-<span id="id1"></span><h1>5. Subsetting a Cube<a class="headerlink" href="#subsetting-a-cube" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h1><span class="section-number">5. </span>Subsetting a Cube<a class="headerlink" href="#subsetting-a-cube" title="Permalink to this headline">¶</a></h1>
 <p>The <a class="reference internal" href="loading_iris_cubes.html"><span class="doc">Loading Iris cubes</span></a> section of the user guide showed how to load data into multidimensional Iris cubes.
 However it is often necessary to reduce the dimensionality of a cube down to something more appropriate and/or manageable.</p>
 <p>Iris provides several ways of reducing both the amount of data and/or the number of dimensions in your cube depending on the circumstance.
 In all cases <strong>the subset of a valid cube is itself a valid cube</strong>.</p>
 <div class="section" id="cube-extraction">
-<h2>5.1. Cube extraction<a class="headerlink" href="#cube-extraction" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.1. </span>Cube extraction<a class="headerlink" href="#cube-extraction" title="Permalink to this headline">¶</a></h2>
 <p>A subset of a cube can be “extracted” from a multi-dimensional cube in order to reduce its dimensionality:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">iris</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">iris</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">filename</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;space_weather.nc&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cube</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;electron density&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">equator_slice</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">Constraint</span><span class="p">(</span><span class="n">grid_latitude</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
@@ -182,7 +182,7 @@ This can be avoided by using a function as the argument to the constraint:</p>
 <p>As we saw in <a class="reference internal" href="loading_iris_cubes.html"><span class="doc">Loading Iris cubes</span></a> the result of <a class="reference internal" href="../iris/iris.html#iris.load" title="iris.load"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.load()</span></code></a> is a <a class="reference internal" href="../iris/iris/cube.html#iris.cube.CubeList" title="iris.cube.CubeList"><code class="xref py py-class docutils literal notranslate"><span class="pre">CubeList</span></code></a>.
 The <code class="docutils literal notranslate"><span class="pre">extract</span></code> method also exists on a <a class="reference internal" href="../iris/iris/cube.html#iris.cube.CubeList" title="iris.cube.CubeList"><code class="xref py py-class docutils literal notranslate"><span class="pre">CubeList</span></code></a> and behaves in exactly the
 same way as loading with constraints:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">iris</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">iris</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">air_temp_and_fp_6</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">Constraint</span><span class="p">(</span><span class="s1">&#39;air_potential_temperature&#39;</span><span class="p">,</span> <span class="n">forecast_period</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">level_10</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">Constraint</span><span class="p">(</span><span class="n">model_level_number</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">filename</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;uk_hires.pp&#39;</span><span class="p">)</span>
@@ -213,7 +213,7 @@ same way as loading with constraints:</p>
 </div>
 </div>
 <div class="section" id="cube-iteration">
-<h2>5.2. Cube iteration<a class="headerlink" href="#cube-iteration" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.2. </span>Cube iteration<a class="headerlink" href="#cube-iteration" title="Permalink to this headline">¶</a></h2>
 <p>A useful way of dealing with a Cube in its <strong>entirety</strong> is by iterating over its layers or slices.
 For example, to deal with a 3 dimensional cube (z,y,x) you could iterate over all 2 dimensional slices in y and x
 which make up the full 3d cube.:</p>
@@ -258,7 +258,7 @@ cube using the slices method.</p>
 </div>
 </div>
 <div class="section" id="cube-indexing">
-<h2>5.3. Cube indexing<a class="headerlink" href="#cube-indexing" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.3. </span>Cube indexing<a class="headerlink" href="#cube-indexing" title="Permalink to this headline">¶</a></h2>
 <p>In the same way that you would expect a numeric multidimensional array to be <strong>indexed</strong> to take a subset of your
 original array, you can <strong>index</strong> a Cube for the same purpose.</p>
 <p>Here are some examples of array indexing in <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.17)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code></a>:</p>
