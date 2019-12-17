@@ -97,10 +97,10 @@
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="merge_and_concat.html"
-                        title="previous chapter">9. Merge and Concatenate</a></p>
+                        title="previous chapter"><span class="section-number">9. </span>Merge and Concatenate</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="cube_maths.html"
-                        title="next chapter">11. Basic cube mathematics</a></p>
+                        title="next chapter"><span class="section-number">11. </span>Basic cube mathematics</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -127,9 +127,9 @@
           <div class="body" role="main">
             
   <div class="section" id="cube-statistics">
-<span id="id1"></span><h1>10. Cube statistics<a class="headerlink" href="#cube-statistics" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h1><span class="section-number">10. </span>Cube statistics<a class="headerlink" href="#cube-statistics" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="collapsing-entire-data-dimensions">
-<span id="cube-statistics-collapsing"></span><h2>10.1. Collapsing entire data dimensions<a class="headerlink" href="#collapsing-entire-data-dimensions" title="Permalink to this headline">¶</a></h2>
+<span id="cube-statistics-collapsing"></span><h2><span class="section-number">10.1. </span>Collapsing entire data dimensions<a class="headerlink" href="#collapsing-entire-data-dimensions" title="Permalink to this headline">¶</a></h2>
 <p>In the <a class="reference internal" href="subsetting_a_cube.html"><span class="doc">Subsetting a Cube</span></a> section we saw how to extract a subset of a
 cube in order to reduce either its dimensionality or its resolution.
 Instead of simply extracting a sub-region of the data,
@@ -137,7 +137,7 @@ we can produce statistical functions of the data values
 across a particular dimension,
 such as a ‘mean over time’ or ‘minimum over latitude’.</p>
 <p id="cube-statistics-forecast-printout">For instance, suppose we have a cube:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">iris</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">iris</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">filename</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;uk_hires.pp&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cube</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;air_potential_temperature&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">cube</span><span class="p">)</span>
@@ -166,7 +166,7 @@ such as a ‘mean over time’ or ‘minimum over latitude’.</p>
 to mean the vertical (z) dimension down to a single valued extent
 we can pass the coordinate name and the aggregation definition to the
 <a class="reference internal" href="../iris/iris/cube.html#iris.cube.Cube.collapsed" title="iris.cube.Cube.collapsed"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Cube.collapsed()</span></code></a> method:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">iris.analysis</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">iris.analysis</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">vertical_mean</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">collapsed</span><span class="p">(</span><span class="s1">&#39;model_level_number&#39;</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">MEAN</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">vertical_mean</span><span class="p">)</span>
 <span class="go">air_potential_temperature / (K)     (time: 3; grid_latitude: 204; grid_longitude: 187)</span>
@@ -200,7 +200,7 @@ of currently supported operators.</p>
 in the gallery takes a zonal mean of an <code class="docutils literal notranslate"><span class="pre">XYT</span></code> cube by using the
 <code class="docutils literal notranslate"><span class="pre">collapsed</span></code> method with <code class="docutils literal notranslate"><span class="pre">latitude</span></code> and <code class="docutils literal notranslate"><span class="pre">iris.analysis.MEAN</span></code> as arguments.</p>
 <div class="section" id="area-averaging">
-<span id="cube-statistics-collapsing-average"></span><h3>10.1.1. Area averaging<a class="headerlink" href="#area-averaging" title="Permalink to this headline">¶</a></h3>
+<span id="cube-statistics-collapsing-average"></span><h3><span class="section-number">10.1.1. </span>Area averaging<a class="headerlink" href="#area-averaging" title="Permalink to this headline">¶</a></h3>
 <p>Some operators support additional keywords to the <code class="docutils literal notranslate"><span class="pre">cube.collapsed</span></code> method.
 For example, <a class="reference internal" href="../iris/iris/analysis.html#iris.analysis.MEAN" title="iris.analysis.MEAN"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.analysis.MEAN</span></code></a> supports
 a weights keyword which can be combined with
@@ -246,11 +246,11 @@ including an example on taking a <a class="reference internal" href="../examples
 </div>
 </div>
 <div class="section" id="partially-reducing-data-dimensions">
-<span id="cube-statistics-aggregated-by"></span><h2>10.2. Partially reducing data dimensions<a class="headerlink" href="#partially-reducing-data-dimensions" title="Permalink to this headline">¶</a></h2>
+<span id="cube-statistics-aggregated-by"></span><h2><span class="section-number">10.2. </span>Partially reducing data dimensions<a class="headerlink" href="#partially-reducing-data-dimensions" title="Permalink to this headline">¶</a></h2>
 <p>Instead of completely collapsing a dimension, other methods can be applied
 to reduce or filter the number of data points of a particular dimension.</p>
 <div class="section" id="aggregation-of-grouped-data">
-<h3>10.2.1. Aggregation of grouped data<a class="headerlink" href="#aggregation-of-grouped-data" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">10.2.1. </span>Aggregation of grouped data<a class="headerlink" href="#aggregation-of-grouped-data" title="Permalink to this headline">¶</a></h3>
 <p>The <a class="reference internal" href="../iris/iris/cube.html#iris.cube.Cube.aggregated_by" title="iris.cube.Cube.aggregated_by"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Cube.aggregated_by</span></code></a> operation
 combines data for all points with the same value of a given coordinate.
 To do this, you need a coordinate whose points take on only a limited set

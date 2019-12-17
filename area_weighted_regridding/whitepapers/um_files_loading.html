@@ -255,7 +255,7 @@ with a pole defined by BPLAT, BPLON.</p></li>
 </ul>
 </div></blockquote>
 <dl>
-<dt>For example:</dt><dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Load a PP field.</span>
+<dt>For example:</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Load a PP field.</span>
 <span class="gp">... </span><span class="n">fname</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;air_temp.pp&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">fields_iter</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">fileformats</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">field</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">fields_iter</span><span class="p">)</span>
@@ -309,7 +309,7 @@ always one-to-one), and can be used when no standard_name translation is
 identified (for example, to load only certain stashcodes with a constraint
 – see example at <a class="reference internal" href="../iris/iris.html#constraint-egs"><span class="std std-ref">Load constraint examples</span></a>).</p>
 <dl>
-<dt>For example:</dt><dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Show PPfield phenomenon details.</span>
+<dt>For example:</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Show PPfield phenomenon details.</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">field</span><span class="o">.</span><span class="n">lbuser</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
 <span class="go">16203</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">field</span><span class="o">.</span><span class="n">lbuser</span><span class="p">[</span><span class="mi">6</span><span class="p">])</span>
@@ -530,7 +530,7 @@ case this indicates the aggregation time-interval.  In that case, the
 cell-method <a class="reference internal" href="../iris/iris/coords.html#iris.coords.CellMethod.intervals" title="iris.coords.CellMethod.intervals"><code class="xref py py-attr docutils literal notranslate"><span class="pre">intervals</span></code></a> attribute is also set to
 this many hours.</p>
 <dl>
-<dt>For example:</dt><dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Show stats metadata in a test PP field.</span>
+<dt>For example:</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Show stats metadata in a test PP field.</span>
 <span class="gp">... </span><span class="n">fname</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;pre-industrial.pp&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">eg_field</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">fileformats</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">fname</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">eg_field</span><span class="o">.</span><span class="n">lbtim</span><span class="p">)</span>

@@ -95,10 +95,10 @@
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="loading_iris_cubes.html"
-                        title="previous chapter">2. Loading Iris cubes</a></p>
+                        title="previous chapter"><span class="section-number">2. </span>Loading Iris cubes</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="navigating_a_cube.html"
-                        title="next chapter">4. Navigating a cube</a></p>
+                        title="next chapter"><span class="section-number">4. </span>Navigating a cube</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -125,7 +125,7 @@
           <div class="body" role="main">
             
   <div class="section" id="saving-iris-cubes">
-<span id="id1"></span><h1>3. Saving Iris cubes<a class="headerlink" href="#saving-iris-cubes" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h1><span class="section-number">3. </span>Saving Iris cubes<a class="headerlink" href="#saving-iris-cubes" title="Permalink to this headline">¶</a></h1>
 <p>Iris supports the saving of cubes and cube lists to:</p>
 <ul class="simple">
 <li><p>CF netCDF (1.5)</p></li>
@@ -135,7 +135,7 @@
 <p>The <a class="reference internal" href="../iris/iris.html#iris.save" title="iris.save"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.save()</span></code></a> function saves one or more cubes to a file.</p>
 <p>If the filename includes a supported suffix then Iris will use the correct saver
 and the keyword argument <cite>saver</cite> is not required.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">iris</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">iris</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">filename</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;uk_hires.pp&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cubes</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">iris</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">cubes</span><span class="p">,</span> <span class="s1">&#39;/tmp/uk_hires.nc&#39;</span><span class="p">)</span>
@@ -157,9 +157,9 @@ data can result in corruption. Users should proceed with caution when
 attempting to overwrite an existing file.</p>
 </div>
 <div class="section" id="controlling-the-save-process">
-<h2>3.1. Controlling the save process<a class="headerlink" href="#controlling-the-save-process" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.1. </span>Controlling the save process<a class="headerlink" href="#controlling-the-save-process" title="Permalink to this headline">¶</a></h2>
 <p>The <a class="reference internal" href="../iris/iris.html#iris.save" title="iris.save"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.save()</span></code></a> function passes all other keywords through to the saver function defined, or automatically set from the file extension.  This enables saver specific functionality to be called.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Save a cube to PP</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Save a cube to PP</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">iris</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">cubes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;myfile.pp&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># Save a cube list to a PP file, appending to the contents of the file</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># if it already exists</span>
@@ -179,7 +179,7 @@ attempting to overwrite an existing file.</p>
 <p>for more details on supported arguments for the individual savers.</p>
 </div>
 <div class="section" id="customising-the-save-process">
-<h2>3.2. Customising the save process<a class="headerlink" href="#customising-the-save-process" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.2. </span>Customising the save process<a class="headerlink" href="#customising-the-save-process" title="Permalink to this headline">¶</a></h2>
 <p>When saving to GRIB or PP, the save process may be intercepted between the translation step and the file writing.  This enables customisation of the output messages, based on Cube metadata if required, over and above the translations supplied by Iris.</p>
 <p>For example, a GRIB2 message with a particular known long_name may need to be saved to a specific parameter code and type of statistical process.  This can be achieved by:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">tweaked_messages</span><span class="p">(</span><span class="n">cube</span><span class="p">):</span>
@@ -206,13 +206,13 @@ attempting to overwrite an existing file.</p>
 </pre></div>
 </div>
 <div class="section" id="netcdf">
-<h3>3.2.1. netCDF<a class="headerlink" href="#netcdf" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.2.1. </span>netCDF<a class="headerlink" href="#netcdf" title="Permalink to this headline">¶</a></h3>
 <p>NetCDF is a flexible container for metadata and cube metadata is closely related to the CF for netCDF semantics.  This means that cube metadata is well represented in netCDF files, closely resembling the in memory metadata representation.
 Thus there is no provision for similar save customisation functionality for netCDF saving, all customisations should be applied to the cube prior to saving to netCDF.</p>
 </div>
 </div>
 <div class="section" id="bespoke-saver">
-<h2>3.3. Bespoke Saver<a class="headerlink" href="#bespoke-saver" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.3. </span>Bespoke Saver<a class="headerlink" href="#bespoke-saver" title="Permalink to this headline">¶</a></h2>
 <p>A bespoke saver may be written to support an alternative file format.  This can be provided to the <a class="reference internal" href="../iris/iris.html#iris.save" title="iris.save"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.save()</span></code></a>  function, enabling Iris to write to a different file format.
 Such a custom saver will need be written to meet the needs of the file format and to handle the metadata translation from cube metadata effectively.</p>
 <p>Implementing a bespoke saver is out of scope for the user guide.</p>

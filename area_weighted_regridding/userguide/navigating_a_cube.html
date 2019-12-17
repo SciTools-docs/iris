@@ -94,10 +94,10 @@
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="saving_iris_cubes.html"
-                        title="previous chapter">3. Saving Iris cubes</a></p>
+                        title="previous chapter"><span class="section-number">3. </span>Saving Iris cubes</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="subsetting_a_cube.html"
-                        title="next chapter">5. Subsetting a Cube</a></p>
+                        title="next chapter"><span class="section-number">5. </span>Subsetting a Cube</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -124,13 +124,13 @@
           <div class="body" role="main">
             
   <div class="section" id="navigating-a-cube">
-<h1>4. Navigating a cube<a class="headerlink" href="#navigating-a-cube" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">4. </span>Navigating a cube<a class="headerlink" href="#navigating-a-cube" title="Permalink to this headline">¶</a></h1>
 <p>After loading any cube, you will want to investigate precisely what it contains. This section is all about accessing
 and manipulating the metadata contained within a cube.</p>
 <div class="section" id="cube-string-representations">
-<h2>4.1. Cube string representations<a class="headerlink" href="#cube-string-representations" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.1. </span>Cube string representations<a class="headerlink" href="#cube-string-representations" title="Permalink to this headline">¶</a></h2>
 <p>We have already seen a basic string representation of a cube when printing:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">iris</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">iris</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">filename</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;rotated_pole.nc&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cube</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">cube</span><span class="p">)</span>
@@ -164,7 +164,7 @@ variable. In most cases it is reasonable to ignore anything starting with a “<
 </div>
 </div>
 <div class="section" id="working-with-cubes">
-<h2>4.2. Working with cubes<a class="headerlink" href="#working-with-cubes" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.2. </span>Working with cubes<a class="headerlink" href="#working-with-cubes" title="Permalink to this headline">¶</a></h2>
 <p>Every cube has a standard name, long name and units which are accessed with
 <a class="reference internal" href="../iris/iris/cube.html#iris.cube.Cube.standard_name" title="iris.cube.Cube.standard_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Cube.standard_name</span></code></a>,
 <a class="reference internal" href="../iris/iris/cube.html#iris.cube.Cube.long_name" title="iris.cube.Cube.long_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Cube.long_name</span></code></a>
@@ -216,7 +216,7 @@ cube with the <a class="reference internal" href="../iris/iris/cube.html#iris.cu
 </div>
 </div>
 <div class="section" id="accessing-coordinates-on-the-cube">
-<h2>4.3. Accessing coordinates on the cube<a class="headerlink" href="#accessing-coordinates-on-the-cube" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.3. </span>Accessing coordinates on the cube<a class="headerlink" href="#accessing-coordinates-on-the-cube" title="Permalink to this headline">¶</a></h2>
 <p>A cube’s coordinates can be retrieved via <a class="reference internal" href="../iris/iris/cube.html#iris.cube.Cube.coords" title="iris.cube.Cube.coords"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Cube.coords</span></code></a>.
 A simple for loop over the coords can print a coordinate’s <a class="reference internal" href="../iris/iris/coords.html#iris.coords.Coord.name" title="iris.coords.Coord.name"><code class="xref py py-meth docutils literal notranslate"><span class="pre">name()</span></code></a>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">coord</span> <span class="ow">in</span> <span class="n">cube</span><span class="o">.</span><span class="n">coords</span><span class="p">():</span>
@@ -228,7 +228,7 @@ A simple for loop over the coords can print a coordinate’s <a class="reference
 </pre></div>
 </div>
 <p>The result is a basic Python list which could be sorted alphabetically and joined together:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">coord_names</span><span class="p">)))</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">coord_names</span><span class="p">)))</span>
 <span class="go">forecast_period, forecast_reference_time, grid_latitude, grid_longitude, time</span>
 </pre></div>
 </div>
@@ -252,10 +252,10 @@ numpy array. If the coordinate has no bounds <code class="docutils literal notra
 </div>
 </div>
 <div class="section" id="adding-metadata-to-a-cube">
-<h2>4.4. Adding metadata to a cube<a class="headerlink" href="#adding-metadata-to-a-cube" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.4. </span>Adding metadata to a cube<a class="headerlink" href="#adding-metadata-to-a-cube" title="Permalink to this headline">¶</a></h2>
 <p>We can add and remove coordinates via <a class="reference internal" href="../iris/iris/cube.html#iris.cube.Cube.add_dim_coord" title="iris.cube.Cube.add_dim_coord"><code class="xref py py-func docutils literal notranslate"><span class="pre">Cube.add_dim_coord</span></code></a>,
 <a class="reference internal" href="../iris/iris/cube.html#iris.cube.Cube.add_aux_coord" title="iris.cube.Cube.add_aux_coord"><code class="xref py py-func docutils literal notranslate"><span class="pre">Cube.add_aux_coord</span></code></a>, and <a class="reference internal" href="../iris/iris/cube.html#iris.cube.Cube.remove_coord" title="iris.cube.Cube.remove_coord"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Cube.remove_coord</span></code></a>.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">iris.coords</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">iris.coords</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">new_coord</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">coords</span><span class="o">.</span><span class="n">AuxCoord</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">long_name</span><span class="o">=</span><span class="s1">&#39;my_custom_coordinate&#39;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;no_unit&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cube</span><span class="o">.</span><span class="n">add_aux_coord</span><span class="p">(</span><span class="n">new_coord</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">cube</span><span class="p">)</span>
@@ -277,7 +277,7 @@ numpy array. If the coordinate has no bounds <code class="docutils literal notra
 <p>The coordinate <code class="docutils literal notranslate"><span class="pre">my_custom_coordinate</span></code> now exists on the cube and is listed under the non-dimensioned single valued scalar coordinates.</p>
 </div>
 <div class="section" id="adding-and-removing-metadata-to-the-cube-at-load-time">
-<h2>4.5. Adding and removing metadata to the cube at load time<a class="headerlink" href="#adding-and-removing-metadata-to-the-cube-at-load-time" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.5. </span>Adding and removing metadata to the cube at load time<a class="headerlink" href="#adding-and-removing-metadata-to-the-cube-at-load-time" title="Permalink to this headline">¶</a></h2>
 <p>Sometimes when loading a cube problems occur when the amount of metadata is more or less than expected.
 This is often caused by one of the following:</p>
 <blockquote>
@@ -295,7 +295,7 @@ which can make any modifications to the cube in-place, or alternatively return a
 The data for this example represents 13 ensemble members of 6 one month timesteps; the logistics of the
 model mean that the run is spread over several days.</p>
 <p>If we try to load the data directly for <code class="docutils literal notranslate"><span class="pre">surface_temperature</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">filename</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;GloSea4&#39;</span><span class="p">,</span> <span class="s1">&#39;*.pp&#39;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">filename</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;GloSea4&#39;</span><span class="p">,</span> <span class="s1">&#39;*.pp&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;surface_temperature&#39;</span><span class="p">))</span>
 <span class="go">0: surface_temperature / (K)           (time: 6; forecast_reference_time: 2; latitude: 145; longitude: 192)</span>
 <span class="go">1: surface_temperature / (K)           (time: 6; forecast_reference_time: 2; latitude: 145; longitude: 192)</span>
