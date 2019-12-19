@@ -123,7 +123,6 @@
 <li><p><a class="reference internal" href="#iris.coords.CellMeasure" title="iris.coords.CellMeasure"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CellMeasure</span></code></a></p></li>
 <li><p><a class="reference internal" href="#iris.coords.CellMethod" title="iris.coords.CellMethod"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CellMethod</span></code></a></p></li>
 <li><p><a class="reference internal" href="#iris.coords.Coord" title="iris.coords.Coord"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Coord</span></code></a></p></li>
-<li><p><a class="reference internal" href="#iris.coords.CoordDefn" title="iris.coords.CoordDefn"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CoordDefn</span></code></a></p></li>
 <li><p><a class="reference internal" href="#iris.coords.CoordExtent" title="iris.coords.CoordExtent"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CoordExtent</span></code></a></p></li>
 <li><p><a class="reference internal" href="#iris.coords.DimCoord" title="iris.coords.DimCoord"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DimCoord</span></code></a></p></li>
 </ul>
@@ -247,22 +246,23 @@ returned Array will be a new lazy array wrapper.</p>
 <dl class="method">
 <dt id="iris.coords.AncillaryVariable.name">
 <code class="sig-name descname">name</code><span class="sig-paren">(</span><em class="sig-param">default=None</em>, <em class="sig-param">token=False</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.AncillaryVariable.name" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a human-readable name.</p>
-<p>First it tries <a class="reference internal" href="#iris.coords.AncillaryVariable.standard_name" title="iris.coords.AncillaryVariable.standard_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">standard_name</span></code></a>, then ‘long_name’, then
-‘var_name’, then the STASH attribute before falling back to
-the value of <cite>default</cite> (which itself defaults to ‘unknown’).</p>
+<dd><p>Returns a string name representing the identity of the metadata.</p>
+<p>First it tries standard name, then it tries the long name, then
+the NetCDF variable name, before falling-back to a default value,
+which itself defaults to the string ‘unknown’.</p>
 <p>Kwargs:</p>
 <ul class="simple">
 <li><dl class="simple">
-<dt>default:</dt><dd><p>The value of the default name.</p>
+<dt>default:</dt><dd><p>The fall-back string representing the default name. Defaults to
+the string ‘unknown’.</p>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>token:</dt><dd><p>If true, ensure that the name returned satisfies the criteria for
+<dt>token:</dt><dd><p>If True, ensures that the name returned satisfies the criteria for
 the characters required by a valid NetCDF name. If it is not
 possible to return a valid name, then a ValueError exception is
-raised.</p>
+raised. Defaults to False.</p>
 </dd>
 </dl>
 </li>
@@ -279,26 +279,7 @@ raised.</p>
 <dd><p>Changes the human-readable name.</p>
 <p>If ‘name’ is a valid standard name it will assign it to
 <a class="reference internal" href="#iris.coords.AncillaryVariable.standard_name" title="iris.coords.AncillaryVariable.standard_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">standard_name</span></code></a>, otherwise it will assign it to
-<code class="xref py py-attr docutils literal notranslate"><span class="pre">long_name</span></code>.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="iris.coords.AncillaryVariable.token">
-<em class="property">static </em><code class="sig-name descname">token</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.AncillaryVariable.token" title="Permalink to this definition">¶</a></dt>
-<dd><p>Determine whether the provided name is a valid NetCDF name and thus
-safe to represent a single parsable token.</p>
-<p>Args:</p>
-<ul class="simple">
-<li><dl class="simple">
-<dt>name:</dt><dd><p>The string name to verify</p>
-</dd>
-</dl>
-</li>
-</ul>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>The provided name if valid, otherwise None.</p>
-</dd>
-</dl>
+<a class="reference internal" href="#iris.coords.AncillaryVariable.long_name" title="iris.coords.AncillaryVariable.long_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">long_name</span></code></a>.</p>
 </dd></dl>
 
 <dl class="method">
@@ -325,12 +306,15 @@ specified by its values.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="iris.coords.AncillaryVariable.names">
-<em class="property">property </em><code class="sig-name descname">names</code><a class="headerlink" href="#iris.coords.AncillaryVariable.names" title="Permalink to this definition">¶</a></dt>
-<dd><p>A tuple containing all of the metadata names. This includes the
-standard name, long name, NetCDF variable name, and attributes
-STASH name.</p>
+<dt id="iris.coords.AncillaryVariable.long_name">
+<em class="property">property </em><code class="sig-name descname">long_name</code><a class="headerlink" href="#iris.coords.AncillaryVariable.long_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The CF Metadata long name for the object.</p>
 </dd></dl>
+
+<dl class="method">
+<dt id="iris.coords.AncillaryVariable.metadata">
+<em class="property">property </em><code class="sig-name descname">metadata</code><a class="headerlink" href="#iris.coords.AncillaryVariable.metadata" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="iris.coords.AncillaryVariable.ndim">
@@ -348,19 +332,19 @@ object.</p>
 <dl class="method">
 <dt id="iris.coords.AncillaryVariable.standard_name">
 <em class="property">property </em><code class="sig-name descname">standard_name</code><a class="headerlink" href="#iris.coords.AncillaryVariable.standard_name" title="Permalink to this definition">¶</a></dt>
-<dd><p>The standard name for the Cube’s data.</p>
+<dd><p>The CF Metadata standard name for the object.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.coords.AncillaryVariable.units">
 <em class="property">property </em><code class="sig-name descname">units</code><a class="headerlink" href="#iris.coords.AncillaryVariable.units" title="Permalink to this definition">¶</a></dt>
-<dd><p>The <code class="xref py py-mod docutils literal notranslate"><span class="pre">Unit</span></code> instance of the object.</p>
+<dd><p>The S.I. unit of the object.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.coords.AncillaryVariable.var_name">
 <em class="property">property </em><code class="sig-name descname">var_name</code><a class="headerlink" href="#iris.coords.AncillaryVariable.var_name" title="Permalink to this definition">¶</a></dt>
-<dd><p>The netCDF variable name for the object.</p>
+<dd><p>The NetCDF variable name for the object.</p>
 </dd></dl>
 
 </dd></dl>
@@ -645,7 +629,7 @@ indices for the “self” coordinate.</p>
 <ul class="simple">
 <li><dl class="simple">
 <dt>other:</dt><dd><p>An instance of <a class="reference internal" href="#iris.coords.Coord" title="iris.coords.Coord"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.coords.Coord</span></code></a> or
-<a class="reference internal" href="#iris.coords.CoordDefn" title="iris.coords.CoordDefn"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.coords.CoordDefn</span></code></a>.</p>
+<code class="xref py py-class docutils literal notranslate"><span class="pre">iris.common.CoordMetadata</span></code>.</p>
 </dd>
 </dl>
 </li>
@@ -733,22 +717,23 @@ Array will be a new lazy array wrapper.</p>
 <dl class="method">
 <dt id="iris.coords.AuxCoord.name">
 <code class="sig-name descname">name</code><span class="sig-paren">(</span><em class="sig-param">default=None</em>, <em class="sig-param">token=False</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.AuxCoord.name" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a human-readable name.</p>
-<p>First it tries <a class="reference internal" href="#iris.coords.AuxCoord.standard_name" title="iris.coords.AuxCoord.standard_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">standard_name</span></code></a>, then ‘long_name’, then
-‘var_name’, then the STASH attribute before falling back to
-the value of <cite>default</cite> (which itself defaults to ‘unknown’).</p>
+<dd><p>Returns a string name representing the identity of the metadata.</p>
+<p>First it tries standard name, then it tries the long name, then
+the NetCDF variable name, before falling-back to a default value,
+which itself defaults to the string ‘unknown’.</p>
 <p>Kwargs:</p>
 <ul class="simple">
 <li><dl class="simple">
-<dt>default:</dt><dd><p>The value of the default name.</p>
+<dt>default:</dt><dd><p>The fall-back string representing the default name. Defaults to
+the string ‘unknown’.</p>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>token:</dt><dd><p>If true, ensure that the name returned satisfies the criteria for
+<dt>token:</dt><dd><p>If True, ensures that the name returned satisfies the criteria for
 the characters required by a valid NetCDF name. If it is not
 possible to return a valid name, then a ValueError exception is
-raised.</p>
+raised. Defaults to False.</p>
 </dd>
 </dl>
 </li>
@@ -765,7 +750,7 @@ raised.</p>
 <dd><p>Returns the index of the cell nearest to the given point.</p>
 <p>Only works for one-dimensional coordinates.</p>
 <p>For example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cube</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;ostia_monthly.nc&#39;</span><span class="p">))</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cube</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;ostia_monthly.nc&#39;</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cube</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="s1">&#39;latitude&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">nearest_neighbour_index</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="go">9</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cube</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="s1">&#39;longitude&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">nearest_neighbour_index</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
@@ -790,26 +775,7 @@ to the other end of the values.</p>
 <dd><p>Changes the human-readable name.</p>
 <p>If ‘name’ is a valid standard name it will assign it to
 <a class="reference internal" href="#iris.coords.AuxCoord.standard_name" title="iris.coords.AuxCoord.standard_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">standard_name</span></code></a>, otherwise it will assign it to
-<code class="xref py py-attr docutils literal notranslate"><span class="pre">long_name</span></code>.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="iris.coords.AuxCoord.token">
-<em class="property">static </em><code class="sig-name descname">token</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.AuxCoord.token" title="Permalink to this definition">¶</a></dt>
-<dd><p>Determine whether the provided name is a valid NetCDF name and thus
-safe to represent a single parsable token.</p>
-<p>Args:</p>
-<ul class="simple">
-<li><dl class="simple">
-<dt>name:</dt><dd><p>The string name to verify</p>
-</dd>
-</dl>
-</li>
-</ul>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>The provided name if valid, otherwise None.</p>
-</dd>
-</dl>
+<a class="reference internal" href="#iris.coords.AuxCoord.long_name" title="iris.coords.AuxCoord.long_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">long_name</span></code></a>.</p>
 </dd></dl>
 
 <dl class="method">
@@ -854,6 +820,12 @@ if units are not time units or if there are no bounds.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="iris.coords.AuxCoord.coord_system">
+<em class="property">property </em><code class="sig-name descname">coord_system</code><a class="headerlink" href="#iris.coords.AuxCoord.coord_system" title="Permalink to this definition">¶</a></dt>
+<dd><p>The coordinate-system of the coordinate.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="iris.coords.AuxCoord.dtype">
 <em class="property">property </em><code class="sig-name descname">dtype</code><a class="headerlink" href="#iris.coords.AuxCoord.dtype" title="Permalink to this definition">¶</a></dt>
 <dd><p>The NumPy dtype of the current dimensional metadata object, as
@@ -861,12 +833,15 @@ specified by its values.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="iris.coords.AuxCoord.names">
-<em class="property">property </em><code class="sig-name descname">names</code><a class="headerlink" href="#iris.coords.AuxCoord.names" title="Permalink to this definition">¶</a></dt>
-<dd><p>A tuple containing all of the metadata names. This includes the
-standard name, long name, NetCDF variable name, and attributes
-STASH name.</p>
+<dt id="iris.coords.AuxCoord.long_name">
+<em class="property">property </em><code class="sig-name descname">long_name</code><a class="headerlink" href="#iris.coords.AuxCoord.long_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The CF Metadata long name for the object.</p>
 </dd></dl>
+
+<dl class="method">
+<dt id="iris.coords.AuxCoord.metadata">
+<em class="property">property </em><code class="sig-name descname">metadata</code><a class="headerlink" href="#iris.coords.AuxCoord.metadata" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="iris.coords.AuxCoord.nbounds">
@@ -896,19 +871,19 @@ object.</p>
 <dl class="method">
 <dt id="iris.coords.AuxCoord.standard_name">
 <em class="property">property </em><code class="sig-name descname">standard_name</code><a class="headerlink" href="#iris.coords.AuxCoord.standard_name" title="Permalink to this definition">¶</a></dt>
-<dd><p>The standard name for the Cube’s data.</p>
+<dd><p>The CF Metadata standard name for the object.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.coords.AuxCoord.units">
 <em class="property">property </em><code class="sig-name descname">units</code><a class="headerlink" href="#iris.coords.AuxCoord.units" title="Permalink to this definition">¶</a></dt>
-<dd><p>The <code class="xref py py-mod docutils literal notranslate"><span class="pre">Unit</span></code> instance of the object.</p>
+<dd><p>The S.I. unit of the object.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.coords.AuxCoord.var_name">
 <em class="property">property </em><code class="sig-name descname">var_name</code><a class="headerlink" href="#iris.coords.AuxCoord.var_name" title="Permalink to this definition">¶</a></dt>
-<dd><p>The netCDF variable name for the object.</p>
+<dd><p>The NetCDF variable name for the object.</p>
 </dd></dl>
 
 </dd></dl>
@@ -1115,22 +1090,23 @@ returned Array will be a new lazy array wrapper.</p>
 <dl class="method">
 <dt id="iris.coords.CellMeasure.name">
 <code class="sig-name descname">name</code><span class="sig-paren">(</span><em class="sig-param">default=None</em>, <em class="sig-param">token=False</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.CellMeasure.name" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a human-readable name.</p>
-<p>First it tries <a class="reference internal" href="#iris.coords.CellMeasure.standard_name" title="iris.coords.CellMeasure.standard_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">standard_name</span></code></a>, then ‘long_name’, then
-‘var_name’, then the STASH attribute before falling back to
-the value of <cite>default</cite> (which itself defaults to ‘unknown’).</p>
+<dd><p>Returns a string name representing the identity of the metadata.</p>
+<p>First it tries standard name, then it tries the long name, then
+the NetCDF variable name, before falling-back to a default value,
+which itself defaults to the string ‘unknown’.</p>
 <p>Kwargs:</p>
 <ul class="simple">
 <li><dl class="simple">
-<dt>default:</dt><dd><p>The value of the default name.</p>
+<dt>default:</dt><dd><p>The fall-back string representing the default name. Defaults to
+the string ‘unknown’.</p>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>token:</dt><dd><p>If true, ensure that the name returned satisfies the criteria for
+<dt>token:</dt><dd><p>If True, ensures that the name returned satisfies the criteria for
 the characters required by a valid NetCDF name. If it is not
 possible to return a valid name, then a ValueError exception is
-raised.</p>
+raised. Defaults to False.</p>
 </dd>
 </dl>
 </li>
@@ -1147,26 +1123,7 @@ raised.</p>
 <dd><p>Changes the human-readable name.</p>
 <p>If ‘name’ is a valid standard name it will assign it to
 <a class="reference internal" href="#iris.coords.CellMeasure.standard_name" title="iris.coords.CellMeasure.standard_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">standard_name</span></code></a>, otherwise it will assign it to
-<code class="xref py py-attr docutils literal notranslate"><span class="pre">long_name</span></code>.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="iris.coords.CellMeasure.token">
-<em class="property">static </em><code class="sig-name descname">token</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.CellMeasure.token" title="Permalink to this definition">¶</a></dt>
-<dd><p>Determine whether the provided name is a valid NetCDF name and thus
-safe to represent a single parsable token.</p>
-<p>Args:</p>
-<ul class="simple">
-<li><dl class="simple">
-<dt>name:</dt><dd><p>The string name to verify</p>
-</dd>
-</dl>
-</li>
-</ul>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>The provided name if valid, otherwise None.</p>
-</dd>
-</dl>
+<a class="reference internal" href="#iris.coords.CellMeasure.long_name" title="iris.coords.CellMeasure.long_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">long_name</span></code></a>.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1193,18 +1150,21 @@ specified by its values.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="iris.coords.CellMeasure.long_name">
+<em class="property">property </em><code class="sig-name descname">long_name</code><a class="headerlink" href="#iris.coords.CellMeasure.long_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The CF Metadata long name for the object.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="iris.coords.CellMeasure.measure">
 <em class="property">property </em><code class="sig-name descname">measure</code><a class="headerlink" href="#iris.coords.CellMeasure.measure" title="Permalink to this definition">¶</a></dt>
 <dd><p>String naming the measure type.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="iris.coords.CellMeasure.names">
-<em class="property">property </em><code class="sig-name descname">names</code><a class="headerlink" href="#iris.coords.CellMeasure.names" title="Permalink to this definition">¶</a></dt>
-<dd><p>A tuple containing all of the metadata names. This includes the
-standard name, long name, NetCDF variable name, and attributes
-STASH name.</p>
-</dd></dl>
+<dt id="iris.coords.CellMeasure.metadata">
+<em class="property">property </em><code class="sig-name descname">metadata</code><a class="headerlink" href="#iris.coords.CellMeasure.metadata" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="iris.coords.CellMeasure.ndim">
@@ -1222,19 +1182,19 @@ object.</p>
 <dl class="method">
 <dt id="iris.coords.CellMeasure.standard_name">
 <em class="property">property </em><code class="sig-name descname">standard_name</code><a class="headerlink" href="#iris.coords.CellMeasure.standard_name" title="Permalink to this definition">¶</a></dt>
-<dd><p>The standard name for the Cube’s data.</p>
+<dd><p>The CF Metadata standard name for the object.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.coords.CellMeasure.units">
 <em class="property">property </em><code class="sig-name descname">units</code><a class="headerlink" href="#iris.coords.CellMeasure.units" title="Permalink to this definition">¶</a></dt>
-<dd><p>The <code class="xref py py-mod docutils literal notranslate"><span class="pre">Unit</span></code> instance of the object.</p>
+<dd><p>The S.I. unit of the object.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.coords.CellMeasure.var_name">
 <em class="property">property </em><code class="sig-name descname">var_name</code><a class="headerlink" href="#iris.coords.CellMeasure.var_name" title="Permalink to this definition">¶</a></dt>
-<dd><p>The netCDF variable name for the object.</p>
+<dd><p>The NetCDF variable name for the object.</p>
 </dd></dl>
 
 </dd></dl>
@@ -1585,7 +1545,7 @@ indices for the “self” coordinate.</p>
 <ul class="simple">
 <li><dl class="simple">
 <dt>other:</dt><dd><p>An instance of <a class="reference internal" href="#iris.coords.Coord" title="iris.coords.Coord"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.coords.Coord</span></code></a> or
-<a class="reference internal" href="#iris.coords.CoordDefn" title="iris.coords.CoordDefn"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.coords.CoordDefn</span></code></a>.</p>
+<code class="xref py py-class docutils literal notranslate"><span class="pre">iris.common.CoordMetadata</span></code>.</p>
 </dd>
 </dl>
 </li>
@@ -1673,22 +1633,23 @@ Array will be a new lazy array wrapper.</p>
 <dl class="method">
 <dt id="iris.coords.Coord.name">
 <code class="sig-name descname">name</code><span class="sig-paren">(</span><em class="sig-param">default=None</em>, <em class="sig-param">token=False</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.Coord.name" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a human-readable name.</p>
-<p>First it tries <a class="reference internal" href="#iris.coords.Coord.standard_name" title="iris.coords.Coord.standard_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">standard_name</span></code></a>, then ‘long_name’, then
-‘var_name’, then the STASH attribute before falling back to
-the value of <cite>default</cite> (which itself defaults to ‘unknown’).</p>
+<dd><p>Returns a string name representing the identity of the metadata.</p>
+<p>First it tries standard name, then it tries the long name, then
+the NetCDF variable name, before falling-back to a default value,
+which itself defaults to the string ‘unknown’.</p>
 <p>Kwargs:</p>
 <ul class="simple">
 <li><dl class="simple">
-<dt>default:</dt><dd><p>The value of the default name.</p>
+<dt>default:</dt><dd><p>The fall-back string representing the default name. Defaults to
+the string ‘unknown’.</p>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>token:</dt><dd><p>If true, ensure that the name returned satisfies the criteria for
+<dt>token:</dt><dd><p>If True, ensures that the name returned satisfies the criteria for
 the characters required by a valid NetCDF name. If it is not
 possible to return a valid name, then a ValueError exception is
-raised.</p>
+raised. Defaults to False.</p>
 </dd>
 </dl>
 </li>
@@ -1705,7 +1666,7 @@ raised.</p>
 <dd><p>Returns the index of the cell nearest to the given point.</p>
 <p>Only works for one-dimensional coordinates.</p>
 <p>For example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cube</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;ostia_monthly.nc&#39;</span><span class="p">))</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cube</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;ostia_monthly.nc&#39;</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cube</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="s1">&#39;latitude&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">nearest_neighbour_index</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="go">9</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cube</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="s1">&#39;longitude&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">nearest_neighbour_index</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
@@ -1730,26 +1691,7 @@ to the other end of the values.</p>
 <dd><p>Changes the human-readable name.</p>
 <p>If ‘name’ is a valid standard name it will assign it to
 <a class="reference internal" href="#iris.coords.Coord.standard_name" title="iris.coords.Coord.standard_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">standard_name</span></code></a>, otherwise it will assign it to
-<code class="xref py py-attr docutils literal notranslate"><span class="pre">long_name</span></code>.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="iris.coords.Coord.token">
-<em class="property">static </em><code class="sig-name descname">token</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.Coord.token" title="Permalink to this definition">¶</a></dt>
-<dd><p>Determine whether the provided name is a valid NetCDF name and thus
-safe to represent a single parsable token.</p>
-<p>Args:</p>
-<ul class="simple">
-<li><dl class="simple">
-<dt>name:</dt><dd><p>The string name to verify</p>
-</dd>
-</dl>
-</li>
-</ul>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>The provided name if valid, otherwise None.</p>
-</dd>
-</dl>
+<a class="reference internal" href="#iris.coords.Coord.long_name" title="iris.coords.Coord.long_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">long_name</span></code></a>.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1793,9 +1735,9 @@ On set, the input value is cast to a boolean, exceptions raised
 if units are not time units or if there are no bounds.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="iris.coords.Coord.coord_system">
-<code class="sig-name descname">coord_system</code><em class="property"> = None</em><a class="headerlink" href="#iris.coords.Coord.coord_system" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">coord_system</code><a class="headerlink" href="#iris.coords.Coord.coord_system" title="Permalink to this definition">¶</a></dt>
 <dd><p>Relevant coordinate system (if any).</p>
 </dd></dl>
 
@@ -1807,12 +1749,15 @@ specified by its values.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="iris.coords.Coord.names">
-<em class="property">property </em><code class="sig-name descname">names</code><a class="headerlink" href="#iris.coords.Coord.names" title="Permalink to this definition">¶</a></dt>
-<dd><p>A tuple containing all of the metadata names. This includes the
-standard name, long name, NetCDF variable name, and attributes
-STASH name.</p>
+<dt id="iris.coords.Coord.long_name">
+<em class="property">property </em><code class="sig-name descname">long_name</code><a class="headerlink" href="#iris.coords.Coord.long_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The CF Metadata long name for the object.</p>
 </dd></dl>
+
+<dl class="method">
+<dt id="iris.coords.Coord.metadata">
+<em class="property">property </em><code class="sig-name descname">metadata</code><a class="headerlink" href="#iris.coords.Coord.metadata" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="iris.coords.Coord.nbounds">
@@ -1842,96 +1787,19 @@ object.</p>
 <dl class="method">
 <dt id="iris.coords.Coord.standard_name">
 <em class="property">property </em><code class="sig-name descname">standard_name</code><a class="headerlink" href="#iris.coords.Coord.standard_name" title="Permalink to this definition">¶</a></dt>
-<dd><p>The standard name for the Cube’s data.</p>
+<dd><p>The CF Metadata standard name for the object.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.coords.Coord.units">
 <em class="property">property </em><code class="sig-name descname">units</code><a class="headerlink" href="#iris.coords.Coord.units" title="Permalink to this definition">¶</a></dt>
-<dd><p>The <code class="xref py py-mod docutils literal notranslate"><span class="pre">Unit</span></code> instance of the object.</p>
+<dd><p>The S.I. unit of the object.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.coords.Coord.var_name">
 <em class="property">property </em><code class="sig-name descname">var_name</code><a class="headerlink" href="#iris.coords.Coord.var_name" title="Permalink to this definition">¶</a></dt>
-<dd><p>The netCDF variable name for the object.</p>
-</dd></dl>
-
-</dd></dl>
-
-</div></blockquote>
-<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
-<!--<hr class="docutils" />
---><p>Criterion for identifying a specific type of <a class="reference internal" href="#iris.coords.DimCoord" title="iris.coords.DimCoord"><code class="xref py py-class docutils literal notranslate"><span class="pre">DimCoord</span></code></a> or
-<a class="reference internal" href="#iris.coords.AuxCoord" title="iris.coords.AuxCoord"><code class="xref py py-class docutils literal notranslate"><span class="pre">AuxCoord</span></code></a> based on its metadata.</p>
-<blockquote>
-<div><dl class="class">
-<dt id="iris.coords.CoordDefn">
-<em class="property">class </em><code class="sig-prename descclassname">iris.coords.</code><code class="sig-name descname">CoordDefn</code><span class="sig-paren">(</span><em class="sig-param">_cls</em>, <em class="sig-param">standard_name</em>, <em class="sig-param">long_name</em>, <em class="sig-param">var_name</em>, <em class="sig-param">units</em>, <em class="sig-param">attributes</em>, <em class="sig-param">coord_system</em>, <em class="sig-param">climatological</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.CoordDefn" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#iris.coords.CoordDefn" title="iris.coords.CoordDefn"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.coords.CoordDefn</span></code></a></p>
-<p>Create new instance of CoordDefn(standard_name, long_name, var_name, units, attributes, coord_system, climatological)</p>
-<dl class="method">
-<dt id="iris.coords.CoordDefn.count">
-<code class="sig-name descname">count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.CoordDefn.count" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return number of occurrences of value.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="iris.coords.CoordDefn.index">
-<code class="sig-name descname">index</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.CoordDefn.index" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return first index of value.</p>
-<p>Raises ValueError if the value is not present.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="iris.coords.CoordDefn.name">
-<code class="sig-name descname">name</code><span class="sig-paren">(</span><em class="sig-param">default='unknown'</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.CoordDefn.name" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a human-readable name.</p>
-<p>First it tries self.standard_name, then it tries the ‘long_name’
-attribute, then the ‘var_name’ attribute, before falling back to
-the value of <cite>default</cite> (which itself defaults to ‘unknown’).</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="iris.coords.CoordDefn.attributes">
-<em class="property">property </em><code class="sig-name descname">attributes</code><a class="headerlink" href="#iris.coords.CoordDefn.attributes" title="Permalink to this definition">¶</a></dt>
-<dd><p>Alias for field number 4</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="iris.coords.CoordDefn.climatological">
-<em class="property">property </em><code class="sig-name descname">climatological</code><a class="headerlink" href="#iris.coords.CoordDefn.climatological" title="Permalink to this definition">¶</a></dt>
-<dd><p>Alias for field number 6</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="iris.coords.CoordDefn.coord_system">
-<em class="property">property </em><code class="sig-name descname">coord_system</code><a class="headerlink" href="#iris.coords.CoordDefn.coord_system" title="Permalink to this definition">¶</a></dt>
-<dd><p>Alias for field number 5</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="iris.coords.CoordDefn.long_name">
-<em class="property">property </em><code class="sig-name descname">long_name</code><a class="headerlink" href="#iris.coords.CoordDefn.long_name" title="Permalink to this definition">¶</a></dt>
-<dd><p>Alias for field number 1</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="iris.coords.CoordDefn.standard_name">
-<em class="property">property </em><code class="sig-name descname">standard_name</code><a class="headerlink" href="#iris.coords.CoordDefn.standard_name" title="Permalink to this definition">¶</a></dt>
-<dd><p>Alias for field number 0</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="iris.coords.CoordDefn.units">
-<em class="property">property </em><code class="sig-name descname">units</code><a class="headerlink" href="#iris.coords.CoordDefn.units" title="Permalink to this definition">¶</a></dt>
-<dd><p>Alias for field number 3</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="iris.coords.CoordDefn.var_name">
-<em class="property">property </em><code class="sig-name descname">var_name</code><a class="headerlink" href="#iris.coords.CoordDefn.var_name" title="Permalink to this definition">¶</a></dt>
-<dd><p>Alias for field number 2</p>
+<dd><p>The NetCDF variable name for the object.</p>
 </dd></dl>
 
 </dd></dl>
@@ -2271,7 +2139,7 @@ indices for the “self” coordinate.</p>
 <ul class="simple">
 <li><dl class="simple">
 <dt>other:</dt><dd><p>An instance of <a class="reference internal" href="#iris.coords.Coord" title="iris.coords.Coord"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.coords.Coord</span></code></a> or
-<a class="reference internal" href="#iris.coords.CoordDefn" title="iris.coords.CoordDefn"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.coords.CoordDefn</span></code></a>.</p>
+<code class="xref py py-class docutils literal notranslate"><span class="pre">iris.common.CoordMetadata</span></code>.</p>
 </dd>
 </dl>
 </li>
@@ -2359,22 +2227,23 @@ Array will be a new lazy array wrapper.</p>
 <dl class="method">
 <dt id="iris.coords.DimCoord.name">
 <code class="sig-name descname">name</code><span class="sig-paren">(</span><em class="sig-param">default=None</em>, <em class="sig-param">token=False</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.DimCoord.name" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a human-readable name.</p>
-<p>First it tries <a class="reference internal" href="#iris.coords.DimCoord.standard_name" title="iris.coords.DimCoord.standard_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">standard_name</span></code></a>, then ‘long_name’, then
-‘var_name’, then the STASH attribute before falling back to
-the value of <cite>default</cite> (which itself defaults to ‘unknown’).</p>
+<dd><p>Returns a string name representing the identity of the metadata.</p>
+<p>First it tries standard name, then it tries the long name, then
+the NetCDF variable name, before falling-back to a default value,
+which itself defaults to the string ‘unknown’.</p>
 <p>Kwargs:</p>
 <ul class="simple">
 <li><dl class="simple">
-<dt>default:</dt><dd><p>The value of the default name.</p>
+<dt>default:</dt><dd><p>The fall-back string representing the default name. Defaults to
+the string ‘unknown’.</p>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>token:</dt><dd><p>If true, ensure that the name returned satisfies the criteria for
+<dt>token:</dt><dd><p>If True, ensures that the name returned satisfies the criteria for
 the characters required by a valid NetCDF name. If it is not
 possible to return a valid name, then a ValueError exception is
-raised.</p>
+raised. Defaults to False.</p>
 </dd>
 </dl>
 </li>
@@ -2391,7 +2260,7 @@ raised.</p>
 <dd><p>Returns the index of the cell nearest to the given point.</p>
 <p>Only works for one-dimensional coordinates.</p>
 <p>For example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cube</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;ostia_monthly.nc&#39;</span><span class="p">))</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cube</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;ostia_monthly.nc&#39;</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cube</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="s1">&#39;latitude&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">nearest_neighbour_index</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="go">9</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cube</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="s1">&#39;longitude&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">nearest_neighbour_index</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
@@ -2416,26 +2285,7 @@ to the other end of the values.</p>
 <dd><p>Changes the human-readable name.</p>
 <p>If ‘name’ is a valid standard name it will assign it to
 <a class="reference internal" href="#iris.coords.DimCoord.standard_name" title="iris.coords.DimCoord.standard_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">standard_name</span></code></a>, otherwise it will assign it to
-<code class="xref py py-attr docutils literal notranslate"><span class="pre">long_name</span></code>.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="iris.coords.DimCoord.token">
-<em class="property">static </em><code class="sig-name descname">token</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.DimCoord.token" title="Permalink to this definition">¶</a></dt>
-<dd><p>Determine whether the provided name is a valid NetCDF name and thus
-safe to represent a single parsable token.</p>
-<p>Args:</p>
-<ul class="simple">
-<li><dl class="simple">
-<dt>name:</dt><dd><p>The string name to verify</p>
-</dd>
-</dl>
-</li>
-</ul>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>The provided name if valid, otherwise None.</p>
-</dd>
-</dl>
+<a class="reference internal" href="#iris.coords.DimCoord.long_name" title="iris.coords.DimCoord.long_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">long_name</span></code></a>.</p>
 </dd></dl>
 
 <dl class="method">
@@ -2486,6 +2336,12 @@ if units are not time units or if there are no bounds.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="iris.coords.DimCoord.coord_system">
+<em class="property">property </em><code class="sig-name descname">coord_system</code><a class="headerlink" href="#iris.coords.DimCoord.coord_system" title="Permalink to this definition">¶</a></dt>
+<dd><p>The coordinate-system of the coordinate.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="iris.coords.DimCoord.dtype">
 <em class="property">property </em><code class="sig-name descname">dtype</code><a class="headerlink" href="#iris.coords.DimCoord.dtype" title="Permalink to this definition">¶</a></dt>
 <dd><p>The NumPy dtype of the current dimensional metadata object, as
@@ -2493,12 +2349,15 @@ specified by its values.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="iris.coords.DimCoord.names">
-<em class="property">property </em><code class="sig-name descname">names</code><a class="headerlink" href="#iris.coords.DimCoord.names" title="Permalink to this definition">¶</a></dt>
-<dd><p>A tuple containing all of the metadata names. This includes the
-standard name, long name, NetCDF variable name, and attributes
-STASH name.</p>
+<dt id="iris.coords.DimCoord.long_name">
+<em class="property">property </em><code class="sig-name descname">long_name</code><a class="headerlink" href="#iris.coords.DimCoord.long_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The CF Metadata long name for the object.</p>
 </dd></dl>
+
+<dl class="method">
+<dt id="iris.coords.DimCoord.metadata">
+<em class="property">property </em><code class="sig-name descname">metadata</code><a class="headerlink" href="#iris.coords.DimCoord.metadata" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="iris.coords.DimCoord.nbounds">
@@ -2528,19 +2387,19 @@ object.</p>
 <dl class="method">
 <dt id="iris.coords.DimCoord.standard_name">
 <em class="property">property </em><code class="sig-name descname">standard_name</code><a class="headerlink" href="#iris.coords.DimCoord.standard_name" title="Permalink to this definition">¶</a></dt>
-<dd><p>The standard name for the Cube’s data.</p>
+<dd><p>The CF Metadata standard name for the object.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.coords.DimCoord.units">
 <em class="property">property </em><code class="sig-name descname">units</code><a class="headerlink" href="#iris.coords.DimCoord.units" title="Permalink to this definition">¶</a></dt>
-<dd><p>The <code class="xref py py-mod docutils literal notranslate"><span class="pre">Unit</span></code> instance of the object.</p>
+<dd><p>The S.I. unit of the object.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="iris.coords.DimCoord.var_name">
 <em class="property">property </em><code class="sig-name descname">var_name</code><a class="headerlink" href="#iris.coords.DimCoord.var_name" title="Permalink to this definition">¶</a></dt>
-<dd><p>The netCDF variable name for the object.</p>
+<dd><p>The NetCDF variable name for the object.</p>
 </dd></dl>
 
 </dd></dl>

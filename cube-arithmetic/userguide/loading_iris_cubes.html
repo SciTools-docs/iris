@@ -97,10 +97,10 @@
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="iris_cubes.html"
-                        title="previous chapter">1. Introduction</a></p>
+                        title="previous chapter"><span class="section-number">1. </span>Introduction</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="saving_iris_cubes.html"
-                        title="next chapter">3. Saving Iris cubes</a></p>
+                        title="next chapter"><span class="section-number">3. </span>Saving Iris cubes</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -127,7 +127,7 @@
           <div class="body" role="main">
             
   <div class="section" id="loading-iris-cubes">
-<span id="id1"></span><h1>2. Loading Iris cubes<a class="headerlink" href="#loading-iris-cubes" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h1><span class="section-number">2. </span>Loading Iris cubes<a class="headerlink" href="#loading-iris-cubes" title="Permalink to this headline">¶</a></h1>
 <p>To load a single file into a <strong>list</strong> of Iris cubes
 the <a class="reference internal" href="../iris/iris.html#iris.load" title="iris.load"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.load()</span></code></a> function is used:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">iris</span>
@@ -146,7 +146,7 @@ of the given files and attempts to produce Iris Cubes from their contents.</p>
 file formats with a framework for this to be extended to custom formats.</p>
 </div>
 <p>In order to find out what has been loaded, the result can be printed:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">iris</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">iris</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">filename</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;uk_hires.pp&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cubes</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">cubes</span><span class="p">)</span>
@@ -198,7 +198,7 @@ however in practice you will want to use your own strings:</p>
 <p>To get the air potential temperature cube from the list of cubes
 returned by <a class="reference internal" href="../iris/iris.html#iris.load" title="iris.load"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.load()</span></code></a> in the previous example,
 list indexing can be used:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">iris</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">iris</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">filename</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;uk_hires.pp&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cubes</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># get the first cube (list indexing is 0 based)</span>
@@ -236,7 +236,7 @@ This was the output discussed at the end of the <a class="reference internal" hr
 appropriate column for each cube data dimension that they describe.</p>
 </div>
 <div class="section" id="loading-multiple-files">
-<h2>2.1. Loading multiple files<a class="headerlink" href="#loading-multiple-files" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.1. </span>Loading multiple files<a class="headerlink" href="#loading-multiple-files" title="Permalink to this headline">¶</a></h2>
 <p>To load more than one file into a list of cubes, a list of filenames can be
 provided to <a class="reference internal" href="../iris/iris.html#iris.load" title="iris.load"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.load()</span></code></a>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">filenames</span> <span class="o">=</span> <span class="p">[</span><span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;uk_hires.pp&#39;</span><span class="p">),</span>
@@ -259,7 +259,7 @@ order of the filenames.</p>
 </div>
 </div>
 <div class="section" id="lazy-loading">
-<h2>2.2. Lazy loading<a class="headerlink" href="#lazy-loading" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.2. </span>Lazy loading<a class="headerlink" href="#lazy-loading" title="Permalink to this headline">¶</a></h2>
 <p>In fact when Iris loads data from most file types, it normally only reads the
 essential descriptive information or metadata :  the bulk of the actual data
 content will only be loaded later, as it is needed.
@@ -267,7 +267,7 @@ This is referred to as ‘lazy’ data.  It allows loading to be much quicker, a
 <p>For more on the benefits, handling and uses of lazy data, see <a class="reference internal" href="real_and_lazy_data.html"><span class="doc">Real and Lazy Data</span></a>.</p>
 </div>
 <div class="section" id="constrained-loading">
-<span id="id2"></span><h2>2.3. Constrained loading<a class="headerlink" href="#constrained-loading" title="Permalink to this headline">¶</a></h2>
+<span id="id2"></span><h2><span class="section-number">2.3. </span>Constrained loading<a class="headerlink" href="#constrained-loading" title="Permalink to this headline">¶</a></h2>
 <p>Given a large dataset, it is possible to restrict or constrain the load
 to match specific Iris cube metadata.
 Constrained loading provides the ability to generate a cube
@@ -278,7 +278,7 @@ from a specific subset of data that is of particular interest.</p>
 </pre></div>
 </div>
 <p>Specifying a name as a constraint argument to <a class="reference internal" href="../iris/iris.html#iris.load" title="iris.load"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.load()</span></code></a> will mean
-only cubes with matching <a class="reference internal" href="../iris/iris/cube.html#iris.cube.Cube.names" title="iris.cube.Cube.names"><code class="xref py py-meth docutils literal notranslate"><span class="pre">name</span></code></a>
+only cubes with matching <code class="xref py py-meth docutils literal notranslate"><span class="pre">name</span></code>
 will be returned:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;uk_hires.pp&#39;</span><span class="p">)</span>
 <span class="n">cubes</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;surface_altitude&#39;</span><span class="p">)</span>
@@ -369,7 +369,7 @@ then specific STASH codes can be filtered:</p>
 <a class="reference internal" href="../iris/iris.html#iris.Constraint" title="iris.Constraint"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.Constraint</span></code></a> reference documentation.</p>
 </div>
 <div class="section" id="constraining-a-circular-coordinate-across-its-boundary">
-<h3>2.3.1. Constraining a circular coordinate across its boundary<a class="headerlink" href="#constraining-a-circular-coordinate-across-its-boundary" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.3.1. </span>Constraining a circular coordinate across its boundary<a class="headerlink" href="#constraining-a-circular-coordinate-across-its-boundary" title="Permalink to this headline">¶</a></h3>
 <p>Occasionally you may need to constrain your cube with a region that crosses the
 boundary of a circular coordinate (this is often the meridian or the dateline /
 antimeridian). An example use-case of this is to extract the entire Pacific Ocean
@@ -379,7 +379,7 @@ functionality provided by <a class="reference internal" href="../iris/iris/cube.
 to extract this region.</p>
 </div>
 <div class="section" id="constraining-on-time">
-<span id="using-time-constraints"></span><h3>2.3.2. Constraining on Time<a class="headerlink" href="#constraining-on-time" title="Permalink to this headline">¶</a></h3>
+<span id="using-time-constraints"></span><h3><span class="section-number">2.3.2. </span>Constraining on Time<a class="headerlink" href="#constraining-on-time" title="Permalink to this headline">¶</a></h3>
 <p>Iris follows NetCDF-CF rules in representing time coordinate values as normalised,
 purely numeric, values which are normalised by the calendar specified in the coordinate’s
 units (e.g. “days since 1970-01-01”).
@@ -389,7 +389,7 @@ provides special features to facilitate this:</p>
 <p>Firstly, when Iris evaluates Constraint expressions, it will convert time-coordinate
 values (points and bounds) from numbers into <a class="reference external" href="https://docs.python.org/2.7/library/datetime.html#datetime.datetime" title="(in Python v2.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code></a>-like objects
 for ease of calendar-based testing.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">filename</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;uk_hires.pp&#39;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">filename</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;uk_hires.pp&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cube_all</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;air_potential_temperature&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;All times :</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">cube_all</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)))</span>
 <span class="go">All times :</span>
@@ -406,7 +406,7 @@ for ease of calendar-based testing.</p>
 facilities.  An <a class="reference internal" href="../iris/iris/time.html#iris.time.PartialDateTime" title="iris.time.PartialDateTime"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.time.PartialDateTime</span></code></a> object can be compared to
 objects such as <a class="reference external" href="https://docs.python.org/2.7/library/datetime.html#datetime.datetime" title="(in Python v2.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a> instances, and this comparison will
 then test only those ‘aspects’ which the PartialDateTime instance defines:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">datetime</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">datetime</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">iris.time</span> <span class="kn">import</span> <span class="n">PartialDateTime</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2011</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">dt</span> <span class="o">&gt;</span> <span class="n">PartialDateTime</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2010</span><span class="p">,</span> <span class="n">month</span><span class="o">=</span><span class="mi">6</span><span class="p">))</span>
@@ -419,7 +419,7 @@ then test only those ‘aspects’ which the PartialDateTime instance defines:</
 <p>These two facilities can be combined to provide straightforward calendar-based
 time selections when loading or extracting data.</p>
 <p>The previous constraint example can now be written as:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">the_11th_hour</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">Constraint</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">iris</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">PartialDateTime</span><span class="p">(</span><span class="n">hour</span><span class="o">=</span><span class="mi">11</span><span class="p">))</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">the_11th_hour</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">Constraint</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">iris</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">PartialDateTime</span><span class="p">(</span><span class="n">hour</span><span class="o">=</span><span class="mi">11</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span>
 <span class="gp">... </span>    <span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;uk_hires.pp&#39;</span><span class="p">),</span>
 <span class="gp">... </span>   <span class="s1">&#39;air_potential_temperature&#39;</span> <span class="o">&amp;</span> <span class="n">the_11th_hour</span><span class="p">)</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">))</span>
@@ -483,7 +483,7 @@ and that they span multiple years.</p>
 </div>
 </div>
 <div class="section" id="strict-loading">
-<h2>2.4. Strict loading<a class="headerlink" href="#strict-loading" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.4. </span>Strict loading<a class="headerlink" href="#strict-loading" title="Permalink to this headline">¶</a></h2>
 <p>The <a class="reference internal" href="../iris/iris.html#iris.load_cube" title="iris.load_cube"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.load_cube()</span></code></a> and <a class="reference internal" href="../iris/iris.html#iris.load_cubes" title="iris.load_cubes"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.load_cubes()</span></code></a> functions are
 similar to <a class="reference internal" href="../iris/iris.html#iris.load" title="iris.load"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.load()</span></code></a> except they can only return
 <em>one cube per constraint</em>.
@@ -550,7 +550,7 @@ these two cubes into separate variables.</p>
 <p class="admonition-title">Note</p>
 <p>In Python, lists of a pre-known length and order can be exploited
 using <em>multiple assignment</em>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">number_one</span><span class="p">,</span> <span class="n">number_two</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">number_one</span><span class="p">,</span> <span class="n">number_two</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">number_one</span><span class="p">)</span>
 <span class="go">1</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">number_two</span><span class="p">)</span>
