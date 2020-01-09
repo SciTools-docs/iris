@@ -1185,7 +1185,7 @@ this function is not applicable.</p>
 <p>Args:</p>
 <ul class="simple">
 <li><dl class="simple">
-<dt>ancillary_variable (AncillaryVariable)</dt><dd><p>The AncillaryVariable to remove from the cube.</p>
+<dt>ancillary_variable (string or AncillaryVariable)</dt><dd><p>The (name of the) AncillaryVariable to remove from the cube.</p>
 </dd>
 </dl>
 </li>
@@ -1667,14 +1667,28 @@ context.</p>
 
 <dl class="method">
 <dt id="iris.cube.CubeList.concatenate">
-<code class="sig-name descname">concatenate</code><span class="sig-paren">(</span><em class="sig-param">check_aux_coords=True</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.cube.CubeList.concatenate" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">concatenate</code><span class="sig-paren">(</span><em class="sig-param">check_aux_coords=True</em>, <em class="sig-param">check_cell_measures=True</em>, <em class="sig-param">check_ancils=True</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.cube.CubeList.concatenate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Concatenate the cubes over their common dimensions.</p>
 <p>Kwargs:</p>
 <ul class="simple">
 <li><dl class="simple">
-<dt>check_aux_coords</dt><dd><p>Checks the auxilliary coordinates of the cubes match. This check
-is not applied to auxilliary coordinates that span the dimension
-the concatenation is occuring along. Defaults to True.</p>
+<dt>check_aux_coords</dt><dd><p>Checks the auxiliary coordinates of the cubes match. This check
+is not applied to auxiliary coordinates that span the dimension
+the concatenation is occurring along. Defaults to True.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>check_cell_measures</dt><dd><p>Checks the cell measures of the cubes match. This check
+is not applied to cell measures that span the dimension
+the concatenation is occurring along. Defaults to True.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>check_ancils</dt><dd><p>Checks the ancillary variables of the cubes match. This check
+is not applied to ancillary variables that span the dimension
+the concatenation is occurring along. Defaults to True.</p>
 </dd>
 </dl>
 </li>
@@ -1718,6 +1732,19 @@ that dimension.</p>
 dimension from values of an auxiliary scalar coordinate.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
+<p>Cubes may contain ‘extra’ dimensional elements such as auxiliary
+coordinates, cell measures or ancillary variables.
+For a group of similar cubes to concatenate together into one output, all
+such elements which do not map to the concatenation axis must be identical
+in every input cube : these then appear unchanged in the output.
+Similarly, those elements which <em>do</em> map to the concatenation axis must
+have matching properties, but may have different data values : these then
+appear, concatenated, in the output cube.
+If any cubes in a group have dimensional elements which do not match
+correctly, the group will not concatenate to a single output cube.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>If time coordinates in the list of cubes have differing epochs then
 the cubes will not be able to be concatenated. If this occurs, use
 <a class="reference internal" href="util.html#iris.util.unify_time_units" title="iris.util.unify_time_units"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.util.unify_time_units()</span></code></a> to normalise the epochs of the
@@ -1731,7 +1758,7 @@ time coordinates so that the cubes can be concatenated.</p>
 
 <dl class="method">
 <dt id="iris.cube.CubeList.concatenate_cube">
-<code class="sig-name descname">concatenate_cube</code><span class="sig-paren">(</span><em class="sig-param">check_aux_coords=True</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.cube.CubeList.concatenate_cube" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">concatenate_cube</code><span class="sig-paren">(</span><em class="sig-param">check_aux_coords=True</em>, <em class="sig-param">check_cell_measures=True</em>, <em class="sig-param">check_ancils=True</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.cube.CubeList.concatenate_cube" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the concatenated contents of the <a class="reference internal" href="#iris.cube.CubeList" title="iris.cube.CubeList"><code class="xref py py-class docutils literal notranslate"><span class="pre">CubeList</span></code></a> as a single
 <a class="reference internal" href="#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a>.</p>
 <p>If it is not possible to concatenate the <cite>CubeList</cite> into a single
@@ -1740,9 +1767,23 @@ describing the reason for the failure.</p>
 <p>Kwargs:</p>
 <ul class="simple">
 <li><dl class="simple">
-<dt>check_aux_coords</dt><dd><p>Checks the auxilliary coordinates of the cubes match. This check
-is not applied to auxilliary coordinates that span the dimension
-the concatenation is occuring along. Defaults to True.</p>
+<dt>check_aux_coords</dt><dd><p>Checks the auxiliary coordinates of the cubes match. This check
+is not applied to auxiliary coordinates that span the dimension
+the concatenation is occurring along. Defaults to True.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>check_cell_measures</dt><dd><p>Checks the cell measures of the cubes match. This check
+is not applied to cell measures that span the dimension
+the concatenation is occurring along. Defaults to True.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>check_ancils</dt><dd><p>Checks the ancillary variables of the cubes match. This check
+is not applied to ancillary variables that span the dimension
+the concatenation is occurring along. Defaults to True.</p>
 </dd>
 </dl>
 </li>
@@ -1870,6 +1911,14 @@ coordinate, by constructing a new dimension.</p>
 </div>
 <p>Contrast this with <a class="reference internal" href="#iris.cube.CubeList.concatenate" title="iris.cube.CubeList.concatenate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">iris.cube.CubeList.concatenate()</span></code></a>, which joins
 cubes along an existing dimension.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Cubes may contain additional dimensional elements such as auxiliary
+coordinates, cell measures or ancillary variables.
+A group of similar cubes can only merge to a single result if all such
+elements are identical in every input cube : they are then present,
+unchanged, in the merged output cube.</p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>If time coordinates in the list of cubes have differing epochs then

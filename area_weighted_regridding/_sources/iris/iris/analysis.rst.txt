@@ -52,6 +52,7 @@ In this module:
  * :py:obj:`AreaWeighted`
  * :py:obj:`Nearest`
  * :py:obj:`UnstructuredNearest`
+ * :py:obj:`PointInCell`
 
 
 
@@ -461,6 +462,42 @@ same units in the source and grid cubes.
 ..
 
     .. autoclass:: iris.analysis.UnstructuredNearest
+        :members:
+        :undoc-members:
+        :inherited-members:
+
+
+.. raw:: html
+
+    <p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
+    <!--
+
+-----------
+
+.. raw:: html
+
+    -->
+
+
+This class describes the point-in-cell regridding scheme for use
+typically with :meth:`iris.cube.Cube.regrid()`.
+
+The PointInCell regridder can regrid data from a source grid of any
+dimensionality and in any coordinate system.
+The location of each source point is specified by X and Y coordinates
+mapped over the same cube dimensions, aka "grid dimensions" : the grid may
+have any dimensionality.  The X and Y coordinates must also have the same,
+defined coord_system.
+The weights, if specified, must have the same shape as the X and Y
+coordinates.
+The output grid can be any 'normal' XY grid, specified by *separate* X
+and Y coordinates :  That is, X and Y have two different cube dimensions.
+The output X and Y coordinates must also have a common, specified
+coord_system.
+
+..
+
+    .. autoclass:: iris.analysis.PointInCell
         :members:
         :undoc-members:
         :inherited-members:
