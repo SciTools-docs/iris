@@ -138,6 +138,15 @@
 <div class="section" id="iris-interim-features">
 <h2>Iris &lt;interim&gt; Features<a class="headerlink" href="#iris-interim-features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
+<li><p><a class="reference internal" href="../iris/iris/coord_systems.html#iris.coord_systems.Geostationary" title="iris.coord_systems.Geostationary"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.coord_systems.Geostationary</span></code></a> can now accept creation arguments of
+<cite>false_easting=None</cite> or <cite>false_northing=None</cite>, equivalent to values of 0.
+Previously these kwargs could be omitted, but could not be set to <cite>None</cite>.
+This also enables loading netcdf data on a Geostationary grid, where either of these
+keys is not present as a grid-mapping variable property : Previously, loading any
+such data caused an exception.</p></li>
+</ul>
+<hr class="docutils" />
+<ul class="simple">
 <li><p>The area weights used when performing area weighted regridding are now
 cached.</p></li>
 </ul>
