@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Iris reference documentation &#8212; Iris 2.3.0 documentation</title>
+    <title>Iris reference documentation &#8212; Iris 2.4.0rc0 documentation</title>
     <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -44,7 +44,7 @@
     </a>
     <div class="strapline">
       <h1>
-          Iris <span class="version">v2.3</span>
+          Iris <span class="version">v2.4</span>
       </h1>
       <p>
          A powerful, format-agnostic, community-driven Python library for analysing and
@@ -229,6 +229,7 @@ an <a class="reference internal" href="iris/exceptions.html#iris.exceptions.Igno
 <li><p><a class="reference internal" href="#iris.save" title="iris.save"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save</span></code></a></p></li>
 <li><p><a class="reference internal" href="#iris.Constraint" title="iris.Constraint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Constraint</span></code></a></p></li>
 <li><p><a class="reference internal" href="#iris.AttributeConstraint" title="iris.AttributeConstraint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AttributeConstraint</span></code></a></p></li>
+<li><p><a class="reference internal" href="#iris.NameConstraint" title="iris.NameConstraint"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NameConstraint</span></code></a></p></li>
 <li><p><a class="reference internal" href="#iris.sample_data_path" title="iris.sample_data_path"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sample_data_path</span></code></a></p></li>
 <li><p><a class="reference internal" href="#iris.site_configuration" title="iris.site_configuration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">site_configuration</span></code></a></p></li>
 <li><p><a class="reference internal" href="#iris.Future" title="iris.Future"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Future</span></code></a></p></li>
@@ -501,7 +502,8 @@ cube loading or cube list extraction.</p>
 <p>Args:</p>
 <ul>
 <li><dl class="simple">
-<dt>name:   string or None</dt><dd><p>If a string, it is used as the name to match against Cube.name().</p>
+<dt>name:   string or None</dt><dd><p>If a string, it is used as the name to match against the
+<cite>~iris.cube.Cube.names</cite> property.</p>
 </dd>
 </dl>
 </li>
@@ -585,6 +587,73 @@ else return None.</p>
 <dl class="method">
 <dt id="iris.AttributeConstraint.extract">
 <code class="sig-name descname">extract</code><span class="sig-paren">(</span><em class="sig-param">cube</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.AttributeConstraint.extract" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the subset of the given cube which matches this constraint,
+else return None.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div></blockquote>
+<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
+<!--<hr class="docutils" />
+--><p>Provides a simple Cube name based <a class="reference internal" href="#iris.Constraint" title="iris.Constraint"><code class="xref py py-class docutils literal notranslate"><span class="pre">Constraint</span></code></a>.</p>
+<blockquote>
+<div><dl class="class">
+<dt id="iris.NameConstraint">
+<em class="property">class </em><code class="sig-prename descclassname">iris.</code><code class="sig-name descname">NameConstraint</code><span class="sig-paren">(</span><em class="sig-param">standard_name='none'</em>, <em class="sig-param">long_name='none'</em>, <em class="sig-param">var_name='none'</em>, <em class="sig-param">STASH='none'</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.NameConstraint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">iris._constraints.Constraint</span></code></p>
+<p>Provides a simple Cube name based <a class="reference internal" href="#iris.Constraint" title="iris.Constraint"><code class="xref py py-class docutils literal notranslate"><span class="pre">Constraint</span></code></a>, which matches
+against each of the names provided, which may be either standard name,
+long name, NetCDF variable name and/or the STASH from the attributes
+dictionary.</p>
+<p>The name constraint will only succeed if <em>all</em> of the provided names
+match.</p>
+<p>Kwargs:
+* standard_name:</p>
+<blockquote>
+<div><p>A string or callable representing the standard name to match
+against.</p>
+</div></blockquote>
+<ul class="simple">
+<li><dl class="simple">
+<dt>long_name:</dt><dd><p>A string or callable representing the long name to match against.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>var_name:</dt><dd><p>A string or callable representing the NetCDF variable name to match
+against.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>STASH:</dt><dd><p>A string or callable representing the UM STASH code to match
+against.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The default value of each of the keyword arguments is the string
+“none”, rather than the singleton None, as None may be a legitimate
+value to be matched against e.g., to constrain against all cubes
+where the standard_name is not set, then use standard_name=None.</p>
+</div>
+<p>Returns:
+* Boolean</p>
+<p>Example usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">iris</span><span class="o">.</span><span class="n">NameConstraint</span><span class="p">(</span><span class="n">long_name</span><span class="o">=</span><span class="s1">&#39;air temp&#39;</span><span class="p">,</span> <span class="n">var_name</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+
+<span class="n">iris</span><span class="o">.</span><span class="n">NameConstraint</span><span class="p">(</span><span class="n">long_name</span><span class="o">=</span><span class="k">lambda</span> <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;temp&#39;</span> <span class="ow">in</span> <span class="n">name</span><span class="p">)</span>
+
+<span class="n">iris</span><span class="o">.</span><span class="n">NameConstraint</span><span class="p">(</span><span class="n">standard_name</span><span class="o">=</span><span class="s1">&#39;air_temperature&#39;</span><span class="p">,</span>
+                    <span class="n">STASH</span><span class="o">=</span><span class="k">lambda</span> <span class="n">stash</span><span class="p">:</span> <span class="n">stash</span><span class="o">.</span><span class="n">item</span> <span class="o">==</span> <span class="mi">203</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="method">
+<dt id="iris.NameConstraint.extract">
+<code class="sig-name descname">extract</code><span class="sig-paren">(</span><em class="sig-param">cube</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.NameConstraint.extract" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the subset of the given cube which matches this constraint,
 else return None.</p>
 </dd></dl>

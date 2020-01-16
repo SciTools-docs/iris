@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Global average annual temperature maps &#8212; Iris 2.3.0 documentation</title>
+    <title>Global average annual temperature maps &#8212; Iris 2.4.0rc0 documentation</title>
     <link rel="stylesheet" href="../../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
@@ -44,7 +44,7 @@
     </a>
     <div class="strapline">
       <h1>
-          Iris <span class="version">v2.3</span>
+          Iris <span class="version">v2.4</span>
       </h1>
       <p>
          A powerful, format-agnostic, community-driven Python library for analysing and
@@ -242,7 +242,7 @@ doi:10.1029/2009EO210001.</p>
 
         <span class="c1"># Add the first subplot showing the E1 scenario</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;HadGEM2 E1 Scenario&#39;</span><span class="p">,</span>  <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;HadGEM2 E1 Scenario&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
         <span class="n">iplt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">delta_e1</span><span class="p">,</span> <span class="n">levels</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="n">colors</span><span class="p">,</span> <span class="n">extend</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
         <span class="c1"># get the current axes&#39; subplot for use later on</span>
@@ -250,7 +250,7 @@ doi:10.1029/2009EO210001.</p>
 
         <span class="c1"># Add the second subplot showing the A1B scenario</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;HadGEM2 A1B-Image Scenario&#39;</span><span class="p">,</span>  <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;HadGEM2 A1B-Image Scenario&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
         <span class="n">contour_result</span> <span class="o">=</span> <span class="n">iplt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">delta_a1b</span><span class="p">,</span> <span class="n">levels</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="n">colors</span><span class="p">,</span>
                                        <span class="n">extend</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
@@ -270,8 +270,7 @@ doi:10.1029/2009EO210001.</p>
         <span class="n">width</span> <span class="o">=</span> <span class="n">left</span> <span class="o">-</span> <span class="n">first_plot_left</span> <span class="o">+</span> <span class="n">width</span>
 
         <span class="c1"># Add axes to the figure, to place the colour bar</span>
-        <span class="n">colorbar_axes</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_axes</span><span class="p">([</span><span class="n">first_plot_left</span><span class="p">,</span> <span class="n">bottom</span> <span class="o">+</span> <span class="mf">0.07</span><span class="p">,</span>
-                                      <span class="n">width</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">])</span>
+        <span class="n">colorbar_axes</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_axes</span><span class="p">([</span><span class="n">first_plot_left</span><span class="p">,</span> <span class="mf">0.18</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">])</span>
 
         <span class="c1"># Add the colour bar</span>
         <span class="n">cbar</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">contour_result</span><span class="p">,</span> <span class="n">colorbar_axes</span><span class="p">,</span>
