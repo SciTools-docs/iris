@@ -8,11 +8,11 @@
     <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
@@ -113,7 +113,7 @@
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
 
@@ -220,7 +220,7 @@ Previously, Iris compared cube data arrays using:</p>
 <blockquote>
 <div><p><code class="docutils literal notranslate"><span class="pre">abs(a</span> <span class="pre">-</span> <span class="pre">b)</span> <span class="pre">&lt;</span> <span class="pre">1.e-8</span></code></p>
 </div></blockquote>
-<p>We now apply the default operation of <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.allclose.html#numpy.allclose" title="(in NumPy v1.17)"><code class="xref py py-func docutils literal notranslate"><span class="pre">numpy.allclose()</span></code></a> instead,
+<p>We now apply the default operation of <a class="reference external" href="https://numpy.org/doc/1.18/reference/generated/numpy.allclose.html#numpy.allclose" title="(in NumPy v1.18)"><code class="xref py py-func docutils literal notranslate"><span class="pre">numpy.allclose()</span></code></a> instead,
 which is equivalent to:</p>
 <blockquote>
 <div><p><code class="docutils literal notranslate"><span class="pre">abs(a</span> <span class="pre">-</span> <span class="pre">b)</span> <span class="pre">&lt;</span> <span class="pre">(1.e-8</span> <span class="pre">+</span> <span class="pre">1.e-5</span> <span class="pre">*</span> <span class="pre">b)</span></code></p>
