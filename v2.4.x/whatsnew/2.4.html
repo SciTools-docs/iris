@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>What’s New in Iris 2.4.0 &#8212; Iris 2.4.0rc0 documentation</title>
+    <title>What’s New in Iris 2.4.0 &#8212; Iris 2.4.0 documentation</title>
     <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -85,6 +85,7 @@
 <li><a class="reference internal" href="#">What’s New in Iris 2.4.0</a><ul>
 <li><a class="reference internal" href="#iris-2-4-0-features">Iris 2.4.0 Features</a></li>
 <li><a class="reference internal" href="#iris-2-4-0-dependency-updates">Iris 2.4.0 Dependency Updates</a></li>
+<li><a class="reference internal" href="#bugs-fixed">Bugs Fixed</a></li>
 </ul>
 </li>
 </ul>
@@ -127,7 +128,7 @@
 <dd class="field-odd"><p>2.4.0</p>
 </dd>
 <dt class="field-even">Date</dt>
-<dd class="field-even"><p>2020-01-15</p>
+<dd class="field-even"><p>2020-02-20</p>
 </dd>
 </dl>
 <p>This document explains the new/changed features of Iris in version 2.4.0
@@ -170,6 +171,16 @@ from the attributes dictionary of a <a class="reference internal" href="../iris/
 <h2>Iris 2.4.0 Dependency Updates<a class="headerlink" href="#iris-2-4-0-dependency-updates" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Iris is now able to use the latest version of matplotlib.</p></li>
+</ul>
+</div>
+<div class="section" id="bugs-fixed">
+<h2>Bugs Fixed<a class="headerlink" href="#bugs-fixed" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Fixed a problem which was causing file loads to fetch <em>all</em> field data
+whenever UM files (PP or Fieldsfiles) were loaded.
+With large sourcefiles, initial file loads are slow, with large memory usage
+before any cube data is even fetched.  Large enough files will cause a crash.
+The problem occurs only with Dask versions &gt;= 2.0.</p></li>
 </ul>
 </div>
 </div>
