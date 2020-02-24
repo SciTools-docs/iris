@@ -184,6 +184,12 @@ Now that Python2 support has been dropped, Iris is free to use the latest versio
 <div class="section" id="bugs-fixed">
 <h2>Bugs Fixed<a class="headerlink" href="#bugs-fixed" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
+<li><p>The <cite>__iter__()</cite> method in class:<cite>iris.cube.Cube</cite> was set to <cite>None</cite>.
+<cite>TypeError</cite> is still raised if a <cite>Cube</cite> is iterated over but
+<cite>isinstance(cube, collections.Iterable)</cite> now behaves as expected.</p></li>
+</ul>
+<hr class="docutils" />
+<ul class="simple">
 <li><p>Concatenating cubes along an axis shared by cell measures would cause concatenation to inappropriately fail.
 These cell measures are now concatenated together in the resulting cube.</p></li>
 </ul>

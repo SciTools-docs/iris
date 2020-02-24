@@ -214,6 +214,8 @@ same way as loading with constraints:</p>
 </div>
 <div class="section" id="cube-iteration">
 <h2><span class="section-number">5.2. </span>Cube iteration<a class="headerlink" href="#cube-iteration" title="Permalink to this headline">¶</a></h2>
+<p>It is not possible to directly iterate over an Iris cube. That is, you cannot use code such as
+<code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">x</span> <span class="pre">in</span> <span class="pre">cube:</span></code>. However, you can iterate over cube slices, as this section details.</p>
 <p>A useful way of dealing with a Cube in its <strong>entirety</strong> is by iterating over its layers or slices.
 For example, to deal with a 3 dimensional cube (z,y,x) you could iterate over all 2 dimensional slices in y and x
 which make up the full 3d cube.:</p>
