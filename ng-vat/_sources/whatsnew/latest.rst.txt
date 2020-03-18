@@ -55,6 +55,12 @@ Iris <interim> Features
 
 Bugs Fixed
 ==========
+* The `__iter__()` method in class:`iris.cube.Cube` was set to `None`.
+  `TypeError` is still raised if a `Cube` is iterated over but
+  `isinstance(cube, collections.Iterable)` now behaves as expected.
+
+----
+
 * Concatenating cubes along an axis shared by cell measures would cause concatenation to inappropriately fail.
   These cell measures are now concatenated together in the resulting cube.
 
