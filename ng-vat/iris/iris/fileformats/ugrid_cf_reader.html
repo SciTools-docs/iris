@@ -1,0 +1,268 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>iris.fileformats.ugrid_cf_reader &#8212; Iris 3.0.dev0 documentation</title>
+    <link rel="stylesheet" href="../../../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="copyright" title="Copyright" href="../../../copyright.html" />
+    <link rel="next" title="iris.fileformats.um" href="um.html" />
+    <link rel="prev" title="iris.fileformats.rules" href="rules.html" />
+ 
+    <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+    <META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE"> 
+
+    <link rel="stylesheet" href="../../../_static/style.css" type="text/css" />
+    <script type="text/javascript" src="https://docs.python.org/2/_static/copybutton.js"></script>
+
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../_static/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../_static/favicon-16x16.png">
+
+    <link href="https://fonts.googleapis.com/css?family=Alike|Noto+Sans" rel="stylesheet">
+
+  </head><body>
+
+<a href="https://github.com/SciTools/iris">
+    <img class="github-forkme" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"
+         alt="Fork Iris on GitHub" />
+</a>
+
+
+<div class="header-content">
+    <a href="../../../index.html">
+        <img src="../../../_static/Iris7_1_trim_100.png" alt="Iris logo" />
+    </a>
+    <div class="strapline">
+      <h1>
+          Iris <span class="version">v3.0</span>
+      </h1>
+      <p>
+         A powerful, format-agnostic, community-driven Python library for analysing and
+         visualising Earth science data.
+      </p>
+    </div>
+</div>
+
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="um.html" title="iris.fileformats.um"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="rules.html" title="iris.fileformats.rules"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../../index.html">home</a>|&nbsp;</li>
+        <li><a href="../../../examples/index.html">examples</a>|&nbsp;</li>
+        <li><a href="../../../gallery.html">gallery</a>|&nbsp;</li>
+        <li><a href="../../../contents.html">contents</a>|&nbsp;</li>
+
+          <li class="nav-item nav-item-1"><a href="../../iris.html" >Iris reference documentation</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../fileformats.html" accesskey="U">iris.fileformats</a> &#187;</li> 
+      </ul>
+    </div>
+
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="rules.html"
+                        title="previous chapter">iris.fileformats.rules</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="um.html"
+                        title="next chapter">iris.fileformats.um</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/iris/iris/fileformats/ugrid_cf_reader.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="iris-fileformats-ugrid-cf-reader">
+<span id="id1"></span><h1>iris.fileformats.ugrid_cf_reader<a class="headerlink" href="#iris-fileformats-ugrid-cf-reader" title="Permalink to this headline">¶</a></h1>
+<span class="target" id="module-iris.fileformats.ugrid_cf_reader"></span><p>Adds a UGRID extension layer to netCDF file loading.</p>
+<p>In this module:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference internal" href="#iris.fileformats.ugrid_cf_reader.CubeUgrid" title="iris.fileformats.ugrid_cf_reader.CubeUgrid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CubeUgrid</span></code></a></p></li>
+<li><p><a class="reference internal" href="#iris.fileformats.ugrid_cf_reader.UGridCFReader" title="iris.fileformats.ugrid_cf_reader.UGridCFReader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UGridCFReader</span></code></a></p></li>
+</ul>
+</div></blockquote>
+<p>Object recording the unstructured grid dimension of a cube.</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>cube_dim (int):</dt><dd><p>The cube dimension which maps the unstructured grid.
+There can be only one.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>grid (<cite>gridded.pyugrid.UGrid</cite>):</dt><dd><p>A ‘gridded’ description of a UGRID mesh.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>mesh_location (str):</dt><dd><p>Which element of the mesh the cube is mapped to.
+Can be ‘face’, ‘edge’ or ‘node’.  A ‘volume’ is not supported.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<blockquote>
+<div><dl class="class">
+<dt id="iris.fileformats.ugrid_cf_reader.CubeUgrid">
+<em class="property">class </em><code class="sig-prename descclassname">iris.fileformats.ugrid_cf_reader.</code><code class="sig-name descname">CubeUgrid</code><span class="sig-paren">(</span><em class="sig-param">_cls</em>, <em class="sig-param">cube_dim</em>, <em class="sig-param">grid</em>, <em class="sig-param">mesh_location</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.ugrid_cf_reader.CubeUgrid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#iris.fileformats.ugrid_cf_reader.CubeUgrid" title="iris.fileformats.ugrid_cf_reader.CubeUgrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.fileformats.ugrid_cf_reader.CubeUgrid</span></code></a></p>
+<p>Create new instance of CubeUgrid(cube_dim, grid, mesh_location)</p>
+<dl class="method">
+<dt id="iris.fileformats.ugrid_cf_reader.CubeUgrid.count">
+<code class="sig-name descname">count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.ugrid_cf_reader.CubeUgrid.count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return number of occurrences of value.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="iris.fileformats.ugrid_cf_reader.CubeUgrid.index">
+<code class="sig-name descname">index</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.ugrid_cf_reader.CubeUgrid.index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return first index of value.</p>
+<p>Raises ValueError if the value is not present.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="iris.fileformats.ugrid_cf_reader.CubeUgrid.cube_dim">
+<em class="property">property </em><code class="sig-name descname">cube_dim</code><a class="headerlink" href="#iris.fileformats.ugrid_cf_reader.CubeUgrid.cube_dim" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="iris.fileformats.ugrid_cf_reader.CubeUgrid.grid">
+<em class="property">property </em><code class="sig-name descname">grid</code><a class="headerlink" href="#iris.fileformats.ugrid_cf_reader.CubeUgrid.grid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="iris.fileformats.ugrid_cf_reader.CubeUgrid.mesh_location">
+<em class="property">property </em><code class="sig-name descname">mesh_location</code><a class="headerlink" href="#iris.fileformats.ugrid_cf_reader.CubeUgrid.mesh_location" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 2</p>
+</dd></dl>
+
+</dd></dl>
+
+</div></blockquote>
+<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
+<!--<hr class="docutils" />
+--><p>A CFReader extension to add UGRID information to netcdf cube loading.</p>
+<p>Identifies UGRID-specific parts of a netcdf file, providing:</p>
+<ul class="simple">
+<li><p><cite>self.cfreader</cite> : a CFReader object to interpret the CF data from the
+file for cube creation, while ignoring the UGRID mesh data.</p></li>
+<li><p><cite>self.complete_ugrid_cube(cube)</cite> a call to add the relevant UGRID
+information to a cube created from the cfreader data.</p></li>
+</ul>
+<p>This allows us to decouple UGRID from CF support with minimal changes to
+the existing <cite>iris.fileformats.netcdf</cite> code, which is intimately coupled to
+both the CFReader class and the netCDF4 file interface.</p>
+<blockquote>
+<div><dl class="class">
+<dt id="iris.fileformats.ugrid_cf_reader.UGridCFReader">
+<em class="property">class </em><code class="sig-prename descclassname">iris.fileformats.ugrid_cf_reader.</code><code class="sig-name descname">UGridCFReader</code><span class="sig-paren">(</span><em class="sig-param">filename</em>, <em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.ugrid_cf_reader.UGridCFReader" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>A CFReader extension to add UGRID information to netcdf cube loading.</p>
+<p>Identifies UGRID-specific parts of a netcdf file, providing:</p>
+<ul class="simple">
+<li><p><cite>self.cfreader</cite> : a CFReader object to interpret the CF data from the
+file for cube creation, while ignoring the UGRID mesh data.</p></li>
+<li><p><cite>self.complete_ugrid_cube(cube)</cite> a call to add the relevant UGRID
+information to a cube created from the cfreader data.</p></li>
+</ul>
+<p>This allows us to decouple UGRID from CF support with minimal changes to
+the existing <cite>iris.fileformats.netcdf</cite> code, which is intimately coupled to
+both the CFReader class and the netCDF4 file interface.</p>
+<dl class="method">
+<dt id="iris.fileformats.ugrid_cf_reader.UGridCFReader.complete_ugrid_cube">
+<code class="sig-name descname">complete_ugrid_cube</code><span class="sig-paren">(</span><em class="sig-param">cube</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.ugrid_cf_reader.UGridCFReader.complete_ugrid_cube" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add the “.ugrid” property to a cube loaded with the <cite>self.cfreader</cite>.</p>
+<p>We identify the unstructured-grid dimension of the cube (if any), and
+attach a suitable CubeUgrid object, linking the cube mesh dimension to
+an element-type (aka “mesh_location”) of a mesh.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div></blockquote>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="um.html" title="iris.fileformats.um"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="rules.html" title="iris.fileformats.rules"
+             >previous</a> |</li>
+        <li><a href="../../../index.html">home</a>|&nbsp;</li>
+        <li><a href="../../../examples/index.html">examples</a>|&nbsp;</li>
+        <li><a href="../../../gallery.html">gallery</a>|&nbsp;</li>
+        <li><a href="../../../contents.html">contents</a>|&nbsp;</li>
+
+          <li class="nav-item nav-item-1"><a href="../../iris.html" >Iris reference documentation</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../fileformats.html" >iris.fileformats</a> &#187;</li> 
+      </ul>
+    </div>
+
+    <div class="footer">
+    <p style="text-align: left; float: left; margin: 0px; padding: 0 0 0 5px;">Documentation licensed under the <a href="http://reference.data.gov.uk/id/open-government-licence" rel="license">Open Government Licence</a></p>
+        &copy; <a href="../../../copyright.html">British Crown Copyright</a> 2010 - 2020, Met Office
+    </div>
+
+    <!-- Include a version switcher to easily move between the documentation of different versions -->
+    <script type=text/javascript src="/iris/docs/version_switch.js" async></script>
+
+  </body>
+</html>

@@ -1,0 +1,73 @@
+.. _iris.fileformats.ugrid_cf_reader:
+
+================================
+iris.fileformats.ugrid_cf_reader
+================================
+
+
+
+.. currentmodule:: iris
+
+.. automodule:: iris.fileformats.ugrid_cf_reader
+
+In this module:
+
+ * :py:obj:`CubeUgrid`
+ * :py:obj:`UGridCFReader`
+
+
+
+Object recording the unstructured grid dimension of a cube.
+
+* cube_dim (int):
+    The cube dimension which maps the unstructured grid.
+    There can be only one.
+
+* grid (`gridded.pyugrid.UGrid`):
+    A 'gridded' description of a UGRID mesh.
+
+* mesh_location (str):
+    Which element of the mesh the cube is mapped to.
+    Can be 'face', 'edge' or 'node'.  A 'volume' is not supported.
+
+..
+
+    .. autoclass:: iris.fileformats.ugrid_cf_reader.CubeUgrid
+        :members:
+        :undoc-members:
+        :inherited-members:
+
+
+.. raw:: html
+
+    <p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
+    <!--
+
+-----------
+
+.. raw:: html
+
+    -->
+
+
+A CFReader extension to add UGRID information to netcdf cube loading.
+
+Identifies UGRID-specific parts of a netcdf file, providing:
+
+* `self.cfreader` : a CFReader object to interpret the CF data from the
+  file for cube creation, while ignoring the UGRID mesh data.
+
+* `self.complete_ugrid_cube(cube)` a call to add the relevant UGRID
+  information to a cube created from the cfreader data.
+
+This allows us to decouple UGRID from CF support with minimal changes to
+the existing `iris.fileformats.netcdf` code, which is intimately coupled to
+both the CFReader class and the netCDF4 file interface.
+
+..
+
+    .. autoclass:: iris.fileformats.ugrid_cf_reader.UGridCFReader
+        :members:
+        :undoc-members:
+        :inherited-members:
+
