@@ -141,13 +141,23 @@ Can be ‘face’, ‘edge’ or ‘node’.  A ‘volume’ is not supported.</
 </dd>
 </dl>
 </li>
+<li><dl class="simple">
+<dt>topology_dimension (int):</dt><dd><p>The highest dimensionality of the geometric elements in the mesh.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>node_coordinates (list):</dt><dd><p>A list of the names of the spatial coordinates, used to geolocate the nodes.</p>
+</dd>
+</dl>
+</li>
 </ul>
 <blockquote>
 <div><dl class="class">
 <dt id="iris.fileformats.ugrid_cf_reader.CubeUgrid">
-<em class="property">class </em><code class="sig-prename descclassname">iris.fileformats.ugrid_cf_reader.</code><code class="sig-name descname">CubeUgrid</code><span class="sig-paren">(</span><em class="sig-param">_cls</em>, <em class="sig-param">cube_dim</em>, <em class="sig-param">grid</em>, <em class="sig-param">mesh_location</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.ugrid_cf_reader.CubeUgrid" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">iris.fileformats.ugrid_cf_reader.</code><code class="sig-name descname">CubeUgrid</code><span class="sig-paren">(</span><em class="sig-param">_cls</em>, <em class="sig-param">cube_dim</em>, <em class="sig-param">grid</em>, <em class="sig-param">mesh_location</em>, <em class="sig-param">topology_dimension</em>, <em class="sig-param">node_coordinates</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.ugrid_cf_reader.CubeUgrid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#iris.fileformats.ugrid_cf_reader.CubeUgrid" title="iris.fileformats.ugrid_cf_reader.CubeUgrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.fileformats.ugrid_cf_reader.CubeUgrid</span></code></a></p>
-<p>Create new instance of CubeUgrid(cube_dim, grid, mesh_location)</p>
+<p>Create new instance of CubeUgrid(cube_dim, grid, mesh_location, topology_dimension, node_coordinates)</p>
 <dl class="method">
 <dt id="iris.fileformats.ugrid_cf_reader.CubeUgrid.count">
 <code class="sig-name descname">count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.ugrid_cf_reader.CubeUgrid.count" title="Permalink to this definition">¶</a></dt>
@@ -160,6 +170,11 @@ Can be ‘face’, ‘edge’ or ‘node’.  A ‘volume’ is not supported.</
 <dd><p>Return first index of value.</p>
 <p>Raises ValueError if the value is not present.</p>
 </dd></dl>
+
+<dl class="method">
+<dt id="iris.fileformats.ugrid_cf_reader.CubeUgrid.name">
+<code class="sig-name descname">name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.ugrid_cf_reader.CubeUgrid.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="iris.fileformats.ugrid_cf_reader.CubeUgrid.cube_dim">
@@ -177,6 +192,18 @@ Can be ‘face’, ‘edge’ or ‘node’.  A ‘volume’ is not supported.</
 <dt id="iris.fileformats.ugrid_cf_reader.CubeUgrid.mesh_location">
 <em class="property">property </em><code class="sig-name descname">mesh_location</code><a class="headerlink" href="#iris.fileformats.ugrid_cf_reader.CubeUgrid.mesh_location" title="Permalink to this definition">¶</a></dt>
 <dd><p>Alias for field number 2</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="iris.fileformats.ugrid_cf_reader.CubeUgrid.node_coordinates">
+<em class="property">property </em><code class="sig-name descname">node_coordinates</code><a class="headerlink" href="#iris.fileformats.ugrid_cf_reader.CubeUgrid.node_coordinates" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 4</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="iris.fileformats.ugrid_cf_reader.CubeUgrid.topology_dimension">
+<em class="property">property </em><code class="sig-name descname">topology_dimension</code><a class="headerlink" href="#iris.fileformats.ugrid_cf_reader.CubeUgrid.topology_dimension" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 3</p>
 </dd></dl>
 
 </dd></dl>
