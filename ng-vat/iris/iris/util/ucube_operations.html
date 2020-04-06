@@ -1,0 +1,427 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>iris.util.ucube_operations &#8212; Iris 3.0.dev0 documentation</title>
+    <link rel="stylesheet" href="../../../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="copyright" title="Copyright" href="../../../copyright.html" />
+    <link rel="next" title="What’s new in Iris" href="../../../whatsnew/index.html" />
+    <link rel="prev" title="iris.util" href="../util.html" />
+ 
+    <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+    <META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE"> 
+
+    <link rel="stylesheet" href="../../../_static/style.css" type="text/css" />
+    <script type="text/javascript" src="https://docs.python.org/2/_static/copybutton.js"></script>
+
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../_static/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../_static/favicon-16x16.png">
+
+    <link href="https://fonts.googleapis.com/css?family=Alike|Noto+Sans" rel="stylesheet">
+
+  </head><body>
+
+<a href="https://github.com/SciTools/iris">
+    <img class="github-forkme" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"
+         alt="Fork Iris on GitHub" />
+</a>
+
+
+<div class="header-content">
+    <a href="../../../index.html">
+        <img src="../../../_static/Iris7_1_trim_100.png" alt="Iris logo" />
+    </a>
+    <div class="strapline">
+      <h1>
+          Iris <span class="version">v3.0</span>
+      </h1>
+      <p>
+         A powerful, format-agnostic, community-driven Python library for analysing and
+         visualising Earth science data.
+      </p>
+    </div>
+</div>
+
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../../../whatsnew/index.html" title="What’s new in Iris"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../util.html" title="iris.util"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../../index.html">home</a>|&nbsp;</li>
+        <li><a href="../../../examples/index.html">examples</a>|&nbsp;</li>
+        <li><a href="../../../gallery.html">gallery</a>|&nbsp;</li>
+        <li><a href="../../../contents.html">contents</a>|&nbsp;</li>
+
+          <li class="nav-item nav-item-1"><a href="../../iris.html" >Iris reference documentation</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../util.html" accesskey="U">iris.util</a> &#187;</li> 
+      </ul>
+    </div>
+
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../util.html"
+                        title="previous chapter">iris.util</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../../../whatsnew/index.html"
+                        title="next chapter">What’s new in Iris</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/iris/iris/util/ucube_operations.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="iris-util-ucube-operations">
+<span id="id1"></span><h1>iris.util.ucube_operations<a class="headerlink" href="#iris-util-ucube-operations" title="Permalink to this headline">¶</a></h1>
+<span class="target" id="module-iris.util.ucube_operations"></span><p>Miscellaneous Functions for working with unstructured cubes.</p>
+<p>That is, cubes where ‘cube.ugrid’ is not None, in which case it is a
+<a class="reference internal" href="../fileformats/ugrid_cf_reader.html#iris.fileformats.ugrid_cf_reader.CubeUgrid" title="iris.fileformats.ugrid_cf_reader.CubeUgrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">CubeUgrid</span></code></a>, describing an
+unstructured mesh.</p>
+<p>In this module:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference internal" href="#iris.util.ucube_operations.identify_cubesphere" title="iris.util.ucube_operations.identify_cubesphere"><code class="xref py py-obj docutils literal notranslate"><span class="pre">identify_cubesphere</span></code></a></p></li>
+<li><p><a class="reference internal" href="#iris.util.ucube_operations.latlon_extract_faces" title="iris.util.ucube_operations.latlon_extract_faces"><code class="xref py py-obj docutils literal notranslate"><span class="pre">latlon_extract_faces</span></code></a></p></li>
+<li><p><a class="reference internal" href="#iris.util.ucube_operations.my_neighbours" title="iris.util.ucube_operations.my_neighbours"><code class="xref py py-obj docutils literal notranslate"><span class="pre">my_neighbours</span></code></a></p></li>
+<li><p><a class="reference internal" href="#iris.util.ucube_operations.pseudo_cube" title="iris.util.ucube_operations.pseudo_cube"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pseudo_cube</span></code></a></p></li>
+<li><p><a class="reference internal" href="#iris.util.ucube_operations.remap_element_numbers" title="iris.util.ucube_operations.remap_element_numbers"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remap_element_numbers</span></code></a></p></li>
+<li><p><a class="reference internal" href="#iris.util.ucube_operations.ucube_subset" title="iris.util.ucube_operations.ucube_subset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ucube_subset</span></code></a></p></li>
+<li><p><a class="reference internal" href="#iris.util.ucube_operations.ugrid_plot" title="iris.util.ucube_operations.ugrid_plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ugrid_plot</span></code></a></p></li>
+<li><p><a class="reference internal" href="#iris.util.ucube_operations.ugrid_subset" title="iris.util.ucube_operations.ugrid_subset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ugrid_subset</span></code></a></p></li>
+<li><p><a class="reference internal" href="#iris.util.ucube_operations.PseudoshapedCubeIndexer" title="iris.util.ucube_operations.PseudoshapedCubeIndexer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PseudoshapedCubeIndexer</span></code></a></p></li>
+</ul>
+</div></blockquote>
+<dl class="py function">
+<dt id="iris.util.ucube_operations.identify_cubesphere">
+<code class="sig-prename descclassname">iris.util.ucube_operations.</code><code class="sig-name descname">identify_cubesphere</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">grid</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.util.ucube_operations.identify_cubesphere" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine the cubesphere structure in an unstructured grid.</p>
+<p>Uses connectivity information to check if it looks like a cubesphere, and
+if so returns an equivalent shape for viewing the data as a cubesphere
+structure.</p>
+<p>Args :</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>grid (gridded.pyugrid.UGrid):</dt><dd><p>ugrid representation for the grid.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Returns :</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>cubesphere_shape (tuple of int, or None):</dt><dd><p>an array shape tuple, such that reshaping the unstructured dimension
+into this shape lets you index the data by a ‘standard’ cubesphere
+indexing scheme, as [i_face, face_iy, face_ix].</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd></dl>
+
+<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
+<!--<hr class="docutils" />
+--><dl class="py function">
+<dt id="iris.util.ucube_operations.latlon_extract_faces">
+<code class="sig-prename descclassname">iris.util.ucube_operations.</code><code class="sig-name descname">latlon_extract_faces</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cube</span></em>, <em class="sig-param"><span class="n">region_lon01_lat01</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.util.ucube_operations.latlon_extract_faces" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract a latlon region from a structured cube.</p>
+<p>This version only works with face data, and returns faces whose centres
+lie within the region.</p>
+</dd></dl>
+
+<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
+<!--<hr class="docutils" />
+--><dl class="py function">
+<dt id="iris.util.ucube_operations.my_neighbours">
+<code class="sig-prename descclassname">iris.util.ucube_operations.</code><code class="sig-name descname">my_neighbours</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n_side</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.util.ucube_operations.my_neighbours" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct a ‘standard’ map of face neighbours for a cubesphere.</p>
+<p>We assume a given face numbering, which seems to match LFRic.
+We construct 4 neighbours for each in “some way”.  This should match the
+UGRID face_face_connectivity array, except that the ordering of
+neighbours is a bit peculiar, so we don’t replicate that.</p>
+<p>( We will then be able to compare an actual grid face_face_connectivity
+array with this, up-to the neighbour ordering )</p>
+</dd></dl>
+
+<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
+<!--<hr class="docutils" />
+--><dl class="py function">
+<dt id="iris.util.ucube_operations.pseudo_cube">
+<code class="sig-prename descclassname">iris.util.ucube_operations.</code><code class="sig-name descname">pseudo_cube</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cube</span></em>, <em class="sig-param"><span class="n">shape</span></em>, <em class="sig-param"><span class="n">new_dim_names</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.util.ucube_operations.pseudo_cube" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a pseudo-cube from an unstructured cube, by replacing the
+unstructured dimension with a given multi-dimensional shape.</p>
+<p>Note: not very complete, for lack of a cube.transpose()
+Note: sadly, the result is no longer unstructured.  That would require</p>
+<blockquote>
+<div><p>some kind of extension to <cite>gridded</cite>, or special support within the
+unstructured cube.</p>
+</div></blockquote>
+</dd></dl>
+
+<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
+<!--<hr class="docutils" />
+--><dl class="py function">
+<dt id="iris.util.ucube_operations.remap_element_numbers">
+<code class="sig-prename descclassname">iris.util.ucube_operations.</code><code class="sig-name descname">remap_element_numbers</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">elems</span></em>, <em class="sig-param"><span class="n">indices</span></em>, <em class="sig-param"><span class="n">n_old_elements</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.util.ucube_operations.remap_element_numbers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the elements array resulting from an element selection operation.</p>
+<p>This means that the ‘old element numbers’ in the array are replaced with
+‘new element numbers’.  The new elements are those selected by applying the
+‘indices’ to the original elements array.</p>
+<p>Where an ‘old element number’ is not in those selected by ‘indices’, it
+must be replaced by a -1 (“missing”) in the output.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>elems (array of int):</dt><dd><p>An array of element numbers.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>indices (int, slice or sequence):</dt><dd><p>Any valid 1-D array-indexing operation.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>n_old_elements (int or None):</dt><dd><p>The number of ‘old’ elements, i.e. maximum valid element index + 1.
+If not given, this defaults to max(np.max(elems), np.max(indices)) + 1.
+However, this would not work correctly if ‘indices’ is a slice
+operation involving negative indices, e.g. slice(0, -2).
+In such cases, an exception will be raised.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Result:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>new_elems (array of int):</dt><dd><p>An array of the same size and dtype as the input, with ‘old’ element
+numbers replaced by ‘new’.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd></dl>
+
+<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
+<!--<hr class="docutils" />
+--><dl class="py function">
+<dt id="iris.util.ucube_operations.ucube_subset">
+<code class="sig-prename descclassname">iris.util.ucube_operations.</code><code class="sig-name descname">ucube_subset</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cube</span></em>, <em class="sig-param"><span class="n">indices</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.util.ucube_operations.ucube_subset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select points from an unstructured cube in the unstructured dimension.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>cube (iris.cube.Cube):</dt><dd><p>input cube, which must have an unstructured dimension.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>indices (1-dimensional array-like of int or bool):</dt><dd><p>A pointwise selection from the unstructured dimension.
+If boolean, must match the number of the relevant elements, otherwise
+a list of the indices to keep.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>returns:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>new_cube (iris.cube.Cube):
+A new cube on a reduced grid, containing only the selected elements.
+<cite>new_cube.ugrid</cite> is a reduced grid, as described for “ugrid_subset”.</p></li>
+</ul>
+</div></blockquote>
+</dd></dl>
+
+<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
+<!--<hr class="docutils" />
+--><dl class="py function">
+<dt id="iris.util.ucube_operations.ugrid_plot">
+<code class="sig-prename descclassname">iris.util.ucube_operations.</code><code class="sig-name descname">ugrid_plot</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cube</span></em>, <em class="sig-param"><span class="n">axes</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">set_global</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">show</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">crs_plot</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.util.ucube_operations.ugrid_plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot unstructured cube.</p>
+<p>The last dimension must be unstructured.
+Any other dimensions are reduced by taking the first point.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>cube</dt><dd><p>cube to draw.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>axes (matplotlib.Axes or None):</dt><dd><p>axes to draw on.  If None create one, with coastlines and gridlines.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>set_global (bool):</dt><dd><p>whether to call “axes.set_global()”.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>show (bool):</dt><dd><p>whether to call “plt.show()”.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>crs_plot (cartopy.crs.Projection or None):</dt><dd><p>If axes is None, create an axes with this projection.
+If None, a default Orthographic projection is used.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd></dl>
+
+<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
+<!--<hr class="docutils" />
+--><dl class="py function">
+<dt id="iris.util.ucube_operations.ugrid_subset">
+<code class="sig-prename descclassname">iris.util.ucube_operations.</code><code class="sig-name descname">ugrid_subset</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">grid</span></em>, <em class="sig-param"><span class="n">indices</span></em>, <em class="sig-param"><span class="n">mesh_location</span><span class="o">=</span><span class="default_value">'face'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.util.ucube_operations.ugrid_subset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a subset extraction of a grid object.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>grid (gridded.pyugrid.UGrid):</dt><dd><p>input grid.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>indices (1-dimensional array-like of int or bool, or slices):</dt><dd><p>A numpy indexing key into a 1-dimensional array.
+Makes a pointwise selection from the selected element type.
+If boolean, must match the number of the relevant elements, otherwise
+a list of the indices to keep.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>mesh_location (str):</dt><dd><p>Which type of grid element to select on.
+One of ‘face’, ‘edge’, ‘node’ : ‘volume’ is not supported.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>returns:</p>
+<blockquote>
+<div><ul>
+<li><p>new_grid (gridded.pyugrid.UGrid):
+A new grid object with only the selected elements.</p>
+<ul class="simple">
+<li><p>If mesh_location is ‘nodes’, the result has no edges or faces.</p></li>
+<li><p>If mesh_location is ‘faces’, the result has the same nodes as the
+input, but no edges.</p></li>
+<li><p>If mesh_location is ‘edges’, the result has the same nodes as the
+input, but no faces.</p></li>
+</ul>
+<p>Other non-essential information will be either similarly index-selected
+or discard</p>
+</li>
+</ul>
+</div></blockquote>
+</dd></dl>
+
+<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
+<!--<hr class="docutils" />
+--><p>Indexable object to provide a syntax for a “pseudocube slicing” operation.</p>
+<p>Wraps up a cube with a related ‘structure shape’.
+When you index it, it returns a derived ‘subset cube’ with a subset mesh.</p>
+<p>This is an alternative to having a “pseudo-structured cube” with multiple
+dimensions in its mesh, as we haven’t yet defined such a thing.
+See ‘pseudo_cube’ function above for something more like that, but which
+returns an “ordinary” (i.e. not unstructured) cube.</p>
+<blockquote>
+<div><dl class="py class">
+<dt id="iris.util.ucube_operations.PseudoshapedCubeIndexer">
+<em class="property">class </em><code class="sig-prename descclassname">iris.util.ucube_operations.</code><code class="sig-name descname">PseudoshapedCubeIndexer</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cube</span></em>, <em class="sig-param"><span class="n">shape</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.util.ucube_operations.PseudoshapedCubeIndexer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indexable object to provide a syntax for a “pseudocube slicing” operation.</p>
+<p>Wraps up a cube with a related ‘structure shape’.
+When you index it, it returns a derived ‘subset cube’ with a subset mesh.</p>
+<p>This is an alternative to having a “pseudo-structured cube” with multiple
+dimensions in its mesh, as we haven’t yet defined such a thing.
+See ‘pseudo_cube’ function above for something more like that, but which
+returns an “ordinary” (i.e. not unstructured) cube.</p>
+</dd></dl>
+
+</div></blockquote>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../../../whatsnew/index.html" title="What’s new in Iris"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../util.html" title="iris.util"
+             >previous</a> |</li>
+        <li><a href="../../../index.html">home</a>|&nbsp;</li>
+        <li><a href="../../../examples/index.html">examples</a>|&nbsp;</li>
+        <li><a href="../../../gallery.html">gallery</a>|&nbsp;</li>
+        <li><a href="../../../contents.html">contents</a>|&nbsp;</li>
+
+          <li class="nav-item nav-item-1"><a href="../../iris.html" >Iris reference documentation</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../util.html" >iris.util</a> &#187;</li> 
+      </ul>
+    </div>
+
+    <div class="footer">
+    <p style="text-align: left; float: left; margin: 0px; padding: 0 0 0 5px;">Documentation licensed under the <a href="http://reference.data.gov.uk/id/open-government-licence" rel="license">Open Government Licence</a></p>
+        &copy; <a href="../../../copyright.html">British Crown Copyright</a> 2010 - 2020, Met Office
+    </div>
+
+    <!-- Include a version switcher to easily move between the documentation of different versions -->
+    <script type=text/javascript src="/iris/docs/version_switch.js" async></script>
+
+  </body>
+</html>

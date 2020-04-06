@@ -1,0 +1,185 @@
+.. _iris.util.ucube_operations:
+
+==========================
+iris.util.ucube_operations
+==========================
+
+
+
+.. currentmodule:: iris
+
+.. automodule:: iris.util.ucube_operations
+
+In this module:
+
+ * :py:obj:`identify_cubesphere`
+ * :py:obj:`latlon_extract_faces`
+ * :py:obj:`my_neighbours`
+ * :py:obj:`pseudo_cube`
+ * :py:obj:`remap_element_numbers`
+ * :py:obj:`ucube_subset`
+ * :py:obj:`ugrid_plot`
+ * :py:obj:`ugrid_subset`
+ * :py:obj:`PseudoshapedCubeIndexer`
+
+
+
+.. autofunction:: iris.util.ucube_operations.identify_cubesphere
+
+
+.. raw:: html
+
+    <p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
+    <!--
+
+-----------
+
+.. raw:: html
+
+    -->
+
+
+.. autofunction:: iris.util.ucube_operations.latlon_extract_faces
+
+
+.. raw:: html
+
+    <p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
+    <!--
+
+-----------
+
+.. raw:: html
+
+    -->
+
+
+.. autofunction:: iris.util.ucube_operations.my_neighbours
+
+
+.. raw:: html
+
+    <p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
+    <!--
+
+-----------
+
+.. raw:: html
+
+    -->
+
+
+.. autofunction:: iris.util.ucube_operations.pseudo_cube
+
+
+.. raw:: html
+
+    <p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
+    <!--
+
+-----------
+
+.. raw:: html
+
+    -->
+
+
+.. autofunction:: iris.util.ucube_operations.remap_element_numbers
+
+
+.. raw:: html
+
+    <p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
+    <!--
+
+-----------
+
+.. raw:: html
+
+    -->
+
+
+.. autofunction:: iris.util.ucube_operations.ucube_subset
+
+
+.. raw:: html
+
+    <p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
+    <!--
+
+-----------
+
+.. raw:: html
+
+    -->
+
+
+.. autofunction:: iris.util.ucube_operations.ugrid_plot
+
+
+.. raw:: html
+
+    <p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
+    <!--
+
+-----------
+
+.. raw:: html
+
+    -->
+
+
+.. autofunction:: iris.util.ucube_operations.ugrid_subset
+
+
+.. raw:: html
+
+    <p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
+    <!--
+
+-----------
+
+.. raw:: html
+
+    -->
+
+
+Indexable object to provide a syntax for a "pseudocube slicing" operation.
+
+Wraps up a cube with a related 'structure shape'.
+When you index it, it returns a derived 'subset cube' with a subset mesh.
+
+This is an alternative to having a "pseudo-structured cube" with multiple
+dimensions in its mesh, as we haven't yet defined such a thing.
+See 'pseudo_cube' function above for something more like that, but which
+returns an "ordinary" (i.e. not unstructured) cube.
+
+.. for example:
+
+    >>> print(cube)
+    sample_data / (1)                   (*-- : 96)
+         ugrid information:
+              topology.face                  x
+              topology_dimension: 2
+              node_coordinates: latitude longitude
+
+    >>> cubesphere_shape = identify_cubesphere(cube.ugrid.grid)
+    >>> print(cubesphere_shape)
+    (6, 4, 4)
+
+    >>> cs_indexer = PseudoshapedCubeIndexer(cube, cubesphere_shape)
+    >>> face_cube = cs_indexer[0]
+    >>> print(face_cube)
+    sample_data / (1)                   (*-- : 16)
+         ugrid information:
+              mesh.face                      x
+              topology_dimension: 2
+              node_coordinates: latitude longitude
+
+..
+
+    .. autoclass:: iris.util.ucube_operations.PseudoshapedCubeIndexer
+        :members:
+        :undoc-members:
+        :inherited-members:
+
