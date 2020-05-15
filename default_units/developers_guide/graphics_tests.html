@@ -1,0 +1,288 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Graphics tests &#8212; Iris 3.0.dev0 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="copyright" title="Copyright" href="../copyright.html" />
+ 
+    <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+    <META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE"> 
+
+    <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+    <script type="text/javascript" src="https://docs.python.org/2/_static/copybutton.js"></script>
+
+    <link rel="icon" type="image/png" sizes="32x32" href="../_static/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../_static/favicon-16x16.png">
+
+    <link href="https://fonts.googleapis.com/css?family=Alike|Noto+Sans" rel="stylesheet">
+
+  </head><body>
+
+<a href="https://github.com/SciTools/iris">
+    <img class="github-forkme" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"
+         alt="Fork Iris on GitHub" />
+</a>
+
+
+<div class="header-content">
+    <a href="../index.html">
+        <img src="../_static/Iris7_1_trim_100.png" alt="Iris logo" />
+    </a>
+    <div class="strapline">
+      <h1>
+          Iris <span class="version">v3.0</span>
+      </h1>
+      <p>
+         A powerful, format-agnostic, community-driven Python library for analysing and
+         visualising Earth science data.
+      </p>
+    </div>
+</div>
+
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">home</a>|&nbsp;</li>
+        <li><a href="../examples/index.html">examples</a>|&nbsp;</li>
+        <li><a href="../gallery.html">gallery</a>|&nbsp;</li>
+        <li><a href="../contents.html">contents</a>|&nbsp;</li>
+ 
+      </ul>
+    </div>
+
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Graphics tests</a><ul>
+<li><a class="reference internal" href="#graphics-testing-strategy">Graphics Testing Strategy</a></li>
+<li><a class="reference internal" href="#how-to-add-new-acceptable-result-images-to-existing-tests">How to Add New ‘Acceptable’ Result Images to Existing Tests</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/developers_guide/graphics_tests.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="graphics-tests">
+<span id="developer-graphics-tests"></span><h1>Graphics tests<a class="headerlink" href="#graphics-tests" title="Permalink to this headline">¶</a></h1>
+<p>The only practical way of testing plotting functionality is to check actual
+output plots.
+For this, a basic ‘graphics test’ assertion operation is provided in the method
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">iris.tests.IrisTest.check_graphic()</span></code> :  This tests plotted output for a
+match against a stored reference.
+A “graphics test” is any test which employs this.</p>
+<p>At present, such tests include the testing for modules <cite>iris.tests.test_plot</cite>
+and <cite>iris.tests.test_quickplot</cite>, all output plots from the gallery examples
+(contained in <cite>docs/iris/example_tests</cite>), and a few  other ‘legacy’ style tests
+(as described in <a class="reference internal" href="tests.html#developer-tests"><span class="std std-ref">Testing</span></a>).
+It is conceivable that new ‘graphics tests’ of this sort can still be added.
+However, as graphics tests are inherently “integration” style rather than true
+unit tests, results can differ with the installed versions of dependent
+libraries (see below), so this is not recommended except where no alternative
+is practical.</p>
+<dl class="simple">
+<dt>Testing actual plot results introduces some significant difficulties :</dt><dd><ul class="simple">
+<li><p>Graphics tests are inherently ‘integration’ style tests, so results will
+often vary with the versions of key dependencies, i.e. the exact versions of
+third-party modules which are installed :  Obviously, results will depend on
+the matplotlib version, but they can also depend on numpy and other
+installed packages.</p></li>
+<li><p>Although it seems possible in principle to accommodate ‘small’ result changes
+by distinguishing plots which are ‘nearly the same’ from those which are
+‘significantly different’, in practice no <em>automatic</em> scheme for this can be
+perfect :  That is, any calculated tolerance in output matching will allow
+some changes which a human would judge as a significant error.</p></li>
+<li><p>Storing a variety of alternative ‘acceptable’ results as reference images
+can easily lead to uncontrolled increases in the size of the repository,
+given multiple independent sources of variation.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="section" id="graphics-testing-strategy">
+<h2>Graphics Testing Strategy<a class="headerlink" href="#graphics-testing-strategy" title="Permalink to this headline">¶</a></h2>
+<p>In the Iris Travis matrix, and over time, graphics tests must run with
+multiple versions of Python, and of key dependencies such as matplotlib.
+To make this manageable, the “check_graphic” test routine tests against
+multiple alternative ‘acceptable’ results.  It does this using an image “hash”
+comparison technique which avoids storing reference images in the Iris
+repository itself, to avoid space problems.</p>
+<p>This consists of :</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>The ‘check_graphic’ function uses a perceptual ‘image hash’ of the outputs
+(see <a class="reference external" href="https://github.com/JohannesBuchner/imagehash">https://github.com/JohannesBuchner/imagehash</a>) as the basis for checking
+test results.</p></li>
+<li><p>The hashes of known ‘acceptable’ results for each test are stored in a
+lookup dictionary, saved to the repo file
+<code class="docutils literal notranslate"><span class="pre">lib/iris/tests/results/imagerepo.json</span></code> .</p></li>
+<li><p>An actual reference image for each hash value is stored in a <em>separate</em>
+public repository : <a class="reference external" href="https://github.com/SciTools/test-iris-imagehash">https://github.com/SciTools/test-iris-imagehash</a> .</p></li>
+<li><p>The reference images allow human-eye assessment of whether a new output is
+judged to be ‘close enough’ to the older ones, or not.</p></li>
+<li><p>The utility script <code class="docutils literal notranslate"><span class="pre">iris/tests/idiff.py</span></code> automates checking, enabling the
+developer to easily compare proposed new ‘acceptable’ result images against the
+existing accepted reference images, for each failing test.</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="how-to-add-new-acceptable-result-images-to-existing-tests">
+<h2>How to Add New ‘Acceptable’ Result Images to Existing Tests<a class="headerlink" href="#how-to-add-new-acceptable-result-images-to-existing-tests" title="Permalink to this headline">¶</a></h2>
+<p>When you find that a graphics test in the Iris testing suite has failed,
+following changes in Iris or the run dependencies, this is the process
+you should follow:</p>
+<ol class="arabic">
+<li><p>Create a new, empty directory to store temporary image results, at the path
+<code class="docutils literal notranslate"><span class="pre">lib/iris/tests/result_image_comparison</span></code> in your Iris repository checkout.</p></li>
+<li><p><strong>In your Iris repo root directory</strong>, run the relevant (failing) tests
+directly as python scripts, or by using a command such as
+<code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">unittest</span> <span class="pre">discover</span> <span class="pre">paths/to/test/files</span></code>.</p></li>
+<li><p><strong>In the</strong> <code class="docutils literal notranslate"><span class="pre">iris/lib/iris/tests</span></code> <strong>folder</strong>,  run the command: <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">idiff.py</span></code>.
+This will open a window for you to visually inspect side-by-side ‘old’, ‘new’
+and ‘difference’ images for each failed graphics test.
+Hit a button to either “accept”, “reject” or “skip” each new result …</p>
+<ul class="simple">
+<li><p>If the change is <em>“accepted”</em> :</p>
+<ul>
+<li><p>the imagehash value of the new result image is added into the relevant
+set of ‘valid result hashes’ in the image result database file,
+<code class="docutils literal notranslate"><span class="pre">tests/results/imagerepo.json</span></code> ;</p></li>
+<li><p>the relevant output file in <code class="docutils literal notranslate"><span class="pre">tests/result_image_comparison</span></code> is
+renamed according to the image hash value, as <code class="docutils literal notranslate"><span class="pre">&lt;hash&gt;.png</span></code>.
+A copy of this new PNG file must then be added into the reference image
+repository at <a class="reference external" href="https://github.com/SciTools/test-iris-imagehash">https://github.com/SciTools/test-iris-imagehash</a>.
+(See below).</p></li>
+</ul>
+</li>
+<li><p>If a change is <em>“skipped”</em> :</p>
+<ul>
+<li><p>no further changes are made in the repo.</p></li>
+<li><p>when you run idiff again, the skipped choice will be presented again.</p></li>
+</ul>
+</li>
+<li><p>If a change is <em>“rejected”</em> :</p>
+<ul>
+<li><p>the output image is deleted from <code class="docutils literal notranslate"><span class="pre">result_image_comparison</span></code>.</p></li>
+<li><p>when you run idiff again, the skipped choice will not appear, unless
+and until the relevant failing test is re-run.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Now re-run the tests.  The ‘new’ result should now be recognised and the
+relevant test should pass.  However, some tests can perform <em>multiple</em> graphics
+checks within a single testcase function : In those cases, any failing
+check will prevent the following ones from being run, so a test re-run may
+encounter further (new) graphical test failures.  If that happens, simply
+repeat the check-and-accept process until all tests pass.</p></li>
+<li><p>To add your changes to Iris, you need to make two pull requests :</p>
+<ul>
+<li><p>(1) The first PR is made in the test-iris-imagehash repository, at
+<a class="reference external" href="https://github.com/SciTools/test-iris-imagehash">https://github.com/SciTools/test-iris-imagehash</a>.</p>
+<ul>
+<li><p>First, add all the newly-generated referenced PNG files into the
+<code class="docutils literal notranslate"><span class="pre">images/v4</span></code> directory.  In your Iris repo, these files are to be found
+in the temporary results folder <code class="docutils literal notranslate"><span class="pre">iris/tests/result_image_comparison</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">result_image_comparison</span></code> folder is covered by a project
+<code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> setting, so those files <em>will not show up</em> in a
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> check.</p>
+</div>
+</li>
+<li><p>Then, run <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">recreate_v4_files_listing.py</span></code>, to update the file
+which lists available images, <code class="docutils literal notranslate"><span class="pre">v4_files_listing.txt</span></code>.</p></li>
+<li><p>Create a PR proposing these changes, in the usual way.</p></li>
+</ul>
+</li>
+<li><p>(2) The second PR is created in the Iris repository, and
+should only include the change to the image results database,
+<code class="docutils literal notranslate"><span class="pre">tests/results/imagerepo.json</span></code> :
+The description box of this pull request should contain a reference to
+the matching one in test-iris-imagehash.</p></li>
+</ul>
+</li>
+</ol>
+<p>Note: the Iris pull-request will not test out successfully in Travis until the
+test-iris-imagehash pull request has been merged :  This is because there is
+an Iris test which ensures the existence of the reference images (uris) for all
+the targets in the image results database.  N.B. likewise, it will <em>also</em> fail
+if you forgot to run <code class="docutils literal notranslate"><span class="pre">recreate_v4_files_listing.py</span></code> to update the image-listing
+file in test-iris-imagehash.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">home</a>|&nbsp;</li>
+        <li><a href="../examples/index.html">examples</a>|&nbsp;</li>
+        <li><a href="../gallery.html">gallery</a>|&nbsp;</li>
+        <li><a href="../contents.html">contents</a>|&nbsp;</li>
+ 
+      </ul>
+    </div>
+
+    <div class="footer">
+    <p style="text-align: left; float: left; margin: 0px; padding: 0 0 0 5px;">Documentation licensed under the <a href="http://reference.data.gov.uk/id/open-government-licence" rel="license">Open Government Licence</a></p>
+        &copy; <a href="../copyright.html">British Crown Copyright</a> 2010 - 2020, Met Office
+    </div>
+
+    <!-- Include a version switcher to easily move between the documentation of different versions -->
+    <script type=text/javascript src="/iris/docs/version_switch.js" async></script>
+
+  </body>
+</html>
