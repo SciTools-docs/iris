@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
     <title>What’s New in Iris &lt;interim&gt; &#8212; Iris 3.0.dev0 documentation</title>
@@ -210,6 +210,19 @@ of <code class="docutils literal notranslate"><span class="pre">area</span></cod
 <div class="section" id="incompatible-changes">
 <h2>Incompatible Changes<a class="headerlink" href="#incompatible-changes" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
+<li><p>The method <code class="xref py py-meth docutils literal notranslate"><span class="pre">extract_strict()</span></code>, and the ‘strict’
+keyword to <a class="reference internal" href="../iris/iris/cube.html#iris.cube.CubeList.extract" title="iris.cube.CubeList.extract"><code class="xref py py-meth docutils literal notranslate"><span class="pre">extract()</span></code></a> method have been removed, and
+are replaced by the new routines <a class="reference internal" href="../iris/iris/cube.html#iris.cube.CubeList.extract_cube" title="iris.cube.CubeList.extract_cube"><code class="xref py py-meth docutils literal notranslate"><span class="pre">extract_cube()</span></code></a> and
+<a class="reference internal" href="../iris/iris/cube.html#iris.cube.CubeList.extract_cubes" title="iris.cube.CubeList.extract_cubes"><code class="xref py py-meth docutils literal notranslate"><span class="pre">extract_cubes()</span></code></a>.
+The new routines perform the same operation, but in a style more like other
+Iris functions such as <a class="reference internal" href="../iris/iris.html#iris.load_cube" title="iris.load_cube"><code class="xref py py-meth docutils literal notranslate"><span class="pre">iris.load_cube()</span></code></a> and <a class="reference internal" href="../iris/iris.html#iris.load_cubes" title="iris.load_cubes"><code class="xref py py-meth docutils literal notranslate"><span class="pre">iris.load_cubes()</span></code></a>.
+Unlike ‘strict extraction’, the type of return value is now completely
+consistent : <a class="reference internal" href="../iris/iris/cube.html#iris.cube.CubeList.extract_cube" title="iris.cube.CubeList.extract_cube"><code class="xref py py-meth docutils literal notranslate"><span class="pre">extract_cube()</span></code></a> always returns a cube,
+and <a class="reference internal" href="../iris/iris/cube.html#iris.cube.CubeList.extract_cubes" title="iris.cube.CubeList.extract_cubes"><code class="xref py py-meth docutils literal notranslate"><span class="pre">extract_cubes()</span></code></a> always returns a CubeList of a
+length equal to the number of constraints.</p></li>
+</ul>
+<hr class="docutils" />
+<ul class="simple">
 <li><p>The former function “iris.analysis.coord_comparison” has been removed.</p></li>
 </ul>
 <hr class="docutils" />
@@ -242,10 +255,6 @@ deprecated attributes <cite>flag1</cite>, <cite>flag2</cite> etc. have been remo
 <hr class="docutils" />
 <div class="section" id="documentation-changes">
 <h2>Documentation Changes<a class="headerlink" href="#documentation-changes" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Updated the documentation for the <a class="reference internal" href="../iris/iris/cube.html#iris.cube.CubeList.extract" title="iris.cube.CubeList.extract"><code class="xref py py-meth docutils literal notranslate"><span class="pre">iris.cube.CubeList.extract()</span></code></a> method, to specify when a single cube, as opposed to a CubeList, may be returned.</p></li>
-</ul>
-<hr class="docutils" />
 <ul class="simple">
 <li><p>Added support for the <a class="reference external" href="https://black.readthedocs.io/en/stable/">black</a> code formatter.
 This is now automatically checked on GitHub PRs, replacing the older, unittest-based
