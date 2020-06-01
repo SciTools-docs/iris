@@ -171,7 +171,7 @@ model, from each ensemble member.</p></li>
         <span class="kn">import</span> <span class="nn">iris.coords</span>
 
         <span class="n">realization_coord</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">coords</span><span class="o">.</span><span class="n">AuxCoord</span><span class="p">(</span>
-            <span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">(</span><span class="n">realization_number</span><span class="p">),</span> <span class="s2">&quot;realization&quot;</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">(</span><span class="n">realization_number</span><span class="p">),</span> <span class="s2">&quot;realization&quot;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;1&quot;</span>
         <span class="p">)</span>
         <span class="n">cube</span><span class="o">.</span><span class="n">add_aux_coord</span><span class="p">(</span><span class="n">realization_coord</span><span class="p">)</span>
 
