@@ -147,8 +147,11 @@ such data caused an exception.</p></li>
 </ul>
 <hr class="docutils" />
 <ul class="simple">
-<li><p>The area weights used when performing area weighted regridding are now
-cached.</p></li>
+<li><p>The area weights used when performing area weighted regridding with <a class="reference internal" href="../iris/iris/analysis.html#iris.analysis.AreaWeighted" title="iris.analysis.AreaWeighted"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.analysis.AreaWeighted</span></code></a>
+are now cached.
+This allows a significant speedup when regridding multiple similar cubes, by repeatedly using
+a <a class="reference external" href="../iris/iris/analysis.html?highlight=regridder#iris.analysis.AreaWeighted.regridder">‘regridder’ object</a>
+which you created first.</p></li>
 </ul>
 <hr class="docutils" />
 <ul class="simple">
