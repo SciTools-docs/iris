@@ -1,18 +1,18 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
     <title>iris.analysis.maths &#8212; Iris 3.0.dev0 documentation</title>
     <link rel="stylesheet" href="../../../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="copyright" title="Copyright" href="../../../copyright.html" />
@@ -103,7 +103,7 @@
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
 
@@ -133,9 +133,9 @@
 <li><p><a class="reference internal" href="#iris.analysis.maths.IFunc" title="iris.analysis.maths.IFunc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IFunc</span></code></a></p></li>
 </ul>
 </div></blockquote>
-<dl class="function">
+<dl class="py function">
 <dt id="iris.analysis.maths.abs">
-<code class="sig-prename descclassname">iris.analysis.maths.</code><code class="sig-name descname">abs</code><span class="sig-paren">(</span><em class="sig-param">cube</em>, <em class="sig-param">in_place=False</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.analysis.maths.abs" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.analysis.maths.</code><code class="sig-name descname">abs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cube</span></em>, <em class="sig-param"><span class="n">in_place</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.analysis.maths.abs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate the absolute values of the data in the Cube provided.</p>
 <p>Args:</p>
 <ul class="simple">
@@ -161,9 +161,9 @@
 
 <p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
 <!--<hr class="docutils" />
---><dl class="function">
+--><dl class="py function">
 <dt id="iris.analysis.maths.add">
-<code class="sig-prename descclassname">iris.analysis.maths.</code><code class="sig-name descname">add</code><span class="sig-paren">(</span><em class="sig-param">cube</em>, <em class="sig-param">other</em>, <em class="sig-param">dim=None</em>, <em class="sig-param">in_place=False</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.analysis.maths.add" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.analysis.maths.</code><code class="sig-name descname">add</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cube</span></em>, <em class="sig-param"><span class="n">other</span></em>, <em class="sig-param"><span class="n">dim</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">in_place</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.analysis.maths.add" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate the sum of two cubes, or the sum of a cube and a
 coordinate or scalar value.</p>
 <p>When summing two cubes, they must both have the same coordinate
@@ -179,7 +179,7 @@ number of elements along a shared axis.</p>
 </li>
 <li><dl class="simple">
 <dt>other:</dt><dd><p>An instance of <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.cube.Cube</span></code></a> or <a class="reference internal" href="../coords.html#iris.coords.Coord" title="iris.coords.Coord"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.coords.Coord</span></code></a>,
-or a number or <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.17)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>.</p>
+or a number or <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.18)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>.</p>
 </dd>
 </dl>
 </li>
@@ -206,9 +206,9 @@ the dimension to process.</p>
 
 <p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
 <!--<hr class="docutils" />
---><dl class="function">
+--><dl class="py function">
 <dt id="iris.analysis.maths.apply_ufunc">
-<code class="sig-prename descclassname">iris.analysis.maths.</code><code class="sig-name descname">apply_ufunc</code><span class="sig-paren">(</span><em class="sig-param">ufunc</em>, <em class="sig-param">cube</em>, <em class="sig-param">other_cube=None</em>, <em class="sig-param">new_unit=None</em>, <em class="sig-param">new_name=None</em>, <em class="sig-param">in_place=False</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.analysis.maths.apply_ufunc" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.analysis.maths.</code><code class="sig-name descname">apply_ufunc</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ufunc</span></em>, <em class="sig-param"><span class="n">cube</span></em>, <em class="sig-param"><span class="n">other_cube</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">new_unit</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">new_name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">in_place</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.analysis.maths.apply_ufunc" title="Permalink to this definition">¶</a></dt>
 <dd><p>Apply a <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/ufuncs.html">numpy universal function</a> to a cube
 or pair of cubes.</p>
 <div class="admonition note">
@@ -269,9 +269,9 @@ argument to <code class="xref py py-func docutils literal notranslate"><span cla
 
 <p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
 <!--<hr class="docutils" />
---><dl class="function">
+--><dl class="py function">
 <dt id="iris.analysis.maths.divide">
-<code class="sig-prename descclassname">iris.analysis.maths.</code><code class="sig-name descname">divide</code><span class="sig-paren">(</span><em class="sig-param">cube</em>, <em class="sig-param">other</em>, <em class="sig-param">dim=None</em>, <em class="sig-param">in_place=False</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.analysis.maths.divide" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.analysis.maths.</code><code class="sig-name descname">divide</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cube</span></em>, <em class="sig-param"><span class="n">other</span></em>, <em class="sig-param"><span class="n">dim</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">in_place</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.analysis.maths.divide" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate the division of a cube by a cube or coordinate.</p>
 <p>Args:</p>
 <ul class="simple">
@@ -282,7 +282,7 @@ argument to <code class="xref py py-func docutils literal notranslate"><span cla
 </li>
 <li><dl class="simple">
 <dt>other:</dt><dd><p>An instance of <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.cube.Cube</span></code></a> or <a class="reference internal" href="../coords.html#iris.coords.Coord" title="iris.coords.Coord"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.coords.Coord</span></code></a>,
-or a number or <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.17)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>.</p>
+or a number or <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.18)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>.</p>
 </dd>
 </dl>
 </li>
@@ -304,9 +304,9 @@ the dimension to process.</p>
 
 <p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
 <!--<hr class="docutils" />
---><dl class="function">
+--><dl class="py function">
 <dt id="iris.analysis.maths.exp">
-<code class="sig-prename descclassname">iris.analysis.maths.</code><code class="sig-name descname">exp</code><span class="sig-paren">(</span><em class="sig-param">cube</em>, <em class="sig-param">in_place=False</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.analysis.maths.exp" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.analysis.maths.</code><code class="sig-name descname">exp</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cube</span></em>, <em class="sig-param"><span class="n">in_place</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.analysis.maths.exp" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate the exponential (exp(x)) of the cube.</p>
 <p>Args:</p>
 <ul class="simple">
@@ -336,9 +336,9 @@ the dimension to process.</p>
 
 <p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
 <!--<hr class="docutils" />
---><dl class="function">
+--><dl class="py function">
 <dt id="iris.analysis.maths.exponentiate">
-<code class="sig-prename descclassname">iris.analysis.maths.</code><code class="sig-name descname">exponentiate</code><span class="sig-paren">(</span><em class="sig-param">cube</em>, <em class="sig-param">exponent</em>, <em class="sig-param">in_place=False</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.analysis.maths.exponentiate" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.analysis.maths.</code><code class="sig-name descname">exponentiate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cube</span></em>, <em class="sig-param"><span class="n">exponent</span></em>, <em class="sig-param"><span class="n">in_place</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.analysis.maths.exponentiate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the result of the given cube to the power of a scalar.</p>
 <p>Args:</p>
 <ul>
@@ -376,9 +376,9 @@ powers of the basic units.</p>
 
 <p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
 <!--<hr class="docutils" />
---><dl class="function">
+--><dl class="py function">
 <dt id="iris.analysis.maths.intersection_of_cubes">
-<code class="sig-prename descclassname">iris.analysis.maths.</code><code class="sig-name descname">intersection_of_cubes</code><span class="sig-paren">(</span><em class="sig-param">cube</em>, <em class="sig-param">other_cube</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.analysis.maths.intersection_of_cubes" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.analysis.maths.</code><code class="sig-name descname">intersection_of_cubes</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cube</span></em>, <em class="sig-param"><span class="n">other_cube</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.analysis.maths.intersection_of_cubes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the two Cubes of intersection given two Cubes.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -407,9 +407,9 @@ to the original cubes restricted to their intersection.</p>
 
 <p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
 <!--<hr class="docutils" />
---><dl class="function">
+--><dl class="py function">
 <dt id="iris.analysis.maths.log">
-<code class="sig-prename descclassname">iris.analysis.maths.</code><code class="sig-name descname">log</code><span class="sig-paren">(</span><em class="sig-param">cube</em>, <em class="sig-param">in_place=False</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.analysis.maths.log" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.analysis.maths.</code><code class="sig-name descname">log</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cube</span></em>, <em class="sig-param"><span class="n">in_place</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.analysis.maths.log" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate the natural logarithm (base-e logarithm) of the cube.</p>
 <p>Args:</p>
 <ul class="simple">
@@ -435,9 +435,9 @@ to the original cubes restricted to their intersection.</p>
 
 <p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
 <!--<hr class="docutils" />
---><dl class="function">
+--><dl class="py function">
 <dt id="iris.analysis.maths.log10">
-<code class="sig-prename descclassname">iris.analysis.maths.</code><code class="sig-name descname">log10</code><span class="sig-paren">(</span><em class="sig-param">cube</em>, <em class="sig-param">in_place=False</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.analysis.maths.log10" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.analysis.maths.</code><code class="sig-name descname">log10</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cube</span></em>, <em class="sig-param"><span class="n">in_place</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.analysis.maths.log10" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate the base-10 logarithm of the cube.</p>
 <p>Args:</p>
 <ul class="simple">
@@ -463,9 +463,9 @@ to the original cubes restricted to their intersection.</p>
 
 <p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
 <!--<hr class="docutils" />
---><dl class="function">
+--><dl class="py function">
 <dt id="iris.analysis.maths.log2">
-<code class="sig-prename descclassname">iris.analysis.maths.</code><code class="sig-name descname">log2</code><span class="sig-paren">(</span><em class="sig-param">cube</em>, <em class="sig-param">in_place=False</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.analysis.maths.log2" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.analysis.maths.</code><code class="sig-name descname">log2</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cube</span></em>, <em class="sig-param"><span class="n">in_place</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.analysis.maths.log2" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate the base-2 logarithm of the cube.</p>
 <p>Args:</p>
 <ul class="simple">
@@ -491,9 +491,9 @@ to the original cubes restricted to their intersection.</p>
 
 <p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
 <!--<hr class="docutils" />
---><dl class="function">
+--><dl class="py function">
 <dt id="iris.analysis.maths.multiply">
-<code class="sig-prename descclassname">iris.analysis.maths.</code><code class="sig-name descname">multiply</code><span class="sig-paren">(</span><em class="sig-param">cube</em>, <em class="sig-param">other</em>, <em class="sig-param">dim=None</em>, <em class="sig-param">in_place=False</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.analysis.maths.multiply" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.analysis.maths.</code><code class="sig-name descname">multiply</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cube</span></em>, <em class="sig-param"><span class="n">other</span></em>, <em class="sig-param"><span class="n">dim</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">in_place</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.analysis.maths.multiply" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate the product of a cube and another cube or coordinate.</p>
 <p>Args:</p>
 <ul class="simple">
@@ -504,7 +504,7 @@ to the original cubes restricted to their intersection.</p>
 </li>
 <li><dl class="simple">
 <dt>other:</dt><dd><p>An instance of <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.cube.Cube</span></code></a> or <a class="reference internal" href="../coords.html#iris.coords.Coord" title="iris.coords.Coord"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.coords.Coord</span></code></a>,
-or a number or <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.17)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>.</p>
+or a number or <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.18)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>.</p>
 </dd>
 </dl>
 </li>
@@ -526,9 +526,9 @@ the dimension to process.</p>
 
 <p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
 <!--<hr class="docutils" />
---><dl class="function">
+--><dl class="py function">
 <dt id="iris.analysis.maths.subtract">
-<code class="sig-prename descclassname">iris.analysis.maths.</code><code class="sig-name descname">subtract</code><span class="sig-paren">(</span><em class="sig-param">cube</em>, <em class="sig-param">other</em>, <em class="sig-param">dim=None</em>, <em class="sig-param">in_place=False</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.analysis.maths.subtract" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.analysis.maths.</code><code class="sig-name descname">subtract</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cube</span></em>, <em class="sig-param"><span class="n">other</span></em>, <em class="sig-param"><span class="n">dim</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">in_place</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.analysis.maths.subtract" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate the difference between two cubes, or the difference between
 a cube and a coordinate or scalar value.</p>
 <p>When subtracting two cubes, they must both have the same coordinate
@@ -544,7 +544,7 @@ same number of elements along a shared axis.</p>
 </li>
 <li><dl class="simple">
 <dt>other:</dt><dd><p>An instance of <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.cube.Cube</span></code></a> or <a class="reference internal" href="../coords.html#iris.coords.Coord" title="iris.coords.Coord"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.coords.Coord</span></code></a>,
-or a number or <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.17)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>.</p>
+or a number or <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.18)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>.</p>
 </dd>
 </dl>
 </li>
@@ -573,11 +573,10 @@ the dimension to process.</p>
 <!--<hr class="docutils" />
 --><p><a class="reference internal" href="#iris.analysis.maths.IFunc" title="iris.analysis.maths.IFunc"><code class="xref py py-class docutils literal notranslate"><span class="pre">IFunc</span></code></a> class for functions that can be applied to an iris cube.</p>
 <blockquote>
-<div><dl class="class">
+<div><dl class="py class">
 <dt id="iris.analysis.maths.IFunc">
-<em class="property">class </em><code class="sig-prename descclassname">iris.analysis.maths.</code><code class="sig-name descname">IFunc</code><span class="sig-paren">(</span><em class="sig-param">data_func</em>, <em class="sig-param">units_func</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.analysis.maths.IFunc" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<p>Create an ifunc from a data function and units function.</p>
+<em class="property">class </em><code class="sig-prename descclassname">iris.analysis.maths.</code><code class="sig-name descname">IFunc</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data_func</span></em>, <em class="sig-param"><span class="n">units_func</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.analysis.maths.IFunc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create an ifunc from a data function and units function.</p>
 <p>Args:</p>
 <ul>
 <li><p>data_func:</p>
@@ -669,7 +668,7 @@ argument:</p>
 
     <div class="footer">
     <p style="text-align: left; float: left; margin: 0px; padding: 0 0 0 5px;">Documentation licensed under the <a href="http://reference.data.gov.uk/id/open-government-licence" rel="license">Open Government Licence</a></p>
-        &copy; <a href="../../../copyright.html">British Crown Copyright</a> 2010 - 2019, Met Office
+        &copy; <a href="../../../copyright.html">British Crown Copyright</a> 2010 - 2020, Met Office
     </div>
 
     <!-- Include a version switcher to easily move between the documentation of different versions -->
