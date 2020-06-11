@@ -4,6 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>reST quickstart &#8212; Iris 3.0.dev0 documentation</title>
     <link rel="stylesheet" href="../../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -75,10 +76,42 @@
         <li><a href="../../contents.html">contents</a>|&nbsp;</li>
 
           <li class="nav-item nav-item-1"><a href="../index.html" >Iris developer guide</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="index.html" accesskey="U">Documentation in Iris</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="index.html" accesskey="U">Documentation in Iris</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">reST quickstart</a></li> 
       </ul>
     </div>
+  
 
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="rest-quickstart">
+<h1>reST quickstart<a class="headerlink" href="#rest-quickstart" title="Permalink to this headline">¶</a></h1>
+<p>reST (<a class="reference external" href="http://en.wikipedia.org/wiki/ReStructuredText">http://en.wikipedia.org/wiki/ReStructuredText</a>) is a lightweight markup language intended to be highly readable in source format. This guide will cover some of the more frequently used advanced reST markup syntaxes, for the basics of reST the following links may be useful:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="http://sphinx.pocoo.org/rest.html">http://sphinx.pocoo.org/rest.html</a></p></li>
+<li><p><a class="reference external" href="http://docs.geoserver.org/trunk/en/docguide/sphinx.html">http://docs.geoserver.org/trunk/en/docguide/sphinx.html</a></p></li>
+<li><p><a class="reference external" href="http://packages.python.org/an_example_pypi_project/sphinx.html">http://packages.python.org/an_example_pypi_project/sphinx.html</a></p></li>
+</ul>
+</div></blockquote>
+<p>Reference documentation for reST can be found at <a class="reference external" href="http://docutils.sourceforge.net/rst.html">http://docutils.sourceforge.net/rst.html</a>.</p>
+<div class="section" id="creating-links">
+<h2>Creating links<a class="headerlink" href="#creating-links" title="Permalink to this headline">¶</a></h2>
+<p>Basic links can be created with <code class="docutils literal notranslate"><span class="pre">`Text</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">link</span> <span class="pre">&lt;http://example.com&gt;`_</span></code> which will look like <a class="reference external" href="http://example.com">Text of the link</a></p>
+<p>Documents in the same project can be cross referenced with the syntax <code class="docutils literal notranslate"><span class="pre">:doc:`document_name`</span></code> for example, to reference the “docstrings” page <code class="docutils literal notranslate"><span class="pre">:doc:`docstrings`</span></code> creates the following link <a class="reference internal" href="docstrings.html"><span class="doc">Docstrings</span></a></p>
+<p>References can be created between sections by first making a “label” where you would like the link to point to <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">_name_of_reference::</span></code> the appropriate link can now be created with <code class="docutils literal notranslate"><span class="pre">:ref:`name_of_reference`</span></code> (note the trailing underscore on the label)</p>
+<p>Cross referencing other reference documentation can be achieved with the syntax <code class="docutils literal notranslate"><span class="pre">:py:class:`zipfile.ZipFile`</span></code> which will result in links such as <a class="reference external" href="https://docs.python.org/2.7/library/zipfile.html#zipfile.ZipFile" title="(in Python v2.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">zipfile.ZipFile</span></code></a> and <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.18)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>.</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="../../contents.html">Table of Contents</a></h3>
@@ -114,36 +147,6 @@
 <script>$('#searchbox').show(0);</script>
         </div>
       </div>
-
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
-            
-  <div class="section" id="rest-quickstart">
-<h1>reST quickstart<a class="headerlink" href="#rest-quickstart" title="Permalink to this headline">¶</a></h1>
-<p>reST (<a class="reference external" href="http://en.wikipedia.org/wiki/ReStructuredText">http://en.wikipedia.org/wiki/ReStructuredText</a>) is a lightweight markup language intended to be highly readable in source format. This guide will cover some of the more frequently used advanced reST markup syntaxes, for the basics of reST the following links may be useful:</p>
-<blockquote>
-<div><ul class="simple">
-<li><p><a class="reference external" href="http://sphinx.pocoo.org/rest.html">http://sphinx.pocoo.org/rest.html</a></p></li>
-<li><p><a class="reference external" href="http://docs.geoserver.org/trunk/en/docguide/sphinx.html">http://docs.geoserver.org/trunk/en/docguide/sphinx.html</a></p></li>
-<li><p><a class="reference external" href="http://packages.python.org/an_example_pypi_project/sphinx.html">http://packages.python.org/an_example_pypi_project/sphinx.html</a></p></li>
-</ul>
-</div></blockquote>
-<p>Reference documentation for reST can be found at <a class="reference external" href="http://docutils.sourceforge.net/rst.html">http://docutils.sourceforge.net/rst.html</a>.</p>
-<div class="section" id="creating-links">
-<h2>Creating links<a class="headerlink" href="#creating-links" title="Permalink to this headline">¶</a></h2>
-<p>Basic links can be created with <code class="docutils literal notranslate"><span class="pre">`Text</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">link</span> <span class="pre">&lt;http://example.com&gt;`_</span></code> which will look like <a class="reference external" href="http://example.com">Text of the link</a></p>
-<p>Documents in the same project can be cross referenced with the syntax <code class="docutils literal notranslate"><span class="pre">:doc:`document_name`</span></code> for example, to reference the “docstrings” page <code class="docutils literal notranslate"><span class="pre">:doc:`docstrings`</span></code> creates the following link <a class="reference internal" href="docstrings.html"><span class="doc">Docstrings</span></a></p>
-<p>References can be created between sections by first making a “label” where you would like the link to point to <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">_name_of_reference::</span></code> the appropriate link can now be created with <code class="docutils literal notranslate"><span class="pre">:ref:`name_of_reference`</span></code> (note the trailing underscore on the label)</p>
-<p>Cross referencing other reference documentation can be achieved with the syntax <code class="docutils literal notranslate"><span class="pre">:py:class:`zipfile.ZipFile`</span></code> which will result in links such as <a class="reference external" href="https://docs.python.org/2.7/library/zipfile.html#zipfile.ZipFile" title="(in Python v2.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">zipfile.ZipFile</span></code></a> and <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.18)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>.</p>
-</div>
-</div>
-
-
-          </div>
-        </div>
-      </div>
       <div class="clearer"></div>
     </div>
     <div class="related" role="navigation" aria-label="related navigation">
@@ -167,7 +170,8 @@
         <li><a href="../../contents.html">contents</a>|&nbsp;</li>
 
           <li class="nav-item nav-item-1"><a href="../index.html" >Iris developer guide</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="index.html" >Documentation in Iris</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="index.html" >Documentation in Iris</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">reST quickstart</a></li> 
       </ul>
     </div>
 

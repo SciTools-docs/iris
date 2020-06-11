@@ -4,6 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Development workflow &#8212; Iris 3.0.dev0 documentation</title>
     <link rel="stylesheet" href="../../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -76,64 +77,11 @@
 
           <li class="nav-item nav-item-1"><a href="../index.html" >Iris developer guide</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="index.html" >Working with <em>iris</em> source code</a> &#187;</li>
-          <li class="nav-item nav-item-3"><a href="git_development.html" accesskey="U">Git for development</a> &#187;</li> 
+          <li class="nav-item nav-item-3"><a href="git_development.html" accesskey="U">Git for development</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Development workflow</a></li> 
       </ul>
     </div>
-
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="../../contents.html">Table of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">Development workflow</a><ul>
-<li><a class="reference internal" href="#workflow-summary">Workflow summary</a></li>
-<li><a class="reference internal" href="#consider-deleting-your-master-branch">Consider deleting your master branch</a></li>
-<li><a class="reference internal" href="#update-the-mirror-of-trunk">Update the mirror of trunk</a></li>
-<li><a class="reference internal" href="#make-a-new-feature-branch">Make a new feature branch</a></li>
-<li><a class="reference internal" href="#the-editing-workflow">The editing workflow</a><ul>
-<li><a class="reference internal" href="#overview">Overview</a></li>
-<li><a class="reference internal" href="#in-more-detail">In more detail</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#testing-your-changes">Testing your changes</a></li>
-<li><a class="reference internal" href="#ask-for-your-changes-to-be-reviewed-or-merged">Ask for your changes to be reviewed or merged</a></li>
-<li><a class="reference internal" href="#some-other-things-you-might-want-to-do">Some other things you might want to do</a><ul>
-<li><a class="reference internal" href="#delete-a-branch-on-github">Delete a branch on github</a></li>
-<li><a class="reference internal" href="#several-people-sharing-a-single-repository">Several people sharing a single repository</a></li>
-<li><a class="reference internal" href="#explore-your-repository">Explore your repository</a></li>
-<li><a class="reference internal" href="#rebasing-on-trunk">Rebasing on trunk</a></li>
-<li><a class="reference internal" href="#recovering-from-mess-ups">Recovering from mess-ups</a></li>
-<li><a class="reference internal" href="#rewriting-commit-history">Rewriting commit history</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="configure_git.html"
-                        title="previous chapter">Configure git</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="maintainer_workflow.html"
-                        title="next chapter">Maintainer workflow</a></p>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="../../_sources/developers_guide/gitwash/development_workflow.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>$('#searchbox').show(0);</script>
-        </div>
-      </div>
+  
 
     <div class="document">
       <div class="documentwrapper">
@@ -515,7 +463,62 @@ message. After revising it, we get the output:</p>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../contents.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Development workflow</a><ul>
+<li><a class="reference internal" href="#workflow-summary">Workflow summary</a></li>
+<li><a class="reference internal" href="#consider-deleting-your-master-branch">Consider deleting your master branch</a></li>
+<li><a class="reference internal" href="#update-the-mirror-of-trunk">Update the mirror of trunk</a></li>
+<li><a class="reference internal" href="#make-a-new-feature-branch">Make a new feature branch</a></li>
+<li><a class="reference internal" href="#the-editing-workflow">The editing workflow</a><ul>
+<li><a class="reference internal" href="#overview">Overview</a></li>
+<li><a class="reference internal" href="#in-more-detail">In more detail</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#testing-your-changes">Testing your changes</a></li>
+<li><a class="reference internal" href="#ask-for-your-changes-to-be-reviewed-or-merged">Ask for your changes to be reviewed or merged</a></li>
+<li><a class="reference internal" href="#some-other-things-you-might-want-to-do">Some other things you might want to do</a><ul>
+<li><a class="reference internal" href="#delete-a-branch-on-github">Delete a branch on github</a></li>
+<li><a class="reference internal" href="#several-people-sharing-a-single-repository">Several people sharing a single repository</a></li>
+<li><a class="reference internal" href="#explore-your-repository">Explore your repository</a></li>
+<li><a class="reference internal" href="#rebasing-on-trunk">Rebasing on trunk</a></li>
+<li><a class="reference internal" href="#recovering-from-mess-ups">Recovering from mess-ups</a></li>
+<li><a class="reference internal" href="#rewriting-commit-history">Rewriting commit history</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="configure_git.html"
+                        title="previous chapter">Configure git</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="maintainer_workflow.html"
+                        title="next chapter">Maintainer workflow</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/developers_guide/gitwash/development_workflow.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -542,7 +545,8 @@ message. After revising it, we get the output:</p>
 
           <li class="nav-item nav-item-1"><a href="../index.html" >Iris developer guide</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="index.html" >Working with <em>iris</em> source code</a> &#187;</li>
-          <li class="nav-item nav-item-3"><a href="git_development.html" >Git for development</a> &#187;</li> 
+          <li class="nav-item nav-item-3"><a href="git_development.html" >Git for development</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Development workflow</a></li> 
       </ul>
     </div>
 

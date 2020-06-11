@@ -4,6 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>iris.coords &#8212; Iris 3.0.dev0 documentation</title>
     <link rel="stylesheet" href="../../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -74,37 +75,11 @@
         <li><a href="../../gallery.html">gallery</a>|&nbsp;</li>
         <li><a href="../../contents.html">contents</a>|&nbsp;</li>
 
-          <li class="nav-item nav-item-1"><a href="../iris.html" accesskey="U">Iris reference documentation</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="../iris.html" accesskey="U">Iris reference documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">iris.coords</a></li> 
       </ul>
     </div>
-
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="coord_systems.html"
-                        title="previous chapter">iris.coord_systems</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="cube.html"
-                        title="next chapter">iris.cube</a></p>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="../../_sources/iris/iris/coords.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>$('#searchbox').show(0);</script>
-        </div>
-      </div>
+  
 
     <div class="document">
       <div class="documentwrapper">
@@ -955,13 +930,13 @@ bounds.</p>
 
 <dl class="py method">
 <dt id="iris.coords.Cell.count">
-<code class="sig-name descname">count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.Cell.count" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">count</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">/</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.Cell.count" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return number of occurrences of value.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="iris.coords.Cell.index">
-<code class="sig-name descname">index</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.Cell.index" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">index</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">start=0</em>, <em class="sig-param">stop=9223372036854775807</em>, <em class="sig-param">/</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.Cell.index" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return first index of value.</p>
 <p>Raises ValueError if the value is not present.</p>
 </dd></dl>
@@ -1789,7 +1764,7 @@ if units are not time units or if there are no bounds.</p>
 
 <dl class="py attribute">
 <dt id="iris.coords.Coord.coord_system">
-<code class="sig-name descname">coord_system</code><em class="property"> = None</em><a class="headerlink" href="#iris.coords.Coord.coord_system" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">coord_system</code><a class="headerlink" href="#iris.coords.Coord.coord_system" title="Permalink to this definition">¶</a></dt>
 <dd><p>Relevant coordinate system (if any).</p>
 </dd></dl>
 
@@ -1865,13 +1840,13 @@ object.</p>
 <dd><p>Create new instance of CoordDefn(standard_name, long_name, var_name, units, attributes, coord_system, climatological)</p>
 <dl class="py method">
 <dt id="iris.coords.CoordDefn.count">
-<code class="sig-name descname">count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.CoordDefn.count" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">count</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">/</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.CoordDefn.count" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return number of occurrences of value.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="iris.coords.CoordDefn.index">
-<code class="sig-name descname">index</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.CoordDefn.index" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">index</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">start=0</em>, <em class="sig-param">stop=9223372036854775807</em>, <em class="sig-param">/</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.CoordDefn.index" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return first index of value.</p>
 <p>Raises ValueError if the value is not present.</p>
 </dd></dl>
@@ -1975,13 +1950,13 @@ in the selection. Default is True.</p>
 </ul>
 <dl class="py method">
 <dt id="iris.coords.CoordExtent.count">
-<code class="sig-name descname">count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.CoordExtent.count" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">count</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">/</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.CoordExtent.count" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return number of occurrences of value.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="iris.coords.CoordExtent.index">
-<code class="sig-name descname">index</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.CoordExtent.index" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">index</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">start=0</em>, <em class="sig-param">stop=9223372036854775807</em>, <em class="sig-param">/</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.CoordExtent.index" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return first index of value.</p>
 <p>Raises ValueError if the value is not present.</p>
 </dd></dl>
@@ -2461,7 +2436,7 @@ does not have bounds.</p>
 
 <dl class="py attribute">
 <dt id="iris.coords.DimCoord.circular">
-<code class="sig-name descname">circular</code><em class="property"> = None</em><a class="headerlink" href="#iris.coords.DimCoord.circular" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">circular</code><a class="headerlink" href="#iris.coords.DimCoord.circular" title="Permalink to this definition">¶</a></dt>
 <dd><p>Whether the coordinate wraps by <code class="docutils literal notranslate"><span class="pre">coord.units.modulus</span></code>.</p>
 </dd></dl>
 
@@ -2540,7 +2515,35 @@ object.</p>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="coord_systems.html"
+                        title="previous chapter">iris.coord_systems</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="cube.html"
+                        title="next chapter">iris.cube</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/iris/iris/coords.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -2565,7 +2568,8 @@ object.</p>
         <li><a href="../../gallery.html">gallery</a>|&nbsp;</li>
         <li><a href="../../contents.html">contents</a>|&nbsp;</li>
 
-          <li class="nav-item nav-item-1"><a href="../iris.html" >Iris reference documentation</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="../iris.html" >Iris reference documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">iris.coords</a></li> 
       </ul>
     </div>
 
