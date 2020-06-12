@@ -1,0 +1,286 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iris.common.mixin &#8212; Iris 3.0.dev0 documentation</title>
+    <link rel="stylesheet" href="../../../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="copyright" title="Copyright" href="../../../copyright.html" />
+    <link rel="next" title="iris.config" href="../config.html" />
+    <link rel="prev" title="iris.common.metadata" href="metadata.html" />
+ 
+    <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+    <META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE"> 
+
+    <link rel="stylesheet" href="../../../_static/style.css" type="text/css" />
+    <script type="text/javascript" src="https://docs.python.org/2/_static/copybutton.js"></script>
+
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../_static/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../_static/favicon-16x16.png">
+
+    <link href="https://fonts.googleapis.com/css?family=Alike|Noto+Sans" rel="stylesheet">
+
+  </head><body>
+
+<a href="https://github.com/SciTools/iris">
+    <img class="github-forkme" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"
+         alt="Fork Iris on GitHub" />
+</a>
+
+
+<div class="header-content">
+    <a href="../../../index.html">
+        <img src="../../../_static/Iris7_1_trim_100.png" alt="Iris logo" />
+    </a>
+    <div class="strapline">
+      <h1>
+          Iris <span class="version">v3.0</span>
+      </h1>
+      <p>
+         A powerful, format-agnostic, community-driven Python library for analysing and
+         visualising Earth science data.
+      </p>
+    </div>
+</div>
+
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../config.html" title="iris.config"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="metadata.html" title="iris.common.metadata"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../../../index.html">home</a>|&nbsp;</li>
+        <li><a href="../../../examples/index.html">examples</a>|&nbsp;</li>
+        <li><a href="../../../gallery.html">gallery</a>|&nbsp;</li>
+        <li><a href="../../../contents.html">contents</a>|&nbsp;</li>
+
+          <li class="nav-item nav-item-1"><a href="../../iris.html" >Iris reference documentation</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../common.html" accesskey="U">iris.common</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">iris.common.mixin</a></li> 
+      </ul>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="iris-common-mixin">
+<span id="id1"></span><h1>iris.common.mixin<a class="headerlink" href="#iris-common-mixin" title="Permalink to this headline">¶</a></h1>
+<span class="target" id="module-iris.common.mixin"></span><p>In this module:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference internal" href="#iris.common.mixin.CFVariableMixin" title="iris.common.mixin.CFVariableMixin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CFVariableMixin</span></code></a></p></li>
+</ul>
+</div></blockquote>
+<p>Provides properties and methods common to all types of Iris
+“cube components”.</p>
+<p>Such “cube components” include all the subtypes of
+<code class="xref py py-class docutils literal notranslate"><span class="pre">_DimensionalMetadata</span></code>,
+and also <a class="reference internal" href="../aux_factory.html#iris.aux_factory.AuxCoordFactory" title="iris.aux_factory.AuxCoordFactory"><code class="xref py py-class docutils literal notranslate"><span class="pre">AuxCoordFactory</span></code></a>.</p>
+<blockquote>
+<div><dl class="py class">
+<dt id="iris.common.mixin.CFVariableMixin">
+<em class="property">class </em><code class="sig-prename descclassname">iris.common.mixin.</code><code class="sig-name descname">CFVariableMixin</code><a class="headerlink" href="#iris.common.mixin.CFVariableMixin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides properties and methods common to all types of Iris
+“cube components”.</p>
+<p>Such “cube components” include all the subtypes of
+<code class="xref py py-class docutils literal notranslate"><span class="pre">_DimensionalMetadata</span></code>,
+and also <a class="reference internal" href="../aux_factory.html#iris.aux_factory.AuxCoordFactory" title="iris.aux_factory.AuxCoordFactory"><code class="xref py py-class docutils literal notranslate"><span class="pre">AuxCoordFactory</span></code></a>.</p>
+<dl class="py method">
+<dt id="iris.common.mixin.CFVariableMixin.name">
+<code class="sig-name descname">name</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">default</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">token</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.mixin.CFVariableMixin.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string name representing the identity of the metadata.</p>
+<p>First it tries standard name, then it tries the long name, then
+the NetCDF variable name, before falling-back to a default value,
+which itself defaults to the string ‘unknown’.</p>
+<p>Kwargs:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>default:</dt><dd><p>The fall-back string representing the default name. Defaults to
+the string ‘unknown’.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>token:</dt><dd><p>If True, ensures that the name returned satisfies the criteria for
+the characters required by a valid NetCDF name. If it is not
+possible to return a valid name, then a ValueError exception is
+raised. Defaults to False.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>String.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="iris.common.mixin.CFVariableMixin.rename">
+<code class="sig-name descname">rename</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.mixin.CFVariableMixin.rename" title="Permalink to this definition">¶</a></dt>
+<dd><p>Changes the human-readable name.</p>
+<p>If ‘name’ is a valid standard name it will assign it to
+<a class="reference internal" href="#iris.common.mixin.CFVariableMixin.standard_name" title="iris.common.mixin.CFVariableMixin.standard_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">standard_name</span></code></a>, otherwise it will assign it to
+<a class="reference internal" href="#iris.common.mixin.CFVariableMixin.long_name" title="iris.common.mixin.CFVariableMixin.long_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">long_name</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="iris.common.mixin.CFVariableMixin.attributes">
+<em class="property">property </em><code class="sig-name descname">attributes</code><a class="headerlink" href="#iris.common.mixin.CFVariableMixin.attributes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="iris.common.mixin.CFVariableMixin.long_name">
+<em class="property">property </em><code class="sig-name descname">long_name</code><a class="headerlink" href="#iris.common.mixin.CFVariableMixin.long_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The CF Metadata long name for the object.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="iris.common.mixin.CFVariableMixin.metadata">
+<em class="property">property </em><code class="sig-name descname">metadata</code><a class="headerlink" href="#iris.common.mixin.CFVariableMixin.metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>The defining signature of this Iris data element
+(e.g. this <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a> or <a class="reference internal" href="../coords.html#iris.coords.Coord" title="iris.coords.Coord"><code class="xref py py-class docutils literal notranslate"><span class="pre">Coord</span></code></a>).</p>
+<p>??? can we rename this as “signature” or “identity” ???</p>
+<p>This reads out as a <code class="xref py py-class docutils literal notranslate"><span class="pre">namedtuple</span></code> type object.
+It can be assigned another signature of the same type, a tuple of the
+correct length, or a dictionary whose keys are the appropriate property
+names.</p>
+<p>The elements ‘signature’ is the values of those properties which
+determine the element’s distinct meaning in CF, allowing it to be
+matched to or sorted with other objects of the same type.</p>
+<p>This includes at least the “xxx_name” properties, units and attributes.
+It also includes anything which bears on phenomenon identity, such as
+‘cell_methods’ of a Cube, or ‘climatological’ of a Coord.
+It does <em>not</em> include the dimensions or values of any element array
+data, such as Cube.data or Coord.points.
+For a cube, it also does <em>not</em> include the array-valued sub-elements,
+such as Coords, CellMeasures or Ancillary Variables.</p>
+<dl>
+<dt>For example:</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">signature</span><span class="p">)</span>
+<span class="go">CubeMetadata(standard_name=None, long_name=&#39;q&#39;, var_name=None, units=Unit(&#39;unknown&#39;), attributes={}, cell_methods=())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">signature</span><span class="o">.</span><span class="n">_fields</span><span class="p">)</span>
+<span class="go">(&#39;standard_name&#39;, &#39;long_name&#39;, &#39;var_name&#39;, &#39;units&#39;, &#39;attributes&#39;, &#39;cell_methods&#39;)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cube_1</span><span class="o">.</span><span class="n">signature</span> <span class="o">=</span> <span class="n">cube_2</span><span class="o">.</span><span class="n">signature</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="iris.common.mixin.CFVariableMixin.standard_name">
+<em class="property">property </em><code class="sig-name descname">standard_name</code><a class="headerlink" href="#iris.common.mixin.CFVariableMixin.standard_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The CF Metadata standard name for the object.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="iris.common.mixin.CFVariableMixin.units">
+<em class="property">property </em><code class="sig-name descname">units</code><a class="headerlink" href="#iris.common.mixin.CFVariableMixin.units" title="Permalink to this definition">¶</a></dt>
+<dd><p>The S.I. unit of the object.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="iris.common.mixin.CFVariableMixin.var_name">
+<em class="property">property </em><code class="sig-name descname">var_name</code><a class="headerlink" href="#iris.common.mixin.CFVariableMixin.var_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The NetCDF variable name for the object.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div></blockquote>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="metadata.html"
+                        title="previous chapter">iris.common.metadata</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../config.html"
+                        title="next chapter">iris.config</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/iris/iris/common/mixin.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../config.html" title="iris.config"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="metadata.html" title="iris.common.metadata"
+             >previous</a> |</li>
+        <li><a href="../../../index.html">home</a>|&nbsp;</li>
+        <li><a href="../../../examples/index.html">examples</a>|&nbsp;</li>
+        <li><a href="../../../gallery.html">gallery</a>|&nbsp;</li>
+        <li><a href="../../../contents.html">contents</a>|&nbsp;</li>
+
+          <li class="nav-item nav-item-1"><a href="../../iris.html" >Iris reference documentation</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../common.html" >iris.common</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">iris.common.mixin</a></li> 
+      </ul>
+    </div>
+
+    <div class="footer">
+    <p style="text-align: left; float: left; margin: 0px; padding: 0 0 0 5px;">Documentation licensed under the <a href="http://reference.data.gov.uk/id/open-government-licence" rel="license">Open Government Licence</a></p>
+        &copy; <a href="../../../copyright.html">British Crown Copyright</a> 2010 - 2020, Met Office
+    </div>
+
+    <!-- Include a version switcher to easily move between the documentation of different versions -->
+    <script type=text/javascript src="/iris/docs/version_switch.js" async></script>
+
+  </body>
+</html>
