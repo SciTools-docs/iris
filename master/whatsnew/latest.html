@@ -156,6 +156,11 @@ Now that Python2 support has been dropped, Iris is free to use the latest versio
 <div class="section" id="bugs-fixed">
 <h2>Bugs Fixed<a class="headerlink" href="#bugs-fixed" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
+<li><p>The method <code class="xref py py-meth docutils literal notranslate"><span class="pre">remove_coord()</span></code> would fail to remove derived
+coordinates, will now remove derived coordinates by removing aux_factories.</p></li>
+</ul>
+<hr class="docutils" />
+<ul class="simple">
 <li><p>The <cite>__iter__()</cite> method in class:<cite>iris.cube.Cube</cite> was set to <cite>None</cite>.
 <cite>TypeError</cite> is still raised if a <cite>Cube</cite> is iterated over but
 <cite>isinstance(cube, collections.Iterable)</cite> now behaves as expected.</p></li>
