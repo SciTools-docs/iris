@@ -1,18 +1,19 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>iris.experimental.regrid &#8212; Iris 3.0.dev0 documentation</title>
     <link rel="stylesheet" href="../../../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="copyright" title="Copyright" href="../../../copyright.html" />
@@ -75,37 +76,11 @@
         <li><a href="../../../contents.html">contents</a>|&nbsp;</li>
 
           <li class="nav-item nav-item-1"><a href="../../iris.html" >Iris reference documentation</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../experimental.html" accesskey="U">iris.experimental</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../experimental.html" accesskey="U">iris.experimental</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">iris.experimental.regrid</a></li> 
       </ul>
     </div>
-
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="raster.html"
-                        title="previous chapter">iris.experimental.raster</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="regrid_conservative.html"
-                        title="next chapter">iris.experimental.regrid_conservative</a></p>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="../../../_sources/iris/iris/experimental/regrid.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../../../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
+  
 
     <div class="document">
       <div class="documentwrapper">
@@ -125,9 +100,9 @@
 <li><p><a class="reference internal" href="#iris.experimental.regrid.ProjectedUnstructuredNearest" title="iris.experimental.regrid.ProjectedUnstructuredNearest"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ProjectedUnstructuredNearest</span></code></a></p></li>
 </ul>
 </div></blockquote>
-<dl class="function">
+<dl class="py function">
 <dt id="iris.experimental.regrid.regrid_area_weighted_rectilinear_src_and_grid">
-<code class="sig-prename descclassname">iris.experimental.regrid.</code><code class="sig-name descname">regrid_area_weighted_rectilinear_src_and_grid</code><span class="sig-paren">(</span><em class="sig-param">src_cube</em>, <em class="sig-param">grid_cube</em>, <em class="sig-param">mdtol=0</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.experimental.regrid.regrid_area_weighted_rectilinear_src_and_grid" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.experimental.regrid.</code><code class="sig-name descname">regrid_area_weighted_rectilinear_src_and_grid</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">src_cube</span></em>, <em class="sig-param"><span class="n">grid_cube</span></em>, <em class="sig-param"><span class="n">mdtol</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.experimental.regrid.regrid_area_weighted_rectilinear_src_and_grid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a new cube with data values calculated using the area weighted
 mean of data values from src_grid regridded onto the horizontal grid of
 grid_cube.</p>
@@ -179,9 +154,9 @@ overlapping cells of the source cube are masked. Defaults to 0.</p>
 
 <p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
 <!--<hr class="docutils" />
---><dl class="function">
+--><dl class="py function">
 <dt id="iris.experimental.regrid.regrid_weighted_curvilinear_to_rectilinear">
-<code class="sig-prename descclassname">iris.experimental.regrid.</code><code class="sig-name descname">regrid_weighted_curvilinear_to_rectilinear</code><span class="sig-paren">(</span><em class="sig-param">src_cube</em>, <em class="sig-param">weights</em>, <em class="sig-param">grid_cube</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.experimental.regrid.regrid_weighted_curvilinear_to_rectilinear" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.experimental.regrid.</code><code class="sig-name descname">regrid_weighted_curvilinear_to_rectilinear</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">src_cube</span></em>, <em class="sig-param"><span class="n">weights</span></em>, <em class="sig-param"><span class="n">grid_cube</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.experimental.regrid.regrid_weighted_curvilinear_to_rectilinear" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a new cube with the data values calculated using the weighted
 mean of data values from <code class="xref py py-data docutils literal notranslate"><span class="pre">src_cube</span></code> and the weights from
 <code class="xref py py-data docutils literal notranslate"><span class="pre">weights</span></code> regridded onto the horizontal grid of <code class="xref py py-data docutils literal notranslate"><span class="pre">grid_cube</span></code>.</p>
@@ -217,7 +192,7 @@ variable grid to be regridded.</p>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>weights (array or None):</dt><dd><p>A <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.17)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> instance that defines the weights
+<dt>weights (array or None):</dt><dd><p>A <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> instance that defines the weights
 for the source variable grid cells. Must have the same shape
 as the X and Y coordinates.  If weights is None, all-ones will be used.</p>
 </dd>
@@ -247,11 +222,10 @@ typically with <a class="reference internal" href="../cube.html#iris.cube.Cube.r
 <code class="xref py py-class docutils literal notranslate"><span class="pre">iris.analysis.PointInCell</span></code>.</p>
 </div>
 <blockquote>
-<div><dl class="class">
+<div><dl class="py class">
 <dt id="iris.experimental.regrid.PointInCell">
-<em class="property">class </em><code class="sig-prename descclassname">iris.experimental.regrid.</code><code class="sig-name descname">PointInCell</code><span class="sig-paren">(</span><em class="sig-param">weights=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.experimental.regrid.PointInCell" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<p>Point-in-cell regridding scheme suitable for regridding over one
+<em class="property">class </em><code class="sig-prename descclassname">iris.experimental.regrid.</code><code class="sig-name descname">PointInCell</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">weights</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.experimental.regrid.PointInCell" title="Permalink to this definition">¶</a></dt>
+<dd><p>Point-in-cell regridding scheme suitable for regridding over one
 or more orthogonal coordinates.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -269,11 +243,10 @@ scipy.interpolate.griddata to regrid unstructured data on to a grid.</p>
 <p>The source cube and the target cube will be projected into a common
 projection for the scipy calculation to be performed.</p>
 <blockquote>
-<div><dl class="class">
+<div><dl class="py class">
 <dt id="iris.experimental.regrid.ProjectedUnstructuredLinear">
-<em class="property">class </em><code class="sig-prename descclassname">iris.experimental.regrid.</code><code class="sig-name descname">ProjectedUnstructuredLinear</code><span class="sig-paren">(</span><em class="sig-param">projection=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.experimental.regrid.ProjectedUnstructuredLinear" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<p>Linear regridding scheme that uses scipy.interpolate.griddata on
+<em class="property">class </em><code class="sig-prename descclassname">iris.experimental.regrid.</code><code class="sig-name descname">ProjectedUnstructuredLinear</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">projection</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.experimental.regrid.ProjectedUnstructuredLinear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Linear regridding scheme that uses scipy.interpolate.griddata on
 projected unstructured data.</p>
 <p>Optional Args:</p>
 <ul class="simple">
@@ -285,9 +258,9 @@ None.</p>
 </dl>
 </li>
 </ul>
-<dl class="method">
+<dl class="py method">
 <dt id="iris.experimental.regrid.ProjectedUnstructuredLinear.regridder">
-<code class="sig-name descname">regridder</code><span class="sig-paren">(</span><em class="sig-param">src_cube</em>, <em class="sig-param">target_grid</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.experimental.regrid.ProjectedUnstructuredLinear.regridder" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">regridder</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">src_cube</span></em>, <em class="sig-param"><span class="n">target_grid</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.experimental.regrid.ProjectedUnstructuredLinear.regridder" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a linear regridder to perform regridding, using
 scipy.interpolate.griddata from unstructured source points to the
 target grid. The regridding calculation is performed in the given
@@ -338,11 +311,10 @@ correct and may be applied to larger data regions (including global).
 This one however, where applicable, is substantially faster.</p>
 </div>
 <blockquote>
-<div><dl class="class">
+<div><dl class="py class">
 <dt id="iris.experimental.regrid.ProjectedUnstructuredNearest">
-<em class="property">class </em><code class="sig-prename descclassname">iris.experimental.regrid.</code><code class="sig-name descname">ProjectedUnstructuredNearest</code><span class="sig-paren">(</span><em class="sig-param">projection=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.experimental.regrid.ProjectedUnstructuredNearest" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<p>Nearest regridding scheme that uses scipy.interpolate.griddata on
+<em class="property">class </em><code class="sig-prename descclassname">iris.experimental.regrid.</code><code class="sig-name descname">ProjectedUnstructuredNearest</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">projection</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.experimental.regrid.ProjectedUnstructuredNearest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Nearest regridding scheme that uses scipy.interpolate.griddata on
 projected unstructured data.</p>
 <p>Optional Args:</p>
 <ul class="simple">
@@ -354,9 +326,9 @@ None.</p>
 </dl>
 </li>
 </ul>
-<dl class="method">
+<dl class="py method">
 <dt id="iris.experimental.regrid.ProjectedUnstructuredNearest.regridder">
-<code class="sig-name descname">regridder</code><span class="sig-paren">(</span><em class="sig-param">src_cube</em>, <em class="sig-param">target_grid</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.experimental.regrid.ProjectedUnstructuredNearest.regridder" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">regridder</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">src_cube</span></em>, <em class="sig-param"><span class="n">target_grid</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.experimental.regrid.ProjectedUnstructuredNearest.regridder" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a nearest-neighbour regridder to perform regridding, using
 scipy.interpolate.griddata from unstructured source points to the
 target grid. The regridding calculation is performed in the given
@@ -396,7 +368,35 @@ that is to be regridded to the <cite>target_grid</cite>.</p>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="raster.html"
+                        title="previous chapter">iris.experimental.raster</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="regrid_conservative.html"
+                        title="next chapter">iris.experimental.regrid_conservative</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/iris/iris/experimental/regrid.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -422,13 +422,14 @@ that is to be regridded to the <cite>target_grid</cite>.</p>
         <li><a href="../../../contents.html">contents</a>|&nbsp;</li>
 
           <li class="nav-item nav-item-1"><a href="../../iris.html" >Iris reference documentation</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../experimental.html" >iris.experimental</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../experimental.html" >iris.experimental</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">iris.experimental.regrid</a></li> 
       </ul>
     </div>
 
     <div class="footer">
     <p style="text-align: left; float: left; margin: 0px; padding: 0 0 0 5px;">Documentation licensed under the <a href="http://reference.data.gov.uk/id/open-government-licence" rel="license">Open Government Licence</a></p>
-        &copy; <a href="../../../copyright.html">British Crown Copyright</a> 2010 - 2019, Met Office
+        &copy; <a href="../../../copyright.html">British Crown Copyright</a> 2010 - 2020, Met Office
     </div>
 
     <!-- Include a version switcher to easily move between the documentation of different versions -->

@@ -1,18 +1,19 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>iris.coord_systems &#8212; Iris 3.0.dev0 documentation</title>
     <link rel="stylesheet" href="../../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="copyright" title="Copyright" href="../../copyright.html" />
@@ -74,37 +75,11 @@
         <li><a href="../../gallery.html">gallery</a>|&nbsp;</li>
         <li><a href="../../contents.html">contents</a>|&nbsp;</li>
 
-          <li class="nav-item nav-item-1"><a href="../iris.html" accesskey="U">Iris reference documentation</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="../iris.html" accesskey="U">Iris reference documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">iris.coord_systems</a></li> 
       </ul>
     </div>
-
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="coord_categorisation.html"
-                        title="previous chapter">iris.coord_categorisation</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="coords.html"
-                        title="next chapter">iris.coords</a></p>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="../../_sources/iris/iris/coord_systems.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
+  
 
     <div class="document">
       <div class="documentwrapper">
@@ -134,11 +109,10 @@
 </div></blockquote>
 <p>A coordinate system in the Albers Conical Equal Area projection.</p>
 <blockquote>
-<div><dl class="class">
+<div><dl class="py class">
 <dt id="iris.coord_systems.AlbersEqualArea">
-<em class="property">class </em><code class="sig-prename descclassname">iris.coord_systems.</code><code class="sig-name descname">AlbersEqualArea</code><span class="sig-paren">(</span><em class="sig-param">latitude_of_projection_origin=0.0</em>, <em class="sig-param">longitude_of_central_meridian=0.0</em>, <em class="sig-param">false_easting=0.0</em>, <em class="sig-param">false_northing=0.0</em>, <em class="sig-param">standard_parallels=(20.0</em>, <em class="sig-param">50.0)</em>, <em class="sig-param">ellipsoid=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.AlbersEqualArea" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#iris.coord_systems.CoordSystem" title="iris.coord_systems.CoordSystem"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.coord_systems.CoordSystem</span></code></a></p>
-<p>Constructs a Albers Conical Equal Area coord system.</p>
+<em class="property">class </em><code class="sig-prename descclassname">iris.coord_systems.</code><code class="sig-name descname">AlbersEqualArea</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">latitude_of_projection_origin</span><span class="o">=</span><span class="default_value">0.0</span></em>, <em class="sig-param"><span class="n">longitude_of_central_meridian</span><span class="o">=</span><span class="default_value">0.0</span></em>, <em class="sig-param"><span class="n">false_easting</span><span class="o">=</span><span class="default_value">0.0</span></em>, <em class="sig-param"><span class="n">false_northing</span><span class="o">=</span><span class="default_value">0.0</span></em>, <em class="sig-param"><span class="n">standard_parallels</span><span class="o">=</span><span class="default_value">20.0, 50.0</span></em>, <em class="sig-param"><span class="n">ellipsoid</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.AlbersEqualArea" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructs a Albers Conical Equal Area coord system.</p>
 <p>Kwargs:</p>
 <blockquote>
 <div><ul class="simple">
@@ -177,14 +151,14 @@ Defaults to (20,50).</p>
 </li>
 </ul>
 </div></blockquote>
-<dl class="method">
+<dl class="py method">
 <dt id="iris.coord_systems.AlbersEqualArea.as_cartopy_crs">
 <code class="sig-name descname">as_cartopy_crs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.AlbersEqualArea.as_cartopy_crs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a cartopy CRS representing our native coordinate
 system.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="iris.coord_systems.AlbersEqualArea.as_cartopy_projection">
 <code class="sig-name descname">as_cartopy_projection</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.AlbersEqualArea.as_cartopy_projection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a cartopy projection representing our native map.</p>
@@ -193,50 +167,50 @@ map projections but for spherical coord systems (which are not map
 projections) we use a map projection, such as PlateCarree.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="iris.coord_systems.AlbersEqualArea.xml_element">
-<code class="sig-name descname">xml_element</code><span class="sig-paren">(</span><em class="sig-param">doc</em>, <em class="sig-param">attrs=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.AlbersEqualArea.xml_element" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">xml_element</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">doc</span></em>, <em class="sig-param"><span class="n">attrs</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.AlbersEqualArea.xml_element" title="Permalink to this definition">¶</a></dt>
 <dd><p>Default behaviour for coord systems.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.coord_systems.AlbersEqualArea.ellipsoid">
-<code class="sig-name descname">ellipsoid</code><em class="property"> = None</em><a class="headerlink" href="#iris.coord_systems.AlbersEqualArea.ellipsoid" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">ellipsoid</code><a class="headerlink" href="#iris.coord_systems.AlbersEqualArea.ellipsoid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Ellipsoid definition.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.coord_systems.AlbersEqualArea.false_easting">
-<code class="sig-name descname">false_easting</code><em class="property"> = None</em><a class="headerlink" href="#iris.coord_systems.AlbersEqualArea.false_easting" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">false_easting</code><a class="headerlink" href="#iris.coord_systems.AlbersEqualArea.false_easting" title="Permalink to this definition">¶</a></dt>
 <dd><p>X offset from planar origin in metres.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.coord_systems.AlbersEqualArea.false_northing">
-<code class="sig-name descname">false_northing</code><em class="property"> = None</em><a class="headerlink" href="#iris.coord_systems.AlbersEqualArea.false_northing" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">false_northing</code><a class="headerlink" href="#iris.coord_systems.AlbersEqualArea.false_northing" title="Permalink to this definition">¶</a></dt>
 <dd><p>Y offset from planar origin in metres.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.coord_systems.AlbersEqualArea.grid_mapping_name">
 <code class="sig-name descname">grid_mapping_name</code><em class="property"> = 'albers_conical_equal_area'</em><a class="headerlink" href="#iris.coord_systems.AlbersEqualArea.grid_mapping_name" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.coord_systems.AlbersEqualArea.latitude_of_projection_origin">
-<code class="sig-name descname">latitude_of_projection_origin</code><em class="property"> = None</em><a class="headerlink" href="#iris.coord_systems.AlbersEqualArea.latitude_of_projection_origin" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">latitude_of_projection_origin</code><a class="headerlink" href="#iris.coord_systems.AlbersEqualArea.latitude_of_projection_origin" title="Permalink to this definition">¶</a></dt>
 <dd><p>True latitude of planar origin in degrees.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.coord_systems.AlbersEqualArea.longitude_of_central_meridian">
-<code class="sig-name descname">longitude_of_central_meridian</code><em class="property"> = None</em><a class="headerlink" href="#iris.coord_systems.AlbersEqualArea.longitude_of_central_meridian" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">longitude_of_central_meridian</code><a class="headerlink" href="#iris.coord_systems.AlbersEqualArea.longitude_of_central_meridian" title="Permalink to this definition">¶</a></dt>
 <dd><p>True longitude of planar central meridian in degrees.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.coord_systems.AlbersEqualArea.standard_parallels">
-<code class="sig-name descname">standard_parallels</code><em class="property"> = None</em><a class="headerlink" href="#iris.coord_systems.AlbersEqualArea.standard_parallels" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">standard_parallels</code><a class="headerlink" href="#iris.coord_systems.AlbersEqualArea.standard_parallels" title="Permalink to this definition">¶</a></dt>
 <dd><p>The one or two latitudes of correct scale.</p>
 </dd></dl>
 
@@ -247,19 +221,18 @@ projections) we use a map projection, such as PlateCarree.</p>
 <!--<hr class="docutils" />
 --><p>Abstract base class for coordinate systems.</p>
 <blockquote>
-<div><dl class="class">
+<div><dl class="py class">
 <dt id="iris.coord_systems.CoordSystem">
 <em class="property">class </em><code class="sig-prename descclassname">iris.coord_systems.</code><code class="sig-name descname">CoordSystem</code><a class="headerlink" href="#iris.coord_systems.CoordSystem" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<p>Abstract base class for coordinate systems.</p>
-<dl class="method">
+<dd><p>Abstract base class for coordinate systems.</p>
+<dl class="py method">
 <dt id="iris.coord_systems.CoordSystem.as_cartopy_crs">
 <em class="property">abstract </em><code class="sig-name descname">as_cartopy_crs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.CoordSystem.as_cartopy_crs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a cartopy CRS representing our native coordinate
 system.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="iris.coord_systems.CoordSystem.as_cartopy_projection">
 <em class="property">abstract </em><code class="sig-name descname">as_cartopy_projection</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.CoordSystem.as_cartopy_projection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a cartopy projection representing our native map.</p>
@@ -268,13 +241,13 @@ map projections but for spherical coord systems (which are not map
 projections) we use a map projection, such as PlateCarree.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="iris.coord_systems.CoordSystem.xml_element">
-<code class="sig-name descname">xml_element</code><span class="sig-paren">(</span><em class="sig-param">doc</em>, <em class="sig-param">attrs=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.CoordSystem.xml_element" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">xml_element</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">doc</span></em>, <em class="sig-param"><span class="n">attrs</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.CoordSystem.xml_element" title="Permalink to this definition">¶</a></dt>
 <dd><p>Default behaviour for coord systems.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.coord_systems.CoordSystem.grid_mapping_name">
 <code class="sig-name descname">grid_mapping_name</code><em class="property"> = None</em><a class="headerlink" href="#iris.coord_systems.CoordSystem.grid_mapping_name" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -287,11 +260,10 @@ projections) we use a map projection, such as PlateCarree.</p>
 --><p>A geographic (ellipsoidal) coordinate system, defined by the shape of
 the Earth and a prime meridian.</p>
 <blockquote>
-<div><dl class="class">
+<div><dl class="py class">
 <dt id="iris.coord_systems.GeogCS">
-<em class="property">class </em><code class="sig-prename descclassname">iris.coord_systems.</code><code class="sig-name descname">GeogCS</code><span class="sig-paren">(</span><em class="sig-param">semi_major_axis=None</em>, <em class="sig-param">semi_minor_axis=None</em>, <em class="sig-param">inverse_flattening=None</em>, <em class="sig-param">longitude_of_prime_meridian=0</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.GeogCS" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#iris.coord_systems.CoordSystem" title="iris.coord_systems.CoordSystem"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.coord_systems.CoordSystem</span></code></a></p>
-<p>Creates a new GeogCS.</p>
+<em class="property">class </em><code class="sig-prename descclassname">iris.coord_systems.</code><code class="sig-name descname">GeogCS</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">semi_major_axis</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">semi_minor_axis</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">inverse_flattening</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">longitude_of_prime_meridian</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.GeogCS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new GeogCS.</p>
 <p>Kwargs:</p>
 <blockquote>
 <div><ul class="simple">
@@ -325,19 +297,19 @@ Examples:</p>
 <span class="n">custom_cs</span> <span class="o">=</span> <span class="n">GeogCS</span><span class="p">(</span><span class="mi">6400000</span><span class="p">,</span> <span class="mi">6300000</span><span class="p">)</span>
 </pre></div>
 </div>
-<dl class="method">
+<dl class="py method">
 <dt id="iris.coord_systems.GeogCS.as_cartopy_crs">
 <code class="sig-name descname">as_cartopy_crs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.GeogCS.as_cartopy_crs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a cartopy CRS representing our native coordinate
 system.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="iris.coord_systems.GeogCS.as_cartopy_globe">
 <code class="sig-name descname">as_cartopy_globe</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.GeogCS.as_cartopy_globe" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="iris.coord_systems.GeogCS.as_cartopy_projection">
 <code class="sig-name descname">as_cartopy_projection</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.GeogCS.as_cartopy_projection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a cartopy projection representing our native map.</p>
@@ -346,38 +318,38 @@ map projections but for spherical coord systems (which are not map
 projections) we use a map projection, such as PlateCarree.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="iris.coord_systems.GeogCS.xml_element">
-<code class="sig-name descname">xml_element</code><span class="sig-paren">(</span><em class="sig-param">doc</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.GeogCS.xml_element" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">xml_element</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">doc</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.GeogCS.xml_element" title="Permalink to this definition">¶</a></dt>
 <dd><p>Default behaviour for coord systems.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.coord_systems.GeogCS.grid_mapping_name">
 <code class="sig-name descname">grid_mapping_name</code><em class="property"> = 'latitude_longitude'</em><a class="headerlink" href="#iris.coord_systems.GeogCS.grid_mapping_name" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.coord_systems.GeogCS.inverse_flattening">
-<code class="sig-name descname">inverse_flattening</code><em class="property"> = None</em><a class="headerlink" href="#iris.coord_systems.GeogCS.inverse_flattening" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">inverse_flattening</code><a class="headerlink" href="#iris.coord_systems.GeogCS.inverse_flattening" title="Permalink to this definition">¶</a></dt>
 <dd><p><span class="math">1/f</span> where <span class="math">f = (a-b)/a</span></p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.coord_systems.GeogCS.longitude_of_prime_meridian">
-<code class="sig-name descname">longitude_of_prime_meridian</code><em class="property"> = None</em><a class="headerlink" href="#iris.coord_systems.GeogCS.longitude_of_prime_meridian" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">longitude_of_prime_meridian</code><a class="headerlink" href="#iris.coord_systems.GeogCS.longitude_of_prime_meridian" title="Permalink to this definition">¶</a></dt>
 <dd><p>Describes ‘zero’ on the ellipsoid in degrees.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.coord_systems.GeogCS.semi_major_axis">
-<code class="sig-name descname">semi_major_axis</code><em class="property"> = None</em><a class="headerlink" href="#iris.coord_systems.GeogCS.semi_major_axis" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">semi_major_axis</code><a class="headerlink" href="#iris.coord_systems.GeogCS.semi_major_axis" title="Permalink to this definition">¶</a></dt>
 <dd><p>Major radius of the ellipsoid in metres.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.coord_systems.GeogCS.semi_minor_axis">
-<code class="sig-name descname">semi_minor_axis</code><em class="property"> = None</em><a class="headerlink" href="#iris.coord_systems.GeogCS.semi_minor_axis" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">semi_minor_axis</code><a class="headerlink" href="#iris.coord_systems.GeogCS.semi_minor_axis" title="Permalink to this definition">¶</a></dt>
 <dd><p>Minor radius of the ellipsoid in metres.</p>
 </dd></dl>
 
@@ -388,11 +360,10 @@ projections) we use a map projection, such as PlateCarree.</p>
 <!--<hr class="docutils" />
 --><p>A geostationary satellite image map projection.</p>
 <blockquote>
-<div><dl class="class">
+<div><dl class="py class">
 <dt id="iris.coord_systems.Geostationary">
-<em class="property">class </em><code class="sig-prename descclassname">iris.coord_systems.</code><code class="sig-name descname">Geostationary</code><span class="sig-paren">(</span><em class="sig-param">latitude_of_projection_origin</em>, <em class="sig-param">longitude_of_projection_origin</em>, <em class="sig-param">perspective_point_height</em>, <em class="sig-param">sweep_angle_axis</em>, <em class="sig-param">false_easting=0</em>, <em class="sig-param">false_northing=0</em>, <em class="sig-param">ellipsoid=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.Geostationary" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#iris.coord_systems.CoordSystem" title="iris.coord_systems.CoordSystem"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.coord_systems.CoordSystem</span></code></a></p>
-<p>Constructs a Geostationary coord system.</p>
+<em class="property">class </em><code class="sig-prename descclassname">iris.coord_systems.</code><code class="sig-name descname">Geostationary</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">latitude_of_projection_origin</span></em>, <em class="sig-param"><span class="n">longitude_of_projection_origin</span></em>, <em class="sig-param"><span class="n">perspective_point_height</span></em>, <em class="sig-param"><span class="n">sweep_angle_axis</span></em>, <em class="sig-param"><span class="n">false_easting</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">false_northing</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">ellipsoid</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.Geostationary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructs a Geostationary coord system.</p>
 <p>Args:</p>
 <ul class="simple">
 <li><dl class="simple">
@@ -434,14 +405,14 @@ projections) we use a map projection, such as PlateCarree.</p>
 </dl>
 </li>
 </ul>
-<dl class="method">
+<dl class="py method">
 <dt id="iris.coord_systems.Geostationary.as_cartopy_crs">
 <code class="sig-name descname">as_cartopy_crs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.Geostationary.as_cartopy_crs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a cartopy CRS representing our native coordinate
 system.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="iris.coord_systems.Geostationary.as_cartopy_projection">
 <code class="sig-name descname">as_cartopy_projection</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.Geostationary.as_cartopy_projection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a cartopy projection representing our native map.</p>
@@ -450,50 +421,50 @@ map projections but for spherical coord systems (which are not map
 projections) we use a map projection, such as PlateCarree.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="iris.coord_systems.Geostationary.xml_element">
-<code class="sig-name descname">xml_element</code><span class="sig-paren">(</span><em class="sig-param">doc</em>, <em class="sig-param">attrs=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.Geostationary.xml_element" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">xml_element</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">doc</span></em>, <em class="sig-param"><span class="n">attrs</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.Geostationary.xml_element" title="Permalink to this definition">¶</a></dt>
 <dd><p>Default behaviour for coord systems.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.coord_systems.Geostationary.ellipsoid">
-<code class="sig-name descname">ellipsoid</code><em class="property"> = None</em><a class="headerlink" href="#iris.coord_systems.Geostationary.ellipsoid" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">ellipsoid</code><a class="headerlink" href="#iris.coord_systems.Geostationary.ellipsoid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Ellipsoid definition.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.coord_systems.Geostationary.false_easting">
-<code class="sig-name descname">false_easting</code><em class="property"> = None</em><a class="headerlink" href="#iris.coord_systems.Geostationary.false_easting" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">false_easting</code><a class="headerlink" href="#iris.coord_systems.Geostationary.false_easting" title="Permalink to this definition">¶</a></dt>
 <dd><p>X offset from planar origin in metres.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.coord_systems.Geostationary.false_northing">
-<code class="sig-name descname">false_northing</code><em class="property"> = None</em><a class="headerlink" href="#iris.coord_systems.Geostationary.false_northing" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">false_northing</code><a class="headerlink" href="#iris.coord_systems.Geostationary.false_northing" title="Permalink to this definition">¶</a></dt>
 <dd><p>Y offset from planar origin in metres.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.coord_systems.Geostationary.grid_mapping_name">
 <code class="sig-name descname">grid_mapping_name</code><em class="property"> = 'geostationary'</em><a class="headerlink" href="#iris.coord_systems.Geostationary.grid_mapping_name" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.coord_systems.Geostationary.latitude_of_projection_origin">
-<code class="sig-name descname">latitude_of_projection_origin</code><em class="property"> = None</em><a class="headerlink" href="#iris.coord_systems.Geostationary.latitude_of_projection_origin" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">latitude_of_projection_origin</code><a class="headerlink" href="#iris.coord_systems.Geostationary.latitude_of_projection_origin" title="Permalink to this definition">¶</a></dt>
 <dd><p>True latitude of planar origin in degrees.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.coord_systems.Geostationary.longitude_of_projection_origin">
-<code class="sig-name descname">longitude_of_projection_origin</code><em class="property"> = None</em><a class="headerlink" href="#iris.coord_systems.Geostationary.longitude_of_projection_origin" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">longitude_of_projection_origin</code><a class="headerlink" href="#iris.coord_systems.Geostationary.longitude_of_projection_origin" title="Permalink to this definition">¶</a></dt>
 <dd><p>True longitude of planar origin in degrees.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.coord_systems.Geostationary.sweep_angle_axis">
-<code class="sig-name descname">sweep_angle_axis</code><em class="property"> = None</em><a class="headerlink" href="#iris.coord_systems.Geostationary.sweep_angle_axis" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">sweep_angle_axis</code><a class="headerlink" href="#iris.coord_systems.Geostationary.sweep_angle_axis" title="Permalink to this definition">¶</a></dt>
 <dd><p>The axis along which the satellite instrument sweeps - ‘x’ or ‘y’.</p>
 </dd></dl>
 
@@ -504,11 +475,10 @@ projections) we use a map projection, such as PlateCarree.</p>
 <!--<hr class="docutils" />
 --><p>A coordinate system in the Lambert Azimuthal Equal Area projection.</p>
 <blockquote>
-<div><dl class="class">
+<div><dl class="py class">
 <dt id="iris.coord_systems.LambertAzimuthalEqualArea">
-<em class="property">class </em><code class="sig-prename descclassname">iris.coord_systems.</code><code class="sig-name descname">LambertAzimuthalEqualArea</code><span class="sig-paren">(</span><em class="sig-param">latitude_of_projection_origin=0.0</em>, <em class="sig-param">longitude_of_projection_origin=0.0</em>, <em class="sig-param">false_easting=0.0</em>, <em class="sig-param">false_northing=0.0</em>, <em class="sig-param">ellipsoid=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.LambertAzimuthalEqualArea" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#iris.coord_systems.CoordSystem" title="iris.coord_systems.CoordSystem"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.coord_systems.CoordSystem</span></code></a></p>
-<p>Constructs a Lambert Azimuthal Equal Area coord system.</p>
+<em class="property">class </em><code class="sig-prename descclassname">iris.coord_systems.</code><code class="sig-name descname">LambertAzimuthalEqualArea</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">latitude_of_projection_origin</span><span class="o">=</span><span class="default_value">0.0</span></em>, <em class="sig-param"><span class="n">longitude_of_projection_origin</span><span class="o">=</span><span class="default_value">0.0</span></em>, <em class="sig-param"><span class="n">false_easting</span><span class="o">=</span><span class="default_value">0.0</span></em>, <em class="sig-param"><span class="n">false_northing</span><span class="o">=</span><span class="default_value">0.0</span></em>, <em class="sig-param"><span class="n">ellipsoid</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.LambertAzimuthalEqualArea" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructs a Lambert Azimuthal Equal Area coord system.</p>
 <p>Kwargs:</p>
 <blockquote>
 <div><ul class="simple">
@@ -539,14 +509,14 @@ projections) we use a map projection, such as PlateCarree.</p>
 </li>
 </ul>
 </div></blockquote>
-<dl class="method">
+<dl class="py method">
 <dt id="iris.coord_systems.LambertAzimuthalEqualArea.as_cartopy_crs">
 <code class="sig-name descname">as_cartopy_crs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.LambertAzimuthalEqualArea.as_cartopy_crs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a cartopy CRS representing our native coordinate
 system.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="iris.coord_systems.LambertAzimuthalEqualArea.as_cartopy_projection">
 <code class="sig-name descname">as_cartopy_projection</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.LambertAzimuthalEqualArea.as_cartopy_projection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a cartopy projection representing our native map.</p>
@@ -555,44 +525,44 @@ map projections but for spherical coord systems (which are not map
 projections) we use a map projection, such as PlateCarree.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="iris.coord_systems.LambertAzimuthalEqualArea.xml_element">
-<code class="sig-name descname">xml_element</code><span class="sig-paren">(</span><em class="sig-param">doc</em>, <em class="sig-param">attrs=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.LambertAzimuthalEqualArea.xml_element" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">xml_element</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">doc</span></em>, <em class="sig-param"><span class="n">attrs</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.LambertAzimuthalEqualArea.xml_element" title="Permalink to this definition">¶</a></dt>
 <dd><p>Default behaviour for coord systems.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.coord_systems.LambertAzimuthalEqualArea.ellipsoid">
-<code class="sig-name descname">ellipsoid</code><em class="property"> = None</em><a class="headerlink" href="#iris.coord_systems.LambertAzimuthalEqualArea.ellipsoid" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">ellipsoid</code><a class="headerlink" href="#iris.coord_systems.LambertAzimuthalEqualArea.ellipsoid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Ellipsoid definition.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.coord_systems.LambertAzimuthalEqualArea.false_easting">
-<code class="sig-name descname">false_easting</code><em class="property"> = None</em><a class="headerlink" href="#iris.coord_systems.LambertAzimuthalEqualArea.false_easting" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">false_easting</code><a class="headerlink" href="#iris.coord_systems.LambertAzimuthalEqualArea.false_easting" title="Permalink to this definition">¶</a></dt>
 <dd><p>X offset from planar origin in metres.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.coord_systems.LambertAzimuthalEqualArea.false_northing">
-<code class="sig-name descname">false_northing</code><em class="property"> = None</em><a class="headerlink" href="#iris.coord_systems.LambertAzimuthalEqualArea.false_northing" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">false_northing</code><a class="headerlink" href="#iris.coord_systems.LambertAzimuthalEqualArea.false_northing" title="Permalink to this definition">¶</a></dt>
 <dd><p>Y offset from planar origin in metres.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.coord_systems.LambertAzimuthalEqualArea.grid_mapping_name">
 <code class="sig-name descname">grid_mapping_name</code><em class="property"> = 'lambert_azimuthal_equal_area'</em><a class="headerlink" href="#iris.coord_systems.LambertAzimuthalEqualArea.grid_mapping_name" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.coord_systems.LambertAzimuthalEqualArea.latitude_of_projection_origin">
-<code class="sig-name descname">latitude_of_projection_origin</code><em class="property"> = None</em><a class="headerlink" href="#iris.coord_systems.LambertAzimuthalEqualArea.latitude_of_projection_origin" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">latitude_of_projection_origin</code><a class="headerlink" href="#iris.coord_systems.LambertAzimuthalEqualArea.latitude_of_projection_origin" title="Permalink to this definition">¶</a></dt>
 <dd><p>True latitude of planar origin in degrees.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.coord_systems.LambertAzimuthalEqualArea.longitude_of_projection_origin">
-<code class="sig-name descname">longitude_of_projection_origin</code><em class="property"> = None</em><a class="headerlink" href="#iris.coord_systems.LambertAzimuthalEqualArea.longitude_of_projection_origin" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">longitude_of_projection_origin</code><a class="headerlink" href="#iris.coord_systems.LambertAzimuthalEqualArea.longitude_of_projection_origin" title="Permalink to this definition">¶</a></dt>
 <dd><p>True longitude of planar origin in degrees.</p>
 </dd></dl>
 
@@ -603,11 +573,10 @@ projections) we use a map projection, such as PlateCarree.</p>
 <!--<hr class="docutils" />
 --><p>A coordinate system in the Lambert Conformal conic projection.</p>
 <blockquote>
-<div><dl class="class">
+<div><dl class="py class">
 <dt id="iris.coord_systems.LambertConformal">
-<em class="property">class </em><code class="sig-prename descclassname">iris.coord_systems.</code><code class="sig-name descname">LambertConformal</code><span class="sig-paren">(</span><em class="sig-param">central_lat=39.0</em>, <em class="sig-param">central_lon=-96.0</em>, <em class="sig-param">false_easting=0.0</em>, <em class="sig-param">false_northing=0.0</em>, <em class="sig-param">secant_latitudes=(33</em>, <em class="sig-param">45)</em>, <em class="sig-param">ellipsoid=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.LambertConformal" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#iris.coord_systems.CoordSystem" title="iris.coord_systems.CoordSystem"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.coord_systems.CoordSystem</span></code></a></p>
-<p>Constructs a LambertConformal coord system.</p>
+<em class="property">class </em><code class="sig-prename descclassname">iris.coord_systems.</code><code class="sig-name descname">LambertConformal</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">central_lat</span><span class="o">=</span><span class="default_value">39.0</span></em>, <em class="sig-param"><span class="n">central_lon</span><span class="o">=</span><span class="default_value">- 96.0</span></em>, <em class="sig-param"><span class="n">false_easting</span><span class="o">=</span><span class="default_value">0.0</span></em>, <em class="sig-param"><span class="n">false_northing</span><span class="o">=</span><span class="default_value">0.0</span></em>, <em class="sig-param"><span class="n">secant_latitudes</span><span class="o">=</span><span class="default_value">33, 45</span></em>, <em class="sig-param"><span class="n">ellipsoid</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.LambertConformal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructs a LambertConformal coord system.</p>
 <p>Kwargs:</p>
 <blockquote>
 <div><ul class="simple">
@@ -643,14 +612,14 @@ projections) we use a map projection, such as PlateCarree.</p>
 </li>
 </ul>
 </div></blockquote>
-<dl class="method">
+<dl class="py method">
 <dt id="iris.coord_systems.LambertConformal.as_cartopy_crs">
 <code class="sig-name descname">as_cartopy_crs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.LambertConformal.as_cartopy_crs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a cartopy CRS representing our native coordinate
 system.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="iris.coord_systems.LambertConformal.as_cartopy_projection">
 <code class="sig-name descname">as_cartopy_projection</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.LambertConformal.as_cartopy_projection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a cartopy projection representing our native map.</p>
@@ -659,43 +628,43 @@ map projections but for spherical coord systems (which are not map
 projections) we use a map projection, such as PlateCarree.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="iris.coord_systems.LambertConformal.xml_element">
-<code class="sig-name descname">xml_element</code><span class="sig-paren">(</span><em class="sig-param">doc</em>, <em class="sig-param">attrs=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.LambertConformal.xml_element" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">xml_element</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">doc</span></em>, <em class="sig-param"><span class="n">attrs</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.LambertConformal.xml_element" title="Permalink to this definition">¶</a></dt>
 <dd><p>Default behaviour for coord systems.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.coord_systems.LambertConformal.central_lat">
-<code class="sig-name descname">central_lat</code><em class="property"> = None</em><a class="headerlink" href="#iris.coord_systems.LambertConformal.central_lat" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">central_lat</code><a class="headerlink" href="#iris.coord_systems.LambertConformal.central_lat" title="Permalink to this definition">¶</a></dt>
 <dd><p>True latitude of planar origin in degrees.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.coord_systems.LambertConformal.central_lon">
-<code class="sig-name descname">central_lon</code><em class="property"> = None</em><a class="headerlink" href="#iris.coord_systems.LambertConformal.central_lon" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">central_lon</code><a class="headerlink" href="#iris.coord_systems.LambertConformal.central_lon" title="Permalink to this definition">¶</a></dt>
 <dd><p>True longitude of planar origin in degrees.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.coord_systems.LambertConformal.ellipsoid">
-<code class="sig-name descname">ellipsoid</code><em class="property"> = None</em><a class="headerlink" href="#iris.coord_systems.LambertConformal.ellipsoid" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">ellipsoid</code><a class="headerlink" href="#iris.coord_systems.LambertConformal.ellipsoid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Ellipsoid definition.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.coord_systems.LambertConformal.false_easting">
-<code class="sig-name descname">false_easting</code><em class="property"> = None</em><a class="headerlink" href="#iris.coord_systems.LambertConformal.false_easting" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">false_easting</code><a class="headerlink" href="#iris.coord_systems.LambertConformal.false_easting" title="Permalink to this definition">¶</a></dt>
 <dd><p>X offset from planar origin in metres.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.coord_systems.LambertConformal.false_northing">
-<code class="sig-name descname">false_northing</code><em class="property"> = None</em><a class="headerlink" href="#iris.coord_systems.LambertConformal.false_northing" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">false_northing</code><a class="headerlink" href="#iris.coord_systems.LambertConformal.false_northing" title="Permalink to this definition">¶</a></dt>
 <dd><p>Y offset from planar origin in metres.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.coord_systems.LambertConformal.grid_mapping_name">
 <code class="sig-name descname">grid_mapping_name</code><em class="property"> = 'lambert_conformal_conic'</em><a class="headerlink" href="#iris.coord_systems.LambertConformal.grid_mapping_name" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -707,11 +676,10 @@ projections) we use a map projection, such as PlateCarree.</p>
 <!--<hr class="docutils" />
 --><p>A coordinate system in the Mercator projection.</p>
 <blockquote>
-<div><dl class="class">
+<div><dl class="py class">
 <dt id="iris.coord_systems.Mercator">
-<em class="property">class </em><code class="sig-prename descclassname">iris.coord_systems.</code><code class="sig-name descname">Mercator</code><span class="sig-paren">(</span><em class="sig-param">longitude_of_projection_origin=0.0</em>, <em class="sig-param">ellipsoid=None</em>, <em class="sig-param">standard_parallel=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.Mercator" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#iris.coord_systems.CoordSystem" title="iris.coord_systems.CoordSystem"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.coord_systems.CoordSystem</span></code></a></p>
-<p>Constructs a Mercator coord system.</p>
+<em class="property">class </em><code class="sig-prename descclassname">iris.coord_systems.</code><code class="sig-name descname">Mercator</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">longitude_of_projection_origin</span><span class="o">=</span><span class="default_value">0.0</span></em>, <em class="sig-param"><span class="n">ellipsoid</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">standard_parallel</span><span class="o">=</span><span class="default_value">0.0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.Mercator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructs a Mercator coord system.</p>
 <dl class="simple">
 <dt>Kwargs:</dt><dd><ul class="simple">
 <li><dl class="simple">
@@ -732,14 +700,14 @@ projections) we use a map projection, such as PlateCarree.</p>
 </ul>
 </dd>
 </dl>
-<dl class="method">
+<dl class="py method">
 <dt id="iris.coord_systems.Mercator.as_cartopy_crs">
 <code class="sig-name descname">as_cartopy_crs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.Mercator.as_cartopy_crs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a cartopy CRS representing our native coordinate
 system.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="iris.coord_systems.Mercator.as_cartopy_projection">
 <code class="sig-name descname">as_cartopy_projection</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.Mercator.as_cartopy_projection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a cartopy projection representing our native map.</p>
@@ -748,32 +716,32 @@ map projections but for spherical coord systems (which are not map
 projections) we use a map projection, such as PlateCarree.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="iris.coord_systems.Mercator.xml_element">
-<code class="sig-name descname">xml_element</code><span class="sig-paren">(</span><em class="sig-param">doc</em>, <em class="sig-param">attrs=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.Mercator.xml_element" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">xml_element</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">doc</span></em>, <em class="sig-param"><span class="n">attrs</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.Mercator.xml_element" title="Permalink to this definition">¶</a></dt>
 <dd><p>Default behaviour for coord systems.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.coord_systems.Mercator.ellipsoid">
-<code class="sig-name descname">ellipsoid</code><em class="property"> = None</em><a class="headerlink" href="#iris.coord_systems.Mercator.ellipsoid" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">ellipsoid</code><a class="headerlink" href="#iris.coord_systems.Mercator.ellipsoid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Ellipsoid definition.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.coord_systems.Mercator.grid_mapping_name">
 <code class="sig-name descname">grid_mapping_name</code><em class="property"> = 'mercator'</em><a class="headerlink" href="#iris.coord_systems.Mercator.grid_mapping_name" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.coord_systems.Mercator.longitude_of_projection_origin">
-<code class="sig-name descname">longitude_of_projection_origin</code><em class="property"> = None</em><a class="headerlink" href="#iris.coord_systems.Mercator.longitude_of_projection_origin" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">longitude_of_projection_origin</code><a class="headerlink" href="#iris.coord_systems.Mercator.longitude_of_projection_origin" title="Permalink to this definition">¶</a></dt>
 <dd><p>True longitude of planar origin in degrees.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.coord_systems.Mercator.standard_parallel">
-<code class="sig-name descname">standard_parallel</code><em class="property"> = None</em><a class="headerlink" href="#iris.coord_systems.Mercator.standard_parallel" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">standard_parallel</code><a class="headerlink" href="#iris.coord_systems.Mercator.standard_parallel" title="Permalink to this definition">¶</a></dt>
 <dd><p>The latitude where the scale is 1 (defaults to 0 degrees).</p>
 </dd></dl>
 
@@ -784,19 +752,18 @@ projections) we use a map projection, such as PlateCarree.</p>
 <!--<hr class="docutils" />
 --><p>A Specific transverse mercator projection on a specific ellipsoid.</p>
 <blockquote>
-<div><dl class="class">
+<div><dl class="py class">
 <dt id="iris.coord_systems.OSGB">
 <em class="property">class </em><code class="sig-prename descclassname">iris.coord_systems.</code><code class="sig-name descname">OSGB</code><a class="headerlink" href="#iris.coord_systems.OSGB" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#iris.coord_systems.TransverseMercator" title="iris.coord_systems.TransverseMercator"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.coord_systems.TransverseMercator</span></code></a></p>
-<p>A Specific transverse mercator projection on a specific ellipsoid.</p>
-<dl class="method">
+<dd><p>A Specific transverse mercator projection on a specific ellipsoid.</p>
+<dl class="py method">
 <dt id="iris.coord_systems.OSGB.as_cartopy_crs">
 <code class="sig-name descname">as_cartopy_crs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.OSGB.as_cartopy_crs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a cartopy CRS representing our native coordinate
 system.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="iris.coord_systems.OSGB.as_cartopy_projection">
 <code class="sig-name descname">as_cartopy_projection</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.OSGB.as_cartopy_projection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a cartopy projection representing our native map.</p>
@@ -805,13 +772,13 @@ map projections but for spherical coord systems (which are not map
 projections) we use a map projection, such as PlateCarree.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="iris.coord_systems.OSGB.xml_element">
-<code class="sig-name descname">xml_element</code><span class="sig-paren">(</span><em class="sig-param">doc</em>, <em class="sig-param">attrs=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.OSGB.xml_element" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">xml_element</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">doc</span></em>, <em class="sig-param"><span class="n">attrs</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.OSGB.xml_element" title="Permalink to this definition">¶</a></dt>
 <dd><p>Default behaviour for coord systems.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.coord_systems.OSGB.grid_mapping_name">
 <code class="sig-name descname">grid_mapping_name</code><em class="property"> = 'transverse_mercator'</em><a class="headerlink" href="#iris.coord_systems.OSGB.grid_mapping_name" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -823,11 +790,10 @@ projections) we use a map projection, such as PlateCarree.</p>
 <!--<hr class="docutils" />
 --><p>An orthographic map projection.</p>
 <blockquote>
-<div><dl class="class">
+<div><dl class="py class">
 <dt id="iris.coord_systems.Orthographic">
-<em class="property">class </em><code class="sig-prename descclassname">iris.coord_systems.</code><code class="sig-name descname">Orthographic</code><span class="sig-paren">(</span><em class="sig-param">latitude_of_projection_origin</em>, <em class="sig-param">longitude_of_projection_origin</em>, <em class="sig-param">false_easting=0.0</em>, <em class="sig-param">false_northing=0.0</em>, <em class="sig-param">ellipsoid=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.Orthographic" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#iris.coord_systems.CoordSystem" title="iris.coord_systems.CoordSystem"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.coord_systems.CoordSystem</span></code></a></p>
-<p>Constructs an Orthographic coord system.</p>
+<em class="property">class </em><code class="sig-prename descclassname">iris.coord_systems.</code><code class="sig-name descname">Orthographic</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">latitude_of_projection_origin</span></em>, <em class="sig-param"><span class="n">longitude_of_projection_origin</span></em>, <em class="sig-param"><span class="n">false_easting</span><span class="o">=</span><span class="default_value">0.0</span></em>, <em class="sig-param"><span class="n">false_northing</span><span class="o">=</span><span class="default_value">0.0</span></em>, <em class="sig-param"><span class="n">ellipsoid</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.Orthographic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructs an Orthographic coord system.</p>
 <p>Args:</p>
 <ul class="simple">
 <li><dl class="simple">
@@ -859,14 +825,14 @@ projections) we use a map projection, such as PlateCarree.</p>
 </dl>
 </li>
 </ul>
-<dl class="method">
+<dl class="py method">
 <dt id="iris.coord_systems.Orthographic.as_cartopy_crs">
 <code class="sig-name descname">as_cartopy_crs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.Orthographic.as_cartopy_crs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a cartopy CRS representing our native coordinate
 system.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="iris.coord_systems.Orthographic.as_cartopy_projection">
 <code class="sig-name descname">as_cartopy_projection</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.Orthographic.as_cartopy_projection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a cartopy projection representing our native map.</p>
@@ -875,44 +841,44 @@ map projections but for spherical coord systems (which are not map
 projections) we use a map projection, such as PlateCarree.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="iris.coord_systems.Orthographic.xml_element">
-<code class="sig-name descname">xml_element</code><span class="sig-paren">(</span><em class="sig-param">doc</em>, <em class="sig-param">attrs=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.Orthographic.xml_element" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">xml_element</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">doc</span></em>, <em class="sig-param"><span class="n">attrs</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.Orthographic.xml_element" title="Permalink to this definition">¶</a></dt>
 <dd><p>Default behaviour for coord systems.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.coord_systems.Orthographic.ellipsoid">
-<code class="sig-name descname">ellipsoid</code><em class="property"> = None</em><a class="headerlink" href="#iris.coord_systems.Orthographic.ellipsoid" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">ellipsoid</code><a class="headerlink" href="#iris.coord_systems.Orthographic.ellipsoid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Ellipsoid definition.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.coord_systems.Orthographic.false_easting">
-<code class="sig-name descname">false_easting</code><em class="property"> = None</em><a class="headerlink" href="#iris.coord_systems.Orthographic.false_easting" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">false_easting</code><a class="headerlink" href="#iris.coord_systems.Orthographic.false_easting" title="Permalink to this definition">¶</a></dt>
 <dd><p>X offset from planar origin in metres.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.coord_systems.Orthographic.false_northing">
-<code class="sig-name descname">false_northing</code><em class="property"> = None</em><a class="headerlink" href="#iris.coord_systems.Orthographic.false_northing" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">false_northing</code><a class="headerlink" href="#iris.coord_systems.Orthographic.false_northing" title="Permalink to this definition">¶</a></dt>
 <dd><p>Y offset from planar origin in metres.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.coord_systems.Orthographic.grid_mapping_name">
 <code class="sig-name descname">grid_mapping_name</code><em class="property"> = 'orthographic'</em><a class="headerlink" href="#iris.coord_systems.Orthographic.grid_mapping_name" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.coord_systems.Orthographic.latitude_of_projection_origin">
-<code class="sig-name descname">latitude_of_projection_origin</code><em class="property"> = None</em><a class="headerlink" href="#iris.coord_systems.Orthographic.latitude_of_projection_origin" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">latitude_of_projection_origin</code><a class="headerlink" href="#iris.coord_systems.Orthographic.latitude_of_projection_origin" title="Permalink to this definition">¶</a></dt>
 <dd><p>True latitude of planar origin in degrees.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.coord_systems.Orthographic.longitude_of_projection_origin">
-<code class="sig-name descname">longitude_of_projection_origin</code><em class="property"> = None</em><a class="headerlink" href="#iris.coord_systems.Orthographic.longitude_of_projection_origin" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">longitude_of_projection_origin</code><a class="headerlink" href="#iris.coord_systems.Orthographic.longitude_of_projection_origin" title="Permalink to this definition">¶</a></dt>
 <dd><p>True longitude of planar origin in degrees.</p>
 </dd></dl>
 
@@ -923,11 +889,10 @@ projections) we use a map projection, such as PlateCarree.</p>
 <!--<hr class="docutils" />
 --><p>A coordinate system with rotated pole, on an optional <a class="reference internal" href="#iris.coord_systems.GeogCS" title="iris.coord_systems.GeogCS"><code class="xref py py-class docutils literal notranslate"><span class="pre">GeogCS</span></code></a>.</p>
 <blockquote>
-<div><dl class="class">
+<div><dl class="py class">
 <dt id="iris.coord_systems.RotatedGeogCS">
-<em class="property">class </em><code class="sig-prename descclassname">iris.coord_systems.</code><code class="sig-name descname">RotatedGeogCS</code><span class="sig-paren">(</span><em class="sig-param">grid_north_pole_latitude</em>, <em class="sig-param">grid_north_pole_longitude</em>, <em class="sig-param">north_pole_grid_longitude=0</em>, <em class="sig-param">ellipsoid=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.RotatedGeogCS" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#iris.coord_systems.CoordSystem" title="iris.coord_systems.CoordSystem"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.coord_systems.CoordSystem</span></code></a></p>
-<p>Constructs a coordinate system with rotated pole, on an
+<em class="property">class </em><code class="sig-prename descclassname">iris.coord_systems.</code><code class="sig-name descname">RotatedGeogCS</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">grid_north_pole_latitude</span></em>, <em class="sig-param"><span class="n">grid_north_pole_longitude</span></em>, <em class="sig-param"><span class="n">north_pole_grid_longitude</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">ellipsoid</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.RotatedGeogCS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructs a coordinate system with rotated pole, on an
 optional <a class="reference internal" href="#iris.coord_systems.GeogCS" title="iris.coord_systems.GeogCS"><code class="xref py py-class docutils literal notranslate"><span class="pre">GeogCS</span></code></a>.</p>
 <p>Args:</p>
 <blockquote>
@@ -965,14 +930,14 @@ optional <a class="reference internal" href="#iris.coord_systems.GeogCS" title="
                            <span class="n">ellipsoid</span><span class="o">=</span><span class="n">GeogCS</span><span class="p">(</span><span class="mi">6400000</span><span class="p">,</span> <span class="mi">6300000</span><span class="p">))</span>
 </pre></div>
 </div>
-<dl class="method">
+<dl class="py method">
 <dt id="iris.coord_systems.RotatedGeogCS.as_cartopy_crs">
 <code class="sig-name descname">as_cartopy_crs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.RotatedGeogCS.as_cartopy_crs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a cartopy CRS representing our native coordinate
 system.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="iris.coord_systems.RotatedGeogCS.as_cartopy_projection">
 <code class="sig-name descname">as_cartopy_projection</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.RotatedGeogCS.as_cartopy_projection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a cartopy projection representing our native map.</p>
@@ -981,38 +946,38 @@ map projections but for spherical coord systems (which are not map
 projections) we use a map projection, such as PlateCarree.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="iris.coord_systems.RotatedGeogCS.xml_element">
-<code class="sig-name descname">xml_element</code><span class="sig-paren">(</span><em class="sig-param">doc</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.RotatedGeogCS.xml_element" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">xml_element</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">doc</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.RotatedGeogCS.xml_element" title="Permalink to this definition">¶</a></dt>
 <dd><p>Default behaviour for coord systems.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.coord_systems.RotatedGeogCS.ellipsoid">
-<code class="sig-name descname">ellipsoid</code><em class="property"> = None</em><a class="headerlink" href="#iris.coord_systems.RotatedGeogCS.ellipsoid" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">ellipsoid</code><a class="headerlink" href="#iris.coord_systems.RotatedGeogCS.ellipsoid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Ellipsoid definition.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.coord_systems.RotatedGeogCS.grid_mapping_name">
 <code class="sig-name descname">grid_mapping_name</code><em class="property"> = 'rotated_latitude_longitude'</em><a class="headerlink" href="#iris.coord_systems.RotatedGeogCS.grid_mapping_name" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.coord_systems.RotatedGeogCS.grid_north_pole_latitude">
-<code class="sig-name descname">grid_north_pole_latitude</code><em class="property"> = None</em><a class="headerlink" href="#iris.coord_systems.RotatedGeogCS.grid_north_pole_latitude" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">grid_north_pole_latitude</code><a class="headerlink" href="#iris.coord_systems.RotatedGeogCS.grid_north_pole_latitude" title="Permalink to this definition">¶</a></dt>
 <dd><p>The true latitude of the rotated pole in degrees.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.coord_systems.RotatedGeogCS.grid_north_pole_longitude">
-<code class="sig-name descname">grid_north_pole_longitude</code><em class="property"> = None</em><a class="headerlink" href="#iris.coord_systems.RotatedGeogCS.grid_north_pole_longitude" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">grid_north_pole_longitude</code><a class="headerlink" href="#iris.coord_systems.RotatedGeogCS.grid_north_pole_longitude" title="Permalink to this definition">¶</a></dt>
 <dd><p>The true longitude of the rotated pole in degrees.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.coord_systems.RotatedGeogCS.north_pole_grid_longitude">
-<code class="sig-name descname">north_pole_grid_longitude</code><em class="property"> = None</em><a class="headerlink" href="#iris.coord_systems.RotatedGeogCS.north_pole_grid_longitude" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">north_pole_grid_longitude</code><a class="headerlink" href="#iris.coord_systems.RotatedGeogCS.north_pole_grid_longitude" title="Permalink to this definition">¶</a></dt>
 <dd><p>Longitude of true north pole in rotated grid in degrees.</p>
 </dd></dl>
 
@@ -1023,11 +988,10 @@ projections) we use a map projection, such as PlateCarree.</p>
 <!--<hr class="docutils" />
 --><p>A stereographic map projection.</p>
 <blockquote>
-<div><dl class="class">
+<div><dl class="py class">
 <dt id="iris.coord_systems.Stereographic">
-<em class="property">class </em><code class="sig-prename descclassname">iris.coord_systems.</code><code class="sig-name descname">Stereographic</code><span class="sig-paren">(</span><em class="sig-param">central_lat</em>, <em class="sig-param">central_lon</em>, <em class="sig-param">false_easting=0.0</em>, <em class="sig-param">false_northing=0.0</em>, <em class="sig-param">true_scale_lat=None</em>, <em class="sig-param">ellipsoid=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.Stereographic" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#iris.coord_systems.CoordSystem" title="iris.coord_systems.CoordSystem"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.coord_systems.CoordSystem</span></code></a></p>
-<p>Constructs a Stereographic coord system.</p>
+<em class="property">class </em><code class="sig-prename descclassname">iris.coord_systems.</code><code class="sig-name descname">Stereographic</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">central_lat</span></em>, <em class="sig-param"><span class="n">central_lon</span></em>, <em class="sig-param"><span class="n">false_easting</span><span class="o">=</span><span class="default_value">0.0</span></em>, <em class="sig-param"><span class="n">false_northing</span><span class="o">=</span><span class="default_value">0.0</span></em>, <em class="sig-param"><span class="n">true_scale_lat</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ellipsoid</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.Stereographic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructs a Stereographic coord system.</p>
 <p>Args:</p>
 <blockquote>
 <div><ul class="simple">
@@ -1068,14 +1032,14 @@ projections) we use a map projection, such as PlateCarree.</p>
 </li>
 </ul>
 </div></blockquote>
-<dl class="method">
+<dl class="py method">
 <dt id="iris.coord_systems.Stereographic.as_cartopy_crs">
 <code class="sig-name descname">as_cartopy_crs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.Stereographic.as_cartopy_crs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a cartopy CRS representing our native coordinate
 system.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="iris.coord_systems.Stereographic.as_cartopy_projection">
 <code class="sig-name descname">as_cartopy_projection</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.Stereographic.as_cartopy_projection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a cartopy projection representing our native map.</p>
@@ -1084,50 +1048,50 @@ map projections but for spherical coord systems (which are not map
 projections) we use a map projection, such as PlateCarree.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="iris.coord_systems.Stereographic.xml_element">
-<code class="sig-name descname">xml_element</code><span class="sig-paren">(</span><em class="sig-param">doc</em>, <em class="sig-param">attrs=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.Stereographic.xml_element" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">xml_element</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">doc</span></em>, <em class="sig-param"><span class="n">attrs</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.Stereographic.xml_element" title="Permalink to this definition">¶</a></dt>
 <dd><p>Default behaviour for coord systems.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.coord_systems.Stereographic.central_lat">
-<code class="sig-name descname">central_lat</code><em class="property"> = None</em><a class="headerlink" href="#iris.coord_systems.Stereographic.central_lat" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">central_lat</code><a class="headerlink" href="#iris.coord_systems.Stereographic.central_lat" title="Permalink to this definition">¶</a></dt>
 <dd><p>True latitude of planar origin in degrees.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.coord_systems.Stereographic.central_lon">
-<code class="sig-name descname">central_lon</code><em class="property"> = None</em><a class="headerlink" href="#iris.coord_systems.Stereographic.central_lon" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">central_lon</code><a class="headerlink" href="#iris.coord_systems.Stereographic.central_lon" title="Permalink to this definition">¶</a></dt>
 <dd><p>True longitude of planar origin in degrees.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.coord_systems.Stereographic.ellipsoid">
-<code class="sig-name descname">ellipsoid</code><em class="property"> = None</em><a class="headerlink" href="#iris.coord_systems.Stereographic.ellipsoid" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">ellipsoid</code><a class="headerlink" href="#iris.coord_systems.Stereographic.ellipsoid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Ellipsoid definition.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.coord_systems.Stereographic.false_easting">
-<code class="sig-name descname">false_easting</code><em class="property"> = None</em><a class="headerlink" href="#iris.coord_systems.Stereographic.false_easting" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">false_easting</code><a class="headerlink" href="#iris.coord_systems.Stereographic.false_easting" title="Permalink to this definition">¶</a></dt>
 <dd><p>X offset from planar origin in metres.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.coord_systems.Stereographic.false_northing">
-<code class="sig-name descname">false_northing</code><em class="property"> = None</em><a class="headerlink" href="#iris.coord_systems.Stereographic.false_northing" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">false_northing</code><a class="headerlink" href="#iris.coord_systems.Stereographic.false_northing" title="Permalink to this definition">¶</a></dt>
 <dd><p>Y offset from planar origin in metres.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.coord_systems.Stereographic.grid_mapping_name">
 <code class="sig-name descname">grid_mapping_name</code><em class="property"> = 'stereographic'</em><a class="headerlink" href="#iris.coord_systems.Stereographic.grid_mapping_name" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.coord_systems.Stereographic.true_scale_lat">
-<code class="sig-name descname">true_scale_lat</code><em class="property"> = None</em><a class="headerlink" href="#iris.coord_systems.Stereographic.true_scale_lat" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">true_scale_lat</code><a class="headerlink" href="#iris.coord_systems.Stereographic.true_scale_lat" title="Permalink to this definition">¶</a></dt>
 <dd><p>Latitude of true scale.</p>
 </dd></dl>
 
@@ -1138,11 +1102,10 @@ projections) we use a map projection, such as PlateCarree.</p>
 <!--<hr class="docutils" />
 --><p>A cylindrical map projection, with XY coordinates measured in metres.</p>
 <blockquote>
-<div><dl class="class">
+<div><dl class="py class">
 <dt id="iris.coord_systems.TransverseMercator">
-<em class="property">class </em><code class="sig-prename descclassname">iris.coord_systems.</code><code class="sig-name descname">TransverseMercator</code><span class="sig-paren">(</span><em class="sig-param">latitude_of_projection_origin</em>, <em class="sig-param">longitude_of_central_meridian</em>, <em class="sig-param">false_easting</em>, <em class="sig-param">false_northing</em>, <em class="sig-param">scale_factor_at_central_meridian</em>, <em class="sig-param">ellipsoid=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.TransverseMercator" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#iris.coord_systems.CoordSystem" title="iris.coord_systems.CoordSystem"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.coord_systems.CoordSystem</span></code></a></p>
-<p>Constructs a TransverseMercator object.</p>
+<em class="property">class </em><code class="sig-prename descclassname">iris.coord_systems.</code><code class="sig-name descname">TransverseMercator</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">latitude_of_projection_origin</span></em>, <em class="sig-param"><span class="n">longitude_of_central_meridian</span></em>, <em class="sig-param"><span class="n">false_easting</span></em>, <em class="sig-param"><span class="n">false_northing</span></em>, <em class="sig-param"><span class="n">scale_factor_at_central_meridian</span></em>, <em class="sig-param"><span class="n">ellipsoid</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.TransverseMercator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructs a TransverseMercator object.</p>
 <p>Args:</p>
 <blockquote>
 <div><ul class="simple">
@@ -1191,14 +1154,14 @@ distortion in the area of interest.</p>
                           <span class="n">ellipsoid</span><span class="o">=</span><span class="n">airy1830</span><span class="p">)</span>
 </pre></div>
 </div>
-<dl class="method">
+<dl class="py method">
 <dt id="iris.coord_systems.TransverseMercator.as_cartopy_crs">
 <code class="sig-name descname">as_cartopy_crs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.TransverseMercator.as_cartopy_crs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a cartopy CRS representing our native coordinate
 system.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="iris.coord_systems.TransverseMercator.as_cartopy_projection">
 <code class="sig-name descname">as_cartopy_projection</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.TransverseMercator.as_cartopy_projection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a cartopy projection representing our native map.</p>
@@ -1207,50 +1170,50 @@ map projections but for spherical coord systems (which are not map
 projections) we use a map projection, such as PlateCarree.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="iris.coord_systems.TransverseMercator.xml_element">
-<code class="sig-name descname">xml_element</code><span class="sig-paren">(</span><em class="sig-param">doc</em>, <em class="sig-param">attrs=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.TransverseMercator.xml_element" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">xml_element</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">doc</span></em>, <em class="sig-param"><span class="n">attrs</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.TransverseMercator.xml_element" title="Permalink to this definition">¶</a></dt>
 <dd><p>Default behaviour for coord systems.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.coord_systems.TransverseMercator.ellipsoid">
-<code class="sig-name descname">ellipsoid</code><em class="property"> = None</em><a class="headerlink" href="#iris.coord_systems.TransverseMercator.ellipsoid" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">ellipsoid</code><a class="headerlink" href="#iris.coord_systems.TransverseMercator.ellipsoid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Ellipsoid definition.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.coord_systems.TransverseMercator.false_easting">
-<code class="sig-name descname">false_easting</code><em class="property"> = None</em><a class="headerlink" href="#iris.coord_systems.TransverseMercator.false_easting" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">false_easting</code><a class="headerlink" href="#iris.coord_systems.TransverseMercator.false_easting" title="Permalink to this definition">¶</a></dt>
 <dd><p>X offset from planar origin in metres.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.coord_systems.TransverseMercator.false_northing">
-<code class="sig-name descname">false_northing</code><em class="property"> = None</em><a class="headerlink" href="#iris.coord_systems.TransverseMercator.false_northing" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">false_northing</code><a class="headerlink" href="#iris.coord_systems.TransverseMercator.false_northing" title="Permalink to this definition">¶</a></dt>
 <dd><p>Y offset from planar origin in metres.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.coord_systems.TransverseMercator.grid_mapping_name">
 <code class="sig-name descname">grid_mapping_name</code><em class="property"> = 'transverse_mercator'</em><a class="headerlink" href="#iris.coord_systems.TransverseMercator.grid_mapping_name" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.coord_systems.TransverseMercator.latitude_of_projection_origin">
-<code class="sig-name descname">latitude_of_projection_origin</code><em class="property"> = None</em><a class="headerlink" href="#iris.coord_systems.TransverseMercator.latitude_of_projection_origin" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">latitude_of_projection_origin</code><a class="headerlink" href="#iris.coord_systems.TransverseMercator.latitude_of_projection_origin" title="Permalink to this definition">¶</a></dt>
 <dd><p>True latitude of planar origin in degrees.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.coord_systems.TransverseMercator.longitude_of_central_meridian">
-<code class="sig-name descname">longitude_of_central_meridian</code><em class="property"> = None</em><a class="headerlink" href="#iris.coord_systems.TransverseMercator.longitude_of_central_meridian" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">longitude_of_central_meridian</code><a class="headerlink" href="#iris.coord_systems.TransverseMercator.longitude_of_central_meridian" title="Permalink to this definition">¶</a></dt>
 <dd><p>True longitude of planar origin in degrees.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.coord_systems.TransverseMercator.scale_factor_at_central_meridian">
-<code class="sig-name descname">scale_factor_at_central_meridian</code><em class="property"> = None</em><a class="headerlink" href="#iris.coord_systems.TransverseMercator.scale_factor_at_central_meridian" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">scale_factor_at_central_meridian</code><a class="headerlink" href="#iris.coord_systems.TransverseMercator.scale_factor_at_central_meridian" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reduces the cylinder to slice through the ellipsoid (secant form).</p>
 </dd></dl>
 
@@ -1261,11 +1224,10 @@ projections) we use a map projection, such as PlateCarree.</p>
 <!--<hr class="docutils" />
 --><p>A vertical/near-side perspective satellite image map projection.</p>
 <blockquote>
-<div><dl class="class">
+<div><dl class="py class">
 <dt id="iris.coord_systems.VerticalPerspective">
-<em class="property">class </em><code class="sig-prename descclassname">iris.coord_systems.</code><code class="sig-name descname">VerticalPerspective</code><span class="sig-paren">(</span><em class="sig-param">latitude_of_projection_origin</em>, <em class="sig-param">longitude_of_projection_origin</em>, <em class="sig-param">perspective_point_height</em>, <em class="sig-param">false_easting=0</em>, <em class="sig-param">false_northing=0</em>, <em class="sig-param">ellipsoid=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.VerticalPerspective" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#iris.coord_systems.CoordSystem" title="iris.coord_systems.CoordSystem"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.coord_systems.CoordSystem</span></code></a></p>
-<p>Constructs a Vertical Perspective coord system.</p>
+<em class="property">class </em><code class="sig-prename descclassname">iris.coord_systems.</code><code class="sig-name descname">VerticalPerspective</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">latitude_of_projection_origin</span></em>, <em class="sig-param"><span class="n">longitude_of_projection_origin</span></em>, <em class="sig-param"><span class="n">perspective_point_height</span></em>, <em class="sig-param"><span class="n">false_easting</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">false_northing</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">ellipsoid</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.VerticalPerspective" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructs a Vertical Perspective coord system.</p>
 <p>Args:</p>
 <ul class="simple">
 <li><dl class="simple">
@@ -1303,14 +1265,14 @@ ellipsoid.</p>
 </dl>
 </li>
 </ul>
-<dl class="method">
+<dl class="py method">
 <dt id="iris.coord_systems.VerticalPerspective.as_cartopy_crs">
 <code class="sig-name descname">as_cartopy_crs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.VerticalPerspective.as_cartopy_crs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a cartopy CRS representing our native coordinate
 system.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="iris.coord_systems.VerticalPerspective.as_cartopy_projection">
 <code class="sig-name descname">as_cartopy_projection</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.VerticalPerspective.as_cartopy_projection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a cartopy projection representing our native map.</p>
@@ -1319,44 +1281,44 @@ map projections but for spherical coord systems (which are not map
 projections) we use a map projection, such as PlateCarree.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="iris.coord_systems.VerticalPerspective.xml_element">
-<code class="sig-name descname">xml_element</code><span class="sig-paren">(</span><em class="sig-param">doc</em>, <em class="sig-param">attrs=None</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.VerticalPerspective.xml_element" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">xml_element</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">doc</span></em>, <em class="sig-param"><span class="n">attrs</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coord_systems.VerticalPerspective.xml_element" title="Permalink to this definition">¶</a></dt>
 <dd><p>Default behaviour for coord systems.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.coord_systems.VerticalPerspective.ellipsoid">
-<code class="sig-name descname">ellipsoid</code><em class="property"> = None</em><a class="headerlink" href="#iris.coord_systems.VerticalPerspective.ellipsoid" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">ellipsoid</code><a class="headerlink" href="#iris.coord_systems.VerticalPerspective.ellipsoid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Ellipsoid definition.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.coord_systems.VerticalPerspective.false_easting">
-<code class="sig-name descname">false_easting</code><em class="property"> = None</em><a class="headerlink" href="#iris.coord_systems.VerticalPerspective.false_easting" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">false_easting</code><a class="headerlink" href="#iris.coord_systems.VerticalPerspective.false_easting" title="Permalink to this definition">¶</a></dt>
 <dd><p>X offset from planar origin in metres.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.coord_systems.VerticalPerspective.false_northing">
-<code class="sig-name descname">false_northing</code><em class="property"> = None</em><a class="headerlink" href="#iris.coord_systems.VerticalPerspective.false_northing" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">false_northing</code><a class="headerlink" href="#iris.coord_systems.VerticalPerspective.false_northing" title="Permalink to this definition">¶</a></dt>
 <dd><p>Y offset from planar origin in metres.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.coord_systems.VerticalPerspective.grid_mapping_name">
 <code class="sig-name descname">grid_mapping_name</code><em class="property"> = 'vertical_perspective'</em><a class="headerlink" href="#iris.coord_systems.VerticalPerspective.grid_mapping_name" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.coord_systems.VerticalPerspective.latitude_of_projection_origin">
-<code class="sig-name descname">latitude_of_projection_origin</code><em class="property"> = None</em><a class="headerlink" href="#iris.coord_systems.VerticalPerspective.latitude_of_projection_origin" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">latitude_of_projection_origin</code><a class="headerlink" href="#iris.coord_systems.VerticalPerspective.latitude_of_projection_origin" title="Permalink to this definition">¶</a></dt>
 <dd><p>True latitude of planar origin in degrees.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.coord_systems.VerticalPerspective.longitude_of_projection_origin">
-<code class="sig-name descname">longitude_of_projection_origin</code><em class="property"> = None</em><a class="headerlink" href="#iris.coord_systems.VerticalPerspective.longitude_of_projection_origin" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">longitude_of_projection_origin</code><a class="headerlink" href="#iris.coord_systems.VerticalPerspective.longitude_of_projection_origin" title="Permalink to this definition">¶</a></dt>
 <dd><p>True longitude of planar origin in degrees.</p>
 </dd></dl>
 
@@ -1366,7 +1328,35 @@ projections) we use a map projection, such as PlateCarree.</p>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="coord_categorisation.html"
+                        title="previous chapter">iris.coord_categorisation</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="coords.html"
+                        title="next chapter">iris.coords</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/iris/iris/coord_systems.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -1391,13 +1381,14 @@ projections) we use a map projection, such as PlateCarree.</p>
         <li><a href="../../gallery.html">gallery</a>|&nbsp;</li>
         <li><a href="../../contents.html">contents</a>|&nbsp;</li>
 
-          <li class="nav-item nav-item-1"><a href="../iris.html" >Iris reference documentation</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="../iris.html" >Iris reference documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">iris.coord_systems</a></li> 
       </ul>
     </div>
 
     <div class="footer">
     <p style="text-align: left; float: left; margin: 0px; padding: 0 0 0 5px;">Documentation licensed under the <a href="http://reference.data.gov.uk/id/open-government-licence" rel="license">Open Government Licence</a></p>
-        &copy; <a href="../../copyright.html">British Crown Copyright</a> 2010 - 2019, Met Office
+        &copy; <a href="../../copyright.html">British Crown Copyright</a> 2010 - 2020, Met Office
     </div>
 
     <!-- Include a version switcher to easily move between the documentation of different versions -->

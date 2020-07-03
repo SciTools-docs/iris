@@ -1,18 +1,19 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>What’s new in Iris 1.4 &#8212; Iris 3.0.dev0 documentation</title>
     <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
@@ -74,65 +75,11 @@
         <li><a href="../gallery.html">gallery</a>|&nbsp;</li>
         <li><a href="../contents.html">contents</a>|&nbsp;</li>
 
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">What’s new in Iris</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">What’s new in Iris</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">What’s new in Iris 1.4</a></li> 
       </ul>
     </div>
-
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="../contents.html">Table of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">What’s new in Iris 1.4</a><ul>
-<li><a class="reference internal" href="#iris-1-4-features">Iris 1.4 features</a><ul>
-<li><a class="reference internal" href="#incompatible-changes">Incompatible changes</a></li>
-<li><a class="reference internal" href="#deprecations">Deprecations</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#experimental-regridding-enhancements">Experimental regridding enhancements</a><ul>
-<li><a class="reference internal" href="#bilinear-rectilinear-regridding">Bilinear rectilinear regridding</a></li>
-<li><a class="reference internal" href="#area-weighted-regridding">Area-weighted regridding</a></li>
-<li><a class="reference internal" href="#area-conservative-regridding">Area-conservative regridding</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#iris-pandas-interoperablilty">Iris-Pandas interoperablilty</a></li>
-<li><a class="reference internal" href="#load-cubes-from-the-internet-via-opendap">Load cubes from the internet via OPeNDAP</a></li>
-<li><a class="reference internal" href="#geotiff-export">GeoTiff export</a></li>
-<li><a class="reference internal" href="#cube-merge-update">Cube merge update</a></li>
-<li><a class="reference internal" href="#unambiguous-season-year-naming">Unambiguous season year naming</a></li>
-<li><a class="reference internal" href="#cubes-with-no-vertical-coord-can-now-be-exported-to-grib">Cubes with no vertical coord can now be exported to GRIB</a></li>
-<li><a class="reference internal" href="#simplified-resource-configuration">Simplified resource configuration</a></li>
-<li><a class="reference internal" href="#extended-grib-parameter-translation">Extended GRIB parameter translation</a></li>
-<li><a class="reference internal" href="#one-dimensional-linear-interpolation-fix">One dimensional linear interpolation fix</a></li>
-<li><a class="reference internal" href="#fix-for-iris-analysis-calculus-differentiate">Fix for iris.analysis.calculus.differentiate</a></li>
-</ul>
-</li>
-</ul>
-
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="1.5.html"
-                        title="previous chapter">What’s new in Iris 1.5</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="1.3.html"
-                        title="next chapter">What’s new in Iris 1.3</a></p>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="../_sources/whatsnew/1.4.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
+  
 
     <div class="document">
       <div class="documentwrapper">
@@ -316,7 +263,63 @@ the loss of coordinate metadata when calculating the curl or the derivative of a
 </div>
 
 
+            <div class="clearer"></div>
           </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">What’s new in Iris 1.4</a><ul>
+<li><a class="reference internal" href="#iris-1-4-features">Iris 1.4 features</a><ul>
+<li><a class="reference internal" href="#incompatible-changes">Incompatible changes</a></li>
+<li><a class="reference internal" href="#deprecations">Deprecations</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#experimental-regridding-enhancements">Experimental regridding enhancements</a><ul>
+<li><a class="reference internal" href="#bilinear-rectilinear-regridding">Bilinear rectilinear regridding</a></li>
+<li><a class="reference internal" href="#area-weighted-regridding">Area-weighted regridding</a></li>
+<li><a class="reference internal" href="#area-conservative-regridding">Area-conservative regridding</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#iris-pandas-interoperablilty">Iris-Pandas interoperablilty</a></li>
+<li><a class="reference internal" href="#load-cubes-from-the-internet-via-opendap">Load cubes from the internet via OPeNDAP</a></li>
+<li><a class="reference internal" href="#geotiff-export">GeoTiff export</a></li>
+<li><a class="reference internal" href="#cube-merge-update">Cube merge update</a></li>
+<li><a class="reference internal" href="#unambiguous-season-year-naming">Unambiguous season year naming</a></li>
+<li><a class="reference internal" href="#cubes-with-no-vertical-coord-can-now-be-exported-to-grib">Cubes with no vertical coord can now be exported to GRIB</a></li>
+<li><a class="reference internal" href="#simplified-resource-configuration">Simplified resource configuration</a></li>
+<li><a class="reference internal" href="#extended-grib-parameter-translation">Extended GRIB parameter translation</a></li>
+<li><a class="reference internal" href="#one-dimensional-linear-interpolation-fix">One dimensional linear interpolation fix</a></li>
+<li><a class="reference internal" href="#fix-for-iris-analysis-calculus-differentiate">Fix for iris.analysis.calculus.differentiate</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="1.5.html"
+                        title="previous chapter">What’s new in Iris 1.5</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="1.3.html"
+                        title="next chapter">What’s new in Iris 1.3</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/whatsnew/1.4.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -341,13 +344,14 @@ the loss of coordinate metadata when calculating the curl or the derivative of a
         <li><a href="../gallery.html">gallery</a>|&nbsp;</li>
         <li><a href="../contents.html">contents</a>|&nbsp;</li>
 
-          <li class="nav-item nav-item-1"><a href="index.html" >What’s new in Iris</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" >What’s new in Iris</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">What’s new in Iris 1.4</a></li> 
       </ul>
     </div>
 
     <div class="footer">
     <p style="text-align: left; float: left; margin: 0px; padding: 0 0 0 5px;">Documentation licensed under the <a href="http://reference.data.gov.uk/id/open-government-licence" rel="license">Open Government Licence</a></p>
-        &copy; <a href="../copyright.html">British Crown Copyright</a> 2010 - 2019, Met Office
+        &copy; <a href="../copyright.html">British Crown Copyright</a> 2010 - 2020, Met Office
     </div>
 
     <!-- Include a version switcher to easily move between the documentation of different versions -->

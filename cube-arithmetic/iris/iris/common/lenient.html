@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iris.fileformats.name &#8212; Iris 3.0.dev0 documentation</title>
+    <title>iris.common.lenient &#8212; Iris 3.0.dev0 documentation</title>
     <link rel="stylesheet" href="../../../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -17,8 +17,8 @@
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="copyright" title="Copyright" href="../../../copyright.html" />
-    <link rel="next" title="iris.fileformats.name_loaders" href="name_loaders.html" />
-    <link rel="prev" title="iris.fileformats.dot" href="dot.html" />
+    <link rel="next" title="iris.common.metadata" href="metadata.html" />
+    <link rel="prev" title="iris.common" href="../common.html" />
  
     <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
     <META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE"> 
@@ -65,10 +65,10 @@
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="name_loaders.html" title="iris.fileformats.name_loaders"
+          <a href="metadata.html" title="iris.common.metadata"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="dot.html" title="iris.fileformats.dot"
+          <a href="../common.html" title="iris.common"
              accesskey="P">previous</a> |</li>
         <li><a href="../../../index.html">home</a>|&nbsp;</li>
         <li><a href="../../../examples/index.html">examples</a>|&nbsp;</li>
@@ -76,8 +76,8 @@
         <li><a href="../../../contents.html">contents</a>|&nbsp;</li>
 
           <li class="nav-item nav-item-1"><a href="../../iris.html" >Iris reference documentation</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../fileformats.html" accesskey="U">iris.fileformats</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">iris.fileformats.name</a></li> 
+          <li class="nav-item nav-item-2"><a href="../common.html" accesskey="U">iris.common</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">iris.common.lenient</a></li> 
       </ul>
     </div>
   
@@ -87,42 +87,64 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="iris-fileformats-name">
-<span id="id1"></span><h1>iris.fileformats.name<a class="headerlink" href="#iris-fileformats-name" title="Permalink to this headline">¶</a></h1>
-<span class="target" id="module-iris.fileformats.name"></span><p>Provides NAME file format loading capabilities.</p>
-<p>In this module:</p>
+  <div class="section" id="iris-common-lenient">
+<span id="id1"></span><h1>iris.common.lenient<a class="headerlink" href="#iris-common-lenient" title="Permalink to this headline">¶</a></h1>
+<span class="target" id="module-iris.common.lenient"></span><p>In this module:</p>
 <blockquote>
 <div><ul class="simple">
-<li><p><a class="reference internal" href="#iris.fileformats.name.load_cubes" title="iris.fileformats.name.load_cubes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_cubes</span></code></a></p></li>
+<li><p><a class="reference internal" href="#iris.common.lenient.LENIENT" title="iris.common.lenient.LENIENT"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LENIENT</span></code></a></p></li>
+<li><p><a class="reference internal" href="#iris.common.lenient.Lenient" title="iris.common.lenient.Lenient"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Lenient</span></code></a></p></li>
 </ul>
 </div></blockquote>
-<dl class="py function">
-<dt id="iris.fileformats.name.load_cubes">
-<code class="sig-prename descclassname">iris.fileformats.name.</code><code class="sig-name descname">load_cubes</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filenames</span></em>, <em class="sig-param"><span class="n">callback</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.name.load_cubes" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a generator of cubes given one or more filenames and an
-optional callback.</p>
-<p>Args:</p>
-<ul class="simple">
-<li><dl class="simple">
-<dt>filenames (string/list):</dt><dd><p>One or more NAME filenames to load.</p>
-</dd>
-</dl>
-</li>
-</ul>
+<dl class="py data">
+<dt id="iris.common.lenient.LENIENT">
+<code class="sig-prename descclassname">iris.common.lenient.</code><code class="sig-name descname">LENIENT</code><a class="headerlink" href="#iris.common.lenient.LENIENT" title="Permalink to this definition">¶</a></dt>
+<dd><p>(Public) Instance that manages all Iris run-time lenient features.</p>
+</dd></dl>
+
+<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
+<!--<hr class="docutils" />
+--><p>Thread-local data</p>
+<blockquote>
+<div><dl class="py class">
+<dt id="iris.common.lenient.Lenient">
+<em class="property">class </em><code class="sig-prename descclassname">iris.common.lenient.</code><code class="sig-name descname">Lenient</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.lenient.Lenient" title="Permalink to this definition">¶</a></dt>
+<dd><p>A container for managing the run-time lenient features and options.</p>
 <p>Kwargs:</p>
 <ul class="simple">
 <li><dl class="simple">
-<dt>callback (callable function):</dt><dd><p>A function which can be passed on to <a class="reference internal" href="../io.html#iris.io.run_callback" title="iris.io.run_callback"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.io.run_callback()</span></code></a>.</p>
+<dt>kwargs (dict)</dt><dd><p>Mapping of lenient key/value options to enable/disable. Note that,
+only the lenient “maths” options is available, which controls
+lenient/strict cube arithmetic.</p>
 </dd>
 </dl>
 </li>
 </ul>
+<p>For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Lenient</span><span class="p">(</span><span class="n">maths</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Note that, the values of these options are thread-specific.</p>
+<dl class="py method">
+<dt id="iris.common.lenient.Lenient.context">
+<code class="sig-name descname">context</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.lenient.Lenient.context" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a context manager which allows temporary modification of the
+lenient option state within the scope of the context manager.</p>
+<p>On entry to the context manager, all provided keyword arguments are
+applied. On exit from the context manager, the previous lenient
+option state is restored.</p>
 <dl class="simple">
-<dt>Returns:</dt><dd><p>A generator of <code class="xref py py-class docutils literal notranslate"><span class="pre">iris.cubes.Cube</span></code> instances.</p>
+<dt>For example::</dt><dd><dl class="simple">
+<dt>with iris.common.Lenient.context(maths=False):</dt><dd><p>pass</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
 
+</dd></dl>
+
+</div></blockquote>
 </div>
 
 
@@ -133,15 +155,15 @@ optional callback.</p>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
-  <p class="topless"><a href="dot.html"
-                        title="previous chapter">iris.fileformats.dot</a></p>
+  <p class="topless"><a href="../common.html"
+                        title="previous chapter">iris.common</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="name_loaders.html"
-                        title="next chapter">iris.fileformats.name_loaders</a></p>
+  <p class="topless"><a href="metadata.html"
+                        title="next chapter">iris.common.metadata</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../../../_sources/iris/iris/fileformats/name.rst.txt"
+      <li><a href="../../../_sources/iris/iris/common/lenient.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -169,10 +191,10 @@ optional callback.</p>
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="name_loaders.html" title="iris.fileformats.name_loaders"
+          <a href="metadata.html" title="iris.common.metadata"
              >next</a> |</li>
         <li class="right" >
-          <a href="dot.html" title="iris.fileformats.dot"
+          <a href="../common.html" title="iris.common"
              >previous</a> |</li>
         <li><a href="../../../index.html">home</a>|&nbsp;</li>
         <li><a href="../../../examples/index.html">examples</a>|&nbsp;</li>
@@ -180,8 +202,8 @@ optional callback.</p>
         <li><a href="../../../contents.html">contents</a>|&nbsp;</li>
 
           <li class="nav-item nav-item-1"><a href="../../iris.html" >Iris reference documentation</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../fileformats.html" >iris.fileformats</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">iris.fileformats.name</a></li> 
+          <li class="nav-item nav-item-2"><a href="../common.html" >iris.common</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">iris.common.lenient</a></li> 
       </ul>
     </div>
 

@@ -1,18 +1,19 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>4. Navigating a cube &#8212; Iris 3.0.dev0 documentation</title>
     <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
@@ -74,49 +75,11 @@
         <li><a href="../gallery.html">gallery</a>|&nbsp;</li>
         <li><a href="../contents.html">contents</a>|&nbsp;</li>
 
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Iris user guide</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Iris user guide</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">4. </span>Navigating a cube</a></li> 
       </ul>
     </div>
-
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="../contents.html">Table of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">4. Navigating a cube</a><ul>
-<li><a class="reference internal" href="#cube-string-representations">4.1. Cube string representations</a></li>
-<li><a class="reference internal" href="#working-with-cubes">4.2. Working with cubes</a></li>
-<li><a class="reference internal" href="#accessing-coordinates-on-the-cube">4.3. Accessing coordinates on the cube</a></li>
-<li><a class="reference internal" href="#adding-metadata-to-a-cube">4.4. Adding metadata to a cube</a></li>
-<li><a class="reference internal" href="#adding-and-removing-metadata-to-the-cube-at-load-time">4.5. Adding and removing metadata to the cube at load time</a></li>
-</ul>
-</li>
-</ul>
-
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="saving_iris_cubes.html"
-                        title="previous chapter"><span class="section-number">3. </span>Saving Iris cubes</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="subsetting_a_cube.html"
-                        title="next chapter"><span class="section-number">5. </span>Subsetting a Cube</a></p>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="../_sources/userguide/navigating_a_cube.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
+  
 
     <div class="document">
       <div class="documentwrapper">
@@ -181,8 +144,8 @@ are either a string or <code class="docutils literal notranslate"><span class="p
 </pre></div>
 </div>
 <p>The result of which is <strong>always</strong> a string.</p>
-<p>Each cube also has a <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/index.html#module-numpy" title="(in NumPy v1.17)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code></a> array which represents the phenomenon of the cube which can be accessed with the
-<a class="reference internal" href="../iris/iris/cube.html#iris.cube.Cube.data" title="iris.cube.Cube.data"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Cube.data</span></code></a> attribute. As you can see the type is a <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.17)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy</span> <span class="pre">n-dimensional</span> <span class="pre">array</span></code></a>:</p>
+<p>Each cube also has a <a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v1.19)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">numpy</span></code></a> array which represents the phenomenon of the cube which can be accessed with the
+<a class="reference internal" href="../iris/iris/cube.html#iris.cube.Cube.data" title="iris.cube.Cube.data"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Cube.data</span></code></a> attribute. As you can see the type is a <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.19)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy</span> <span class="pre">n-dimensional</span> <span class="pre">array</span></code></a>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">data</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -337,7 +300,47 @@ by field basis <em>before</em> they are automatically merged together:</p>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">4. Navigating a cube</a><ul>
+<li><a class="reference internal" href="#cube-string-representations">4.1. Cube string representations</a></li>
+<li><a class="reference internal" href="#working-with-cubes">4.2. Working with cubes</a></li>
+<li><a class="reference internal" href="#accessing-coordinates-on-the-cube">4.3. Accessing coordinates on the cube</a></li>
+<li><a class="reference internal" href="#adding-metadata-to-a-cube">4.4. Adding metadata to a cube</a></li>
+<li><a class="reference internal" href="#adding-and-removing-metadata-to-the-cube-at-load-time">4.5. Adding and removing metadata to the cube at load time</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="saving_iris_cubes.html"
+                        title="previous chapter"><span class="section-number">3. </span>Saving Iris cubes</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="subsetting_a_cube.html"
+                        title="next chapter"><span class="section-number">5. </span>Subsetting a Cube</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/userguide/navigating_a_cube.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -362,13 +365,14 @@ by field basis <em>before</em> they are automatically merged together:</p>
         <li><a href="../gallery.html">gallery</a>|&nbsp;</li>
         <li><a href="../contents.html">contents</a>|&nbsp;</li>
 
-          <li class="nav-item nav-item-1"><a href="index.html" >Iris user guide</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" >Iris user guide</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">4. </span>Navigating a cube</a></li> 
       </ul>
     </div>
 
     <div class="footer">
     <p style="text-align: left; float: left; margin: 0px; padding: 0 0 0 5px;">Documentation licensed under the <a href="http://reference.data.gov.uk/id/open-government-licence" rel="license">Open Government Licence</a></p>
-        &copy; <a href="../copyright.html">British Crown Copyright</a> 2010 - 2019, Met Office
+        &copy; <a href="../copyright.html">British Crown Copyright</a> 2010 - 2020, Met Office
     </div>
 
     <!-- Include a version switcher to easily move between the documentation of different versions -->

@@ -1,18 +1,19 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>iris.fileformats.nimrod_load_rules &#8212; Iris 3.0.dev0 documentation</title>
     <link rel="stylesheet" href="../../../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="copyright" title="Copyright" href="../../../copyright.html" />
@@ -75,10 +76,51 @@
         <li><a href="../../../contents.html">contents</a>|&nbsp;</li>
 
           <li class="nav-item nav-item-1"><a href="../../iris.html" >Iris reference documentation</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../fileformats.html" accesskey="U">iris.fileformats</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../fileformats.html" accesskey="U">iris.fileformats</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">iris.fileformats.nimrod_load_rules</a></li> 
       </ul>
     </div>
+  
 
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="iris-fileformats-nimrod-load-rules">
+<span id="id1"></span><h1>iris.fileformats.nimrod_load_rules<a class="headerlink" href="#iris-fileformats-nimrod-load-rules" title="Permalink to this headline">¶</a></h1>
+<span class="target" id="module-iris.fileformats.nimrod_load_rules"></span><p>Rules for converting NIMROD fields into cubes.</p>
+<p>In this module:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference internal" href="#iris.fileformats.nimrod_load_rules.run" title="iris.fileformats.nimrod_load_rules.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a></p></li>
+</ul>
+</div></blockquote>
+<dl class="py function">
+<dt id="iris.fileformats.nimrod_load_rules.run">
+<code class="sig-prename descclassname">iris.fileformats.nimrod_load_rules.</code><code class="sig-name descname">run</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">field</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.nimrod_load_rules.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert a NIMROD field to an Iris cube.</p>
+<p>Args:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>field - a <a class="reference internal" href="nimrod.html#iris.fileformats.nimrod.NimrodField" title="iris.fileformats.nimrod.NimrodField"><code class="xref py py-class docutils literal notranslate"><span class="pre">NimrodField</span></code></a></p></li>
+</ul>
+</div></blockquote>
+<p>Returns:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>A new <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a>, created from the NimrodField.</p></li>
+</ul>
+</div></blockquote>
+</dd></dl>
+
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
@@ -103,46 +145,7 @@
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
-
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
-            
-  <div class="section" id="iris-fileformats-nimrod-load-rules">
-<span id="id1"></span><h1>iris.fileformats.nimrod_load_rules<a class="headerlink" href="#iris-fileformats-nimrod-load-rules" title="Permalink to this headline">¶</a></h1>
-<span class="target" id="module-iris.fileformats.nimrod_load_rules"></span><p>Rules for converting NIMROD fields into cubes.</p>
-<p>In this module:</p>
-<blockquote>
-<div><ul class="simple">
-<li><p><a class="reference internal" href="#iris.fileformats.nimrod_load_rules.run" title="iris.fileformats.nimrod_load_rules.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a></p></li>
-</ul>
-</div></blockquote>
-<dl class="function">
-<dt id="iris.fileformats.nimrod_load_rules.run">
-<code class="sig-prename descclassname">iris.fileformats.nimrod_load_rules.</code><code class="sig-name descname">run</code><span class="sig-paren">(</span><em class="sig-param">field</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.nimrod_load_rules.run" title="Permalink to this definition">¶</a></dt>
-<dd><p>Convert a NIMROD field to an Iris cube.</p>
-<p>Args:</p>
-<blockquote>
-<div><ul class="simple">
-<li><p>field - a <a class="reference internal" href="nimrod.html#iris.fileformats.nimrod.NimrodField" title="iris.fileformats.nimrod.NimrodField"><code class="xref py py-class docutils literal notranslate"><span class="pre">NimrodField</span></code></a></p></li>
-</ul>
-</div></blockquote>
-<p>Returns:</p>
-<blockquote>
-<div><ul class="simple">
-<li><p>A new <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a>, created from the NimrodField.</p></li>
-</ul>
-</div></blockquote>
-</dd></dl>
-
-</div>
-
-
-          </div>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -168,13 +171,14 @@
         <li><a href="../../../contents.html">contents</a>|&nbsp;</li>
 
           <li class="nav-item nav-item-1"><a href="../../iris.html" >Iris reference documentation</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../fileformats.html" >iris.fileformats</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../fileformats.html" >iris.fileformats</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">iris.fileformats.nimrod_load_rules</a></li> 
       </ul>
     </div>
 
     <div class="footer">
     <p style="text-align: left; float: left; margin: 0px; padding: 0 0 0 5px;">Documentation licensed under the <a href="http://reference.data.gov.uk/id/open-government-licence" rel="license">Open Government Licence</a></p>
-        &copy; <a href="../../../copyright.html">British Crown Copyright</a> 2010 - 2019, Met Office
+        &copy; <a href="../../../copyright.html">British Crown Copyright</a> 2010 - 2020, Met Office
     </div>
 
     <!-- Include a version switcher to easily move between the documentation of different versions -->

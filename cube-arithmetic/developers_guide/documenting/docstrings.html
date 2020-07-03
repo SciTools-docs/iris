@@ -1,18 +1,19 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Docstrings &#8212; Iris 3.0.dev0 documentation</title>
     <link rel="stylesheet" href="../../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="copyright" title="Copyright" href="../../copyright.html" />
@@ -75,54 +76,11 @@
         <li><a href="../../contents.html">contents</a>|&nbsp;</li>
 
           <li class="nav-item nav-item-1"><a href="../index.html" >Iris developer guide</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="index.html" accesskey="U">Documentation in Iris</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="index.html" accesskey="U">Documentation in Iris</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Docstrings</a></li> 
       </ul>
     </div>
-
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="../../contents.html">Table of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">Docstrings</a><ul>
-<li><a class="reference internal" href="#single-line-docstrings">Single-line docstrings</a></li>
-<li><a class="reference internal" href="#multi-line-docstrings">Multi-line docstrings</a><ul>
-<li><a class="reference internal" href="#description">Description</a></li>
-<li><a class="reference internal" href="#sample-multi-line-docstring">Sample multi-line docstring</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#documenting-classes">Documenting classes</a><ul>
-<li><a class="reference internal" href="#attribute-and-property-docstrings">Attribute and Property docstrings</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="index.html"
-                        title="previous chapter">Documentation in Iris</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="rest_guide.html"
-                        title="next chapter">reST quickstart</a></p>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="../../_sources/developers_guide/documenting/docstrings.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
+  
 
     <div class="document">
       <div class="documentwrapper">
@@ -186,9 +144,9 @@
 </div>
 <p>This would be rendered as:</p>
 <blockquote>
-<div><span class="target" id="module-documenting.docstrings_sample_routine"></span><dl class="function">
+<div><span class="target" id="module-documenting.docstrings_sample_routine"></span><dl class="py function">
 <dt id="documenting.docstrings_sample_routine.sample_routine">
-<code class="sig-prename descclassname">documenting.docstrings_sample_routine.</code><code class="sig-name descname">sample_routine</code><span class="sig-paren">(</span><em class="sig-param">arg1</em>, <em class="sig-param">arg2</em>, <em class="sig-param">kwarg1='foo'</em>, <em class="sig-param">kwarg2=None</em><span class="sig-paren">)</span><a class="headerlink" href="#documenting.docstrings_sample_routine.sample_routine" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">documenting.docstrings_sample_routine.</code><code class="sig-name descname">sample_routine</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">arg1</span></em>, <em class="sig-param"><span class="n">arg2</span></em>, <em class="sig-param"><span class="n">kwarg1</span><span class="o">=</span><span class="default_value">'foo'</span></em>, <em class="sig-param"><span class="n">kwarg2</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#documenting.docstrings_sample_routine.sample_routine" title="Permalink to this definition">¶</a></dt>
 <dd><p>Purpose section text goes here.</p>
 <p>Description section longer text goes here.</p>
 <p>Args:</p>
@@ -290,11 +248,10 @@ can be multi-lined.</p>
 </div>
 <p>This would be rendered as:</p>
 <blockquote>
-<div><span class="target" id="module-documenting.docstrings_attribute"></span><dl class="class">
+<div><span class="target" id="module-documenting.docstrings_attribute"></span><dl class="py class">
 <dt id="documenting.docstrings_attribute.ExampleClass">
-<em class="property">class </em><code class="sig-prename descclassname">documenting.docstrings_attribute.</code><code class="sig-name descname">ExampleClass</code><span class="sig-paren">(</span><em class="sig-param">arg1</em>, <em class="sig-param">arg2</em><span class="sig-paren">)</span><a class="headerlink" href="#documenting.docstrings_attribute.ExampleClass" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<p>Purpose section description.</p>
+<em class="property">class </em><code class="sig-prename descclassname">documenting.docstrings_attribute.</code><code class="sig-name descname">ExampleClass</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">arg1</span></em>, <em class="sig-param"><span class="n">arg2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#documenting.docstrings_attribute.ExampleClass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Purpose section description.</p>
 <p>Description section text.</p>
 <p>Args:</p>
 <ul class="simple">
@@ -313,19 +270,19 @@ can be multi-lined.</p>
 <dt>Returns:</dt><dd><p>Boolean.</p>
 </dd>
 </dl>
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="documenting.docstrings_attribute.ExampleClass.a">
-<code class="sig-name descname">a</code><em class="property"> = None</em><a class="headerlink" href="#documenting.docstrings_attribute.ExampleClass.a" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">a</code><a class="headerlink" href="#documenting.docstrings_attribute.ExampleClass.a" title="Permalink to this definition">¶</a></dt>
 <dd><p>Attribute arg1 docstring.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="documenting.docstrings_attribute.ExampleClass.b">
-<code class="sig-name descname">b</code><em class="property"> = None</em><a class="headerlink" href="#documenting.docstrings_attribute.ExampleClass.b" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">b</code><a class="headerlink" href="#documenting.docstrings_attribute.ExampleClass.b" title="Permalink to this definition">¶</a></dt>
 <dd><p>Attribute arg2 docstring.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="documenting.docstrings_attribute.ExampleClass.square">
 <em class="property">property </em><code class="sig-name descname">square</code><a class="headerlink" href="#documenting.docstrings_attribute.ExampleClass.square" title="Permalink to this definition">¶</a></dt>
 <dd><p><em>(read-only)</em> Purpose section description.</p>
@@ -347,7 +304,52 @@ can be multi-lined.</p>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../contents.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Docstrings</a><ul>
+<li><a class="reference internal" href="#single-line-docstrings">Single-line docstrings</a></li>
+<li><a class="reference internal" href="#multi-line-docstrings">Multi-line docstrings</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#sample-multi-line-docstring">Sample multi-line docstring</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#documenting-classes">Documenting classes</a><ul>
+<li><a class="reference internal" href="#attribute-and-property-docstrings">Attribute and Property docstrings</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Documentation in Iris</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="rest_guide.html"
+                        title="next chapter">reST quickstart</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/developers_guide/documenting/docstrings.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -373,13 +375,14 @@ can be multi-lined.</p>
         <li><a href="../../contents.html">contents</a>|&nbsp;</li>
 
           <li class="nav-item nav-item-1"><a href="../index.html" >Iris developer guide</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="index.html" >Documentation in Iris</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="index.html" >Documentation in Iris</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Docstrings</a></li> 
       </ul>
     </div>
 
     <div class="footer">
     <p style="text-align: left; float: left; margin: 0px; padding: 0 0 0 5px;">Documentation licensed under the <a href="http://reference.data.gov.uk/id/open-government-licence" rel="license">Open Government Licence</a></p>
-        &copy; <a href="../../copyright.html">British Crown Copyright</a> 2010 - 2019, Met Office
+        &copy; <a href="../../copyright.html">British Crown Copyright</a> 2010 - 2020, Met Office
     </div>
 
     <!-- Include a version switcher to easily move between the documentation of different versions -->

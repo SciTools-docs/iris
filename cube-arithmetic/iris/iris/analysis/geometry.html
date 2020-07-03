@@ -1,18 +1,19 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>iris.analysis.geometry &#8212; Iris 3.0.dev0 documentation</title>
     <link rel="stylesheet" href="../../../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="copyright" title="Copyright" href="../../../copyright.html" />
@@ -75,37 +76,11 @@
         <li><a href="../../../contents.html">contents</a>|&nbsp;</li>
 
           <li class="nav-item nav-item-1"><a href="../../iris.html" >Iris reference documentation</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../analysis.html" accesskey="U">iris.analysis</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../analysis.html" accesskey="U">iris.analysis</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">iris.analysis.geometry</a></li> 
       </ul>
     </div>
-
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="cartography.html"
-                        title="previous chapter">iris.analysis.cartography</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="maths.html"
-                        title="next chapter">iris.analysis.maths</a></p>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="../../../_sources/iris/iris/analysis/geometry.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../../../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
+  
 
     <div class="document">
       <div class="documentwrapper">
@@ -125,9 +100,9 @@
 <li><p><a class="reference internal" href="#iris.analysis.geometry.geometry_area_weights" title="iris.analysis.geometry.geometry_area_weights"><code class="xref py py-obj docutils literal notranslate"><span class="pre">geometry_area_weights</span></code></a></p></li>
 </ul>
 </div></blockquote>
-<dl class="function">
+<dl class="py function">
 <dt id="iris.analysis.geometry.geometry_area_weights">
-<code class="sig-prename descclassname">iris.analysis.geometry.</code><code class="sig-name descname">geometry_area_weights</code><span class="sig-paren">(</span><em class="sig-param">cube</em>, <em class="sig-param">geometry</em>, <em class="sig-param">normalize=False</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.analysis.geometry.geometry_area_weights" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.analysis.geometry.</code><code class="sig-name descname">geometry_area_weights</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cube</span></em>, <em class="sig-param"><span class="n">geometry</span></em>, <em class="sig-param"><span class="n">normalize</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.analysis.geometry.geometry_area_weights" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the array of weights corresponding to the area of overlap between
 the cells of cube’s horizontal grid, and the given shapely geometry.</p>
 <p>The returned array is suitable for use with <a class="reference internal" href="../analysis.html#iris.analysis.MEAN" title="iris.analysis.MEAN"><code class="xref py py-const docutils literal notranslate"><span class="pre">iris.analysis.MEAN</span></code></a>.</p>
@@ -177,7 +152,35 @@ Default is False.</p>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="cartography.html"
+                        title="previous chapter">iris.analysis.cartography</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="maths.html"
+                        title="next chapter">iris.analysis.maths</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/iris/iris/analysis/geometry.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -203,13 +206,14 @@ Default is False.</p>
         <li><a href="../../../contents.html">contents</a>|&nbsp;</li>
 
           <li class="nav-item nav-item-1"><a href="../../iris.html" >Iris reference documentation</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../analysis.html" >iris.analysis</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../analysis.html" >iris.analysis</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">iris.analysis.geometry</a></li> 
       </ul>
     </div>
 
     <div class="footer">
     <p style="text-align: left; float: left; margin: 0px; padding: 0 0 0 5px;">Documentation licensed under the <a href="http://reference.data.gov.uk/id/open-government-licence" rel="license">Open Government Licence</a></p>
-        &copy; <a href="../../../copyright.html">British Crown Copyright</a> 2010 - 2019, Met Office
+        &copy; <a href="../../../copyright.html">British Crown Copyright</a> 2010 - 2020, Met Office
     </div>
 
     <!-- Include a version switcher to easily move between the documentation of different versions -->

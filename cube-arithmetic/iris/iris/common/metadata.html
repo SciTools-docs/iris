@@ -1,23 +1,24 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>iris.common.metadata &#8212; Iris 3.0.dev0 documentation</title>
     <link rel="stylesheet" href="../../../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="copyright" title="Copyright" href="../../../copyright.html" />
     <link rel="next" title="iris.common.mixin" href="mixin.html" />
-    <link rel="prev" title="iris.common" href="../common.html" />
+    <link rel="prev" title="iris.common.lenient" href="lenient.html" />
  
     <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
     <META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE"> 
@@ -67,7 +68,7 @@
           <a href="mixin.html" title="iris.common.mixin"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="../common.html" title="iris.common"
+          <a href="lenient.html" title="iris.common.lenient"
              accesskey="P">previous</a> |</li>
         <li><a href="../../../index.html">home</a>|&nbsp;</li>
         <li><a href="../../../examples/index.html">examples</a>|&nbsp;</li>
@@ -75,37 +76,11 @@
         <li><a href="../../../contents.html">contents</a>|&nbsp;</li>
 
           <li class="nav-item nav-item-1"><a href="../../iris.html" >Iris reference documentation</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../common.html" accesskey="U">iris.common</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../common.html" accesskey="U">iris.common</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">iris.common.metadata</a></li> 
       </ul>
     </div>
-
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="../common.html"
-                        title="previous chapter">iris.common</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="mixin.html"
-                        title="next chapter">iris.common.mixin</a></p>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="../../../_sources/iris/iris/common/metadata.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../../../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
+  
 
     <div class="document">
       <div class="documentwrapper">
@@ -117,37 +92,158 @@
 <span class="target" id="module-iris.common.metadata"></span><p>In this module:</p>
 <blockquote>
 <div><ul class="simple">
+<li><p><a class="reference internal" href="#iris.common.metadata.SERVICES_COMBINE" title="iris.common.metadata.SERVICES_COMBINE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SERVICES_COMBINE</span></code></a></p></li>
+<li><p><a class="reference internal" href="#iris.common.metadata.SERVICES_DIFFERENCE" title="iris.common.metadata.SERVICES_DIFFERENCE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SERVICES_DIFFERENCE</span></code></a></p></li>
+<li><p><a class="reference internal" href="#iris.common.metadata.SERVICES_EQUAL" title="iris.common.metadata.SERVICES_EQUAL"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SERVICES_EQUAL</span></code></a></p></li>
+<li><p><a class="reference internal" href="#iris.common.metadata.SERVICES" title="iris.common.metadata.SERVICES"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SERVICES</span></code></a></p></li>
 <li><p><a class="reference internal" href="#iris.common.metadata.AncillaryVariableMetadata" title="iris.common.metadata.AncillaryVariableMetadata"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AncillaryVariableMetadata</span></code></a></p></li>
 <li><p><a class="reference internal" href="#iris.common.metadata.BaseMetadata" title="iris.common.metadata.BaseMetadata"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BaseMetadata</span></code></a></p></li>
 <li><p><a class="reference internal" href="#iris.common.metadata.CellMeasureMetadata" title="iris.common.metadata.CellMeasureMetadata"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CellMeasureMetadata</span></code></a></p></li>
 <li><p><a class="reference internal" href="#iris.common.metadata.CoordMetadata" title="iris.common.metadata.CoordMetadata"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CoordMetadata</span></code></a></p></li>
 <li><p><a class="reference internal" href="#iris.common.metadata.CubeMetadata" title="iris.common.metadata.CubeMetadata"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CubeMetadata</span></code></a></p></li>
-<li><p><a class="reference internal" href="#iris.common.metadata.MetadataManagerFactory" title="iris.common.metadata.MetadataManagerFactory"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MetadataManagerFactory</span></code></a></p></li>
+<li><p><a class="reference internal" href="#iris.common.metadata.metadata_manager_factory" title="iris.common.metadata.metadata_manager_factory"><code class="xref py py-obj docutils literal notranslate"><span class="pre">metadata_manager_factory</span></code></a></p></li>
 </ul>
 </div></blockquote>
-<p>Metadata container for a <code class="xref py py-class docutils literal notranslate"><span class="pre">AncillaryVariableMetadata</span></code>.</p>
+<dl class="py data">
+<dt id="iris.common.metadata.SERVICES_COMBINE">
+<code class="sig-prename descclassname">iris.common.metadata.</code><code class="sig-name descname">SERVICES_COMBINE</code><a class="headerlink" href="#iris.common.metadata.SERVICES_COMBINE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convenience collection of lenient metadata combine services.</p>
+</dd></dl>
+
+<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
+<!--<hr class="docutils" />
+--><dl class="py data">
+<dt id="iris.common.metadata.SERVICES_DIFFERENCE">
+<code class="sig-prename descclassname">iris.common.metadata.</code><code class="sig-name descname">SERVICES_DIFFERENCE</code><a class="headerlink" href="#iris.common.metadata.SERVICES_DIFFERENCE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convenience collection of lenient metadata difference services.</p>
+</dd></dl>
+
+<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
+<!--<hr class="docutils" />
+--><dl class="py data">
+<dt id="iris.common.metadata.SERVICES_EQUAL">
+<code class="sig-prename descclassname">iris.common.metadata.</code><code class="sig-name descname">SERVICES_EQUAL</code><a class="headerlink" href="#iris.common.metadata.SERVICES_EQUAL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convenience collection of lenient metadata equality services.</p>
+</dd></dl>
+
+<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
+<!--<hr class="docutils" />
+--><dl class="py data">
+<dt id="iris.common.metadata.SERVICES">
+<code class="sig-prename descclassname">iris.common.metadata.</code><code class="sig-name descname">SERVICES</code><a class="headerlink" href="#iris.common.metadata.SERVICES" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convenience collection of lenient metadata services.</p>
+</dd></dl>
+
+<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
+<!--<hr class="docutils" />
+--><p>Metadata container for a <code class="xref py py-class docutils literal notranslate"><span class="pre">AncillaryVariableMetadata</span></code>.</p>
 <blockquote>
-<div><dl class="class">
+<div><dl class="py class">
 <dt id="iris.common.metadata.AncillaryVariableMetadata">
-<em class="property">class </em><code class="sig-prename descclassname">iris.common.metadata.</code><code class="sig-name descname">AncillaryVariableMetadata</code><span class="sig-paren">(</span><em class="sig-param">_cls</em>, <em class="sig-param">standard_name</em>, <em class="sig-param">long_name</em>, <em class="sig-param">var_name</em>, <em class="sig-param">units</em>, <em class="sig-param">attributes</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.AncillaryVariableMetadata" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">iris.common.metadata.AncillaryVariableMetadataNamedtuple</span></code>, <a class="reference internal" href="#iris.common.metadata.BaseMetadata" title="iris.common.metadata.BaseMetadata"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.common.metadata.BaseMetadata</span></code></a></p>
-<p>Create new instance of AncillaryVariableMetadataNamedtuple(standard_name, long_name, var_name, units, attributes)</p>
-<dl class="method">
+<em class="property">class </em><code class="sig-prename descclassname">iris.common.metadata.</code><code class="sig-name descname">AncillaryVariableMetadata</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">_cls</span></em>, <em class="sig-param"><span class="n">standard_name</span></em>, <em class="sig-param"><span class="n">long_name</span></em>, <em class="sig-param"><span class="n">var_name</span></em>, <em class="sig-param"><span class="n">units</span></em>, <em class="sig-param"><span class="n">attributes</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.AncillaryVariableMetadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create new instance of AncillaryVariableMetadataNamedtuple(standard_name, long_name, var_name, units, attributes)</p>
+<dl class="py method">
+<dt id="iris.common.metadata.AncillaryVariableMetadata.combine">
+<code class="sig-name descname">combine</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em>, <em class="sig-param"><span class="n">lenient</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.AncillaryVariableMetadata.combine" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a new metadata instance created by combining each of the
+associated metadata members.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>other (metadata):</dt><dd><p>A metadata instance of the same type.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Kwargs:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>lenient (boolean):</dt><dd><p>Enable/disable lenient combination. The default is to automatically
+detect whether this lenient operation is enabled.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Metadata instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt id="iris.common.metadata.AncillaryVariableMetadata.count">
-<code class="sig-name descname">count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.AncillaryVariableMetadata.count" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">count</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">/</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.AncillaryVariableMetadata.count" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return number of occurrences of value.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
+<dt id="iris.common.metadata.AncillaryVariableMetadata.difference">
+<code class="sig-name descname">difference</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em>, <em class="sig-param"><span class="n">lenient</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.AncillaryVariableMetadata.difference" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a new metadata instance created by performing a difference
+comparison between each of the associated metadata members.</p>
+<p>A metadata member returned with a value of “None” indicates that there
+is no difference between the members being compared. Otherwise, a tuple
+of the different values is returned.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>other (metadata):</dt><dd><p>A metadata instance of the same type.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Kwargs:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>lenient (boolean):</dt><dd><p>Enable/disable lenient difference. The default is to automatically
+detect whether this lenient operation is enabled.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Metadata instance of member differences or None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="iris.common.metadata.AncillaryVariableMetadata.equal">
+<code class="sig-name descname">equal</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em>, <em class="sig-param"><span class="n">lenient</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.AncillaryVariableMetadata.equal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine whether the associated metadata members are equivalent.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>other (metadata):</dt><dd><p>A metadata instance of the same type.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Kwargs:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>lenient (boolean):</dt><dd><p>Enable/disable lenient equivalence. The default is to automatically
+detect whether this lenient operation is enabled.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Boolean.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt id="iris.common.metadata.AncillaryVariableMetadata.index">
-<code class="sig-name descname">index</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.AncillaryVariableMetadata.index" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">index</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">start=0</em>, <em class="sig-param">stop=9223372036854775807</em>, <em class="sig-param">/</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.AncillaryVariableMetadata.index" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return first index of value.</p>
 <p>Raises ValueError if the value is not present.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="iris.common.metadata.AncillaryVariableMetadata.name">
-<code class="sig-name descname">name</code><span class="sig-paren">(</span><em class="sig-param">default=None</em>, <em class="sig-param">token=False</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.AncillaryVariableMetadata.name" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">name</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">default</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">token</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.AncillaryVariableMetadata.name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a string name representing the identity of the metadata.</p>
 <p>First it tries standard name, then it tries the long name, then
 the NetCDF variable name, before falling-back to a default value,
@@ -175,9 +271,9 @@ raised. Defaults to False.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="iris.common.metadata.AncillaryVariableMetadata.token">
-<em class="property">classmethod </em><code class="sig-name descname">token</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.AncillaryVariableMetadata.token" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="sig-name descname">token</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.AncillaryVariableMetadata.token" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determine whether the provided name is a valid NetCDF name and thus
 safe to represent a single parsable token.</p>
 <p>Args:</p>
@@ -194,36 +290,36 @@ safe to represent a single parsable token.</p>
 </dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.common.metadata.AncillaryVariableMetadata.DEFAULT_NAME">
 <code class="sig-name descname">DEFAULT_NAME</code><em class="property"> = 'unknown'</em><a class="headerlink" href="#iris.common.metadata.AncillaryVariableMetadata.DEFAULT_NAME" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="iris.common.metadata.AncillaryVariableMetadata.attributes">
 <em class="property">property </em><code class="sig-name descname">attributes</code><a class="headerlink" href="#iris.common.metadata.AncillaryVariableMetadata.attributes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Alias for field number 4</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="iris.common.metadata.AncillaryVariableMetadata.long_name">
 <em class="property">property </em><code class="sig-name descname">long_name</code><a class="headerlink" href="#iris.common.metadata.AncillaryVariableMetadata.long_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Alias for field number 1</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="iris.common.metadata.AncillaryVariableMetadata.standard_name">
 <em class="property">property </em><code class="sig-name descname">standard_name</code><a class="headerlink" href="#iris.common.metadata.AncillaryVariableMetadata.standard_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Alias for field number 0</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="iris.common.metadata.AncillaryVariableMetadata.units">
 <em class="property">property </em><code class="sig-name descname">units</code><a class="headerlink" href="#iris.common.metadata.AncillaryVariableMetadata.units" title="Permalink to this definition">¶</a></dt>
 <dd><p>Alias for field number 3</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="iris.common.metadata.AncillaryVariableMetadata.var_name">
 <em class="property">property </em><code class="sig-name descname">var_name</code><a class="headerlink" href="#iris.common.metadata.AncillaryVariableMetadata.var_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Alias for field number 2</p>
@@ -236,27 +332,112 @@ safe to represent a single parsable token.</p>
 <!--<hr class="docutils" />
 --><p>Container for common metadata.</p>
 <blockquote>
-<div><dl class="class">
+<div><dl class="py class">
 <dt id="iris.common.metadata.BaseMetadata">
-<em class="property">class </em><code class="sig-prename descclassname">iris.common.metadata.</code><code class="sig-name descname">BaseMetadata</code><span class="sig-paren">(</span><em class="sig-param">_cls</em>, <em class="sig-param">standard_name</em>, <em class="sig-param">long_name</em>, <em class="sig-param">var_name</em>, <em class="sig-param">units</em>, <em class="sig-param">attributes</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.BaseMetadata" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">iris.common.metadata.BaseMetadataNamedtuple</span></code></p>
-<p>Create new instance of BaseMetadataNamedtuple(standard_name, long_name, var_name, units, attributes)</p>
-<dl class="method">
+<em class="property">class </em><code class="sig-prename descclassname">iris.common.metadata.</code><code class="sig-name descname">BaseMetadata</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">_cls</span></em>, <em class="sig-param"><span class="n">standard_name</span></em>, <em class="sig-param"><span class="n">long_name</span></em>, <em class="sig-param"><span class="n">var_name</span></em>, <em class="sig-param"><span class="n">units</span></em>, <em class="sig-param"><span class="n">attributes</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.BaseMetadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create new instance of BaseMetadataNamedtuple(standard_name, long_name, var_name, units, attributes)</p>
+<dl class="py method">
+<dt id="iris.common.metadata.BaseMetadata.combine">
+<code class="sig-name descname">combine</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em>, <em class="sig-param"><span class="n">lenient</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.BaseMetadata.combine" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a new metadata instance created by combining each of the
+associated metadata members.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>other (metadata):</dt><dd><p>A metadata instance of the same type.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Kwargs:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>lenient (boolean):</dt><dd><p>Enable/disable lenient combination. The default is to automatically
+detect whether this lenient operation is enabled.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Metadata instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt id="iris.common.metadata.BaseMetadata.count">
-<code class="sig-name descname">count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.BaseMetadata.count" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">count</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">/</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.BaseMetadata.count" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return number of occurrences of value.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
+<dt id="iris.common.metadata.BaseMetadata.difference">
+<code class="sig-name descname">difference</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em>, <em class="sig-param"><span class="n">lenient</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.BaseMetadata.difference" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a new metadata instance created by performing a difference
+comparison between each of the associated metadata members.</p>
+<p>A metadata member returned with a value of “None” indicates that there
+is no difference between the members being compared. Otherwise, a tuple
+of the different values is returned.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>other (metadata):</dt><dd><p>A metadata instance of the same type.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Kwargs:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>lenient (boolean):</dt><dd><p>Enable/disable lenient difference. The default is to automatically
+detect whether this lenient operation is enabled.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Metadata instance of member differences or None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="iris.common.metadata.BaseMetadata.equal">
+<code class="sig-name descname">equal</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em>, <em class="sig-param"><span class="n">lenient</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.BaseMetadata.equal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine whether the associated metadata members are equivalent.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>other (metadata):</dt><dd><p>A metadata instance of the same type.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Kwargs:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>lenient (boolean):</dt><dd><p>Enable/disable lenient equivalence. The default is to automatically
+detect whether this lenient operation is enabled.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Boolean.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt id="iris.common.metadata.BaseMetadata.index">
-<code class="sig-name descname">index</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.BaseMetadata.index" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">index</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">start=0</em>, <em class="sig-param">stop=9223372036854775807</em>, <em class="sig-param">/</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.BaseMetadata.index" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return first index of value.</p>
 <p>Raises ValueError if the value is not present.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="iris.common.metadata.BaseMetadata.name">
-<code class="sig-name descname">name</code><span class="sig-paren">(</span><em class="sig-param">default=None</em>, <em class="sig-param">token=False</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.BaseMetadata.name" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">name</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">default</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">token</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.BaseMetadata.name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a string name representing the identity of the metadata.</p>
 <p>First it tries standard name, then it tries the long name, then
 the NetCDF variable name, before falling-back to a default value,
@@ -284,9 +465,9 @@ raised. Defaults to False.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="iris.common.metadata.BaseMetadata.token">
-<em class="property">classmethod </em><code class="sig-name descname">token</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.BaseMetadata.token" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="sig-name descname">token</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.BaseMetadata.token" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determine whether the provided name is a valid NetCDF name and thus
 safe to represent a single parsable token.</p>
 <p>Args:</p>
@@ -303,36 +484,36 @@ safe to represent a single parsable token.</p>
 </dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.common.metadata.BaseMetadata.DEFAULT_NAME">
 <code class="sig-name descname">DEFAULT_NAME</code><em class="property"> = 'unknown'</em><a class="headerlink" href="#iris.common.metadata.BaseMetadata.DEFAULT_NAME" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="iris.common.metadata.BaseMetadata.attributes">
 <em class="property">property </em><code class="sig-name descname">attributes</code><a class="headerlink" href="#iris.common.metadata.BaseMetadata.attributes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Alias for field number 4</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="iris.common.metadata.BaseMetadata.long_name">
 <em class="property">property </em><code class="sig-name descname">long_name</code><a class="headerlink" href="#iris.common.metadata.BaseMetadata.long_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Alias for field number 1</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="iris.common.metadata.BaseMetadata.standard_name">
 <em class="property">property </em><code class="sig-name descname">standard_name</code><a class="headerlink" href="#iris.common.metadata.BaseMetadata.standard_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Alias for field number 0</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="iris.common.metadata.BaseMetadata.units">
 <em class="property">property </em><code class="sig-name descname">units</code><a class="headerlink" href="#iris.common.metadata.BaseMetadata.units" title="Permalink to this definition">¶</a></dt>
 <dd><p>Alias for field number 3</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="iris.common.metadata.BaseMetadata.var_name">
 <em class="property">property </em><code class="sig-name descname">var_name</code><a class="headerlink" href="#iris.common.metadata.BaseMetadata.var_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Alias for field number 2</p>
@@ -345,27 +526,112 @@ safe to represent a single parsable token.</p>
 <!--<hr class="docutils" />
 --><p>Metadata container for a <a class="reference internal" href="../coords.html#iris.coords.CellMeasure" title="iris.coords.CellMeasure"><code class="xref py py-class docutils literal notranslate"><span class="pre">CellMeasure</span></code></a>.</p>
 <blockquote>
-<div><dl class="class">
+<div><dl class="py class">
 <dt id="iris.common.metadata.CellMeasureMetadata">
-<em class="property">class </em><code class="sig-prename descclassname">iris.common.metadata.</code><code class="sig-name descname">CellMeasureMetadata</code><span class="sig-paren">(</span><em class="sig-param">_cls</em>, <em class="sig-param">standard_name</em>, <em class="sig-param">long_name</em>, <em class="sig-param">var_name</em>, <em class="sig-param">units</em>, <em class="sig-param">attributes</em>, <em class="sig-param">measure</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.CellMeasureMetadata" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">iris.common.metadata.CellMeasureMetadataNamedtuple</span></code>, <a class="reference internal" href="#iris.common.metadata.BaseMetadata" title="iris.common.metadata.BaseMetadata"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.common.metadata.BaseMetadata</span></code></a></p>
-<p>Create new instance of CellMeasureMetadataNamedtuple(standard_name, long_name, var_name, units, attributes, measure)</p>
-<dl class="method">
+<em class="property">class </em><code class="sig-prename descclassname">iris.common.metadata.</code><code class="sig-name descname">CellMeasureMetadata</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">_cls</span></em>, <em class="sig-param"><span class="n">standard_name</span></em>, <em class="sig-param"><span class="n">long_name</span></em>, <em class="sig-param"><span class="n">var_name</span></em>, <em class="sig-param"><span class="n">units</span></em>, <em class="sig-param"><span class="n">attributes</span></em>, <em class="sig-param"><span class="n">measure</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.CellMeasureMetadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create new instance of CellMeasureMetadataNamedtuple(standard_name, long_name, var_name, units, attributes, measure)</p>
+<dl class="py method">
+<dt id="iris.common.metadata.CellMeasureMetadata.combine">
+<code class="sig-name descname">combine</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em>, <em class="sig-param"><span class="n">lenient</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.CellMeasureMetadata.combine" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a new metadata instance created by combining each of the
+associated metadata members.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>other (metadata):</dt><dd><p>A metadata instance of the same type.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Kwargs:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>lenient (boolean):</dt><dd><p>Enable/disable lenient combination. The default is to automatically
+detect whether this lenient operation is enabled.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Metadata instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt id="iris.common.metadata.CellMeasureMetadata.count">
-<code class="sig-name descname">count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.CellMeasureMetadata.count" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">count</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">/</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.CellMeasureMetadata.count" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return number of occurrences of value.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
+<dt id="iris.common.metadata.CellMeasureMetadata.difference">
+<code class="sig-name descname">difference</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em>, <em class="sig-param"><span class="n">lenient</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.CellMeasureMetadata.difference" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a new metadata instance created by performing a difference
+comparison between each of the associated metadata members.</p>
+<p>A metadata member returned with a value of “None” indicates that there
+is no difference between the members being compared. Otherwise, a tuple
+of the different values is returned.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>other (metadata):</dt><dd><p>A metadata instance of the same type.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Kwargs:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>lenient (boolean):</dt><dd><p>Enable/disable lenient difference. The default is to automatically
+detect whether this lenient operation is enabled.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Metadata instance of member differences or None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="iris.common.metadata.CellMeasureMetadata.equal">
+<code class="sig-name descname">equal</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em>, <em class="sig-param"><span class="n">lenient</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.CellMeasureMetadata.equal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine whether the associated metadata members are equivalent.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>other (metadata):</dt><dd><p>A metadata instance of the same type.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Kwargs:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>lenient (boolean):</dt><dd><p>Enable/disable lenient equivalence. The default is to automatically
+detect whether this lenient operation is enabled.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Boolean.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt id="iris.common.metadata.CellMeasureMetadata.index">
-<code class="sig-name descname">index</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.CellMeasureMetadata.index" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">index</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">start=0</em>, <em class="sig-param">stop=9223372036854775807</em>, <em class="sig-param">/</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.CellMeasureMetadata.index" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return first index of value.</p>
 <p>Raises ValueError if the value is not present.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="iris.common.metadata.CellMeasureMetadata.name">
-<code class="sig-name descname">name</code><span class="sig-paren">(</span><em class="sig-param">default=None</em>, <em class="sig-param">token=False</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.CellMeasureMetadata.name" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">name</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">default</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">token</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.CellMeasureMetadata.name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a string name representing the identity of the metadata.</p>
 <p>First it tries standard name, then it tries the long name, then
 the NetCDF variable name, before falling-back to a default value,
@@ -393,9 +659,9 @@ raised. Defaults to False.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="iris.common.metadata.CellMeasureMetadata.token">
-<em class="property">classmethod </em><code class="sig-name descname">token</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.CellMeasureMetadata.token" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="sig-name descname">token</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.CellMeasureMetadata.token" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determine whether the provided name is a valid NetCDF name and thus
 safe to represent a single parsable token.</p>
 <p>Args:</p>
@@ -412,42 +678,42 @@ safe to represent a single parsable token.</p>
 </dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.common.metadata.CellMeasureMetadata.DEFAULT_NAME">
 <code class="sig-name descname">DEFAULT_NAME</code><em class="property"> = 'unknown'</em><a class="headerlink" href="#iris.common.metadata.CellMeasureMetadata.DEFAULT_NAME" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="iris.common.metadata.CellMeasureMetadata.attributes">
 <em class="property">property </em><code class="sig-name descname">attributes</code><a class="headerlink" href="#iris.common.metadata.CellMeasureMetadata.attributes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Alias for field number 4</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="iris.common.metadata.CellMeasureMetadata.long_name">
 <em class="property">property </em><code class="sig-name descname">long_name</code><a class="headerlink" href="#iris.common.metadata.CellMeasureMetadata.long_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Alias for field number 1</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="iris.common.metadata.CellMeasureMetadata.measure">
 <em class="property">property </em><code class="sig-name descname">measure</code><a class="headerlink" href="#iris.common.metadata.CellMeasureMetadata.measure" title="Permalink to this definition">¶</a></dt>
 <dd><p>Alias for field number 5</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="iris.common.metadata.CellMeasureMetadata.standard_name">
 <em class="property">property </em><code class="sig-name descname">standard_name</code><a class="headerlink" href="#iris.common.metadata.CellMeasureMetadata.standard_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Alias for field number 0</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="iris.common.metadata.CellMeasureMetadata.units">
 <em class="property">property </em><code class="sig-name descname">units</code><a class="headerlink" href="#iris.common.metadata.CellMeasureMetadata.units" title="Permalink to this definition">¶</a></dt>
 <dd><p>Alias for field number 3</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="iris.common.metadata.CellMeasureMetadata.var_name">
 <em class="property">property </em><code class="sig-name descname">var_name</code><a class="headerlink" href="#iris.common.metadata.CellMeasureMetadata.var_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Alias for field number 2</p>
@@ -460,27 +726,112 @@ safe to represent a single parsable token.</p>
 <!--<hr class="docutils" />
 --><p>Metadata container for a <a class="reference internal" href="../coords.html#iris.coords.Coord" title="iris.coords.Coord"><code class="xref py py-class docutils literal notranslate"><span class="pre">Coord</span></code></a>.</p>
 <blockquote>
-<div><dl class="class">
+<div><dl class="py class">
 <dt id="iris.common.metadata.CoordMetadata">
-<em class="property">class </em><code class="sig-prename descclassname">iris.common.metadata.</code><code class="sig-name descname">CoordMetadata</code><span class="sig-paren">(</span><em class="sig-param">_cls</em>, <em class="sig-param">standard_name</em>, <em class="sig-param">long_name</em>, <em class="sig-param">var_name</em>, <em class="sig-param">units</em>, <em class="sig-param">attributes</em>, <em class="sig-param">coord_system</em>, <em class="sig-param">climatological</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.CoordMetadata" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">iris.common.metadata.CoordMetadataNamedtuple</span></code>, <a class="reference internal" href="#iris.common.metadata.BaseMetadata" title="iris.common.metadata.BaseMetadata"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.common.metadata.BaseMetadata</span></code></a></p>
-<p>Create new instance of CoordMetadataNamedtuple(standard_name, long_name, var_name, units, attributes, coord_system, climatological)</p>
-<dl class="method">
+<em class="property">class </em><code class="sig-prename descclassname">iris.common.metadata.</code><code class="sig-name descname">CoordMetadata</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">_cls</span></em>, <em class="sig-param"><span class="n">standard_name</span></em>, <em class="sig-param"><span class="n">long_name</span></em>, <em class="sig-param"><span class="n">var_name</span></em>, <em class="sig-param"><span class="n">units</span></em>, <em class="sig-param"><span class="n">attributes</span></em>, <em class="sig-param"><span class="n">coord_system</span></em>, <em class="sig-param"><span class="n">climatological</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.CoordMetadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create new instance of CoordMetadataNamedtuple(standard_name, long_name, var_name, units, attributes, coord_system, climatological)</p>
+<dl class="py method">
+<dt id="iris.common.metadata.CoordMetadata.combine">
+<code class="sig-name descname">combine</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em>, <em class="sig-param"><span class="n">lenient</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.CoordMetadata.combine" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a new metadata instance created by combining each of the
+associated metadata members.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>other (metadata):</dt><dd><p>A metadata instance of the same type.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Kwargs:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>lenient (boolean):</dt><dd><p>Enable/disable lenient combination. The default is to automatically
+detect whether this lenient operation is enabled.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Metadata instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt id="iris.common.metadata.CoordMetadata.count">
-<code class="sig-name descname">count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.CoordMetadata.count" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">count</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">/</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.CoordMetadata.count" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return number of occurrences of value.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
+<dt id="iris.common.metadata.CoordMetadata.difference">
+<code class="sig-name descname">difference</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em>, <em class="sig-param"><span class="n">lenient</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.CoordMetadata.difference" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a new metadata instance created by performing a difference
+comparison between each of the associated metadata members.</p>
+<p>A metadata member returned with a value of “None” indicates that there
+is no difference between the members being compared. Otherwise, a tuple
+of the different values is returned.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>other (metadata):</dt><dd><p>A metadata instance of the same type.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Kwargs:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>lenient (boolean):</dt><dd><p>Enable/disable lenient difference. The default is to automatically
+detect whether this lenient operation is enabled.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Metadata instance of member differences or None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="iris.common.metadata.CoordMetadata.equal">
+<code class="sig-name descname">equal</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em>, <em class="sig-param"><span class="n">lenient</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.CoordMetadata.equal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine whether the associated metadata members are equivalent.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>other (metadata):</dt><dd><p>A metadata instance of the same type.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Kwargs:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>lenient (boolean):</dt><dd><p>Enable/disable lenient equivalence. The default is to automatically
+detect whether this lenient operation is enabled.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Boolean.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt id="iris.common.metadata.CoordMetadata.index">
-<code class="sig-name descname">index</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.CoordMetadata.index" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">index</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">start=0</em>, <em class="sig-param">stop=9223372036854775807</em>, <em class="sig-param">/</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.CoordMetadata.index" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return first index of value.</p>
 <p>Raises ValueError if the value is not present.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="iris.common.metadata.CoordMetadata.name">
-<code class="sig-name descname">name</code><span class="sig-paren">(</span><em class="sig-param">default=None</em>, <em class="sig-param">token=False</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.CoordMetadata.name" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">name</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">default</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">token</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.CoordMetadata.name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a string name representing the identity of the metadata.</p>
 <p>First it tries standard name, then it tries the long name, then
 the NetCDF variable name, before falling-back to a default value,
@@ -508,9 +859,9 @@ raised. Defaults to False.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="iris.common.metadata.CoordMetadata.token">
-<em class="property">classmethod </em><code class="sig-name descname">token</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.CoordMetadata.token" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="sig-name descname">token</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.CoordMetadata.token" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determine whether the provided name is a valid NetCDF name and thus
 safe to represent a single parsable token.</p>
 <p>Args:</p>
@@ -527,48 +878,48 @@ safe to represent a single parsable token.</p>
 </dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.common.metadata.CoordMetadata.DEFAULT_NAME">
 <code class="sig-name descname">DEFAULT_NAME</code><em class="property"> = 'unknown'</em><a class="headerlink" href="#iris.common.metadata.CoordMetadata.DEFAULT_NAME" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="iris.common.metadata.CoordMetadata.attributes">
 <em class="property">property </em><code class="sig-name descname">attributes</code><a class="headerlink" href="#iris.common.metadata.CoordMetadata.attributes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Alias for field number 4</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="iris.common.metadata.CoordMetadata.climatological">
 <em class="property">property </em><code class="sig-name descname">climatological</code><a class="headerlink" href="#iris.common.metadata.CoordMetadata.climatological" title="Permalink to this definition">¶</a></dt>
 <dd><p>Alias for field number 6</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="iris.common.metadata.CoordMetadata.coord_system">
 <em class="property">property </em><code class="sig-name descname">coord_system</code><a class="headerlink" href="#iris.common.metadata.CoordMetadata.coord_system" title="Permalink to this definition">¶</a></dt>
 <dd><p>Alias for field number 5</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="iris.common.metadata.CoordMetadata.long_name">
 <em class="property">property </em><code class="sig-name descname">long_name</code><a class="headerlink" href="#iris.common.metadata.CoordMetadata.long_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Alias for field number 1</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="iris.common.metadata.CoordMetadata.standard_name">
 <em class="property">property </em><code class="sig-name descname">standard_name</code><a class="headerlink" href="#iris.common.metadata.CoordMetadata.standard_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Alias for field number 0</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="iris.common.metadata.CoordMetadata.units">
 <em class="property">property </em><code class="sig-name descname">units</code><a class="headerlink" href="#iris.common.metadata.CoordMetadata.units" title="Permalink to this definition">¶</a></dt>
 <dd><p>Alias for field number 3</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="iris.common.metadata.CoordMetadata.var_name">
 <em class="property">property </em><code class="sig-name descname">var_name</code><a class="headerlink" href="#iris.common.metadata.CoordMetadata.var_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Alias for field number 2</p>
@@ -581,27 +932,112 @@ safe to represent a single parsable token.</p>
 <!--<hr class="docutils" />
 --><p>Metadata container for a <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a>.</p>
 <blockquote>
-<div><dl class="class">
+<div><dl class="py class">
 <dt id="iris.common.metadata.CubeMetadata">
-<em class="property">class </em><code class="sig-prename descclassname">iris.common.metadata.</code><code class="sig-name descname">CubeMetadata</code><span class="sig-paren">(</span><em class="sig-param">_cls</em>, <em class="sig-param">standard_name</em>, <em class="sig-param">long_name</em>, <em class="sig-param">var_name</em>, <em class="sig-param">units</em>, <em class="sig-param">attributes</em>, <em class="sig-param">cell_methods</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.CubeMetadata" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">iris.common.metadata.CubeMetadataNamedtuple</span></code>, <a class="reference internal" href="#iris.common.metadata.BaseMetadata" title="iris.common.metadata.BaseMetadata"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.common.metadata.BaseMetadata</span></code></a></p>
-<p>Create new instance of CubeMetadataNamedtuple(standard_name, long_name, var_name, units, attributes, cell_methods)</p>
-<dl class="method">
+<em class="property">class </em><code class="sig-prename descclassname">iris.common.metadata.</code><code class="sig-name descname">CubeMetadata</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">_cls</span></em>, <em class="sig-param"><span class="n">standard_name</span></em>, <em class="sig-param"><span class="n">long_name</span></em>, <em class="sig-param"><span class="n">var_name</span></em>, <em class="sig-param"><span class="n">units</span></em>, <em class="sig-param"><span class="n">attributes</span></em>, <em class="sig-param"><span class="n">cell_methods</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.CubeMetadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create new instance of CubeMetadataNamedtuple(standard_name, long_name, var_name, units, attributes, cell_methods)</p>
+<dl class="py method">
+<dt id="iris.common.metadata.CubeMetadata.combine">
+<code class="sig-name descname">combine</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em>, <em class="sig-param"><span class="n">lenient</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.CubeMetadata.combine" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a new metadata instance created by combining each of the
+associated metadata members.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>other (metadata):</dt><dd><p>A metadata instance of the same type.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Kwargs:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>lenient (boolean):</dt><dd><p>Enable/disable lenient combination. The default is to automatically
+detect whether this lenient operation is enabled.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Metadata instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt id="iris.common.metadata.CubeMetadata.count">
-<code class="sig-name descname">count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.CubeMetadata.count" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">count</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">/</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.CubeMetadata.count" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return number of occurrences of value.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
+<dt id="iris.common.metadata.CubeMetadata.difference">
+<code class="sig-name descname">difference</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em>, <em class="sig-param"><span class="n">lenient</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.CubeMetadata.difference" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a new metadata instance created by performing a difference
+comparison between each of the associated metadata members.</p>
+<p>A metadata member returned with a value of “None” indicates that there
+is no difference between the members being compared. Otherwise, a tuple
+of the different values is returned.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>other (metadata):</dt><dd><p>A metadata instance of the same type.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Kwargs:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>lenient (boolean):</dt><dd><p>Enable/disable lenient difference. The default is to automatically
+detect whether this lenient operation is enabled.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Metadata instance of member differences or None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="iris.common.metadata.CubeMetadata.equal">
+<code class="sig-name descname">equal</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em>, <em class="sig-param"><span class="n">lenient</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.CubeMetadata.equal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine whether the associated metadata members are equivalent.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>other (metadata):</dt><dd><p>A metadata instance of the same type.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Kwargs:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>lenient (boolean):</dt><dd><p>Enable/disable lenient equivalence. The default is to automatically
+detect whether this lenient operation is enabled.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Boolean.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt id="iris.common.metadata.CubeMetadata.index">
-<code class="sig-name descname">index</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.CubeMetadata.index" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">index</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">start=0</em>, <em class="sig-param">stop=9223372036854775807</em>, <em class="sig-param">/</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.CubeMetadata.index" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return first index of value.</p>
 <p>Raises ValueError if the value is not present.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="iris.common.metadata.CubeMetadata.name">
-<code class="sig-name descname">name</code><span class="sig-paren">(</span><em class="sig-param">default=None</em>, <em class="sig-param">token=False</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.CubeMetadata.name" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">name</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">default</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">token</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.CubeMetadata.name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a string name representing the identity of the metadata.</p>
 <p>First it tries standard name, then it tries the long name, then
 the NetCDF variable name, before falling-back to a default value,
@@ -629,9 +1065,9 @@ raised. Defaults to False.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="iris.common.metadata.CubeMetadata.token">
-<em class="property">classmethod </em><code class="sig-name descname">token</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.CubeMetadata.token" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="sig-name descname">token</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.CubeMetadata.token" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determine whether the provided name is a valid NetCDF name and thus
 safe to represent a single parsable token.</p>
 <p>Args:</p>
@@ -648,42 +1084,42 @@ safe to represent a single parsable token.</p>
 </dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="iris.common.metadata.CubeMetadata.DEFAULT_NAME">
 <code class="sig-name descname">DEFAULT_NAME</code><em class="property"> = 'unknown'</em><a class="headerlink" href="#iris.common.metadata.CubeMetadata.DEFAULT_NAME" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="iris.common.metadata.CubeMetadata.attributes">
 <em class="property">property </em><code class="sig-name descname">attributes</code><a class="headerlink" href="#iris.common.metadata.CubeMetadata.attributes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Alias for field number 4</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="iris.common.metadata.CubeMetadata.cell_methods">
 <em class="property">property </em><code class="sig-name descname">cell_methods</code><a class="headerlink" href="#iris.common.metadata.CubeMetadata.cell_methods" title="Permalink to this definition">¶</a></dt>
 <dd><p>Alias for field number 5</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="iris.common.metadata.CubeMetadata.long_name">
 <em class="property">property </em><code class="sig-name descname">long_name</code><a class="headerlink" href="#iris.common.metadata.CubeMetadata.long_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Alias for field number 1</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="iris.common.metadata.CubeMetadata.standard_name">
 <em class="property">property </em><code class="sig-name descname">standard_name</code><a class="headerlink" href="#iris.common.metadata.CubeMetadata.standard_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Alias for field number 0</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="iris.common.metadata.CubeMetadata.units">
 <em class="property">property </em><code class="sig-name descname">units</code><a class="headerlink" href="#iris.common.metadata.CubeMetadata.units" title="Permalink to this definition">¶</a></dt>
 <dd><p>Alias for field number 3</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="iris.common.metadata.CubeMetadata.var_name">
 <em class="property">property </em><code class="sig-name descname">var_name</code><a class="headerlink" href="#iris.common.metadata.CubeMetadata.var_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Alias for field number 2</p>
@@ -694,9 +1130,9 @@ safe to represent a single parsable token.</p>
 </div></blockquote>
 <p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
 <!--<hr class="docutils" />
---><dl class="function">
-<dt id="iris.common.metadata.MetadataManagerFactory">
-<code class="sig-prename descclassname">iris.common.metadata.</code><code class="sig-name descname">MetadataManagerFactory</code><span class="sig-paren">(</span><em class="sig-param">cls</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.MetadataManagerFactory" title="Permalink to this definition">¶</a></dt>
+--><dl class="py function">
+<dt id="iris.common.metadata.metadata_manager_factory">
+<code class="sig-prename descclassname">iris.common.metadata.</code><code class="sig-name descname">metadata_manager_factory</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cls</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.metadata_manager_factory" title="Permalink to this definition">¶</a></dt>
 <dd><p>A class instance factory function responsible for manufacturing
 metadata instances dynamically at runtime.</p>
 <p>The factory instances returned by the factory are capable of managing
@@ -724,7 +1160,35 @@ fields will default to a value of ‘None’.</p>
 </div>
 
 
+            <div class="clearer"></div>
           </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="lenient.html"
+                        title="previous chapter">iris.common.lenient</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="mixin.html"
+                        title="next chapter">iris.common.mixin</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/iris/iris/common/metadata.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -742,7 +1206,7 @@ fields will default to a value of ‘None’.</p>
           <a href="mixin.html" title="iris.common.mixin"
              >next</a> |</li>
         <li class="right" >
-          <a href="../common.html" title="iris.common"
+          <a href="lenient.html" title="iris.common.lenient"
              >previous</a> |</li>
         <li><a href="../../../index.html">home</a>|&nbsp;</li>
         <li><a href="../../../examples/index.html">examples</a>|&nbsp;</li>
@@ -750,13 +1214,14 @@ fields will default to a value of ‘None’.</p>
         <li><a href="../../../contents.html">contents</a>|&nbsp;</li>
 
           <li class="nav-item nav-item-1"><a href="../../iris.html" >Iris reference documentation</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../common.html" >iris.common</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../common.html" >iris.common</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">iris.common.metadata</a></li> 
       </ul>
     </div>
 
     <div class="footer">
     <p style="text-align: left; float: left; margin: 0px; padding: 0 0 0 5px;">Documentation licensed under the <a href="http://reference.data.gov.uk/id/open-government-licence" rel="license">Open Government Licence</a></p>
-        &copy; <a href="../../../copyright.html">British Crown Copyright</a> 2010 - 2019, Met Office
+        &copy; <a href="../../../copyright.html">British Crown Copyright</a> 2010 - 2020, Met Office
     </div>
 
     <!-- Include a version switcher to easily move between the documentation of different versions -->
