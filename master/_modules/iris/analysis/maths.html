@@ -1,0 +1,1427 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>iris.analysis.maths &mdash; Iris 3.0.dev0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/theme_override.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery-dataframe.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script src="../../../_static/clipboard.min.js"></script>
+        <script src="../../../_static/copybutton.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="copyright" title="Copyright" href="../../../copyright.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html">
+          
+
+          
+            
+            <img src="../../../_static/iris-logo-title.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installing.html">Installing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../generated/gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/iris_cubes.html">Iris data structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/loading_iris_cubes.html">Loading Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/saving_iris_cubes.html">Saving Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/navigating_a_cube.html">Navigating a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/subsetting_a_cube.html">Subsetting a Cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/real_and_lazy_data.html">Real and Lazy Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/plotting_a_cube.html">Plotting a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/interpolation_and_regridding.html">Cube interpolation and regridding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/merge_and_concat.html">Merge and concatenate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/cube_statistics.html">Cube statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/cube_maths.html">Basic cube mathematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/citation.html">Citing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/code_maintenance.html">Code maintenance</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developers Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/contributing_documentation.html">Contributing to the documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/documenting/index.html">Documentation in Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/gitwash/index.html">Working with <em>iris</em> source code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/code_format.html">Code formatting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/pulls.html">Pull request check List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/tests.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/deprecations.html">Deprecations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/release.html">Releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../generated/api/iris.html">Iris API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../whatsnew/index.html">What’s new in Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../techpapers/index.html">Iris Technical Papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../copyright.html">Iris copyright, licensing and contributors</a></li>
+</ul>
+
+            
+          
+
+    
+    
+    
+        <p class="caption">
+            <span class="caption-text">
+            
+                Support
+            
+            </span>
+        </p>
+        <ul>
+            
+                <li class="toctree-l1"><a href="https://github.com/SciTools/iris"><i class="fa fa-github fa-fw"></i> Source Code</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris"><i class="fa fa-comments fa-fw"></i> Users Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris-dev"><i class="fa fa-comments fa-fw"></i> Developers Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://stackoverflow.com/questions/tagged/python-iris"><i class="fa fa-question fa-fw"></i> StackOverflow For "How do I?"</a></li>
+            
+                <li class="toctree-l1"><a href="https://scitools.org.uk/iris/docs/v2.4.0/index.html"><i class="fa fa-book fa-fw"></i> Legacy documentation</a></li>
+            
+        </ul>
+    
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Iris</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../../iris.html">iris</a> &raquo;</li>
+        
+          <li><a href="../analysis.html">iris.analysis</a> &raquo;</li>
+        
+      <li>iris.analysis.maths</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for iris.analysis.maths</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright Iris contributors</span>
+<span class="c1">#</span>
+<span class="c1"># This file is part of Iris and is released under the LGPL license.</span>
+<span class="c1"># See COPYING and COPYING.LESSER in the root of the repository for full</span>
+<span class="c1"># licensing details.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Basic mathematical and statistical operations.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">lru_cache</span>
+<span class="kn">import</span> <span class="nn">inspect</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">operator</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+
+<span class="kn">import</span> <span class="nn">cf_units</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">ma</span>
+
+<span class="kn">import</span> <span class="nn">iris.analysis</span>
+<span class="kn">import</span> <span class="nn">iris.coords</span>
+<span class="kn">import</span> <span class="nn">iris.cube</span>
+<span class="kn">import</span> <span class="nn">iris.exceptions</span>
+<span class="kn">import</span> <span class="nn">iris.util</span>
+
+<span class="kn">import</span> <span class="nn">dask.array</span> <span class="k">as</span> <span class="nn">da</span>
+<span class="kn">from</span> <span class="nn">dask.array.core</span> <span class="kn">import</span> <span class="n">broadcast_shapes</span>
+
+
+<span class="nd">@lru_cache</span><span class="p">(</span><span class="n">maxsize</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">typed</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">_output_dtype</span><span class="p">(</span><span class="n">op</span><span class="p">,</span> <span class="n">first_dtype</span><span class="p">,</span> <span class="n">second_dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">in_place</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get the numpy dtype corresponding to the result of applying a unary or</span>
+<span class="sd">    binary operation to arguments of specified dtype.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">    * op:</span>
+<span class="sd">        A unary or binary operator which can be applied to array-like objects.</span>
+<span class="sd">    * first_dtype:</span>
+<span class="sd">        The dtype of the first or only argument to the operator.</span>
+
+<span class="sd">    Kwargs:</span>
+
+<span class="sd">    * second_dtype:</span>
+<span class="sd">        The dtype of the second argument to the operator.</span>
+
+<span class="sd">    * in_place:</span>
+<span class="sd">        Whether the operation is to be performed in place.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        An instance of :class:`numpy.dtype`</span>
+
+<span class="sd">    .. note::</span>
+
+<span class="sd">        The function always returns the dtype which would result if the</span>
+<span class="sd">        operation were successful, even if the operation could fail due to</span>
+<span class="sd">        casting restrictions for in place operations.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">in_place</span><span class="p">:</span>
+        <span class="c1"># Always return the first dtype, even if the operation would fail due</span>
+        <span class="c1"># to failure to cast the result.</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">first_dtype</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">operand_dtypes</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="p">(</span><span class="n">first_dtype</span><span class="p">,</span> <span class="n">second_dtype</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">second_dtype</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+            <span class="k">else</span> <span class="p">(</span><span class="n">first_dtype</span><span class="p">,)</span>
+        <span class="p">)</span>
+        <span class="n">arrays</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span> <span class="k">for</span> <span class="n">dtype</span> <span class="ow">in</span> <span class="n">operand_dtypes</span><span class="p">]</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">op</span><span class="p">(</span><span class="o">*</span><span class="n">arrays</span><span class="p">)</span><span class="o">.</span><span class="n">dtype</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+
+<span class="k">def</span> <span class="nf">_get_dtype</span><span class="p">(</span><span class="n">operand</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get the numpy dtype corresponding to the numeric data in the object</span>
+<span class="sd">    provided.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">    * operand:</span>
+<span class="sd">        An instance of :class:`iris.cube.Cube` or :class:`iris.coords.Coord`,</span>
+<span class="sd">        or a number or :class:`numpy.ndarray`.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        An instance of :class:`numpy.dtype`</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">min_scalar_type</span><span class="p">(</span><span class="n">operand</span><span class="p">)</span> <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isscalar</span><span class="p">(</span><span class="n">operand</span><span class="p">)</span> <span class="k">else</span> <span class="n">operand</span><span class="o">.</span><span class="n">dtype</span>
+    <span class="p">)</span>
+
+
+<div class="viewcode-block" id="abs"><a class="viewcode-back" href="../../../generated/api/iris/analysis/maths.html#iris.analysis.maths.abs">[docs]</a><span class="k">def</span> <span class="nf">abs</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">in_place</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate the absolute values of the data in the Cube provided.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">    * cube:</span>
+<span class="sd">        An instance of :class:`iris.cube.Cube`.</span>
+
+<span class="sd">    Kwargs:</span>
+
+<span class="sd">    * in_place:</span>
+<span class="sd">        Whether to create a new Cube, or alter the given &quot;cube&quot;.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        An instance of :class:`iris.cube.Cube`.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_assert_is_cube</span><span class="p">(</span><span class="n">cube</span><span class="p">)</span>
+    <span class="n">new_dtype</span> <span class="o">=</span> <span class="n">_output_dtype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">,</span> <span class="n">cube</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">in_place</span><span class="o">=</span><span class="n">in_place</span><span class="p">)</span>
+    <span class="n">op</span> <span class="o">=</span> <span class="n">da</span><span class="o">.</span><span class="n">absolute</span> <span class="k">if</span> <span class="n">cube</span><span class="o">.</span><span class="n">has_lazy_data</span><span class="p">()</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span>
+    <span class="k">return</span> <span class="n">_math_op_common</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">op</span><span class="p">,</span> <span class="n">cube</span><span class="o">.</span><span class="n">units</span><span class="p">,</span> <span class="n">new_dtype</span><span class="p">,</span> <span class="n">in_place</span><span class="o">=</span><span class="n">in_place</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="intersection_of_cubes"><a class="viewcode-back" href="../../../generated/api/iris/analysis/maths.html#iris.analysis.maths.intersection_of_cubes">[docs]</a><span class="k">def</span> <span class="nf">intersection_of_cubes</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">other_cube</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return the two Cubes of intersection given two Cubes.</span>
+
+<span class="sd">    .. note:: The intersection of cubes function will ignore all single valued</span>
+<span class="sd">        coordinates in checking the intersection.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">    * cube:</span>
+<span class="sd">        An instance of :class:`iris.cube.Cube`.</span>
+<span class="sd">    * other_cube:</span>
+<span class="sd">        An instance of :class:`iris.cube.Cube`.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A pair of :class:`iris.cube.Cube` instances in a tuple corresponding</span>
+<span class="sd">        to the original cubes restricted to their intersection.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Take references of the original cubes (which will be copied when</span>
+    <span class="c1"># slicing later).</span>
+    <span class="n">new_cube_self</span> <span class="o">=</span> <span class="n">cube</span>
+    <span class="n">new_cube_other</span> <span class="o">=</span> <span class="n">other_cube</span>
+
+    <span class="c1"># This routine has not been written to cope with multi-dimensional</span>
+    <span class="c1"># coordinates.</span>
+    <span class="k">for</span> <span class="n">coord</span> <span class="ow">in</span> <span class="n">cube</span><span class="o">.</span><span class="n">coords</span><span class="p">()</span> <span class="o">+</span> <span class="n">other_cube</span><span class="o">.</span><span class="n">coords</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">coord</span><span class="o">.</span><span class="n">ndim</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">iris</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">CoordinateMultiDimError</span><span class="p">(</span><span class="n">coord</span><span class="p">)</span>
+
+    <span class="n">coord_comp</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">_dimensional_metadata_comparison</span><span class="p">(</span>
+        <span class="n">cube</span><span class="p">,</span> <span class="n">other_cube</span>
+    <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">coord_comp</span><span class="p">[</span><span class="s2">&quot;ungroupable_and_dimensioned&quot;</span><span class="p">]:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">&quot;Cubes do not share all coordinates in common, &quot;</span>
+            <span class="s2">&quot;cannot intersect.&quot;</span>
+        <span class="p">)</span>
+
+    <span class="c1"># cubes must have matching coordinates</span>
+    <span class="k">for</span> <span class="n">coord</span> <span class="ow">in</span> <span class="n">cube</span><span class="o">.</span><span class="n">coords</span><span class="p">():</span>
+        <span class="n">other_coord</span> <span class="o">=</span> <span class="n">other_cube</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="n">coord</span><span class="p">)</span>
+
+        <span class="c1"># Only intersect coordinates which are different, single values</span>
+        <span class="c1"># coordinates may differ.</span>
+        <span class="k">if</span> <span class="n">coord</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">coord</span> <span class="o">!=</span> <span class="n">other_coord</span><span class="p">:</span>
+            <span class="n">intersected_coord</span> <span class="o">=</span> <span class="n">coord</span><span class="o">.</span><span class="n">intersect</span><span class="p">(</span><span class="n">other_coord</span><span class="p">)</span>
+            <span class="n">new_cube_self</span> <span class="o">=</span> <span class="n">new_cube_self</span><span class="o">.</span><span class="n">subset</span><span class="p">(</span><span class="n">intersected_coord</span><span class="p">)</span>
+            <span class="n">new_cube_other</span> <span class="o">=</span> <span class="n">new_cube_other</span><span class="o">.</span><span class="n">subset</span><span class="p">(</span><span class="n">intersected_coord</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">new_cube_self</span><span class="p">,</span> <span class="n">new_cube_other</span></div>
+
+
+<span class="k">def</span> <span class="nf">_assert_is_cube</span><span class="p">(</span><span class="n">cube</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">cube</span><span class="o">.</span><span class="n">Cube</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+            <span class="s1">&#39;The &quot;cube&quot; argument must be an instance of &#39;</span> <span class="s2">&quot;iris.cube.Cube.&quot;</span>
+        <span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_assert_compatible</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Checks to see if cube.data and another array can be broadcast to</span>
+<span class="sd">    the same shape.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">new_shape</span> <span class="o">=</span> <span class="n">broadcast_shapes</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">other</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+        <span class="c1"># re-raise</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">&quot;The array was not broadcastable to the cube&#39;s data &quot;</span>
+            <span class="s2">&quot;shape. The error message when &quot;</span>
+            <span class="s2">&quot;broadcasting:</span><span class="se">\n</span><span class="si">{}</span><span class="se">\n</span><span class="s2">The cube&#39;s shape was </span><span class="si">{}</span><span class="s2"> and the &quot;</span>
+            <span class="s2">&quot;array&#39;s shape was </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">cube</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">other</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+        <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">cube</span><span class="o">.</span><span class="n">shape</span> <span class="o">!=</span> <span class="n">new_shape</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">&quot;The array operation would increase the size or &quot;</span>
+            <span class="s2">&quot;dimensionality of the cube. The new cube&#39;s data &quot;</span>
+            <span class="s2">&quot;would have had to become: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">new_shape</span><span class="p">)</span>
+        <span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_assert_matching_units</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">other</span><span class="p">,</span> <span class="n">operation_name</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Check that the units of the cube and the other item are the same, or if</span>
+<span class="sd">    the other does not have a unit, skip this test</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">cube</span><span class="o">.</span><span class="n">units</span> <span class="o">!=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="s2">&quot;units&quot;</span><span class="p">,</span> <span class="n">cube</span><span class="o">.</span><span class="n">units</span><span class="p">):</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Cannot use </span><span class="si">{!r}</span><span class="s2"> with differing units (</span><span class="si">{}</span><span class="s2"> &amp; </span><span class="si">{}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="n">operation_name</span><span class="p">,</span> <span class="n">cube</span><span class="o">.</span><span class="n">units</span><span class="p">,</span> <span class="n">other</span><span class="o">.</span><span class="n">units</span>
+        <span class="p">)</span>
+        <span class="k">raise</span> <span class="n">iris</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">NotYetImplementedError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="add"><a class="viewcode-back" href="../../../generated/api/iris/analysis/maths.html#iris.analysis.maths.add">[docs]</a><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">other</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">in_place</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate the sum of two cubes, or the sum of a cube and a</span>
+<span class="sd">    coordinate or scalar value.</span>
+
+<span class="sd">    When summing two cubes, they must both have the same coordinate</span>
+<span class="sd">    systems &amp; data resolution.</span>
+
+<span class="sd">    When adding a coordinate to a cube, they must both share the same</span>
+<span class="sd">    number of elements along a shared axis.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">    * cube:</span>
+<span class="sd">        An instance of :class:`iris.cube.Cube`.</span>
+<span class="sd">    * other:</span>
+<span class="sd">        An instance of :class:`iris.cube.Cube` or :class:`iris.coords.Coord`,</span>
+<span class="sd">        or a number or :class:`numpy.ndarray`.</span>
+
+<span class="sd">    Kwargs:</span>
+
+<span class="sd">    * dim:</span>
+<span class="sd">        If supplying a coord with no match on the cube, you must supply</span>
+<span class="sd">        the dimension to process.</span>
+<span class="sd">    * in_place:</span>
+<span class="sd">        Whether to create a new Cube, or alter the given &quot;cube&quot;.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        An instance of :class:`iris.cube.Cube`.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_assert_is_cube</span><span class="p">(</span><span class="n">cube</span><span class="p">)</span>
+    <span class="n">new_dtype</span> <span class="o">=</span> <span class="n">_output_dtype</span><span class="p">(</span>
+        <span class="n">operator</span><span class="o">.</span><span class="n">add</span><span class="p">,</span> <span class="n">cube</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">_get_dtype</span><span class="p">(</span><span class="n">other</span><span class="p">),</span> <span class="n">in_place</span><span class="o">=</span><span class="n">in_place</span>
+    <span class="p">)</span>
+    <span class="k">if</span> <span class="n">in_place</span><span class="p">:</span>
+        <span class="n">_inplace_common_checks</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">other</span><span class="p">,</span> <span class="s2">&quot;addition&quot;</span><span class="p">)</span>
+        <span class="n">op</span> <span class="o">=</span> <span class="n">operator</span><span class="o">.</span><span class="n">iadd</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">op</span> <span class="o">=</span> <span class="n">operator</span><span class="o">.</span><span class="n">add</span>
+    <span class="k">return</span> <span class="n">_add_subtract_common</span><span class="p">(</span>
+        <span class="n">op</span><span class="p">,</span> <span class="s2">&quot;add&quot;</span><span class="p">,</span> <span class="n">cube</span><span class="p">,</span> <span class="n">other</span><span class="p">,</span> <span class="n">new_dtype</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="n">dim</span><span class="p">,</span> <span class="n">in_place</span><span class="o">=</span><span class="n">in_place</span>
+    <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="subtract"><a class="viewcode-back" href="../../../generated/api/iris/analysis/maths.html#iris.analysis.maths.subtract">[docs]</a><span class="k">def</span> <span class="nf">subtract</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">other</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">in_place</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate the difference between two cubes, or the difference between</span>
+<span class="sd">    a cube and a coordinate or scalar value.</span>
+
+<span class="sd">    When subtracting two cubes, they must both have the same coordinate</span>
+<span class="sd">    systems &amp; data resolution.</span>
+
+<span class="sd">    When subtracting a coordinate to a cube, they must both share the</span>
+<span class="sd">    same number of elements along a shared axis.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">    * cube:</span>
+<span class="sd">        An instance of :class:`iris.cube.Cube`.</span>
+<span class="sd">    * other:</span>
+<span class="sd">        An instance of :class:`iris.cube.Cube` or :class:`iris.coords.Coord`,</span>
+<span class="sd">        or a number or :class:`numpy.ndarray`.</span>
+
+<span class="sd">    Kwargs:</span>
+
+<span class="sd">    * dim:</span>
+<span class="sd">        If supplying a coord with no match on the cube, you must supply</span>
+<span class="sd">        the dimension to process.</span>
+<span class="sd">    * in_place:</span>
+<span class="sd">        Whether to create a new Cube, or alter the given &quot;cube&quot;.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        An instance of :class:`iris.cube.Cube`.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_assert_is_cube</span><span class="p">(</span><span class="n">cube</span><span class="p">)</span>
+    <span class="n">new_dtype</span> <span class="o">=</span> <span class="n">_output_dtype</span><span class="p">(</span>
+        <span class="n">operator</span><span class="o">.</span><span class="n">sub</span><span class="p">,</span> <span class="n">cube</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">_get_dtype</span><span class="p">(</span><span class="n">other</span><span class="p">),</span> <span class="n">in_place</span><span class="o">=</span><span class="n">in_place</span>
+    <span class="p">)</span>
+    <span class="k">if</span> <span class="n">in_place</span><span class="p">:</span>
+        <span class="n">_inplace_common_checks</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">other</span><span class="p">,</span> <span class="s2">&quot;subtraction&quot;</span><span class="p">)</span>
+        <span class="n">op</span> <span class="o">=</span> <span class="n">operator</span><span class="o">.</span><span class="n">isub</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">op</span> <span class="o">=</span> <span class="n">operator</span><span class="o">.</span><span class="n">sub</span>
+    <span class="k">return</span> <span class="n">_add_subtract_common</span><span class="p">(</span>
+        <span class="n">op</span><span class="p">,</span> <span class="s2">&quot;subtract&quot;</span><span class="p">,</span> <span class="n">cube</span><span class="p">,</span> <span class="n">other</span><span class="p">,</span> <span class="n">new_dtype</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="n">dim</span><span class="p">,</span> <span class="n">in_place</span><span class="o">=</span><span class="n">in_place</span>
+    <span class="p">)</span></div>
+
+
+<span class="k">def</span> <span class="nf">_add_subtract_common</span><span class="p">(</span>
+    <span class="n">operation_function</span><span class="p">,</span>
+    <span class="n">operation_name</span><span class="p">,</span>
+    <span class="n">cube</span><span class="p">,</span>
+    <span class="n">other</span><span class="p">,</span>
+    <span class="n">new_dtype</span><span class="p">,</span>
+    <span class="n">dim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">in_place</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Function which shares common code between addition and subtraction</span>
+<span class="sd">    of cubes.</span>
+
+<span class="sd">    operation_function   - function which does the operation</span>
+<span class="sd">                           (e.g. numpy.subtract)</span>
+<span class="sd">    operation_name       - the public name of the operation (e.g. &#39;divide&#39;)</span>
+<span class="sd">    cube                 - the cube whose data is used as the first argument</span>
+<span class="sd">                           to `operation_function`</span>
+<span class="sd">    other                - the cube, coord, ndarray or number whose data is</span>
+<span class="sd">                           used as the second argument</span>
+<span class="sd">    new_dtype            - the expected dtype of the output. Used in the</span>
+<span class="sd">                           case of scalar masked arrays</span>
+<span class="sd">    dim                  - dimension along which to apply `other` if it&#39;s a</span>
+<span class="sd">                           coordinate that is not found in `cube`</span>
+<span class="sd">    in_place             - whether or not to apply the operation in place to</span>
+<span class="sd">                           `cube` and `cube.data`</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_assert_is_cube</span><span class="p">(</span><span class="n">cube</span><span class="p">)</span>
+    <span class="n">_assert_matching_units</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">other</span><span class="p">,</span> <span class="n">operation_name</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">cube</span><span class="o">.</span><span class="n">Cube</span><span class="p">):</span>
+        <span class="c1"># get a coordinate comparison of this cube and the cube to do the</span>
+        <span class="c1"># operation with</span>
+        <span class="n">coord_comp</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">_dimensional_metadata_comparison</span><span class="p">(</span>
+            <span class="n">cube</span><span class="p">,</span> <span class="n">other</span>
+        <span class="p">)</span>
+
+        <span class="n">bad_coord_grps</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">coord_comp</span><span class="p">[</span><span class="s2">&quot;ungroupable_and_dimensioned&quot;</span><span class="p">]</span>
+            <span class="o">+</span> <span class="n">coord_comp</span><span class="p">[</span><span class="s2">&quot;resamplable&quot;</span><span class="p">]</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="n">bad_coord_grps</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;This operation cannot be performed as there are &quot;</span>
+                <span class="s2">&quot;differing coordinates (</span><span class="si">%s</span><span class="s2">) remaining &quot;</span>
+                <span class="s2">&quot;which cannot be ignored.&quot;</span>
+                <span class="o">%</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">({</span><span class="n">coord_grp</span><span class="o">.</span><span class="n">name</span><span class="p">()</span> <span class="k">for</span> <span class="n">coord_grp</span> <span class="ow">in</span> <span class="n">bad_coord_grps</span><span class="p">})</span>
+            <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">coord_comp</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="n">new_cube</span> <span class="o">=</span> <span class="n">_binary_op_common</span><span class="p">(</span>
+        <span class="n">operation_function</span><span class="p">,</span>
+        <span class="n">operation_name</span><span class="p">,</span>
+        <span class="n">cube</span><span class="p">,</span>
+        <span class="n">other</span><span class="p">,</span>
+        <span class="n">cube</span><span class="o">.</span><span class="n">units</span><span class="p">,</span>
+        <span class="n">new_dtype</span><span class="o">=</span><span class="n">new_dtype</span><span class="p">,</span>
+        <span class="n">dim</span><span class="o">=</span><span class="n">dim</span><span class="p">,</span>
+        <span class="n">in_place</span><span class="o">=</span><span class="n">in_place</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">coord_comp</span><span class="p">:</span>
+        <span class="c1"># If a coordinate is to be ignored - remove it</span>
+        <span class="n">ignore</span> <span class="o">=</span> <span class="nb">filter</span><span class="p">(</span>
+            <span class="kc">None</span><span class="p">,</span> <span class="p">[</span><span class="n">coord_grp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">coord_grp</span> <span class="ow">in</span> <span class="n">coord_comp</span><span class="p">[</span><span class="s2">&quot;ignorable&quot;</span><span class="p">]]</span>
+        <span class="p">)</span>
+        <span class="k">for</span> <span class="n">coord</span> <span class="ow">in</span> <span class="n">ignore</span><span class="p">:</span>
+            <span class="n">new_cube</span><span class="o">.</span><span class="n">remove_coord</span><span class="p">(</span><span class="n">coord</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">new_cube</span>
+
+
+<div class="viewcode-block" id="multiply"><a class="viewcode-back" href="../../../generated/api/iris/analysis/maths.html#iris.analysis.maths.multiply">[docs]</a><span class="k">def</span> <span class="nf">multiply</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">other</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">in_place</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate the product of a cube and another cube or coordinate.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">    * cube:</span>
+<span class="sd">        An instance of :class:`iris.cube.Cube`.</span>
+<span class="sd">    * other:</span>
+<span class="sd">        An instance of :class:`iris.cube.Cube` or :class:`iris.coords.Coord`,</span>
+<span class="sd">        or a number or :class:`numpy.ndarray`.</span>
+
+<span class="sd">    Kwargs:</span>
+
+<span class="sd">    * dim:</span>
+<span class="sd">        If supplying a coord with no match on the cube, you must supply</span>
+<span class="sd">        the dimension to process.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        An instance of :class:`iris.cube.Cube`.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_assert_is_cube</span><span class="p">(</span><span class="n">cube</span><span class="p">)</span>
+    <span class="n">new_dtype</span> <span class="o">=</span> <span class="n">_output_dtype</span><span class="p">(</span>
+        <span class="n">operator</span><span class="o">.</span><span class="n">mul</span><span class="p">,</span> <span class="n">cube</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">_get_dtype</span><span class="p">(</span><span class="n">other</span><span class="p">),</span> <span class="n">in_place</span><span class="o">=</span><span class="n">in_place</span>
+    <span class="p">)</span>
+    <span class="n">other_unit</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="s2">&quot;units&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">)</span>
+    <span class="n">new_unit</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">units</span> <span class="o">*</span> <span class="n">other_unit</span>
+    <span class="k">if</span> <span class="n">in_place</span><span class="p">:</span>
+        <span class="n">_inplace_common_checks</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">other</span><span class="p">,</span> <span class="s2">&quot;multiplication&quot;</span><span class="p">)</span>
+        <span class="n">op</span> <span class="o">=</span> <span class="n">operator</span><span class="o">.</span><span class="n">imul</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">op</span> <span class="o">=</span> <span class="n">operator</span><span class="o">.</span><span class="n">mul</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">cube</span><span class="o">.</span><span class="n">Cube</span><span class="p">):</span>
+        <span class="c1"># get a coordinate comparison of this cube and the cube to do the</span>
+        <span class="c1"># operation with</span>
+        <span class="n">coord_comp</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">_dimensional_metadata_comparison</span><span class="p">(</span>
+            <span class="n">cube</span><span class="p">,</span> <span class="n">other</span>
+        <span class="p">)</span>
+        <span class="n">bad_coord_grps</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">coord_comp</span><span class="p">[</span><span class="s2">&quot;ungroupable_and_dimensioned&quot;</span><span class="p">]</span>
+            <span class="o">+</span> <span class="n">coord_comp</span><span class="p">[</span><span class="s2">&quot;resamplable&quot;</span><span class="p">]</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="n">bad_coord_grps</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;This operation cannot be performed as there are &quot;</span>
+                <span class="s2">&quot;differing coordinates (</span><span class="si">%s</span><span class="s2">) remaining &quot;</span>
+                <span class="s2">&quot;which cannot be ignored.&quot;</span>
+                <span class="o">%</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">({</span><span class="n">coord_grp</span><span class="o">.</span><span class="n">name</span><span class="p">()</span> <span class="k">for</span> <span class="n">coord_grp</span> <span class="ow">in</span> <span class="n">bad_coord_grps</span><span class="p">})</span>
+            <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">coord_comp</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="n">new_cube</span> <span class="o">=</span> <span class="n">_binary_op_common</span><span class="p">(</span>
+        <span class="n">op</span><span class="p">,</span>
+        <span class="s2">&quot;multiply&quot;</span><span class="p">,</span>
+        <span class="n">cube</span><span class="p">,</span>
+        <span class="n">other</span><span class="p">,</span>
+        <span class="n">new_unit</span><span class="p">,</span>
+        <span class="n">new_dtype</span><span class="o">=</span><span class="n">new_dtype</span><span class="p">,</span>
+        <span class="n">dim</span><span class="o">=</span><span class="n">dim</span><span class="p">,</span>
+        <span class="n">in_place</span><span class="o">=</span><span class="n">in_place</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">coord_comp</span><span class="p">:</span>
+        <span class="c1"># If a coordinate is to be ignored - remove it</span>
+        <span class="n">ignore</span> <span class="o">=</span> <span class="nb">filter</span><span class="p">(</span>
+            <span class="kc">None</span><span class="p">,</span> <span class="p">[</span><span class="n">coord_grp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">coord_grp</span> <span class="ow">in</span> <span class="n">coord_comp</span><span class="p">[</span><span class="s2">&quot;ignorable&quot;</span><span class="p">]]</span>
+        <span class="p">)</span>
+        <span class="k">for</span> <span class="n">coord</span> <span class="ow">in</span> <span class="n">ignore</span><span class="p">:</span>
+            <span class="n">new_cube</span><span class="o">.</span><span class="n">remove_coord</span><span class="p">(</span><span class="n">coord</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">new_cube</span></div>
+
+
+<span class="k">def</span> <span class="nf">_inplace_common_checks</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">other</span><span class="p">,</span> <span class="n">math_op</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Check whether an inplace math operation can take place between `cube` and</span>
+<span class="sd">    `other`. It cannot if `cube` has integer data and `other` has float data</span>
+<span class="sd">    as the operation will always produce float data that cannot be &#39;safely&#39;</span>
+<span class="sd">    cast back to the integer data of `cube`.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">other_dtype</span> <span class="o">=</span> <span class="n">_get_dtype</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">can_cast</span><span class="p">(</span><span class="n">other_dtype</span><span class="p">,</span> <span class="n">cube</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="s2">&quot;same_kind&quot;</span><span class="p">):</span>
+        <span class="n">aemsg</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="s2">&quot;Cannot perform inplace </span><span class="si">{}</span><span class="s2"> between </span><span class="si">{!r}</span><span class="s2"> &quot;</span>
+            <span class="s2">&quot;with </span><span class="si">{}</span><span class="s2"> data and </span><span class="si">{!r}</span><span class="s2"> with </span><span class="si">{}</span><span class="s2"> data.&quot;</span>
+        <span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ArithmeticError</span><span class="p">(</span>
+            <span class="n">aemsg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">math_op</span><span class="p">,</span> <span class="n">cube</span><span class="p">,</span> <span class="n">cube</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">other</span><span class="p">,</span> <span class="n">other_dtype</span><span class="p">)</span>
+        <span class="p">)</span>
+
+
+<div class="viewcode-block" id="divide"><a class="viewcode-back" href="../../../generated/api/iris/analysis/maths.html#iris.analysis.maths.divide">[docs]</a><span class="k">def</span> <span class="nf">divide</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">other</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">in_place</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate the division of a cube by a cube or coordinate.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">    * cube:</span>
+<span class="sd">        An instance of :class:`iris.cube.Cube`.</span>
+<span class="sd">    * other:</span>
+<span class="sd">        An instance of :class:`iris.cube.Cube` or :class:`iris.coords.Coord`,</span>
+<span class="sd">        or a number or :class:`numpy.ndarray`.</span>
+
+<span class="sd">    Kwargs:</span>
+
+<span class="sd">    * dim:</span>
+<span class="sd">        If supplying a coord with no match on the cube, you must supply</span>
+<span class="sd">        the dimension to process.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        An instance of :class:`iris.cube.Cube`.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_assert_is_cube</span><span class="p">(</span><span class="n">cube</span><span class="p">)</span>
+    <span class="n">new_dtype</span> <span class="o">=</span> <span class="n">_output_dtype</span><span class="p">(</span>
+        <span class="n">operator</span><span class="o">.</span><span class="n">truediv</span><span class="p">,</span> <span class="n">cube</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">_get_dtype</span><span class="p">(</span><span class="n">other</span><span class="p">),</span> <span class="n">in_place</span><span class="o">=</span><span class="n">in_place</span>
+    <span class="p">)</span>
+    <span class="n">other_unit</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="s2">&quot;units&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">)</span>
+    <span class="n">new_unit</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">units</span> <span class="o">/</span> <span class="n">other_unit</span>
+    <span class="k">if</span> <span class="n">in_place</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">cube</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">kind</span> <span class="ow">in</span> <span class="s2">&quot;iu&quot;</span><span class="p">:</span>
+            <span class="c1"># Cannot coerce float result from inplace division back to int.</span>
+            <span class="n">aemsg</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="s2">&quot;Cannot perform inplace division of cube </span><span class="si">{!r}</span><span class="s2"> &quot;</span>
+                <span class="s2">&quot;with integer data.&quot;</span>
+            <span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ArithmeticError</span><span class="p">(</span><span class="n">aemsg</span><span class="p">)</span>
+        <span class="n">op</span> <span class="o">=</span> <span class="n">operator</span><span class="o">.</span><span class="n">itruediv</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">op</span> <span class="o">=</span> <span class="n">operator</span><span class="o">.</span><span class="n">truediv</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">cube</span><span class="o">.</span><span class="n">Cube</span><span class="p">):</span>
+        <span class="c1"># get a coordinate comparison of this cube and the cube to do the</span>
+        <span class="c1"># operation with</span>
+        <span class="n">coord_comp</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">_dimensional_metadata_comparison</span><span class="p">(</span>
+            <span class="n">cube</span><span class="p">,</span> <span class="n">other</span>
+        <span class="p">)</span>
+        <span class="n">bad_coord_grps</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">coord_comp</span><span class="p">[</span><span class="s2">&quot;ungroupable_and_dimensioned&quot;</span><span class="p">]</span>
+            <span class="o">+</span> <span class="n">coord_comp</span><span class="p">[</span><span class="s2">&quot;resamplable&quot;</span><span class="p">]</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="n">bad_coord_grps</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;This operation cannot be performed as there are &quot;</span>
+                <span class="s2">&quot;differing coordinates (</span><span class="si">%s</span><span class="s2">) remaining &quot;</span>
+                <span class="s2">&quot;which cannot be ignored.&quot;</span>
+                <span class="o">%</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">({</span><span class="n">coord_grp</span><span class="o">.</span><span class="n">name</span><span class="p">()</span> <span class="k">for</span> <span class="n">coord_grp</span> <span class="ow">in</span> <span class="n">bad_coord_grps</span><span class="p">})</span>
+            <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">coord_comp</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="n">new_cube</span> <span class="o">=</span> <span class="n">_binary_op_common</span><span class="p">(</span>
+        <span class="n">op</span><span class="p">,</span>
+        <span class="s2">&quot;divide&quot;</span><span class="p">,</span>
+        <span class="n">cube</span><span class="p">,</span>
+        <span class="n">other</span><span class="p">,</span>
+        <span class="n">new_unit</span><span class="p">,</span>
+        <span class="n">new_dtype</span><span class="o">=</span><span class="n">new_dtype</span><span class="p">,</span>
+        <span class="n">dim</span><span class="o">=</span><span class="n">dim</span><span class="p">,</span>
+        <span class="n">in_place</span><span class="o">=</span><span class="n">in_place</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">coord_comp</span><span class="p">:</span>
+        <span class="c1"># If a coordinate is to be ignored - remove it</span>
+        <span class="n">ignore</span> <span class="o">=</span> <span class="nb">filter</span><span class="p">(</span>
+            <span class="kc">None</span><span class="p">,</span> <span class="p">[</span><span class="n">coord_grp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">coord_grp</span> <span class="ow">in</span> <span class="n">coord_comp</span><span class="p">[</span><span class="s2">&quot;ignorable&quot;</span><span class="p">]]</span>
+        <span class="p">)</span>
+        <span class="k">for</span> <span class="n">coord</span> <span class="ow">in</span> <span class="n">ignore</span><span class="p">:</span>
+            <span class="n">new_cube</span><span class="o">.</span><span class="n">remove_coord</span><span class="p">(</span><span class="n">coord</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">new_cube</span></div>
+
+
+<div class="viewcode-block" id="exponentiate"><a class="viewcode-back" href="../../../generated/api/iris/analysis/maths.html#iris.analysis.maths.exponentiate">[docs]</a><span class="k">def</span> <span class="nf">exponentiate</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">exponent</span><span class="p">,</span> <span class="n">in_place</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns the result of the given cube to the power of a scalar.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">    * cube:</span>
+<span class="sd">        An instance of :class:`iris.cube.Cube`.</span>
+<span class="sd">    * exponent:</span>
+<span class="sd">        The integer or floating point exponent.</span>
+
+<span class="sd">        .. note:: When applied to the cube&#39;s unit, the exponent must</span>
+<span class="sd">            result in a unit that can be described using only integer</span>
+<span class="sd">            powers of the basic units.</span>
+
+<span class="sd">            e.g. Unit(&#39;meter^-2 kilogram second^-1&#39;)</span>
+
+<span class="sd">    Kwargs:</span>
+
+<span class="sd">    * in_place:</span>
+<span class="sd">        Whether to create a new Cube, or alter the given &quot;cube&quot;.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        An instance of :class:`iris.cube.Cube`.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_assert_is_cube</span><span class="p">(</span><span class="n">cube</span><span class="p">)</span>
+    <span class="n">new_dtype</span> <span class="o">=</span> <span class="n">_output_dtype</span><span class="p">(</span>
+        <span class="n">operator</span><span class="o">.</span><span class="n">pow</span><span class="p">,</span> <span class="n">cube</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">_get_dtype</span><span class="p">(</span><span class="n">exponent</span><span class="p">),</span> <span class="n">in_place</span><span class="o">=</span><span class="n">in_place</span>
+    <span class="p">)</span>
+    <span class="k">if</span> <span class="n">cube</span><span class="o">.</span><span class="n">has_lazy_data</span><span class="p">():</span>
+
+        <span class="k">def</span> <span class="nf">power</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">operator</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">exponent</span><span class="p">)</span>
+
+    <span class="k">else</span><span class="p">:</span>
+
+        <span class="k">def</span> <span class="nf">power</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">exponent</span><span class="p">,</span> <span class="n">out</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">_math_op_common</span><span class="p">(</span>
+        <span class="n">cube</span><span class="p">,</span> <span class="n">power</span><span class="p">,</span> <span class="n">cube</span><span class="o">.</span><span class="n">units</span> <span class="o">**</span> <span class="n">exponent</span><span class="p">,</span> <span class="n">new_dtype</span><span class="p">,</span> <span class="n">in_place</span><span class="o">=</span><span class="n">in_place</span>
+    <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="exp"><a class="viewcode-back" href="../../../generated/api/iris/analysis/maths.html#iris.analysis.maths.exp">[docs]</a><span class="k">def</span> <span class="nf">exp</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">in_place</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate the exponential (exp(x)) of the cube.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">    * cube:</span>
+<span class="sd">        An instance of :class:`iris.cube.Cube`.</span>
+
+<span class="sd">    .. note::</span>
+
+<span class="sd">        Taking an exponential will return a cube with dimensionless units.</span>
+
+<span class="sd">    Kwargs:</span>
+
+<span class="sd">    * in_place:</span>
+<span class="sd">        Whether to create a new Cube, or alter the given &quot;cube&quot;.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        An instance of :class:`iris.cube.Cube`.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_assert_is_cube</span><span class="p">(</span><span class="n">cube</span><span class="p">)</span>
+    <span class="n">new_dtype</span> <span class="o">=</span> <span class="n">_output_dtype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">,</span> <span class="n">cube</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">in_place</span><span class="o">=</span><span class="n">in_place</span><span class="p">)</span>
+    <span class="n">op</span> <span class="o">=</span> <span class="n">da</span><span class="o">.</span><span class="n">exp</span> <span class="k">if</span> <span class="n">cube</span><span class="o">.</span><span class="n">has_lazy_data</span><span class="p">()</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span>
+    <span class="k">return</span> <span class="n">_math_op_common</span><span class="p">(</span>
+        <span class="n">cube</span><span class="p">,</span> <span class="n">op</span><span class="p">,</span> <span class="n">cf_units</span><span class="o">.</span><span class="n">Unit</span><span class="p">(</span><span class="s2">&quot;1&quot;</span><span class="p">),</span> <span class="n">new_dtype</span><span class="p">,</span> <span class="n">in_place</span><span class="o">=</span><span class="n">in_place</span>
+    <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="log"><a class="viewcode-back" href="../../../generated/api/iris/analysis/maths.html#iris.analysis.maths.log">[docs]</a><span class="k">def</span> <span class="nf">log</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">in_place</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate the natural logarithm (base-e logarithm) of the cube.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">    * cube:</span>
+<span class="sd">        An instance of :class:`iris.cube.Cube`.</span>
+
+<span class="sd">    Kwargs:</span>
+
+<span class="sd">    * in_place:</span>
+<span class="sd">        Whether to create a new Cube, or alter the given &quot;cube&quot;.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        An instance of :class:`iris.cube.Cube`.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_assert_is_cube</span><span class="p">(</span><span class="n">cube</span><span class="p">)</span>
+    <span class="n">new_dtype</span> <span class="o">=</span> <span class="n">_output_dtype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">,</span> <span class="n">cube</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">in_place</span><span class="o">=</span><span class="n">in_place</span><span class="p">)</span>
+    <span class="n">op</span> <span class="o">=</span> <span class="n">da</span><span class="o">.</span><span class="n">log</span> <span class="k">if</span> <span class="n">cube</span><span class="o">.</span><span class="n">has_lazy_data</span><span class="p">()</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span>
+    <span class="k">return</span> <span class="n">_math_op_common</span><span class="p">(</span>
+        <span class="n">cube</span><span class="p">,</span> <span class="n">op</span><span class="p">,</span> <span class="n">cube</span><span class="o">.</span><span class="n">units</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">e</span><span class="p">),</span> <span class="n">new_dtype</span><span class="p">,</span> <span class="n">in_place</span><span class="o">=</span><span class="n">in_place</span>
+    <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="log2"><a class="viewcode-back" href="../../../generated/api/iris/analysis/maths.html#iris.analysis.maths.log2">[docs]</a><span class="k">def</span> <span class="nf">log2</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">in_place</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate the base-2 logarithm of the cube.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">    * cube:</span>
+<span class="sd">        An instance of :class:`iris.cube.Cube`.</span>
+
+<span class="sd">    Kwargs:lib/iris/tests/unit/analysis/maths/test_subtract.py</span>
+
+<span class="sd">    * in_place:</span>
+<span class="sd">        Whether to create a new Cube, or alter the given &quot;cube&quot;.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        An instance of :class:`iris.cube.Cube`.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_assert_is_cube</span><span class="p">(</span><span class="n">cube</span><span class="p">)</span>
+    <span class="n">new_dtype</span> <span class="o">=</span> <span class="n">_output_dtype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">,</span> <span class="n">cube</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">in_place</span><span class="o">=</span><span class="n">in_place</span><span class="p">)</span>
+    <span class="n">op</span> <span class="o">=</span> <span class="n">da</span><span class="o">.</span><span class="n">log2</span> <span class="k">if</span> <span class="n">cube</span><span class="o">.</span><span class="n">has_lazy_data</span><span class="p">()</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">log2</span>
+    <span class="k">return</span> <span class="n">_math_op_common</span><span class="p">(</span>
+        <span class="n">cube</span><span class="p">,</span> <span class="n">op</span><span class="p">,</span> <span class="n">cube</span><span class="o">.</span><span class="n">units</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">new_dtype</span><span class="p">,</span> <span class="n">in_place</span><span class="o">=</span><span class="n">in_place</span>
+    <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="log10"><a class="viewcode-back" href="../../../generated/api/iris/analysis/maths.html#iris.analysis.maths.log10">[docs]</a><span class="k">def</span> <span class="nf">log10</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">in_place</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate the base-10 logarithm of the cube.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">    * cube:</span>
+<span class="sd">        An instance of :class:`iris.cube.Cube`.</span>
+
+<span class="sd">    Kwargs:</span>
+
+<span class="sd">    * in_place:</span>
+<span class="sd">        Whether to create a new Cube, or alter the given &quot;cube&quot;.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        An instance of :class:`iris.cube.Cube`.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_assert_is_cube</span><span class="p">(</span><span class="n">cube</span><span class="p">)</span>
+    <span class="n">new_dtype</span> <span class="o">=</span> <span class="n">_output_dtype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">,</span> <span class="n">cube</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">in_place</span><span class="o">=</span><span class="n">in_place</span><span class="p">)</span>
+    <span class="n">op</span> <span class="o">=</span> <span class="n">da</span><span class="o">.</span><span class="n">log10</span> <span class="k">if</span> <span class="n">cube</span><span class="o">.</span><span class="n">has_lazy_data</span><span class="p">()</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span>
+    <span class="k">return</span> <span class="n">_math_op_common</span><span class="p">(</span>
+        <span class="n">cube</span><span class="p">,</span> <span class="n">op</span><span class="p">,</span> <span class="n">cube</span><span class="o">.</span><span class="n">units</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="n">new_dtype</span><span class="p">,</span> <span class="n">in_place</span><span class="o">=</span><span class="n">in_place</span>
+    <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="apply_ufunc"><a class="viewcode-back" href="../../../generated/api/iris/analysis/maths.html#iris.analysis.maths.apply_ufunc">[docs]</a><span class="k">def</span> <span class="nf">apply_ufunc</span><span class="p">(</span>
+    <span class="n">ufunc</span><span class="p">,</span> <span class="n">cube</span><span class="p">,</span> <span class="n">other_cube</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">new_unit</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">new_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">in_place</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Apply a `numpy universal function</span>
+<span class="sd">    &lt;http://docs.scipy.org/doc/numpy/reference/ufuncs.html&gt;`_ to a cube</span>
+<span class="sd">    or pair of cubes.</span>
+
+<span class="sd">    .. note:: Many of the numpy.ufunc have been implemented explicitly in Iris</span>
+<span class="sd">        e.g. :func:`numpy.abs`, :func:`numpy.add` are implemented in</span>
+<span class="sd">        :func:`iris.analysis.maths.abs`, :func:`iris.analysis.maths.add`.</span>
+<span class="sd">        It is usually preferable to use these functions rather than</span>
+<span class="sd">        :func:`iris.analysis.maths.apply_ufunc` where possible.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">    * ufunc:</span>
+<span class="sd">        An instance of :func:`numpy.ufunc` e.g. :func:`numpy.sin`,</span>
+<span class="sd">        :func:`numpy.mod`.</span>
+
+<span class="sd">    * cube:</span>
+<span class="sd">        An instance of :class:`iris.cube.Cube`.</span>
+
+<span class="sd">    Kwargs:</span>
+
+<span class="sd">    * other_cube:</span>
+<span class="sd">        An instance of :class:`iris.cube.Cube` to be given as the second</span>
+<span class="sd">        argument to :func:`numpy.ufunc`.</span>
+
+<span class="sd">    * new_unit:</span>
+<span class="sd">        Unit for the resulting Cube.</span>
+
+<span class="sd">    * new_name:</span>
+<span class="sd">        Name for the resulting Cube.</span>
+
+<span class="sd">    * in_place:</span>
+<span class="sd">        Whether to create a new Cube, or alter the given &quot;cube&quot;.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        An instance of :class:`iris.cube.Cube`.</span>
+
+<span class="sd">    Example::</span>
+
+<span class="sd">        cube = apply_ufunc(numpy.sin, cube, in_place=True)</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ufunc</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ufunc</span><span class="p">):</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">ufunc</span><span class="p">,</span> <span class="s2">&quot;__name__&quot;</span><span class="p">,</span> <span class="s2">&quot;function passed to apply_ufunc&quot;</span><span class="p">)</span>
+
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+            <span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> is not recognised (it is not an instance of &quot;</span>
+            <span class="s2">&quot;numpy.ufunc)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">ufunc</span><span class="o">.</span><span class="n">nout</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> returns </span><span class="si">{}</span><span class="s2"> objects, apply_ufunc currently &quot;</span>
+            <span class="s2">&quot;only supports ufunc functions returning a single &quot;</span>
+            <span class="s2">&quot;object.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ufunc</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">ufunc</span><span class="o">.</span><span class="n">nout</span><span class="p">)</span>
+        <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">ufunc</span><span class="o">.</span><span class="n">nin</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">other_cube</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> requires two arguments, so other_cube &quot;</span>
+                <span class="s2">&quot;must also be passed to apply_ufunc&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ufunc</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+            <span class="p">)</span>
+
+        <span class="n">_assert_is_cube</span><span class="p">(</span><span class="n">other_cube</span><span class="p">)</span>
+        <span class="n">new_dtype</span> <span class="o">=</span> <span class="n">_output_dtype</span><span class="p">(</span>
+            <span class="n">ufunc</span><span class="p">,</span> <span class="n">cube</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">other_cube</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">in_place</span><span class="o">=</span><span class="n">in_place</span>
+        <span class="p">)</span>
+
+        <span class="n">new_cube</span> <span class="o">=</span> <span class="n">_binary_op_common</span><span class="p">(</span>
+            <span class="n">ufunc</span><span class="p">,</span>
+            <span class="n">ufunc</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
+            <span class="n">cube</span><span class="p">,</span>
+            <span class="n">other_cube</span><span class="p">,</span>
+            <span class="n">new_unit</span><span class="p">,</span>
+            <span class="n">new_dtype</span><span class="o">=</span><span class="n">new_dtype</span><span class="p">,</span>
+            <span class="n">in_place</span><span class="o">=</span><span class="n">in_place</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="k">elif</span> <span class="n">ufunc</span><span class="o">.</span><span class="n">nin</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">new_dtype</span> <span class="o">=</span> <span class="n">_output_dtype</span><span class="p">(</span><span class="n">ufunc</span><span class="p">,</span> <span class="n">cube</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">in_place</span><span class="o">=</span><span class="n">in_place</span><span class="p">)</span>
+
+        <span class="n">new_cube</span> <span class="o">=</span> <span class="n">_math_op_common</span><span class="p">(</span>
+            <span class="n">cube</span><span class="p">,</span> <span class="n">ufunc</span><span class="p">,</span> <span class="n">new_unit</span><span class="p">,</span> <span class="n">new_dtype</span><span class="p">,</span> <span class="n">in_place</span><span class="o">=</span><span class="n">in_place</span>
+        <span class="p">)</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">ufunc</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">+</span> <span class="s2">&quot;.nin should be 1 or 2.&quot;</span><span class="p">)</span>
+
+    <span class="n">new_cube</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">new_name</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">new_cube</span></div>
+
+
+<span class="k">def</span> <span class="nf">_binary_op_common</span><span class="p">(</span>
+    <span class="n">operation_function</span><span class="p">,</span>
+    <span class="n">operation_name</span><span class="p">,</span>
+    <span class="n">cube</span><span class="p">,</span>
+    <span class="n">other</span><span class="p">,</span>
+    <span class="n">new_unit</span><span class="p">,</span>
+    <span class="n">new_dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">dim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">in_place</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Function which shares common code between binary operations.</span>
+
+<span class="sd">    operation_function   - function which does the operation</span>
+<span class="sd">                           (e.g. numpy.divide)</span>
+<span class="sd">    operation_name       - the public name of the operation (e.g. &#39;divide&#39;)</span>
+<span class="sd">    cube                 - the cube whose data is used as the first argument</span>
+<span class="sd">                           to `operation_function`</span>
+<span class="sd">    other                - the cube, coord, ndarray or number whose data is</span>
+<span class="sd">                           used as the second argument</span>
+<span class="sd">    new_dtype            - the expected dtype of the output. Used in the</span>
+<span class="sd">                           case of scalar masked arrays</span>
+<span class="sd">    new_unit             - unit for the resulting quantity</span>
+<span class="sd">    dim                  - dimension along which to apply `other` if it&#39;s a</span>
+<span class="sd">                           coordinate that is not found in `cube`</span>
+<span class="sd">    in_place             - whether or not to apply the operation in place to</span>
+<span class="sd">                           `cube` and `cube.data`</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_assert_is_cube</span><span class="p">(</span><span class="n">cube</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">coords</span><span class="o">.</span><span class="n">Coord</span><span class="p">):</span>
+        <span class="n">other</span> <span class="o">=</span> <span class="n">_broadcast_cube_coord_data</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">other</span><span class="p">,</span> <span class="n">operation_name</span><span class="p">,</span> <span class="n">dim</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">cube</span><span class="o">.</span><span class="n">Cube</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">broadcast_shapes</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">other</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="n">other</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">as_compatible_shape</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">cube</span><span class="p">)</span>
+        <span class="n">other</span> <span class="o">=</span> <span class="n">other</span><span class="o">.</span><span class="n">core_data</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">other</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asanyarray</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+
+    <span class="c1"># don&#39;t worry about checking for other data types (such as scalars or</span>
+    <span class="c1"># np.ndarrays) because _assert_compatible validates that they are broadcast</span>
+    <span class="c1"># compatible with cube.data</span>
+    <span class="n">_assert_compatible</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">unary_func</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="n">operation_function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">ret</span> <span class="ow">is</span> <span class="bp">NotImplemented</span><span class="p">:</span>
+            <span class="c1"># explicitly raise the TypeError, so it gets raised even if, for</span>
+            <span class="c1"># example, `iris.analysis.maths.multiply(cube, other)` is called</span>
+            <span class="c1"># directly instead of `cube * other`</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+                <span class="s2">&quot;cannot </span><span class="si">%s</span><span class="s2"> </span><span class="si">%r</span><span class="s2"> and </span><span class="si">%r</span><span class="s2"> objects&quot;</span>
+                <span class="o">%</span> <span class="p">(</span>
+                    <span class="n">operation_function</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
+                    <span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
+                    <span class="nb">type</span><span class="p">(</span><span class="n">other</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+        <span class="k">return</span> <span class="n">ret</span>
+
+    <span class="k">return</span> <span class="n">_math_op_common</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">unary_func</span><span class="p">,</span> <span class="n">new_unit</span><span class="p">,</span> <span class="n">new_dtype</span><span class="p">,</span> <span class="n">in_place</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_broadcast_cube_coord_data</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">other</span><span class="p">,</span> <span class="n">operation_name</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="c1"># What dimension are we processing?</span>
+    <span class="n">data_dimension</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="n">dim</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># Ensure the given dim matches the coord</span>
+        <span class="k">if</span> <span class="n">other</span> <span class="ow">in</span> <span class="n">cube</span><span class="o">.</span><span class="n">coords</span><span class="p">()</span> <span class="ow">and</span> <span class="n">cube</span><span class="o">.</span><span class="n">coord_dims</span><span class="p">(</span><span class="n">other</span><span class="p">)</span> <span class="o">!=</span> <span class="p">[</span><span class="n">dim</span><span class="p">]:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;dim provided does not match dim found for coord&quot;</span><span class="p">)</span>
+        <span class="n">data_dimension</span> <span class="o">=</span> <span class="n">dim</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># Try and get a coord dim</span>
+        <span class="k">if</span> <span class="n">other</span><span class="o">.</span><span class="n">shape</span> <span class="o">!=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,):</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">coord_dims</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">coord_dims</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+                <span class="n">data_dimension</span> <span class="o">=</span> <span class="n">coord_dims</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="n">coord_dims</span> <span class="k">else</span> <span class="kc">None</span>
+            <span class="k">except</span> <span class="n">iris</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">CoordinateNotFoundError</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="s2">&quot;Could not determine dimension for </span><span class="si">%s</span><span class="s2">. &quot;</span>
+                    <span class="s2">&quot;Use </span><span class="si">%s</span><span class="s2">(cube, coord, dim=dim)&quot;</span>
+                    <span class="o">%</span> <span class="p">(</span><span class="n">operation_name</span><span class="p">,</span> <span class="n">operation_name</span><span class="p">)</span>
+                <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">other</span><span class="o">.</span><span class="n">ndim</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">iris</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">CoordinateMultiDimError</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">other</span><span class="o">.</span><span class="n">has_bounds</span><span class="p">():</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+            <span class="s2">&quot;Using </span><span class="si">{!r}</span><span class="s2"> with a bounded coordinate is not well &quot;</span>
+            <span class="s2">&quot;defined; ignoring bounds.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">operation_name</span><span class="p">)</span>
+        <span class="p">)</span>
+
+    <span class="n">points</span> <span class="o">=</span> <span class="n">other</span><span class="o">.</span><span class="n">points</span>
+
+    <span class="c1"># If the `data_dimension` is defined then shape the provided points for</span>
+    <span class="c1"># proper array broadcasting</span>
+    <span class="k">if</span> <span class="n">data_dimension</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">points_shape</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">cube</span><span class="o">.</span><span class="n">ndim</span>
+        <span class="n">points_shape</span><span class="p">[</span><span class="n">data_dimension</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="n">points</span> <span class="o">=</span> <span class="n">points</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">points_shape</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">points</span>
+
+
+<span class="k">def</span> <span class="nf">_math_op_common</span><span class="p">(</span>
+    <span class="n">cube</span><span class="p">,</span> <span class="n">operation_function</span><span class="p">,</span> <span class="n">new_unit</span><span class="p">,</span> <span class="n">new_dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">in_place</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">):</span>
+    <span class="n">_assert_is_cube</span><span class="p">(</span><span class="n">cube</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">in_place</span><span class="p">:</span>
+        <span class="n">new_cube</span> <span class="o">=</span> <span class="n">cube</span>
+        <span class="k">if</span> <span class="n">cube</span><span class="o">.</span><span class="n">has_lazy_data</span><span class="p">():</span>
+            <span class="n">new_cube</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">operation_function</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">lazy_data</span><span class="p">())</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">operation_function</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="n">cube</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+                <span class="c1"># Non ufunc function</span>
+                <span class="n">operation_function</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">new_cube</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">operation_function</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">core_data</span><span class="p">()))</span>
+
+    <span class="c1"># If the result of the operation is scalar and masked, we need to fix up</span>
+    <span class="c1"># the dtype</span>
+    <span class="k">if</span> <span class="p">(</span>
+        <span class="n">new_dtype</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+        <span class="ow">and</span> <span class="ow">not</span> <span class="n">new_cube</span><span class="o">.</span><span class="n">has_lazy_data</span><span class="p">()</span>
+        <span class="ow">and</span> <span class="n">new_cube</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">()</span>
+        <span class="ow">and</span> <span class="n">ma</span><span class="o">.</span><span class="n">is_masked</span><span class="p">(</span><span class="n">new_cube</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+    <span class="p">):</span>
+        <span class="n">new_cube</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">ma</span><span class="o">.</span><span class="n">masked_array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">new_dtype</span><span class="p">)</span>
+
+    <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">clear_phenomenon_identity</span><span class="p">(</span><span class="n">new_cube</span><span class="p">)</span>
+    <span class="n">new_cube</span><span class="o">.</span><span class="n">units</span> <span class="o">=</span> <span class="n">new_unit</span>
+    <span class="k">return</span> <span class="n">new_cube</span>
+
+
+<div class="viewcode-block" id="IFunc"><a class="viewcode-back" href="../../../generated/api/iris/analysis/maths.html#iris.analysis.maths.IFunc">[docs]</a><span class="k">class</span> <span class="nc">IFunc</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    :class:`IFunc` class for functions that can be applied to an iris cube.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_func</span><span class="p">,</span> <span class="n">units_func</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create an ifunc from a data function and units function.</span>
+
+<span class="sd">        Args:</span>
+
+<span class="sd">        * data_func:</span>
+
+<span class="sd">            Function to be applied to one or two data arrays, which</span>
+<span class="sd">            are given as positional arguments. Should return another</span>
+<span class="sd">            data array, with the same shape as the first array.</span>
+
+<span class="sd">            Can also have keyword arguments.</span>
+
+<span class="sd">        * units_func:</span>
+
+<span class="sd">            Function to calculate the unit of the resulting cube.</span>
+<span class="sd">            Should take the cube(s) as input and return</span>
+<span class="sd">            an instance of :class:`cf_units.Unit`.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            An ifunc.</span>
+
+<span class="sd">        **Example usage 1** Using an existing numpy ufunc, such as numpy.sin</span>
+<span class="sd">        for the data function and a simple lambda function for the units</span>
+<span class="sd">        function::</span>
+
+<span class="sd">            sine_ifunc = iris.analysis.maths.IFunc(</span>
+<span class="sd">                numpy.sin, lambda cube: cf_units.Unit(&#39;1&#39;))</span>
+<span class="sd">            sine_cube = sine_ifunc(cube)</span>
+
+<span class="sd">        **Example usage 2** Define a function for the data arrays of two cubes</span>
+<span class="sd">        and define a units function that checks the units of the cubes</span>
+<span class="sd">        for consistency, before giving the resulting cube the same units</span>
+<span class="sd">        as the first cube::</span>
+
+<span class="sd">            def ws_data_func(u_data, v_data):</span>
+<span class="sd">                return numpy.sqrt( u_data**2 + v_data**2 )</span>
+
+<span class="sd">            def ws_units_func(u_cube, v_cube):</span>
+<span class="sd">                if u_cube.units != getattr(v_cube, &#39;units&#39;, u_cube.units):</span>
+<span class="sd">                    raise ValueError(&quot;units do not match&quot;)</span>
+<span class="sd">                return u_cube.units</span>
+
+<span class="sd">            ws_ifunc = iris.analysis.maths.IFunc(ws_data_func, ws_units_func)</span>
+<span class="sd">            ws_cube = ws_ifunc(u_cube, v_cube, new_name=&#39;wind speed&#39;)</span>
+
+<span class="sd">        **Example usage 3** Using a data function that allows a keyword</span>
+<span class="sd">        argument::</span>
+
+<span class="sd">            cs_ifunc = iris.analysis.maths.IFunc(numpy.cumsum,</span>
+<span class="sd">                lambda a: a.units)</span>
+<span class="sd">            cs_cube = cs_ifunc(cube, axis=1)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">data_func</span><span class="p">,</span> <span class="s2">&quot;nin&quot;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">nin</span> <span class="o">=</span> <span class="n">data_func</span><span class="o">.</span><span class="n">nin</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">sig</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">signature</span><span class="p">(</span><span class="n">data_func</span><span class="p">)</span>
+            <span class="n">args</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="n">param</span>
+                <span class="k">for</span> <span class="n">param</span> <span class="ow">in</span> <span class="n">sig</span><span class="o">.</span><span class="n">parameters</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+                <span class="k">if</span> <span class="p">(</span>
+                    <span class="n">param</span><span class="o">.</span><span class="n">kind</span> <span class="o">!=</span> <span class="n">param</span><span class="o">.</span><span class="n">KEYWORD_ONLY</span>
+                    <span class="ow">and</span> <span class="n">param</span><span class="o">.</span><span class="n">default</span> <span class="ow">is</span> <span class="n">param</span><span class="o">.</span><span class="n">empty</span>
+                <span class="p">)</span>
+            <span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">nin</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">nin</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> requires </span><span class="si">{}</span><span class="s2"> input data arrays, the IFunc class &quot;</span>
+                <span class="s2">&quot;currently only supports functions requiring 1 or two &quot;</span>
+                <span class="s2">&quot;data arrays as input.&quot;</span>
+            <span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">data_func</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nin</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">data_func</span><span class="p">,</span> <span class="s2">&quot;nout&quot;</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">data_func</span><span class="o">.</span><span class="n">nout</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> returns </span><span class="si">{}</span><span class="s2"> objects, the IFunc class currently &quot;</span>
+                    <span class="s2">&quot;only supports functions returning a single object.&quot;</span>
+                <span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">data_func</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">data_func</span><span class="o">.</span><span class="n">nout</span><span class="p">)</span>
+                <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">data_func</span> <span class="o">=</span> <span class="n">data_func</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">units_func</span> <span class="o">=</span> <span class="n">units_func</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;iris.analysis.maths.IFunc(</span><span class="si">{}</span><span class="s2">, </span><span class="si">{}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">data_func</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">units_func</span><span class="o">.</span><span class="vm">__name__</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="s2">&quot;IFunc constructed from the data function </span><span class="si">{}</span><span class="s2"> &quot;</span>
+            <span class="s2">&quot;and the units function </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">data_func</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">units_func</span><span class="o">.</span><span class="vm">__name__</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">cube</span><span class="p">,</span>
+        <span class="n">other</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">dim</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">in_place</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">new_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs_data_func</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Applies the ifunc to the cube(s).</span>
+
+<span class="sd">        Args:</span>
+
+<span class="sd">        * cube</span>
+<span class="sd">            An instance of :class:`iris.cube.Cube`, whose data is used</span>
+<span class="sd">            as the first argument to the data function.</span>
+
+<span class="sd">        Kwargs:</span>
+
+<span class="sd">        * other</span>
+<span class="sd">            A cube, coord, ndarray or number whose data is used as the</span>
+<span class="sd">            second argument to the data function.</span>
+
+<span class="sd">        * new_name:</span>
+<span class="sd">            Name for the resulting Cube.</span>
+
+<span class="sd">        * in_place:</span>
+<span class="sd">            Whether to create a new Cube, or alter the given &quot;cube&quot;.</span>
+
+<span class="sd">        * dim:</span>
+<span class="sd">            Dimension along which to apply `other` if it&#39;s a coordinate that is</span>
+<span class="sd">            not found in `cube`</span>
+
+<span class="sd">        * **kwargs_data_func:</span>
+<span class="sd">            Keyword arguments that get passed on to the data_func.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            An instance of :class:`iris.cube.Cube`.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">_assert_is_cube</span><span class="p">(</span><span class="n">cube</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">wrap_data_func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+            <span class="n">kwargs_combined</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">kwargs_data_func</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs_combined</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">nin</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">other</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">data_func</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">+</span> <span class="s2">&quot; requires two arguments&quot;</span>
+                <span class="p">)</span>
+
+            <span class="n">new_unit</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">units_func</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
+
+            <span class="n">new_cube</span> <span class="o">=</span> <span class="n">_binary_op_common</span><span class="p">(</span>
+                <span class="n">wrap_data_func</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">data_func</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
+                <span class="n">cube</span><span class="p">,</span>
+                <span class="n">other</span><span class="p">,</span>
+                <span class="n">new_unit</span><span class="p">,</span>
+                <span class="n">dim</span><span class="o">=</span><span class="n">dim</span><span class="p">,</span>
+                <span class="n">in_place</span><span class="o">=</span><span class="n">in_place</span><span class="p">,</span>
+            <span class="p">)</span>
+
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">nin</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">other</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">data_func</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">+</span> <span class="s2">&quot; requires one argument&quot;</span>
+                <span class="p">)</span>
+
+            <span class="n">new_unit</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">units_func</span><span class="p">(</span><span class="n">cube</span><span class="p">)</span>
+
+            <span class="n">new_cube</span> <span class="o">=</span> <span class="n">_math_op_common</span><span class="p">(</span>
+                <span class="n">cube</span><span class="p">,</span> <span class="n">wrap_data_func</span><span class="p">,</span> <span class="n">new_unit</span><span class="p">,</span> <span class="n">in_place</span><span class="o">=</span><span class="n">in_place</span>
+            <span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;self.nin should be 1 or 2.&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">new_name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">new_cube</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">new_name</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">new_cube</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        
+        &copy; <a href="../../../copyright.html">Copyright</a> Iris contributors
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

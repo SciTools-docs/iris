@@ -1,95 +1,249 @@
 
-<!DOCTYPE html>
 
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2. Loading Iris cubes &#8212; Iris 3.0.dev0 documentation</title>
-    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Loading Iris cubes &mdash; Iris 3.0.dev0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/theme_override.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-dataframe.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
-    <link rel="next" title="3. Saving Iris cubes" href="saving_iris_cubes.html" />
-    <link rel="prev" title="1. Introduction" href="iris_cubes.html" />
- 
-    <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
-    <META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE"> 
+    <link rel="next" title="Saving Iris cubes" href="saving_iris_cubes.html" />
+    <link rel="prev" title="Iris data structures" href="iris_cubes.html" /> 
+</head>
 
-    <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    <script type="text/javascript" src="https://docs.python.org/2/_static/copybutton.js"></script>
+<body class="wy-body-for-nav">
 
-    <link rel="icon" type="image/png" sizes="32x32" href="../_static/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../_static/favicon-16x16.png">
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
 
-    <link href="https://fonts.googleapis.com/css?family=Alike|Noto+Sans" rel="stylesheet">
+          
+            <a href="../index.html">
+          
 
-  </head><body>
+          
+            
+            <img src="../_static/iris-logo-title.png" class="logo" alt="Logo"/>
+          
+          </a>
 
-<a href="https://github.com/SciTools/iris">
-    <img class="github-forkme" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"
-         alt="Fork Iris on GitHub" />
-</a>
+          
+            
+            
+              <div class="version">
+                3.0
+              </div>
+            
+          
 
-
-<div class="header-content">
-    <a href="../index.html">
-        <img src="../_static/Iris7_1_trim_100.png" alt="Iris logo" />
-    </a>
-    <div class="strapline">
-      <h1>
-          Iris <span class="version">v3.0</span>
-      </h1>
-      <p>
-         A powerful, format-agnostic, community-driven Python library for analysing and
-         visualising Earth science data.
-      </p>
-    </div>
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
 </div>
 
+          
+        </div>
 
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="../py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="saving_iris_cubes.html" title="3. Saving Iris cubes"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="iris_cubes.html" title="1. Introduction"
-             accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">home</a>|&nbsp;</li>
-        <li><a href="../examples/index.html">examples</a>|&nbsp;</li>
-        <li><a href="../gallery.html">gallery</a>|&nbsp;</li>
-        <li><a href="../contents.html">contents</a>|&nbsp;</li>
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installing.html">Installing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../generated/gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iris_cubes.html">Iris data structures</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Loading Iris cubes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#loading-multiple-files">Loading multiple files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lazy-loading">Lazy loading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#constrained-loading">Constrained loading</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#constraining-a-circular-coordinate-across-its-boundary">Constraining a circular coordinate across its boundary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#constraining-on-time">Constraining on Time</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#strict-loading">Strict loading</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="saving_iris_cubes.html">Saving Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="navigating_a_cube.html">Navigating a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="subsetting_a_cube.html">Subsetting a Cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="real_and_lazy_data.html">Real and Lazy Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plotting_a_cube.html">Plotting a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interpolation_and_regridding.html">Cube interpolation and regridding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="merge_and_concat.html">Merge and concatenate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cube_statistics.html">Cube statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cube_maths.html">Basic cube mathematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="citation.html">Citing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code_maintenance.html">Code maintenance</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developers Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/contributing_documentation.html">Contributing to the documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/documenting/index.html">Documentation in Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/gitwash/index.html">Working with <em>iris</em> source code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/code_format.html">Code formatting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/pulls.html">Pull request check List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/tests.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/deprecations.html">Deprecations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/release.html">Releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../generated/api/iris.html">Iris API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../whatsnew/index.html">What’s new in Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../techpapers/index.html">Iris Technical Papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../copyright.html">Iris copyright, licensing and contributors</a></li>
+</ul>
 
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Iris user guide</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href=""><span class="section-number">2. </span>Loading Iris cubes</a></li> 
-      </ul>
-    </div>
+            
+          
+
+    
+    
+    
+        <p class="caption">
+            <span class="caption-text">
+            
+                Support
+            
+            </span>
+        </p>
+        <ul>
+            
+                <li class="toctree-l1"><a href="https://github.com/SciTools/iris"><i class="fa fa-github fa-fw"></i> Source Code</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris"><i class="fa fa-comments fa-fw"></i> Users Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris-dev"><i class="fa fa-comments fa-fw"></i> Developers Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://stackoverflow.com/questions/tagged/python-iris"><i class="fa fa-question fa-fw"></i> StackOverflow For "How do I?"</a></li>
+            
+                <li class="toctree-l1"><a href="https://scitools.org.uk/iris/docs/v2.4.0/index.html"><i class="fa fa-book fa-fw"></i> Legacy documentation</a></li>
+            
+        </ul>
+    
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Iris</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Loading Iris cubes</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/userguide/loading_iris_cubes.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
   
-
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
             
   <div class="section" id="loading-iris-cubes">
-<span id="id1"></span><h1><span class="section-number">2. </span>Loading Iris cubes<a class="headerlink" href="#loading-iris-cubes" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h1>Loading Iris cubes<a class="headerlink" href="#loading-iris-cubes" title="Permalink to this headline">¶</a></h1>
 <p>To load a single file into a <strong>list</strong> of Iris cubes
-the <a class="reference internal" href="../iris/iris.html#iris.load" title="iris.load"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.load()</span></code></a> function is used:</p>
+the <a class="reference internal" href="../generated/api/iris.html#iris.load" title="iris.load"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.load()</span></code></a> function is used:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">iris</span>
 <span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;/path/to/file&#39;</span>
 <span class="n">cubes</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
@@ -98,7 +252,7 @@ the <a class="reference internal" href="../iris/iris.html#iris.load" title="iris
 <p>Iris will attempt to return <strong>as few cubes as possible</strong>
 by collecting together multiple fields with a shared standard name
 into a single multidimensional cube.</p>
-<p>The <a class="reference internal" href="../iris/iris.html#iris.load" title="iris.load"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.load()</span></code></a> function automatically recognises the format
+<p>The <a class="reference internal" href="../generated/api/iris.html#iris.load" title="iris.load"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.load()</span></code></a> function automatically recognises the format
 of the given files and attempts to produce Iris Cubes from their contents.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -116,30 +270,32 @@ file formats with a framework for this to be extended to custom formats.</p>
 </div>
 <p>This shows that there were 2 cubes as a result of loading the file, they were:
 <code class="docutils literal notranslate"><span class="pre">air_potential_temperature</span></code> and <code class="docutils literal notranslate"><span class="pre">surface_altitude</span></code>.</p>
-<dl class="simple">
-<dt>The <code class="docutils literal notranslate"><span class="pre">surface_altitude</span></code> cube was 2 dimensional with:</dt><dd><ul class="simple">
+<p>The <code class="docutils literal notranslate"><span class="pre">surface_altitude</span></code> cube was 2 dimensional with:</p>
+<blockquote>
+<div><ul class="simple">
 <li><p>the two dimensions have extents of 204 and 187 respectively and are
 represented by the <code class="docutils literal notranslate"><span class="pre">grid_latitude</span></code> and <code class="docutils literal notranslate"><span class="pre">grid_longitude</span></code> coordinates.</p></li>
 </ul>
-</dd>
-<dt>The <code class="docutils literal notranslate"><span class="pre">air_potential_temperature</span></code> cubes were 4 dimensional with:</dt><dd><ul class="simple">
+</div></blockquote>
+<p>The <code class="docutils literal notranslate"><span class="pre">air_potential_temperature</span></code> cubes were 4 dimensional with:</p>
+<blockquote>
+<div><ul class="simple">
 <li><p>the same length <code class="docutils literal notranslate"><span class="pre">grid_latitude</span></code> and <code class="docutils literal notranslate"><span class="pre">grid_longitude</span></code> dimensions as
 <code class="docutils literal notranslate"><span class="pre">surface_altitide</span></code></p></li>
 <li><p>a <code class="docutils literal notranslate"><span class="pre">time</span></code> dimension of length 3</p></li>
 <li><p>a <code class="docutils literal notranslate"><span class="pre">model_level_number</span></code> dimension of length 7</p></li>
 </ul>
-</dd>
-</dl>
+</div></blockquote>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The result of <a class="reference internal" href="../iris/iris.html#iris.load" title="iris.load"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.load()</span></code></a> is <strong>always</strong> a
-<a class="reference internal" href="../iris/iris/cube.html#iris.cube.CubeList" title="iris.cube.CubeList"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span> <span class="pre">of</span> <span class="pre">cubes</span></code></a>.
+<p>The result of <a class="reference internal" href="../generated/api/iris.html#iris.load" title="iris.load"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.load()</span></code></a> is <strong>always</strong> a
+<a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.CubeList" title="iris.cube.CubeList"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span> <span class="pre">of</span> <span class="pre">cubes</span></code></a>.
 Anything that can be done with a Python <code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code> can be done
 with the resultant list of cubes. It is worth noting, however, that
 there is no inherent order to this
-<a class="reference internal" href="../iris/iris/cube.html#iris.cube.CubeList" title="iris.cube.CubeList"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span> <span class="pre">of</span> <span class="pre">cubes</span></code></a>.
+<a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.CubeList" title="iris.cube.CubeList"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span> <span class="pre">of</span> <span class="pre">cubes</span></code></a>.
 Because of this, indexing may be inconsistent. A more consistent way to
-extract a cube is by using the <a class="reference internal" href="../iris/iris.html#iris.Constraint" title="iris.Constraint"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.Constraint</span></code></a> class as
+extract a cube is by using the <a class="reference internal" href="../generated/api/iris.html#iris.Constraint" title="iris.Constraint"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.Constraint</span></code></a> class as
 described in <a class="reference internal" href="#constrained-loading"><span class="std std-ref">Constrained loading</span></a>.</p>
 </div>
 <div class="admonition hint">
@@ -156,7 +312,7 @@ however in practice you will want to use your own strings:</p>
 </div>
 </div>
 <p>To get the air potential temperature cube from the list of cubes
-returned by <a class="reference internal" href="../iris/iris.html#iris.load" title="iris.load"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.load()</span></code></a> in the previous example,
+returned by <a class="reference internal" href="../generated/api/iris.html#iris.load" title="iris.load"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.load()</span></code></a> in the previous example,
 list indexing can be used:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">iris</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">filename</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;uk_hires.pp&#39;</span><span class="p">)</span>
@@ -189,16 +345,16 @@ list indexing can be used:</p>
 it was when printing a <strong>list of cubes</strong>. In addition to the very short summary
 which is provided when printing a list of cubes, information is provided
 on the coordinates which constitute the cube in question.
-This was the output discussed at the end of the <a class="reference internal" href="iris_cubes.html"><span class="doc">Introduction</span></a> section.</p>
+This was the output discussed at the end of the <a class="reference internal" href="iris_cubes.html"><span class="doc">Iris data structures</span></a> section.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Dimensioned coordinates will have a dimension marker <code class="docutils literal notranslate"><span class="pre">x</span></code> in the
 appropriate column for each cube data dimension that they describe.</p>
 </div>
 <div class="section" id="loading-multiple-files">
-<h2><span class="section-number">2.1. </span>Loading multiple files<a class="headerlink" href="#loading-multiple-files" title="Permalink to this headline">¶</a></h2>
+<h2>Loading multiple files<a class="headerlink" href="#loading-multiple-files" title="Permalink to this headline">¶</a></h2>
 <p>To load more than one file into a list of cubes, a list of filenames can be
-provided to <a class="reference internal" href="../iris/iris.html#iris.load" title="iris.load"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.load()</span></code></a>:</p>
+provided to <a class="reference internal" href="../generated/api/iris.html#iris.load" title="iris.load"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.load()</span></code></a>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">filenames</span> <span class="o">=</span> <span class="p">[</span><span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;uk_hires.pp&#39;</span><span class="p">),</span>
              <span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;air_temp.pp&#39;</span><span class="p">)]</span>
 <span class="n">cubes</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">filenames</span><span class="p">)</span>
@@ -219,7 +375,7 @@ order of the filenames.</p>
 </div>
 </div>
 <div class="section" id="lazy-loading">
-<h2><span class="section-number">2.2. </span>Lazy loading<a class="headerlink" href="#lazy-loading" title="Permalink to this headline">¶</a></h2>
+<h2>Lazy loading<a class="headerlink" href="#lazy-loading" title="Permalink to this headline">¶</a></h2>
 <p>In fact when Iris loads data from most file types, it normally only reads the
 essential descriptive information or metadata :  the bulk of the actual data
 content will only be loaded later, as it is needed.
@@ -227,7 +383,7 @@ This is referred to as ‘lazy’ data.  It allows loading to be much quicker, a
 <p>For more on the benefits, handling and uses of lazy data, see <a class="reference internal" href="real_and_lazy_data.html"><span class="doc">Real and Lazy Data</span></a>.</p>
 </div>
 <div class="section" id="constrained-loading">
-<span id="id2"></span><h2><span class="section-number">2.3. </span>Constrained loading<a class="headerlink" href="#constrained-loading" title="Permalink to this headline">¶</a></h2>
+<span id="id2"></span><h2>Constrained loading<a class="headerlink" href="#constrained-loading" title="Permalink to this headline">¶</a></h2>
 <p>Given a large dataset, it is possible to restrict or constrain the load
 to match specific Iris cube metadata.
 Constrained loading provides the ability to generate a cube
@@ -237,8 +393,8 @@ from a specific subset of data that is of particular interest.</p>
 <span class="n">cubes</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Specifying a name as a constraint argument to <a class="reference internal" href="../iris/iris.html#iris.load" title="iris.load"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.load()</span></code></a> will mean
-only cubes with matching <a class="reference internal" href="../iris/iris/cube.html#iris.cube.Cube.names" title="iris.cube.Cube.names"><code class="xref py py-meth docutils literal notranslate"><span class="pre">name</span></code></a>
+<p>Specifying a name as a constraint argument to <a class="reference internal" href="../generated/api/iris.html#iris.load" title="iris.load"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.load()</span></code></a> will mean
+only cubes with matching <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.Cube.names" title="iris.cube.Cube.names"><code class="xref py py-meth docutils literal notranslate"><span class="pre">name</span></code></a>
 will be returned:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;uk_hires.pp&#39;</span><span class="p">)</span>
 <span class="n">cubes</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;surface_altitude&#39;</span><span class="p">)</span>
@@ -254,7 +410,7 @@ also be achieved using the STASH value of <code class="docutils literal notransl
 </div>
 <p>If further specific name constraint control is required i.e., to constrain
 against a combination of standard name, long name, NetCDF variable name and/or
-STASH metadata, consider using the <a class="reference internal" href="../iris/iris.html#iris.NameConstraint" title="iris.NameConstraint"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.NameConstraint</span></code></a>. For example,
+STASH metadata, consider using the <a class="reference internal" href="../generated/api/iris.html#iris.NameConstraint" title="iris.NameConstraint"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.NameConstraint</span></code></a>. For example,
 to constrain against both a standard name of <code class="docutils literal notranslate"><span class="pre">surface_altitude</span></code> <strong>and</strong> a STASH
 of <code class="docutils literal notranslate"><span class="pre">m01s00i033</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;uk_hires.pp&#39;</span><span class="p">)</span>
@@ -269,7 +425,7 @@ but is likely to be more efficient:</p>
 <span class="n">cubes</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;air_potential_temperature&#39;</span><span class="p">,</span> <span class="s1">&#39;surface_altitude&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
-<p>The <a class="reference internal" href="../iris/iris.html#iris.Constraint" title="iris.Constraint"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.Constraint</span></code></a> class can be used to restrict coordinate values
+<p>The <a class="reference internal" href="../generated/api/iris.html#iris.Constraint" title="iris.Constraint"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.Constraint</span></code></a> class can be used to restrict coordinate values
 on load. For example, to constrain the load to match
 a specific <code class="docutils literal notranslate"><span class="pre">model_level_number</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;uk_hires.pp&#39;</span><span class="p">)</span>
@@ -286,7 +442,7 @@ constraint to <code class="docutils literal notranslate"><span class="pre">load<
 </pre></div>
 </div>
 <p>As well as being able to combine constraints using <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>,
-the <a class="reference internal" href="../iris/iris.html#iris.Constraint" title="iris.Constraint"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.Constraint</span></code></a> class can accept multiple arguments,
+the <a class="reference internal" href="../generated/api/iris.html#iris.Constraint" title="iris.Constraint"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.Constraint</span></code></a> class can accept multiple arguments,
 and a list of values can be given to constrain a coordinate to one of
 a collection of values:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;uk_hires.pp&#39;</span><span class="p">)</span>
@@ -326,20 +482,20 @@ then specific STASH codes can be filtered:</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p>For advanced usage there are further examples in the
-<a class="reference internal" href="../iris/iris.html#iris.Constraint" title="iris.Constraint"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.Constraint</span></code></a> reference documentation.</p>
+<a class="reference internal" href="../generated/api/iris.html#iris.Constraint" title="iris.Constraint"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.Constraint</span></code></a> reference documentation.</p>
 </div>
 <div class="section" id="constraining-a-circular-coordinate-across-its-boundary">
-<h3><span class="section-number">2.3.1. </span>Constraining a circular coordinate across its boundary<a class="headerlink" href="#constraining-a-circular-coordinate-across-its-boundary" title="Permalink to this headline">¶</a></h3>
+<h3>Constraining a circular coordinate across its boundary<a class="headerlink" href="#constraining-a-circular-coordinate-across-its-boundary" title="Permalink to this headline">¶</a></h3>
 <p>Occasionally you may need to constrain your cube with a region that crosses the
 boundary of a circular coordinate (this is often the meridian or the dateline /
 antimeridian). An example use-case of this is to extract the entire Pacific Ocean
 from a cube whose longitudes are bounded by the dateline.</p>
 <p>This functionality cannot be provided reliably using contraints. Instead you should use the
-functionality provided by <a class="reference internal" href="../iris/iris/cube.html#iris.cube.Cube.intersection" title="iris.cube.Cube.intersection"><code class="xref py py-meth docutils literal notranslate"><span class="pre">cube.intersection</span></code></a>
+functionality provided by <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.Cube.intersection" title="iris.cube.Cube.intersection"><code class="xref py py-meth docutils literal notranslate"><span class="pre">cube.intersection</span></code></a>
 to extract this region.</p>
 </div>
 <div class="section" id="constraining-on-time">
-<span id="using-time-constraints"></span><h3><span class="section-number">2.3.2. </span>Constraining on Time<a class="headerlink" href="#constraining-on-time" title="Permalink to this headline">¶</a></h3>
+<span id="using-time-constraints"></span><h3>Constraining on Time<a class="headerlink" href="#constraining-on-time" title="Permalink to this headline">¶</a></h3>
 <p>Iris follows NetCDF-CF rules in representing time coordinate values as normalised,
 purely numeric, values which are normalised by the calendar specified in the coordinate’s
 units (e.g. “days since 1970-01-01”).
@@ -362,8 +518,8 @@ for ease of calendar-based testing.</p>
 <span class="go">DimCoord([2009-11-19 11:00:00], standard_name=&#39;time&#39;, calendar=&#39;gregorian&#39;)</span>
 </pre></div>
 </div>
-<p>Secondly, the <a class="reference internal" href="../iris/iris/time.html#module-iris.time" title="iris.time"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.time</span></code></a> module provides flexible time comparison
-facilities.  An <a class="reference internal" href="../iris/iris/time.html#iris.time.PartialDateTime" title="iris.time.PartialDateTime"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.time.PartialDateTime</span></code></a> object can be compared to
+<p>Secondly, the <a class="reference internal" href="../generated/api/iris/time.html#module-iris.time" title="iris.time"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.time</span></code></a> module provides flexible time comparison
+facilities.  An <a class="reference internal" href="../generated/api/iris/time.html#iris.time.PartialDateTime" title="iris.time.PartialDateTime"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.time.PartialDateTime</span></code></a> object can be compared to
 objects such as <a class="reference external" href="https://docs.python.org/2.7/library/datetime.html#datetime.datetime" title="(in Python v2.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code></a> instances, and this comparison will
 then test only those ‘aspects’ which the PartialDateTime instance defines:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">datetime</span>
@@ -408,7 +564,7 @@ day of every week for many years:</p>
 <span class="go">         standard_name=&#39;time&#39;, calendar=&#39;gregorian&#39;)</span>
 </pre></div>
 </div>
-<p>Alternatively, we may rewrite this using <a class="reference internal" href="../iris/iris/time.html#iris.time.PartialDateTime" title="iris.time.PartialDateTime"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.time.PartialDateTime</span></code></a>
+<p>Alternatively, we may rewrite this using <a class="reference internal" href="../generated/api/iris/time.html#iris.time.PartialDateTime" title="iris.time.PartialDateTime"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.time.PartialDateTime</span></code></a>
 objects.</p>
 <div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pdt1</span> <span class="o">=</span> <span class="n">PartialDateTime</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2007</span><span class="p">,</span> <span class="n">month</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">day</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">pdt2</span> <span class="o">=</span> <span class="n">PartialDateTime</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2007</span><span class="p">,</span> <span class="n">month</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">day</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
@@ -443,14 +599,14 @@ and that they span multiple years.</p>
 </div>
 </div>
 <div class="section" id="strict-loading">
-<h2><span class="section-number">2.4. </span>Strict loading<a class="headerlink" href="#strict-loading" title="Permalink to this headline">¶</a></h2>
-<p>The <a class="reference internal" href="../iris/iris.html#iris.load_cube" title="iris.load_cube"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.load_cube()</span></code></a> and <a class="reference internal" href="../iris/iris.html#iris.load_cubes" title="iris.load_cubes"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.load_cubes()</span></code></a> functions are
-similar to <a class="reference internal" href="../iris/iris.html#iris.load" title="iris.load"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.load()</span></code></a> except they can only return
+<h2>Strict loading<a class="headerlink" href="#strict-loading" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference internal" href="../generated/api/iris.html#iris.load_cube" title="iris.load_cube"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.load_cube()</span></code></a> and <a class="reference internal" href="../generated/api/iris.html#iris.load_cubes" title="iris.load_cubes"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.load_cubes()</span></code></a> functions are
+similar to <a class="reference internal" href="../generated/api/iris.html#iris.load" title="iris.load"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.load()</span></code></a> except they can only return
 <em>one cube per constraint</em>.
-The <a class="reference internal" href="../iris/iris.html#iris.load_cube" title="iris.load_cube"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.load_cube()</span></code></a> function accepts a single constraint and
-returns a single cube. The <a class="reference internal" href="../iris/iris.html#iris.load_cubes" title="iris.load_cubes"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.load_cubes()</span></code></a> function accepts any
+The <a class="reference internal" href="../generated/api/iris.html#iris.load_cube" title="iris.load_cube"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.load_cube()</span></code></a> function accepts a single constraint and
+returns a single cube. The <a class="reference internal" href="../generated/api/iris.html#iris.load_cubes" title="iris.load_cubes"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.load_cubes()</span></code></a> function accepts any
 number of constraints and returns a list of cubes (as an <cite>iris.cube.CubeList</cite>).
-Providing no constraints to <a class="reference internal" href="../iris/iris.html#iris.load_cube" title="iris.load_cube"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.load_cube()</span></code></a> or <a class="reference internal" href="../iris/iris.html#iris.load_cubes" title="iris.load_cubes"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.load_cubes()</span></code></a>
+Providing no constraints to <a class="reference internal" href="../generated/api/iris.html#iris.load_cube" title="iris.load_cube"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.load_cube()</span></code></a> or <a class="reference internal" href="../generated/api/iris.html#iris.load_cubes" title="iris.load_cubes"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.load_cubes()</span></code></a>
 is equivalent to requesting exactly one cube of any type.</p>
 <p>A single cube is loaded in the following example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">filename</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;air_temp.pp&#39;</span><span class="p">)</span>
@@ -480,7 +636,7 @@ one cube, an exception is raised:</p>
 multiple files could be loaded with wildcard filenames
 or by providing a list of filenames.</p>
 </div>
-<p>The strict nature of <a class="reference internal" href="../iris/iris.html#iris.load_cube" title="iris.load_cube"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.load_cube()</span></code></a> and <a class="reference internal" href="../iris/iris.html#iris.load_cubes" title="iris.load_cubes"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.load_cubes()</span></code></a>
+<p>The strict nature of <a class="reference internal" href="../generated/api/iris.html#iris.load_cube" title="iris.load_cube"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.load_cube()</span></code></a> and <a class="reference internal" href="../generated/api/iris.html#iris.load_cubes" title="iris.load_cubes"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.load_cubes()</span></code></a>
 means that, when combined with constrained loading, it is possible to
 ensure that precisely what was asked for on load is given
 - otherwise an exception is raised.
@@ -503,7 +659,7 @@ in order to run:</p>
 <span class="n">altitude_cube</span><span class="p">,</span> <span class="n">pot_temp_cube</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cubes</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;surface_altitude&#39;</span><span class="p">,</span> <span class="s1">&#39;air_potential_temperature&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
-<p>The result of <a class="reference internal" href="../iris/iris.html#iris.load_cubes" title="iris.load_cubes"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.load_cubes()</span></code></a> in this case will be a list of 2 cubes
+<p>The result of <a class="reference internal" href="../generated/api/iris.html#iris.load_cubes" title="iris.load_cubes"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.load_cubes()</span></code></a> in this case will be a list of 2 cubes
 ordered by the constraints provided. Multiple assignment has been used to put
 these two cubes into separate variables.</p>
 <div class="admonition note">
@@ -522,86 +678,60 @@ using <em>multiple assignment</em>:</p>
 </div>
 
 
-            <div class="clearer"></div>
+           </div>
+           
           </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="saving_iris_cubes.html" class="btn btn-neutral float-right" title="Saving Iris cubes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="iris_cubes.html" class="btn btn-neutral float-left" title="Iris data structures" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        
+        &copy; <a href="../copyright.html">Copyright</a> Iris contributors
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="../contents.html">Table of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">2. Loading Iris cubes</a><ul>
-<li><a class="reference internal" href="#loading-multiple-files">2.1. Loading multiple files</a></li>
-<li><a class="reference internal" href="#lazy-loading">2.2. Lazy loading</a></li>
-<li><a class="reference internal" href="#constrained-loading">2.3. Constrained loading</a><ul>
-<li><a class="reference internal" href="#constraining-a-circular-coordinate-across-its-boundary">2.3.1. Constraining a circular coordinate across its boundary</a></li>
-<li><a class="reference internal" href="#constraining-on-time">2.3.2. Constraining on Time</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#strict-loading">2.4. Strict loading</a></li>
-</ul>
-</li>
-</ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="iris_cubes.html"
-                        title="previous chapter"><span class="section-number">1. </span>Introduction</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="saving_iris_cubes.html"
-                        title="next chapter"><span class="section-number">3. </span>Saving Iris cubes</a></p>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="../_sources/userguide/loading_iris_cubes.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>$('#searchbox').show(0);</script>
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="../py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="saving_iris_cubes.html" title="3. Saving Iris cubes"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="iris_cubes.html" title="1. Introduction"
-             >previous</a> |</li>
-        <li><a href="../index.html">home</a>|&nbsp;</li>
-        <li><a href="../examples/index.html">examples</a>|&nbsp;</li>
-        <li><a href="../gallery.html">gallery</a>|&nbsp;</li>
-        <li><a href="../contents.html">contents</a>|&nbsp;</li>
+    </section>
 
-          <li class="nav-item nav-item-1"><a href="index.html" >Iris user guide</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href=""><span class="section-number">2. </span>Loading Iris cubes</a></li> 
-      </ul>
-    </div>
+  </div>
+  
 
-    <div class="footer">
-    <p style="text-align: left; float: left; margin: 0px; padding: 0 0 0 5px;">Documentation licensed under the <a href="http://reference.data.gov.uk/id/open-government-licence" rel="license">Open Government Licence</a></p>
-        &copy; <a href="../copyright.html">British Crown Copyright</a> 2010 - 2020, Met Office
-    </div>
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
 
-    <!-- Include a version switcher to easily move between the documentation of different versions -->
-    <script type=text/javascript src="/iris/docs/version_switch.js" async></script>
+  
+  
+    
+   
 
-  </body>
+</body>
 </html>

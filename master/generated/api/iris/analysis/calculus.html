@@ -1,0 +1,500 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>iris.analysis.calculus &mdash; Iris 3.0.dev0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../_static/theme_override.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/gallery-dataframe.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/language_data.js"></script>
+        <script src="../../../../_static/clipboard.min.js"></script>
+        <script src="../../../../_static/copybutton.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="copyright" title="Copyright" href="../../../../copyright.html" />
+    <link rel="next" title="iris.analysis.cartography" href="cartography.html" />
+    <link rel="prev" title="iris.analysis" href="../analysis.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html">
+          
+
+          
+            
+            <img src="../../../../_static/iris-logo-title.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installing.html">Installing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/iris_cubes.html">Iris data structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/loading_iris_cubes.html">Loading Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/saving_iris_cubes.html">Saving Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/navigating_a_cube.html">Navigating a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/subsetting_a_cube.html">Subsetting a Cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/real_and_lazy_data.html">Real and Lazy Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/plotting_a_cube.html">Plotting a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/interpolation_and_regridding.html">Cube interpolation and regridding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/merge_and_concat.html">Merge and concatenate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/cube_statistics.html">Cube statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/cube_maths.html">Basic cube mathematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/citation.html">Citing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/code_maintenance.html">Code maintenance</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developers Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../developers_guide/contributing_documentation.html">Contributing to the documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developers_guide/documenting/index.html">Documentation in Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developers_guide/gitwash/index.html">Working with <em>iris</em> source code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developers_guide/code_format.html">Code formatting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developers_guide/pulls.html">Pull request check List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developers_guide/tests.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developers_guide/deprecations.html">Deprecations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developers_guide/release.html">Releases</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../iris.html">Iris API</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../analysis.html">iris.analysis</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">iris.analysis.calculus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cartography.html">iris.analysis.cartography</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry.html">iris.analysis.geometry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="maths.html">iris.analysis.maths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stats.html">iris.analysis.stats</a></li>
+<li class="toctree-l3"><a class="reference internal" href="trajectory.html">iris.analysis.trajectory</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../aux_factory.html">iris.aux_factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../config.html">iris.config</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../coord_categorisation.html">iris.coord_categorisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../coord_systems.html">iris.coord_systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../coords.html">iris.coords</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cube.html">iris.cube</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exceptions.html">iris.exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../experimental.html">iris.experimental</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fileformats.html">iris.fileformats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../io.html">iris.io</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../iterate.html">iris.iterate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../palette.html">iris.palette</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandas.html">iris.pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plot.html">iris.plot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickplot.html">iris.quickplot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../std_names.html">iris.std_names</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../symbols.html">iris.symbols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../time.html">iris.time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../util.html">iris.util</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../whatsnew/index.html">What’s new in Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../techpapers/index.html">Iris Technical Papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../copyright.html">Iris copyright, licensing and contributors</a></li>
+</ul>
+
+            
+          
+
+    
+    
+    
+        <p class="caption">
+            <span class="caption-text">
+            
+                Support
+            
+            </span>
+        </p>
+        <ul>
+            
+                <li class="toctree-l1"><a href="https://github.com/SciTools/iris"><i class="fa fa-github fa-fw"></i> Source Code</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris"><i class="fa fa-comments fa-fw"></i> Users Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris-dev"><i class="fa fa-comments fa-fw"></i> Developers Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://stackoverflow.com/questions/tagged/python-iris"><i class="fa fa-question fa-fw"></i> StackOverflow For "How do I?"</a></li>
+            
+                <li class="toctree-l1"><a href="https://scitools.org.uk/iris/docs/v2.4.0/index.html"><i class="fa fa-book fa-fw"></i> Legacy documentation</a></li>
+            
+        </ul>
+    
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Iris</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../iris.html">Iris API</a> &raquo;</li>
+        
+          <li><a href="../analysis.html">iris.analysis</a> &raquo;</li>
+        
+      <li>iris.analysis.calculus</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/generated/api/iris/analysis/calculus.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="iris-analysis-calculus">
+<span id="id1"></span><h1>iris.analysis.calculus<a class="headerlink" href="#iris-analysis-calculus" title="Permalink to this headline">¶</a></h1>
+<span class="target" id="module-iris.analysis.calculus"></span><p>Calculus operations on <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.cube.Cube</span></code></a> instances.</p>
+<p>See also: <a class="reference external" href="https://numpy.org/doc/stable/reference/index.html#module-numpy" title="(in NumPy v1.19)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">NumPy</span></code></a>.</p>
+<p>In this module:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference internal" href="#iris.analysis.calculus.cube_delta" title="iris.analysis.calculus.cube_delta"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cube_delta</span></code></a></p></li>
+<li><p><a class="reference internal" href="#iris.analysis.calculus.differentiate" title="iris.analysis.calculus.differentiate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">differentiate</span></code></a></p></li>
+<li><p><a class="reference internal" href="#iris.analysis.calculus.curl" title="iris.analysis.calculus.curl"><code class="xref py py-obj docutils literal notranslate"><span class="pre">curl</span></code></a></p></li>
+</ul>
+</div></blockquote>
+<dl class="py function">
+<dt id="iris.analysis.calculus.cube_delta">
+<code class="sig-prename descclassname">iris.analysis.calculus.</code><code class="sig-name descname">cube_delta</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cube</span></em>, <em class="sig-param"><span class="n">coord</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/iris/analysis/calculus.html#cube_delta"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iris.analysis.calculus.cube_delta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a cube calculate the difference between each value in the
+given coord’s direction.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>coord</dt><dd><p>either a Coord instance or the unique name of a coordinate in the cube.
+If a Coord instance is provided, it does not necessarily have to
+exist in the cube.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Example usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">change_in_temperature_wrt_pressure</span> <span class="o">=</span> <span class="n">cube_delta</span><span class="p">(</span><span class="n">temperature_cube</span><span class="p">,</span> <span class="s1">&#39;pressure&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Missing data support not yet implemented.</p>
+</div>
+</dd></dl>
+
+<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
+<!--<hr class="docutils" />
+--><dl class="py function">
+<dt id="iris.analysis.calculus.differentiate">
+<code class="sig-prename descclassname">iris.analysis.calculus.</code><code class="sig-name descname">differentiate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cube</span></em>, <em class="sig-param"><span class="n">coord_to_differentiate</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/iris/analysis/calculus.html#differentiate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iris.analysis.calculus.differentiate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the differential of a given cube with respect to the
+coord_to_differentiate.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>coord_to_differentiate:</dt><dd><p>Either a Coord instance or the unique name of a coordinate which
+exists in the cube.
+If a Coord instance is provided, it does not necessarily have to
+exist on the cube.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Example usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">u_wind_acceleration</span> <span class="o">=</span> <span class="n">differentiate</span><span class="p">(</span><span class="n">u_wind_cube</span><span class="p">,</span> <span class="s1">&#39;forecast_time&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The algorithm used is equivalent to:</p>
+<div class="math notranslate nohighlight">
+\[d_i = \frac{v_{i+1}-v_i}{c_{i+1}-c_i}\]</div>
+<p>Where <code class="docutils literal notranslate"><span class="pre">d</span></code> is the differential, <code class="docutils literal notranslate"><span class="pre">v</span></code> is the data value, <code class="docutils literal notranslate"><span class="pre">c</span></code> is
+the coordinate value and <code class="docutils literal notranslate"><span class="pre">i</span></code> is the index in the differential
+direction. Hence, in a normal situation if a cube has a shape
+(x: n; y: m) differentiating with respect to x will result in a cube
+of shape (x: n-1; y: m) and differentiating with respect to y will
+result in (x: n; y: m-1). If the coordinate to differentiate is
+<a class="reference internal" href="../coords.html#iris.coords.DimCoord.circular" title="iris.coords.DimCoord.circular"><code class="xref py py-attr docutils literal notranslate"><span class="pre">circular</span></code></a> then the resultant
+shape will be the same as the input cube.</p>
+<p>In the returned cube the <cite>coord_to_differentiate</cite> object is
+redefined such that the output coordinate values are set to the
+averages of the original coordinate values (i.e. the mid-points).
+Similarly, the output lower bounds values are set to the averages of
+the original lower bounds values and the output upper bounds values
+are set to the averages of the original upper bounds values. In more
+formal terms:</p>
+<ul class="simple">
+<li><p><cite>C[i] = (c[i] + c[i+1]) / 2</cite></p></li>
+<li><p><cite>B[i, 0] = (b[i, 0] + b[i+1, 0]) / 2</cite></p></li>
+<li><p><cite>B[i, 1] = (b[i, 1] + b[i+1, 1]) / 2</cite></p></li>
+</ul>
+<p>where <cite>c</cite> and <cite>b</cite> represent the input coordinate values and bounds,
+and <cite>C</cite> and <cite>B</cite> the output coordinate values and bounds.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Difference method used is the same as <a class="reference internal" href="#iris.analysis.calculus.cube_delta" title="iris.analysis.calculus.cube_delta"><code class="xref py py-func docutils literal notranslate"><span class="pre">cube_delta()</span></code></a>
+and therefore has the same limitations.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Spherical differentiation does not occur in this routine.</p>
+</div>
+</dd></dl>
+
+<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
+<!--<hr class="docutils" />
+--><dl class="py function">
+<dt id="iris.analysis.calculus.curl">
+<code class="sig-prename descclassname">iris.analysis.calculus.</code><code class="sig-name descname">curl</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">i_cube</span></em>, <em class="sig-param"><span class="n">j_cube</span></em>, <em class="sig-param"><span class="n">k_cube</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/iris/analysis/calculus.html#curl"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iris.analysis.calculus.curl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the 2-dimensional or 3-dimensional spherical or cartesian
+curl of the given vector of cubes.</p>
+<p>As well as the standard x and y coordinates, this function requires each
+cube to possess a vertical or z-like coordinate (representing some form
+of height or pressure).  This can be a scalar or dimension coordinate.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>i_cube</dt><dd><p>The i cube of the vector to operate on</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>j_cube</dt><dd><p>The j cube of the vector to operate on</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Kwargs:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>k_cube</dt><dd><p>The k cube of the vector to operate on</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Return (i_cmpt_curl_cube, j_cmpt_curl_cube, k_cmpt_curl_cube)</p>
+<p>If the k-cube is not passed in then the 2-dimensional curl will
+be calculated, yielding the result: [None, None, k_cube].
+If the k-cube is passed in, the 3-dimensional curl will
+be calculated, returning 3 component cubes.</p>
+<p>All cubes passed in must have the same data units, and those units
+must be spatially-derived (e.g. ‘m/s’ or ‘km/h’).</p>
+<p>The calculation of curl is dependent on the type of
+<a class="reference internal" href="../coord_systems.html#iris.coord_systems.CoordSystem" title="iris.coord_systems.CoordSystem"><code class="xref py py-func docutils literal notranslate"><span class="pre">CoordSystem()</span></code></a> in the cube.
+If the <a class="reference internal" href="../coord_systems.html#iris.coord_systems.CoordSystem" title="iris.coord_systems.CoordSystem"><code class="xref py py-func docutils literal notranslate"><span class="pre">CoordSystem()</span></code></a> is either
+GeogCS or RotatedGeogCS, the spherical curl will be calculated; otherwise
+the cartesian curl will be calculated:</p>
+<blockquote>
+<div><p>Cartesian curl</p>
+<blockquote>
+<div><p>When cartesian calculus is used, i_cube is the u component,
+j_cube is the v component and k_cube is the w component.</p>
+<p>The Cartesian curl is defined as:</p>
+<div class="math notranslate nohighlight">
+\[\nabla\times \vec u =
+(\frac{\delta w}{\delta y} - \frac{\delta v}{\delta z})\vec a_i
+-
+(\frac{\delta w}{\delta x} - \frac{\delta u}{\delta z})\vec a_j
++
+(\frac{\delta v}{\delta x} - \frac{\delta u}{\delta y})\vec a_k\]</div>
+</div></blockquote>
+<p>Spherical curl</p>
+<blockquote>
+<div><p>When spherical calculus is used, i_cube is the <span class="math notranslate nohighlight">\(\phi\)</span> vector
+component (e.g. eastward), j_cube is the <span class="math notranslate nohighlight">\(\theta\)</span> component
+(e.g. northward) and k_cube is the radial component.</p>
+<p>The spherical curl is defined as:</p>
+<div class="math notranslate nohighlight">
+\[\nabla\times \vec A = \frac{1}{r cos \theta}
+(\frac{\delta}{\delta \theta}
+(\vec A_\phi cos \theta) -
+\frac{\delta \vec A_\theta}{\delta \phi}) \vec r +
+\frac{1}{r}(\frac{1}{cos \theta}
+\frac{\delta \vec A_r}{\delta \phi} -
+\frac{\delta}{\delta r} (r \vec A_\phi))\vec \theta +
+\frac{1}{r}
+(\frac{\delta}{\delta r}(r \vec A_\theta) -
+\frac{\delta \vec A_r}{\delta \theta}) \vec \phi\]</div>
+<p>where phi is longitude, theta is latitude.</p>
+</div></blockquote>
+</div></blockquote>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cartography.html" class="btn btn-neutral float-right" title="iris.analysis.cartography" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../analysis.html" class="btn btn-neutral float-left" title="iris.analysis" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        
+        &copy; <a href="../../../../copyright.html">Copyright</a> Iris contributors
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

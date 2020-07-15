@@ -1,0 +1,513 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>iris.analysis.geometry &mdash; Iris 3.0.dev0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/theme_override.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery-dataframe.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script src="../../../_static/clipboard.min.js"></script>
+        <script src="../../../_static/copybutton.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="copyright" title="Copyright" href="../../../copyright.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html">
+          
+
+          
+            
+            <img src="../../../_static/iris-logo-title.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installing.html">Installing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../generated/gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/iris_cubes.html">Iris data structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/loading_iris_cubes.html">Loading Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/saving_iris_cubes.html">Saving Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/navigating_a_cube.html">Navigating a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/subsetting_a_cube.html">Subsetting a Cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/real_and_lazy_data.html">Real and Lazy Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/plotting_a_cube.html">Plotting a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/interpolation_and_regridding.html">Cube interpolation and regridding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/merge_and_concat.html">Merge and concatenate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/cube_statistics.html">Cube statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/cube_maths.html">Basic cube mathematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/citation.html">Citing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/code_maintenance.html">Code maintenance</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developers Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/contributing_documentation.html">Contributing to the documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/documenting/index.html">Documentation in Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/gitwash/index.html">Working with <em>iris</em> source code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/code_format.html">Code formatting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/pulls.html">Pull request check List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/tests.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/deprecations.html">Deprecations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/release.html">Releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../generated/api/iris.html">Iris API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../whatsnew/index.html">What’s new in Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../techpapers/index.html">Iris Technical Papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../copyright.html">Iris copyright, licensing and contributors</a></li>
+</ul>
+
+            
+          
+
+    
+    
+    
+        <p class="caption">
+            <span class="caption-text">
+            
+                Support
+            
+            </span>
+        </p>
+        <ul>
+            
+                <li class="toctree-l1"><a href="https://github.com/SciTools/iris"><i class="fa fa-github fa-fw"></i> Source Code</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris"><i class="fa fa-comments fa-fw"></i> Users Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris-dev"><i class="fa fa-comments fa-fw"></i> Developers Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://stackoverflow.com/questions/tagged/python-iris"><i class="fa fa-question fa-fw"></i> StackOverflow For "How do I?"</a></li>
+            
+                <li class="toctree-l1"><a href="https://scitools.org.uk/iris/docs/v2.4.0/index.html"><i class="fa fa-book fa-fw"></i> Legacy documentation</a></li>
+            
+        </ul>
+    
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Iris</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../../iris.html">iris</a> &raquo;</li>
+        
+          <li><a href="../analysis.html">iris.analysis</a> &raquo;</li>
+        
+      <li>iris.analysis.geometry</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for iris.analysis.geometry</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright Iris contributors</span>
+<span class="c1">#</span>
+<span class="c1"># This file is part of Iris and is released under the LGPL license.</span>
+<span class="c1"># See COPYING and COPYING.LESSER in the root of the repository for full</span>
+<span class="c1"># licensing details.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Various utilities related to geometric operations.</span>
+
+<span class="sd">.. note::</span>
+<span class="sd">    This module requires :mod:`shapely`.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">warnings</span>
+
+<span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="kn">import</span> <span class="n">Polygon</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">import</span> <span class="nn">iris.exceptions</span>
+
+
+<span class="k">def</span> <span class="nf">_extract_relevant_cube_slice</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">geometry</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Given a shapely geometry object, this helper method returns</span>
+<span class="sd">    the tuple</span>
+<span class="sd">    (subcube, x_coord_of_subcube, y_coord_of_subcube,</span>
+<span class="sd">     (min_x_index, min_y_index, max_x_index, max_y_index))</span>
+
+<span class="sd">    If cube and geometry don&#39;t overlap, returns None.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Validate the input parameters</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">cube</span><span class="o">.</span><span class="n">coords</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">cube</span><span class="o">.</span><span class="n">coords</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The cube must contain x and y axes.&quot;</span><span class="p">)</span>
+
+    <span class="n">x_coords</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">coords</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+    <span class="n">y_coords</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">coords</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">x_coords</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_coords</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">&quot;The cube must contain one, and only one, coordinate &quot;</span>
+            <span class="s2">&quot;for each of the x and y axes.&quot;</span>
+        <span class="p">)</span>
+
+    <span class="n">x_coord</span> <span class="o">=</span> <span class="n">x_coords</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">y_coord</span> <span class="o">=</span> <span class="n">y_coords</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">x_coord</span><span class="o">.</span><span class="n">has_bounds</span><span class="p">()</span> <span class="ow">and</span> <span class="n">y_coord</span><span class="o">.</span><span class="n">has_bounds</span><span class="p">()):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Both horizontal coordinates must have bounds.&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">x_coord</span><span class="o">.</span><span class="n">ndim</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">iris</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">CoordinateMultiDimError</span><span class="p">(</span><span class="n">x_coord</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">y_coord</span><span class="o">.</span><span class="n">ndim</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">iris</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">CoordinateMultiDimError</span><span class="p">(</span><span class="n">y_coord</span><span class="p">)</span>
+
+    <span class="c1"># bounds of cube dimensions</span>
+    <span class="n">x_bounds</span> <span class="o">=</span> <span class="n">x_coord</span><span class="o">.</span><span class="n">bounds</span>
+    <span class="n">y_bounds</span> <span class="o">=</span> <span class="n">y_coord</span><span class="o">.</span><span class="n">bounds</span>
+
+    <span class="c1"># identify ascending/descending coordinate dimensions</span>
+    <span class="n">x_ascending</span> <span class="o">=</span> <span class="n">x_coord</span><span class="o">.</span><span class="n">points</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">x_coord</span><span class="o">.</span><span class="n">points</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.0</span>
+    <span class="n">y_ascending</span> <span class="o">=</span> <span class="n">y_coord</span><span class="o">.</span><span class="n">points</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">y_coord</span><span class="o">.</span><span class="n">points</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.0</span>
+
+    <span class="c1"># identify upper/lower bounds of coordinate dimensions</span>
+    <span class="n">x_bounds_lower</span> <span class="o">=</span> <span class="n">x_bounds</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="n">x_ascending</span> <span class="k">else</span> <span class="n">x_bounds</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="n">y_bounds_lower</span> <span class="o">=</span> <span class="n">y_bounds</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="n">y_ascending</span> <span class="k">else</span> <span class="n">y_bounds</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="n">x_bounds_upper</span> <span class="o">=</span> <span class="n">x_bounds</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="n">x_ascending</span> <span class="k">else</span> <span class="n">x_bounds</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="n">y_bounds_upper</span> <span class="o">=</span> <span class="n">y_bounds</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="n">y_ascending</span> <span class="k">else</span> <span class="n">y_bounds</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
+
+    <span class="c1"># find indices of coordinate bounds to fully cover geometry</span>
+    <span class="n">x_min_geom</span><span class="p">,</span> <span class="n">y_min_geom</span><span class="p">,</span> <span class="n">x_max_geom</span><span class="p">,</span> <span class="n">y_max_geom</span> <span class="o">=</span> <span class="n">geometry</span><span class="o">.</span><span class="n">bounds</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">x_min_ix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">x_bounds_lower</span> <span class="o">&lt;=</span> <span class="n">x_min_geom</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">x_min_ix</span> <span class="o">=</span> <span class="n">x_min_ix</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">x_bounds_lower</span><span class="p">[</span><span class="n">x_min_ix</span><span class="p">])]</span>
+    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+            <span class="s2">&quot;The geometry exceeds the cube&#39;s x dimension at the &quot;</span> <span class="s2">&quot;lower end.&quot;</span><span class="p">,</span>
+            <span class="ne">UserWarning</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">x_min_ix</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">x_ascending</span> <span class="k">else</span> <span class="n">x_coord</span><span class="o">.</span><span class="n">points</span><span class="o">.</span><span class="n">size</span> <span class="o">-</span> <span class="mi">1</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">x_max_ix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">x_bounds_upper</span> <span class="o">&gt;=</span> <span class="n">x_max_geom</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">x_max_ix</span> <span class="o">=</span> <span class="n">x_max_ix</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">x_bounds_upper</span><span class="p">[</span><span class="n">x_max_ix</span><span class="p">])]</span>
+    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+            <span class="s2">&quot;The geometry exceeds the cube&#39;s x dimension at the &quot;</span> <span class="s2">&quot;upper end.&quot;</span><span class="p">,</span>
+            <span class="ne">UserWarning</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">x_max_ix</span> <span class="o">=</span> <span class="n">x_coord</span><span class="o">.</span><span class="n">points</span><span class="o">.</span><span class="n">size</span> <span class="o">-</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">x_ascending</span> <span class="k">else</span> <span class="mi">0</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">y_min_ix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">y_bounds_lower</span> <span class="o">&lt;=</span> <span class="n">y_min_geom</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">y_min_ix</span> <span class="o">=</span> <span class="n">y_min_ix</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">y_bounds_lower</span><span class="p">[</span><span class="n">y_min_ix</span><span class="p">])]</span>
+    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+            <span class="s2">&quot;The geometry exceeds the cube&#39;s y dimension at the &quot;</span> <span class="s2">&quot;lower end.&quot;</span><span class="p">,</span>
+            <span class="ne">UserWarning</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">y_min_ix</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">y_ascending</span> <span class="k">else</span> <span class="n">y_coord</span><span class="o">.</span><span class="n">points</span><span class="o">.</span><span class="n">size</span> <span class="o">-</span> <span class="mi">1</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">y_max_ix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">y_bounds_upper</span> <span class="o">&gt;=</span> <span class="n">y_max_geom</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">y_max_ix</span> <span class="o">=</span> <span class="n">y_max_ix</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">y_bounds_upper</span><span class="p">[</span><span class="n">y_max_ix</span><span class="p">])]</span>
+    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+            <span class="s2">&quot;The geometry exceeds the cube&#39;s y dimension at the &quot;</span> <span class="s2">&quot;upper end.&quot;</span><span class="p">,</span>
+            <span class="ne">UserWarning</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">y_max_ix</span> <span class="o">=</span> <span class="n">y_coord</span><span class="o">.</span><span class="n">points</span><span class="o">.</span><span class="n">size</span> <span class="o">-</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">y_ascending</span> <span class="k">else</span> <span class="mi">0</span>
+
+    <span class="c1"># extract coordinate values at these indices</span>
+    <span class="n">x_min</span> <span class="o">=</span> <span class="n">x_bounds_lower</span><span class="p">[</span><span class="n">x_min_ix</span><span class="p">]</span>
+    <span class="n">x_max</span> <span class="o">=</span> <span class="n">x_bounds_upper</span><span class="p">[</span><span class="n">x_max_ix</span><span class="p">]</span>
+    <span class="n">y_min</span> <span class="o">=</span> <span class="n">y_bounds_lower</span><span class="p">[</span><span class="n">y_min_ix</span><span class="p">]</span>
+    <span class="n">y_max</span> <span class="o">=</span> <span class="n">y_bounds_upper</span><span class="p">[</span><span class="n">y_max_ix</span><span class="p">]</span>
+
+    <span class="c1"># switch min and max if necessary, to create slice objects later on</span>
+    <span class="k">if</span> <span class="n">x_min_ix</span> <span class="o">&gt;</span> <span class="n">x_max_ix</span><span class="p">:</span>
+        <span class="n">x_min_ix</span><span class="p">,</span> <span class="n">x_max_ix</span> <span class="o">=</span> <span class="n">x_max_ix</span><span class="p">,</span> <span class="n">x_min_ix</span>
+    <span class="k">if</span> <span class="n">y_min_ix</span> <span class="o">&gt;</span> <span class="n">y_max_ix</span><span class="p">:</span>
+        <span class="n">y_min_ix</span><span class="p">,</span> <span class="n">y_max_ix</span> <span class="o">=</span> <span class="n">y_max_ix</span><span class="p">,</span> <span class="n">y_min_ix</span>
+    <span class="n">bnds_ix</span> <span class="o">=</span> <span class="n">x_min_ix</span><span class="p">,</span> <span class="n">y_min_ix</span><span class="p">,</span> <span class="n">x_max_ix</span><span class="p">,</span> <span class="n">y_max_ix</span>
+
+    <span class="c1"># cut the relevant part from the original cube</span>
+    <span class="n">coord_constr</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="n">x_coord</span><span class="o">.</span><span class="n">name</span><span class="p">():</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x_min</span> <span class="o">&lt;=</span> <span class="n">x</span><span class="o">.</span><span class="n">point</span> <span class="o">&lt;=</span> <span class="n">x_max</span><span class="p">,</span>
+        <span class="n">y_coord</span><span class="o">.</span><span class="n">name</span><span class="p">():</span> <span class="k">lambda</span> <span class="n">y</span><span class="p">:</span> <span class="n">y_min</span> <span class="o">&lt;=</span> <span class="n">y</span><span class="o">.</span><span class="n">point</span> <span class="o">&lt;=</span> <span class="n">y_max</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="n">constraint</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">Constraint</span><span class="p">(</span><span class="n">coord_values</span><span class="o">=</span><span class="n">coord_constr</span><span class="p">)</span>
+    <span class="n">subcube</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="n">constraint</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">subcube</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">x_coord</span> <span class="o">=</span> <span class="n">subcube</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+        <span class="n">y_coord</span> <span class="o">=</span> <span class="n">subcube</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">subcube</span><span class="p">,</span> <span class="n">x_coord</span><span class="p">,</span> <span class="n">y_coord</span><span class="p">,</span> <span class="n">bnds_ix</span>
+
+
+<div class="viewcode-block" id="geometry_area_weights"><a class="viewcode-back" href="../../../generated/api/iris/analysis/geometry.html#iris.analysis.geometry.geometry_area_weights">[docs]</a><span class="k">def</span> <span class="nf">geometry_area_weights</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">geometry</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns the array of weights corresponding to the area of overlap between</span>
+<span class="sd">    the cells of cube&#39;s horizontal grid, and the given shapely geometry.</span>
+
+<span class="sd">    The returned array is suitable for use with :const:`iris.analysis.MEAN`.</span>
+
+<span class="sd">    The cube must have bounded horizontal coordinates.</span>
+
+<span class="sd">    .. note::</span>
+<span class="sd">        This routine works in Euclidean space. Area calculations do not</span>
+<span class="sd">        account for the curvature of the Earth. And care must be taken to</span>
+<span class="sd">        ensure any longitude values are expressed over a suitable interval.</span>
+
+<span class="sd">    .. note::</span>
+<span class="sd">        This routine currently does not handle all out-of-bounds cases</span>
+<span class="sd">        correctly. In cases where both the coordinate bounds and the</span>
+<span class="sd">        geometry&#39;s bounds lie outside the physically realistic range</span>
+<span class="sd">        (i.e., abs(latitude) &gt; 90., as it is commonly the case when</span>
+<span class="sd">        bounds are constructed via guess_bounds()), the weights</span>
+<span class="sd">        calculation might be wrong. In this case, a UserWarning will</span>
+<span class="sd">        be issued.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">    * cube (:class:`iris.cube.Cube`):</span>
+<span class="sd">        A Cube containing a bounded, horizontal grid definition.</span>
+<span class="sd">    * geometry (a shapely geometry instance):</span>
+<span class="sd">        The geometry of interest. To produce meaningful results this geometry</span>
+<span class="sd">        must have a non-zero area. Typically a Polygon or MultiPolygon.</span>
+
+<span class="sd">    Kwargs:</span>
+
+<span class="sd">    * normalize:</span>
+<span class="sd">        Calculate each individual cell weight as the cell area overlap between</span>
+<span class="sd">        the cell and the given shapely geometry divided by the total cell area.</span>
+<span class="sd">        Default is False.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># extract smallest subcube containing geometry</span>
+    <span class="n">shape</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">shape</span>
+    <span class="n">extraction_results</span> <span class="o">=</span> <span class="n">_extract_relevant_cube_slice</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">geometry</span><span class="p">)</span>
+
+    <span class="c1"># test if there is overlap between cube and geometry</span>
+    <span class="k">if</span> <span class="n">extraction_results</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
+
+    <span class="n">subcube</span><span class="p">,</span> <span class="n">subx_coord</span><span class="p">,</span> <span class="n">suby_coord</span><span class="p">,</span> <span class="n">bnds_ix</span> <span class="o">=</span> <span class="n">extraction_results</span>
+    <span class="n">x_min_ix</span><span class="p">,</span> <span class="n">y_min_ix</span><span class="p">,</span> <span class="n">x_max_ix</span><span class="p">,</span> <span class="n">y_max_ix</span> <span class="o">=</span> <span class="n">bnds_ix</span>
+
+    <span class="c1"># prepare the weights array</span>
+    <span class="n">subshape</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="n">x_dim</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">coord_dims</span><span class="p">(</span><span class="n">subx_coord</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">y_dim</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">coord_dims</span><span class="p">(</span><span class="n">suby_coord</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">subshape</span><span class="p">[</span><span class="n">x_dim</span><span class="p">]</span> <span class="o">=</span> <span class="n">subx_coord</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">subshape</span><span class="p">[</span><span class="n">y_dim</span><span class="p">]</span> <span class="o">=</span> <span class="n">suby_coord</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">subx_bounds</span> <span class="o">=</span> <span class="n">subx_coord</span><span class="o">.</span><span class="n">bounds</span>
+    <span class="n">suby_bounds</span> <span class="o">=</span> <span class="n">suby_coord</span><span class="o">.</span><span class="n">bounds</span>
+    <span class="n">subweights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">subshape</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+
+    <span class="c1"># calculate the area weights</span>
+    <span class="k">for</span> <span class="n">nd_index</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">ndindex</span><span class="p">(</span><span class="n">subweights</span><span class="o">.</span><span class="n">shape</span><span class="p">):</span>
+        <span class="n">xi</span> <span class="o">=</span> <span class="n">nd_index</span><span class="p">[</span><span class="n">x_dim</span><span class="p">]</span>
+        <span class="n">yi</span> <span class="o">=</span> <span class="n">nd_index</span><span class="p">[</span><span class="n">y_dim</span><span class="p">]</span>
+        <span class="n">x0</span><span class="p">,</span> <span class="n">x1</span> <span class="o">=</span> <span class="n">subx_bounds</span><span class="p">[</span><span class="n">xi</span><span class="p">]</span>
+        <span class="n">y0</span><span class="p">,</span> <span class="n">y1</span> <span class="o">=</span> <span class="n">suby_bounds</span><span class="p">[</span><span class="n">yi</span><span class="p">]</span>
+        <span class="n">polygon</span> <span class="o">=</span> <span class="n">Polygon</span><span class="p">([(</span><span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">),</span> <span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">y1</span><span class="p">),</span> <span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">),</span> <span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y0</span><span class="p">)])</span>
+        <span class="n">subweights</span><span class="p">[</span><span class="n">nd_index</span><span class="p">]</span> <span class="o">=</span> <span class="n">polygon</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">geometry</span><span class="p">)</span><span class="o">.</span><span class="n">area</span>
+        <span class="k">if</span> <span class="n">normalize</span><span class="p">:</span>
+            <span class="n">subweights</span><span class="p">[</span><span class="n">nd_index</span><span class="p">]</span> <span class="o">/=</span> <span class="n">polygon</span><span class="o">.</span><span class="n">area</span>
+
+    <span class="c1"># pad the calculated weights with zeros to match original cube shape</span>
+    <span class="n">weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+    <span class="n">slices</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">weights</span><span class="o">.</span><span class="n">ndim</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">x_dim</span><span class="p">:</span>
+            <span class="n">slices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">slice</span><span class="p">(</span><span class="n">x_min_ix</span><span class="p">,</span> <span class="n">x_max_ix</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+        <span class="k">elif</span> <span class="n">i</span> <span class="o">==</span> <span class="n">y_dim</span><span class="p">:</span>
+            <span class="n">slices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">slice</span><span class="p">(</span><span class="n">y_min_ix</span><span class="p">,</span> <span class="n">y_max_ix</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">slices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">))</span>
+
+    <span class="n">weights</span><span class="p">[</span><span class="nb">tuple</span><span class="p">(</span><span class="n">slices</span><span class="p">)]</span> <span class="o">=</span> <span class="n">subweights</span>
+
+    <span class="c1"># Fix for the limitation of iris.analysis.MEAN weights handling.</span>
+    <span class="c1"># Broadcast the array to the full shape of the cube</span>
+    <span class="n">weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">broadcast_arrays</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">cube</span><span class="o">.</span><span class="n">data</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">weights</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        
+        &copy; <a href="../../../copyright.html">Copyright</a> Iris contributors
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

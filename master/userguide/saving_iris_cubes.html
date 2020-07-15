@@ -1,100 +1,252 @@
 
-<!DOCTYPE html>
 
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3. Saving Iris cubes &#8212; Iris 3.0.dev0 documentation</title>
-    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Saving Iris cubes &mdash; Iris 3.0.dev0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/theme_override.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-dataframe.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
-    <link rel="next" title="4. Navigating a cube" href="navigating_a_cube.html" />
-    <link rel="prev" title="2. Loading Iris cubes" href="loading_iris_cubes.html" />
- 
-    <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
-    <META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE"> 
+    <link rel="next" title="Navigating a cube" href="navigating_a_cube.html" />
+    <link rel="prev" title="Loading Iris cubes" href="loading_iris_cubes.html" /> 
+</head>
 
-    <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    <script type="text/javascript" src="https://docs.python.org/2/_static/copybutton.js"></script>
+<body class="wy-body-for-nav">
 
-    <link rel="icon" type="image/png" sizes="32x32" href="../_static/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../_static/favicon-16x16.png">
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
 
-    <link href="https://fonts.googleapis.com/css?family=Alike|Noto+Sans" rel="stylesheet">
+          
+            <a href="../index.html">
+          
 
-  </head><body>
+          
+            
+            <img src="../_static/iris-logo-title.png" class="logo" alt="Logo"/>
+          
+          </a>
 
-<a href="https://github.com/SciTools/iris">
-    <img class="github-forkme" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"
-         alt="Fork Iris on GitHub" />
-</a>
+          
+            
+            
+              <div class="version">
+                3.0
+              </div>
+            
+          
 
-
-<div class="header-content">
-    <a href="../index.html">
-        <img src="../_static/Iris7_1_trim_100.png" alt="Iris logo" />
-    </a>
-    <div class="strapline">
-      <h1>
-          Iris <span class="version">v3.0</span>
-      </h1>
-      <p>
-         A powerful, format-agnostic, community-driven Python library for analysing and
-         visualising Earth science data.
-      </p>
-    </div>
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
 </div>
 
+          
+        </div>
 
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="../py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="navigating_a_cube.html" title="4. Navigating a cube"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="loading_iris_cubes.html" title="2. Loading Iris cubes"
-             accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">home</a>|&nbsp;</li>
-        <li><a href="../examples/index.html">examples</a>|&nbsp;</li>
-        <li><a href="../gallery.html">gallery</a>|&nbsp;</li>
-        <li><a href="../contents.html">contents</a>|&nbsp;</li>
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installing.html">Installing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../generated/gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iris_cubes.html">Iris data structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loading_iris_cubes.html">Loading Iris cubes</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Saving Iris cubes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#controlling-the-save-process">Controlling the save process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#customising-the-save-process">Customising the save process</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#netcdf">netCDF</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#bespoke-saver">Bespoke saver</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="navigating_a_cube.html">Navigating a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="subsetting_a_cube.html">Subsetting a Cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="real_and_lazy_data.html">Real and Lazy Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plotting_a_cube.html">Plotting a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interpolation_and_regridding.html">Cube interpolation and regridding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="merge_and_concat.html">Merge and concatenate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cube_statistics.html">Cube statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cube_maths.html">Basic cube mathematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="citation.html">Citing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code_maintenance.html">Code maintenance</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developers Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/contributing_documentation.html">Contributing to the documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/documenting/index.html">Documentation in Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/gitwash/index.html">Working with <em>iris</em> source code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/code_format.html">Code formatting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/pulls.html">Pull request check List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/tests.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/deprecations.html">Deprecations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/release.html">Releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../generated/api/iris.html">Iris API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../whatsnew/index.html">What’s new in Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../techpapers/index.html">Iris Technical Papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../copyright.html">Iris copyright, licensing and contributors</a></li>
+</ul>
 
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Iris user guide</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href=""><span class="section-number">3. </span>Saving Iris cubes</a></li> 
-      </ul>
-    </div>
+            
+          
+
+    
+    
+    
+        <p class="caption">
+            <span class="caption-text">
+            
+                Support
+            
+            </span>
+        </p>
+        <ul>
+            
+                <li class="toctree-l1"><a href="https://github.com/SciTools/iris"><i class="fa fa-github fa-fw"></i> Source Code</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris"><i class="fa fa-comments fa-fw"></i> Users Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris-dev"><i class="fa fa-comments fa-fw"></i> Developers Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://stackoverflow.com/questions/tagged/python-iris"><i class="fa fa-question fa-fw"></i> StackOverflow For "How do I?"</a></li>
+            
+                <li class="toctree-l1"><a href="https://scitools.org.uk/iris/docs/v2.4.0/index.html"><i class="fa fa-book fa-fw"></i> Legacy documentation</a></li>
+            
+        </ul>
+    
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Iris</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Saving Iris cubes</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/userguide/saving_iris_cubes.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
   
-
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
             
   <div class="section" id="saving-iris-cubes">
-<span id="id1"></span><h1><span class="section-number">3. </span>Saving Iris cubes<a class="headerlink" href="#saving-iris-cubes" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h1>Saving Iris cubes<a class="headerlink" href="#saving-iris-cubes" title="Permalink to this headline">¶</a></h1>
 <p>Iris supports the saving of cubes and cube lists to:</p>
 <ul class="simple">
 <li><p>CF netCDF (version 1.6)</p></li>
 <li><p>GRIB edition 2  (if <a class="reference external" href="https://github.com/SciTools/iris-grib">iris-grib</a> is installed)</p></li>
 <li><p>Met Office PP</p></li>
 </ul>
-<p>The <a class="reference internal" href="../iris/iris.html#iris.save" title="iris.save"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.save()</span></code></a> function saves one or more cubes to a file.</p>
+<p>The <a class="reference internal" href="../generated/api/iris.html#iris.save" title="iris.save"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.save()</span></code></a> function saves one or more cubes to a file.</p>
 <p>If the filename includes a supported suffix then Iris will use the correct saver
 and the keyword argument <cite>saver</cite> is not required.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">iris</span>
@@ -119,8 +271,8 @@ data can result in corruption. Users should proceed with caution when
 attempting to overwrite an existing file.</p>
 </div>
 <div class="section" id="controlling-the-save-process">
-<h2><span class="section-number">3.1. </span>Controlling the save process<a class="headerlink" href="#controlling-the-save-process" title="Permalink to this headline">¶</a></h2>
-<p>The <a class="reference internal" href="../iris/iris.html#iris.save" title="iris.save"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.save()</span></code></a> function passes all other keywords through to the saver function defined, or automatically set from the file extension.  This enables saver specific functionality to be called.</p>
+<h2>Controlling the save process<a class="headerlink" href="#controlling-the-save-process" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference internal" href="../generated/api/iris.html#iris.save" title="iris.save"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.save()</span></code></a> function passes all other keywords through to the saver function defined, or automatically set from the file extension.  This enables saver specific functionality to be called.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Save a cube to PP</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">iris</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">cubes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;myfile.pp&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># Save a cube list to a PP file, appending to the contents of the file</span>
@@ -134,13 +286,13 @@ attempting to overwrite an existing file.</p>
 </div>
 <p>See</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="../iris/iris/fileformats/netcdf.html#iris.fileformats.netcdf.save" title="iris.fileformats.netcdf.save"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.fileformats.netcdf.save()</span></code></a></p></li>
-<li><p><a class="reference internal" href="../iris/iris/fileformats/pp.html#iris.fileformats.pp.save" title="iris.fileformats.pp.save"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.fileformats.pp.save()</span></code></a></p></li>
+<li><p><a class="reference internal" href="../generated/api/iris/fileformats/netcdf.html#iris.fileformats.netcdf.save" title="iris.fileformats.netcdf.save"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.fileformats.netcdf.save()</span></code></a></p></li>
+<li><p><a class="reference internal" href="../generated/api/iris/fileformats/pp.html#iris.fileformats.pp.save" title="iris.fileformats.pp.save"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.fileformats.pp.save()</span></code></a></p></li>
 </ul>
 <p>for more details on supported arguments for the individual savers.</p>
 </div>
 <div class="section" id="customising-the-save-process">
-<h2><span class="section-number">3.2. </span>Customising the save process<a class="headerlink" href="#customising-the-save-process" title="Permalink to this headline">¶</a></h2>
+<h2>Customising the save process<a class="headerlink" href="#customising-the-save-process" title="Permalink to this headline">¶</a></h2>
 <p>When saving to GRIB or PP, the save process may be intercepted between the translation step and the file writing.  This enables customisation of the output messages, based on Cube metadata if required, over and above the translations supplied by Iris.</p>
 <p>For example, a GRIB2 message with a particular known long_name may need to be saved to a specific parameter code and type of statistical process.  This can be achieved by:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">tweaked_messages</span><span class="p">(</span><span class="n">cube</span><span class="p">):</span>
@@ -167,98 +319,74 @@ attempting to overwrite an existing file.</p>
 </pre></div>
 </div>
 <div class="section" id="netcdf">
-<h3><span class="section-number">3.2.1. </span>netCDF<a class="headerlink" href="#netcdf" title="Permalink to this headline">¶</a></h3>
+<h3>netCDF<a class="headerlink" href="#netcdf" title="Permalink to this headline">¶</a></h3>
 <p>NetCDF is a flexible container for metadata and cube metadata is closely related to the CF for netCDF semantics.  This means that cube metadata is well represented in netCDF files, closely resembling the in memory metadata representation.
 Thus there is no provision for similar save customisation functionality for netCDF saving, all customisations should be applied to the cube prior to saving to netCDF.</p>
 </div>
 </div>
 <div class="section" id="bespoke-saver">
-<h2><span class="section-number">3.3. </span>Bespoke Saver<a class="headerlink" href="#bespoke-saver" title="Permalink to this headline">¶</a></h2>
-<p>A bespoke saver may be written to support an alternative file format.  This can be provided to the <a class="reference internal" href="../iris/iris.html#iris.save" title="iris.save"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.save()</span></code></a>  function, enabling Iris to write to a different file format.
+<h2>Bespoke saver<a class="headerlink" href="#bespoke-saver" title="Permalink to this headline">¶</a></h2>
+<p>A bespoke saver may be written to support an alternative file format.  This can be provided to the <a class="reference internal" href="../generated/api/iris.html#iris.save" title="iris.save"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.save()</span></code></a>  function, enabling Iris to write to a different file format.
 Such a custom saver will need be written to meet the needs of the file format and to handle the metadata translation from cube metadata effectively.</p>
 <p>Implementing a bespoke saver is out of scope for the user guide.</p>
 </div>
 </div>
 
 
-            <div class="clearer"></div>
+           </div>
+           
           </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="navigating_a_cube.html" class="btn btn-neutral float-right" title="Navigating a cube" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="loading_iris_cubes.html" class="btn btn-neutral float-left" title="Loading Iris cubes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        
+        &copy; <a href="../copyright.html">Copyright</a> Iris contributors
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="../contents.html">Table of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">3. Saving Iris cubes</a><ul>
-<li><a class="reference internal" href="#controlling-the-save-process">3.1. Controlling the save process</a></li>
-<li><a class="reference internal" href="#customising-the-save-process">3.2. Customising the save process</a><ul>
-<li><a class="reference internal" href="#netcdf">3.2.1. netCDF</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#bespoke-saver">3.3. Bespoke Saver</a></li>
-</ul>
-</li>
-</ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="loading_iris_cubes.html"
-                        title="previous chapter"><span class="section-number">2. </span>Loading Iris cubes</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="navigating_a_cube.html"
-                        title="next chapter"><span class="section-number">4. </span>Navigating a cube</a></p>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="../_sources/userguide/saving_iris_cubes.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>$('#searchbox').show(0);</script>
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="../py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="navigating_a_cube.html" title="4. Navigating a cube"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="loading_iris_cubes.html" title="2. Loading Iris cubes"
-             >previous</a> |</li>
-        <li><a href="../index.html">home</a>|&nbsp;</li>
-        <li><a href="../examples/index.html">examples</a>|&nbsp;</li>
-        <li><a href="../gallery.html">gallery</a>|&nbsp;</li>
-        <li><a href="../contents.html">contents</a>|&nbsp;</li>
+    </section>
 
-          <li class="nav-item nav-item-1"><a href="index.html" >Iris user guide</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href=""><span class="section-number">3. </span>Saving Iris cubes</a></li> 
-      </ul>
-    </div>
+  </div>
+  
 
-    <div class="footer">
-    <p style="text-align: left; float: left; margin: 0px; padding: 0 0 0 5px;">Documentation licensed under the <a href="http://reference.data.gov.uk/id/open-government-licence" rel="license">Open Government Licence</a></p>
-        &copy; <a href="../copyright.html">British Crown Copyright</a> 2010 - 2020, Met Office
-    </div>
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
 
-    <!-- Include a version switcher to easily move between the documentation of different versions -->
-    <script type=text/javascript src="/iris/docs/version_switch.js" async></script>
+  
+  
+    
+   
 
-  </body>
+</body>
 </html>

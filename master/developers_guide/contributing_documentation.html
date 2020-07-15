@@ -1,0 +1,419 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Contributing to the documentation &mdash; Iris 3.0.dev0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/theme_override.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-dataframe.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <link rel="next" title="Documentation in Iris" href="documenting/index.html" />
+    <link rel="prev" title="Code maintenance" href="../userguide/code_maintenance.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/iris-logo-title.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installing.html">Installing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../generated/gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/iris_cubes.html">Iris data structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/loading_iris_cubes.html">Loading Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/saving_iris_cubes.html">Saving Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/navigating_a_cube.html">Navigating a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/subsetting_a_cube.html">Subsetting a Cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/real_and_lazy_data.html">Real and Lazy Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/plotting_a_cube.html">Plotting a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/interpolation_and_regridding.html">Cube interpolation and regridding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/merge_and_concat.html">Merge and concatenate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/cube_statistics.html">Cube statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/cube_maths.html">Basic cube mathematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/citation.html">Citing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/code_maintenance.html">Code maintenance</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developers Guide</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Contributing to the documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#building">Building</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#testing">Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#generating-api-documentation">Generating API documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gallery">Gallery</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="documenting/index.html">Documentation in Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gitwash/index.html">Working with <em>iris</em> source code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code_format.html">Code formatting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pulls.html">Pull request check List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tests.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deprecations.html">Deprecations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release.html">Releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../generated/api/iris.html">Iris API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../whatsnew/index.html">What’s new in Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../techpapers/index.html">Iris Technical Papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../copyright.html">Iris copyright, licensing and contributors</a></li>
+</ul>
+
+            
+          
+
+    
+    
+    
+        <p class="caption">
+            <span class="caption-text">
+            
+                Support
+            
+            </span>
+        </p>
+        <ul>
+            
+                <li class="toctree-l1"><a href="https://github.com/SciTools/iris"><i class="fa fa-github fa-fw"></i> Source Code</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris"><i class="fa fa-comments fa-fw"></i> Users Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris-dev"><i class="fa fa-comments fa-fw"></i> Developers Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://stackoverflow.com/questions/tagged/python-iris"><i class="fa fa-question fa-fw"></i> StackOverflow For "How do I?"</a></li>
+            
+                <li class="toctree-l1"><a href="https://scitools.org.uk/iris/docs/v2.4.0/index.html"><i class="fa fa-book fa-fw"></i> Legacy documentation</a></li>
+            
+        </ul>
+    
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Iris</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Contributing to the documentation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/developers_guide/contributing_documentation.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="toctree-wrapper compound">
+</div>
+<div class="section" id="contributing-to-the-documentation">
+<span id="contributing-documentation"></span><h1>Contributing to the documentation<a class="headerlink" href="#contributing-to-the-documentation" title="Permalink to this headline">¶</a></h1>
+<p>Documentation is important and we encourage any improvements that can be made.
+If you believe the documentation is not clear please contribute a change to
+improve the documentation for all users.</p>
+<p>Any change to the Iris project whether it is a bugfix, new feature or
+documentation update must use the <a class="reference internal" href="gitwash/development_workflow.html#development-workflow"><span class="std std-ref">Development workflow</span></a>.</p>
+<div class="contents local topic" id="contents">
+<p class="topic-title">Contents:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#requirements" id="id1">Requirements</a></p></li>
+<li><p><a class="reference internal" href="#building" id="id2">Building</a></p></li>
+<li><p><a class="reference internal" href="#testing" id="id3">Testing</a></p></li>
+<li><p><a class="reference internal" href="#generating-api-documentation" id="id4">Generating API documentation</a></p></li>
+<li><p><a class="reference internal" href="#gallery" id="id5">Gallery</a></p></li>
+</ul>
+</div>
+<div class="section" id="requirements">
+<h2><a class="toc-backref" href="#id1">Requirements</a><a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<p>The documentation uses specific packages that need to be present.  Please see
+<a class="reference internal" href="../installing.html#installing-iris"><span class="std std-ref">Installing Iris</span></a> for instructions.</p>
+</div>
+<div class="section" id="building">
+<h2><a class="toc-backref" href="#id2">Building</a><a class="headerlink" href="#building" title="Permalink to this headline">¶</a></h2>
+<p>The build is run from the documentation directory <code class="docutils literal notranslate"><span class="pre">iris/docs/iris/src</span></code>.  In
+this directory run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">html</span>
+</pre></div>
+</div>
+<p>The build output for the html is found in the <code class="docutils literal notranslate"><span class="pre">_build/html</span></code> sub directory.
+When updating the documentation ensure the html build has <em>no errors</em> or
+<em>warnings</em> otherwise it may fail the automated <a class="reference external" href="https://travis-ci.org/github/SciTools/iris">travis-ci</a>  build.</p>
+<p>Once the build is complete, if it is rerun it will only rebuild the impacted
+build artefacts so should take less time.</p>
+<p>There is also an option to perform a build but skip the
+<a class="reference internal" href="#contributing-documentation-gallery"><span class="std std-ref">Gallery</span></a> creation completely.  This can be
+achieved via:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">html</span><span class="o">-</span><span class="n">noplot</span>
+</pre></div>
+</div>
+<p>If you wish to run a clean build you can run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">clean</span>
+<span class="n">make</span> <span class="n">html</span>
+</pre></div>
+</div>
+<p>This is useful for a final test before commiting your changes.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In addition to the automated <a class="reference external" href="https://travis-ci.org/github/SciTools/iris">travis-ci</a>  build of the documentation,
+the <a class="reference external" href="https://readthedocs.org/">https://readthedocs.org/</a> service is also used.  The configuration
+of this held in a file in the root of the
+<a class="reference external" href="https://github.com/SciTools/iris">github Iris project</a>  named
+<code class="docutils literal notranslate"><span class="pre">.readthedocs.yml</span></code>.</p>
+</div>
+</div>
+<div class="section" id="testing">
+<span id="contributing-documentation-testing"></span><h2><a class="toc-backref" href="#id3">Testing</a><a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h2>
+<p>There are three ways to test various aspects of the documentation.</p>
+<p>Each <a class="reference internal" href="#contributing-documentation-gallery"><span class="std std-ref">Gallery</span></a> entry has a corresponding test.
+The below command must be run in the <code class="docutils literal notranslate"><span class="pre">iris/docs/iris</span></code> directory:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">gallerytest</span>
+</pre></div>
+</div>
+<p>Many documentation pages includes python code itself that can be run to ensure it
+is still valid.  The below command can be run in the <code class="docutils literal notranslate"><span class="pre">iris/docs/iris</span></code> or
+<code class="docutils literal notranslate"><span class="pre">iris/docs/iris/src</span></code> directory:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">doctest</span>
+</pre></div>
+</div>
+<p>Finally, all the hyperlinks in the documentation can be checked automatically.
+If there is a link that is known to work it can be excluded from the checks by
+adding it to the <code class="docutils literal notranslate"><span class="pre">linkcheck_ignore</span></code> array that is defined in the
+<a class="reference external" href="https://github.com/SciTools/iris/blob/master/docs/iris/src/conf.py">conf.py</a>.
+The hyperlink check can be run via:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">linkcheck</span>
+</pre></div>
+</div>
+<p>If this fails check the output for the text <strong>broken</strong> and then correct
+or ignore the url.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>All of the above tests are automatically run as part of the
+<a class="reference external" href="https://travis-ci.org/github/SciTools/iris">travis-ci</a>  automated build.</p>
+</div>
+</div>
+<div class="section" id="generating-api-documentation">
+<span id="contributing-documentation-api"></span><h2><a class="toc-backref" href="#id4">Generating API documentation</a><a class="headerlink" href="#generating-api-documentation" title="Permalink to this headline">¶</a></h2>
+<p>In order to auto generate the API documentation based upon the docstrings a custom
+set of python scripts are used, these are located in the directory
+<code class="docutils literal notranslate"><span class="pre">iris/docs/iris/src/sphinxext</span></code>.  Once the <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">html</span></code> command has been run,
+the output of these scripts can be found in
+<code class="docutils literal notranslate"><span class="pre">iris/docs/iris/src/_build/generated/api</span></code>.</p>
+<p>If there is a particularly troublesome module that breaks the <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">html</span></code> you
+can exclude the module from the API documentation.  Add the entry to the
+<code class="docutils literal notranslate"><span class="pre">exclude_modules</span></code> tuple list in the
+<code class="docutils literal notranslate"><span class="pre">iris/docs/iris/src/sphinxext/generate_package_rst.py</span></code> file.</p>
+</div>
+<div class="section" id="gallery">
+<span id="contributing-documentation-gallery"></span><h2><a class="toc-backref" href="#id5">Gallery</a><a class="headerlink" href="#gallery" title="Permalink to this headline">¶</a></h2>
+<p>The Iris <a class="reference internal" href="../generated/gallery/index.html#sphx-glr-generated-gallery"><span class="std std-ref">Gallery</span></a> uses a sphinx extension named
+<a class="reference external" href="https://sphinx-gallery.github.io/stable/">sphinx-gallery</a>
+that auto generates reStructuredText (rst) files based upon a gallery source
+directory that abides directory and filename convention.</p>
+<p>The code for the gallery entries are in <code class="docutils literal notranslate"><span class="pre">iris/docs/iris/gallery_code</span></code>.
+Each sub directory in this directory is a sub section of the gallery.  The
+respective <code class="docutils literal notranslate"><span class="pre">README.rst</span></code> in each folder is included in the gallery output.</p>
+<p>For each gallery entry there must be a corresponding test script located in
+<code class="docutils literal notranslate"><span class="pre">iris/docs/iris/gallery_tests</span></code>.</p>
+<p>To add an entry to the gallery simple place your python code into the appropriate
+sub directory and name it with a prefix of <code class="docutils literal notranslate"><span class="pre">plot_</span></code>.  If your gallery entry does not
+fit into any existing sub directories then create a new directoy and place it in
+there.</p>
+<p>The reStructuredText (rst) output of the gallery is located in
+<code class="docutils literal notranslate"><span class="pre">iris/docs/iris/src/_build/generated/gallery</span></code>.</p>
+<p>For more information on the directory structure and options please see the
+<a class="reference external" href="https://sphinx-gallery.github.io/stable/getting_started.html">sphinx-gallery getting started</a>
+documentation.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="documenting/index.html" class="btn btn-neutral float-right" title="Documentation in Iris" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../userguide/code_maintenance.html" class="btn btn-neutral float-left" title="Code maintenance" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        
+        &copy; <a href="../copyright.html">Copyright</a> Iris contributors
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

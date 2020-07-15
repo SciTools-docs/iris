@@ -1,90 +1,281 @@
 
-<!DOCTYPE html>
 
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>What’s new in Iris 1.4 &#8212; Iris 3.0.dev0 documentation</title>
-    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>What’s new in Iris 1.4 &mdash; Iris 3.0.dev0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/theme_override.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-dataframe.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
     <link rel="next" title="What’s new in Iris 1.3" href="1.3.html" />
-    <link rel="prev" title="What’s new in Iris 1.5" href="1.5.html" />
- 
-    <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
-    <META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE"> 
+    <link rel="prev" title="What’s new in Iris 1.5" href="1.5.html" /> 
+</head>
 
-    <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    <script type="text/javascript" src="https://docs.python.org/2/_static/copybutton.js"></script>
+<body class="wy-body-for-nav">
 
-    <link rel="icon" type="image/png" sizes="32x32" href="../_static/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../_static/favicon-16x16.png">
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
 
-    <link href="https://fonts.googleapis.com/css?family=Alike|Noto+Sans" rel="stylesheet">
+          
+            <a href="../index.html">
+          
 
-  </head><body>
+          
+            
+            <img src="../_static/iris-logo-title.png" class="logo" alt="Logo"/>
+          
+          </a>
 
-<a href="https://github.com/SciTools/iris">
-    <img class="github-forkme" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"
-         alt="Fork Iris on GitHub" />
-</a>
+          
+            
+            
+              <div class="version">
+                3.0
+              </div>
+            
+          
 
-
-<div class="header-content">
-    <a href="../index.html">
-        <img src="../_static/Iris7_1_trim_100.png" alt="Iris logo" />
-    </a>
-    <div class="strapline">
-      <h1>
-          Iris <span class="version">v3.0</span>
-      </h1>
-      <p>
-         A powerful, format-agnostic, community-driven Python library for analysing and
-         visualising Earth science data.
-      </p>
-    </div>
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
 </div>
 
+          
+        </div>
 
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="../py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="1.3.html" title="What’s new in Iris 1.3"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="1.5.html" title="What’s new in Iris 1.5"
-             accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">home</a>|&nbsp;</li>
-        <li><a href="../examples/index.html">examples</a>|&nbsp;</li>
-        <li><a href="../gallery.html">gallery</a>|&nbsp;</li>
-        <li><a href="../contents.html">contents</a>|&nbsp;</li>
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installing.html">Installing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../generated/gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/iris_cubes.html">Iris data structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/loading_iris_cubes.html">Loading Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/saving_iris_cubes.html">Saving Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/navigating_a_cube.html">Navigating a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/subsetting_a_cube.html">Subsetting a Cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/real_and_lazy_data.html">Real and Lazy Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/plotting_a_cube.html">Plotting a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/interpolation_and_regridding.html">Cube interpolation and regridding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/merge_and_concat.html">Merge and concatenate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/cube_statistics.html">Cube statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/cube_maths.html">Basic cube mathematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/citation.html">Citing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/code_maintenance.html">Code maintenance</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developers Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/contributing_documentation.html">Contributing to the documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/documenting/index.html">Documentation in Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/gitwash/index.html">Working with <em>iris</em> source code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/code_format.html">Code formatting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/pulls.html">Pull request check List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/tests.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/deprecations.html">Deprecations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/release.html">Releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../generated/api/iris.html">Iris API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">What’s new in Iris</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="latest.html">What’s new in Iris &lt;interim&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.4.html">What’s new in Iris 2.4.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.3.html">What’s new in Iris 2.3.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.2.html">What’s new in Iris 2.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.1.html">What’s new in Iris 2.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.0.html">What’s new in Iris 2.0.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.13.html">What’s new in Iris 1.13</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.12.html">What’s new in Iris 1.12</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.11.html">What’s new in Iris 1.11</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.10.html">What’s new in Iris 1.10</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.9.html">What’s new in Iris 1.9</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.8.html">What’s new in Iris 1.8</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.7.html">What’s new in Iris 1.7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.6.html">What’s new in Iris 1.6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.5.html">What’s new in Iris 1.5</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">What’s new in Iris 1.4</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#iris-1-4-features">Iris 1.4 features</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#incompatible-changes">Incompatible changes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#deprecations">Deprecations</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#experimental-regridding-enhancements">Experimental regridding enhancements</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#bilinear-rectilinear-regridding">Bilinear rectilinear regridding</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#area-weighted-regridding">Area-weighted regridding</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#area-conservative-regridding">Area-conservative regridding</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#iris-pandas-interoperablilty">Iris-Pandas interoperablilty</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#load-cubes-from-the-internet-via-opendap">Load cubes from the internet via OPeNDAP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#geotiff-export">GeoTiff export</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cube-merge-update">Cube merge update</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#unambiguous-season-year-naming">Unambiguous season year naming</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cubes-with-no-vertical-coord-can-now-be-exported-to-grib">Cubes with no vertical coord can now be exported to GRIB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#simplified-resource-configuration">Simplified resource configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#extended-grib-parameter-translation">Extended GRIB parameter translation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#one-dimensional-linear-interpolation-fix">One dimensional linear interpolation fix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fix-for-iris-analysis-calculus-differentiate">Fix for iris.analysis.calculus.differentiate</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="1.3.html">What’s new in Iris 1.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.2.html">What’s new in Iris 1.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.1.html">What’s new in Iris 1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.0.html">What’s new in Iris 1.0</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../techpapers/index.html">Iris Technical Papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../copyright.html">Iris copyright, licensing and contributors</a></li>
+</ul>
 
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">What’s new in Iris</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">What’s new in Iris 1.4</a></li> 
-      </ul>
-    </div>
+            
+          
+
+    
+    
+    
+        <p class="caption">
+            <span class="caption-text">
+            
+                Support
+            
+            </span>
+        </p>
+        <ul>
+            
+                <li class="toctree-l1"><a href="https://github.com/SciTools/iris"><i class="fa fa-github fa-fw"></i> Source Code</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris"><i class="fa fa-comments fa-fw"></i> Users Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris-dev"><i class="fa fa-comments fa-fw"></i> Developers Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://stackoverflow.com/questions/tagged/python-iris"><i class="fa fa-question fa-fw"></i> StackOverflow For "How do I?"</a></li>
+            
+                <li class="toctree-l1"><a href="https://scitools.org.uk/iris/docs/v2.4.0/index.html"><i class="fa fa-book fa-fw"></i> Legacy documentation</a></li>
+            
+        </ul>
+    
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Iris</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">What’s new in Iris</a> &raquo;</li>
+        
+      <li>What’s new in Iris 1.4</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/whatsnew/1.4.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
   
-
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
             
   <div class="section" id="what-s-new-in-iris-1-4">
 <h1>What’s new in Iris 1.4<a class="headerlink" href="#what-s-new-in-iris-1-4" title="Permalink to this headline">¶</a></h1>
@@ -114,7 +305,7 @@
 <li><p>NIMROD files with multiple fields and period of interest can now be loaded.</p></li>
 <li><p>Missing values are now handled when loading GRIB messages.</p></li>
 <li><p>PP export rule to calculate forecast period.</p></li>
-<li><p><a class="reference internal" href="../iris/iris/cube.html#iris.cube.Cube.aggregated_by" title="iris.cube.Cube.aggregated_by"><code class="xref py py-func docutils literal notranslate"><span class="pre">aggregated_by()</span></code></a> now maintains array masking.</p></li>
+<li><p><a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.Cube.aggregated_by" title="iris.cube.Cube.aggregated_by"><code class="xref py py-func docutils literal notranslate"><span class="pre">aggregated_by()</span></code></a> now maintains array masking.</p></li>
 <li><p>IEEE 32bit fieldsfiles can now be loaded.</p></li>
 <li><p>NetCDF transverse mercator and climatology data can now be loaded.</p></li>
 <li><p>Polar stereographic GRIB data can now be loaded.</p></li>
@@ -140,14 +331,14 @@
 <div class="section" id="deprecations">
 <h3>Deprecations<a class="headerlink" href="#deprecations" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p>The <em>add_custom_season_*</em> functions from <a class="reference internal" href="../iris/iris/coord_categorisation.html#module-iris.coord_categorisation" title="iris.coord_categorisation"><code class="xref py py-mod docutils literal notranslate"><span class="pre">coord_categorisation</span></code></a> have been deprecated in favour of adding their functionality to the <em>add_season_*</em> functions</p></li>
+<li><p>The <em>add_custom_season_*</em> functions from <a class="reference internal" href="../generated/api/iris/coord_categorisation.html#module-iris.coord_categorisation" title="iris.coord_categorisation"><code class="xref py py-mod docutils literal notranslate"><span class="pre">coord_categorisation</span></code></a> have been deprecated in favour of adding their functionality to the <em>add_season_*</em> functions</p></li>
 </ul>
 </div>
 </div>
 <div class="section" id="experimental-regridding-enhancements">
 <span id="exp-regrid"></span><h2>Experimental regridding enhancements<a class="headerlink" href="#experimental-regridding-enhancements" title="Permalink to this headline">¶</a></h2>
 <p>Bilinear, area-weighted and area-conservative regridding functions are now available in
-<a class="reference internal" href="../iris/iris/experimental.html#module-iris.experimental" title="iris.experimental"><code class="xref py py-mod docutils literal notranslate"><span class="pre">iris.experimental</span></code></a>. These functions support masked data and handle
+<a class="reference internal" href="../generated/api/iris/experimental.html#module-iris.experimental" title="iris.experimental"><code class="xref py py-mod docutils literal notranslate"><span class="pre">iris.experimental</span></code></a>. These functions support masked data and handle
 derived coordinates such as hybrid height. The final API is still in development.
 In the meantime:</p>
 <div class="section" id="bilinear-rectilinear-regridding">
@@ -163,7 +354,7 @@ The data values are calculated using bilinear interpolation.</p>
 </div>
 <div class="section" id="area-weighted-regridding">
 <h3>Area-weighted regridding<a class="headerlink" href="#area-weighted-regridding" title="Permalink to this headline">¶</a></h3>
-<p><a class="reference internal" href="../iris/iris/experimental/regrid.html#iris.experimental.regrid.regrid_area_weighted_rectilinear_src_and_grid" title="iris.experimental.regrid.regrid_area_weighted_rectilinear_src_and_grid"><code class="xref py py-func docutils literal notranslate"><span class="pre">regrid_area_weighted_rectilinear_src_and_grid()</span></code></a> can be used to regrid a cube
+<p><a class="reference internal" href="../generated/api/iris/experimental/regrid.html#iris.experimental.regrid.regrid_area_weighted_rectilinear_src_and_grid" title="iris.experimental.regrid.regrid_area_weighted_rectilinear_src_and_grid"><code class="xref py py-func docutils literal notranslate"><span class="pre">regrid_area_weighted_rectilinear_src_and_grid()</span></code></a> can be used to regrid a cube
 such that the data values of the resulting cube are calculated using the
 area-weighted mean.</p>
 <p>For example:</p>
@@ -174,7 +365,7 @@ area-weighted mean.</p>
 </div>
 <div class="section" id="area-conservative-regridding">
 <h3>Area-conservative regridding<a class="headerlink" href="#area-conservative-regridding" title="Permalink to this headline">¶</a></h3>
-<p><a class="reference internal" href="../iris/iris/experimental/regrid_conservative.html#iris.experimental.regrid_conservative.regrid_conservative_via_esmpy" title="iris.experimental.regrid_conservative.regrid_conservative_via_esmpy"><code class="xref py py-func docutils literal notranslate"><span class="pre">regrid_conservative_via_esmpy()</span></code></a>
+<p><a class="reference internal" href="../generated/api/iris/experimental/regrid_conservative.html#iris.experimental.regrid_conservative.regrid_conservative_via_esmpy" title="iris.experimental.regrid_conservative.regrid_conservative_via_esmpy"><code class="xref py py-func docutils literal notranslate"><span class="pre">regrid_conservative_via_esmpy()</span></code></a>
 can be used for area-conservative regridding between geographical coordinate systems.
 This uses the ESMF library functions, via the ESMPy interface.</p>
 <p>For example:</p>
@@ -186,8 +377,8 @@ This uses the ESMF library functions, via the ESMPy interface.</p>
 </div>
 <div class="section" id="iris-pandas-interoperablilty">
 <span id="iris-pandas"></span><h2>Iris-Pandas interoperablilty<a class="headerlink" href="#iris-pandas-interoperablilty" title="Permalink to this headline">¶</a></h2>
-<p>Conversion to and from Pandas <a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/api.html#series">Series</a> and <a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/api.html#dataframe">DataFrames</a> is now available.
-See <a class="reference internal" href="../iris/iris/pandas.html#module-iris.pandas" title="iris.pandas"><code class="xref py py-mod docutils literal notranslate"><span class="pre">iris.pandas</span></code></a> for more details.</p>
+<p>Conversion to and from Pandas <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/series.html">Series</a> and <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/frame.html">DataFrames</a> is now available.
+See <a class="reference internal" href="../generated/api/iris/pandas.html#module-iris.pandas" title="iris.pandas"><code class="xref py py-mod docutils literal notranslate"><span class="pre">iris.pandas</span></code></a> for more details.</p>
 </div>
 <div class="section" id="load-cubes-from-the-internet-via-opendap">
 <span id="load-opendap"></span><h2>Load cubes from the internet via OPeNDAP<a class="headerlink" href="#load-cubes-from-the-internet-via-opendap" title="Permalink to this headline">¶</a></h2>
@@ -213,15 +404,15 @@ See <a class="reference internal" href="../iris/iris/pandas.html#module-iris.pan
 <div class="section" id="cube-merge-update">
 <span id="id2"></span><h2>Cube merge update<a class="headerlink" href="#cube-merge-update" title="Permalink to this headline">¶</a></h2>
 <p>Cube merging now favours numerical coordinates over string coordinates
-to describe a dimension, and <a class="reference internal" href="../iris/iris/coords.html#iris.coords.DimCoord" title="iris.coords.DimCoord"><code class="xref py py-class docutils literal notranslate"><span class="pre">DimCoord</span></code></a> over
-<a class="reference internal" href="../iris/iris/coords.html#iris.coords.AuxCoord" title="iris.coords.AuxCoord"><code class="xref py py-class docutils literal notranslate"><span class="pre">AuxCoord</span></code></a>. These modifications prevent the error:
+to describe a dimension, and <a class="reference internal" href="../generated/api/iris/coords.html#iris.coords.DimCoord" title="iris.coords.DimCoord"><code class="xref py py-class docutils literal notranslate"><span class="pre">DimCoord</span></code></a> over
+<a class="reference internal" href="../generated/api/iris/coords.html#iris.coords.AuxCoord" title="iris.coords.AuxCoord"><code class="xref py py-class docutils literal notranslate"><span class="pre">AuxCoord</span></code></a>. These modifications prevent the error:
 <em>“No functional relationship between separable and inseparable candidate dimensions”</em>.</p>
 </div>
 <div class="section" id="unambiguous-season-year-naming">
 <span id="season-year-name"></span><h2>Unambiguous season year naming<a class="headerlink" href="#unambiguous-season-year-naming" title="Permalink to this headline">¶</a></h2>
 <p>The default names of categorisation coordinates are now less ambiguous.
-For example, <a class="reference internal" href="../iris/iris/coord_categorisation.html#iris.coord_categorisation.add_month_number" title="iris.coord_categorisation.add_month_number"><code class="xref py py-func docutils literal notranslate"><span class="pre">add_month_number()</span></code></a> and
-<a class="reference internal" href="../iris/iris/coord_categorisation.html#iris.coord_categorisation.add_month_fullname" title="iris.coord_categorisation.add_month_fullname"><code class="xref py py-func docutils literal notranslate"><span class="pre">add_month_fullname()</span></code></a> now create
+For example, <a class="reference internal" href="../generated/api/iris/coord_categorisation.html#iris.coord_categorisation.add_month_number" title="iris.coord_categorisation.add_month_number"><code class="xref py py-func docutils literal notranslate"><span class="pre">add_month_number()</span></code></a> and
+<a class="reference internal" href="../generated/api/iris/coord_categorisation.html#iris.coord_categorisation.add_month_fullname" title="iris.coord_categorisation.add_month_fullname"><code class="xref py py-func docutils literal notranslate"><span class="pre">add_month_fullname()</span></code></a> now create
 “month_number” and “month_fullname” coordinates.</p>
 </div>
 <div class="section" id="cubes-with-no-vertical-coord-can-now-be-exported-to-grib">
@@ -237,7 +428,7 @@ has been added, replacing the previous combination of
 <code class="xref py py-data docutils literal notranslate"><span class="pre">iris.config.DATA_REPOSITORY</span></code>. This constant should be the path
 to a directory containing the test data required by the unit tests. It can
 be set by adding a <code class="docutils literal notranslate"><span class="pre">test_data_dir</span></code> entry to the <code class="docutils literal notranslate"><span class="pre">Resources</span></code> section of
-<code class="docutils literal notranslate"><span class="pre">site.cfg</span></code>. See <a class="reference internal" href="../iris/iris/config.html#module-iris.config" title="iris.config"><code class="xref py py-mod docutils literal notranslate"><span class="pre">iris.config</span></code></a> for more details.</p>
+<code class="docutils literal notranslate"><span class="pre">site.cfg</span></code>. See <a class="reference internal" href="../generated/api/iris/config.html#module-iris.config" title="iris.config"><code class="xref py py-mod docutils literal notranslate"><span class="pre">iris.config</span></code></a> for more details.</p>
 </div>
 <div class="section" id="extended-grib-parameter-translation">
 <span id="grib-params"></span><h2>Extended GRIB parameter translation<a class="headerlink" href="#extended-grib-parameter-translation" title="Permalink to this headline">¶</a></h2>
@@ -257,105 +448,66 @@ with a hybrid height coordinate, on a staggered grid and only a single orography
 </div>
 <div class="section" id="fix-for-iris-analysis-calculus-differentiate">
 <span id="calc-diff-fix"></span><h2>Fix for iris.analysis.calculus.differentiate<a class="headerlink" href="#fix-for-iris-analysis-calculus-differentiate" title="Permalink to this headline">¶</a></h2>
-<p>A bug in <a class="reference internal" href="../iris/iris/analysis/calculus.html#iris.analysis.calculus.differentiate" title="iris.analysis.calculus.differentiate"><code class="xref py py-func docutils literal notranslate"><span class="pre">differentiate()</span></code></a> that had the potential to cause
+<p>A bug in <a class="reference internal" href="../generated/api/iris/analysis/calculus.html#iris.analysis.calculus.differentiate" title="iris.analysis.calculus.differentiate"><code class="xref py py-func docutils literal notranslate"><span class="pre">differentiate()</span></code></a> that had the potential to cause
 the loss of coordinate metadata when calculating the curl or the derivative of a cube has been fixed.</p>
 </div>
 </div>
 
 
-            <div class="clearer"></div>
+           </div>
+           
           </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="1.3.html" class="btn btn-neutral float-right" title="What’s new in Iris 1.3" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="1.5.html" class="btn btn-neutral float-left" title="What’s new in Iris 1.5" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        
+        &copy; <a href="../copyright.html">Copyright</a> Iris contributors
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="../contents.html">Table of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">What’s new in Iris 1.4</a><ul>
-<li><a class="reference internal" href="#iris-1-4-features">Iris 1.4 features</a><ul>
-<li><a class="reference internal" href="#incompatible-changes">Incompatible changes</a></li>
-<li><a class="reference internal" href="#deprecations">Deprecations</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#experimental-regridding-enhancements">Experimental regridding enhancements</a><ul>
-<li><a class="reference internal" href="#bilinear-rectilinear-regridding">Bilinear rectilinear regridding</a></li>
-<li><a class="reference internal" href="#area-weighted-regridding">Area-weighted regridding</a></li>
-<li><a class="reference internal" href="#area-conservative-regridding">Area-conservative regridding</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#iris-pandas-interoperablilty">Iris-Pandas interoperablilty</a></li>
-<li><a class="reference internal" href="#load-cubes-from-the-internet-via-opendap">Load cubes from the internet via OPeNDAP</a></li>
-<li><a class="reference internal" href="#geotiff-export">GeoTiff export</a></li>
-<li><a class="reference internal" href="#cube-merge-update">Cube merge update</a></li>
-<li><a class="reference internal" href="#unambiguous-season-year-naming">Unambiguous season year naming</a></li>
-<li><a class="reference internal" href="#cubes-with-no-vertical-coord-can-now-be-exported-to-grib">Cubes with no vertical coord can now be exported to GRIB</a></li>
-<li><a class="reference internal" href="#simplified-resource-configuration">Simplified resource configuration</a></li>
-<li><a class="reference internal" href="#extended-grib-parameter-translation">Extended GRIB parameter translation</a></li>
-<li><a class="reference internal" href="#one-dimensional-linear-interpolation-fix">One dimensional linear interpolation fix</a></li>
-<li><a class="reference internal" href="#fix-for-iris-analysis-calculus-differentiate">Fix for iris.analysis.calculus.differentiate</a></li>
-</ul>
-</li>
-</ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="1.5.html"
-                        title="previous chapter">What’s new in Iris 1.5</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="1.3.html"
-                        title="next chapter">What’s new in Iris 1.3</a></p>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="../_sources/whatsnew/1.4.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>$('#searchbox').show(0);</script>
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="../py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="1.3.html" title="What’s new in Iris 1.3"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="1.5.html" title="What’s new in Iris 1.5"
-             >previous</a> |</li>
-        <li><a href="../index.html">home</a>|&nbsp;</li>
-        <li><a href="../examples/index.html">examples</a>|&nbsp;</li>
-        <li><a href="../gallery.html">gallery</a>|&nbsp;</li>
-        <li><a href="../contents.html">contents</a>|&nbsp;</li>
+    </section>
 
-          <li class="nav-item nav-item-1"><a href="index.html" >What’s new in Iris</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">What’s new in Iris 1.4</a></li> 
-      </ul>
-    </div>
+  </div>
+  
 
-    <div class="footer">
-    <p style="text-align: left; float: left; margin: 0px; padding: 0 0 0 5px;">Documentation licensed under the <a href="http://reference.data.gov.uk/id/open-government-licence" rel="license">Open Government Licence</a></p>
-        &copy; <a href="../copyright.html">British Crown Copyright</a> 2010 - 2020, Met Office
-    </div>
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
 
-    <!-- Include a version switcher to easily move between the documentation of different versions -->
-    <script type=text/javascript src="/iris/docs/version_switch.js" async></script>
+  
+  
+    
+   
 
-  </body>
+</body>
 </html>
