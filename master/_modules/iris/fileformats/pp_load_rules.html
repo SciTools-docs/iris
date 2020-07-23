@@ -858,7 +858,7 @@
     <span class="k">def</span> <span class="nf">date2hours</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
         <span class="n">epoch_hours</span> <span class="o">=</span> <span class="n">_epoch_date_hours</span><span class="p">(</span><span class="n">epoch_hours_unit</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">t</span><span class="o">.</span><span class="n">minute</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">t</span><span class="o">.</span><span class="n">second</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">epoch_hours</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">epoch_hours</span><span class="p">)</span>
+            <span class="n">epoch_hours</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">around</span><span class="p">(</span><span class="n">epoch_hours</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">epoch_hours</span>
 
     <span class="k">def</span> <span class="nf">date2year</span><span class="p">(</span><span class="n">t_in</span><span class="p">):</span>
