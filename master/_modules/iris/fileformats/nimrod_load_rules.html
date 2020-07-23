@@ -644,8 +644,8 @@
         <span class="p">)</span>
         <span class="k">if</span> <span class="nb">any</span><span class="p">([</span><span class="n">is_missing</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">crs_args</span><span class="p">]):</span>
             <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">&quot;Coordinate Reference System is not completely defined. &quot;</span>
-                <span class="sa">f</span><span class="s2">&quot;Plotting and reprojection may be impaired.&quot;</span>
+                <span class="s2">&quot;Coordinate Reference System is not completely defined. &quot;</span>
+                <span class="s2">&quot;Plotting and reprojection may be impaired.&quot;</span>
             <span class="p">)</span>
         <span class="n">coord_sys</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">coord_systems</span><span class="o">.</span><span class="n">TransverseMercator</span><span class="p">(</span>
             <span class="o">*</span><span class="n">crs_args</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">coord_systems</span><span class="o">.</span><span class="n">GeogCS</span><span class="p">(</span><span class="o">**</span><span class="n">ellipsoid</span><span class="p">),</span>
