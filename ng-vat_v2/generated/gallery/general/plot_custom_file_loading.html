@@ -1,0 +1,670 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Loading a cube from a custom file format &mdash; Iris 3.0.dev0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/theme_override.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery-dataframe.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script src="../../../_static/clipboard.min.js"></script>
+        <script src="../../../_static/copybutton.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="copyright" title="Copyright" href="../../../copyright.html" />
+    <link rel="next" title="Ionosphere space weather" href="../meteorology/plot_TEC.html" />
+    <link rel="prev" title="Plotting in different projections" href="plot_projections_and_annotations.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html">
+          
+
+          
+            
+            <img src="../../../_static/iris-logo-title.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../installing.html">Installing Iris</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Gallery</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#general">General</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="plot_polar_stereo.html">Example of a polar stereographic plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_global_map.html">Quickplot of a 2d cube on a map</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_cross_section.html">Cross section plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_lineplot_with_legend.html">Multi-line temperature profile plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_polynomial_fit.html">Fitting a polynomial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_rotated_pole_mapping.html">Rotated pole mapping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_inset.html">Test Data Showing Inset Plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_SOI_filtering.html">Applying a filter to a time-series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_coriolis.html">Deriving the Coriolis frequency over the globe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_custom_aggregation.html">Calculating a custom statistic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_anomaly_log_colouring.html">Colouring anomaly data with logarithmic scaling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot_projections_and_annotations.html">Plotting in different projections</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Loading a cube from a custom file format</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#meteorology">Meteorology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#oceanography">Oceanography</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/iris_cubes.html">Iris data structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/loading_iris_cubes.html">Loading Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/saving_iris_cubes.html">Saving Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/navigating_a_cube.html">Navigating a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/subsetting_a_cube.html">Subsetting a Cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/real_and_lazy_data.html">Real and Lazy Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/plotting_a_cube.html">Plotting a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/interpolation_and_regridding.html">Cube interpolation and regridding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/merge_and_concat.html">Merge and concatenate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/cube_statistics.html">Cube statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/cube_maths.html">Basic cube mathematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/citation.html">Citing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/code_maintenance.html">Code maintenance</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developers Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/contributing_documentation.html">Contributing to the documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/documenting/index.html">Documentation in Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/gitwash/index.html">Working with <em>iris</em> source code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/code_format.html">Code formatting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/pulls.html">Pull request check List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/tests.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/deprecations.html">Deprecations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/release.html">Releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/iris.html">Iris API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../whatsnew/index.html">What’s new in Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../techpapers/index.html">Iris Technical Papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../copyright.html">Iris copyright, licensing and contributors</a></li>
+</ul>
+
+            
+          
+
+    
+    
+    
+        <p class="caption">
+            <span class="caption-text">
+            
+                Support
+            
+            </span>
+        </p>
+        <ul>
+            
+                <li class="toctree-l1"><a href="https://github.com/SciTools/iris"><i class="fa fa-github fa-fw"></i> Source Code</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris"><i class="fa fa-comments fa-fw"></i> Users Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris-dev"><i class="fa fa-comments fa-fw"></i> Developers Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://stackoverflow.com/questions/tagged/python-iris"><i class="fa fa-question fa-fw"></i> StackOverflow For "How do I?"</a></li>
+            
+                <li class="toctree-l1"><a href="https://scitools.org.uk/iris/docs/v2.4.0/index.html"><i class="fa fa-book fa-fw"></i> Legacy documentation</a></li>
+            
+        </ul>
+    
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Iris</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Gallery</a> &raquo;</li>
+        
+      <li>Loading a cube from a custom file format</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/generated/gallery/general/plot_custom_file_loading.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-generated-gallery-general-plot-custom-file-loading-py"><span class="std std-ref">here</span></a>     to download the full example code</p>
+</div>
+<div class="sphx-glr-example-title section" id="loading-a-cube-from-a-custom-file-format">
+<span id="sphx-glr-generated-gallery-general-plot-custom-file-loading-py"></span><h1>Loading a cube from a custom file format<a class="headerlink" href="#loading-a-cube-from-a-custom-file-format" title="Permalink to this headline">¶</a></h1>
+<p>This example shows how a custom text file can be loaded using the standard Iris
+load mechanism.</p>
+<p>The first stage in the process is to define an Iris <a class="reference internal" href="../../api/iris/io/format_picker.html#iris.io.format_picker.FormatSpecification" title="iris.io.format_picker.FormatSpecification"><code class="xref py py-class docutils literal notranslate"><span class="pre">FormatSpecification</span></code></a> for the file format. To create a
+format specification we need to define the following:</p>
+<ul>
+<li><p>format_name - Some text that describes the format specification we are
+creating</p></li>
+<li><p>file_element - FileElement object describing the element which identifies
+this FormatSpecification.</p>
+<p>Possible values are:</p>
+<blockquote>
+<div><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">iris.io.format_picker.MagicNumber(n,</span> <span class="pre">o)</span></code></dt><dd><p>The n bytes from the file at offset o.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">iris.io.format_picker.FileExtension()</span></code></dt><dd><p>The file’s extension.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">iris.io.format_picker.LeadingLine()</span></code></dt><dd><p>The first line of the file.</p>
+</dd>
+</dl>
+</div></blockquote>
+</li>
+<li><p>file_element_value - The value that the file_element should take if a file
+matches this FormatSpecification</p></li>
+<li><p>handler (optional) - A generator function that will be called when the file
+specification has been identified. This function is provided by the user and
+provides the means to parse the whole file. If no handler function is
+provided, then identification is still possible without any handling.</p>
+<p>The handler function must define the following arguments:</p>
+<ul class="simple">
+<li><p>list of filenames to process</p></li>
+<li><p>callback function - An optional function to filter/alter the Iris cubes
+returned</p></li>
+</ul>
+<p>The handler function must be defined as generator which yields each cube as
+they are produced.</p>
+</li>
+<li><p>priority (optional) - Integer giving a priority for considering this
+specification where higher priority means sooner consideration</p></li>
+</ul>
+<p>In the following example, the function <code class="xref py py-func docutils literal notranslate"><span class="pre">load_NAME_III()</span></code> has been defined
+to handle the loading of the raw data from the custom file format. This
+function is called from <code class="xref py py-func docutils literal notranslate"><span class="pre">NAME_to_cube()</span></code> which uses this data to create and
+yield Iris cubes.</p>
+<p>In the <code class="docutils literal notranslate"><span class="pre">main()</span></code> function the filenames are loaded via the <code class="docutils literal notranslate"><span class="pre">iris.load_cube</span></code>
+function which automatically invokes the <code class="docutils literal notranslate"><span class="pre">FormatSpecification</span></code> we defined.
+The cube returned from the load function is then used to produce a plot.</p>
+<img alt="Volcanic ash concentration forecast valid at 0600 11/05/2010" class="sphx-glr-single-img" src="../../../_images/sphx_glr_plot_custom_file_loading_001.png" />
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">datetime</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">cf_units</span> <span class="kn">import</span> <a href="https://docs.python.org/2.7/library/collections.html#collections.Hashable" title="collections.Hashable" class="sphx-glr-backref-module-collections sphx-glr-backref-type-py-class"><span class="n">Unit</span></a><span class="p">,</span> <a href="https://docs.python.org/2.7/library/functions.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">CALENDAR_GREGORIAN</span></a>
+
+<span class="kn">import</span> <span class="nn">iris</span>
+<span class="kn">import</span> <span class="nn">iris.coords</span> <span class="k">as</span> <span class="nn">icoords</span>
+<span class="kn">import</span> <span class="nn">iris.coord_systems</span> <span class="k">as</span> <span class="nn">icoord_systems</span>
+<span class="kn">import</span> <span class="nn">iris.fileformats</span>
+<span class="kn">import</span> <span class="nn">iris.io.format_picker</span> <span class="k">as</span> <span class="nn">format_picker</span>
+<span class="kn">import</span> <span class="nn">iris.plot</span> <span class="k">as</span> <span class="nn">iplt</span>
+
+
+<a href="https://docs.python.org/2.7/library/functions.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">UTC_format</span></a> <span class="o">=</span> <span class="s2">&quot;%H%M%Z </span><span class="si">%d</span><span class="s2">/%m/%Y&quot;</span>
+
+<span class="n">FLOAT_HEADERS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;X grid origin&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Y grid origin&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;X grid resolution&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Y grid resolution&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+<span class="n">INT_HEADERS</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;X grid size&quot;</span><span class="p">,</span> <span class="s2">&quot;Y grid size&quot;</span><span class="p">,</span> <span class="s2">&quot;Number of fields&quot;</span><span class="p">]</span>
+<span class="n">DATE_HEADERS</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Run time&quot;</span><span class="p">,</span> <span class="s2">&quot;Start of release&quot;</span><span class="p">,</span> <span class="s2">&quot;End of release&quot;</span><span class="p">]</span>
+<span class="n">COLUMN_NAMES</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;species_category&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;species&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;cell_measure&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;quantity&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;unit&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;z_level&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;time&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+
+
+<span class="k">def</span> <span class="nf">load_NAME_III</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Loads the Met Office&#39;s NAME III grid output files returning headers, column</span>
+<span class="sd">    definitions and data arrays as 3 separate lists.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Loading a file gives a generator of lines which can be progressed using</span>
+    <span class="c1"># the next() function. This will come in handy as we wish to progress</span>
+    <span class="c1"># through the file line by line.</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">file_handle</span><span class="p">:</span>
+        <span class="c1"># Define a dictionary which can hold the header metadata for this file.</span>
+        <span class="n">headers</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="c1"># Skip the NAME header of the file which looks something like</span>
+        <span class="c1"># &#39;NAME III (version X.X.X)&#39;.</span>
+        <span class="nb">next</span><span class="p">(</span><span class="n">file_handle</span><span class="p">)</span>
+
+        <span class="c1"># Read the next 16 lines of header information, putting the form</span>
+        <span class="c1"># &quot;header name:    header value&quot; into a dictionary.</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">16</span><span class="p">):</span>
+            <span class="n">header_name</span><span class="p">,</span> <span class="n">header_value</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">file_handle</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+
+            <span class="c1"># Strip off any spurious space characters in the header name and</span>
+            <span class="c1"># value.</span>
+            <span class="n">header_name</span> <span class="o">=</span> <span class="n">header_name</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="n">header_value</span> <span class="o">=</span> <span class="n">header_value</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+            <span class="c1"># Cast some headers into floats or integers if they match a given</span>
+            <span class="c1"># header name.</span>
+            <span class="k">if</span> <span class="n">header_name</span> <span class="ow">in</span> <span class="n">FLOAT_HEADERS</span><span class="p">:</span>
+                <span class="n">header_value</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">header_value</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">header_name</span> <span class="ow">in</span> <span class="n">INT_HEADERS</span><span class="p">:</span>
+                <span class="n">header_value</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">header_value</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">header_name</span> <span class="ow">in</span> <span class="n">DATE_HEADERS</span><span class="p">:</span>
+                <span class="c1"># convert the time to python datetimes</span>
+                <span class="n">header_value</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span>
+                    <span class="n">header_value</span><span class="p">,</span> <a href="https://docs.python.org/2.7/library/functions.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">UTC_format</span></a>
+                <span class="p">)</span>
+
+            <span class="n">headers</span><span class="p">[</span><span class="n">header_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">header_value</span>
+
+        <span class="c1"># Skip the next blank line in the file.</span>
+        <span class="nb">next</span><span class="p">(</span><span class="n">file_handle</span><span class="p">)</span>
+
+        <span class="c1"># Read the next 7 lines of column definitions.</span>
+        <span class="n">column_headings</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">column_header_name</span> <span class="ow">in</span> <span class="n">COLUMN_NAMES</span><span class="p">:</span>
+            <span class="n">column_headings</span><span class="p">[</span><span class="n">column_header_name</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="n">col</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">next</span><span class="p">(</span><span class="n">file_handle</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+            <span class="p">][:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+        <span class="c1"># Convert the time to python datetimes.</span>
+        <span class="n">new_time_column_header</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">column_headings</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">]):</span>
+            <span class="c1"># The first 4 columns aren&#39;t time at all, so don&#39;t convert them to</span>
+            <span class="c1"># datetimes.</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">4</span><span class="p">:</span>
+                <span class="n">t</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <a href="https://docs.python.org/2.7/library/functions.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">UTC_format</span></a><span class="p">)</span>
+            <span class="n">new_time_column_header</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+        <span class="n">column_headings</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_time_column_header</span>
+
+        <span class="c1"># Skip the blank line after the column headers.</span>
+        <span class="nb">next</span><span class="p">(</span><span class="n">file_handle</span><span class="p">)</span>
+
+        <span class="c1"># Make a list of data arrays to hold the data for each column.</span>
+        <span class="n">data_shape</span> <span class="o">=</span> <span class="p">(</span><span class="n">headers</span><span class="p">[</span><span class="s2">&quot;Y grid size&quot;</span><span class="p">],</span> <span class="n">headers</span><span class="p">[</span><span class="s2">&quot;X grid size&quot;</span><span class="p">])</span>
+        <span class="n">data_arrays</span> <span class="o">=</span> <span class="p">[</span>
+            <a href="https://numpy.org/doc/stable/reference/generated/numpy.zeros.html#numpy.zeros" title="numpy.zeros" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">zeros</span></a><span class="p">(</span><span class="n">data_shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.generic.html#numpy.generic" title="numpy.generic" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class"><span class="n">np</span><span class="o">.</span><span class="n">float32</span></a><span class="p">)</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">headers</span><span class="p">[</span><span class="s2">&quot;Number of fields&quot;</span><span class="p">])</span>
+        <span class="p">]</span>
+
+        <span class="c1"># Iterate over the remaining lines which represent the data in a column</span>
+        <span class="c1"># form.</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file_handle</span><span class="p">:</span>
+            <span class="c1"># Split the line by comma, removing the last empty column caused by</span>
+            <span class="c1"># the trailing comma.</span>
+            <span class="n">vals</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+            <span class="c1"># Cast the x and y grid positions to floats and convert them to</span>
+            <span class="c1"># zero based indices (the numbers are 1 based grid positions where</span>
+            <span class="c1"># 0.5 represents half a grid point.)</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">vals</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">-</span> <span class="mf">1.5</span><span class="p">)</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">vals</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">-</span> <span class="mf">1.5</span><span class="p">)</span>
+
+            <span class="c1"># Populate the data arrays (i.e. all columns but the leading 4).</span>
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">data_array</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">data_arrays</span><span class="p">):</span>
+                <span class="n">data_array</span><span class="p">[</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">vals</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">4</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">headers</span><span class="p">,</span> <span class="n">column_headings</span><span class="p">,</span> <span class="n">data_arrays</span>
+
+
+<span class="k">def</span> <span class="nf">NAME_to_cube</span><span class="p">(</span><span class="n">filenames</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns a generator of cubes given a list of filenames and a callback.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">filenames</span><span class="p">:</span>
+        <span class="n">header</span><span class="p">,</span> <span class="n">column_headings</span><span class="p">,</span> <span class="n">data_arrays</span> <span class="o">=</span> <span class="n">load_NAME_III</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">data_array</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">data_arrays</span><span class="p">):</span>
+            <span class="c1"># turn the dictionary of column headers with a list of header</span>
+            <span class="c1"># information for each field into a dictionary of headers for just</span>
+            <span class="c1"># this field. Ignore the first 4 columns of grid position (data was</span>
+            <span class="c1"># located with the data array).</span>
+            <span class="n">field_headings</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+                <span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">4</span><span class="p">])</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">column_headings</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+            <span class="p">)</span>
+
+            <span class="c1"># make an cube</span>
+            <span class="n">cube</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">cube</span><span class="o">.</span><span class="n">Cube</span><span class="p">(</span><span class="n">data_array</span><span class="p">)</span>
+
+            <span class="c1"># define the name and unit</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span>
+                <span class="n">field_headings</span><span class="p">[</span><span class="s2">&quot;species&quot;</span><span class="p">],</span>
+                <span class="n">field_headings</span><span class="p">[</span><span class="s2">&quot;quantity&quot;</span><span class="p">],</span>
+            <span class="p">)</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;_&quot;</span><span class="p">)</span>
+            <span class="n">cube</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+            <span class="c1"># Some units are badly encoded in the file, fix this by putting a</span>
+            <span class="c1"># space in between. (if gs is not found, then the string will be</span>
+            <span class="c1"># returned unchanged)</span>
+            <span class="n">cube</span><span class="o">.</span><span class="n">units</span> <span class="o">=</span> <span class="n">field_headings</span><span class="p">[</span><span class="s2">&quot;unit&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;gs&quot;</span><span class="p">,</span> <span class="s2">&quot;g s&quot;</span><span class="p">)</span>
+
+            <span class="c1"># define and add the singular coordinates of the field (flight</span>
+            <span class="c1"># level, time etc.)</span>
+            <span class="n">cube</span><span class="o">.</span><span class="n">add_aux_coord</span><span class="p">(</span>
+                <span class="n">icoords</span><span class="o">.</span><span class="n">AuxCoord</span><span class="p">(</span>
+                    <span class="n">field_headings</span><span class="p">[</span><span class="s2">&quot;z_level&quot;</span><span class="p">],</span>
+                    <span class="n">long_name</span><span class="o">=</span><span class="s2">&quot;flight_level&quot;</span><span class="p">,</span>
+                    <span class="n">units</span><span class="o">=</span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+
+            <span class="c1"># define the time unit and use it to serialise the datetime for the</span>
+            <span class="c1"># time coordinate</span>
+            <span class="n">time_unit</span> <span class="o">=</span> <a href="https://docs.python.org/2.7/library/collections.html#collections.Hashable" title="collections.Hashable" class="sphx-glr-backref-module-collections sphx-glr-backref-type-py-class"><span class="n">Unit</span></a><span class="p">(</span><span class="s2">&quot;hours since epoch&quot;</span><span class="p">,</span> <span class="n">calendar</span><span class="o">=</span><a href="https://docs.python.org/2.7/library/functions.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">CALENDAR_GREGORIAN</span></a><span class="p">)</span>
+            <span class="n">time_coord</span> <span class="o">=</span> <span class="n">icoords</span><span class="o">.</span><span class="n">AuxCoord</span><span class="p">(</span>
+                <span class="n">time_unit</span><span class="o">.</span><span class="n">date2num</span><span class="p">(</span><span class="n">field_headings</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">]),</span>
+                <span class="n">standard_name</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span>
+                <span class="n">units</span><span class="o">=</span><span class="n">time_unit</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="n">cube</span><span class="o">.</span><span class="n">add_aux_coord</span><span class="p">(</span><span class="n">time_coord</span><span class="p">)</span>
+
+            <span class="c1"># build a coordinate system which can be referenced by latitude and</span>
+            <span class="c1"># longitude coordinates</span>
+            <span class="n">lat_lon_coord_system</span> <span class="o">=</span> <span class="n">icoord_systems</span><span class="o">.</span><span class="n">GeogCS</span><span class="p">(</span><span class="mi">6371229</span><span class="p">)</span>
+
+            <span class="c1"># build regular latitude and longitude coordinates which have</span>
+            <span class="c1"># bounds</span>
+            <span class="n">start</span> <span class="o">=</span> <span class="n">header</span><span class="p">[</span><span class="s2">&quot;X grid origin&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">header</span><span class="p">[</span><span class="s2">&quot;X grid resolution&quot;</span><span class="p">]</span>
+            <span class="n">step</span> <span class="o">=</span> <span class="n">header</span><span class="p">[</span><span class="s2">&quot;X grid resolution&quot;</span><span class="p">]</span>
+            <span class="n">count</span> <span class="o">=</span> <span class="n">header</span><span class="p">[</span><span class="s2">&quot;X grid size&quot;</span><span class="p">]</span>
+            <span class="n">pts</span> <span class="o">=</span> <span class="n">start</span> <span class="o">+</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.arange.html#numpy.arange" title="numpy.arange" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">arange</span></a><span class="p">(</span><span class="n">count</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.generic.html#numpy.generic" title="numpy.generic" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class"><span class="n">np</span><span class="o">.</span><span class="n">float32</span></a><span class="p">)</span> <span class="o">*</span> <span class="n">step</span>
+            <span class="n">lon_coord</span> <span class="o">=</span> <span class="n">icoords</span><span class="o">.</span><span class="n">DimCoord</span><span class="p">(</span>
+                <span class="n">pts</span><span class="p">,</span>
+                <span class="n">standard_name</span><span class="o">=</span><span class="s2">&quot;longitude&quot;</span><span class="p">,</span>
+                <span class="n">units</span><span class="o">=</span><span class="s2">&quot;degrees&quot;</span><span class="p">,</span>
+                <span class="n">coord_system</span><span class="o">=</span><span class="n">lat_lon_coord_system</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="n">lon_coord</span><span class="o">.</span><span class="n">guess_bounds</span><span class="p">()</span>
+
+            <span class="n">start</span> <span class="o">=</span> <span class="n">header</span><span class="p">[</span><span class="s2">&quot;Y grid origin&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">header</span><span class="p">[</span><span class="s2">&quot;Y grid resolution&quot;</span><span class="p">]</span>
+            <span class="n">step</span> <span class="o">=</span> <span class="n">header</span><span class="p">[</span><span class="s2">&quot;Y grid resolution&quot;</span><span class="p">]</span>
+            <span class="n">count</span> <span class="o">=</span> <span class="n">header</span><span class="p">[</span><span class="s2">&quot;Y grid size&quot;</span><span class="p">]</span>
+            <span class="n">pts</span> <span class="o">=</span> <span class="n">start</span> <span class="o">+</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.arange.html#numpy.arange" title="numpy.arange" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">arange</span></a><span class="p">(</span><span class="n">count</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.generic.html#numpy.generic" title="numpy.generic" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class"><span class="n">np</span><span class="o">.</span><span class="n">float32</span></a><span class="p">)</span> <span class="o">*</span> <span class="n">step</span>
+            <span class="n">lat_coord</span> <span class="o">=</span> <span class="n">icoords</span><span class="o">.</span><span class="n">DimCoord</span><span class="p">(</span>
+                <span class="n">pts</span><span class="p">,</span>
+                <span class="n">standard_name</span><span class="o">=</span><span class="s2">&quot;latitude&quot;</span><span class="p">,</span>
+                <span class="n">units</span><span class="o">=</span><span class="s2">&quot;degrees&quot;</span><span class="p">,</span>
+                <span class="n">coord_system</span><span class="o">=</span><span class="n">lat_lon_coord_system</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="n">lat_coord</span><span class="o">.</span><span class="n">guess_bounds</span><span class="p">()</span>
+
+            <span class="c1"># add the latitude and longitude coordinates to the cube, with</span>
+            <span class="c1"># mappings to data dimensions</span>
+            <span class="n">cube</span><span class="o">.</span><span class="n">add_dim_coord</span><span class="p">(</span><span class="n">lat_coord</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="n">cube</span><span class="o">.</span><span class="n">add_dim_coord</span><span class="p">(</span><span class="n">lon_coord</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+            <span class="c1"># implement standard iris callback capability. Although callbacks</span>
+            <span class="c1"># are not used in this example, the standard mechanism for a custom</span>
+            <span class="c1"># loader to implement a callback is shown:</span>
+            <span class="n">cube</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">run_callback</span><span class="p">(</span>
+                <span class="n">callback</span><span class="p">,</span> <span class="n">cube</span><span class="p">,</span> <span class="p">[</span><span class="n">header</span><span class="p">,</span> <span class="n">field_headings</span><span class="p">,</span> <span class="n">data_array</span><span class="p">],</span> <span class="n">filename</span>
+            <span class="p">)</span>
+
+            <span class="c1"># yield the cube created (the loop will continue when the next()</span>
+            <span class="c1"># element is requested)</span>
+            <span class="k">yield</span> <span class="n">cube</span>
+
+
+<span class="c1"># Create a format_picker specification of the NAME file format giving it a</span>
+<span class="c1"># priority greater than the built in NAME loader.</span>
+<span class="n">_NAME_III_spec</span> <span class="o">=</span> <span class="n">format_picker</span><span class="o">.</span><span class="n">FormatSpecification</span><span class="p">(</span>
+    <span class="s2">&quot;Name III&quot;</span><span class="p">,</span>
+    <span class="n">format_picker</span><span class="o">.</span><span class="n">LeadingLine</span><span class="p">(),</span>
+    <span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;NAME III&quot;</span><span class="p">),</span>
+    <span class="n">NAME_to_cube</span><span class="p">,</span>
+    <span class="n">priority</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># Register the NAME loader with iris</span>
+<span class="n">iris</span><span class="o">.</span><span class="n">fileformats</span><span class="o">.</span><span class="n">FORMAT_AGENT</span><span class="o">.</span><span class="n">add_spec</span><span class="p">(</span><span class="n">_NAME_III_spec</span><span class="p">)</span>
+
+
+<span class="c1"># ---------------------------------------------</span>
+<span class="c1"># |          Using the new loader             |</span>
+<span class="c1"># ---------------------------------------------</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">fname</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s2">&quot;NAME_output.txt&quot;</span><span class="p">)</span>
+
+    <span class="n">boundary_volc_ash_constraint</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">Constraint</span><span class="p">(</span>
+        <span class="s2">&quot;VOLCANIC_ASH_AIR_CONCENTRATION&quot;</span><span class="p">,</span> <span class="n">flight_level</span><span class="o">=</span><span class="s2">&quot;From FL000 - FL200&quot;</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Callback shown as None to illustrate where a cube-level callback function</span>
+    <span class="c1"># would be used if required</span>
+    <span class="n">cube</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">boundary_volc_ash_constraint</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+
+    <span class="c1"># draw contour levels for the data (the top level is just a catch-all)</span>
+    <span class="n">levels</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.0002</span><span class="p">,</span> <span class="mf">0.002</span><span class="p">,</span> <span class="mf">0.004</span><span class="p">,</span> <span class="mf">1e10</span><span class="p">)</span>
+    <span class="n">cs</span> <span class="o">=</span> <span class="n">iplt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span>
+        <span class="n">cube</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="n">levels</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;#80ffff&quot;</span><span class="p">,</span> <span class="s2">&quot;#939598&quot;</span><span class="p">,</span> <span class="s2">&quot;#e00404&quot;</span><span class="p">),</span>
+    <span class="p">)</span>
+
+    <span class="c1"># draw a black outline at the lowest contour to highlight affected areas</span>
+    <span class="n">iplt</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="p">(</span><span class="n">levels</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">100</span><span class="p">),</span> <span class="n">colors</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+
+    <span class="c1"># set an extent and a background image for the map</span>
+    <span class="n">ax</span> <span class="o">=</span> <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.gca.html#matplotlib.pyplot.gca" title="matplotlib.pyplot.gca" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">gca</span></a><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_extent</span><span class="p">((</span><span class="o">-</span><span class="mi">90</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">75</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">stock_img</span><span class="p">(</span><span class="s2">&quot;ne_shaded&quot;</span><span class="p">)</span>
+
+    <span class="c1"># make a legend, with custom labels, for the coloured contour set</span>
+    <span class="n">artists</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">cs</span><span class="o">.</span><span class="n">legend_elements</span><span class="p">()</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="sa">r</span><span class="s2">&quot;$</span><span class="si">%s</span><span class="s2"> &lt; x \leq </span><span class="si">%s</span><span class="s2">$&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">levels</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">levels</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span>
+        <span class="sa">r</span><span class="s2">&quot;$</span><span class="si">%s</span><span class="s2"> &lt; x \leq </span><span class="si">%s</span><span class="s2">$&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">levels</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">levels</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span>
+        <span class="sa">r</span><span class="s2">&quot;$x &gt; </span><span class="si">%s</span><span class="s2">$&quot;</span> <span class="o">%</span> <span class="n">levels</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
+    <span class="p">]</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span>
+        <span class="n">artists</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Ash concentration / g m-3&quot;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper left&quot;</span>
+    <span class="p">)</span>
+
+    <span class="n">time</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
+    <span class="n">time_date</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">units</span><span class="o">.</span><span class="n">num2date</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">points</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><a href="https://docs.python.org/2.7/library/functions.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">UTC_format</span></a><span class="p">)</span>
+    <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.title.html#matplotlib.pyplot.title" title="matplotlib.pyplot.title" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">title</span></a><span class="p">(</span><span class="s2">&quot;Volcanic ash concentration forecast</span><span class="se">\n</span><span class="s2">valid at </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">time_date</span><span class="p">)</span>
+
+    <span class="n">iplt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.391 seconds)</p>
+<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-generated-gallery-general-plot-custom-file-loading-py">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../../_downloads/833cde67f94c1d6698dc1e7c668ed80f/plot_custom_file_loading.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_custom_file_loading.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../../../_downloads/c4d03bd21562879a1e6edc85bf461b1d/plot_custom_file_loading.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_custom_file_loading.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../meteorology/plot_TEC.html" class="btn btn-neutral float-right" title="Ionosphere space weather" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="plot_projections_and_annotations.html" class="btn btn-neutral float-left" title="Plotting in different projections" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        
+        &copy; <a href="../../../copyright.html">Copyright</a> Iris contributors
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
