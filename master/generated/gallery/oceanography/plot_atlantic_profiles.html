@@ -263,10 +263,11 @@ depth values intuitively increase downward on the y-axis.</p>
 <li><img alt="plot atlantic profiles" class="sphx-glr-multi-img" src="../../../_images/sphx_glr_plot_atlantic_profiles_002.png" />
 </li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">iris</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">import</span> <span class="nn">iris</span>
 <span class="kn">import</span> <span class="nn">iris.iterate</span>
 <span class="kn">import</span> <span class="nn">iris.plot</span> <span class="k">as</span> <span class="nn">iplt</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
@@ -304,6 +305,7 @@ depth values intuitively increase downward on the y-axis.</p>
     <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Depth / m&quot;</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">ticklabel</span> <span class="ow">in</span> <span class="n">ax1</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">():</span>
         <span class="n">ticklabel</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="n">temperature_color</span><span class="p">)</span>
+
     <span class="c1"># To plot salinity in the same axes we use twiny(). We&#39;ll use a different</span>
     <span class="c1"># color to identify salinity.</span>
     <span class="n">salinity_color</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">)</span>
@@ -340,7 +342,7 @@ depth values intuitively increase downward on the y-axis.</p>
     <span class="n">main</span><span class="p">()</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.082 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.063 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-generated-gallery-oceanography-plot-atlantic-profiles-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../../_downloads/5496119a293ac3a37f90c645f793ffb3/plot_atlantic_profiles.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_atlantic_profiles.py</span></code></a></p>
