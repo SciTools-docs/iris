@@ -1240,6 +1240,25 @@
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">dataset</span><span class="p">,</span> <span class="n">warn</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">monotonic</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">exclude_var_names</span><span class="o">=</span><span class="kc">None</span>
     <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create a CFReader to interpret the CF structure of a given netcdf dataset.</span>
+
+<span class="sd">        Args:</span>
+
+<span class="sd">        * dataset (netCDF4.Dataset):</span>
+<span class="sd">            An open dataset to read from.</span>
+<span class="sd">            The new CFReader &quot;owns&quot; the dataset, and keeps it open until the reader itself is destroyed.</span>
+
+<span class="sd">        * warn (bool):</span>
+<span class="sd">            If set, show a warning when passed a NETCDF3 file, saying that NETCDF4 is now preferred.</span>
+
+<span class="sd">        * monotonic (bool):</span>
+<span class="sd">            Control monotonic behaviour when identifying coordinate variables.</span>
+
+<span class="sd">        * exclude_var_names (list of str):</span>
+<span class="sd">            Ignore file variables with these names : behave as if they were not present.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_dataset</span> <span class="o">=</span> <span class="n">dataset</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_filename</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">filepath</span><span class="p">()</span>
 

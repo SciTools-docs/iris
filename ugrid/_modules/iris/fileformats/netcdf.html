@@ -983,7 +983,7 @@
         <span class="n">cube</span><span class="o">.</span><span class="n">add_aux_factory</span><span class="p">(</span><span class="n">factory</span><span class="p">)</span>
 
 
-<div class="viewcode-block" id="load_cubes"><a class="viewcode-back" href="../../../generated/api/iris/fileformats/netcdf.html#iris.fileformats.netcdf.load_cubes">[docs]</a><span class="k">def</span> <span class="nf">load_cubes</span><span class="p">(</span><span class="n">filenames</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="load_cubes"><a class="viewcode-back" href="../../../generated/api/iris/fileformats/netcdf.html#iris.fileformats.netcdf.load_cubes">[docs]</a><span class="k">def</span> <span class="nf">load_cubes</span><span class="p">(</span><span class="n">filenames</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">create_reader</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Loads cubes from a list of NetCDF filenames/URLs.</span>
 
@@ -997,10 +997,23 @@
 <span class="sd">    * callback (callable function):</span>
 <span class="sd">        Function which can be passed on to :func:`iris.io.run_callback`.</span>
 
+<span class="sd">    * create_reader (callable):</span>
+<span class="sd">        Function to create the cf-reader object: signature &quot;create_reader(filename) -&gt; CFReader&quot;.</span>
+<span class="sd">        If None, use a plain :class:`iris.fileformats.cf.CFReader`.</span>
+<span class="sd">        This lets us define custom loaders for special types of netcdf-cf file, e.g. ugrid.</span>
+
 <span class="sd">    Returns:</span>
 <span class="sd">        Generator of loaded NetCDF :class:`iris.cubes.Cube`.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">create_reader</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+
+        <span class="k">def</span> <span class="nf">create_reader</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+            <span class="n">dataset</span> <span class="o">=</span> <span class="n">netCDF4</span><span class="o">.</span><span class="n">Dataset</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
+            <span class="c1"># Note: the reader &#39;owns&#39; the file, keeps it open, and will close it when destroyed.</span>
+            <span class="n">reader</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">fileformats</span><span class="o">.</span><span class="n">cf</span><span class="o">.</span><span class="n">CFReader</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">reader</span>
+
     <span class="c1"># Initialise the pyke inference engine.</span>
     <span class="n">engine</span> <span class="o">=</span> <span class="n">_pyke_kb_engine</span><span class="p">()</span>
 
@@ -1008,10 +1021,10 @@
         <span class="n">filenames</span> <span class="o">=</span> <span class="p">[</span><span class="n">filenames</span><span class="p">]</span>
 
     <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">filenames</span><span class="p">:</span>
-        <span class="c1"># Ingest the netCDF file.</span>
         <span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
-        <span class="n">dataset</span> <span class="o">=</span> <span class="n">netCDF4</span><span class="o">.</span><span class="n">Dataset</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
-        <span class="n">cf</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">fileformats</span><span class="o">.</span><span class="n">cf</span><span class="o">.</span><span class="n">CFReader</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span>
+
+        <span class="c1"># Ingest the netCDF file.</span>
+        <span class="n">cf</span> <span class="o">=</span> <span class="n">create_reader</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
 
         <span class="c1"># Process each CF data variable.</span>
         <span class="n">data_variables</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">cf</span><span class="o">.</span><span class="n">cf_group</span><span class="o">.</span><span class="n">data_variables</span><span class="o">.</span><span class="n">values</span><span class="p">())</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span>
@@ -1019,6 +1032,10 @@
         <span class="p">)</span>
         <span class="k">for</span> <span class="n">cf_var</span> <span class="ow">in</span> <span class="n">data_variables</span><span class="p">:</span>
             <span class="n">cube</span> <span class="o">=</span> <span class="n">_load_cube</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">cf</span><span class="p">,</span> <span class="n">cf_var</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+
+            <span class="c1"># Call a post-processing completion step for each cube, if provided.</span>
+            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">cf</span><span class="p">,</span> <span class="s2">&quot;cube_completion_adjust&quot;</span><span class="p">):</span>
+                <span class="n">cf</span><span class="o">.</span><span class="n">cube_completion_adjust</span><span class="p">(</span><span class="n">cube</span><span class="p">)</span>
 
             <span class="c1"># Process any associated formula terms and attach</span>
             <span class="c1"># the corresponding AuxCoordFactory.</span>

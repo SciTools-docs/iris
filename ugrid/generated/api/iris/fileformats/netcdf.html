@@ -292,7 +292,7 @@ Version 1.4, 27 February 2009.</p>
 </div></blockquote>
 <dl class="py function">
 <dt id="iris.fileformats.netcdf.load_cubes">
-<code class="sig-prename descclassname">iris.fileformats.netcdf.</code><code class="sig-name descname">load_cubes</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filenames</span></em>, <em class="sig-param"><span class="n">callback</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/iris/fileformats/netcdf.html#load_cubes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iris.fileformats.netcdf.load_cubes" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.fileformats.netcdf.</code><code class="sig-name descname">load_cubes</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filenames</span></em>, <em class="sig-param"><span class="n">callback</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">create_reader</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/iris/fileformats/netcdf.html#load_cubes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iris.fileformats.netcdf.load_cubes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Loads cubes from a list of NetCDF filenames/URLs.</p>
 <p>Args:</p>
 <ul class="simple">
@@ -306,6 +306,13 @@ Version 1.4, 27 February 2009.</p>
 <ul class="simple">
 <li><dl class="simple">
 <dt>callback (callable function):</dt><dd><p>Function which can be passed on to <a class="reference internal" href="../io.html#iris.io.run_callback" title="iris.io.run_callback"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.io.run_callback()</span></code></a>.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>create_reader (callable):</dt><dd><p>Function to create the cf-reader object: signature “create_reader(filename) -&gt; CFReader”.
+If None, use a plain <a class="reference internal" href="cf.html#iris.fileformats.cf.CFReader" title="iris.fileformats.cf.CFReader"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.fileformats.cf.CFReader</span></code></a>.
+This lets us define custom loaders for special types of netcdf-cf file, e.g. ugrid.</p>
 </dd>
 </dl>
 </li>

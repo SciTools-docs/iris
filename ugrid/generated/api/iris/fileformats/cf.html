@@ -1800,8 +1800,31 @@ to the ‘NetCDF Climate and Forecast (CF) Metadata Conventions’.</p>
 <div><dl class="py class">
 <dt id="iris.fileformats.cf.CFReader">
 <em class="property">class </em><code class="sig-prename descclassname">iris.fileformats.cf.</code><code class="sig-name descname">CFReader</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataset</span></em>, <em class="sig-param"><span class="n">warn</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">monotonic</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">exclude_var_names</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/iris/fileformats/cf.html#CFReader"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iris.fileformats.cf.CFReader" title="Permalink to this definition">¶</a></dt>
-<dd><p>This class allows the contents of a netCDF file to be interpreted according
-to the ‘NetCDF Climate and Forecast (CF) Metadata Conventions’.</p>
+<dd><p>Create a CFReader to interpret the CF structure of a given netcdf dataset.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>dataset (netCDF4.Dataset):</dt><dd><p>An open dataset to read from.
+The new CFReader “owns” the dataset, and keeps it open until the reader itself is destroyed.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>warn (bool):</dt><dd><p>If set, show a warning when passed a NETCDF3 file, saying that NETCDF4 is now preferred.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>monotonic (bool):</dt><dd><p>Control monotonic behaviour when identifying coordinate variables.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>exclude_var_names (list of str):</dt><dd><p>Ignore file variables with these names : behave as if they were not present.</p>
+</dd>
+</dl>
+</li>
+</ul>
 <dl class="py attribute">
 <dt id="iris.fileformats.cf.CFReader.cf_group">
 <code class="sig-name descname">cf_group</code><a class="headerlink" href="#iris.fileformats.cf.CFReader.cf_group" title="Permalink to this definition">¶</a></dt>
