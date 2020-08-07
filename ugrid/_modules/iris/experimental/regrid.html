@@ -1,0 +1,1838 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>iris.experimental.regrid &mdash; Iris 3.0.dev0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/theme_override.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery-dataframe.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script src="../../../_static/clipboard.min.js"></script>
+        <script src="../../../_static/copybutton.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="copyright" title="Copyright" href="../../../copyright.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html">
+          
+
+          
+            
+            <img src="../../../_static/iris-logo-title.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installing.html">Installing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../generated/gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/iris_cubes.html">Iris data structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/loading_iris_cubes.html">Loading Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/saving_iris_cubes.html">Saving Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/navigating_a_cube.html">Navigating a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/subsetting_a_cube.html">Subsetting a Cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/real_and_lazy_data.html">Real and Lazy Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/plotting_a_cube.html">Plotting a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/interpolation_and_regridding.html">Cube interpolation and regridding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/merge_and_concat.html">Merge and concatenate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/cube_statistics.html">Cube statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/cube_maths.html">Basic cube mathematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/citation.html">Citing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/code_maintenance.html">Code maintenance</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developers Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/contributing_documentation.html">Contributing to the documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/documenting/index.html">Documentation in Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/gitwash/index.html">Working with <em>iris</em> source code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/code_format.html">Code formatting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/pulls.html">Pull request check List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/tests.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/deprecations.html">Deprecations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/release.html">Releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../generated/api/iris.html">Iris API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../whatsnew/index.html">What’s new in Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../techpapers/index.html">Iris Technical Papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../copyright.html">Iris copyright, licensing and contributors</a></li>
+</ul>
+
+            
+          
+
+    
+    
+    
+        <p class="caption">
+            <span class="caption-text">
+            
+                Support
+            
+            </span>
+        </p>
+        <ul>
+            
+                <li class="toctree-l1"><a href="https://github.com/SciTools/iris"><i class="fa fa-github fa-fw"></i> Source Code</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris"><i class="fa fa-comments fa-fw"></i> Users Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris-dev"><i class="fa fa-comments fa-fw"></i> Developers Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://stackoverflow.com/questions/tagged/python-iris"><i class="fa fa-question fa-fw"></i> StackOverflow For "How do I?"</a></li>
+            
+                <li class="toctree-l1"><a href="https://scitools.org.uk/iris/docs/v2.4.0/index.html"><i class="fa fa-book fa-fw"></i> Legacy documentation</a></li>
+            
+        </ul>
+    
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Iris</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../../iris.html">iris</a> &raquo;</li>
+        
+      <li>iris.experimental.regrid</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for iris.experimental.regrid</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright Iris contributors</span>
+<span class="c1">#</span>
+<span class="c1"># This file is part of Iris and is released under the LGPL license.</span>
+<span class="c1"># See COPYING and COPYING.LESSER in the root of the repository for full</span>
+<span class="c1"># licensing details.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Regridding functions.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">copy</span>
+<span class="kn">import</span> <span class="nn">functools</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+
+<span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="k">as</span> <span class="nn">ccrs</span>
+<span class="kn">import</span> <span class="nn">cf_units</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">numpy.ma</span> <span class="k">as</span> <span class="nn">ma</span>
+<span class="kn">import</span> <span class="nn">scipy.interpolate</span>
+
+<span class="kn">import</span> <span class="nn">iris.analysis.cartography</span>
+<span class="kn">from</span> <span class="nn">iris.analysis._interpolation</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">get_xy_dim_coords</span><span class="p">,</span>
+    <span class="n">get_xy_coords</span><span class="p">,</span>
+    <span class="n">snapshot_grid</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">iris.analysis._regrid</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">RectilinearRegridder</span><span class="p">,</span>
+    <span class="n">_regrid_weighted_curvilinear_to_rectilinear__prepare</span><span class="p">,</span>
+    <span class="n">_regrid_weighted_curvilinear_to_rectilinear__perform</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">import</span> <span class="nn">iris.coord_systems</span>
+<span class="kn">import</span> <span class="nn">iris.cube</span>
+<span class="kn">from</span> <span class="nn">iris.util</span> <span class="kn">import</span> <span class="n">_meshgrid</span>
+
+
+<span class="k">def</span> <span class="nf">_get_xy_coords</span><span class="p">(</span><span class="n">cube</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return the x and y coordinates from a cube.</span>
+
+<span class="sd">    This function will preferentially return a pair of dimension</span>
+<span class="sd">    coordinates (if there are more than one potential x or y dimension</span>
+<span class="sd">    coordinates a ValueError will be raised). If the cube does not have</span>
+<span class="sd">    a pair of x and y dimension coordinates it will return 1D auxiliary</span>
+<span class="sd">    coordinates (including scalars). If there is not one and only one set</span>
+<span class="sd">    of x and y auxiliary coordinates a ValueError will be raised.</span>
+
+<span class="sd">    Having identified the x and y coordinates, the function checks that they</span>
+<span class="sd">    have equal coordinate systems and that they do not occupy the same</span>
+<span class="sd">    dimension on the cube.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">    * cube:</span>
+<span class="sd">        An instance of :class:`iris.cube.Cube`.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A tuple containing the cube&#39;s x and y coordinates.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Look for a suitable dimension coords first.</span>
+    <span class="n">x_coords</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">coords</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">dim_coords</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">x_coords</span><span class="p">:</span>
+        <span class="c1"># If there is no x coord in dim_coords look for scalars or</span>
+        <span class="c1"># monotonic coords in aux_coords.</span>
+        <span class="n">x_coords</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">coord</span>
+            <span class="k">for</span> <span class="n">coord</span> <span class="ow">in</span> <span class="n">cube</span><span class="o">.</span><span class="n">coords</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">dim_coords</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">coord</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">coord</span><span class="o">.</span><span class="n">is_monotonic</span><span class="p">()</span>
+        <span class="p">]</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">x_coords</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">&quot;Cube </span><span class="si">{!r}</span><span class="s2"> must contain a single 1D x &quot;</span>
+            <span class="s2">&quot;coordinate.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">name</span><span class="p">())</span>
+        <span class="p">)</span>
+    <span class="n">x_coord</span> <span class="o">=</span> <span class="n">x_coords</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="c1"># Look for a suitable dimension coords first.</span>
+    <span class="n">y_coords</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">coords</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">dim_coords</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">y_coords</span><span class="p">:</span>
+        <span class="c1"># If there is no y coord in dim_coords look for scalars or</span>
+        <span class="c1"># monotonic coords in aux_coords.</span>
+        <span class="n">y_coords</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">coord</span>
+            <span class="k">for</span> <span class="n">coord</span> <span class="ow">in</span> <span class="n">cube</span><span class="o">.</span><span class="n">coords</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">dim_coords</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">coord</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">coord</span><span class="o">.</span><span class="n">is_monotonic</span><span class="p">()</span>
+        <span class="p">]</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_coords</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">&quot;Cube </span><span class="si">{!r}</span><span class="s2"> must contain a single 1D y &quot;</span>
+            <span class="s2">&quot;coordinate.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">name</span><span class="p">())</span>
+        <span class="p">)</span>
+    <span class="n">y_coord</span> <span class="o">=</span> <span class="n">y_coords</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">x_coord</span><span class="o">.</span><span class="n">coord_system</span> <span class="o">!=</span> <span class="n">y_coord</span><span class="o">.</span><span class="n">coord_system</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">&quot;The cube&#39;s x (</span><span class="si">{!r}</span><span class="s2">) and y (</span><span class="si">{!r}</span><span class="s2">) &quot;</span>
+            <span class="s2">&quot;coordinates must have the same coordinate &quot;</span>
+            <span class="s2">&quot;system.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x_coord</span><span class="o">.</span><span class="n">name</span><span class="p">(),</span> <span class="n">y_coord</span><span class="o">.</span><span class="n">name</span><span class="p">())</span>
+        <span class="p">)</span>
+
+    <span class="c1"># The x and y coordinates must describe different dimensions</span>
+    <span class="c1"># or be scalar coords.</span>
+    <span class="n">x_dims</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">coord_dims</span><span class="p">(</span><span class="n">x_coord</span><span class="p">)</span>
+    <span class="n">x_dim</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="n">x_dims</span><span class="p">:</span>
+        <span class="n">x_dim</span> <span class="o">=</span> <span class="n">x_dims</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="n">y_dims</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">coord_dims</span><span class="p">(</span><span class="n">y_coord</span><span class="p">)</span>
+    <span class="n">y_dim</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="n">y_dims</span><span class="p">:</span>
+        <span class="n">y_dim</span> <span class="o">=</span> <span class="n">y_dims</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">x_dim</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">y_dim</span> <span class="o">==</span> <span class="n">x_dim</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">&quot;The cube&#39;s x and y coords must not describe the &quot;</span>
+            <span class="s2">&quot;same data dimension.&quot;</span>
+        <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">x_coord</span><span class="p">,</span> <span class="n">y_coord</span>
+
+
+<span class="k">def</span> <span class="nf">_within_bounds</span><span class="p">(</span><span class="n">src_bounds</span><span class="p">,</span> <span class="n">tgt_bounds</span><span class="p">,</span> <span class="n">orderswap</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Determine which target bounds lie within the extremes of the source bounds.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">    * src_bounds (ndarray):</span>
+<span class="sd">        An (n, 2) shaped array of monotonic contiguous source bounds.</span>
+<span class="sd">    * tgt_bounds (ndarray):</span>
+<span class="sd">        An (n, 2) shaped array corresponding to the target bounds.</span>
+
+<span class="sd">    Kwargs:</span>
+
+<span class="sd">    * orderswap (bool):</span>
+<span class="sd">        A Boolean indicating whether the target bounds are in descending order</span>
+<span class="sd">        (True). Defaults to False.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Boolean ndarray, indicating whether each target bound is within the</span>
+<span class="sd">        extremes of the source bounds.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">min_bound</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">src_bounds</span><span class="p">)</span> <span class="o">-</span> <span class="mf">1e-14</span>
+    <span class="n">max_bound</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">src_bounds</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1e-14</span>
+
+    <span class="c1"># Swap upper-lower is necessary.</span>
+    <span class="k">if</span> <span class="n">orderswap</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">upper</span><span class="p">,</span> <span class="n">lower</span> <span class="o">=</span> <span class="n">tgt_bounds</span><span class="o">.</span><span class="n">T</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">lower</span><span class="p">,</span> <span class="n">upper</span> <span class="o">=</span> <span class="n">tgt_bounds</span><span class="o">.</span><span class="n">T</span>
+
+    <span class="k">return</span> <span class="p">((</span><span class="n">lower</span> <span class="o">&lt;=</span> <span class="n">max_bound</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">lower</span> <span class="o">&gt;=</span> <span class="n">min_bound</span><span class="p">))</span> <span class="o">*</span> <span class="p">(</span>
+        <span class="p">(</span><span class="n">upper</span> <span class="o">&lt;=</span> <span class="n">max_bound</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">upper</span> <span class="o">&gt;=</span> <span class="n">min_bound</span><span class="p">)</span>
+    <span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_cropped_bounds</span><span class="p">(</span><span class="n">bounds</span><span class="p">,</span> <span class="n">lower</span><span class="p">,</span> <span class="n">upper</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return a new bounds array and corresponding slice object (or indices) of</span>
+<span class="sd">    the original data array, resulting from cropping the provided bounds</span>
+<span class="sd">    between the specified lower and upper values. The bounds at the</span>
+<span class="sd">    extremities will be truncated so that they start and end with lower and</span>
+<span class="sd">    upper.</span>
+
+<span class="sd">    This function will return an empty NumPy array and slice if there is no</span>
+<span class="sd">    overlap between the region covered by bounds and the region from lower to</span>
+<span class="sd">    upper.</span>
+
+<span class="sd">    If lower &gt; upper the resulting bounds may not be contiguous and the</span>
+<span class="sd">    indices object will be a tuple of indices rather than a slice object.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">    * bounds:</span>
+<span class="sd">        An (n, 2) shaped array of monotonic contiguous bounds.</span>
+<span class="sd">    * lower:</span>
+<span class="sd">        Lower bound at which to crop the bounds array.</span>
+<span class="sd">    * upper:</span>
+<span class="sd">        Upper bound at which to crop the bounds array.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A tuple of the new bounds array and the corresponding slice object or</span>
+<span class="sd">        indices from the zeroth axis of the original array.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">reversed_flag</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="c1"># Ensure order is increasing.</span>
+    <span class="k">if</span> <span class="n">bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">bounds</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]:</span>
+        <span class="c1"># Reverse bounds</span>
+        <span class="n">bounds</span> <span class="o">=</span> <span class="n">bounds</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">reversed_flag</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="c1"># Number of bounds.</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">bounds</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">lower</span> <span class="o">&lt;=</span> <span class="n">upper</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">lower</span> <span class="o">&gt;</span> <span class="n">bounds</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="ow">or</span> <span class="n">upper</span> <span class="o">&lt;</span> <span class="n">bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]:</span>
+            <span class="n">new_bounds</span> <span class="o">=</span> <span class="n">bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">indices</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># A single region lower-&gt;upper.</span>
+            <span class="k">if</span> <span class="n">lower</span> <span class="o">&lt;</span> <span class="n">bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]:</span>
+                <span class="c1"># Region extends below bounds so use first lower bound.</span>
+                <span class="n">lindex</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="n">lower</span> <span class="o">=</span> <span class="n">bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># Index of last lower bound less than or equal to lower.</span>
+                <span class="n">lindex</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nonzero</span><span class="p">(</span><span class="n">bounds</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">lower</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">upper</span> <span class="o">&gt;</span> <span class="n">bounds</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]:</span>
+                <span class="c1"># Region extends above bounds so use last upper bound.</span>
+                <span class="n">uindex</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span>
+                <span class="n">upper</span> <span class="o">=</span> <span class="n">bounds</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># Index of first upper bound greater than or equal to</span>
+                <span class="c1"># upper.</span>
+                <span class="n">uindex</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nonzero</span><span class="p">(</span><span class="n">bounds</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">upper</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+            <span class="c1"># Extract the bounds in our region defined by lower-&gt;upper.</span>
+            <span class="n">new_bounds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">bounds</span><span class="p">[</span><span class="n">lindex</span> <span class="p">:</span> <span class="p">(</span><span class="n">uindex</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="p">:])</span>
+            <span class="c1"># Replace first and last values with specified bounds.</span>
+            <span class="n">new_bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">lower</span>
+            <span class="n">new_bounds</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">upper</span>
+            <span class="k">if</span> <span class="n">reversed_flag</span><span class="p">:</span>
+                <span class="n">indices</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="p">(</span><span class="n">uindex</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="n">n</span> <span class="o">-</span> <span class="n">lindex</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">indices</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="n">lindex</span><span class="p">,</span> <span class="n">uindex</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># Two regions [0]-&gt;upper, lower-&gt;[-1]</span>
+        <span class="c1"># [0]-&gt;upper</span>
+        <span class="k">if</span> <span class="n">upper</span> <span class="o">&lt;</span> <span class="n">bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]:</span>
+            <span class="c1"># Region outside src bounds.</span>
+            <span class="n">new_bounds_left</span> <span class="o">=</span> <span class="n">bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">indices_left</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">()</span>
+            <span class="n">slice_left</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">upper</span> <span class="o">&gt;</span> <span class="n">bounds</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]:</span>
+                <span class="c1"># Whole of bounds.</span>
+                <span class="n">uindex</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span>
+                <span class="n">upper</span> <span class="o">=</span> <span class="n">bounds</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># Index of first upper bound greater than or equal to upper.</span>
+                <span class="n">uindex</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nonzero</span><span class="p">(</span><span class="n">bounds</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">upper</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+            <span class="c1"># Extract the bounds in our region defined by [0]-&gt;upper.</span>
+            <span class="n">new_bounds_left</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">bounds</span><span class="p">[</span><span class="mi">0</span> <span class="p">:</span> <span class="p">(</span><span class="n">uindex</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="p">:])</span>
+            <span class="c1"># Replace last value with specified bound.</span>
+            <span class="n">new_bounds_left</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">upper</span>
+            <span class="k">if</span> <span class="n">reversed_flag</span><span class="p">:</span>
+                <span class="n">indices_left</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="p">(</span><span class="n">uindex</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="n">n</span><span class="p">))</span>
+                <span class="n">slice_left</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="p">(</span><span class="n">uindex</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="n">n</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">indices_left</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">uindex</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+                <span class="n">slice_left</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">uindex</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="c1"># lower-&gt;[-1]</span>
+        <span class="k">if</span> <span class="n">lower</span> <span class="o">&gt;</span> <span class="n">bounds</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]:</span>
+            <span class="c1"># Region is outside src bounds.</span>
+            <span class="n">new_bounds_right</span> <span class="o">=</span> <span class="n">bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">indices_right</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">()</span>
+            <span class="n">slice_right</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">lower</span> <span class="o">&lt;</span> <span class="n">bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]:</span>
+                <span class="c1"># Whole of bounds.</span>
+                <span class="n">lindex</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="n">lower</span> <span class="o">=</span> <span class="n">bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># Index of last lower bound less than or equal to lower.</span>
+                <span class="n">lindex</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nonzero</span><span class="p">(</span><span class="n">bounds</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">lower</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="c1"># Extract the bounds in our region defined by lower-&gt;[-1].</span>
+            <span class="n">new_bounds_right</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">bounds</span><span class="p">[</span><span class="n">lindex</span><span class="p">:,</span> <span class="p">:])</span>
+            <span class="c1"># Replace first value with specified bound.</span>
+            <span class="n">new_bounds_right</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">lower</span>
+            <span class="k">if</span> <span class="n">reversed_flag</span><span class="p">:</span>
+                <span class="n">indices_right</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="n">lindex</span><span class="p">))</span>
+                <span class="n">slice_right</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span> <span class="o">-</span> <span class="n">lindex</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">indices_right</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">lindex</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+                <span class="n">slice_right</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="n">lindex</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">reversed_flag</span><span class="p">:</span>
+            <span class="c1"># Flip everything around.</span>
+            <span class="n">indices_left</span><span class="p">,</span> <span class="n">indices_right</span> <span class="o">=</span> <span class="n">indices_right</span><span class="p">,</span> <span class="n">indices_left</span>
+            <span class="n">slice_left</span><span class="p">,</span> <span class="n">slice_right</span> <span class="o">=</span> <span class="n">slice_right</span><span class="p">,</span> <span class="n">slice_left</span>
+
+        <span class="c1"># Combine regions.</span>
+        <span class="n">new_bounds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">new_bounds_left</span><span class="p">,</span> <span class="n">new_bounds_right</span><span class="p">))</span>
+        <span class="c1"># Use slices if possible, but if we have two regions use indices.</span>
+        <span class="k">if</span> <span class="n">indices_left</span> <span class="ow">and</span> <span class="n">indices_right</span><span class="p">:</span>
+            <span class="n">indices</span> <span class="o">=</span> <span class="n">indices_left</span> <span class="o">+</span> <span class="n">indices_right</span>
+        <span class="k">elif</span> <span class="n">indices_left</span><span class="p">:</span>
+            <span class="n">indices</span> <span class="o">=</span> <span class="n">slice_left</span>
+        <span class="k">elif</span> <span class="n">indices_right</span><span class="p">:</span>
+            <span class="n">indices</span> <span class="o">=</span> <span class="n">slice_right</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">indices</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">reversed_flag</span><span class="p">:</span>
+        <span class="n">new_bounds</span> <span class="o">=</span> <span class="n">new_bounds</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">new_bounds</span><span class="p">,</span> <span class="n">indices</span>
+
+
+<span class="k">def</span> <span class="nf">_cartesian_area</span><span class="p">(</span><span class="n">y_bounds</span><span class="p">,</span> <span class="n">x_bounds</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return an array of the areas of each cell given two arrays</span>
+<span class="sd">    of cartesian bounds.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">    * y_bounds:</span>
+<span class="sd">        An (n, 2) shaped NumPy array.</span>
+<span class="sd">    * x_bounds:</span>
+<span class="sd">        An (m, 2) shaped NumPy array.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        An (n, m) shaped Numpy array of areas.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">heights</span> <span class="o">=</span> <span class="n">y_bounds</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">y_bounds</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="n">widths</span> <span class="o">=</span> <span class="n">x_bounds</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">x_bounds</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">heights</span><span class="p">,</span> <span class="n">widths</span><span class="p">))</span>
+
+
+<span class="k">def</span> <span class="nf">_spherical_area</span><span class="p">(</span><span class="n">y_bounds</span><span class="p">,</span> <span class="n">x_bounds</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return an array of the areas of each cell on a sphere</span>
+<span class="sd">    given two arrays of latitude and longitude bounds in radians.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">    * y_bounds:</span>
+<span class="sd">        An (n, 2) shaped NumPy array of latitide bounds in radians.</span>
+<span class="sd">    * x_bounds:</span>
+<span class="sd">        An (m, 2) shaped NumPy array of longitude bounds in radians.</span>
+<span class="sd">    * radius:</span>
+<span class="sd">        Radius of the sphere. Default is 1.0.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        An (n, m) shaped Numpy array of areas.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">cartography</span><span class="o">.</span><span class="n">_quadrant_area</span><span class="p">(</span><span class="n">y_bounds</span><span class="p">,</span> <span class="n">x_bounds</span><span class="p">,</span> <span class="n">radius</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_get_bounds_in_units</span><span class="p">(</span><span class="n">coord</span><span class="p">,</span> <span class="n">units</span><span class="p">,</span> <span class="n">dtype</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return a copy of coord&#39;s bounds in the specified units and dtype.&quot;&quot;&quot;</span>
+    <span class="c1"># The bounds are cast to dtype before conversion to prevent issues when</span>
+    <span class="c1"># mixing float32 and float64 types.</span>
+    <span class="k">return</span> <span class="n">coord</span><span class="o">.</span><span class="n">units</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="n">coord</span><span class="o">.</span><span class="n">bounds</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">dtype</span><span class="p">),</span> <span class="n">units</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">dtype</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_weighted_mean_with_mdtol</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mdtol</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return the weighted mean of an array over the specified axis</span>
+<span class="sd">    using the provided weights (if any) and a permitted fraction of</span>
+<span class="sd">    masked data.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">    * data (array-like):</span>
+<span class="sd">        Data to be averaged.</span>
+
+<span class="sd">    * weights (array-like):</span>
+<span class="sd">        An array of the same shape as the data that specifies the contribution</span>
+<span class="sd">        of each corresponding data element to the calculated mean.</span>
+
+<span class="sd">    Kwargs:</span>
+
+<span class="sd">    * axis (int or tuple of ints):</span>
+<span class="sd">        Axis along which the mean is computed. The default is to compute</span>
+<span class="sd">        the mean of the flattened array.</span>
+
+<span class="sd">    * mdtol (float):</span>
+<span class="sd">        Tolerance of missing data. The value returned in each element of the</span>
+<span class="sd">        returned array will be masked if the fraction of masked data exceeds</span>
+<span class="sd">        mdtol. This fraction is weighted by the `weights` array if one is</span>
+<span class="sd">        provided. mdtol=0 means no missing data is tolerated</span>
+<span class="sd">        while mdtol=1 will mean the resulting element will be masked if and</span>
+<span class="sd">        only if all the contributing elements of data are masked.</span>
+<span class="sd">        Defaults to 0.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Numpy array (possibly masked) or scalar.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">ma</span><span class="o">.</span><span class="n">is_masked</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+        <span class="n">res</span><span class="p">,</span> <span class="n">unmasked_weights_sum</span> <span class="o">=</span> <span class="n">ma</span><span class="o">.</span><span class="n">average</span><span class="p">(</span>
+            <span class="n">data</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="n">weights</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">returned</span><span class="o">=</span><span class="kc">True</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="n">mdtol</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">weights_sum</span> <span class="o">=</span> <span class="n">weights</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">)</span>
+            <span class="n">frac_masked</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">true_divide</span><span class="p">(</span><span class="n">unmasked_weights_sum</span><span class="p">,</span> <span class="n">weights_sum</span><span class="p">)</span>
+            <span class="n">mask_pt</span> <span class="o">=</span> <span class="n">frac_masked</span> <span class="o">&gt;</span> <span class="n">mdtol</span>
+            <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">mask_pt</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">ma</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">MaskedConstant</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isscalar</span><span class="p">(</span><span class="n">res</span><span class="p">):</span>
+                    <span class="n">res</span> <span class="o">=</span> <span class="n">ma</span><span class="o">.</span><span class="n">masked</span>
+                <span class="k">elif</span> <span class="n">ma</span><span class="o">.</span><span class="n">isMaskedArray</span><span class="p">(</span><span class="n">res</span><span class="p">):</span>
+                    <span class="n">res</span><span class="o">.</span><span class="n">mask</span> <span class="o">|=</span> <span class="n">mask_pt</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">res</span> <span class="o">=</span> <span class="n">ma</span><span class="o">.</span><span class="n">masked_array</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">mask_pt</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="n">weights</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">res</span>
+
+
+<span class="k">def</span> <span class="nf">_regrid_area_weighted_array</span><span class="p">(</span><span class="n">src_data</span><span class="p">,</span> <span class="n">x_dim</span><span class="p">,</span> <span class="n">y_dim</span><span class="p">,</span> <span class="n">weights_info</span><span class="p">,</span> <span class="n">mdtol</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Regrid the given data from its source grid to a new grid using</span>
+<span class="sd">    an area weighted mean to determine the resulting data values.</span>
+
+<span class="sd">    .. note::</span>
+
+<span class="sd">        Elements in the returned array that lie either partially</span>
+<span class="sd">        or entirely outside of the extent of the source grid will</span>
+<span class="sd">        be masked irrespective of the value of mdtol.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">    * src_data:</span>
+<span class="sd">        An N-dimensional NumPy array.</span>
+<span class="sd">    * x_dim:</span>
+<span class="sd">        The X dimension within `src_data`.</span>
+<span class="sd">    * y_dim:</span>
+<span class="sd">        The Y dimension within `src_data`.</span>
+<span class="sd">    * weights_info:</span>
+<span class="sd">        The area weights information to be used for area-weighted</span>
+<span class="sd">        regridding.</span>
+
+<span class="sd">    Kwargs:</span>
+
+<span class="sd">    * mdtol:</span>
+<span class="sd">        Tolerance of missing data. The value returned in each element of the</span>
+<span class="sd">        returned array will be masked if the fraction of missing data exceeds</span>
+<span class="sd">        mdtol. This fraction is calculated based on the area of masked cells</span>
+<span class="sd">        within each target cell. mdtol=0 means no missing data is tolerated</span>
+<span class="sd">        while mdtol=1 will mean the resulting element will be masked if and</span>
+<span class="sd">        only if all the overlapping elements of the source grid are masked.</span>
+<span class="sd">        Defaults to 0.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        The regridded data as an N-dimensional NumPy array. The lengths</span>
+<span class="sd">        of the X and Y dimensions will now match those of the target</span>
+<span class="sd">        grid.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="p">(</span>
+        <span class="n">cached_x_indices</span><span class="p">,</span>
+        <span class="n">cached_y_indices</span><span class="p">,</span>
+        <span class="n">max_x_indices</span><span class="p">,</span>
+        <span class="n">max_y_indices</span><span class="p">,</span>
+        <span class="n">cached_weights</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">=</span> <span class="n">weights_info</span>
+
+    <span class="c1"># Ensure we have x_dim and y_dim.</span>
+    <span class="n">x_dim_orig</span> <span class="o">=</span> <span class="n">x_dim</span>
+    <span class="n">y_dim_orig</span> <span class="o">=</span> <span class="n">y_dim</span>
+    <span class="k">if</span> <span class="n">y_dim</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">src_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">src_data</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">src_data</span><span class="o">.</span><span class="n">ndim</span><span class="p">)</span>
+        <span class="n">y_dim</span> <span class="o">=</span> <span class="n">src_data</span><span class="o">.</span><span class="n">ndim</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">x_dim</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">src_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">src_data</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">src_data</span><span class="o">.</span><span class="n">ndim</span><span class="p">)</span>
+        <span class="n">x_dim</span> <span class="o">=</span> <span class="n">src_data</span><span class="o">.</span><span class="n">ndim</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="c1"># Move y_dim and x_dim to last dimensions</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">x_dim</span> <span class="o">==</span> <span class="n">src_data</span><span class="o">.</span><span class="n">ndim</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">src_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">moveaxis</span><span class="p">(</span><span class="n">src_data</span><span class="p">,</span> <span class="n">x_dim</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">y_dim</span> <span class="o">==</span> <span class="n">src_data</span><span class="o">.</span><span class="n">ndim</span> <span class="o">-</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">x_dim</span> <span class="o">&lt;</span> <span class="n">y_dim</span><span class="p">:</span>
+            <span class="c1"># note: y_dim was shifted along by one position when</span>
+            <span class="c1"># x_dim was moved to the last dimension</span>
+            <span class="n">src_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">moveaxis</span><span class="p">(</span><span class="n">src_data</span><span class="p">,</span> <span class="n">y_dim</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">x_dim</span> <span class="o">&gt;</span> <span class="n">y_dim</span><span class="p">:</span>
+            <span class="n">src_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">moveaxis</span><span class="p">(</span><span class="n">src_data</span><span class="p">,</span> <span class="n">y_dim</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">x_dim</span> <span class="o">=</span> <span class="n">src_data</span><span class="o">.</span><span class="n">ndim</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="n">y_dim</span> <span class="o">=</span> <span class="n">src_data</span><span class="o">.</span><span class="n">ndim</span> <span class="o">-</span> <span class="mi">2</span>
+
+    <span class="c1"># Create empty &quot;pre-averaging&quot; data array that will enable the</span>
+    <span class="c1"># src_data data coresponding to a given target grid point,</span>
+    <span class="c1"># to be stacked per point.</span>
+    <span class="c1"># Note that dtype is not preserved and that the array mask</span>
+    <span class="c1"># allows for regions that do not overlap.</span>
+    <span class="n">new_shape</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">src_data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="n">new_shape</span><span class="p">[</span><span class="n">x_dim</span><span class="p">]</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">cached_x_indices</span><span class="p">)</span>
+    <span class="n">new_shape</span><span class="p">[</span><span class="n">y_dim</span><span class="p">]</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">cached_y_indices</span><span class="p">)</span>
+    <span class="n">num_target_pts</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">cached_y_indices</span><span class="p">)</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">cached_x_indices</span><span class="p">)</span>
+    <span class="n">src_areas_shape</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">src_data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="n">src_areas_shape</span><span class="p">[</span><span class="n">y_dim</span><span class="p">]</span> <span class="o">=</span> <span class="n">max_y_indices</span>
+    <span class="n">src_areas_shape</span><span class="p">[</span><span class="n">x_dim</span><span class="p">]</span> <span class="o">=</span> <span class="n">max_x_indices</span>
+    <span class="n">src_areas_shape</span> <span class="o">+=</span> <span class="p">[</span><span class="n">num_target_pts</span><span class="p">]</span>
+    <span class="c1"># Use input cube dtype or convert values to the smallest possible float</span>
+    <span class="c1"># dtype when necessary.</span>
+    <span class="n">dtype</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">promote_types</span><span class="p">(</span><span class="n">src_data</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">float16</span><span class="p">)</span>
+    <span class="c1"># Create empty arrays to hold src_data per target point, and weights</span>
+    <span class="n">src_area_datas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">src_areas_shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+    <span class="n">src_area_weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span>
+        <span class="nb">list</span><span class="p">((</span><span class="n">max_y_indices</span><span class="p">,</span> <span class="n">max_x_indices</span><span class="p">,</span> <span class="n">num_target_pts</span><span class="p">))</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Flag to indicate whether the original data was a masked array.</span>
+    <span class="n">src_masked</span> <span class="o">=</span> <span class="n">src_data</span><span class="o">.</span><span class="n">mask</span><span class="o">.</span><span class="n">any</span><span class="p">()</span> <span class="k">if</span> <span class="n">ma</span><span class="o">.</span><span class="n">isMaskedArray</span><span class="p">(</span><span class="n">src_data</span><span class="p">)</span> <span class="k">else</span> <span class="kc">False</span>
+    <span class="k">if</span> <span class="n">src_masked</span><span class="p">:</span>
+        <span class="n">src_area_masks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="n">src_areas_shape</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">bool</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">new_data_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="n">new_shape</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">bool</span><span class="p">)</span>
+
+    <span class="c1"># Axes of data over which the weighted mean is calculated.</span>
+    <span class="n">axis</span> <span class="o">=</span> <span class="p">(</span><span class="n">y_dim</span><span class="p">,</span> <span class="n">x_dim</span><span class="p">)</span>
+
+    <span class="c1"># Stack the src_area data and weights for each target point</span>
+    <span class="n">target_pt_ji</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">y_indices</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">cached_y_indices</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">x_indices</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">cached_x_indices</span><span class="p">):</span>
+            <span class="n">target_pt_ji</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="c1"># Determine whether to mask element i, j based on whether</span>
+            <span class="c1"># there are valid weights.</span>
+            <span class="n">weights</span> <span class="o">=</span> <span class="n">cached_weights</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">weights</span><span class="p">:</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">src_masked</span><span class="p">:</span>
+                    <span class="c1"># Cheat! Fill the data with zeros and weights as one.</span>
+                    <span class="c1"># The weighted average result will be the same, but</span>
+                    <span class="c1"># we avoid dividing by zero.</span>
+                    <span class="n">src_area_weights</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">target_pt_ji</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+                    <span class="n">new_data_mask</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># Calculate weighted mean of data points.</span>
+                <span class="c1"># Slice out relevant data (this may or may not be a view()</span>
+                <span class="c1"># depending on x_indices being a slice or not).</span>
+                <span class="n">data</span> <span class="o">=</span> <span class="n">src_data</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">y_indices</span><span class="p">,</span> <span class="n">x_indices</span><span class="p">]</span>
+                <span class="n">len_x</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+                <span class="n">len_y</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+                <span class="n">src_area_datas</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="n">len_y</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="n">len_x</span><span class="p">,</span> <span class="n">target_pt_ji</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span>
+                <span class="n">src_area_weights</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">len_y</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="n">len_x</span><span class="p">,</span> <span class="n">target_pt_ji</span><span class="p">]</span> <span class="o">=</span> <span class="n">weights</span>
+                <span class="k">if</span> <span class="n">src_masked</span><span class="p">:</span>
+                    <span class="n">src_area_masks</span><span class="p">[</span>
+                        <span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="n">len_y</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="n">len_x</span><span class="p">,</span> <span class="n">target_pt_ji</span>
+                    <span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">mask</span>
+
+    <span class="c1"># Broadcast the weights array to allow numpy&#39;s ma.average</span>
+    <span class="c1"># to be called.</span>
+    <span class="c1"># Assign new shape to raise error on copy.</span>
+    <span class="n">src_area_weights</span><span class="o">.</span><span class="n">shape</span> <span class="o">=</span> <span class="n">src_area_datas</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:]</span>
+    <span class="c1"># Broadcast weights to match shape of data.</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">src_area_weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">broadcast_arrays</span><span class="p">(</span><span class="n">src_area_datas</span><span class="p">,</span> <span class="n">src_area_weights</span><span class="p">)</span>
+
+    <span class="c1"># Mask the data points</span>
+    <span class="k">if</span> <span class="n">src_masked</span><span class="p">:</span>
+        <span class="n">src_area_datas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">src_area_datas</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">src_area_masks</span><span class="p">)</span>
+
+    <span class="c1"># Calculate weighted mean taking into account missing data.</span>
+    <span class="n">new_data</span> <span class="o">=</span> <span class="n">_weighted_mean_with_mdtol</span><span class="p">(</span>
+        <span class="n">src_area_datas</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="n">src_area_weights</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">mdtol</span><span class="o">=</span><span class="n">mdtol</span>
+    <span class="p">)</span>
+    <span class="n">new_data</span> <span class="o">=</span> <span class="n">new_data</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">new_shape</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">src_masked</span><span class="p">:</span>
+        <span class="n">new_data_mask</span> <span class="o">=</span> <span class="n">new_data</span><span class="o">.</span><span class="n">mask</span>
+
+    <span class="c1"># Mask the data if originally masked or if the result has masked points</span>
+    <span class="k">if</span> <span class="n">ma</span><span class="o">.</span><span class="n">isMaskedArray</span><span class="p">(</span><span class="n">src_data</span><span class="p">):</span>
+        <span class="n">new_data</span> <span class="o">=</span> <span class="n">ma</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+            <span class="n">new_data</span><span class="p">,</span>
+            <span class="n">mask</span><span class="o">=</span><span class="n">new_data_mask</span><span class="p">,</span>
+            <span class="n">fill_value</span><span class="o">=</span><span class="n">src_data</span><span class="o">.</span><span class="n">fill_value</span><span class="p">,</span>
+            <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="k">elif</span> <span class="n">new_data_mask</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+        <span class="n">new_data</span> <span class="o">=</span> <span class="n">ma</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">new_data</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">new_data_mask</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">new_data</span> <span class="o">=</span> <span class="n">new_data</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">dtype</span><span class="p">)</span>
+
+    <span class="c1"># Restore data to original form</span>
+    <span class="k">if</span> <span class="n">x_dim_orig</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">y_dim_orig</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">new_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">new_data</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">x_dim</span><span class="p">)</span>
+        <span class="n">new_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">new_data</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">y_dim</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">y_dim_orig</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">new_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">new_data</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">y_dim</span><span class="p">)</span>
+        <span class="n">new_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">moveaxis</span><span class="p">(</span><span class="n">new_data</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">x_dim_orig</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">x_dim_orig</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">new_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">new_data</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">x_dim</span><span class="p">)</span>
+        <span class="n">new_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">moveaxis</span><span class="p">(</span><span class="n">new_data</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">y_dim_orig</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">x_dim_orig</span> <span class="o">&lt;</span> <span class="n">y_dim_orig</span><span class="p">:</span>
+        <span class="c1"># move the x_dim back first, so that the y_dim will</span>
+        <span class="c1"># then be moved to its original position</span>
+        <span class="n">new_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">moveaxis</span><span class="p">(</span><span class="n">new_data</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">x_dim_orig</span><span class="p">)</span>
+        <span class="n">new_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">moveaxis</span><span class="p">(</span><span class="n">new_data</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">y_dim_orig</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># move the y_dim back first, so that the x_dim will</span>
+        <span class="c1"># then be moved to its original position</span>
+        <span class="n">new_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">moveaxis</span><span class="p">(</span><span class="n">new_data</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="n">y_dim_orig</span><span class="p">)</span>
+        <span class="n">new_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">moveaxis</span><span class="p">(</span><span class="n">new_data</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">x_dim_orig</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">new_data</span>
+
+
+<div class="viewcode-block" id="regrid_area_weighted_rectilinear_src_and_grid"><a class="viewcode-back" href="../../../generated/api/iris/experimental/regrid.html#iris.experimental.regrid.regrid_area_weighted_rectilinear_src_and_grid">[docs]</a><span class="k">def</span> <span class="nf">regrid_area_weighted_rectilinear_src_and_grid</span><span class="p">(</span>
+    <span class="n">src_cube</span><span class="p">,</span> <span class="n">grid_cube</span><span class="p">,</span> <span class="n">mdtol</span><span class="o">=</span><span class="mi">0</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return a new cube with data values calculated using the area weighted</span>
+<span class="sd">    mean of data values from src_grid regridded onto the horizontal grid of</span>
+<span class="sd">    grid_cube.</span>
+
+<span class="sd">    This function requires that the horizontal grids of both cubes are</span>
+<span class="sd">    rectilinear (i.e. expressed in terms of two orthogonal 1D coordinates)</span>
+<span class="sd">    and that these grids are in the same coordinate system. This function</span>
+<span class="sd">    also requires that the coordinates describing the horizontal grids</span>
+<span class="sd">    all have bounds.</span>
+
+<span class="sd">    .. note::</span>
+
+<span class="sd">        Elements in data array of the returned cube that lie either partially</span>
+<span class="sd">        or entirely outside of the horizontal extent of the src_cube will</span>
+<span class="sd">        be masked irrespective of the value of mdtol.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">    * src_cube:</span>
+<span class="sd">        An instance of :class:`iris.cube.Cube` that supplies the data,</span>
+<span class="sd">        metadata and coordinates.</span>
+<span class="sd">    * grid_cube:</span>
+<span class="sd">        An instance of :class:`iris.cube.Cube` that supplies the desired</span>
+<span class="sd">        horizontal grid definition.</span>
+
+<span class="sd">    Kwargs:</span>
+
+<span class="sd">    * mdtol:</span>
+<span class="sd">        Tolerance of missing data. The value returned in each element of the</span>
+<span class="sd">        returned cube&#39;s data array will be masked if the fraction of masked</span>
+<span class="sd">        data in the overlapping cells of the source cube exceeds mdtol. This</span>
+<span class="sd">        fraction is calculated based on the area of masked cells within each</span>
+<span class="sd">        target cell. mdtol=0 means no missing data is tolerated while mdtol=1</span>
+<span class="sd">        will mean the resulting element will be masked if and only if all the</span>
+<span class="sd">        overlapping cells of the source cube are masked. Defaults to 0.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A new :class:`iris.cube.Cube` instance.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">regrid_info</span> <span class="o">=</span> <span class="n">_regrid_area_weighted_rectilinear_src_and_grid__prepare</span><span class="p">(</span>
+        <span class="n">src_cube</span><span class="p">,</span> <span class="n">grid_cube</span>
+    <span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">_regrid_area_weighted_rectilinear_src_and_grid__perform</span><span class="p">(</span>
+        <span class="n">src_cube</span><span class="p">,</span> <span class="n">regrid_info</span><span class="p">,</span> <span class="n">mdtol</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span></div>
+
+
+<span class="k">def</span> <span class="nf">_regrid_area_weighted_rectilinear_src_and_grid__prepare</span><span class="p">(</span>
+    <span class="n">src_cube</span><span class="p">,</span> <span class="n">grid_cube</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    First (setup) part of &#39;regrid_area_weighted_rectilinear_src_and_grid&#39;.</span>
+
+<span class="sd">    Check inputs and calculate related info. The &#39;regrid info&#39; returned</span>
+<span class="sd">    can be re-used over many 2d slices.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Get the 1d monotonic (or scalar) src and grid coordinates.</span>
+    <span class="n">src_x</span><span class="p">,</span> <span class="n">src_y</span> <span class="o">=</span> <span class="n">_get_xy_coords</span><span class="p">(</span><span class="n">src_cube</span><span class="p">)</span>
+    <span class="n">grid_x</span><span class="p">,</span> <span class="n">grid_y</span> <span class="o">=</span> <span class="n">_get_xy_coords</span><span class="p">(</span><span class="n">grid_cube</span><span class="p">)</span>
+
+    <span class="c1"># Condition 1: All x and y coordinates must have contiguous bounds to</span>
+    <span class="c1"># define areas.</span>
+    <span class="k">if</span> <span class="p">(</span>
+        <span class="ow">not</span> <span class="n">src_x</span><span class="o">.</span><span class="n">is_contiguous</span><span class="p">()</span>
+        <span class="ow">or</span> <span class="ow">not</span> <span class="n">src_y</span><span class="o">.</span><span class="n">is_contiguous</span><span class="p">()</span>
+        <span class="ow">or</span> <span class="ow">not</span> <span class="n">grid_x</span><span class="o">.</span><span class="n">is_contiguous</span><span class="p">()</span>
+        <span class="ow">or</span> <span class="ow">not</span> <span class="n">grid_y</span><span class="o">.</span><span class="n">is_contiguous</span><span class="p">()</span>
+    <span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">&quot;The horizontal grid coordinates of both the source &quot;</span>
+            <span class="s2">&quot;and grid cubes must have contiguous bounds.&quot;</span>
+        <span class="p">)</span>
+
+    <span class="c1"># Condition 2: Everything must have the same coordinate system.</span>
+    <span class="n">src_cs</span> <span class="o">=</span> <span class="n">src_x</span><span class="o">.</span><span class="n">coord_system</span>
+    <span class="n">grid_cs</span> <span class="o">=</span> <span class="n">grid_x</span><span class="o">.</span><span class="n">coord_system</span>
+    <span class="k">if</span> <span class="n">src_cs</span> <span class="o">!=</span> <span class="n">grid_cs</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">&quot;The horizontal grid coordinates of both the source &quot;</span>
+            <span class="s2">&quot;and grid cubes must have the same coordinate &quot;</span>
+            <span class="s2">&quot;system.&quot;</span>
+        <span class="p">)</span>
+
+    <span class="c1"># Condition 3: cannot create vector coords from scalars.</span>
+    <span class="n">src_x_dims</span> <span class="o">=</span> <span class="n">src_cube</span><span class="o">.</span><span class="n">coord_dims</span><span class="p">(</span><span class="n">src_x</span><span class="p">)</span>
+    <span class="n">src_x_dim</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="n">src_x_dims</span><span class="p">:</span>
+        <span class="n">src_x_dim</span> <span class="o">=</span> <span class="n">src_x_dims</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">src_y_dims</span> <span class="o">=</span> <span class="n">src_cube</span><span class="o">.</span><span class="n">coord_dims</span><span class="p">(</span><span class="n">src_y</span><span class="p">)</span>
+    <span class="n">src_y_dim</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="n">src_y_dims</span><span class="p">:</span>
+        <span class="n">src_y_dim</span> <span class="o">=</span> <span class="n">src_y_dims</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">if</span> <span class="p">(</span>
+        <span class="n">src_x_dim</span> <span class="ow">is</span> <span class="kc">None</span>
+        <span class="ow">and</span> <span class="n">grid_x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">1</span>
+        <span class="ow">or</span> <span class="n">src_y_dim</span> <span class="ow">is</span> <span class="kc">None</span>
+        <span class="ow">and</span> <span class="n">grid_y</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">1</span>
+    <span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">&quot;The horizontal grid coordinates of source cube &quot;</span>
+            <span class="s2">&quot;includes scalar coordinates, but the new grid does &quot;</span>
+            <span class="s2">&quot;not. The new grid must not require additional data &quot;</span>
+            <span class="s2">&quot;dimensions to be created.&quot;</span>
+        <span class="p">)</span>
+
+    <span class="c1"># Determine whether to calculate flat or spherical areas.</span>
+    <span class="c1"># Don&#39;t only rely on coord system as it may be None.</span>
+    <span class="n">spherical</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="nb">isinstance</span><span class="p">(</span>
+            <span class="n">src_cs</span><span class="p">,</span>
+            <span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">coord_systems</span><span class="o">.</span><span class="n">GeogCS</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">coord_systems</span><span class="o">.</span><span class="n">RotatedGeogCS</span><span class="p">),</span>
+        <span class="p">)</span>
+        <span class="ow">or</span> <span class="n">src_x</span><span class="o">.</span><span class="n">units</span> <span class="o">==</span> <span class="s2">&quot;degrees&quot;</span>
+        <span class="ow">or</span> <span class="n">src_x</span><span class="o">.</span><span class="n">units</span> <span class="o">==</span> <span class="s2">&quot;radians&quot;</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Get src and grid bounds in the same units.</span>
+    <span class="n">x_units</span> <span class="o">=</span> <span class="n">cf_units</span><span class="o">.</span><span class="n">Unit</span><span class="p">(</span><span class="s2">&quot;radians&quot;</span><span class="p">)</span> <span class="k">if</span> <span class="n">spherical</span> <span class="k">else</span> <span class="n">src_x</span><span class="o">.</span><span class="n">units</span>
+    <span class="n">y_units</span> <span class="o">=</span> <span class="n">cf_units</span><span class="o">.</span><span class="n">Unit</span><span class="p">(</span><span class="s2">&quot;radians&quot;</span><span class="p">)</span> <span class="k">if</span> <span class="n">spherical</span> <span class="k">else</span> <span class="n">src_y</span><span class="o">.</span><span class="n">units</span>
+
+    <span class="c1"># Operate in highest precision.</span>
+    <span class="n">src_dtype</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">promote_types</span><span class="p">(</span><span class="n">src_x</span><span class="o">.</span><span class="n">bounds</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">src_y</span><span class="o">.</span><span class="n">bounds</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+    <span class="n">grid_dtype</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">promote_types</span><span class="p">(</span><span class="n">grid_x</span><span class="o">.</span><span class="n">bounds</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">grid_y</span><span class="o">.</span><span class="n">bounds</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+    <span class="n">dtype</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">promote_types</span><span class="p">(</span><span class="n">src_dtype</span><span class="p">,</span> <span class="n">grid_dtype</span><span class="p">)</span>
+
+    <span class="n">src_x_bounds</span> <span class="o">=</span> <span class="n">_get_bounds_in_units</span><span class="p">(</span><span class="n">src_x</span><span class="p">,</span> <span class="n">x_units</span><span class="p">,</span> <span class="n">dtype</span><span class="p">)</span>
+    <span class="n">src_y_bounds</span> <span class="o">=</span> <span class="n">_get_bounds_in_units</span><span class="p">(</span><span class="n">src_y</span><span class="p">,</span> <span class="n">y_units</span><span class="p">,</span> <span class="n">dtype</span><span class="p">)</span>
+    <span class="n">grid_x_bounds</span> <span class="o">=</span> <span class="n">_get_bounds_in_units</span><span class="p">(</span><span class="n">grid_x</span><span class="p">,</span> <span class="n">x_units</span><span class="p">,</span> <span class="n">dtype</span><span class="p">)</span>
+    <span class="n">grid_y_bounds</span> <span class="o">=</span> <span class="n">_get_bounds_in_units</span><span class="p">(</span><span class="n">grid_y</span><span class="p">,</span> <span class="n">y_units</span><span class="p">,</span> <span class="n">dtype</span><span class="p">)</span>
+
+    <span class="c1"># Create 2d meshgrids as required by _create_cube func.</span>
+    <span class="n">meshgrid_x</span><span class="p">,</span> <span class="n">meshgrid_y</span> <span class="o">=</span> <span class="n">_meshgrid</span><span class="p">(</span><span class="n">grid_x</span><span class="o">.</span><span class="n">points</span><span class="p">,</span> <span class="n">grid_y</span><span class="o">.</span><span class="n">points</span><span class="p">)</span>
+
+    <span class="c1"># Determine whether target grid bounds are decreasing. This must</span>
+    <span class="c1"># be determined prior to wrap_lons being called.</span>
+    <span class="n">grid_x_decreasing</span> <span class="o">=</span> <span class="n">grid_x_bounds</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">grid_x_bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="n">grid_y_decreasing</span> <span class="o">=</span> <span class="n">grid_y_bounds</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">grid_y_bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+
+    <span class="c1"># Wrapping of longitudes.</span>
+    <span class="k">if</span> <span class="n">spherical</span><span class="p">:</span>
+        <span class="n">base</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">src_x_bounds</span><span class="p">)</span>
+        <span class="n">modulus</span> <span class="o">=</span> <span class="n">x_units</span><span class="o">.</span><span class="n">modulus</span>
+        <span class="c1"># Only wrap if necessary to avoid introducing floating</span>
+        <span class="c1"># point errors.</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">grid_x_bounds</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">base</span> <span class="ow">or</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">grid_x_bounds</span><span class="p">)</span> <span class="o">&gt;</span> <span class="p">(</span>
+            <span class="n">base</span> <span class="o">+</span> <span class="n">modulus</span>
+        <span class="p">):</span>
+            <span class="n">grid_x_bounds</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">cartography</span><span class="o">.</span><span class="n">wrap_lons</span><span class="p">(</span>
+                <span class="n">grid_x_bounds</span><span class="p">,</span> <span class="n">base</span><span class="p">,</span> <span class="n">modulus</span>
+            <span class="p">)</span>
+
+    <span class="c1"># Determine whether the src_x coord has periodic boundary conditions.</span>
+    <span class="n">circular</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">src_x</span><span class="p">,</span> <span class="s2">&quot;circular&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+
+    <span class="c1"># Use simple cartesian area function or one that takes into</span>
+    <span class="c1"># account the curved surface if coord system is spherical.</span>
+    <span class="k">if</span> <span class="n">spherical</span><span class="p">:</span>
+        <span class="n">area_func</span> <span class="o">=</span> <span class="n">_spherical_area</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">area_func</span> <span class="o">=</span> <span class="n">_cartesian_area</span>
+
+    <span class="k">def</span> <span class="nf">_calculate_regrid_area_weighted_weights</span><span class="p">(</span>
+        <span class="n">src_x_bounds</span><span class="p">,</span>
+        <span class="n">src_y_bounds</span><span class="p">,</span>
+        <span class="n">grid_x_bounds</span><span class="p">,</span>
+        <span class="n">grid_y_bounds</span><span class="p">,</span>
+        <span class="n">grid_x_decreasing</span><span class="p">,</span>
+        <span class="n">grid_y_decreasing</span><span class="p">,</span>
+        <span class="n">area_func</span><span class="p">,</span>
+        <span class="n">circular</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Compute the area weights used for area-weighted regridding.</span>
+
+<span class="sd">        Args:</span>
+
+<span class="sd">        * src_x_bounds:</span>
+<span class="sd">            A NumPy array of bounds along the X axis defining the source grid.</span>
+<span class="sd">        * src_y_bounds:</span>
+<span class="sd">            A NumPy array of bounds along the Y axis defining the source grid.</span>
+<span class="sd">        * grid_x_bounds:</span>
+<span class="sd">            A NumPy array of bounds along the X axis defining the new grid.</span>
+<span class="sd">        * grid_y_bounds:</span>
+<span class="sd">            A NumPy array of bounds along the Y axis defining the new grid.</span>
+<span class="sd">        * grid_x_decreasing:</span>
+<span class="sd">            Boolean indicating whether the X coordinate of the new grid is</span>
+<span class="sd">            in descending order.</span>
+<span class="sd">        * grid_y_decreasing:</span>
+<span class="sd">            Boolean indicating whether the Y coordinate of the new grid is</span>
+<span class="sd">            in descending order.</span>
+<span class="sd">        * area_func:</span>
+<span class="sd">            A function that returns an (p, q) array of weights given an (p, 2)</span>
+<span class="sd">            shaped array of Y bounds and an (q, 2) shaped array of X bounds.</span>
+
+<span class="sd">        Kwargs:</span>
+
+<span class="sd">        * circular:</span>
+<span class="sd">            A boolean indicating whether the `src_x_bounds` are periodic.</span>
+<span class="sd">            Default is False.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The area weights to be used for area-weighted regridding.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Determine which grid bounds are within src extent.</span>
+        <span class="n">y_within_bounds</span> <span class="o">=</span> <span class="n">_within_bounds</span><span class="p">(</span>
+            <span class="n">src_y_bounds</span><span class="p">,</span> <span class="n">grid_y_bounds</span><span class="p">,</span> <span class="n">grid_y_decreasing</span>
+        <span class="p">)</span>
+        <span class="n">x_within_bounds</span> <span class="o">=</span> <span class="n">_within_bounds</span><span class="p">(</span>
+            <span class="n">src_x_bounds</span><span class="p">,</span> <span class="n">grid_x_bounds</span><span class="p">,</span> <span class="n">grid_x_decreasing</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Cache which src_bounds are within grid bounds</span>
+        <span class="n">cached_x_bounds</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">cached_x_indices</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">max_x_indices</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">x_0</span><span class="p">,</span> <span class="n">x_1</span><span class="p">)</span> <span class="ow">in</span> <span class="n">grid_x_bounds</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">grid_x_decreasing</span><span class="p">:</span>
+                <span class="n">x_0</span><span class="p">,</span> <span class="n">x_1</span> <span class="o">=</span> <span class="n">x_1</span><span class="p">,</span> <span class="n">x_0</span>
+            <span class="n">x_bounds</span><span class="p">,</span> <span class="n">x_indices</span> <span class="o">=</span> <span class="n">_cropped_bounds</span><span class="p">(</span><span class="n">src_x_bounds</span><span class="p">,</span> <span class="n">x_0</span><span class="p">,</span> <span class="n">x_1</span><span class="p">)</span>
+            <span class="n">cached_x_bounds</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x_bounds</span><span class="p">)</span>
+            <span class="n">cached_x_indices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x_indices</span><span class="p">)</span>
+            <span class="c1"># Keep record of the largest slice</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x_indices</span><span class="p">,</span> <span class="nb">slice</span><span class="p">):</span>
+                <span class="n">x_indices_size</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x_indices</span><span class="o">.</span><span class="n">stop</span> <span class="o">-</span> <span class="n">x_indices</span><span class="o">.</span><span class="n">start</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>  <span class="c1"># is tuple of indices</span>
+                <span class="n">x_indices_size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x_indices</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">x_indices_size</span> <span class="o">&gt;</span> <span class="n">max_x_indices</span><span class="p">:</span>
+                <span class="n">max_x_indices</span> <span class="o">=</span> <span class="n">x_indices_size</span>
+
+        <span class="c1"># Cache which y src_bounds areas and weights are within grid bounds</span>
+        <span class="n">cached_y_indices</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">cached_weights</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">max_y_indices</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="p">(</span><span class="n">y_0</span><span class="p">,</span> <span class="n">y_1</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">grid_y_bounds</span><span class="p">):</span>
+            <span class="c1"># Reverse lower and upper if dest grid is decreasing.</span>
+            <span class="k">if</span> <span class="n">grid_y_decreasing</span><span class="p">:</span>
+                <span class="n">y_0</span><span class="p">,</span> <span class="n">y_1</span> <span class="o">=</span> <span class="n">y_1</span><span class="p">,</span> <span class="n">y_0</span>
+            <span class="n">y_bounds</span><span class="p">,</span> <span class="n">y_indices</span> <span class="o">=</span> <span class="n">_cropped_bounds</span><span class="p">(</span><span class="n">src_y_bounds</span><span class="p">,</span> <span class="n">y_0</span><span class="p">,</span> <span class="n">y_1</span><span class="p">)</span>
+            <span class="n">cached_y_indices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y_indices</span><span class="p">)</span>
+            <span class="c1"># Keep record of the largest slice</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">y_indices</span><span class="p">,</span> <span class="nb">slice</span><span class="p">):</span>
+                <span class="n">y_indices_size</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">y_indices</span><span class="o">.</span><span class="n">stop</span> <span class="o">-</span> <span class="n">y_indices</span><span class="o">.</span><span class="n">start</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>  <span class="c1"># is tuple of indices</span>
+                <span class="n">y_indices_size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_indices</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">y_indices_size</span> <span class="o">&gt;</span> <span class="n">max_y_indices</span><span class="p">:</span>
+                <span class="n">max_y_indices</span> <span class="o">=</span> <span class="n">y_indices_size</span>
+
+            <span class="n">weights_i</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">x_0</span><span class="p">,</span> <span class="n">x_1</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">grid_x_bounds</span><span class="p">):</span>
+                <span class="c1"># Reverse lower and upper if dest grid is decreasing.</span>
+                <span class="k">if</span> <span class="n">grid_x_decreasing</span><span class="p">:</span>
+                    <span class="n">x_0</span><span class="p">,</span> <span class="n">x_1</span> <span class="o">=</span> <span class="n">x_1</span><span class="p">,</span> <span class="n">x_0</span>
+                <span class="n">x_bounds</span> <span class="o">=</span> <span class="n">cached_x_bounds</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="n">x_indices</span> <span class="o">=</span> <span class="n">cached_x_indices</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+                <span class="c1"># Determine whether element i, j overlaps with src and hence</span>
+                <span class="c1"># an area weight should be computed.</span>
+                <span class="c1"># If x_0 &gt; x_1 then we want [0]-&gt;x_1 and x_0-&gt;[0] + mod in the case</span>
+                <span class="c1"># of wrapped longitudes. However if the src grid is not global</span>
+                <span class="c1"># (i.e. circular) this new cell would include a region outside of</span>
+                <span class="c1"># the extent of the src grid and thus the weight is therefore</span>
+                <span class="c1"># invalid.</span>
+                <span class="n">outside_extent</span> <span class="o">=</span> <span class="n">x_0</span> <span class="o">&gt;</span> <span class="n">x_1</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">circular</span>
+                <span class="k">if</span> <span class="p">(</span>
+                    <span class="n">outside_extent</span>
+                    <span class="ow">or</span> <span class="ow">not</span> <span class="n">y_within_bounds</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+                    <span class="ow">or</span> <span class="ow">not</span> <span class="n">x_within_bounds</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="p">):</span>
+                    <span class="n">weights</span> <span class="o">=</span> <span class="kc">False</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="c1"># Calculate weights based on areas of cropped bounds.</span>
+                    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x_indices</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span>
+                        <span class="n">y_indices</span><span class="p">,</span> <span class="nb">tuple</span>
+                    <span class="p">):</span>
+                        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
+                            <span class="s2">&quot;Cannot handle split bounds &quot;</span> <span class="s2">&quot;in both x and y.&quot;</span>
+                        <span class="p">)</span>
+                    <span class="n">weights</span> <span class="o">=</span> <span class="n">area_func</span><span class="p">(</span><span class="n">y_bounds</span><span class="p">,</span> <span class="n">x_bounds</span><span class="p">)</span>
+                <span class="n">weights_i</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span>
+            <span class="n">cached_weights</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">weights_i</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="nb">tuple</span><span class="p">(</span><span class="n">cached_x_indices</span><span class="p">),</span>
+            <span class="nb">tuple</span><span class="p">(</span><span class="n">cached_y_indices</span><span class="p">),</span>
+            <span class="n">max_x_indices</span><span class="p">,</span>
+            <span class="n">max_y_indices</span><span class="p">,</span>
+            <span class="nb">tuple</span><span class="p">(</span><span class="n">cached_weights</span><span class="p">),</span>
+        <span class="p">)</span>
+
+    <span class="n">weights_info</span> <span class="o">=</span> <span class="n">_calculate_regrid_area_weighted_weights</span><span class="p">(</span>
+        <span class="n">src_x_bounds</span><span class="p">,</span>
+        <span class="n">src_y_bounds</span><span class="p">,</span>
+        <span class="n">grid_x_bounds</span><span class="p">,</span>
+        <span class="n">grid_y_bounds</span><span class="p">,</span>
+        <span class="n">grid_x_decreasing</span><span class="p">,</span>
+        <span class="n">grid_y_decreasing</span><span class="p">,</span>
+        <span class="n">area_func</span><span class="p">,</span>
+        <span class="n">circular</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="n">src_x</span><span class="p">,</span>
+        <span class="n">src_y</span><span class="p">,</span>
+        <span class="n">src_x_dim</span><span class="p">,</span>
+        <span class="n">src_y_dim</span><span class="p">,</span>
+        <span class="n">grid_x</span><span class="p">,</span>
+        <span class="n">grid_y</span><span class="p">,</span>
+        <span class="n">meshgrid_x</span><span class="p">,</span>
+        <span class="n">meshgrid_y</span><span class="p">,</span>
+        <span class="n">weights_info</span><span class="p">,</span>
+    <span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_regrid_area_weighted_rectilinear_src_and_grid__perform</span><span class="p">(</span>
+    <span class="n">src_cube</span><span class="p">,</span> <span class="n">regrid_info</span><span class="p">,</span> <span class="n">mdtol</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Second (regrid) part of &#39;regrid_area_weighted_rectilinear_src_and_grid&#39;.</span>
+
+<span class="sd">    Perform the prepared regrid calculation on a single 2d cube.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="p">(</span>
+        <span class="n">src_x</span><span class="p">,</span>
+        <span class="n">src_y</span><span class="p">,</span>
+        <span class="n">src_x_dim</span><span class="p">,</span>
+        <span class="n">src_y_dim</span><span class="p">,</span>
+        <span class="n">grid_x</span><span class="p">,</span>
+        <span class="n">grid_y</span><span class="p">,</span>
+        <span class="n">meshgrid_x</span><span class="p">,</span>
+        <span class="n">meshgrid_y</span><span class="p">,</span>
+        <span class="n">weights_info</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">=</span> <span class="n">regrid_info</span>
+
+    <span class="c1"># Calculate new data array for regridded cube.</span>
+    <span class="n">new_data</span> <span class="o">=</span> <span class="n">_regrid_area_weighted_array</span><span class="p">(</span>
+        <span class="n">src_cube</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">src_x_dim</span><span class="p">,</span> <span class="n">src_y_dim</span><span class="p">,</span> <span class="n">weights_info</span><span class="p">,</span> <span class="n">mdtol</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Wrap up the data as a Cube.</span>
+    <span class="n">regrid_callback</span> <span class="o">=</span> <span class="n">RectilinearRegridder</span><span class="o">.</span><span class="n">_regrid</span>
+    <span class="n">new_cube</span> <span class="o">=</span> <span class="n">RectilinearRegridder</span><span class="o">.</span><span class="n">_create_cube</span><span class="p">(</span>
+        <span class="n">new_data</span><span class="p">,</span>
+        <span class="n">src_cube</span><span class="p">,</span>
+        <span class="n">src_x_dim</span><span class="p">,</span>
+        <span class="n">src_y_dim</span><span class="p">,</span>
+        <span class="n">src_x</span><span class="p">,</span>
+        <span class="n">src_y</span><span class="p">,</span>
+        <span class="n">grid_x</span><span class="p">,</span>
+        <span class="n">grid_y</span><span class="p">,</span>
+        <span class="n">meshgrid_x</span><span class="p">,</span>
+        <span class="n">meshgrid_y</span><span class="p">,</span>
+        <span class="n">regrid_callback</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Slice out any length 1 dimensions.</span>
+    <span class="n">indices</span> <span class="o">=</span> <span class="p">[</span><span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">)]</span> <span class="o">*</span> <span class="n">new_data</span><span class="o">.</span><span class="n">ndim</span>
+    <span class="k">if</span> <span class="n">src_x_dim</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">new_cube</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="n">src_x_dim</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">indices</span><span class="p">[</span><span class="n">src_x_dim</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">if</span> <span class="n">src_y_dim</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">new_cube</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="n">src_y_dim</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">indices</span><span class="p">[</span><span class="n">src_y_dim</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">if</span> <span class="mi">0</span> <span class="ow">in</span> <span class="n">indices</span><span class="p">:</span>
+        <span class="n">new_cube</span> <span class="o">=</span> <span class="n">new_cube</span><span class="p">[</span><span class="nb">tuple</span><span class="p">(</span><span class="n">indices</span><span class="p">)]</span>
+
+    <span class="k">return</span> <span class="n">new_cube</span>
+
+
+<div class="viewcode-block" id="regrid_weighted_curvilinear_to_rectilinear"><a class="viewcode-back" href="../../../generated/api/iris/experimental/regrid.html#iris.experimental.regrid.regrid_weighted_curvilinear_to_rectilinear">[docs]</a><span class="k">def</span> <span class="nf">regrid_weighted_curvilinear_to_rectilinear</span><span class="p">(</span><span class="n">src_cube</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">grid_cube</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return a new cube with the data values calculated using the weighted</span>
+<span class="sd">    mean of data values from :data:`src_cube` and the weights from</span>
+<span class="sd">    :data:`weights` regridded onto the horizontal grid of :data:`grid_cube`.</span>
+
+<span class="sd">    This function requires that the :data:`src_cube` has a horizontal grid</span>
+<span class="sd">    defined by a pair of X- and Y-axis coordinates which are mapped over the</span>
+<span class="sd">    same cube dimensions, thus each point has an individually defined X and</span>
+<span class="sd">    Y coordinate value.  The actual dimensions of these coordinates are of</span>
+<span class="sd">    no significance.</span>
+<span class="sd">    The :data:`src_cube` grid cube must have a normal horizontal grid,</span>
+<span class="sd">    i.e. expressed in terms of two orthogonal 1D horizontal coordinates.</span>
+<span class="sd">    Both grids must be in the same coordinate system, and the :data:`grid_cube`</span>
+<span class="sd">    must have horizontal coordinates that are both bounded and contiguous.</span>
+
+<span class="sd">    Note that, for any given target :data:`grid_cube` cell, only the points</span>
+<span class="sd">    from the :data:`src_cube` that are bound by that cell will contribute to</span>
+<span class="sd">    the cell result. The bounded extent of the :data:`src_cube` will not be</span>
+<span class="sd">    considered here.</span>
+
+<span class="sd">    A target :data:`grid_cube` cell result will be calculated as,</span>
+<span class="sd">    :math:`\sum (src\_cube.data_{ij} * weights_{ij}) / \sum weights_{ij}`, for</span>
+<span class="sd">    all :math:`ij` :data:`src_cube` points that are bound by that cell.</span>
+
+<span class="sd">    .. warning::</span>
+
+<span class="sd">        * All coordinates that span the :data:`src_cube` that don&#39;t define</span>
+<span class="sd">          the horizontal curvilinear grid will be ignored.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">    * src_cube:</span>
+<span class="sd">        A :class:`iris.cube.Cube` instance that defines the source</span>
+<span class="sd">        variable grid to be regridded.</span>
+<span class="sd">    * weights (array or None):</span>
+<span class="sd">        A :class:`numpy.ndarray` instance that defines the weights</span>
+<span class="sd">        for the source variable grid cells. Must have the same shape</span>
+<span class="sd">        as the X and Y coordinates.  If weights is None, all-ones will be used.</span>
+<span class="sd">    * grid_cube:</span>
+<span class="sd">        A :class:`iris.cube.Cube` instance that defines the target</span>
+<span class="sd">        rectilinear grid.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A :class:`iris.cube.Cube` instance.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">regrid_info</span> <span class="o">=</span> <span class="n">_regrid_weighted_curvilinear_to_rectilinear__prepare</span><span class="p">(</span>
+        <span class="n">src_cube</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">grid_cube</span>
+    <span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">_regrid_weighted_curvilinear_to_rectilinear__perform</span><span class="p">(</span>
+        <span class="n">src_cube</span><span class="p">,</span> <span class="n">regrid_info</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span></div>
+
+
+<div class="viewcode-block" id="PointInCell"><a class="viewcode-back" href="../../../generated/api/iris/experimental/regrid.html#iris.experimental.regrid.PointInCell">[docs]</a><span class="k">class</span> <span class="nc">PointInCell</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This class describes the point-in-cell regridding scheme for use</span>
+<span class="sd">    typically with :meth:`iris.cube.Cube.regrid()`.</span>
+
+<span class="sd">    .. warning::</span>
+
+<span class="sd">        This class is now **disabled**.</span>
+
+<span class="sd">        The functionality has been moved to</span>
+<span class="sd">        :class:`iris.analysis.PointInCell`.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Point-in-cell regridding scheme suitable for regridding over one</span>
+<span class="sd">        or more orthogonal coordinates.</span>
+
+<span class="sd">        .. warning::</span>
+
+<span class="sd">            This class is now **disabled**.</span>
+
+<span class="sd">            The functionality has been moved to</span>
+<span class="sd">            :class:`iris.analysis.PointInCell`.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span>
+            <span class="s1">&#39;The class &quot;iris.experimental.PointInCell&quot; has been &#39;</span>
+            <span class="s2">&quot;moved, and is now in iris.analysis&quot;</span>
+            <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Please replace &quot;</span>
+            <span class="s1">&#39;&quot;iris.experimental.PointInCell&quot; with &#39;</span>
+            <span class="s1">&#39;&quot;iris.analysis.PointInCell&quot;.&#39;</span>
+        <span class="p">)</span></div>
+
+
+<span class="k">class</span> <span class="nc">_ProjectedUnstructuredRegridder</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This class provides regridding that uses scipy.interpolate.griddata.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">src_cube</span><span class="p">,</span> <span class="n">tgt_grid_cube</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create a regridder for conversions between the source</span>
+<span class="sd">        and target grids.</span>
+
+<span class="sd">        Args:</span>
+
+<span class="sd">        * src_cube:</span>
+<span class="sd">            The :class:`~iris.cube.Cube` providing the source points.</span>
+<span class="sd">        * tgt_grid_cube:</span>
+<span class="sd">            The :class:`~iris.cube.Cube` providing the target grid.</span>
+<span class="sd">        * method:</span>
+<span class="sd">            Either &#39;linear&#39; or &#39;nearest&#39;.</span>
+<span class="sd">        * projection:</span>
+<span class="sd">            The projection in which the interpolation is performed. If None, a</span>
+<span class="sd">            PlateCarree projection is used. Defaults to None.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Validity checks.</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">src_cube</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">cube</span><span class="o">.</span><span class="n">Cube</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;&#39;src_cube&#39; must be a Cube&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">tgt_grid_cube</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">cube</span><span class="o">.</span><span class="n">Cube</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;&#39;tgt_grid_cube&#39; must be a Cube&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Snapshot the state of the target cube to ensure that the regridder</span>
+        <span class="c1"># is impervious to external changes to the original source cubes.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_tgt_grid</span> <span class="o">=</span> <span class="n">snapshot_grid</span><span class="p">(</span><span class="n">tgt_grid_cube</span><span class="p">)</span>
+
+        <span class="c1"># Check the target grid units.</span>
+        <span class="k">for</span> <span class="n">coord</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tgt_grid</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_check_units</span><span class="p">(</span><span class="n">coord</span><span class="p">)</span>
+
+        <span class="c1"># Whether to use linear or nearest-neighbour interpolation.</span>
+        <span class="k">if</span> <span class="n">method</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;linear&quot;</span><span class="p">,</span> <span class="s2">&quot;nearest&quot;</span><span class="p">):</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Regridding method </span><span class="si">{!r}</span><span class="s2"> not supported.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">method</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_method</span> <span class="o">=</span> <span class="n">method</span>
+
+        <span class="n">src_x_coord</span><span class="p">,</span> <span class="n">src_y_coord</span> <span class="o">=</span> <span class="n">get_xy_coords</span><span class="p">(</span><span class="n">src_cube</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">src_x_coord</span><span class="o">.</span><span class="n">coord_system</span> <span class="o">!=</span> <span class="n">src_y_coord</span><span class="o">.</span><span class="n">coord_system</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;&#39;src_cube&#39; lateral geographic coordinates have &quot;</span>
+                <span class="s2">&quot;differing coordinate sytems.&quot;</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="n">src_x_coord</span><span class="o">.</span><span class="n">coord_system</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;&#39;src_cube&#39; lateral geographic coordinates have &quot;</span>
+                <span class="s2">&quot;no coordinate sytem.&quot;</span>
+            <span class="p">)</span>
+        <span class="n">tgt_x_coord</span><span class="p">,</span> <span class="n">tgt_y_coord</span> <span class="o">=</span> <span class="n">get_xy_dim_coords</span><span class="p">(</span><span class="n">tgt_grid_cube</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">tgt_x_coord</span><span class="o">.</span><span class="n">coord_system</span> <span class="o">!=</span> <span class="n">tgt_y_coord</span><span class="o">.</span><span class="n">coord_system</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;&#39;tgt_grid_cube&#39; lateral geographic coordinates &quot;</span>
+                <span class="s2">&quot;have differing coordinate sytems.&quot;</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="n">tgt_x_coord</span><span class="o">.</span><span class="n">coord_system</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;&#39;tgt_grid_cube&#39; lateral geographic coordinates &quot;</span>
+                <span class="s2">&quot;have no coordinate sytem.&quot;</span>
+            <span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">projection</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">globe</span> <span class="o">=</span> <span class="n">src_x_coord</span><span class="o">.</span><span class="n">coord_system</span><span class="o">.</span><span class="n">as_cartopy_globe</span><span class="p">()</span>
+            <span class="n">projection</span> <span class="o">=</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">Sinusoidal</span><span class="p">(</span><span class="n">globe</span><span class="o">=</span><span class="n">globe</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_projection</span> <span class="o">=</span> <span class="n">projection</span>
+
+    <span class="k">def</span> <span class="nf">_check_units</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">coord</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">coord</span><span class="o">.</span><span class="n">coord_system</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># No restriction on units.</span>
+            <span class="k">pass</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span>
+            <span class="n">coord</span><span class="o">.</span><span class="n">coord_system</span><span class="p">,</span>
+            <span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">coord_systems</span><span class="o">.</span><span class="n">GeogCS</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">coord_systems</span><span class="o">.</span><span class="n">RotatedGeogCS</span><span class="p">),</span>
+        <span class="p">):</span>
+            <span class="c1"># Units for lat-lon or rotated pole must be &#39;degrees&#39;. Note</span>
+            <span class="c1"># that &#39;degrees_east&#39; etc. are equal to &#39;degrees&#39;.</span>
+            <span class="k">if</span> <span class="n">coord</span><span class="o">.</span><span class="n">units</span> <span class="o">!=</span> <span class="s2">&quot;degrees&quot;</span><span class="p">:</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="s2">&quot;Unsupported units for coordinate system. &quot;</span>
+                    <span class="s2">&quot;Expected &#39;degrees&#39; got </span><span class="si">{!r}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">coord</span><span class="o">.</span><span class="n">units</span><span class="p">)</span>
+                <span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Units for other coord systems must be equal to metres.</span>
+            <span class="k">if</span> <span class="n">coord</span><span class="o">.</span><span class="n">units</span> <span class="o">!=</span> <span class="s2">&quot;m&quot;</span><span class="p">:</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="s2">&quot;Unsupported units for coordinate system. &quot;</span>
+                    <span class="s2">&quot;Expected &#39;metres&#39; got </span><span class="si">{!r}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">coord</span><span class="o">.</span><span class="n">units</span><span class="p">)</span>
+                <span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_regrid</span><span class="p">(</span>
+        <span class="n">src_data</span><span class="p">,</span>
+        <span class="n">xy_dim</span><span class="p">,</span>
+        <span class="n">src_x_coord</span><span class="p">,</span>
+        <span class="n">src_y_coord</span><span class="p">,</span>
+        <span class="n">tgt_x_coord</span><span class="p">,</span>
+        <span class="n">tgt_y_coord</span><span class="p">,</span>
+        <span class="n">projection</span><span class="p">,</span>
+        <span class="n">method</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Regrids input data from the source to the target. Calculation is.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Transform coordinates into the projection the interpolation will be</span>
+        <span class="c1"># performed in.</span>
+        <span class="n">src_projection</span> <span class="o">=</span> <span class="n">src_x_coord</span><span class="o">.</span><span class="n">coord_system</span><span class="o">.</span><span class="n">as_cartopy_projection</span><span class="p">()</span>
+        <span class="n">projected_src_points</span> <span class="o">=</span> <span class="n">projection</span><span class="o">.</span><span class="n">transform_points</span><span class="p">(</span>
+            <span class="n">src_projection</span><span class="p">,</span> <span class="n">src_x_coord</span><span class="o">.</span><span class="n">points</span><span class="p">,</span> <span class="n">src_y_coord</span><span class="o">.</span><span class="n">points</span>
+        <span class="p">)</span>
+
+        <span class="n">tgt_projection</span> <span class="o">=</span> <span class="n">tgt_x_coord</span><span class="o">.</span><span class="n">coord_system</span><span class="o">.</span><span class="n">as_cartopy_projection</span><span class="p">()</span>
+        <span class="n">tgt_x</span><span class="p">,</span> <span class="n">tgt_y</span> <span class="o">=</span> <span class="n">_meshgrid</span><span class="p">(</span><span class="n">tgt_x_coord</span><span class="o">.</span><span class="n">points</span><span class="p">,</span> <span class="n">tgt_y_coord</span><span class="o">.</span><span class="n">points</span><span class="p">)</span>
+        <span class="n">projected_tgt_grid</span> <span class="o">=</span> <span class="n">projection</span><span class="o">.</span><span class="n">transform_points</span><span class="p">(</span>
+            <span class="n">tgt_projection</span><span class="p">,</span> <span class="n">tgt_x</span><span class="p">,</span> <span class="n">tgt_y</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Prepare the result data array.</span>
+        <span class="c1"># XXX TODO: Deal with masked src_data</span>
+        <span class="p">(</span><span class="n">tgt_y_shape</span><span class="p">,)</span> <span class="o">=</span> <span class="n">tgt_y_coord</span><span class="o">.</span><span class="n">shape</span>
+        <span class="p">(</span><span class="n">tgt_x_shape</span><span class="p">,)</span> <span class="o">=</span> <span class="n">tgt_x_coord</span><span class="o">.</span><span class="n">shape</span>
+        <span class="n">tgt_shape</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">src_data</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="n">xy_dim</span><span class="p">]</span>
+            <span class="o">+</span> <span class="p">(</span><span class="n">tgt_y_shape</span><span class="p">,)</span>
+            <span class="o">+</span> <span class="p">(</span><span class="n">tgt_x_shape</span><span class="p">,)</span>
+            <span class="o">+</span> <span class="n">src_data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="n">xy_dim</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">:]</span>
+        <span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">tgt_shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">src_data</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+
+        <span class="n">iter_shape</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">src_data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+        <span class="n">iter_shape</span><span class="p">[</span><span class="n">xy_dim</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+        <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">ndindex</span><span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="n">iter_shape</span><span class="p">)):</span>
+            <span class="n">src_index</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+            <span class="n">src_index</span><span class="p">[</span><span class="n">xy_dim</span><span class="p">]</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+            <span class="n">src_subset</span> <span class="o">=</span> <span class="n">src_data</span><span class="p">[</span><span class="nb">tuple</span><span class="p">(</span><span class="n">src_index</span><span class="p">)]</span>
+            <span class="n">tgt_index</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">index</span><span class="p">[:</span><span class="n">xy_dim</span><span class="p">]</span>
+                <span class="o">+</span> <span class="p">(</span><span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">),</span> <span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">))</span>
+                <span class="o">+</span> <span class="n">index</span><span class="p">[</span><span class="n">xy_dim</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">:]</span>
+            <span class="p">)</span>
+            <span class="n">data</span><span class="p">[</span><span class="n">tgt_index</span><span class="p">]</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">interpolate</span><span class="o">.</span><span class="n">griddata</span><span class="p">(</span>
+                <span class="n">projected_src_points</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span><span class="mi">2</span><span class="p">],</span>
+                <span class="n">src_subset</span><span class="p">,</span>
+                <span class="p">(</span><span class="n">projected_tgt_grid</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">projected_tgt_grid</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]),</span>
+                <span class="n">method</span><span class="o">=</span><span class="n">method</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">data</span>
+
+    <span class="k">def</span> <span class="nf">_create_cube</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">data</span><span class="p">,</span>
+        <span class="n">src</span><span class="p">,</span>
+        <span class="n">src_xy_dim</span><span class="p">,</span>
+        <span class="n">src_x_coord</span><span class="p">,</span>
+        <span class="n">src_y_coord</span><span class="p">,</span>
+        <span class="n">grid_x_coord</span><span class="p">,</span>
+        <span class="n">grid_y_coord</span><span class="p">,</span>
+        <span class="n">regrid_callback</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return a new Cube for the result of regridding the source Cube onto</span>
+<span class="sd">        the new grid.</span>
+
+<span class="sd">        All the metadata and coordinates of the result Cube are copied from</span>
+<span class="sd">        the source Cube, with two exceptions:</span>
+<span class="sd">            - Grid dimension coordinates are copied from the grid Cube.</span>
+<span class="sd">            - Auxiliary coordinates which span the grid dimensions are</span>
+<span class="sd">              ignored, except where they provide a reference surface for an</span>
+<span class="sd">              :class:`iris.aux_factory.AuxCoordFactory`.</span>
+
+<span class="sd">        Args:</span>
+
+<span class="sd">        * data:</span>
+<span class="sd">            The regridded data as an N-dimensional NumPy array.</span>
+<span class="sd">        * src:</span>
+<span class="sd">            The source Cube.</span>
+<span class="sd">        * src_xy_dim:</span>
+<span class="sd">            The dimension the X and Y coord span within the source Cube.</span>
+<span class="sd">        * src_x_coord:</span>
+<span class="sd">            The X coordinate (either :class:`iris.coords.AuxCoord` or</span>
+<span class="sd">            :class:`iris.coords.DimCoord`).</span>
+<span class="sd">        * src_y_coord:</span>
+<span class="sd">            The Y coordinate (either :class:`iris.coords.AuxCoord` or</span>
+<span class="sd">            :class:`iris.coords.DimCoord`).</span>
+<span class="sd">        * grid_x_coord:</span>
+<span class="sd">            The :class:`iris.coords.DimCoord` for the new grid&#39;s X</span>
+<span class="sd">            coordinate.</span>
+<span class="sd">        * grid_y_coord:</span>
+<span class="sd">            The :class:`iris.coords.DimCoord` for the new grid&#39;s Y</span>
+<span class="sd">            coordinate.</span>
+<span class="sd">        * regrid_callback:</span>
+<span class="sd">            The routine that will be used to calculate the interpolated</span>
+<span class="sd">            values of any reference surfaces.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The new, regridded Cube.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Create a result cube with the appropriate metadata</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">cube</span><span class="o">.</span><span class="n">Cube</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">metadata</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">src</span><span class="o">.</span><span class="n">metadata</span><span class="p">)</span>
+
+        <span class="c1"># Copy across all the coordinates which don&#39;t span the grid.</span>
+        <span class="c1"># Record a mapping from old coordinate IDs to new coordinates,</span>
+        <span class="c1"># for subsequent use in creating updated aux_factories.</span>
+        <span class="n">coord_mapping</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="k">def</span> <span class="nf">copy_coords</span><span class="p">(</span><span class="n">src_coords</span><span class="p">,</span> <span class="n">add_method</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">coord</span> <span class="ow">in</span> <span class="n">src_coords</span><span class="p">:</span>
+                <span class="n">dims</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">coord_dims</span><span class="p">(</span><span class="n">coord</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">coord</span> <span class="ow">is</span> <span class="n">src_x_coord</span><span class="p">:</span>
+                    <span class="n">coord</span> <span class="o">=</span> <span class="n">grid_x_coord</span>
+                    <span class="c1"># Increase dimensionality to account for 1D coord being</span>
+                    <span class="c1"># regridded onto 2D grid</span>
+                    <span class="n">dims</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">dims</span><span class="p">)</span>
+                    <span class="n">dims</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+                    <span class="n">dims</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">dims</span><span class="p">)</span>
+                    <span class="n">add_method</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">add_dim_coord</span>
+                <span class="k">elif</span> <span class="n">coord</span> <span class="ow">is</span> <span class="n">src_y_coord</span><span class="p">:</span>
+                    <span class="n">coord</span> <span class="o">=</span> <span class="n">grid_y_coord</span>
+                    <span class="n">add_method</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">add_dim_coord</span>
+                <span class="k">elif</span> <span class="n">src_xy_dim</span> <span class="ow">in</span> <span class="n">dims</span><span class="p">:</span>
+                    <span class="k">continue</span>
+                <span class="n">result_coord</span> <span class="o">=</span> <span class="n">coord</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+                <span class="n">add_method</span><span class="p">(</span><span class="n">result_coord</span><span class="p">,</span> <span class="n">dims</span><span class="p">)</span>
+                <span class="n">coord_mapping</span><span class="p">[</span><span class="nb">id</span><span class="p">(</span><span class="n">coord</span><span class="p">)]</span> <span class="o">=</span> <span class="n">result_coord</span>
+
+        <span class="n">copy_coords</span><span class="p">(</span><span class="n">src</span><span class="o">.</span><span class="n">dim_coords</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">add_dim_coord</span><span class="p">)</span>
+        <span class="n">copy_coords</span><span class="p">(</span><span class="n">src</span><span class="o">.</span><span class="n">aux_coords</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">add_aux_coord</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">regrid_reference_surface</span><span class="p">(</span>
+            <span class="n">src_surface_coord</span><span class="p">,</span>
+            <span class="n">surface_dims</span><span class="p">,</span>
+            <span class="n">src_xy_dim</span><span class="p">,</span>
+            <span class="n">src_x_coord</span><span class="p">,</span>
+            <span class="n">src_y_coord</span><span class="p">,</span>
+            <span class="n">grid_x_coord</span><span class="p">,</span>
+            <span class="n">grid_y_coord</span><span class="p">,</span>
+            <span class="n">regrid_callback</span><span class="p">,</span>
+        <span class="p">):</span>
+            <span class="c1"># Determine which of the reference surface&#39;s dimensions span the X</span>
+            <span class="c1"># and Y dimensions of the source cube.</span>
+            <span class="n">surface_xy_dim</span> <span class="o">=</span> <span class="n">surface_dims</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">src_xy_dim</span><span class="p">)</span>
+            <span class="n">surface</span> <span class="o">=</span> <span class="n">regrid_callback</span><span class="p">(</span>
+                <span class="n">src_surface_coord</span><span class="o">.</span><span class="n">points</span><span class="p">,</span>
+                <span class="n">surface_xy_dim</span><span class="p">,</span>
+                <span class="n">src_x_coord</span><span class="p">,</span>
+                <span class="n">src_y_coord</span><span class="p">,</span>
+                <span class="n">grid_x_coord</span><span class="p">,</span>
+                <span class="n">grid_y_coord</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="n">surface_coord</span> <span class="o">=</span> <span class="n">src_surface_coord</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">surface</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">surface_coord</span>
+
+        <span class="c1"># Copy across any AuxFactory instances, and regrid their reference</span>
+        <span class="c1"># surfaces where required.</span>
+        <span class="k">for</span> <span class="n">factory</span> <span class="ow">in</span> <span class="n">src</span><span class="o">.</span><span class="n">aux_factories</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">coord</span> <span class="ow">in</span> <span class="n">factory</span><span class="o">.</span><span class="n">dependencies</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+                <span class="k">if</span> <span class="n">coord</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="k">continue</span>
+                <span class="n">dims</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">coord_dims</span><span class="p">(</span><span class="n">coord</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">src_xy_dim</span> <span class="ow">in</span> <span class="n">dims</span><span class="p">:</span>
+                    <span class="n">result_coord</span> <span class="o">=</span> <span class="n">regrid_reference_surface</span><span class="p">(</span>
+                        <span class="n">coord</span><span class="p">,</span>
+                        <span class="n">dims</span><span class="p">,</span>
+                        <span class="n">src_xy_dim</span><span class="p">,</span>
+                        <span class="n">src_x_coord</span><span class="p">,</span>
+                        <span class="n">src_y_coord</span><span class="p">,</span>
+                        <span class="n">grid_x_coord</span><span class="p">,</span>
+                        <span class="n">grid_y_coord</span><span class="p">,</span>
+                        <span class="n">regrid_callback</span><span class="p">,</span>
+                    <span class="p">)</span>
+                    <span class="n">result</span><span class="o">.</span><span class="n">add_aux_coord</span><span class="p">(</span><span class="n">result_coord</span><span class="p">,</span> <span class="p">(</span><span class="n">dims</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dims</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+                    <span class="n">coord_mapping</span><span class="p">[</span><span class="nb">id</span><span class="p">(</span><span class="n">coord</span><span class="p">)]</span> <span class="o">=</span> <span class="n">result_coord</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">result</span><span class="o">.</span><span class="n">add_aux_factory</span><span class="p">(</span><span class="n">factory</span><span class="o">.</span><span class="n">updated</span><span class="p">(</span><span class="n">coord_mapping</span><span class="p">))</span>
+            <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="s2">&quot;Cannot update aux_factory </span><span class="si">{!r}</span><span class="s2"> because of dropped&quot;</span>
+                    <span class="s2">&quot; coordinates.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">factory</span><span class="o">.</span><span class="n">name</span><span class="p">())</span>
+                <span class="p">)</span>
+                <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span>
+
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">src_cube</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Regrid this :class:`~iris.cube.Cube` on to the target grid of</span>
+<span class="sd">        this :class:`UnstructuredProjectedRegridder`.</span>
+
+<span class="sd">        The given cube must be defined with the same grid as the source</span>
+<span class="sd">        grid used to create this :class:`UnstructuredProjectedRegridder`.</span>
+
+<span class="sd">        Args:</span>
+
+<span class="sd">        * src_cube:</span>
+<span class="sd">            A :class:`~iris.cube.Cube` to be regridded.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            A cube defined with the horizontal dimensions of the target</span>
+<span class="sd">            and the other dimensions from this cube. The data values of</span>
+<span class="sd">            this cube will be converted to values on the new grid using</span>
+<span class="sd">            either nearest-neighbour or linear interpolation.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Validity checks.</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">src_cube</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">cube</span><span class="o">.</span><span class="n">Cube</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;&#39;src&#39; must be a Cube&quot;</span><span class="p">)</span>
+
+        <span class="n">src_x_coord</span><span class="p">,</span> <span class="n">src_y_coord</span> <span class="o">=</span> <span class="n">get_xy_coords</span><span class="p">(</span><span class="n">src_cube</span><span class="p">)</span>
+        <span class="n">tgt_x_coord</span><span class="p">,</span> <span class="n">tgt_y_coord</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tgt_grid</span>
+        <span class="n">src_cs</span> <span class="o">=</span> <span class="n">src_x_coord</span><span class="o">.</span><span class="n">coord_system</span>
+
+        <span class="k">if</span> <span class="n">src_x_coord</span><span class="o">.</span><span class="n">coord_system</span> <span class="o">!=</span> <span class="n">src_y_coord</span><span class="o">.</span><span class="n">coord_system</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;&#39;src&#39; lateral geographic coordinates have &quot;</span>
+                <span class="s2">&quot;differing coordinate sytems.&quot;</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="n">src_cs</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;&#39;src&#39; lateral geographic coordinates have &quot;</span>
+                <span class="s2">&quot;no coordinate sytem.&quot;</span>
+            <span class="p">)</span>
+
+        <span class="c1"># Check the source grid units.</span>
+        <span class="k">for</span> <span class="n">coord</span> <span class="ow">in</span> <span class="p">(</span><span class="n">src_x_coord</span><span class="p">,</span> <span class="n">src_y_coord</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_check_units</span><span class="p">(</span><span class="n">coord</span><span class="p">)</span>
+
+        <span class="p">(</span><span class="n">src_x_dim</span><span class="p">,)</span> <span class="o">=</span> <span class="n">src_cube</span><span class="o">.</span><span class="n">coord_dims</span><span class="p">(</span><span class="n">src_x_coord</span><span class="p">)</span>
+        <span class="p">(</span><span class="n">src_y_dim</span><span class="p">,)</span> <span class="o">=</span> <span class="n">src_cube</span><span class="o">.</span><span class="n">coord_dims</span><span class="p">(</span><span class="n">src_y_coord</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">src_x_dim</span> <span class="o">!=</span> <span class="n">src_y_dim</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;&#39;src&#39; lateral geographic coordinates should map &quot;</span>
+                <span class="s2">&quot;the same dimension.&quot;</span>
+            <span class="p">)</span>
+        <span class="n">src_xy_dim</span> <span class="o">=</span> <span class="n">src_x_dim</span>
+
+        <span class="c1"># Compute the interpolated data values.</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_regrid</span><span class="p">(</span>
+            <span class="n">src_cube</span><span class="o">.</span><span class="n">data</span><span class="p">,</span>
+            <span class="n">src_xy_dim</span><span class="p">,</span>
+            <span class="n">src_x_coord</span><span class="p">,</span>
+            <span class="n">src_y_coord</span><span class="p">,</span>
+            <span class="n">tgt_x_coord</span><span class="p">,</span>
+            <span class="n">tgt_y_coord</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_projection</span><span class="p">,</span>
+            <span class="n">method</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_method</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Wrap up the data as a Cube.</span>
+        <span class="n">regrid_callback</span> <span class="o">=</span> <span class="n">functools</span><span class="o">.</span><span class="n">partial</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_regrid</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_method</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_projection</span>
+        <span class="p">)</span>
+
+        <span class="n">new_cube</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_cube</span><span class="p">(</span>
+            <span class="n">data</span><span class="p">,</span>
+            <span class="n">src_cube</span><span class="p">,</span>
+            <span class="n">src_xy_dim</span><span class="p">,</span>
+            <span class="n">src_x_coord</span><span class="p">,</span>
+            <span class="n">src_y_coord</span><span class="p">,</span>
+            <span class="n">tgt_x_coord</span><span class="p">,</span>
+            <span class="n">tgt_y_coord</span><span class="p">,</span>
+            <span class="n">regrid_callback</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">new_cube</span>
+
+
+<div class="viewcode-block" id="ProjectedUnstructuredLinear"><a class="viewcode-back" href="../../../generated/api/iris/experimental/regrid.html#iris.experimental.regrid.ProjectedUnstructuredLinear">[docs]</a><span class="k">class</span> <span class="nc">ProjectedUnstructuredLinear</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This class describes the linear regridding scheme which uses the</span>
+<span class="sd">    scipy.interpolate.griddata to regrid unstructured data on to a grid.</span>
+
+<span class="sd">    The source cube and the target cube will be projected into a common</span>
+<span class="sd">    projection for the scipy calculation to be performed.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Linear regridding scheme that uses scipy.interpolate.griddata on</span>
+<span class="sd">        projected unstructured data.</span>
+
+<span class="sd">        Optional Args:</span>
+
+<span class="sd">        * projection: `cartopy.crs instance`</span>
+<span class="sd">            The projection that the scipy calculation is performed in.</span>
+<span class="sd">            If None is given, a PlateCarree projection is used. Defaults to</span>
+<span class="sd">            None.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">projection</span> <span class="o">=</span> <span class="n">projection</span>
+
+<div class="viewcode-block" id="ProjectedUnstructuredLinear.regridder"><a class="viewcode-back" href="../../../generated/api/iris/experimental/regrid.html#iris.experimental.regrid.ProjectedUnstructuredLinear.regridder">[docs]</a>    <span class="k">def</span> <span class="nf">regridder</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">src_cube</span><span class="p">,</span> <span class="n">target_grid</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates a linear regridder to perform regridding, using</span>
+<span class="sd">        scipy.interpolate.griddata from unstructured source points to the</span>
+<span class="sd">        target grid. The regridding calculation is performed in the given</span>
+<span class="sd">        projection.</span>
+
+<span class="sd">        Typically you should use :meth:`iris.cube.Cube.regrid` for</span>
+<span class="sd">        regridding a cube. There are, however, some situations when</span>
+<span class="sd">        constructing your own regridder is preferable. These are detailed in</span>
+<span class="sd">        the :ref:`user guide &lt;caching_a_regridder&gt;`.</span>
+
+<span class="sd">        Args:</span>
+
+<span class="sd">        * src_cube:</span>
+<span class="sd">            The :class:`~iris.cube.Cube` defining the unstructured source</span>
+<span class="sd">            points.</span>
+<span class="sd">        * target_grid:</span>
+<span class="sd">            The :class:`~iris.cube.Cube` defining the target grid.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            A callable with the interface:</span>
+
+<span class="sd">                `callable(cube)`</span>
+
+<span class="sd">            where `cube` is a cube with the same grid as `src_cube`</span>
+<span class="sd">            that is to be regridded to the `target_grid`.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">_ProjectedUnstructuredRegridder</span><span class="p">(</span>
+            <span class="n">src_cube</span><span class="p">,</span> <span class="n">target_grid</span><span class="p">,</span> <span class="s2">&quot;linear&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">projection</span>
+        <span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="ProjectedUnstructuredNearest"><a class="viewcode-back" href="../../../generated/api/iris/experimental/regrid.html#iris.experimental.regrid.ProjectedUnstructuredNearest">[docs]</a><span class="k">class</span> <span class="nc">ProjectedUnstructuredNearest</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This class describes the nearest regridding scheme which uses the</span>
+<span class="sd">    scipy.interpolate.griddata to regrid unstructured data on to a grid.</span>
+
+<span class="sd">    The source cube and the target cube will be projected into a common</span>
+<span class="sd">    projection for the scipy calculation to be performed.</span>
+
+<span class="sd">    .. Note::</span>
+<span class="sd">          The :class:`iris.analysis.UnstructuredNearest` scheme performs</span>
+<span class="sd">          essentially the same job.  That calculation is more rigorously</span>
+<span class="sd">          correct and may be applied to larger data regions (including global).</span>
+<span class="sd">          This one however, where applicable, is substantially faster.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Nearest regridding scheme that uses scipy.interpolate.griddata on</span>
+<span class="sd">        projected unstructured data.</span>
+
+<span class="sd">        Optional Args:</span>
+
+<span class="sd">        * projection: `cartopy.crs instance`</span>
+<span class="sd">            The projection that the scipy calculation is performed in.</span>
+<span class="sd">            If None is given, a PlateCarree projection is used. Defaults to</span>
+<span class="sd">            None.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">projection</span> <span class="o">=</span> <span class="n">projection</span>
+
+<div class="viewcode-block" id="ProjectedUnstructuredNearest.regridder"><a class="viewcode-back" href="../../../generated/api/iris/experimental/regrid.html#iris.experimental.regrid.ProjectedUnstructuredNearest.regridder">[docs]</a>    <span class="k">def</span> <span class="nf">regridder</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">src_cube</span><span class="p">,</span> <span class="n">target_grid</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates a nearest-neighbour regridder to perform regridding, using</span>
+<span class="sd">        scipy.interpolate.griddata from unstructured source points to the</span>
+<span class="sd">        target grid. The regridding calculation is performed in the given</span>
+<span class="sd">        projection.</span>
+
+<span class="sd">        Typically you should use :meth:`iris.cube.Cube.regrid` for</span>
+<span class="sd">        regridding a cube. There are, however, some situations when</span>
+<span class="sd">        constructing your own regridder is preferable. These are detailed in</span>
+<span class="sd">        the :ref:`user guide &lt;caching_a_regridder&gt;`.</span>
+
+<span class="sd">        Args:</span>
+
+<span class="sd">        * src_cube:</span>
+<span class="sd">            The :class:`~iris.cube.Cube` defining the unstructured source</span>
+<span class="sd">            points.</span>
+<span class="sd">        * target_grid:</span>
+<span class="sd">            The :class:`~iris.cube.Cube` defining the target grid.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            A callable with the interface:</span>
+
+<span class="sd">                `callable(cube)`</span>
+
+<span class="sd">            where `cube` is a cube with the same grid as `src_cube`</span>
+<span class="sd">            that is to be regridded to the `target_grid`.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">_ProjectedUnstructuredRegridder</span><span class="p">(</span>
+            <span class="n">src_cube</span><span class="p">,</span> <span class="n">target_grid</span><span class="p">,</span> <span class="s2">&quot;nearest&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">projection</span>
+        <span class="p">)</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        
+        &copy; <a href="../../../copyright.html">Copyright</a> Iris contributors
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
