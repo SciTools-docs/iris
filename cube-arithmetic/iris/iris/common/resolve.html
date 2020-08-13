@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>iris.fileformats.name &#8212; Iris 3.0.dev0 documentation</title>
+    <title>iris.common.resolve &#8212; Iris 3.0.dev0 documentation</title>
     <link rel="stylesheet" href="../../../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
@@ -17,8 +17,8 @@
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="copyright" title="Copyright" href="../../../copyright.html" />
-    <link rel="next" title="iris.fileformats.name_loaders" href="name_loaders.html" />
-    <link rel="prev" title="iris.fileformats.dot" href="dot.html" />
+    <link rel="next" title="iris.config" href="../config.html" />
+    <link rel="prev" title="iris.common.mixin" href="mixin.html" />
  
     <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
     <META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE"> 
@@ -65,10 +65,10 @@
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="name_loaders.html" title="iris.fileformats.name_loaders"
+          <a href="../config.html" title="iris.config"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="dot.html" title="iris.fileformats.dot"
+          <a href="mixin.html" title="iris.common.mixin"
              accesskey="P">previous</a> |</li>
         <li><a href="../../../index.html">home</a>|&nbsp;</li>
         <li><a href="../../../examples/index.html">examples</a>|&nbsp;</li>
@@ -76,8 +76,8 @@
         <li><a href="../../../contents.html">contents</a>|&nbsp;</li>
 
           <li class="nav-item nav-item-1"><a href="../../iris.html" >Iris reference documentation</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../fileformats.html" accesskey="U">iris.fileformats</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">iris.fileformats.name</a></li> 
+          <li class="nav-item nav-item-2"><a href="../common.html" accesskey="U">iris.common</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">iris.common.resolve</a></li> 
       </ul>
     </div>
   
@@ -87,42 +87,40 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="iris-fileformats-name">
-<span id="id1"></span><h1>iris.fileformats.name<a class="headerlink" href="#iris-fileformats-name" title="Permalink to this headline">¶</a></h1>
-<span class="target" id="module-iris.fileformats.name"></span><p>Provides NAME file format loading capabilities.</p>
-<p>In this module:</p>
+  <div class="section" id="iris-common-resolve">
+<span id="id1"></span><h1>iris.common.resolve<a class="headerlink" href="#iris-common-resolve" title="Permalink to this headline">¶</a></h1>
+<span class="target" id="module-iris.common.resolve"></span><p>In this module:</p>
 <blockquote>
 <div><ul class="simple">
-<li><p><a class="reference internal" href="#iris.fileformats.name.load_cubes" title="iris.fileformats.name.load_cubes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_cubes</span></code></a></p></li>
+<li><p><a class="reference internal" href="#iris.common.resolve.Resolve" title="iris.common.resolve.Resolve"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Resolve</span></code></a></p></li>
 </ul>
 </div></blockquote>
-<dl class="py function">
-<dt id="iris.fileformats.name.load_cubes">
-<code class="sig-prename descclassname">iris.fileformats.name.</code><code class="sig-name descname">load_cubes</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filenames</span></em>, <em class="sig-param"><span class="n">callback</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.name.load_cubes" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a generator of cubes given one or more filenames and an
-optional callback.</p>
-<p>Args:</p>
-<ul class="simple">
-<li><dl class="simple">
-<dt>filenames (string/list):</dt><dd><p>One or more NAME filenames to load.</p>
-</dd>
-</dl>
-</li>
-</ul>
-<p>Kwargs:</p>
-<ul class="simple">
-<li><dl class="simple">
-<dt>callback (callable function):</dt><dd><p>A function which can be passed on to <a class="reference internal" href="../io.html#iris.io.run_callback" title="iris.io.run_callback"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.io.run_callback()</span></code></a>.</p>
-</dd>
-</dl>
-</li>
-</ul>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>A generator of <code class="xref py py-class docutils literal notranslate"><span class="pre">iris.cubes.Cube</span></code> instances.</p>
-</dd>
-</dl>
+<p>None</p>
+<blockquote>
+<div><dl class="py class">
+<dt id="iris.common.resolve.Resolve">
+<em class="property">class </em><code class="sig-prename descclassname">iris.common.resolve.</code><code class="sig-name descname">Resolve</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lhs</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">rhs</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.resolve.Resolve" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py method">
+<dt id="iris.common.resolve.Resolve.cube">
+<code class="sig-name descname">cube</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">in_place</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.resolve.Resolve.cube" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="iris.common.resolve.Resolve.mapped">
+<em class="property">property </em><code class="sig-name descname">mapped</code><a class="headerlink" href="#iris.common.resolve.Resolve.mapped" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the state of whether all src cube dimensions have been
+associated with relevant tgt cube dimensions.</p>
 </dd></dl>
 
+<dl class="py method">
+<dt id="iris.common.resolve.Resolve.shape">
+<em class="property">property </em><code class="sig-name descname">shape</code><a class="headerlink" href="#iris.common.resolve.Resolve.shape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the shape of the resultant resolved cube.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div></blockquote>
 </div>
 
 
@@ -133,15 +131,15 @@ optional callback.</p>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
-  <p class="topless"><a href="dot.html"
-                        title="previous chapter">iris.fileformats.dot</a></p>
+  <p class="topless"><a href="mixin.html"
+                        title="previous chapter">iris.common.mixin</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="name_loaders.html"
-                        title="next chapter">iris.fileformats.name_loaders</a></p>
+  <p class="topless"><a href="../config.html"
+                        title="next chapter">iris.config</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../../../_sources/iris/iris/fileformats/name.rst.txt"
+      <li><a href="../../../_sources/iris/iris/common/resolve.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -169,10 +167,10 @@ optional callback.</p>
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="name_loaders.html" title="iris.fileformats.name_loaders"
+          <a href="../config.html" title="iris.config"
              >next</a> |</li>
         <li class="right" >
-          <a href="dot.html" title="iris.fileformats.dot"
+          <a href="mixin.html" title="iris.common.mixin"
              >previous</a> |</li>
         <li><a href="../../../index.html">home</a>|&nbsp;</li>
         <li><a href="../../../examples/index.html">examples</a>|&nbsp;</li>
@@ -180,8 +178,8 @@ optional callback.</p>
         <li><a href="../../../contents.html">contents</a>|&nbsp;</li>
 
           <li class="nav-item nav-item-1"><a href="../../iris.html" >Iris reference documentation</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../fileformats.html" >iris.fileformats</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">iris.fileformats.name</a></li> 
+          <li class="nav-item nav-item-2"><a href="../common.html" >iris.common</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">iris.common.resolve</a></li> 
       </ul>
     </div>
 

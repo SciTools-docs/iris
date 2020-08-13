@@ -4,7 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>iris.cube &#8212; Iris 3.0.dev0 documentation</title>
     <link rel="stylesheet" href="../../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -753,8 +753,9 @@ systems within the <a class="reference internal" href="#iris.cube.Cube" title="i
 <p>(b) a coordinate instance with metadata equal to that of
 the desired coordinates. Accepts either a
 <a class="reference internal" href="coords.html#iris.coords.DimCoord" title="iris.coords.DimCoord"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.coords.DimCoord</span></code></a>, <a class="reference internal" href="coords.html#iris.coords.AuxCoord" title="iris.coords.AuxCoord"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.coords.AuxCoord</span></code></a>,
-<a class="reference internal" href="aux_factory.html#iris.aux_factory.AuxCoordFactory" title="iris.aux_factory.AuxCoordFactory"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.aux_factory.AuxCoordFactory</span></code></a>
-or <code class="xref py py-class docutils literal notranslate"><span class="pre">iris.common.CoordMetadata</span></code>.</p>
+<a class="reference internal" href="aux_factory.html#iris.aux_factory.AuxCoordFactory" title="iris.aux_factory.AuxCoordFactory"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.aux_factory.AuxCoordFactory</span></code></a>,
+<code class="xref py py-class docutils literal notranslate"><span class="pre">iris.common.CoordMetadata</span></code> or
+<code class="xref py py-class docutils literal notranslate"><span class="pre">iris.common.DimCoordMetadata</span></code>.</p>
 </dd>
 </dl>
 </li>
@@ -1083,7 +1084,7 @@ in memory.</p>
 
 <dl class="py method">
 <dt id="iris.cube.Cube.name">
-<code class="sig-name descname">name</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">default</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">token</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.cube.Cube.name" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">name</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">default</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">token</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.cube.Cube.name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a string name representing the identity of the metadata.</p>
 <p>First it tries standard name, then it tries the long name, then
 the NetCDF variable name, before falling-back to a default value,

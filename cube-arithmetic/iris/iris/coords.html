@@ -4,7 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>iris.coords &#8212; Iris 3.0.dev0 documentation</title>
     <link rel="stylesheet" href="../../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -219,7 +219,7 @@ returned Array will be a new lazy array wrapper.</p>
 
 <dl class="py method">
 <dt id="iris.coords.AncillaryVariable.name">
-<code class="sig-name descname">name</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">default</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">token</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.AncillaryVariable.name" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">name</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">default</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">token</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.AncillaryVariable.name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a string name representing the identity of the metadata.</p>
 <p>First it tries standard name, then it tries the long name, then
 the NetCDF variable name, before falling-back to a default value,
@@ -601,8 +601,9 @@ indices for the “self” coordinate.</p>
 <p>Args:</p>
 <ul class="simple">
 <li><dl class="simple">
-<dt>other:</dt><dd><p>An instance of <a class="reference internal" href="#iris.coords.Coord" title="iris.coords.Coord"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.coords.Coord</span></code></a> or
-<code class="xref py py-class docutils literal notranslate"><span class="pre">iris.common.CoordMetadata</span></code>.</p>
+<dt>other:</dt><dd><p>An instance of <a class="reference internal" href="#iris.coords.Coord" title="iris.coords.Coord"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.coords.Coord</span></code></a>,
+<code class="xref py py-class docutils literal notranslate"><span class="pre">iris.common.CoordMetadata</span></code> or
+<code class="xref py py-class docutils literal notranslate"><span class="pre">iris.common.DimCoordMetadata</span></code>.</p>
 </dd>
 </dl>
 </li>
@@ -689,7 +690,7 @@ Array will be a new lazy array wrapper.</p>
 
 <dl class="py method">
 <dt id="iris.coords.AuxCoord.name">
-<code class="sig-name descname">name</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">default</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">token</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.AuxCoord.name" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">name</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">default</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">token</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.AuxCoord.name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a string name representing the identity of the metadata.</p>
 <p>First it tries standard name, then it tries the long name, then
 the NetCDF variable name, before falling-back to a default value,
@@ -1060,7 +1061,7 @@ returned Array will be a new lazy array wrapper.</p>
 
 <dl class="py method">
 <dt id="iris.coords.CellMeasure.name">
-<code class="sig-name descname">name</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">default</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">token</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.CellMeasure.name" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">name</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">default</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">token</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.CellMeasure.name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a string name representing the identity of the metadata.</p>
 <p>First it tries standard name, then it tries the long name, then
 the NetCDF variable name, before falling-back to a default value,
@@ -1513,8 +1514,9 @@ indices for the “self” coordinate.</p>
 <p>Args:</p>
 <ul class="simple">
 <li><dl class="simple">
-<dt>other:</dt><dd><p>An instance of <a class="reference internal" href="#iris.coords.Coord" title="iris.coords.Coord"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.coords.Coord</span></code></a> or
-<code class="xref py py-class docutils literal notranslate"><span class="pre">iris.common.CoordMetadata</span></code>.</p>
+<dt>other:</dt><dd><p>An instance of <a class="reference internal" href="#iris.coords.Coord" title="iris.coords.Coord"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.coords.Coord</span></code></a>,
+<code class="xref py py-class docutils literal notranslate"><span class="pre">iris.common.CoordMetadata</span></code> or
+<code class="xref py py-class docutils literal notranslate"><span class="pre">iris.common.DimCoordMetadata</span></code>.</p>
 </dd>
 </dl>
 </li>
@@ -1601,7 +1603,7 @@ Array will be a new lazy array wrapper.</p>
 
 <dl class="py method">
 <dt id="iris.coords.Coord.name">
-<code class="sig-name descname">name</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">default</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">token</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.Coord.name" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">name</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">default</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">token</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.Coord.name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a string name representing the identity of the metadata.</p>
 <p>First it tries standard name, then it tries the long name, then
 the NetCDF variable name, before falling-back to a default value,
@@ -2105,8 +2107,9 @@ indices for the “self” coordinate.</p>
 <p>Args:</p>
 <ul class="simple">
 <li><dl class="simple">
-<dt>other:</dt><dd><p>An instance of <a class="reference internal" href="#iris.coords.Coord" title="iris.coords.Coord"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.coords.Coord</span></code></a> or
-<code class="xref py py-class docutils literal notranslate"><span class="pre">iris.common.CoordMetadata</span></code>.</p>
+<dt>other:</dt><dd><p>An instance of <a class="reference internal" href="#iris.coords.Coord" title="iris.coords.Coord"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.coords.Coord</span></code></a>,
+<code class="xref py py-class docutils literal notranslate"><span class="pre">iris.common.CoordMetadata</span></code> or
+<code class="xref py py-class docutils literal notranslate"><span class="pre">iris.common.DimCoordMetadata</span></code>.</p>
 </dd>
 </dl>
 </li>
@@ -2193,7 +2196,7 @@ Array will be a new lazy array wrapper.</p>
 
 <dl class="py method">
 <dt id="iris.coords.DimCoord.name">
-<code class="sig-name descname">name</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">default</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">token</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.DimCoord.name" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">name</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">default</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">token</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.DimCoord.name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a string name representing the identity of the metadata.</p>
 <p>First it tries standard name, then it tries the long name, then
 the NetCDF variable name, before falling-back to a default value,
@@ -2285,9 +2288,9 @@ or None if no bound values are defined.</p>
 does not have bounds.</p>
 </dd></dl>
 
-<dl class="py attribute">
+<dl class="py method">
 <dt id="iris.coords.DimCoord.circular">
-<code class="sig-name descname">circular</code><a class="headerlink" href="#iris.coords.DimCoord.circular" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">circular</code><a class="headerlink" href="#iris.coords.DimCoord.circular" title="Permalink to this definition">¶</a></dt>
 <dd><p>Whether the coordinate wraps by <code class="docutils literal notranslate"><span class="pre">coord.units.modulus</span></code>.</p>
 </dd></dl>
 
