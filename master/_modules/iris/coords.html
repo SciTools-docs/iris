@@ -256,12 +256,18 @@
 <span class="kn">from</span> <span class="nn">iris._data_manager</span> <span class="kn">import</span> <span class="n">DataManager</span>
 <span class="kn">import</span> <span class="nn">iris._lazy_data</span> <span class="k">as</span> <span class="nn">_lazy</span>
 <span class="kn">import</span> <span class="nn">iris.aux_factory</span>
+<span class="kn">from</span> <span class="nn">iris.common</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">AncillaryVariableMetadata</span><span class="p">,</span>
+    <span class="n">BaseMetadata</span><span class="p">,</span>
+    <span class="n">CFVariableMixin</span><span class="p">,</span>
+    <span class="n">CellMeasureMetadata</span><span class="p">,</span>
+    <span class="n">CoordMetadata</span><span class="p">,</span>
+    <span class="n">DimCoordMetadata</span><span class="p">,</span>
+    <span class="n">metadata_manager_factory</span><span class="p">,</span>
+<span class="p">)</span>
 <span class="kn">import</span> <span class="nn">iris.exceptions</span>
 <span class="kn">import</span> <span class="nn">iris.time</span>
 <span class="kn">import</span> <span class="nn">iris.util</span>
-
-<span class="kn">from</span> <span class="nn">iris._cube_coord_common</span> <span class="kn">import</span> <span class="n">CFVariableMixin</span>
-<span class="kn">from</span> <span class="nn">iris.util</span> <span class="kn">import</span> <span class="n">points_step</span>
 
 
 <span class="k">class</span> <span class="nc">_DimensionalMetadata</span><span class="p">(</span><span class="n">CFVariableMixin</span><span class="p">,</span> <span class="n">metaclass</span><span class="o">=</span><span class="n">ABCMeta</span><span class="p">):</span>
@@ -322,6 +328,10 @@
         <span class="c1"># bounds-related getter/setter properties, and no bounds keywords in</span>
         <span class="c1"># its __init__ or __copy__ methods.  The only bounds-related behaviour</span>
         <span class="c1"># it provides is a &#39;has_bounds()&#39; method, which always returns False.</span>
+
+        <span class="c1"># Configure the metadata manager.</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;_metadata_manager&quot;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_metadata_manager</span> <span class="o">=</span> <span class="n">metadata_manager_factory</span><span class="p">(</span><span class="n">BaseMetadata</span><span class="p">)</span>
 
         <span class="c1">#: CF standard name of the quantity that the metadata represents.</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">standard_name</span> <span class="o">=</span> <span class="n">standard_name</span>
@@ -571,9 +581,9 @@
         <span class="c1"># If the other object has a means of getting its definition, then do</span>
         <span class="c1"># the  comparison, otherwise return a NotImplemented to let Python try</span>
         <span class="c1"># to resolve the operator elsewhere.</span>
-        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="s2">&quot;_as_defn&quot;</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="s2">&quot;metadata&quot;</span><span class="p">):</span>
             <span class="c1"># metadata comparison</span>
-            <span class="n">eq</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_as_defn</span><span class="p">()</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">_as_defn</span><span class="p">()</span>
+            <span class="n">eq</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">metadata</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">metadata</span>
             <span class="c1"># data values comparison</span>
             <span class="k">if</span> <span class="n">eq</span> <span class="ow">and</span> <span class="n">eq</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">NotImplemented</span><span class="p">:</span>
                 <span class="n">eq</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">array_equal</span><span class="p">(</span>
@@ -597,17 +607,6 @@
         <span class="k">if</span> <span class="n">result</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">NotImplemented</span><span class="p">:</span>
             <span class="n">result</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">result</span>
         <span class="k">return</span> <span class="n">result</span>
-
-    <span class="k">def</span> <span class="nf">_as_defn</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">defn</span> <span class="o">=</span> <span class="n">_DMDefn</span><span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">standard_name</span><span class="p">,</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">long_name</span><span class="p">,</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">var_name</span><span class="p">,</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">units</span><span class="p">,</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">attributes</span><span class="p">,</span>
-        <span class="p">)</span>
-
-        <span class="k">return</span> <span class="n">defn</span>
 
     <span class="c1"># Must supply __hash__ as Python 3 does not enable it if __eq__ is defined.</span>
     <span class="c1"># NOTE: Violates &quot;objects which compare equal must have the same hash&quot;.</span>
@@ -945,6 +944,12 @@
 <span class="sd">            A dictionary containing other cf and user-defined attributes.</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Configure the metadata manager.</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;_metadata_manager&quot;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_metadata_manager</span> <span class="o">=</span> <span class="n">metadata_manager_factory</span><span class="p">(</span>
+                <span class="n">AncillaryVariableMetadata</span>
+            <span class="p">)</span>
+
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
             <span class="n">values</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
             <span class="n">standard_name</span><span class="o">=</span><span class="n">standard_name</span><span class="p">,</span>
@@ -1052,6 +1057,9 @@
 <span class="sd">            &#39;area&#39; and &#39;volume&#39;. The default is &#39;area&#39;.</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Configure the metadata manager.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_metadata_manager</span> <span class="o">=</span> <span class="n">metadata_manager_factory</span><span class="p">(</span><span class="n">CellMeasureMetadata</span><span class="p">)</span>
+
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
             <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
             <span class="n">standard_name</span><span class="o">=</span><span class="n">standard_name</span><span class="p">,</span>
@@ -1069,14 +1077,14 @@
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">measure</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_measure</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_metadata_manager</span><span class="o">.</span><span class="n">measure</span>
 
     <span class="nd">@measure</span><span class="o">.</span><span class="n">setter</span>
     <span class="k">def</span> <span class="nf">measure</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">measure</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">measure</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;area&quot;</span><span class="p">,</span> <span class="s2">&quot;volume&quot;</span><span class="p">]:</span>
             <span class="n">emsg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;measure must be &#39;area&#39; or &#39;volume&#39;, got </span><span class="si">{</span><span class="n">measure</span><span class="si">!r}</span><span class="s2">&quot;</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">emsg</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_measure</span> <span class="o">=</span> <span class="n">measure</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_metadata_manager</span><span class="o">.</span><span class="n">measure</span> <span class="o">=</span> <span class="n">measure</span>
 
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">result</span> <span class="o">=</span> <span class="nb">repr</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
@@ -1094,17 +1102,6 @@
             <span class="n">other_metadata</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_repr_other_metadata</span><span class="p">(),</span>
         <span class="p">)</span>
         <span class="k">return</span> <span class="n">result</span>
-
-    <span class="k">def</span> <span class="nf">_as_defn</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">defn</span> <span class="o">=</span> <span class="n">CellMeasureDefn</span><span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">standard_name</span><span class="p">,</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">long_name</span><span class="p">,</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">var_name</span><span class="p">,</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">units</span><span class="p">,</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">attributes</span><span class="p">,</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">measure</span><span class="p">,</span>
-        <span class="p">)</span>
-        <span class="k">return</span> <span class="n">defn</span>
 
 <div class="viewcode-block" id="CellMeasure.cube_dims"><a class="viewcode-back" href="../../generated/api/iris/coords.html#iris.coords.CellMeasure.cube_dims">[docs]</a>    <span class="k">def</span> <span class="nf">cube_dims</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cube</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -1124,160 +1121,6 @@
         <span class="n">element</span><span class="o">.</span><span class="n">setAttribute</span><span class="p">(</span><span class="s2">&quot;measure&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">measure</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">element</span></div></div>
-
-
-<div class="viewcode-block" id="CoordDefn"><a class="viewcode-back" href="../../generated/api/iris/coords.html#iris.coords.CoordDefn">[docs]</a><span class="k">class</span> <span class="nc">CoordDefn</span><span class="p">(</span>
-    <span class="n">namedtuple</span><span class="p">(</span>
-        <span class="s2">&quot;CoordDefn&quot;</span><span class="p">,</span>
-        <span class="p">[</span>
-            <span class="s2">&quot;standard_name&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;long_name&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;var_name&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;units&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;attributes&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;coord_system&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;climatological&quot;</span><span class="p">,</span>
-        <span class="p">],</span>
-    <span class="p">)</span>
-<span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Criterion for identifying a specific type of :class:`DimCoord` or</span>
-<span class="sd">    :class:`AuxCoord` based on its metadata.</span>
-
-<span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="vm">__slots__</span> <span class="o">=</span> <span class="p">()</span>
-
-<div class="viewcode-block" id="CoordDefn.name"><a class="viewcode-back" href="../../generated/api/iris/coords.html#iris.coords.CoordDefn.name">[docs]</a>    <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;unknown&quot;</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Returns a human-readable name.</span>
-
-<span class="sd">        First it tries self.standard_name, then it tries the &#39;long_name&#39;</span>
-<span class="sd">        attribute, then the &#39;var_name&#39; attribute, before falling back to</span>
-<span class="sd">        the value of `default` (which itself defaults to &#39;unknown&#39;).</span>
-
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">standard_name</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">long_name</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">var_name</span> <span class="ow">or</span> <span class="n">default</span></div>
-
-    <span class="k">def</span> <span class="fm">__lt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">CoordDefn</span><span class="p">):</span>
-            <span class="k">return</span> <span class="bp">NotImplemented</span>
-
-        <span class="k">def</span> <span class="nf">_sort_key</span><span class="p">(</span><span class="n">defn</span><span class="p">):</span>
-            <span class="c1"># Emulate Python 2 behaviour with None</span>
-            <span class="k">return</span> <span class="p">(</span>
-                <span class="n">defn</span><span class="o">.</span><span class="n">standard_name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span>
-                <span class="n">defn</span><span class="o">.</span><span class="n">standard_name</span><span class="p">,</span>
-                <span class="n">defn</span><span class="o">.</span><span class="n">long_name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span>
-                <span class="n">defn</span><span class="o">.</span><span class="n">long_name</span><span class="p">,</span>
-                <span class="n">defn</span><span class="o">.</span><span class="n">var_name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span>
-                <span class="n">defn</span><span class="o">.</span><span class="n">var_name</span><span class="p">,</span>
-                <span class="n">defn</span><span class="o">.</span><span class="n">units</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span>
-                <span class="n">defn</span><span class="o">.</span><span class="n">units</span><span class="p">,</span>
-                <span class="n">defn</span><span class="o">.</span><span class="n">coord_system</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span>
-                <span class="n">defn</span><span class="o">.</span><span class="n">coord_system</span><span class="p">,</span>
-            <span class="p">)</span>
-
-        <span class="k">return</span> <span class="n">_sort_key</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">_sort_key</span><span class="p">(</span><span class="n">other</span><span class="p">)</span></div>
-
-
-<div class="viewcode-block" id="CellMeasureDefn"><a class="viewcode-back" href="../../generated/api/iris/coords.html#iris.coords.CellMeasureDefn">[docs]</a><span class="k">class</span> <span class="nc">CellMeasureDefn</span><span class="p">(</span>
-    <span class="n">namedtuple</span><span class="p">(</span>
-        <span class="s2">&quot;CellMeasureDefn&quot;</span><span class="p">,</span>
-        <span class="p">[</span>
-            <span class="s2">&quot;standard_name&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;long_name&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;var_name&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;units&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;attributes&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;measure&quot;</span><span class="p">,</span>
-        <span class="p">],</span>
-    <span class="p">)</span>
-<span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Criterion for identifying a specific type of :class:`CellMeasure`</span>
-<span class="sd">    based on its metadata.</span>
-
-<span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="vm">__slots__</span> <span class="o">=</span> <span class="p">()</span>
-
-<div class="viewcode-block" id="CellMeasureDefn.name"><a class="viewcode-back" href="../../generated/api/iris/coords.html#iris.coords.CellMeasureDefn.name">[docs]</a>    <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;unknown&quot;</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Returns a human-readable name.</span>
-
-<span class="sd">        First it tries self.standard_name, then it tries the &#39;long_name&#39;</span>
-<span class="sd">        attribute, then the &#39;var_name&#39; attribute, before falling back to</span>
-<span class="sd">        the value of `default` (which itself defaults to &#39;unknown&#39;).</span>
-
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">standard_name</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">long_name</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">var_name</span> <span class="ow">or</span> <span class="n">default</span></div>
-
-    <span class="k">def</span> <span class="fm">__lt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">CellMeasureDefn</span><span class="p">):</span>
-            <span class="k">return</span> <span class="bp">NotImplemented</span>
-
-        <span class="k">def</span> <span class="nf">_sort_key</span><span class="p">(</span><span class="n">defn</span><span class="p">):</span>
-            <span class="c1"># Emulate Python 2 behaviour with None</span>
-            <span class="k">return</span> <span class="p">(</span>
-                <span class="n">defn</span><span class="o">.</span><span class="n">standard_name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span>
-                <span class="n">defn</span><span class="o">.</span><span class="n">standard_name</span><span class="p">,</span>
-                <span class="n">defn</span><span class="o">.</span><span class="n">long_name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span>
-                <span class="n">defn</span><span class="o">.</span><span class="n">long_name</span><span class="p">,</span>
-                <span class="n">defn</span><span class="o">.</span><span class="n">var_name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span>
-                <span class="n">defn</span><span class="o">.</span><span class="n">var_name</span><span class="p">,</span>
-                <span class="n">defn</span><span class="o">.</span><span class="n">units</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span>
-                <span class="n">defn</span><span class="o">.</span><span class="n">units</span><span class="p">,</span>
-                <span class="n">defn</span><span class="o">.</span><span class="n">measure</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span>
-                <span class="n">defn</span><span class="o">.</span><span class="n">measure</span><span class="p">,</span>
-            <span class="p">)</span>
-
-        <span class="k">return</span> <span class="n">_sort_key</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">_sort_key</span><span class="p">(</span><span class="n">other</span><span class="p">)</span></div>
-
-
-<span class="k">class</span> <span class="nc">_DMDefn</span><span class="p">(</span>
-    <span class="n">namedtuple</span><span class="p">(</span>
-        <span class="s2">&quot;DMDefn&quot;</span><span class="p">,</span>
-        <span class="p">[</span><span class="s2">&quot;standard_name&quot;</span><span class="p">,</span> <span class="s2">&quot;long_name&quot;</span><span class="p">,</span> <span class="s2">&quot;var_name&quot;</span><span class="p">,</span> <span class="s2">&quot;units&quot;</span><span class="p">,</span> <span class="s2">&quot;attributes&quot;</span><span class="p">,],</span>
-    <span class="p">)</span>
-<span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Criterion for identifying a specific type of :class:`_DimensionalMetadata`</span>
-<span class="sd">    based on its metadata.</span>
-
-<span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="vm">__slots__</span> <span class="o">=</span> <span class="p">()</span>
-
-    <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;unknown&quot;</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Returns a human-readable name.</span>
-
-<span class="sd">        First it tries self.standard_name, then it tries the &#39;long_name&#39;</span>
-<span class="sd">        attribute, then the &#39;var_name&#39; attribute, before falling back to</span>
-<span class="sd">        the value of `default` (which itself defaults to &#39;unknown&#39;).</span>
-
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">standard_name</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">long_name</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">var_name</span> <span class="ow">or</span> <span class="n">default</span>
-
-    <span class="k">def</span> <span class="fm">__lt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">_DMDefn</span><span class="p">):</span>
-            <span class="k">return</span> <span class="bp">NotImplemented</span>
-
-        <span class="k">def</span> <span class="nf">_sort_key</span><span class="p">(</span><span class="n">defn</span><span class="p">):</span>
-            <span class="c1"># Emulate Python 2 behaviour with None</span>
-            <span class="k">return</span> <span class="p">(</span>
-                <span class="n">defn</span><span class="o">.</span><span class="n">standard_name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span>
-                <span class="n">defn</span><span class="o">.</span><span class="n">standard_name</span><span class="p">,</span>
-                <span class="n">defn</span><span class="o">.</span><span class="n">long_name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span>
-                <span class="n">defn</span><span class="o">.</span><span class="n">long_name</span><span class="p">,</span>
-                <span class="n">defn</span><span class="o">.</span><span class="n">var_name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span>
-                <span class="n">defn</span><span class="o">.</span><span class="n">var_name</span><span class="p">,</span>
-                <span class="n">defn</span><span class="o">.</span><span class="n">units</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span>
-                <span class="n">defn</span><span class="o">.</span><span class="n">units</span><span class="p">,</span>
-            <span class="p">)</span>
-
-        <span class="k">return</span> <span class="n">_sort_key</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">_sort_key</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
 
 
 <div class="viewcode-block" id="CoordExtent"><a class="viewcode-back" href="../../generated/api/iris/coords.html#iris.coords.CoordExtent">[docs]</a><span class="k">class</span> <span class="nc">CoordExtent</span><span class="p">(</span>
@@ -1721,7 +1564,12 @@
 <span class="sd">            Will set to True when a climatological time axis is loaded</span>
 <span class="sd">            from NetCDF.</span>
 <span class="sd">            Always False if no bounds exist.</span>
+
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Configure the metadata manager.</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;_metadata_manager&quot;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_metadata_manager</span> <span class="o">=</span> <span class="n">metadata_manager_factory</span><span class="p">(</span><span class="n">CoordMetadata</span><span class="p">)</span>
+
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
             <span class="n">values</span><span class="o">=</span><span class="n">points</span><span class="p">,</span>
             <span class="n">standard_name</span><span class="o">=</span><span class="n">standard_name</span><span class="p">,</span>
@@ -1820,7 +1668,7 @@
         <span class="c1"># Ensure the bounds are a compatible shape.</span>
         <span class="k">if</span> <span class="n">bounds</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_bounds_dm</span> <span class="o">=</span> <span class="kc">None</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_climatological</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">climatological</span> <span class="o">=</span> <span class="kc">False</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">bounds</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sanitise_array</span><span class="p">(</span><span class="n">bounds</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">shape</span> <span class="o">!=</span> <span class="n">bounds</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
@@ -1837,6 +1685,15 @@
                 <span class="bp">self</span><span class="o">.</span><span class="n">_bounds_dm</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">bounds</span>
 
     <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">coord_system</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;The coordinate-system of the coordinate.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_metadata_manager</span><span class="o">.</span><span class="n">coord_system</span>
+
+    <span class="nd">@coord_system</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">coord_system</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_metadata_manager</span><span class="o">.</span><span class="n">coord_system</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">climatological</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        A boolean that controls whether the coordinate is a climatological</span>
@@ -1846,8 +1703,13 @@
 <span class="sd">        Always reads as False if there are no bounds.</span>
 <span class="sd">        On set, the input value is cast to a boolean, exceptions raised</span>
 <span class="sd">        if units are not time units or if there are no bounds.</span>
+
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_climatological</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">has_bounds</span><span class="p">()</span> <span class="k">else</span> <span class="kc">False</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">has_bounds</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_metadata_manager</span><span class="o">.</span><span class="n">climatological</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">units</span><span class="o">.</span><span class="n">is_time_reference</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_metadata_manager</span><span class="o">.</span><span class="n">climatological</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_metadata_manager</span><span class="o">.</span><span class="n">climatological</span>
 
     <span class="nd">@climatological</span><span class="o">.</span><span class="n">setter</span>
     <span class="k">def</span> <span class="nf">climatological</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
@@ -1865,7 +1727,7 @@
                 <span class="n">emsg</span> <span class="o">=</span> <span class="s2">&quot;Cannot set climatological coordinate, no bounds exist.&quot;</span>
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">emsg</span><span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">_climatological</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_metadata_manager</span><span class="o">.</span><span class="n">climatological</span> <span class="o">=</span> <span class="n">value</span>
 
 <div class="viewcode-block" id="Coord.lazy_points"><a class="viewcode-back" href="../../generated/api/iris/coords.html#iris.coords.Coord.lazy_points">[docs]</a>    <span class="k">def</span> <span class="nf">lazy_points</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -1952,18 +1814,6 @@
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">climatological</span><span class="p">:</span>
             <span class="n">result</span> <span class="o">+=</span> <span class="s2">&quot;, climatological=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">climatological</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">result</span>
-
-    <span class="k">def</span> <span class="nf">_as_defn</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">defn</span> <span class="o">=</span> <span class="n">CoordDefn</span><span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">standard_name</span><span class="p">,</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">long_name</span><span class="p">,</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">var_name</span><span class="p">,</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">units</span><span class="p">,</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">attributes</span><span class="p">,</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">coord_system</span><span class="p">,</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">climatological</span><span class="p">,</span>
-        <span class="p">)</span>
-        <span class="k">return</span> <span class="n">defn</span>
 
     <span class="c1"># Must supply __hash__ as Python 3 does not enable it if __eq__ is defined.</span>
     <span class="c1"># NOTE: Violates &quot;objects which compare equal must have the same hash&quot;.</span>
@@ -2217,8 +2067,9 @@
 <span class="sd">        Args:</span>
 
 <span class="sd">        * other:</span>
-<span class="sd">            An instance of :class:`iris.coords.Coord` or</span>
-<span class="sd">            :class:`iris.coords.CoordDefn`.</span>
+<span class="sd">            An instance of :class:`iris.coords.Coord`,</span>
+<span class="sd">            :class:`iris.common.CoordMetadata` or</span>
+<span class="sd">            :class:`iris.common.DimCoordMetadata`.</span>
 <span class="sd">        * ignore:</span>
 <span class="sd">           A single attribute key or iterable of attribute keys to ignore when</span>
 <span class="sd">           comparing the coordinates. Default is None. To ignore all</span>
@@ -2673,7 +2524,7 @@
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">points</span> <span class="o">=</span> <span class="p">(</span><span class="n">zeroth</span> <span class="o">+</span> <span class="n">step</span><span class="p">)</span> <span class="o">+</span> <span class="n">step</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">count</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
-        <span class="n">_</span><span class="p">,</span> <span class="n">regular</span> <span class="o">=</span> <span class="n">points_step</span><span class="p">(</span><span class="n">points</span><span class="p">)</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">regular</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">points_step</span><span class="p">(</span><span class="n">points</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">regular</span><span class="p">:</span>
             <span class="n">points</span> <span class="o">=</span> <span class="p">(</span><span class="n">zeroth</span> <span class="o">+</span> <span class="n">step</span><span class="p">)</span> <span class="o">+</span> <span class="n">step</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span>
                 <span class="n">count</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span>
@@ -2717,6 +2568,9 @@
 <span class="sd">        read-only points and bounds.</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Configure the metadata manager.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_metadata_manager</span> <span class="o">=</span> <span class="n">metadata_manager_factory</span><span class="p">(</span><span class="n">DimCoordMetadata</span><span class="p">)</span>
+
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
             <span class="n">points</span><span class="p">,</span>
             <span class="n">standard_name</span><span class="o">=</span><span class="n">standard_name</span><span class="p">,</span>
@@ -2730,7 +2584,7 @@
         <span class="p">)</span>
 
         <span class="c1">#: Whether the coordinate wraps by ``coord.units.modulus``.</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">circular</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="n">circular</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">circular</span> <span class="o">=</span> <span class="n">circular</span>
 
     <span class="k">def</span> <span class="nf">__deepcopy__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">memo</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -2746,6 +2600,14 @@
             <span class="n">new_coord</span><span class="o">.</span><span class="n">_bounds_dm</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">flags</span><span class="o">.</span><span class="n">writeable</span> <span class="o">=</span> <span class="kc">False</span>
         <span class="k">return</span> <span class="n">new_coord</span>
 
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">circular</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_metadata_manager</span><span class="o">.</span><span class="n">circular</span>
+
+    <span class="nd">@circular</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">circular</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">circular</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_metadata_manager</span><span class="o">.</span><span class="n">circular</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="n">circular</span><span class="p">)</span>
+
 <div class="viewcode-block" id="DimCoord.copy"><a class="viewcode-back" href="../../generated/api/iris/coords.html#iris.coords.DimCoord.copy">[docs]</a>    <span class="k">def</span> <span class="nf">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">bounds</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="n">new_coord</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">points</span><span class="o">=</span><span class="n">points</span><span class="p">,</span> <span class="n">bounds</span><span class="o">=</span><span class="n">bounds</span><span class="p">)</span>
         <span class="c1"># Make the arrays read-only.</span>
@@ -2755,13 +2617,13 @@
         <span class="k">return</span> <span class="n">new_coord</span></div>
 
     <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-        <span class="c1"># TODO investigate equality of AuxCoord and DimCoord if circular is</span>
-        <span class="c1"># False.</span>
         <span class="n">result</span> <span class="o">=</span> <span class="bp">NotImplemented</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">DimCoord</span><span class="p">):</span>
-            <span class="n">result</span> <span class="o">=</span> <span class="p">(</span>
-                <span class="n">Coord</span><span class="o">.</span><span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">circular</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">circular</span>
-            <span class="p">)</span>
+            <span class="c1"># The &quot;circular&quot; member participates in DimCoord to DimCoord</span>
+            <span class="c1"># equivalence. We require to do this explicitly here</span>
+            <span class="c1"># as the &quot;circular&quot; member does NOT participate in</span>
+            <span class="c1"># DimCoordMetadata to DimCoordMetadata equivalence.</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">circular</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">circular</span> <span class="ow">and</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__eq__</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">result</span>
 
     <span class="c1"># The __ne__ operator from Coord implements the not __eq__ method.</span>
@@ -3010,19 +2872,20 @@
                 <span class="s2">&quot;&#39;method&#39; must be a string - got a &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="nb">type</span><span class="p">(</span><span class="n">method</span><span class="p">)</span>
             <span class="p">)</span>
 
-        <span class="n">default_name</span> <span class="o">=</span> <span class="n">CFVariableMixin</span><span class="o">.</span><span class="n">_DEFAULT_NAME</span>
+        <span class="n">default_name</span> <span class="o">=</span> <span class="n">BaseMetadata</span><span class="o">.</span><span class="n">DEFAULT_NAME</span>
         <span class="n">_coords</span> <span class="o">=</span> <span class="p">[]</span>
+
         <span class="k">if</span> <span class="n">coords</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">pass</span>
         <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">coords</span><span class="p">,</span> <span class="n">Coord</span><span class="p">):</span>
             <span class="n">_coords</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">coords</span><span class="o">.</span><span class="n">name</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
         <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">coords</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-            <span class="n">_coords</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">CFVariableMixin</span><span class="o">.</span><span class="n">token</span><span class="p">(</span><span class="n">coords</span><span class="p">)</span> <span class="ow">or</span> <span class="n">default_name</span><span class="p">)</span>
+            <span class="n">_coords</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">BaseMetadata</span><span class="o">.</span><span class="n">token</span><span class="p">(</span><span class="n">coords</span><span class="p">)</span> <span class="ow">or</span> <span class="n">default_name</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">normalise</span> <span class="o">=</span> <span class="p">(</span>
                 <span class="k">lambda</span> <span class="n">coord</span><span class="p">:</span> <span class="n">coord</span><span class="o">.</span><span class="n">name</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
                 <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">coord</span><span class="p">,</span> <span class="n">Coord</span><span class="p">)</span>
-                <span class="k">else</span> <span class="n">CFVariableMixin</span><span class="o">.</span><span class="n">token</span><span class="p">(</span><span class="n">coord</span><span class="p">)</span> <span class="ow">or</span> <span class="n">default_name</span>
+                <span class="k">else</span> <span class="n">BaseMetadata</span><span class="o">.</span><span class="n">token</span><span class="p">(</span><span class="n">coord</span><span class="p">)</span> <span class="ow">or</span> <span class="n">default_name</span>
             <span class="p">)</span>
             <span class="n">_coords</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">normalise</span><span class="p">(</span><span class="n">coord</span><span class="p">)</span> <span class="k">for</span> <span class="n">coord</span> <span class="ow">in</span> <span class="n">coords</span><span class="p">])</span>
 

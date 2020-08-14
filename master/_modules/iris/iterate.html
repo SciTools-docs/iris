@@ -533,12 +533,13 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_coord</span> <span class="o">=</span> <span class="n">coord</span>
 
     <span class="c1"># Methods of contained class we need to expose/use.</span>
-    <span class="k">def</span> <span class="nf">_as_defn</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_coord</span><span class="o">.</span><span class="n">_as_defn</span><span class="p">()</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_coord</span><span class="o">.</span><span class="n">metadata</span>
 
-    <span class="c1"># Methods of contained class we want to overide/customise.</span>
+    <span class="c1"># Methods of contained class we want to override/customise.</span>
     <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_coord</span><span class="o">.</span><span class="n">_as_defn</span><span class="p">()</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">_as_defn</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_coord</span><span class="o">.</span><span class="n">metadata</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">metadata</span>
 
     <span class="c1"># Force use of __eq__ for set operations.</span>
     <span class="k">def</span> <span class="fm">__hash__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>

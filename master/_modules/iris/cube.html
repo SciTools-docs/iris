@@ -240,7 +240,7 @@
 
 <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span><span class="p">,</span> <span class="n">OrderedDict</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
 <span class="kn">from</span> <span class="nn">collections.abc</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">Iterable</span><span class="p">,</span>
     <span class="n">Container</span><span class="p">,</span>
@@ -260,56 +260,29 @@
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">numpy.ma</span> <span class="k">as</span> <span class="nn">ma</span>
 
-<span class="kn">from</span> <span class="nn">iris._cube_coord_common</span> <span class="kn">import</span> <span class="n">CFVariableMixin</span>
 <span class="kn">import</span> <span class="nn">iris._concatenate</span>
 <span class="kn">import</span> <span class="nn">iris._constraints</span>
 <span class="kn">from</span> <span class="nn">iris._data_manager</span> <span class="kn">import</span> <span class="n">DataManager</span>
 <span class="kn">import</span> <span class="nn">iris._lazy_data</span> <span class="k">as</span> <span class="nn">_lazy</span>
-
 <span class="kn">import</span> <span class="nn">iris._merge</span>
 <span class="kn">import</span> <span class="nn">iris.analysis</span>
 <span class="kn">from</span> <span class="nn">iris.analysis.cartography</span> <span class="kn">import</span> <span class="n">wrap_lons</span>
 <span class="kn">import</span> <span class="nn">iris.analysis.maths</span>
 <span class="kn">import</span> <span class="nn">iris.aux_factory</span>
+<span class="kn">from</span> <span class="nn">iris.common</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">CFVariableMixin</span><span class="p">,</span>
+    <span class="n">CoordMetadata</span><span class="p">,</span>
+    <span class="n">CubeMetadata</span><span class="p">,</span>
+    <span class="n">DimCoordMetadata</span><span class="p">,</span>
+    <span class="n">metadata_manager_factory</span><span class="p">,</span>
+<span class="p">)</span>
 <span class="kn">import</span> <span class="nn">iris.coord_systems</span>
 <span class="kn">import</span> <span class="nn">iris.coords</span>
 <span class="kn">import</span> <span class="nn">iris.exceptions</span>
 <span class="kn">import</span> <span class="nn">iris.util</span>
 
 
-<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Cube&quot;</span><span class="p">,</span> <span class="s2">&quot;CubeList&quot;</span><span class="p">,</span> <span class="s2">&quot;CubeMetadata&quot;</span><span class="p">]</span>
-
-
-<div class="viewcode-block" id="CubeMetadata"><a class="viewcode-back" href="../../generated/api/iris/cube.html#iris.cube.CubeMetadata">[docs]</a><span class="k">class</span> <span class="nc">CubeMetadata</span><span class="p">(</span>
-    <span class="n">namedtuple</span><span class="p">(</span>
-        <span class="s2">&quot;CubeMetadata&quot;</span><span class="p">,</span>
-        <span class="p">[</span>
-            <span class="s2">&quot;standard_name&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;long_name&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;var_name&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;units&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;attributes&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;cell_methods&quot;</span><span class="p">,</span>
-        <span class="p">],</span>
-    <span class="p">)</span>
-<span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Represents the phenomenon metadata for a single :class:`Cube`.</span>
-
-<span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="vm">__slots__</span> <span class="o">=</span> <span class="p">()</span>
-
-<div class="viewcode-block" id="CubeMetadata.name"><a class="viewcode-back" href="../../generated/api/iris/cube.html#iris.cube.CubeMetadata.name">[docs]</a>    <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;unknown&quot;</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Returns a human-readable name.</span>
-
-<span class="sd">        First it tries self.standard_name, then it tries the &#39;long_name&#39;</span>
-<span class="sd">        attribute, then the &#39;var_name&#39; attribute, before falling back to</span>
-<span class="sd">        the value of `default` (which itself defaults to &#39;unknown&#39;).</span>
-
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">standard_name</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">long_name</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">var_name</span> <span class="ow">or</span> <span class="n">default</span></div></div>
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Cube&quot;</span><span class="p">,</span> <span class="s2">&quot;CubeList&quot;</span><span class="p">]</span>
 
 
 <span class="c1"># The XML namespace to use for CubeML documents</span>
@@ -1095,6 +1068,9 @@
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Invalid data type: </span><span class="si">{!r}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
 
+        <span class="c1"># Configure the metadata manager.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_metadata_manager</span> <span class="o">=</span> <span class="n">metadata_manager_factory</span><span class="p">(</span><span class="n">CubeMetadata</span><span class="p">)</span>
+
         <span class="c1"># Initialise the cube data manager.</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_data_manager</span> <span class="o">=</span> <span class="n">DataManager</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 
@@ -1161,43 +1137,15 @@
                 <span class="bp">self</span><span class="o">.</span><span class="n">add_ancillary_variable</span><span class="p">(</span><span class="n">ancillary_variable</span><span class="p">,</span> <span class="n">dims</span><span class="p">)</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_names</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        An instance of :class:`CubeMetadata` describing the phenomenon.</span>
-
-<span class="sd">        This property can be updated with any of:</span>
-<span class="sd">         - another :class:`CubeMetadata` instance,</span>
-<span class="sd">         - a tuple/dict which can be used to make a :class:`CubeMetadata`,</span>
-<span class="sd">         - or any object providing the attributes exposed by</span>
-<span class="sd">           :class:`CubeMetadata`.</span>
+<span class="sd">        A tuple containing the value of each name participating in the identity</span>
+<span class="sd">        of a :class:`iris.cube.Cube`. This includes the standard name,</span>
+<span class="sd">        long name, NetCDF variable name, and the STASH from the attributes</span>
+<span class="sd">        dictionary.</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">CubeMetadata</span><span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">standard_name</span><span class="p">,</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">long_name</span><span class="p">,</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">var_name</span><span class="p">,</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">units</span><span class="p">,</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">attributes</span><span class="p">,</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">cell_methods</span><span class="p">,</span>
-        <span class="p">)</span>
-
-    <span class="nd">@metadata</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="k">try</span><span class="p">:</span>
-            <span class="n">value</span> <span class="o">=</span> <span class="n">CubeMetadata</span><span class="p">(</span><span class="o">**</span><span class="n">value</span><span class="p">)</span>
-        <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
-            <span class="k">try</span><span class="p">:</span>
-                <span class="n">value</span> <span class="o">=</span> <span class="n">CubeMetadata</span><span class="p">(</span><span class="o">*</span><span class="n">value</span><span class="p">)</span>
-            <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
-                <span class="n">missing_attrs</span> <span class="o">=</span> <span class="p">[</span>
-                    <span class="n">field</span>
-                    <span class="k">for</span> <span class="n">field</span> <span class="ow">in</span> <span class="n">CubeMetadata</span><span class="o">.</span><span class="n">_fields</span>
-                    <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">field</span><span class="p">)</span>
-                <span class="p">]</span>
-                <span class="k">if</span> <span class="n">missing_attrs</span><span class="p">:</span>
-                    <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Invalid/incomplete metadata&quot;</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">CubeMetadata</span><span class="o">.</span><span class="n">_fields</span><span class="p">:</span>
-            <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_metadata_manager</span><span class="o">.</span><span class="n">_names</span>
 
 <div class="viewcode-block" id="Cube.is_compatible"><a class="viewcode-back" href="../../generated/api/iris/cube.html#iris.cube.Cube.is_compatible">[docs]</a>    <span class="k">def</span> <span class="nf">is_compatible</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">,</span> <span class="n">ignore</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -1417,7 +1365,7 @@
         <span class="n">data_dims</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_check_multi_dim_metadata</span><span class="p">(</span><span class="n">cell_measure</span><span class="p">,</span> <span class="n">data_dims</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_cell_measures_and_dims</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">cell_measure</span><span class="p">,</span> <span class="n">data_dims</span><span class="p">))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_cell_measures_and_dims</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span>
-            <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">cm_dims</span><span class="p">:</span> <span class="p">(</span><span class="n">cm_dims</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">_as_defn</span><span class="p">(),</span> <span class="n">cm_dims</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">cm_dims</span><span class="p">:</span> <span class="p">(</span><span class="n">cm_dims</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">metadata</span><span class="p">,</span> <span class="n">cm_dims</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
         <span class="p">)</span></div>
 
 <div class="viewcode-block" id="Cube.add_ancillary_variable"><a class="viewcode-back" href="../../generated/api/iris/cube.html#iris.cube.Cube.add_ancillary_variable">[docs]</a>    <span class="k">def</span> <span class="nf">add_ancillary_variable</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ancillary_variable</span><span class="p">,</span> <span class="n">data_dims</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -1450,7 +1398,7 @@
             <span class="p">(</span><span class="n">ancillary_variable</span><span class="p">,</span> <span class="n">data_dims</span><span class="p">)</span>
         <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_ancillary_variables_and_dims</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span>
-            <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">av_dims</span><span class="p">:</span> <span class="p">(</span><span class="n">av_dims</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">_as_defn</span><span class="p">(),</span> <span class="n">av_dims</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">av_dims</span><span class="p">:</span> <span class="p">(</span><span class="n">av_dims</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">metadata</span><span class="p">,</span> <span class="n">av_dims</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
         <span class="p">)</span></div>
 
 <div class="viewcode-block" id="Cube.add_dim_coord"><a class="viewcode-back" href="../../generated/api/iris/cube.html#iris.cube.Cube.add_dim_coord">[docs]</a>    <span class="k">def</span> <span class="nf">add_dim_coord</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dim_coord</span><span class="p">,</span> <span class="n">data_dim</span><span class="p">):</span>
@@ -1535,7 +1483,7 @@
             <span class="k">if</span> <span class="n">coord_</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">coord</span>
         <span class="p">]</span>
         <span class="k">for</span> <span class="n">aux_factory</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">aux_factories</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">coord</span><span class="o">.</span><span class="n">_as_defn</span><span class="p">()</span> <span class="o">==</span> <span class="n">aux_factory</span><span class="o">.</span><span class="n">_as_defn</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">coord</span><span class="o">.</span><span class="n">metadata</span> <span class="o">==</span> <span class="n">aux_factory</span><span class="o">.</span><span class="n">metadata</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">remove_aux_factory</span><span class="p">(</span><span class="n">aux_factory</span><span class="p">)</span>
 
 <div class="viewcode-block" id="Cube.remove_coord"><a class="viewcode-back" href="../../generated/api/iris/cube.html#iris.cube.Cube.remove_coord">[docs]</a>    <span class="k">def</span> <span class="nf">remove_coord</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">coord</span><span class="p">):</span>
@@ -1569,7 +1517,7 @@
 <span class="sd">            (a) a :attr:`standard_name`, :attr:`long_name`, or</span>
 <span class="sd">            :attr:`var_name`. Defaults to value of `default`</span>
 <span class="sd">            (which itself defaults to `unknown`) as defined in</span>
-<span class="sd">            :class:`iris._cube_coord_common.CFVariableMixin`.</span>
+<span class="sd">            :class:`iris.common.CFVariableMixin`.</span>
 
 <span class="sd">            (b) a cell_measure instance with metadata equal to that of</span>
 <span class="sd">            the desired cell_measures.</span>
@@ -1662,11 +1610,11 @@
             <span class="p">]</span>
 
         <span class="c1"># Search derived aux coords</span>
-        <span class="n">target_defn</span> <span class="o">=</span> <span class="n">coord</span><span class="o">.</span><span class="n">_as_defn</span><span class="p">()</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">matches</span><span class="p">:</span>
+            <span class="n">target_metadata</span> <span class="o">=</span> <span class="n">coord</span><span class="o">.</span><span class="n">metadata</span>
 
             <span class="k">def</span> <span class="nf">match</span><span class="p">(</span><span class="n">factory</span><span class="p">):</span>
-                <span class="k">return</span> <span class="n">factory</span><span class="o">.</span><span class="n">_as_defn</span><span class="p">()</span> <span class="o">==</span> <span class="n">target_defn</span>
+                <span class="k">return</span> <span class="n">factory</span><span class="o">.</span><span class="n">metadata</span> <span class="o">==</span> <span class="n">target_metadata</span>
 
             <span class="n">factories</span> <span class="o">=</span> <span class="nb">filter</span><span class="p">(</span><span class="n">match</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_aux_factories</span><span class="p">)</span>
             <span class="n">matches</span> <span class="o">=</span> <span class="p">[</span>
@@ -1822,13 +1770,14 @@
 <span class="sd">            (a) a :attr:`standard_name`, :attr:`long_name`, or</span>
 <span class="sd">            :attr:`var_name`. Defaults to value of `default`</span>
 <span class="sd">            (which itself defaults to `unknown`) as defined in</span>
-<span class="sd">            :class:`iris._cube_coord_common.CFVariableMixin`.</span>
+<span class="sd">            :class:`iris.common.CFVariableMixin`.</span>
 
 <span class="sd">            (b) a coordinate instance with metadata equal to that of</span>
 <span class="sd">            the desired coordinates. Accepts either a</span>
 <span class="sd">            :class:`iris.coords.DimCoord`, :class:`iris.coords.AuxCoord`,</span>
-<span class="sd">            :class:`iris.aux_factory.AuxCoordFactory`</span>
-<span class="sd">            or :class:`iris.coords.CoordDefn`.</span>
+<span class="sd">            :class:`iris.aux_factory.AuxCoordFactory`,</span>
+<span class="sd">            :class:`iris.common.CoordMetadata` or</span>
+<span class="sd">            :class:`iris.common.DimCoordMetadata`.</span>
 <span class="sd">        * standard_name</span>
 <span class="sd">            The CF standard name of the desired coordinate. If None, does not</span>
 <span class="sd">            check for standard name.</span>
@@ -1946,14 +1895,17 @@
             <span class="p">]</span>
 
         <span class="k">if</span> <span class="n">coord</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">coord</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">coords</span><span class="o">.</span><span class="n">CoordDefn</span><span class="p">):</span>
-                <span class="n">defn</span> <span class="o">=</span> <span class="n">coord</span>
+            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">coord</span><span class="p">,</span> <span class="s2">&quot;__class__&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">coord</span><span class="o">.</span><span class="vm">__class__</span> <span class="ow">in</span> <span class="p">(</span>
+                <span class="n">CoordMetadata</span><span class="p">,</span>
+                <span class="n">DimCoordMetadata</span><span class="p">,</span>
+            <span class="p">):</span>
+                <span class="n">target_metadata</span> <span class="o">=</span> <span class="n">coord</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="n">defn</span> <span class="o">=</span> <span class="n">coord</span><span class="o">.</span><span class="n">_as_defn</span><span class="p">()</span>
+                <span class="n">target_metadata</span> <span class="o">=</span> <span class="n">coord</span><span class="o">.</span><span class="n">metadata</span>
             <span class="n">coords_and_factories</span> <span class="o">=</span> <span class="p">[</span>
                 <span class="n">coord_</span>
                 <span class="k">for</span> <span class="n">coord_</span> <span class="ow">in</span> <span class="n">coords_and_factories</span>
-                <span class="k">if</span> <span class="n">coord_</span><span class="o">.</span><span class="n">_as_defn</span><span class="p">()</span> <span class="o">==</span> <span class="n">defn</span>
+                <span class="k">if</span> <span class="n">coord_</span><span class="o">.</span><span class="n">metadata</span> <span class="o">==</span> <span class="n">target_metadata</span>
             <span class="p">]</span>
 
         <span class="k">if</span> <span class="n">contains_dimension</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
@@ -2119,7 +2071,7 @@
 <span class="sd">            (a) a :attr:`standard_name`, :attr:`long_name`, or</span>
 <span class="sd">            :attr:`var_name`. Defaults to value of `default`</span>
 <span class="sd">            (which itself defaults to `unknown`) as defined in</span>
-<span class="sd">            :class:`iris._cube_coord_common.CFVariableMixin`.</span>
+<span class="sd">            :class:`iris.common.CFVariableMixin`.</span>
 
 <span class="sd">            (b) a cell_measure instance with metadata equal to that of</span>
 <span class="sd">            the desired cell_measures.</span>
@@ -2202,7 +2154,7 @@
 <span class="sd">            (a) a :attr:`standard_name`, :attr:`long_name`, or</span>
 <span class="sd">            :attr:`var_name`. Defaults to value of `default`</span>
 <span class="sd">            (which itself defaults to `unknown`) as defined in</span>
-<span class="sd">            :class:`iris._cube_coord_common.CFVariableMixin`.</span>
+<span class="sd">            :class:`iris.common.CFVariableMixin`.</span>
 
 <span class="sd">            (b) a ancillary_variable instance with metadata equal to that of</span>
 <span class="sd">            the desired ancillary_variables.</span>
@@ -2283,11 +2235,13 @@
 <span class="sd">        done on the phenomenon.</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cell_methods</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_metadata_manager</span><span class="o">.</span><span class="n">cell_methods</span>
 
     <span class="nd">@cell_methods</span><span class="o">.</span><span class="n">setter</span>
     <span class="k">def</span> <span class="nf">cell_methods</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cell_methods</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_cell_methods</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">cell_methods</span><span class="p">)</span> <span class="k">if</span> <span class="n">cell_methods</span> <span class="k">else</span> <span class="nb">tuple</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_metadata_manager</span><span class="o">.</span><span class="n">cell_methods</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="nb">tuple</span><span class="p">(</span><span class="n">cell_methods</span><span class="p">)</span> <span class="k">if</span> <span class="n">cell_methods</span> <span class="k">else</span> <span class="nb">tuple</span><span class="p">()</span>
+        <span class="p">)</span>
 
 <div class="viewcode-block" id="Cube.core_data"><a class="viewcode-back" href="../../generated/api/iris/cube.html#iris.cube.Cube.core_data">[docs]</a>    <span class="k">def</span> <span class="nf">core_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -4315,7 +4269,7 @@
             <span class="p">)</span>
 
         <span class="n">coords</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_as_list_of_coords</span><span class="p">(</span><span class="n">coords</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">coord</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">coords</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">coord</span><span class="p">:</span> <span class="n">coord</span><span class="o">.</span><span class="n">_as_defn</span><span class="p">()):</span>
+        <span class="k">for</span> <span class="n">coord</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">coords</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">coord</span><span class="p">:</span> <span class="n">coord</span><span class="o">.</span><span class="n">metadata</span><span class="p">):</span>
             <span class="k">if</span> <span class="n">coord</span><span class="o">.</span><span class="n">ndim</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
                 <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
                     <span class="s2">&quot;Cannot aggregate_by coord </span><span class="si">%s</span><span class="s2"> as it is &quot;</span>
@@ -4431,7 +4385,7 @@
         <span class="k">for</span> <span class="n">coord</span> <span class="ow">in</span> <span class="n">groupby</span><span class="o">.</span><span class="n">coords</span><span class="p">:</span>
             <span class="k">if</span> <span class="p">(</span>
                 <span class="n">dim_coord</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
-                <span class="ow">and</span> <span class="n">dim_coord</span><span class="o">.</span><span class="n">_as_defn</span><span class="p">()</span> <span class="o">==</span> <span class="n">coord</span><span class="o">.</span><span class="n">_as_defn</span><span class="p">()</span>
+                <span class="ow">and</span> <span class="n">dim_coord</span><span class="o">.</span><span class="n">metadata</span> <span class="o">==</span> <span class="n">coord</span><span class="o">.</span><span class="n">metadata</span>
                 <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">coord</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">coords</span><span class="o">.</span><span class="n">DimCoord</span><span class="p">)</span>
             <span class="p">):</span>
                 <span class="n">aggregateby_cube</span><span class="o">.</span><span class="n">add_dim_coord</span><span class="p">(</span>

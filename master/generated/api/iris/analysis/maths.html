@@ -143,6 +143,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../aux_factory.html">iris.aux_factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../common.html">iris.common</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../config.html">iris.config</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../coord_categorisation.html">iris.coord_categorisation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../coord_systems.html">iris.coord_systems</a></li>
@@ -360,7 +361,7 @@ the dimension to process.</p>
 <!--<hr class="docutils" />
 --><dl class="py function">
 <dt id="iris.analysis.maths.apply_ufunc">
-<code class="sig-prename descclassname">iris.analysis.maths.</code><code class="sig-name descname">apply_ufunc</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ufunc</span></em>, <em class="sig-param"><span class="n">cube</span></em>, <em class="sig-param"><span class="n">other_cube</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">new_unit</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">new_name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">in_place</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/iris/analysis/maths.html#apply_ufunc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iris.analysis.maths.apply_ufunc" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">iris.analysis.maths.</code><code class="sig-name descname">apply_ufunc</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ufunc</span></em>, <em class="sig-param"><span class="n">cube</span></em>, <em class="sig-param"><span class="n">other</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">new_unit</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">new_name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">in_place</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/iris/analysis/maths.html#apply_ufunc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iris.analysis.maths.apply_ufunc" title="Permalink to this definition">¶</a></dt>
 <dd><p>Apply a <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/ufuncs.html">numpy universal function</a> to a cube
 or pair of cubes.</p>
 <div class="admonition note">
@@ -388,7 +389,7 @@ It is usually preferable to use these functions rather than
 <p>Kwargs:</p>
 <ul class="simple">
 <li><dl class="simple">
-<dt>other_cube:</dt><dd><p>An instance of <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.cube.Cube</span></code></a> to be given as the second
+<dt>other:</dt><dd><p>An instance of <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.cube.Cube</span></code></a> to be given as the second
 argument to <code class="xref py py-func docutils literal notranslate"><span class="pre">numpy.ufunc()</span></code>.</p>
 </dd>
 </dl>
@@ -736,13 +737,13 @@ the dimension to process.</p>
 <div><p>Function to be applied to one or two data arrays, which
 are given as positional arguments. Should return another
 data array, with the same shape as the first array.</p>
-<p>Can also have keyword arguments.</p>
+<p>May also have keyword arguments.</p>
 </div></blockquote>
 </li>
 <li><p>units_func:</p>
 <blockquote>
-<div><p>Function to calculate the unit of the resulting cube.
-Should take the cube(s) as input and return
+<div><p>Function to calculate the units of the resulting cube.
+Should take the cube/s as input and return
 an instance of <code class="xref py py-class docutils literal notranslate"><span class="pre">cf_units.Unit</span></code>.</p>
 </div></blockquote>
 </li>
