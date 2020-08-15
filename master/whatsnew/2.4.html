@@ -291,7 +291,7 @@ either of these keys is not present as a grid-mapping variable
 property : Previously, loading any such data caused an exception.</p></li>
 <li><p>The area weights used when performing area weighted regridding with
 <a class="reference internal" href="../generated/api/iris/analysis.html#iris.analysis.AreaWeighted" title="iris.analysis.AreaWeighted"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.analysis.AreaWeighted</span></code></a> are now cached.  This allows a
-significant speedup when regridding multiple similar cubes, by repeatedly
+significant speed up when regridding multiple similar cubes, by repeatedly
 using a <a class="reference internal" href="../generated/api/iris/analysis.html#iris.analysis.AreaWeighted.regridder" title="iris.analysis.AreaWeighted.regridder"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.analysis.AreaWeighted.regridder()</span></code></a> objects
 which you created first.</p></li>
 <li><p>Name constraint matching against cubes during loading or extracting has been
@@ -312,7 +312,7 @@ any combination of <code class="docutils literal notranslate"><span class="pre">
 <ul class="simple">
 <li><p>Fixed a problem which was causing file loads to fetch <em>all</em> field data
 whenever UM files (PP or Fieldsfiles) were loaded.
-With large sourcefiles, initial file loads are slow, with large memory usage
+With large source files, initial file loads are slow, with large memory usage
 before any cube data is even fetched.  Large enough files will cause a crash.
 The problem occurs only with Dask versions &gt;= 2.0.</p></li>
 </ul>

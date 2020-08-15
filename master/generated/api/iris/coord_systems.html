@@ -451,12 +451,12 @@ in degrees. Default = 0.</p>
 inverse_flattening, then a perfect sphere is created from the given
 radius.</p>
 <p>If just two of semi_major_axis, semi_minor_axis, and
-inverse_flattening are given the missing element is calulated from the
+inverse_flattening are given the missing element is calculated from the
 formula:
 <span class="math notranslate nohighlight">\(flattening = (major - minor) / major\)</span></p>
 <p>Currently, Iris will not allow over-specification (all three ellipsoid
-paramaters).
-Examples:</p>
+parameters).</p>
+<p>Examples:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cs</span> <span class="o">=</span> <span class="n">GeogCS</span><span class="p">(</span><span class="mi">6371229</span><span class="p">)</span>
 <span class="n">pp_cs</span> <span class="o">=</span> <span class="n">GeogCS</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">fileformats</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">EARTH_RADIUS</span><span class="p">)</span>
 <span class="n">airy1830</span> <span class="o">=</span> <span class="n">GeogCS</span><span class="p">(</span><span class="n">semi_major_axis</span><span class="o">=</span><span class="mf">6377563.396</span><span class="p">,</span>
