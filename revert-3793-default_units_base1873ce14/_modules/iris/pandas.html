@@ -1,0 +1,511 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>iris.pandas &mdash; Iris 3.0.dev0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/theme_override.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery-dataframe.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="copyright" title="Copyright" href="../../copyright.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/iris-logo-title.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installing.html">Installing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../generated/gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/iris_cubes.html">Iris data structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/loading_iris_cubes.html">Loading Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/saving_iris_cubes.html">Saving Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/navigating_a_cube.html">Navigating a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/subsetting_a_cube.html">Subsetting a Cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/real_and_lazy_data.html">Real and Lazy Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/plotting_a_cube.html">Plotting a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/interpolation_and_regridding.html">Cube interpolation and regridding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/merge_and_concat.html">Merge and concatenate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/cube_statistics.html">Cube statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/cube_maths.html">Basic cube mathematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/citation.html">Citing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/code_maintenance.html">Code maintenance</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developers Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../developers_guide/contributing_documentation.html">Contributing to the documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developers_guide/documenting/index.html">Documentation in Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developers_guide/gitwash/index.html">Working with <em>iris</em> source code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developers_guide/code_format.html">Code formatting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developers_guide/pulls.html">Pull request check List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developers_guide/tests.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developers_guide/deprecations.html">Deprecations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developers_guide/release.html">Releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../generated/api/iris.html">Iris API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../whatsnew/index.html">What’s new in Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../techpapers/index.html">Iris Technical Papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../copyright.html">Iris copyright, licensing and contributors</a></li>
+</ul>
+
+            
+          
+
+    
+    
+    
+        <p class="caption">
+            <span class="caption-text">
+            
+                Support
+            
+            </span>
+        </p>
+        <ul>
+            
+                <li class="toctree-l1"><a href="https://github.com/SciTools/iris"><i class="fa fa-github fa-fw"></i> Source Code</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris"><i class="fa fa-comments fa-fw"></i> Users Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris-dev"><i class="fa fa-comments fa-fw"></i> Developers Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://stackoverflow.com/questions/tagged/python-iris"><i class="fa fa-question fa-fw"></i> StackOverflow For "How do I?"</a></li>
+            
+                <li class="toctree-l1"><a href="https://scitools.org.uk/iris/docs/v2.4.0/index.html"><i class="fa fa-book fa-fw"></i> Legacy documentation</a></li>
+            
+        </ul>
+    
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Iris</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../iris.html">iris</a> &raquo;</li>
+        
+      <li>iris.pandas</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for iris.pandas</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright Iris contributors</span>
+<span class="c1">#</span>
+<span class="c1"># This file is part of Iris and is released under the LGPL license.</span>
+<span class="c1"># See COPYING and COPYING.LESSER in the root of the repository for full</span>
+<span class="c1"># licensing details.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Provide conversion to and from Pandas data structures.</span>
+
+<span class="sd">See also: http://pandas.pydata.org/</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">datetime</span>
+
+<span class="kn">import</span> <span class="nn">cf_units</span>
+<span class="kn">from</span> <span class="nn">cf_units</span> <span class="kn">import</span> <span class="n">Unit</span>
+<span class="kn">import</span> <span class="nn">cftime</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">numpy.ma</span> <span class="k">as</span> <span class="nn">ma</span>
+<span class="kn">import</span> <span class="nn">pandas</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">pandas.core.indexes.datetimes</span> <span class="kn">import</span> <span class="n">DatetimeIndex</span>  <span class="c1"># pandas &gt;=0.20</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">pandas.tseries.index</span> <span class="kn">import</span> <span class="n">DatetimeIndex</span>  <span class="c1"># pandas &lt;0.20</span>
+
+<span class="kn">import</span> <span class="nn">iris</span>
+<span class="kn">from</span> <span class="nn">iris.coords</span> <span class="kn">import</span> <span class="n">AuxCoord</span><span class="p">,</span> <span class="n">DimCoord</span>
+<span class="kn">from</span> <span class="nn">iris.cube</span> <span class="kn">import</span> <span class="n">Cube</span>
+
+
+<span class="k">def</span> <span class="nf">_add_iris_coord</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">points</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="n">calendar</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Add a Coord to a Cube from a Pandas index or columns array.</span>
+
+<span class="sd">    If no calendar is specified for a time series, Gregorian is assumed.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">units</span> <span class="o">=</span> <span class="n">Unit</span><span class="p">(</span><span class="s2">&quot;unknown&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">calendar</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">calendar</span> <span class="o">=</span> <span class="n">cf_units</span><span class="o">.</span><span class="n">CALENDAR_GREGORIAN</span>
+
+    <span class="c1"># Convert pandas datetime objects to python datetime obejcts.</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="n">DatetimeIndex</span><span class="p">):</span>
+        <span class="n">points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">i</span><span class="o">.</span><span class="n">to_pydatetime</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">points</span><span class="p">])</span>
+
+    <span class="c1"># Convert datetime objects to Iris&#39; current datetime representation.</span>
+    <span class="k">if</span> <span class="n">points</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="nb">object</span><span class="p">:</span>
+        <span class="n">dt_types</span> <span class="o">=</span> <span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">,</span> <span class="n">cftime</span><span class="o">.</span><span class="n">datetime</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">all</span><span class="p">([</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">dt_types</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">points</span><span class="p">]):</span>
+            <span class="n">units</span> <span class="o">=</span> <span class="n">Unit</span><span class="p">(</span><span class="s2">&quot;hours since epoch&quot;</span><span class="p">,</span> <span class="n">calendar</span><span class="o">=</span><span class="n">calendar</span><span class="p">)</span>
+            <span class="n">points</span> <span class="o">=</span> <span class="n">units</span><span class="o">.</span><span class="n">date2num</span><span class="p">(</span><span class="n">points</span><span class="p">)</span>
+
+    <span class="n">points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">points</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">issubdtype</span><span class="p">(</span><span class="n">points</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">number</span><span class="p">)</span> <span class="ow">and</span> <span class="n">iris</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">monotonic</span><span class="p">(</span>
+        <span class="n">points</span><span class="p">,</span> <span class="n">strict</span><span class="o">=</span><span class="kc">True</span>
+    <span class="p">):</span>
+        <span class="n">coord</span> <span class="o">=</span> <span class="n">DimCoord</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="n">units</span><span class="p">)</span>
+        <span class="n">coord</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="n">cube</span><span class="o">.</span><span class="n">add_dim_coord</span><span class="p">(</span><span class="n">coord</span><span class="p">,</span> <span class="n">dim</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">coord</span> <span class="o">=</span> <span class="n">AuxCoord</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="n">units</span><span class="p">)</span>
+        <span class="n">coord</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="n">cube</span><span class="o">.</span><span class="n">add_aux_coord</span><span class="p">(</span><span class="n">coord</span><span class="p">,</span> <span class="n">dim</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="as_cube"><a class="viewcode-back" href="../../generated/api/iris/pandas.html#iris.pandas.as_cube">[docs]</a><span class="k">def</span> <span class="nf">as_cube</span><span class="p">(</span><span class="n">pandas_array</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">calendars</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert a Pandas array into an Iris cube.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">        * pandas_array - A Pandas Series or DataFrame.</span>
+
+<span class="sd">    Kwargs:</span>
+
+<span class="sd">        * copy      - Whether to make a copy of the data.</span>
+<span class="sd">                      Defaults to True.</span>
+
+<span class="sd">        * calendars - A dict mapping a dimension to a calendar.</span>
+<span class="sd">                      Required to convert datetime indices/columns.</span>
+
+<span class="sd">    Example usage::</span>
+
+<span class="sd">        as_cube(series, calendars={0: cf_units.CALENDAR_360_DAY})</span>
+<span class="sd">        as_cube(data_frame, calendars={1: cf_units.CALENDAR_GREGORIAN})</span>
+
+<span class="sd">    .. note:: This function will copy your data by default.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">calendars</span> <span class="o">=</span> <span class="n">calendars</span> <span class="ow">or</span> <span class="p">{}</span>
+    <span class="k">if</span> <span class="n">pandas_array</span><span class="o">.</span><span class="n">ndim</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">&quot;Only 1D or 2D Pandas arrays &quot;</span>
+            <span class="s2">&quot;can currently be conveted to Iris cubes.&quot;</span>
+        <span class="p">)</span>
+
+    <span class="c1"># Make the copy work consistently across NumPy 1.6 and 1.7.</span>
+    <span class="c1"># (When 1.7 takes a copy it preserves the C/Fortran ordering, but</span>
+    <span class="c1"># 1.6 doesn&#39;t. Since we don&#39;t care about preserving the order we can</span>
+    <span class="c1"># just force it back to C-order.)</span>
+    <span class="n">order</span> <span class="o">=</span> <span class="s2">&quot;C&quot;</span> <span class="k">if</span> <span class="n">copy</span> <span class="k">else</span> <span class="s2">&quot;A&quot;</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pandas_array</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="n">copy</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">)</span>
+    <span class="n">cube</span> <span class="o">=</span> <span class="n">Cube</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_invalid</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+    <span class="n">_add_iris_coord</span><span class="p">(</span>
+        <span class="n">cube</span><span class="p">,</span> <span class="s2">&quot;index&quot;</span><span class="p">,</span> <span class="n">pandas_array</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">calendars</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="k">if</span> <span class="n">pandas_array</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">_add_iris_coord</span><span class="p">(</span>
+            <span class="n">cube</span><span class="p">,</span>
+            <span class="s2">&quot;columns&quot;</span><span class="p">,</span>
+            <span class="n">pandas_array</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+            <span class="mi">1</span><span class="p">,</span>
+            <span class="n">calendars</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+        <span class="p">)</span>
+    <span class="k">return</span> <span class="n">cube</span></div>
+
+
+<span class="k">def</span> <span class="nf">_as_pandas_coord</span><span class="p">(</span><span class="n">coord</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Convert an Iris Coord into a Pandas index or columns array.&quot;&quot;&quot;</span>
+    <span class="n">index</span> <span class="o">=</span> <span class="n">coord</span><span class="o">.</span><span class="n">points</span>
+    <span class="k">if</span> <span class="n">coord</span><span class="o">.</span><span class="n">units</span><span class="o">.</span><span class="n">is_time_reference</span><span class="p">():</span>
+        <span class="n">index</span> <span class="o">=</span> <span class="n">coord</span><span class="o">.</span><span class="n">units</span><span class="o">.</span><span class="n">num2date</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">index</span>
+
+
+<span class="k">def</span> <span class="nf">_assert_shared</span><span class="p">(</span><span class="n">np_obj</span><span class="p">,</span> <span class="n">pandas_obj</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Ensure the pandas object shares memory.&quot;&quot;&quot;</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="n">pandas_obj</span><span class="o">.</span><span class="n">values</span>
+
+    <span class="k">def</span> <span class="nf">_get_base</span><span class="p">(</span><span class="n">array</span><span class="p">):</span>
+        <span class="c1"># Chase the stack of NumPy `base` references back to the original array</span>
+        <span class="k">while</span> <span class="n">array</span><span class="o">.</span><span class="n">base</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">array</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">base</span>
+        <span class="k">return</span> <span class="n">array</span>
+
+    <span class="n">base</span> <span class="o">=</span> <span class="n">_get_base</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+    <span class="n">np_base</span> <span class="o">=</span> <span class="n">_get_base</span><span class="p">(</span><span class="n">np_obj</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">base</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">np_base</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Pandas </span><span class="si">{}</span><span class="s2"> does not share memory&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="nb">type</span><span class="p">(</span><span class="n">pandas_obj</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span>
+        <span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="as_series"><a class="viewcode-back" href="../../generated/api/iris/pandas.html#iris.pandas.as_series">[docs]</a><span class="k">def</span> <span class="nf">as_series</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert a 1D cube to a Pandas Series.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">        * cube - The cube to convert to a Pandas Series.</span>
+
+<span class="sd">    Kwargs:</span>
+
+<span class="sd">        * copy - Whether to make a copy of the data.</span>
+<span class="sd">                 Defaults to True. Must be True for masked data.</span>
+
+<span class="sd">    .. note::</span>
+
+<span class="sd">        This function will copy your data by default.</span>
+<span class="sd">        If you have a large array that cannot be copied,</span>
+<span class="sd">        make sure it is not masked and use copy=False.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">data</span>
+    <span class="k">if</span> <span class="n">ma</span><span class="o">.</span><span class="n">isMaskedArray</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">copy</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Masked arrays must always be copied.&quot;</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;f&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">filled</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">copy</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="n">index</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="n">cube</span><span class="o">.</span><span class="n">dim_coords</span><span class="p">:</span>
+        <span class="n">index</span> <span class="o">=</span> <span class="n">_as_pandas_coord</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">dim_coords</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+    <span class="n">series</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">index</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">copy</span><span class="p">:</span>
+        <span class="n">_assert_shared</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">series</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">series</span></div>
+
+
+<div class="viewcode-block" id="as_data_frame"><a class="viewcode-back" href="../../generated/api/iris/pandas.html#iris.pandas.as_data_frame">[docs]</a><span class="k">def</span> <span class="nf">as_data_frame</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert a 2D cube to a Pandas DataFrame.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">        * cube - The cube to convert to a Pandas DataFrame.</span>
+
+<span class="sd">    Kwargs:</span>
+
+<span class="sd">        * copy - Whether to make a copy of the data.</span>
+<span class="sd">                 Defaults to True. Must be True for masked data</span>
+<span class="sd">                 and some data types (see notes below).</span>
+
+<span class="sd">    .. note::</span>
+
+<span class="sd">        This function will copy your data by default.</span>
+<span class="sd">        If you have a large array that cannot be copied,</span>
+<span class="sd">        make sure it is not masked and use copy=False.</span>
+
+<span class="sd">    .. note::</span>
+
+<span class="sd">        Pandas will sometimes make a copy of the array,</span>
+<span class="sd">        for example when creating from an int32 array.</span>
+<span class="sd">        Iris will detect this and raise an exception if copy=False.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">data</span>
+    <span class="k">if</span> <span class="n">ma</span><span class="o">.</span><span class="n">isMaskedArray</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">copy</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Masked arrays must always be copied.&quot;</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;f&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">filled</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">copy</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="n">index</span> <span class="o">=</span> <span class="n">columns</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="n">cube</span><span class="o">.</span><span class="n">coords</span><span class="p">(</span><span class="n">dimensions</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+        <span class="n">index</span> <span class="o">=</span> <span class="n">_as_pandas_coord</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="n">dimensions</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+    <span class="k">if</span> <span class="n">cube</span><span class="o">.</span><span class="n">coords</span><span class="p">(</span><span class="n">dimensions</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+        <span class="n">columns</span> <span class="o">=</span> <span class="n">_as_pandas_coord</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="n">dimensions</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+
+    <span class="n">data_frame</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">columns</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">copy</span><span class="p">:</span>
+        <span class="n">_assert_shared</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">data_frame</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">data_frame</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        
+        &copy; <a href="../../copyright.html">Copyright</a> Iris Contributors
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

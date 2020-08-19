@@ -1,0 +1,1229 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>iris.fileformats.nimrod_load_rules &mdash; Iris 3.0.dev0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/theme_override.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery-dataframe.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script src="../../../_static/clipboard.min.js"></script>
+        <script src="../../../_static/copybutton.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="copyright" title="Copyright" href="../../../copyright.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html">
+          
+
+          
+            
+            <img src="../../../_static/iris-logo-title.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installing.html">Installing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../generated/gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/iris_cubes.html">Iris data structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/loading_iris_cubes.html">Loading Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/saving_iris_cubes.html">Saving Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/navigating_a_cube.html">Navigating a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/subsetting_a_cube.html">Subsetting a Cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/real_and_lazy_data.html">Real and Lazy Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/plotting_a_cube.html">Plotting a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/interpolation_and_regridding.html">Cube interpolation and regridding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/merge_and_concat.html">Merge and concatenate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/cube_statistics.html">Cube statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/cube_maths.html">Basic cube mathematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/citation.html">Citing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/code_maintenance.html">Code maintenance</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developers Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/contributing_documentation.html">Contributing to the documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/documenting/index.html">Documentation in Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/gitwash/index.html">Working with <em>iris</em> source code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/code_format.html">Code formatting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/pulls.html">Pull request check List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/tests.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/deprecations.html">Deprecations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/release.html">Releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../generated/api/iris.html">Iris API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../whatsnew/index.html">What’s new in Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../techpapers/index.html">Iris Technical Papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../copyright.html">Iris copyright, licensing and contributors</a></li>
+</ul>
+
+            
+          
+
+    
+    
+    
+        <p class="caption">
+            <span class="caption-text">
+            
+                Support
+            
+            </span>
+        </p>
+        <ul>
+            
+                <li class="toctree-l1"><a href="https://github.com/SciTools/iris"><i class="fa fa-github fa-fw"></i> Source Code</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris"><i class="fa fa-comments fa-fw"></i> Users Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris-dev"><i class="fa fa-comments fa-fw"></i> Developers Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://stackoverflow.com/questions/tagged/python-iris"><i class="fa fa-question fa-fw"></i> StackOverflow For "How do I?"</a></li>
+            
+                <li class="toctree-l1"><a href="https://scitools.org.uk/iris/docs/v2.4.0/index.html"><i class="fa fa-book fa-fw"></i> Legacy documentation</a></li>
+            
+        </ul>
+    
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Iris</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../../iris.html">iris</a> &raquo;</li>
+        
+      <li>iris.fileformats.nimrod_load_rules</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for iris.fileformats.nimrod_load_rules</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright Iris contributors</span>
+<span class="c1">#</span>
+<span class="c1"># This file is part of Iris and is released under the LGPL license.</span>
+<span class="c1"># See COPYING and COPYING.LESSER in the root of the repository for full</span>
+<span class="c1"># licensing details.</span>
+<span class="sd">&quot;&quot;&quot;Rules for converting NIMROD fields into cubes.&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">string</span>
+
+<span class="kn">import</span> <span class="nn">cf_units</span>
+<span class="kn">import</span> <span class="nn">cftime</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">import</span> <span class="nn">iris</span>
+<span class="kn">import</span> <span class="nn">iris.coord_systems</span>
+<span class="kn">from</span> <span class="nn">iris.coords</span> <span class="kn">import</span> <span class="n">DimCoord</span>
+<span class="kn">from</span> <span class="nn">iris.exceptions</span> <span class="kn">import</span> <span class="n">TranslationError</span><span class="p">,</span> <span class="n">CoordinateNotFoundError</span>
+
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;run&quot;</span><span class="p">]</span>
+
+
+<span class="n">NIMROD_DEFAULT</span> <span class="o">=</span> <span class="o">-</span><span class="mf">32767.0</span>
+
+<span class="n">TIME_UNIT</span> <span class="o">=</span> <span class="n">cf_units</span><span class="o">.</span><span class="n">Unit</span><span class="p">(</span>
+    <span class="s2">&quot;seconds since 1970-01-01 00:00:00&quot;</span><span class="p">,</span> <span class="n">calendar</span><span class="o">=</span><span class="n">cf_units</span><span class="o">.</span><span class="n">CALENDAR_GREGORIAN</span>
+<span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">TranslationWarning</span><span class="p">(</span><span class="ne">Warning</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+
+<span class="k">def</span> <span class="nf">is_missing</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Returns True if value matches an &quot;is-missing&quot; number.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">any</span><span class="p">(</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="p">[</span><span class="n">field</span><span class="o">.</span><span class="n">int_mdi</span><span class="p">,</span> <span class="n">field</span><span class="o">.</span><span class="n">float32_mdi</span><span class="p">,</span> <span class="n">NIMROD_DEFAULT</span><span class="p">])</span>
+    <span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">handle_metadata_errors</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Set the cube&#39;s name from the field.</span>
+<span class="sd">    Modifies the Nimrod object title based on other meta-data in the</span>
+<span class="sd">    Nimrod field and known use cases.</span>
+<span class="sd">    Adds &quot;mean_of&quot; or &quot;standard_deviation_of_&quot; to the cube name if appropriate.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">title_from_field_code</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="mi">12</span><span class="p">:</span> <span class="s2">&quot;air_pressure&quot;</span><span class="p">,</span>
+        <span class="mi">27</span><span class="p">:</span> <span class="s2">&quot;snow fraction&quot;</span><span class="p">,</span>
+        <span class="mi">28</span><span class="p">:</span> <span class="s2">&quot;snow probability&quot;</span><span class="p">,</span>
+        <span class="mi">58</span><span class="p">:</span> <span class="s2">&quot;temperature&quot;</span><span class="p">,</span>
+        <span class="mi">61</span><span class="p">:</span> <span class="s2">&quot;amount_of_precipitation&quot;</span><span class="p">,</span>
+        <span class="mi">63</span><span class="p">:</span> <span class="s2">&quot;rate_of_precipitation&quot;</span><span class="p">,</span>
+        <span class="mi">29</span><span class="p">:</span> <span class="s2">&quot;fog fraction&quot;</span><span class="p">,</span>
+        <span class="mi">101</span><span class="p">:</span> <span class="s2">&quot;snow_melting_level_above_sea_level&quot;</span><span class="p">,</span>
+        <span class="mi">102</span><span class="p">:</span> <span class="s2">&quot;rain_melted_level_above_sea_level&quot;</span><span class="p">,</span>
+        <span class="mi">155</span><span class="p">:</span> <span class="s2">&quot;Visibility&quot;</span><span class="p">,</span>
+        <span class="mi">156</span><span class="p">:</span> <span class="s2">&quot;Worst visibility in grid point&quot;</span><span class="p">,</span>
+        <span class="mi">161</span><span class="p">:</span> <span class="s2">&quot;minimum_cloud_base&quot;</span><span class="p">,</span>
+        <span class="mi">172</span><span class="p">:</span> <span class="s2">&quot;cloud_area_fraction_in_atmosphere&quot;</span><span class="p">,</span>
+        <span class="mi">218</span><span class="p">:</span> <span class="s2">&quot;snowfall&quot;</span><span class="p">,</span>
+        <span class="mi">421</span><span class="p">:</span> <span class="s2">&quot;precipitation type&quot;</span><span class="p">,</span>
+        <span class="mi">501</span><span class="p">:</span> <span class="s2">&quot;vector_wind_shear&quot;</span><span class="p">,</span>
+        <span class="mi">508</span><span class="p">:</span> <span class="s2">&quot;low_level_jet_u_component&quot;</span><span class="p">,</span>
+        <span class="mi">509</span><span class="p">:</span> <span class="s2">&quot;low_level_jet_curvature&quot;</span><span class="p">,</span>
+        <span class="mi">514</span><span class="p">:</span> <span class="s2">&quot;low_level_jet_v_component&quot;</span><span class="p">,</span>
+        <span class="mi">804</span><span class="p">:</span> <span class="s2">&quot;wind speed&quot;</span><span class="p">,</span>
+        <span class="mi">806</span><span class="p">:</span> <span class="s2">&quot;wind direction&quot;</span><span class="p">,</span>
+        <span class="mi">817</span><span class="p">:</span> <span class="s2">&quot;wind_speed_of_gust&quot;</span><span class="p">,</span>
+        <span class="mi">821</span><span class="p">:</span> <span class="s2">&quot;Probabilistic Gust Risk Analysis from Observations&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="n">handle_metadata_errors</span><span class="p">:</span>
+        <span class="n">cube_title</span> <span class="o">=</span> <span class="n">title_from_field_code</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">field</span><span class="o">.</span><span class="n">field_code</span><span class="p">,</span> <span class="n">field</span><span class="o">.</span><span class="n">title</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">cube_title</span> <span class="o">=</span> <span class="n">field</span><span class="o">.</span><span class="n">title</span>
+    <span class="k">if</span> <span class="n">field</span><span class="o">.</span><span class="n">ensemble_member</span> <span class="o">==</span> <span class="o">-</span><span class="mi">98</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;(?i)^.*(mean).*&quot;</span><span class="p">,</span> <span class="n">cube_title</span><span class="p">):</span>
+            <span class="n">cube_title</span> <span class="o">=</span> <span class="s2">&quot;mean_of_&quot;</span> <span class="o">+</span> <span class="n">cube_title</span>
+    <span class="k">if</span> <span class="n">field</span><span class="o">.</span><span class="n">ensemble_member</span> <span class="o">==</span> <span class="o">-</span><span class="mi">99</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;(?i)^.*(spread).*&quot;</span><span class="p">,</span> <span class="n">cube_title</span><span class="p">):</span>
+            <span class="n">cube_title</span> <span class="o">=</span> <span class="s2">&quot;standard_deviation_of_&quot;</span> <span class="o">+</span> <span class="n">cube_title</span>
+
+    <span class="n">cube</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">remove_unprintable_chars</span><span class="p">(</span><span class="n">cube_title</span><span class="p">))</span>
+
+
+<span class="k">def</span> <span class="nf">remove_unprintable_chars</span><span class="p">(</span><span class="n">input_str</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Removes unprintable characters from a string and returns the result.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+        <span class="n">c</span> <span class="k">if</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">string</span><span class="o">.</span><span class="n">printable</span> <span class="k">else</span> <span class="s2">&quot; &quot;</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">input_str</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">units</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">field</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Set the cube&#39;s units from the field.</span>
+
+<span class="sd">    Takes into account nimrod unit strings of the form unit*?? where the data</span>
+<span class="sd">    needs to converted by dividing by ??. Also converts units we know Iris</span>
+<span class="sd">    can&#39;t handle into appropriate units Iris can handle. This is mostly when</span>
+<span class="sd">    there is an inappropriate capital letter in the unit in the Nimrod file.</span>
+<span class="sd">    Some units still can&#39;t be handled by Iris so in these cases empty strings</span>
+<span class="sd">    are added as the cube&#39;s unit. The most notable unit Iris can&#39;t handle is</span>
+<span class="sd">    oktas for cloud cover.</span>
+
+<span class="sd">    Unhandled units are stored in an &quot;invalid_units&quot; attribute instead.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">unit_exception_dictionary</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;Knts&quot;</span><span class="p">:</span> <span class="s2">&quot;knots&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;knts&quot;</span><span class="p">:</span> <span class="s2">&quot;knots&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;J/Kg&quot;</span><span class="p">:</span> <span class="s2">&quot;J/kg&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;logical&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Code&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;mask&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;mb&quot;</span><span class="p">:</span> <span class="s2">&quot;hPa&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;unitless&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Fraction&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;index&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Beaufort&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;mmh2o&quot;</span><span class="p">:</span> <span class="s2">&quot;kg/m2&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;n/a&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="n">field_units</span> <span class="o">=</span> <span class="n">remove_unprintable_chars</span><span class="p">(</span><span class="n">field</span><span class="o">.</span><span class="n">units</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">field_units</span> <span class="o">==</span> <span class="s2">&quot;m/2-25k&quot;</span><span class="p">:</span>
+        <span class="c1"># Handle strange visibility units</span>
+        <span class="n">cube</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> <span class="o">+</span> <span class="mf">25000.0</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span>
+        <span class="n">field_units</span> <span class="o">=</span> <span class="s2">&quot;m&quot;</span>
+    <span class="k">if</span> <span class="s2">&quot;*&quot;</span> <span class="ow">in</span> <span class="n">field_units</span><span class="p">:</span>
+        <span class="c1"># Split into unit string and integer</span>
+        <span class="n">unit_list</span> <span class="o">=</span> <span class="n">field_units</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s2">&quot;^&quot;</span> <span class="ow">in</span> <span class="n">unit_list</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="c1"># Split out magnitude</span>
+            <span class="n">unit_sublist</span> <span class="o">=</span> <span class="n">unit_list</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;^&quot;</span><span class="p">)</span>
+            <span class="n">cube</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span>
+                <span class="n">unit_sublist</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="p">)</span> <span class="o">**</span> <span class="nb">float</span><span class="p">(</span><span class="n">unit_sublist</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">cube</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">unit_list</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">field_units</span> <span class="o">=</span> <span class="n">unit_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">if</span> <span class="s2">&quot;ug/m3E1&quot;</span> <span class="ow">in</span> <span class="n">field_units</span><span class="p">:</span>
+        <span class="c1"># Split into unit string and integer</span>
+        <span class="n">unit_list</span> <span class="o">=</span> <span class="n">field_units</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;E&quot;</span><span class="p">)</span>
+        <span class="n">cube</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> <span class="o">/</span> <span class="mf">10.0</span>
+        <span class="n">field_units</span> <span class="o">=</span> <span class="n">unit_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">field_units</span> <span class="o">==</span> <span class="s2">&quot;%&quot;</span><span class="p">:</span>
+        <span class="c1"># Convert any percentages into fraction</span>
+        <span class="n">field_units</span> <span class="o">=</span> <span class="s2">&quot;1&quot;</span>
+        <span class="n">cube</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> <span class="o">/</span> <span class="mf">100.0</span>
+    <span class="k">if</span> <span class="n">field_units</span> <span class="o">==</span> <span class="s2">&quot;oktas&quot;</span><span class="p">:</span>
+        <span class="n">field_units</span> <span class="o">=</span> <span class="s2">&quot;1&quot;</span>
+        <span class="n">cube</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> <span class="o">/</span> <span class="mf">8.0</span>
+    <span class="k">if</span> <span class="n">field_units</span> <span class="o">==</span> <span class="s2">&quot;dBZ&quot;</span><span class="p">:</span>
+        <span class="c1"># cf_units doesn&#39;t recognise decibels (dBZ), but does know BZ</span>
+        <span class="n">field_units</span> <span class="o">=</span> <span class="s2">&quot;BZ&quot;</span>
+        <span class="n">cube</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> <span class="o">/</span> <span class="mf">10.0</span>
+    <span class="k">if</span> <span class="n">field_units</span> <span class="o">==</span> <span class="s2">&quot;g/Kg&quot;</span><span class="p">:</span>
+        <span class="n">field_units</span> <span class="o">=</span> <span class="s2">&quot;kg/kg&quot;</span>
+        <span class="n">cube</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> <span class="o">/</span> <span class="mf">1000.0</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">field_units</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">field</span><span class="o">.</span><span class="n">field_code</span> <span class="o">==</span> <span class="mi">8</span><span class="p">:</span>
+            <span class="c1"># Relative Humidity data are unitless, but not &quot;unknown&quot;</span>
+            <span class="n">field_units</span> <span class="o">=</span> <span class="s2">&quot;1&quot;</span>
+        <span class="k">if</span> <span class="n">field</span><span class="o">.</span><span class="n">field_code</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">505</span><span class="p">,</span> <span class="mi">515</span><span class="p">]:</span>
+            <span class="c1"># CAPE units are not always set correctly. Assume J/kg</span>
+            <span class="n">field_units</span> <span class="o">=</span> <span class="s2">&quot;J/kg&quot;</span>
+    <span class="k">if</span> <span class="n">field_units</span> <span class="ow">in</span> <span class="n">unit_exception_dictionary</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="n">field_units</span> <span class="o">=</span> <span class="n">unit_exception_dictionary</span><span class="p">[</span><span class="n">field_units</span><span class="p">]</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">field_units</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">field_units</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;/&quot;</span><span class="p">:</span>
+        <span class="c1"># Deal with the case where the units are of the form &#39;/unit&#39; eg</span>
+        <span class="c1"># &#39;/second&#39; in the Nimrod file. This converts to the form unit^-1</span>
+        <span class="n">field_units</span> <span class="o">=</span> <span class="n">field_units</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="s2">&quot;^-1&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">cube</span><span class="o">.</span><span class="n">units</span> <span class="o">=</span> <span class="n">field_units</span>
+    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+        <span class="c1"># Just add it as an attribute.</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+            <span class="s2">&quot;Unhandled units &#39;</span><span class="si">{0}</span><span class="s2">&#39; recorded in cube attributes.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">field_units</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+        <span class="n">cube</span><span class="o">.</span><span class="n">attributes</span><span class="p">[</span><span class="s2">&quot;invalid_units&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">field_units</span>
+
+
+<span class="k">def</span> <span class="nf">time</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">field</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Add a time coord to the cube based on validity time and time-window.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">field</span><span class="o">.</span><span class="n">vt_year</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="c1"># Some ancillary files, eg land sea mask do not</span>
+        <span class="c1"># have a validity time.</span>
+        <span class="k">return</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">valid_date</span> <span class="o">=</span> <span class="n">cftime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span>
+            <span class="n">field</span><span class="o">.</span><span class="n">vt_year</span><span class="p">,</span>
+            <span class="n">field</span><span class="o">.</span><span class="n">vt_month</span><span class="p">,</span>
+            <span class="n">field</span><span class="o">.</span><span class="n">vt_day</span><span class="p">,</span>
+            <span class="n">field</span><span class="o">.</span><span class="n">vt_hour</span><span class="p">,</span>
+            <span class="n">field</span><span class="o">.</span><span class="n">vt_minute</span><span class="p">,</span>
+            <span class="n">field</span><span class="o">.</span><span class="n">vt_second</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="n">point</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">around</span><span class="p">(</span><span class="n">TIME_UNIT</span><span class="o">.</span><span class="n">date2num</span><span class="p">(</span><span class="n">valid_date</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span>
+
+    <span class="n">period_seconds</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="n">field</span><span class="o">.</span><span class="n">period_minutes</span> <span class="o">==</span> <span class="mi">32767</span><span class="p">:</span>
+        <span class="n">period_seconds</span> <span class="o">=</span> <span class="n">field</span><span class="o">.</span><span class="n">period_seconds</span>
+    <span class="k">elif</span> <span class="p">(</span>
+        <span class="ow">not</span> <span class="n">is_missing</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="n">field</span><span class="o">.</span><span class="n">period_minutes</span><span class="p">)</span>
+        <span class="ow">and</span> <span class="n">field</span><span class="o">.</span><span class="n">period_minutes</span> <span class="o">!=</span> <span class="mi">0</span>
+    <span class="p">):</span>
+        <span class="n">period_seconds</span> <span class="o">=</span> <span class="n">field</span><span class="o">.</span><span class="n">period_minutes</span> <span class="o">*</span> <span class="mi">60</span>
+    <span class="k">if</span> <span class="n">period_seconds</span><span class="p">:</span>
+        <span class="n">bounds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">point</span> <span class="o">-</span> <span class="n">period_seconds</span><span class="p">,</span> <span class="n">point</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">bounds</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="n">time_coord</span> <span class="o">=</span> <span class="n">DimCoord</span><span class="p">(</span>
+        <span class="n">points</span><span class="o">=</span><span class="n">point</span><span class="p">,</span> <span class="n">bounds</span><span class="o">=</span><span class="n">bounds</span><span class="p">,</span> <span class="n">standard_name</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="n">TIME_UNIT</span>
+    <span class="p">)</span>
+
+    <span class="n">cube</span><span class="o">.</span><span class="n">add_aux_coord</span><span class="p">(</span><span class="n">time_coord</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">reference_time</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">field</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Add a &#39;reference time&#39; to the cube, if present in the field.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">is_missing</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="n">field</span><span class="o">.</span><span class="n">dt_year</span><span class="p">)</span> <span class="ow">and</span> <span class="n">field</span><span class="o">.</span><span class="n">dt_year</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">data_date</span> <span class="o">=</span> <span class="n">cftime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span>
+            <span class="n">field</span><span class="o">.</span><span class="n">dt_year</span><span class="p">,</span>
+            <span class="n">field</span><span class="o">.</span><span class="n">dt_month</span><span class="p">,</span>
+            <span class="n">field</span><span class="o">.</span><span class="n">dt_day</span><span class="p">,</span>
+            <span class="n">field</span><span class="o">.</span><span class="n">dt_hour</span><span class="p">,</span>
+            <span class="n">field</span><span class="o">.</span><span class="n">dt_minute</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">ref_time_coord</span> <span class="o">=</span> <span class="n">DimCoord</span><span class="p">(</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">TIME_UNIT</span><span class="o">.</span><span class="n">date2num</span><span class="p">(</span><span class="n">data_date</span><span class="p">)),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">),</span>
+            <span class="n">standard_name</span><span class="o">=</span><span class="s2">&quot;forecast_reference_time&quot;</span><span class="p">,</span>
+            <span class="n">units</span><span class="o">=</span><span class="n">TIME_UNIT</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="n">cube</span><span class="o">.</span><span class="n">add_aux_coord</span><span class="p">(</span><span class="n">ref_time_coord</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">forecast_period</span><span class="p">(</span><span class="n">cube</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Add a forecast_period coord based on existing time and</span>
+<span class="sd">    forecast_reference_time coords.</span>
+
+<span class="sd">    Must be run after time() and reference_time()</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">time_coord</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
+        <span class="n">frt_coord</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="s2">&quot;forecast_reference_time&quot;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">CoordinateNotFoundError</span><span class="p">:</span>
+        <span class="k">return</span>
+    <span class="n">time_delta</span> <span class="o">=</span> <span class="n">time_coord</span><span class="o">.</span><span class="n">cell</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">point</span> <span class="o">-</span> <span class="n">frt_coord</span><span class="o">.</span><span class="n">cell</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">point</span>
+
+    <span class="n">points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">time_delta</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">(),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+    <span class="n">forecast_period_unit</span> <span class="o">=</span> <span class="n">cf_units</span><span class="o">.</span><span class="n">Unit</span><span class="p">(</span><span class="s2">&quot;second&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">cube</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">has_bounds</span><span class="p">():</span>
+        <span class="n">time_window</span> <span class="o">=</span> <span class="n">time_coord</span><span class="o">.</span><span class="n">cell</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">bound</span>
+        <span class="n">time_window</span> <span class="o">=</span> <span class="n">time_window</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">time_window</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">bounds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+            <span class="p">[</span><span class="n">points</span> <span class="o">-</span> <span class="n">time_window</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">(),</span> <span class="n">points</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span>
+        <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">bounds</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">cube</span><span class="o">.</span><span class="n">add_aux_coord</span><span class="p">(</span>
+        <span class="n">iris</span><span class="o">.</span><span class="n">coords</span><span class="o">.</span><span class="n">AuxCoord</span><span class="p">(</span>
+            <span class="n">points</span><span class="p">,</span>
+            <span class="n">standard_name</span><span class="o">=</span><span class="s2">&quot;forecast_period&quot;</span><span class="p">,</span>
+            <span class="n">bounds</span><span class="o">=</span><span class="n">bounds</span><span class="p">,</span>
+            <span class="n">units</span><span class="o">=</span><span class="n">forecast_period_unit</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">mask_cube</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">field</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Updates cube.data to be a masked array if appropriate.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">dtype</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">dtype</span>
+    <span class="n">masked_points</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="n">field</span><span class="o">.</span><span class="n">datum_type</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="c1"># field.data are integers</span>
+        <span class="n">masked_points</span> <span class="o">=</span> <span class="n">field</span><span class="o">.</span><span class="n">data</span> <span class="o">==</span> <span class="n">field</span><span class="o">.</span><span class="n">int_mdi</span>
+    <span class="k">elif</span> <span class="n">field</span><span class="o">.</span><span class="n">datum_type</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="c1"># field.data are floats</span>
+        <span class="n">masked_points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">field</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">field</span><span class="o">.</span><span class="n">float32_mdi</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">masked_points</span><span class="p">):</span>
+        <span class="n">cube</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_array</span><span class="p">(</span>
+            <span class="n">cube</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">masked_points</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span>
+        <span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">experiment</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">field</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Add an &#39;experiment number&#39; to the cube, if present in the field.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">is_missing</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="n">field</span><span class="o">.</span><span class="n">experiment_num</span><span class="p">):</span>
+        <span class="n">cube</span><span class="o">.</span><span class="n">add_aux_coord</span><span class="p">(</span>
+            <span class="n">DimCoord</span><span class="p">(</span>
+                <span class="n">field</span><span class="o">.</span><span class="n">experiment_num</span><span class="p">,</span> <span class="n">long_name</span><span class="o">=</span><span class="s2">&quot;experiment_number&quot;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;1&quot;</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">proj_biaxial_ellipsoid</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="n">handle_metadata_errors</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns the correct dictionary of arguments needed to define an</span>
+<span class="sd">    iris.coord_systems.GeogCS.</span>
+
+<span class="sd">    Based firstly on the value given by ellipsoid, then by grid if ellipsoid is</span>
+<span class="sd">    missing, select the right pre-defined ellipsoid dictionary (Airy_1830 or</span>
+<span class="sd">    international_1924).</span>
+
+<span class="sd">    References:</span>
+<span class="sd">        Airy 1830: https://georepository.com/ellipsoid_7001/Airy-1830.html</span>
+<span class="sd">        International 1924: https://georepository.com/ellipsoid_7022/International-1924.html</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">airy_1830</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;semi_major_axis&quot;</span><span class="p">:</span> <span class="mf">6377563.396</span><span class="p">,</span>
+        <span class="s2">&quot;semi_minor_axis&quot;</span><span class="p">:</span> <span class="mf">6356256.910</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="n">international_1924</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;semi_major_axis&quot;</span><span class="p">:</span> <span class="mf">6378388.000</span><span class="p">,</span>
+        <span class="s2">&quot;semi_minor_axis&quot;</span><span class="p">:</span> <span class="mf">6356911.946</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="n">field</span><span class="o">.</span><span class="n">proj_biaxial_ellipsoid</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">ellipsoid</span> <span class="o">=</span> <span class="n">airy_1830</span>
+    <span class="k">elif</span> <span class="n">field</span><span class="o">.</span><span class="n">proj_biaxial_ellipsoid</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">ellipsoid</span> <span class="o">=</span> <span class="n">international_1924</span>
+    <span class="k">elif</span> <span class="p">(</span>
+        <span class="n">is_missing</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="n">field</span><span class="o">.</span><span class="n">proj_biaxial_ellipsoid</span><span class="p">)</span>
+        <span class="ow">and</span> <span class="n">handle_metadata_errors</span>
+    <span class="p">):</span>
+        <span class="k">if</span> <span class="n">field</span><span class="o">.</span><span class="n">horizontal_grid_type</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">ellipsoid</span> <span class="o">=</span> <span class="n">airy_1830</span>
+        <span class="k">elif</span> <span class="p">(</span>
+            <span class="n">field</span><span class="o">.</span><span class="n">horizontal_grid_type</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">field</span><span class="o">.</span><span class="n">horizontal_grid_type</span> <span class="o">==</span> <span class="mi">4</span>
+        <span class="p">):</span>
+            <span class="n">ellipsoid</span> <span class="o">=</span> <span class="n">international_1924</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">TranslationError</span><span class="p">(</span>
+                <span class="sd">&quot;&quot;&quot;Unsupported grid type, only NG, EuroPP</span>
+<span class="sd">                                     and lat/long are possible&quot;&quot;&quot;</span>
+            <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">TranslationError</span><span class="p">(</span>
+            <span class="s2">&quot;Ellipsoid not supported, proj_biaxial_ellipsoid:</span><span class="si">{}</span><span class="s2">, &quot;</span>
+            <span class="s2">&quot;horizontal_grid_type:</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">field</span><span class="o">.</span><span class="n">proj_biaxial_ellipsoid</span><span class="p">,</span> <span class="n">field</span><span class="o">.</span><span class="n">horizontal_grid_type</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+    <span class="k">return</span> <span class="n">ellipsoid</span>
+
+
+<span class="k">def</span> <span class="nf">set_british_national_grid_defaults</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="n">handle_metadata_errors</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Check for missing coord-system meta-data and set default values for</span>
+<span class="sd">    the Ordnance Survey GB Transverse Mercator projection. Some Radarnet</span>
+<span class="sd">    files are missing these.&quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">handle_metadata_errors</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">is_missing</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="n">field</span><span class="o">.</span><span class="n">true_origin_latitude</span><span class="p">):</span>
+            <span class="n">field</span><span class="o">.</span><span class="n">true_origin_latitude</span> <span class="o">=</span> <span class="mf">49.0</span>
+        <span class="k">if</span> <span class="n">is_missing</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="n">field</span><span class="o">.</span><span class="n">true_origin_longitude</span><span class="p">):</span>
+            <span class="n">field</span><span class="o">.</span><span class="n">true_origin_longitude</span> <span class="o">=</span> <span class="o">-</span><span class="mf">2.0</span>
+        <span class="k">if</span> <span class="n">is_missing</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="n">field</span><span class="o">.</span><span class="n">true_origin_easting</span><span class="p">)</span> <span class="ow">or</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span>
+            <span class="c1"># Some old files misquote the value in km instead of m</span>
+            <span class="n">field</span><span class="o">.</span><span class="n">true_origin_easting</span><span class="p">,</span>
+            <span class="mf">400.0</span><span class="p">,</span>
+        <span class="p">):</span>
+            <span class="n">field</span><span class="o">.</span><span class="n">true_origin_easting</span> <span class="o">=</span> <span class="mf">400000.0</span>
+        <span class="k">if</span> <span class="n">is_missing</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="n">field</span><span class="o">.</span><span class="n">true_origin_northing</span><span class="p">)</span> <span class="ow">or</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span>
+            <span class="c1"># Some old files misquote the value in km instead of m</span>
+            <span class="n">field</span><span class="o">.</span><span class="n">true_origin_northing</span><span class="p">,</span>
+            <span class="o">-</span><span class="mf">100.0</span><span class="p">,</span>
+        <span class="p">):</span>
+            <span class="n">field</span><span class="o">.</span><span class="n">true_origin_northing</span> <span class="o">=</span> <span class="o">-</span><span class="mf">100000.0</span>
+        <span class="k">if</span> <span class="n">is_missing</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="n">field</span><span class="o">.</span><span class="n">tm_meridian_scaling</span><span class="p">):</span>
+            <span class="n">field</span><span class="o">.</span><span class="n">tm_meridian_scaling</span> <span class="o">=</span> <span class="mf">0.9996012717</span>
+
+    <span class="n">ng_central_meridian_sf_dp</span> <span class="o">=</span> <span class="mf">0.9996012717</span>
+    <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">field</span><span class="o">.</span><span class="n">tm_meridian_scaling</span> <span class="o">-</span> <span class="n">ng_central_meridian_sf_dp</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1.0e-04</span><span class="p">:</span>
+        <span class="c1"># Update the National Grid scaling factor to double</span>
+        <span class="c1"># precision accuracy to improve the accuracy of</span>
+        <span class="c1"># reprojection calculations that use it.</span>
+        <span class="n">field</span><span class="o">.</span><span class="n">tm_meridian_scaling</span> <span class="o">=</span> <span class="n">ng_central_meridian_sf_dp</span>
+
+
+<span class="k">def</span> <span class="nf">coord_system</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="n">handle_metadata_errors</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Define the coordinate system for the field.</span>
+<span class="sd">    Handles Transverse Mercator, Universal Transverse Mercator and Plate Carree.</span>
+
+<span class="sd">    Transverse Mercator projections will default to the British National Grid if any</span>
+<span class="sd">    parameters are missing.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">ellipsoid</span> <span class="o">=</span> <span class="n">proj_biaxial_ellipsoid</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="n">handle_metadata_errors</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">field</span><span class="o">.</span><span class="n">horizontal_grid_type</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="c1"># Check for missing grid meta-data and insert OSGB definitions.</span>
+        <span class="c1"># Some Radarnet files are missing these.</span>
+        <span class="n">set_british_national_grid_defaults</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="n">handle_metadata_errors</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">field</span><span class="o">.</span><span class="n">horizontal_grid_type</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">field</span><span class="o">.</span><span class="n">horizontal_grid_type</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+        <span class="n">crs_args</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">field</span><span class="o">.</span><span class="n">true_origin_latitude</span><span class="p">,</span>
+            <span class="n">field</span><span class="o">.</span><span class="n">true_origin_longitude</span><span class="p">,</span>
+            <span class="n">field</span><span class="o">.</span><span class="n">true_origin_easting</span><span class="p">,</span>
+            <span class="n">field</span><span class="o">.</span><span class="n">true_origin_northing</span><span class="p">,</span>
+            <span class="n">field</span><span class="o">.</span><span class="n">tm_meridian_scaling</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="nb">any</span><span class="p">([</span><span class="n">is_missing</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">crs_args</span><span class="p">]):</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+                <span class="s2">&quot;Coordinate Reference System is not completely defined. &quot;</span>
+                <span class="s2">&quot;Plotting and reprojection may be impaired.&quot;</span>
+            <span class="p">)</span>
+        <span class="n">coord_sys</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">coord_systems</span><span class="o">.</span><span class="n">TransverseMercator</span><span class="p">(</span>
+            <span class="o">*</span><span class="n">crs_args</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">coord_systems</span><span class="o">.</span><span class="n">GeogCS</span><span class="p">(</span><span class="o">**</span><span class="n">ellipsoid</span><span class="p">),</span>
+        <span class="p">)</span>
+    <span class="k">elif</span> <span class="n">field</span><span class="o">.</span><span class="n">horizontal_grid_type</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">coord_sys</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">coord_systems</span><span class="o">.</span><span class="n">GeogCS</span><span class="p">(</span><span class="o">**</span><span class="n">ellipsoid</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">coord_sys</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">return</span> <span class="n">coord_sys</span>
+
+
+<span class="k">def</span> <span class="nf">horizontal_grid</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">handle_metadata_errors</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Add X and Y coordinates to the cube.</span>
+<span class="sd">    Handles Transverse Mercator, Universal Transverse Mercator and Plate Carree.</span>
+
+<span class="sd">    coordinate reference system is supplied by coord_system(field)</span>
+
+<span class="sd">    Must be run AFTER origin_corner()</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">crs</span> <span class="o">=</span> <span class="n">coord_system</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="n">handle_metadata_errors</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">field</span><span class="o">.</span><span class="n">horizontal_grid_type</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">field</span><span class="o">.</span><span class="n">horizontal_grid_type</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+        <span class="n">units_name</span> <span class="o">=</span> <span class="s2">&quot;m&quot;</span>
+        <span class="n">x_coord_name</span> <span class="o">=</span> <span class="s2">&quot;projection_x_coordinate&quot;</span>
+        <span class="n">y_coord_name</span> <span class="o">=</span> <span class="s2">&quot;projection_y_coordinate&quot;</span>
+    <span class="k">elif</span> <span class="n">field</span><span class="o">.</span><span class="n">horizontal_grid_type</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">units_name</span> <span class="o">=</span> <span class="s2">&quot;degrees&quot;</span>
+        <span class="n">x_coord_name</span> <span class="o">=</span> <span class="s2">&quot;longitude&quot;</span>
+        <span class="n">y_coord_name</span> <span class="o">=</span> <span class="s2">&quot;latitude&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">TranslationError</span><span class="p">(</span>
+            <span class="s2">&quot;Horizontal grid type </span><span class="si">{}</span><span class="s2"> not &quot;</span>
+            <span class="s2">&quot;implemented&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">field</span><span class="o">.</span><span class="n">horizontal_grid_type</span><span class="p">)</span>
+        <span class="p">)</span>
+    <span class="n">points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span>
+        <span class="n">field</span><span class="o">.</span><span class="n">x_origin</span><span class="p">,</span>
+        <span class="n">field</span><span class="o">.</span><span class="n">x_origin</span> <span class="o">+</span> <span class="n">field</span><span class="o">.</span><span class="n">num_cols</span> <span class="o">*</span> <span class="n">field</span><span class="o">.</span><span class="n">column_step</span><span class="p">,</span>
+        <span class="n">field</span><span class="o">.</span><span class="n">num_cols</span><span class="p">,</span>
+        <span class="n">endpoint</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">x_coord</span> <span class="o">=</span> <span class="n">DimCoord</span><span class="p">(</span>
+        <span class="n">points</span><span class="p">,</span> <span class="n">standard_name</span><span class="o">=</span><span class="n">x_coord_name</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="n">units_name</span><span class="p">,</span> <span class="n">coord_system</span><span class="o">=</span><span class="n">crs</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">cube</span><span class="o">.</span><span class="n">add_dim_coord</span><span class="p">(</span><span class="n">x_coord</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span>
+        <span class="n">field</span><span class="o">.</span><span class="n">y_origin</span> <span class="o">-</span> <span class="p">(</span><span class="n">field</span><span class="o">.</span><span class="n">num_rows</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">field</span><span class="o">.</span><span class="n">row_step</span><span class="p">,</span>
+        <span class="n">field</span><span class="o">.</span><span class="n">y_origin</span><span class="p">,</span>
+        <span class="n">field</span><span class="o">.</span><span class="n">num_rows</span><span class="p">,</span>
+        <span class="n">endpoint</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">y_coord</span> <span class="o">=</span> <span class="n">DimCoord</span><span class="p">(</span>
+        <span class="n">points</span><span class="p">,</span> <span class="n">standard_name</span><span class="o">=</span><span class="n">y_coord_name</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="n">units_name</span><span class="p">,</span> <span class="n">coord_system</span><span class="o">=</span><span class="n">crs</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">cube</span><span class="o">.</span><span class="n">add_dim_coord</span><span class="p">(</span><span class="n">y_coord</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">vertical_coord</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">field</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Add a vertical coord to the cube, with bounds, if appropriate.</span>
+<span class="sd">    Handles special numbers for &quot;at-sea-level&quot; (8888) and &quot;at-ground-level&quot; (9999).&quot;&quot;&quot;</span>
+    <span class="c1"># vertical_codes contains conversions from the Nimrod Documentation for the</span>
+    <span class="c1"># header entry 20 for the vertical coordinate type</span>
+    <span class="c1"># Unhandled vertical_codes values (no use case identified):</span>
+    <span class="c1">#  3: [&#39;sigma&#39;, &#39;model level&#39;],</span>
+    <span class="c1">#  4: [&#39;eta&#39;, &#39;model level&#39;],</span>
+    <span class="c1">#  5: [&#39;radar beam number&#39;, &#39;unknown&#39;],</span>
+    <span class="c1">#  7: [&#39;potential temperature&#39;, &#39;unknown&#39;],</span>
+    <span class="c1">#  8: [&#39;equivalent potential temperature&#39;, &#39;unknown&#39;],</span>
+    <span class="c1">#  9: [&#39;wet bulb potential temperature&#39;, &#39;unknown&#39;],</span>
+    <span class="c1">#  10: [&#39;potential vorticity&#39;, &#39;unknown&#39;],</span>
+    <span class="c1">#  11: [&#39;cloud boundary&#39;, &#39;unknown&#39;],</span>
+    <span class="n">vertical_codes</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="mi">0</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;standard_name&quot;</span><span class="p">:</span> <span class="s2">&quot;height&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;units&quot;</span><span class="p">:</span> <span class="s2">&quot;m&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;attributes&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;positive&quot;</span><span class="p">:</span> <span class="s2">&quot;up&quot;</span><span class="p">},</span>
+        <span class="p">},</span>
+        <span class="mi">1</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;standard_name&quot;</span><span class="p">:</span> <span class="s2">&quot;altitude&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;units&quot;</span><span class="p">:</span> <span class="s2">&quot;m&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;attributes&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;positive&quot;</span><span class="p">:</span> <span class="s2">&quot;up&quot;</span><span class="p">},</span>
+        <span class="p">},</span>
+        <span class="mi">2</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;standard_name&quot;</span><span class="p">:</span> <span class="s2">&quot;air_pressure&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;units&quot;</span><span class="p">:</span> <span class="s2">&quot;hPa&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;attributes&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;positive&quot;</span><span class="p">:</span> <span class="s2">&quot;down&quot;</span><span class="p">},</span>
+        <span class="p">},</span>
+        <span class="mi">6</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;standard_name&quot;</span><span class="p">:</span> <span class="s2">&quot;air_temperature&quot;</span><span class="p">,</span> <span class="s2">&quot;units&quot;</span><span class="p">:</span> <span class="s2">&quot;K&quot;</span><span class="p">},</span>
+        <span class="mi">12</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;long_name&quot;</span><span class="p">:</span> <span class="s2">&quot;depth_below_ground&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;units&quot;</span><span class="p">:</span> <span class="s2">&quot;m&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;attributes&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;positive&quot;</span><span class="p">:</span> <span class="s2">&quot;down&quot;</span><span class="p">},</span>
+        <span class="p">},</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="nb">all</span><span class="p">(</span>
+        <span class="p">[</span>
+            <span class="n">is_missing</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span>
+                <span class="n">field</span><span class="o">.</span><span class="n">vertical_coord</span><span class="p">,</span>
+                <span class="n">field</span><span class="o">.</span><span class="n">vertical_coord_type</span><span class="p">,</span>
+                <span class="n">field</span><span class="o">.</span><span class="n">reference_vertical_coord</span><span class="p">,</span>
+                <span class="n">field</span><span class="o">.</span><span class="n">reference_vertical_coord_type</span><span class="p">,</span>
+            <span class="p">]</span>
+        <span class="p">]</span>
+    <span class="p">):</span>
+        <span class="k">return</span>
+
+    <span class="k">if</span> <span class="p">(</span>
+        <span class="ow">not</span> <span class="n">is_missing</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="n">field</span><span class="o">.</span><span class="n">reference_vertical_coord_type</span><span class="p">)</span>
+        <span class="ow">and</span> <span class="n">field</span><span class="o">.</span><span class="n">reference_vertical_coord_type</span> <span class="o">!=</span> <span class="n">field</span><span class="o">.</span><span class="n">vertical_coord_type</span>
+        <span class="ow">and</span> <span class="ow">not</span> <span class="n">is_missing</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="n">field</span><span class="o">.</span><span class="n">reference_vertical_coord</span><span class="p">)</span>
+    <span class="p">):</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="s2">&quot;Unmatched vertical coord types &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">field</span><span class="o">.</span><span class="n">vertical_coord_type</span><span class="si">}</span><span class="s2"> != </span><span class="si">{</span><span class="n">field</span><span class="o">.</span><span class="n">reference_vertical_coord_type</span><span class="si">}</span><span class="s2">. &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;Assuming </span><span class="si">{</span><span class="n">field</span><span class="o">.</span><span class="n">vertical_coord_type</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="p">)</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+    <span class="n">coord_point</span> <span class="o">=</span> <span class="n">field</span><span class="o">.</span><span class="n">vertical_coord</span>
+    <span class="k">if</span> <span class="n">coord_point</span> <span class="o">==</span> <span class="mf">8888.0</span><span class="p">:</span>
+        <span class="k">if</span> <span class="s2">&quot;sea_level&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">cube</span><span class="o">.</span><span class="n">name</span><span class="p">():</span>
+            <span class="n">cube</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">cube</span><span class="o">.</span><span class="n">name</span><span class="p">()</span><span class="si">}</span><span class="s2">_at_mean_sea_level&quot;</span><span class="p">)</span>
+        <span class="n">coord_point</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">field</span><span class="o">.</span><span class="n">reference_vertical_coord</span><span class="p">,</span> <span class="mf">8888.0</span><span class="p">)</span> <span class="ow">or</span> <span class="n">is_missing</span><span class="p">(</span>
+            <span class="n">field</span><span class="p">,</span> <span class="n">field</span><span class="o">.</span><span class="n">reference_vertical_coord</span>
+        <span class="p">):</span>
+            <span class="c1"># This describes a surface field. No changes needed.</span>
+            <span class="k">return</span>
+
+    <span class="n">coord_args</span> <span class="o">=</span> <span class="n">vertical_codes</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">field</span><span class="o">.</span><span class="n">vertical_coord_type</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">coord_point</span><span class="p">,</span> <span class="mf">9999.0</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">field</span><span class="o">.</span><span class="n">reference_vertical_coord</span><span class="p">,</span> <span class="mf">9999.0</span><span class="p">)</span> <span class="ow">or</span> <span class="n">is_missing</span><span class="p">(</span>
+            <span class="n">field</span><span class="p">,</span> <span class="n">field</span><span class="o">.</span><span class="n">reference_vertical_coord</span>
+        <span class="p">):</span>
+            <span class="c1"># This describes a surface field. No changes needed.</span>
+            <span class="k">return</span>
+        <span class="c1"># A bounded vertical coord starting from the surface</span>
+        <span class="n">coord_point</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="n">coord_args</span> <span class="o">=</span> <span class="n">vertical_codes</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+            <span class="n">field</span><span class="o">.</span><span class="n">reference_vertical_coord_type</span><span class="p">,</span> <span class="kc">None</span>
+        <span class="p">)</span>
+    <span class="n">coord_point</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">coord_point</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span>
+        <span class="n">field</span><span class="o">.</span><span class="n">reference_vertical_coord</span> <span class="o">&gt;=</span> <span class="mf">0.0</span>
+        <span class="ow">and</span> <span class="n">field</span><span class="o">.</span><span class="n">reference_vertical_coord</span> <span class="o">!=</span> <span class="n">coord_point</span>
+    <span class="p">):</span>
+        <span class="n">bounds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+            <span class="p">[</span><span class="n">coord_point</span><span class="p">,</span> <span class="n">field</span><span class="o">.</span><span class="n">reference_vertical_coord</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span>
+        <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">bounds</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">if</span> <span class="n">coord_args</span><span class="p">:</span>
+        <span class="n">new_coord</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">coords</span><span class="o">.</span><span class="n">AuxCoord</span><span class="p">(</span>
+            <span class="n">coord_point</span><span class="p">,</span> <span class="n">bounds</span><span class="o">=</span><span class="n">bounds</span><span class="p">,</span> <span class="o">**</span><span class="n">coord_args</span>
+        <span class="p">)</span>
+        <span class="c1"># Add coordinate to cube</span>
+        <span class="n">cube</span><span class="o">.</span><span class="n">add_aux_coord</span><span class="p">(</span><span class="n">new_coord</span><span class="p">)</span>
+        <span class="k">return</span>
+
+    <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+        <span class="s2">&quot;Vertical coord </span><span class="si">{!r}</span><span class="s2"> not yet handled&quot;</span>
+        <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">field</span><span class="o">.</span><span class="n">vertical_coord_type</span><span class="p">),</span>
+        <span class="n">TranslationWarning</span><span class="p">,</span>
+    <span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">ensemble_member</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">field</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Add an &#39;ensemble member&#39; coord to the cube, if present in the field.&quot;&quot;&quot;</span>
+    <span class="n">ensemble_member_value</span> <span class="o">=</span> <span class="n">field</span><span class="o">.</span><span class="n">ensemble_member</span>
+
+    <span class="k">if</span> <span class="n">ensemble_member_value</span> <span class="ow">in</span> <span class="p">[</span><span class="o">-</span><span class="mi">98</span><span class="p">,</span> <span class="o">-</span><span class="mi">99</span><span class="p">]:</span>
+        <span class="c1"># ignore these special values handled in name()</span>
+        <span class="k">return</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">is_missing</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="n">ensemble_member_value</span><span class="p">):</span>
+        <span class="n">cube</span><span class="o">.</span><span class="n">add_aux_coord</span><span class="p">(</span>
+            <span class="n">DimCoord</span><span class="p">(</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">ensemble_member_value</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">),</span>
+                <span class="s2">&quot;realization&quot;</span><span class="p">,</span>
+                <span class="n">units</span><span class="o">=</span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">origin_corner</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">field</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Ensure the data matches the order of the coordinates we&#39;ve made.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">field</span><span class="o">.</span><span class="n">origin_corner</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># top left</span>
+        <span class="n">cube</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">data</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">TranslationError</span><span class="p">(</span>
+            <span class="s2">&quot;Corner </span><span class="si">{0}</span><span class="s2"> not yet implemented&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">field</span><span class="o">.</span><span class="n">origin_corner</span><span class="p">)</span>
+        <span class="p">)</span>
+    <span class="k">return</span> <span class="n">cube</span>
+
+
+<span class="k">def</span> <span class="nf">attributes</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">field</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Add attributes to the cube.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">add_attr</span><span class="p">(</span><span class="n">item</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Add an attribute to the cube.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">is_missing</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+                <span class="k">return</span>
+            <span class="k">if</span> <span class="s2">&quot;radius&quot;</span> <span class="ow">in</span> <span class="n">item</span><span class="p">:</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2"> km&quot;</span>
+            <span class="n">cube</span><span class="o">.</span><span class="n">attributes</span><span class="p">[</span><span class="n">item</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="n">add_attr</span><span class="p">(</span><span class="s2">&quot;nimrod_version&quot;</span><span class="p">)</span>
+    <span class="n">add_attr</span><span class="p">(</span><span class="s2">&quot;field_code&quot;</span><span class="p">)</span>
+    <span class="n">add_attr</span><span class="p">(</span><span class="s2">&quot;num_model_levels&quot;</span><span class="p">)</span>
+    <span class="n">add_attr</span><span class="p">(</span><span class="s2">&quot;sat_calib&quot;</span><span class="p">)</span>
+    <span class="n">add_attr</span><span class="p">(</span><span class="s2">&quot;sat_space_count&quot;</span><span class="p">)</span>
+    <span class="n">add_attr</span><span class="p">(</span><span class="s2">&quot;ducting_index&quot;</span><span class="p">)</span>
+    <span class="n">add_attr</span><span class="p">(</span><span class="s2">&quot;elevation_angle&quot;</span><span class="p">)</span>
+    <span class="n">cube_source</span> <span class="o">=</span> <span class="n">field</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+    <span class="c1"># Handle a few known meta-data errors:</span>
+    <span class="k">if</span> <span class="n">field</span><span class="o">.</span><span class="n">field_code</span> <span class="o">==</span> <span class="mi">501</span><span class="p">:</span>
+        <span class="n">cube_source</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">field</span><span class="o">.</span><span class="n">field_code</span> <span class="o">==</span> <span class="mi">821</span><span class="p">:</span>
+        <span class="n">cube_source</span> <span class="o">=</span> <span class="s2">&quot;Nimrod pwind routine&quot;</span>
+    <span class="k">if</span> <span class="n">field</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;pwind&quot;</span><span class="p">:</span>
+        <span class="n">cube_source</span> <span class="o">=</span> <span class="s2">&quot;Nimrod pwind routine&quot;</span>
+    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="p">[</span>
+        <span class="s2">&quot;neighbourhood_radius&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;recursive_filter_iterations&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;recursive_filter_alpha&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;threshold_vicinity_radius&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;probability_period_of_event&quot;</span><span class="p">,</span>
+    <span class="p">]:</span>
+        <span class="n">add_attr</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+
+    <span class="c1"># Remove member number from cube_source. This commonly takes the form ek04 where ek</span>
+    <span class="c1"># indicates the model and 04 is the realization number. As the number is represented</span>
+    <span class="c1"># by a realization coord, stripping it from here allows cubes to be merged.</span>
+    <span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span>
+        <span class="sa">r</span><span class="s2">&quot;^(?P&lt;model_code&gt;\w\w)(?P&lt;realization&gt;\d\d)$&quot;</span><span class="p">,</span> <span class="n">cube_source</span>
+    <span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">r_coord</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="s2">&quot;realization&quot;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">CoordinateNotFoundError</span><span class="p">:</span>
+        <span class="n">r_coord</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="n">match</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">r_coord</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">match</span><span class="p">[</span><span class="s2">&quot;realization&quot;</span><span class="p">])</span> <span class="o">==</span> <span class="n">r_coord</span><span class="o">.</span><span class="n">points</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+                <span class="n">cube_source</span> <span class="o">=</span> <span class="n">match</span><span class="p">[</span><span class="s2">&quot;model_code&quot;</span><span class="p">]</span>
+    <span class="n">cube</span><span class="o">.</span><span class="n">attributes</span><span class="p">[</span><span class="s2">&quot;source&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cube_source</span>
+    <span class="n">cube</span><span class="o">.</span><span class="n">attributes</span><span class="p">[</span><span class="s2">&quot;title&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Unknown&quot;</span>
+    <span class="n">cube</span><span class="o">.</span><span class="n">attributes</span><span class="p">[</span><span class="s2">&quot;institution&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Met Office&quot;</span>
+
+
+<span class="k">def</span> <span class="nf">known_threshold_coord</span><span class="p">(</span><span class="n">field</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Supplies known threshold coord meta-data for known use cases.</span>
+<span class="sd">    threshold_value_alt exists because some meta-data are mis-assigned in the Nimrod data.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">coord_keys</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">if</span> <span class="p">(</span>
+        <span class="n">field</span><span class="o">.</span><span class="n">field_code</span> <span class="o">==</span> <span class="mi">161</span>
+        <span class="ow">and</span> <span class="n">field</span><span class="o">.</span><span class="n">threshold_value</span> <span class="o">&gt;=</span> <span class="mf">0.0</span>
+        <span class="ow">and</span> <span class="s2">&quot;pc&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">field</span><span class="o">.</span><span class="n">title</span>
+    <span class="p">):</span>
+        <span class="n">coord_keys</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;var_name&quot;</span><span class="p">:</span> <span class="s2">&quot;threshold&quot;</span><span class="p">}</span>
+        <span class="k">if</span> <span class="n">field</span><span class="o">.</span><span class="n">threshold_value_alt</span> <span class="o">&gt;</span> <span class="mf">8.0</span><span class="p">:</span>
+            <span class="n">coord_keys</span><span class="p">[</span><span class="s2">&quot;standard_name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;height&quot;</span>
+            <span class="n">coord_keys</span><span class="p">[</span><span class="s2">&quot;units&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;metres&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">coord_keys</span><span class="p">[</span><span class="s2">&quot;standard_name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;cloud_area_fraction&quot;</span>
+            <span class="n">coord_keys</span><span class="p">[</span><span class="s2">&quot;units&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;oktas&quot;</span>
+    <span class="k">elif</span> <span class="n">field</span><span class="o">.</span><span class="n">field_code</span> <span class="o">==</span> <span class="mi">29</span> <span class="ow">and</span> <span class="n">field</span><span class="o">.</span><span class="n">threshold_value</span> <span class="o">&gt;=</span> <span class="mf">0.0</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">is_missing</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="n">field</span><span class="o">.</span><span class="n">threshold_type</span><span class="p">):</span>
+            <span class="n">coord_keys</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">&quot;standard_name&quot;</span><span class="p">:</span> <span class="s2">&quot;visibility_in_air&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;var_name&quot;</span><span class="p">:</span> <span class="s2">&quot;threshold&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;units&quot;</span><span class="p">:</span> <span class="s2">&quot;metres&quot;</span><span class="p">,</span>
+            <span class="p">}</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">coord_keys</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">&quot;long_name&quot;</span><span class="p">:</span> <span class="s2">&quot;fog_fraction&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;var_name&quot;</span><span class="p">:</span> <span class="s2">&quot;threshold&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;units&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+            <span class="p">}</span>
+    <span class="k">elif</span> <span class="p">(</span>
+        <span class="n">field</span><span class="o">.</span><span class="n">field_code</span> <span class="o">==</span> <span class="mi">422</span>
+        <span class="ow">and</span> <span class="n">field</span><span class="o">.</span><span class="n">threshold_value</span> <span class="o">&gt;=</span> <span class="mf">0.0</span>
+        <span class="ow">and</span> <span class="n">is_missing</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="n">field</span><span class="o">.</span><span class="n">threshold_type</span><span class="p">)</span>
+    <span class="p">):</span>
+        <span class="n">coord_keys</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;long_name&quot;</span><span class="p">:</span> <span class="s2">&quot;radius_of_max&quot;</span><span class="p">,</span> <span class="s2">&quot;units&quot;</span><span class="p">:</span> <span class="s2">&quot;km&quot;</span><span class="p">}</span>
+    <span class="k">elif</span> <span class="n">field</span><span class="o">.</span><span class="n">field_code</span> <span class="o">==</span> <span class="mi">821</span><span class="p">:</span>
+        <span class="n">coord_keys</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;standard_name&quot;</span><span class="p">:</span> <span class="s2">&quot;wind_speed_of_gust&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;var_name&quot;</span><span class="p">:</span> <span class="s2">&quot;threshold&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;units&quot;</span><span class="p">:</span> <span class="s2">&quot;m/s&quot;</span><span class="p">,</span>
+        <span class="p">}</span>
+    <span class="k">return</span> <span class="n">coord_keys</span>
+
+
+<span class="k">def</span> <span class="nf">probability_coord</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">handle_metadata_errors</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Adds a coord relating to probability meta-data from the header to the</span>
+<span class="sd">    cube if appropriate.</span>
+<span class="sd">    Must be run after the name method.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">probtype_lookup</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="mi">1</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;var_name&quot;</span><span class="p">:</span> <span class="s2">&quot;threshold&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;attributes&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;relative_to_threshold&quot;</span><span class="p">:</span> <span class="s2">&quot;above&quot;</span><span class="p">},</span>
+        <span class="p">},</span>
+        <span class="mi">2</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;var_name&quot;</span><span class="p">:</span> <span class="s2">&quot;threshold&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;attributes&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;relative_to_threshold&quot;</span><span class="p">:</span> <span class="s2">&quot;below&quot;</span><span class="p">},</span>
+        <span class="p">},</span>
+        <span class="mi">3</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;long_name&quot;</span><span class="p">:</span> <span class="s2">&quot;percentile&quot;</span><span class="p">,</span> <span class="s2">&quot;units&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">},</span>
+        <span class="mi">4</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;var_name&quot;</span><span class="p">:</span> <span class="s2">&quot;threshold&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;attributes&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;relative_to_threshold&quot;</span><span class="p">:</span> <span class="s2">&quot;equal&quot;</span><span class="p">},</span>
+        <span class="p">},</span>
+    <span class="p">}</span>
+    <span class="n">probmethod_lookup</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;AOT (Any One Time)&quot;</span><span class="p">,</span>
+        <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;ST (Some Time)&quot;</span><span class="p">,</span>
+        <span class="mi">4</span><span class="p">:</span> <span class="s2">&quot;AT (All Time)&quot;</span><span class="p">,</span>
+        <span class="mi">8</span><span class="p">:</span> <span class="s2">&quot;AOL (Any One Location)&quot;</span><span class="p">,</span>
+        <span class="mi">16</span><span class="p">:</span> <span class="s2">&quot;SW (Some Where)&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="c1"># The units for the threshold coord are not defined in the Nimrod meta-data.</span>
+    <span class="c1"># These represent the known use-cases.</span>
+    <span class="n">units_from_field_code</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="mi">817</span><span class="p">:</span> <span class="s2">&quot;m s^-1&quot;</span><span class="p">,</span>
+        <span class="mi">804</span><span class="p">:</span> <span class="s2">&quot;knots&quot;</span><span class="p">,</span>
+        <span class="mi">422</span><span class="p">:</span> <span class="s2">&quot;min^-1&quot;</span><span class="p">,</span>
+        <span class="mi">421</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+        <span class="mi">218</span><span class="p">:</span> <span class="s2">&quot;cm&quot;</span><span class="p">,</span>
+        <span class="mi">172</span><span class="p">:</span> <span class="s2">&quot;oktas&quot;</span><span class="p">,</span>
+        <span class="mi">155</span><span class="p">:</span> <span class="s2">&quot;m&quot;</span><span class="p">,</span>
+        <span class="mi">101</span><span class="p">:</span> <span class="s2">&quot;m&quot;</span><span class="p">,</span>
+        <span class="mi">63</span><span class="p">:</span> <span class="s2">&quot;mm hr^-1&quot;</span><span class="p">,</span>
+        <span class="mi">61</span><span class="p">:</span> <span class="s2">&quot;mm&quot;</span><span class="p">,</span>
+        <span class="mi">58</span><span class="p">:</span> <span class="s2">&quot;Celsius&quot;</span><span class="p">,</span>
+        <span class="mi">12</span><span class="p">:</span> <span class="s2">&quot;mb&quot;</span><span class="p">,</span>
+        <span class="mi">8</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="n">is_probability_field</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">coord_keys</span> <span class="o">=</span> <span class="n">probtype_lookup</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">field</span><span class="o">.</span><span class="n">threshold_type</span><span class="p">,</span> <span class="p">{})</span>
+    <span class="k">if</span> <span class="n">coord_keys</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;var_name&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;threshold&quot;</span><span class="p">:</span>
+        <span class="n">is_probability_field</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">if</span> <span class="n">handle_metadata_errors</span><span class="p">:</span>
+        <span class="n">coord_keys</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">known_threshold_coord</span><span class="p">(</span><span class="n">field</span><span class="p">))</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">coord_keys</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;units&quot;</span><span class="p">):</span>
+        <span class="n">coord_keys</span><span class="p">[</span><span class="s2">&quot;units&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">units_from_field_code</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+            <span class="n">field</span><span class="o">.</span><span class="n">field_code</span><span class="p">,</span> <span class="s2">&quot;unknown&quot;</span>
+        <span class="p">)</span>
+    <span class="n">coord_val</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="c1"># coord_val could come from the threshold_value or threshold_value_alt:</span>
+    <span class="k">if</span> <span class="n">field</span><span class="o">.</span><span class="n">threshold_value_alt</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mf">32766.0</span><span class="p">:</span>
+        <span class="n">coord_val</span> <span class="o">=</span> <span class="n">field</span><span class="o">.</span><span class="n">threshold_value_alt</span>
+    <span class="k">elif</span> <span class="n">field</span><span class="o">.</span><span class="n">threshold_value</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mf">32766.0</span><span class="p">:</span>
+        <span class="n">coord_val</span> <span class="o">=</span> <span class="n">field</span><span class="o">.</span><span class="n">threshold_value</span>
+
+    <span class="c1"># coord_val could also be encoded in the cube name if we have a percentile</span>
+    <span class="c1"># (this overrides the threshold_value which may be unrelated in the case of</span>
+    <span class="c1"># the 50th %ile of 3okta cloud cover)</span>
+    <span class="k">if</span> <span class="p">(</span>
+        <span class="n">coord_keys</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;long_name&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;percentile&quot;</span>
+        <span class="ow">and</span> <span class="n">cube</span><span class="o">.</span><span class="n">name</span><span class="p">()</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;pc&quot;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
+        <span class="ow">and</span> <span class="n">handle_metadata_errors</span>
+    <span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">coord_val</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;pc&quot;</span><span class="p">))</span>
+                <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">cube</span><span class="o">.</span><span class="n">name</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;pc&quot;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
+            <span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+            <span class="k">pass</span>
+
+    <span class="c1"># If we found a coord_val, build the coord (with bounds) and add to cube)</span>
+    <span class="k">if</span> <span class="n">coord_val</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">is_missing</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="n">field</span><span class="o">.</span><span class="n">threshold_fuzziness</span><span class="p">):</span>
+            <span class="n">bounds</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="n">coord_val</span> <span class="o">*</span> <span class="n">field</span><span class="o">.</span><span class="n">threshold_fuzziness</span><span class="p">,</span>
+                <span class="n">coord_val</span> <span class="o">*</span> <span class="p">(</span><span class="mf">2.0</span> <span class="o">-</span> <span class="n">field</span><span class="o">.</span><span class="n">threshold_fuzziness</span><span class="p">),</span>
+            <span class="p">]</span>
+            <span class="n">bounds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">bounds</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+            <span class="c1"># TODO: Enable filtering of zero-length bounds once Iris doesn&#39;t strip bounds</span>
+            <span class="c1">#  in merge_cube</span>
+            <span class="c1"># if np.isclose(bounds[0], bounds[1]):</span>
+            <span class="c1">#    bounds = None</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">bounds</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">coord_keys</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;units&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;oktas&quot;</span><span class="p">:</span>
+            <span class="n">coord_keys</span><span class="p">[</span><span class="s2">&quot;units&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;1&quot;</span>
+            <span class="n">coord_val</span> <span class="o">/=</span> <span class="mf">8.0</span>
+            <span class="k">if</span> <span class="n">bounds</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">bounds</span> <span class="o">/=</span> <span class="mf">8.0</span>
+        <span class="k">if</span> <span class="n">coord_keys</span><span class="p">[</span><span class="s2">&quot;units&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;unknown&quot;</span><span class="p">:</span>
+            <span class="n">coord_name</span> <span class="o">=</span> <span class="n">coord_keys</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+                <span class="s2">&quot;standard_name&quot;</span><span class="p">,</span>
+                <span class="n">coord_keys</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;long_name&quot;</span><span class="p">,</span> <span class="n">coord_keys</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;var_name&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)),</span>
+            <span class="p">)</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;No default units for </span><span class="si">{</span><span class="n">coord_name</span><span class="si">}</span><span class="s2"> coord of </span><span class="si">{</span><span class="n">cube</span><span class="o">.</span><span class="n">name</span><span class="p">()</span><span class="si">}</span><span class="s2">. &quot;</span>
+                <span class="s2">&quot;Meta-data may be incomplete.&quot;</span>
+            <span class="p">)</span>
+        <span class="n">new_coord</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">coords</span><span class="o">.</span><span class="n">AuxCoord</span><span class="p">(</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">coord_val</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">),</span> <span class="n">bounds</span><span class="o">=</span><span class="n">bounds</span><span class="p">,</span> <span class="o">**</span><span class="n">coord_keys</span>
+        <span class="p">)</span>
+        <span class="n">cube</span><span class="o">.</span><span class="n">add_aux_coord</span><span class="p">(</span><span class="n">new_coord</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">field</span><span class="o">.</span><span class="n">threshold_type</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="k">pass</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">is_probability_field</span><span class="p">:</span>
+                <span class="c1"># Some probability fields have inappropriate units (those of the threshold)</span>
+                <span class="k">if</span> <span class="s2">&quot;%&quot;</span> <span class="ow">in</span> <span class="n">cube</span><span class="o">.</span><span class="n">name</span><span class="p">():</span>
+                    <span class="c1"># If the cube name has % in it, convert to fraction</span>
+                    <span class="n">cube</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">name</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;%&quot;</span><span class="p">,</span> <span class="s2">&quot;fraction&quot;</span><span class="p">))</span>
+                    <span class="n">cube</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> <span class="o">/</span> <span class="mf">100.0</span>
+                <span class="n">cube</span><span class="o">.</span><span class="n">units</span> <span class="o">=</span> <span class="s2">&quot;1&quot;</span>
+                <span class="n">cube</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;probability_of_</span><span class="si">{</span><span class="n">cube</span><span class="o">.</span><span class="n">name</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">field</span><span class="o">.</span><span class="n">probability_method</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">probability_attributes</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">num</span> <span class="o">=</span> <span class="n">field</span><span class="o">.</span><span class="n">probability_method</span>
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">probmethod_lookup</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">num</span> <span class="o">&gt;=</span> <span class="n">key</span><span class="p">:</span>
+                <span class="n">probability_attributes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">probmethod_lookup</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+                <span class="n">num</span> <span class="o">=</span> <span class="n">num</span> <span class="o">-</span> <span class="n">key</span>
+        <span class="n">cube</span><span class="o">.</span><span class="n">attributes</span><span class="p">[</span><span class="s2">&quot;Probability methods&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">probability_attributes</span>
+    <span class="k">return</span>
+
+
+<span class="k">def</span> <span class="nf">soil_type_coord</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">field</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Add soil type as a coord if appropriate&quot;&quot;&quot;</span>
+    <span class="n">soil_type_codes</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;broadleaf_tree&quot;</span><span class="p">,</span>
+        <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;needleleaf_tree&quot;</span><span class="p">,</span>
+        <span class="mi">3</span><span class="p">:</span> <span class="s2">&quot;c3_grass&quot;</span><span class="p">,</span>
+        <span class="mi">4</span><span class="p">:</span> <span class="s2">&quot;c4_grass&quot;</span><span class="p">,</span>
+        <span class="mi">5</span><span class="p">:</span> <span class="s2">&quot;crop&quot;</span><span class="p">,</span>
+        <span class="mi">6</span><span class="p">:</span> <span class="s2">&quot;shrub&quot;</span><span class="p">,</span>
+        <span class="mi">7</span><span class="p">:</span> <span class="s2">&quot;urban&quot;</span><span class="p">,</span>
+        <span class="mi">8</span><span class="p">:</span> <span class="s2">&quot;water&quot;</span><span class="p">,</span>
+        <span class="mi">9</span><span class="p">:</span> <span class="s2">&quot;soil&quot;</span><span class="p">,</span>
+        <span class="mi">10</span><span class="p">:</span> <span class="s2">&quot;ice&quot;</span><span class="p">,</span>
+        <span class="mi">601</span><span class="p">:</span> <span class="s2">&quot;urban_canyon&quot;</span><span class="p">,</span>
+        <span class="mi">602</span><span class="p">:</span> <span class="s2">&quot;urban_roof&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="n">soil_name</span> <span class="o">=</span> <span class="n">soil_type_codes</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">field</span><span class="o">.</span><span class="n">soil_type</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">soil_name</span><span class="p">:</span>
+        <span class="n">cube</span><span class="o">.</span><span class="n">add_aux_coord</span><span class="p">(</span>
+            <span class="n">iris</span><span class="o">.</span><span class="n">coords</span><span class="o">.</span><span class="n">AuxCoord</span><span class="p">(</span>
+                <span class="n">soil_name</span><span class="p">,</span> <span class="n">standard_name</span><span class="o">=</span><span class="s2">&quot;soil_type&quot;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="kc">None</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">time_averaging</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">field</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Decode the averagingtype code - similar to the PP LBPROC code.&quot;&quot;&quot;</span>
+    <span class="n">time_averaging_codes</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="mi">8192</span><span class="p">:</span> <span class="s2">&quot;maximum in period&quot;</span><span class="p">,</span>
+        <span class="mi">4096</span><span class="p">:</span> <span class="s2">&quot;minimum in period&quot;</span><span class="p">,</span>
+        <span class="mi">2048</span><span class="p">:</span> <span class="s2">&quot;unknown(2048)&quot;</span><span class="p">,</span>
+        <span class="mi">1024</span><span class="p">:</span> <span class="s2">&quot;unknown(1024)&quot;</span><span class="p">,</span>
+        <span class="mi">512</span><span class="p">:</span> <span class="s2">&quot;time lagged&quot;</span><span class="p">,</span>
+        <span class="mi">256</span><span class="p">:</span> <span class="s2">&quot;extrapolation&quot;</span><span class="p">,</span>
+        <span class="mi">128</span><span class="p">:</span> <span class="s2">&quot;accumulation or average&quot;</span><span class="p">,</span>
+        <span class="mi">64</span><span class="p">:</span> <span class="s2">&quot;from UM 150m&quot;</span><span class="p">,</span>
+        <span class="mi">32</span><span class="p">:</span> <span class="s2">&quot;scaled to UM resolution&quot;</span><span class="p">,</span>
+        <span class="mi">16</span><span class="p">:</span> <span class="s2">&quot;averaged over multiple surface types&quot;</span><span class="p">,</span>
+        <span class="mi">8</span><span class="p">:</span> <span class="s2">&quot;only observations used&quot;</span><span class="p">,</span>
+        <span class="mi">4</span><span class="p">:</span> <span class="s2">&quot;smoothed&quot;</span><span class="p">,</span>
+        <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;cold bias applied&quot;</span><span class="p">,</span>
+        <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;warm bias applied&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="n">num</span> <span class="o">=</span> <span class="n">field</span><span class="o">.</span><span class="n">averagingtype</span>
+    <span class="n">averaging_attributes</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">time_averaging_codes</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">num</span> <span class="o">&gt;=</span> <span class="n">key</span><span class="p">:</span>
+            <span class="n">averaging_attributes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">time_averaging_codes</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+            <span class="n">num</span> <span class="o">=</span> <span class="n">num</span> <span class="o">-</span> <span class="n">key</span>
+    <span class="k">if</span> <span class="n">averaging_attributes</span><span class="p">:</span>
+        <span class="n">cube</span><span class="o">.</span><span class="n">attributes</span><span class="p">[</span><span class="s2">&quot;processing&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">averaging_attributes</span>
+
+
+<div class="viewcode-block" id="run"><a class="viewcode-back" href="../../../generated/api/iris/fileformats/nimrod_load_rules.html#iris.fileformats.nimrod_load_rules.run">[docs]</a><span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="n">handle_metadata_errors</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert a NIMROD field to an Iris cube.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">        * field - a :class:`~iris.fileformats.nimrod.NimrodField`</span>
+
+<span class="sd">        * handle_metadata_errors - Set to False to omit handling of known meta-data deficiencies</span>
+<span class="sd">                                   in Nimrod-format data</span>
+
+<span class="sd">    Returns:</span>
+
+<span class="sd">        * A new :class:`~iris.cube.Cube`, created from the NimrodField.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">cube</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">cube</span><span class="o">.</span><span class="n">Cube</span><span class="p">(</span><span class="n">field</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+
+    <span class="n">name</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">handle_metadata_errors</span><span class="p">)</span>
+    <span class="n">mask_cube</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">field</span><span class="p">)</span>
+    <span class="n">units</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">field</span><span class="p">)</span>
+
+    <span class="c1"># time</span>
+    <span class="n">time</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">field</span><span class="p">)</span>
+    <span class="n">reference_time</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">field</span><span class="p">)</span>
+    <span class="n">forecast_period</span><span class="p">(</span><span class="n">cube</span><span class="p">)</span>
+
+    <span class="n">experiment</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">field</span><span class="p">)</span>
+
+    <span class="c1"># horizontal grid</span>
+    <span class="n">origin_corner</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">field</span><span class="p">)</span>
+    <span class="n">horizontal_grid</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">handle_metadata_errors</span><span class="p">)</span>
+
+    <span class="c1"># vertical</span>
+    <span class="n">vertical_coord</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">field</span><span class="p">)</span>
+
+    <span class="c1"># add other stuff, if present</span>
+    <span class="n">soil_type_coord</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">field</span><span class="p">)</span>
+    <span class="n">probability_coord</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">handle_metadata_errors</span><span class="p">)</span>
+    <span class="n">ensemble_member</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">field</span><span class="p">)</span>
+    <span class="n">time_averaging</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">field</span><span class="p">)</span>
+    <span class="n">attributes</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">field</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">cube</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        
+        &copy; <a href="../../../copyright.html">Copyright</a> Iris Contributors
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

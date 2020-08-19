@@ -1,0 +1,640 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>iris.fileformats.dot &mdash; Iris 3.0.dev0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/theme_override.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery-dataframe.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script src="../../../_static/clipboard.min.js"></script>
+        <script src="../../../_static/copybutton.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="copyright" title="Copyright" href="../../../copyright.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html">
+          
+
+          
+            
+            <img src="../../../_static/iris-logo-title.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installing.html">Installing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../generated/gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/iris_cubes.html">Iris data structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/loading_iris_cubes.html">Loading Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/saving_iris_cubes.html">Saving Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/navigating_a_cube.html">Navigating a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/subsetting_a_cube.html">Subsetting a Cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/real_and_lazy_data.html">Real and Lazy Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/plotting_a_cube.html">Plotting a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/interpolation_and_regridding.html">Cube interpolation and regridding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/merge_and_concat.html">Merge and concatenate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/cube_statistics.html">Cube statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/cube_maths.html">Basic cube mathematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/citation.html">Citing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/code_maintenance.html">Code maintenance</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developers Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/contributing_documentation.html">Contributing to the documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/documenting/index.html">Documentation in Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/gitwash/index.html">Working with <em>iris</em> source code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/code_format.html">Code formatting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/pulls.html">Pull request check List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/tests.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/deprecations.html">Deprecations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/release.html">Releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../generated/api/iris.html">Iris API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../whatsnew/index.html">What’s new in Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../techpapers/index.html">Iris Technical Papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../copyright.html">Iris copyright, licensing and contributors</a></li>
+</ul>
+
+            
+          
+
+    
+    
+    
+        <p class="caption">
+            <span class="caption-text">
+            
+                Support
+            
+            </span>
+        </p>
+        <ul>
+            
+                <li class="toctree-l1"><a href="https://github.com/SciTools/iris"><i class="fa fa-github fa-fw"></i> Source Code</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris"><i class="fa fa-comments fa-fw"></i> Users Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris-dev"><i class="fa fa-comments fa-fw"></i> Developers Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://stackoverflow.com/questions/tagged/python-iris"><i class="fa fa-question fa-fw"></i> StackOverflow For "How do I?"</a></li>
+            
+                <li class="toctree-l1"><a href="https://scitools.org.uk/iris/docs/v2.4.0/index.html"><i class="fa fa-book fa-fw"></i> Legacy documentation</a></li>
+            
+        </ul>
+    
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Iris</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../../iris.html">iris</a> &raquo;</li>
+        
+      <li>iris.fileformats.dot</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for iris.fileformats.dot</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright Iris contributors</span>
+<span class="c1">#</span>
+<span class="c1"># This file is part of Iris and is released under the LGPL license.</span>
+<span class="c1"># See COPYING and COPYING.LESSER in the root of the repository for full</span>
+<span class="c1"># licensing details.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Provides Creation and saving of DOT graphs for a :class:`iris.cube.Cube`.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+
+<span class="kn">import</span> <span class="nn">iris</span>
+<span class="kn">import</span> <span class="nn">iris.util</span>
+
+
+<span class="n">_GRAPH_INDENT</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span> <span class="o">*</span> <span class="mi">4</span>
+<span class="n">_SUBGRAPH_INDENT</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span> <span class="o">*</span> <span class="mi">8</span>
+
+
+<span class="n">_DOT_CHECKED</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">_DOT_EXECUTABLE_PATH</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+<span class="k">def</span> <span class="nf">_dot_path</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">_DOT_CHECKED</span><span class="p">,</span> <span class="n">_DOT_EXECUTABLE_PATH</span>
+
+    <span class="k">if</span> <span class="n">_DOT_CHECKED</span><span class="p">:</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="n">_DOT_EXECUTABLE_PATH</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get_option</span><span class="p">(</span><span class="s2">&quot;System&quot;</span><span class="p">,</span> <span class="s2">&quot;dot_path&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;dot&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isabs</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="c1"># Check PATH</span>
+                    <span class="n">subprocess</span><span class="o">.</span><span class="n">check_output</span><span class="p">(</span>
+                        <span class="p">[</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;-V&quot;</span><span class="p">],</span> <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">STDOUT</span>
+                    <span class="p">)</span>
+                <span class="k">except</span> <span class="p">(</span><span class="ne">OSError</span><span class="p">,</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">CalledProcessError</span><span class="p">):</span>
+                    <span class="n">path</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">path</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">_DOT_EXECUTABLE_PATH</span> <span class="o">=</span> <span class="n">path</span>
+        <span class="n">_DOT_CHECKED</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">return</span> <span class="n">path</span>
+
+
+<span class="c1">#: Whether the &#39;dot&#39; program is present (required for &quot;dotpng&quot; output).</span>
+<span class="n">DOT_AVAILABLE</span> <span class="o">=</span> <span class="n">_dot_path</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+
+
+<div class="viewcode-block" id="save"><a class="viewcode-back" href="../../../generated/api/iris/fileformats/dot.html#iris.fileformats.dot.save">[docs]</a><span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Save a dot representation of the cube.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">        * cube   - A :class:`iris.cube.Cube`.</span>
+<span class="sd">        * target - A filename or open file handle.</span>
+
+<span class="sd">    See also :func:`iris.io.save`.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">dot_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="s2">&quot;wt&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="s2">&quot;write&quot;</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="s2">&quot;mode&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="s2">&quot;b&quot;</span> <span class="ow">in</span> <span class="n">target</span><span class="o">.</span><span class="n">mode</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Target is binary&quot;</span><span class="p">)</span>
+        <span class="n">dot_file</span> <span class="o">=</span> <span class="n">target</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Can only save dot to filename or filehandle&quot;</span><span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">dot_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cube_text</span><span class="p">(</span><span class="n">cube</span><span class="p">))</span>
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="n">dot_file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="save_png"><a class="viewcode-back" href="../../../generated/api/iris/fileformats/dot.html#iris.fileformats.dot.save_png">[docs]</a><span class="k">def</span> <span class="nf">save_png</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">launch</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Produces a &quot;dot&quot; instance diagram by calling dot and optionally launching the resulting image.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">        * source - A :class:`iris.cube.Cube`, or dot filename.</span>
+<span class="sd">        * target - A filename or open file handle.</span>
+<span class="sd">                   If passing a file handle, take care to open it for binary output.</span>
+
+<span class="sd">    Kwargs:</span>
+
+<span class="sd">        * launch - Display the image. Default is False.</span>
+
+<span class="sd">    See also :func:`iris.io.save`.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># From cube or dot file?</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">cube</span><span class="o">.</span><span class="n">Cube</span><span class="p">):</span>
+        <span class="c1"># Create dot file</span>
+        <span class="n">dot_file_path</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">create_temp_filename</span><span class="p">(</span><span class="s2">&quot;.dot&quot;</span><span class="p">)</span>
+        <span class="n">save</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">dot_file_path</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">dot_file_path</span> <span class="o">=</span> <span class="n">source</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Can only write dot png for a Cube or DOT file&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Create png data</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">_dot_path</span><span class="p">():</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s1">&#39;Executable &quot;dot&quot; not found: &#39;</span>
+            <span class="s2">&quot;Review dot_path setting in site.cfg.&quot;</span>
+        <span class="p">)</span>
+    <span class="c1"># To filename or open file handle?</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">(</span>
+            <span class="p">[</span><span class="n">_dot_path</span><span class="p">(),</span> <span class="s2">&quot;-T&quot;</span><span class="p">,</span> <span class="s2">&quot;png&quot;</span><span class="p">,</span> <span class="s2">&quot;-o&quot;</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">dot_file_path</span><span class="p">]</span>
+        <span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="s2">&quot;write&quot;</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="s2">&quot;mode&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">target</span><span class="o">.</span><span class="n">mode</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Target not binary&quot;</span><span class="p">)</span>
+        <span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">(</span>
+            <span class="p">[</span><span class="n">_dot_path</span><span class="p">(),</span> <span class="s2">&quot;-T&quot;</span><span class="p">,</span> <span class="s2">&quot;png&quot;</span><span class="p">,</span> <span class="n">dot_file_path</span><span class="p">],</span> <span class="n">stdout</span><span class="o">=</span><span class="n">target</span>
+        <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Can only write dot png for a filename or writable&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Display?</span>
+    <span class="k">if</span> <span class="n">launch</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;mac&quot;</span><span class="p">:</span>
+            <span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">((</span><span class="s2">&quot;open&quot;</span><span class="p">,</span> <span class="n">target</span><span class="p">))</span>
+        <span class="k">elif</span> <span class="n">os</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;nt&quot;</span><span class="p">:</span>
+            <span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">((</span><span class="s2">&quot;start&quot;</span><span class="p">,</span> <span class="n">target</span><span class="p">))</span>
+        <span class="k">elif</span> <span class="n">os</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;posix&quot;</span><span class="p">:</span>
+            <span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">((</span><span class="s2">&quot;firefox&quot;</span><span class="p">,</span> <span class="n">target</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">iris</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">NotYetImplementedError</span><span class="p">(</span>
+                <span class="s2">&quot;Unhandled operating system. The image has been created in </span><span class="si">%s</span><span class="s2">&quot;</span>
+                <span class="o">%</span> <span class="n">target</span>
+            <span class="p">)</span>
+
+    <span class="c1"># Remove the dot file if we created it</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">cube</span><span class="o">.</span><span class="n">Cube</span><span class="p">):</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">dot_file_path</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="cube_text"><a class="viewcode-back" href="../../../generated/api/iris/fileformats/dot.html#iris.fileformats.dot.cube_text">[docs]</a><span class="k">def</span> <span class="nf">cube_text</span><span class="p">(</span><span class="n">cube</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return a DOT text representation a `iris.cube.Cube`.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">     * cube  -  The cube for which to create DOT text.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># We use r&#39;&#39; type string constructor as when we type \n in a string without the r&#39;&#39; constructor</span>
+    <span class="c1"># we get back a new line character - this is not what DOT expects.</span>
+    <span class="c1"># Therefore, newline characters should be created explicitly by having multi-lined strings.</span>
+    <span class="n">relationships</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;&quot;</span>
+    <span class="n">relationships_association</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;&quot;</span>
+
+    <span class="n">dimension_nodes</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">    subgraph clusterCubeDimensions {</span>
+<span class="s2">        label=&quot;Cube data&quot;</span>
+<span class="s2">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># TODO: Separate dim_coords from aux_coords.</span>
+    <span class="n">coord_nodes</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">    subgraph clusterCoords {</span>
+<span class="s2">        label = &quot;Coords&quot;</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+    <span class="n">coord_system_nodes</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">    subgraph clusterCoordSystems {</span>
+<span class="s2">        label = &quot;CoordSystems&quot;</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">size</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">shape</span><span class="p">):</span>
+        <span class="n">dimension_nodes</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">_dot_node</span><span class="p">(</span>
+            <span class="n">_SUBGRAPH_INDENT</span><span class="p">,</span>
+            <span class="s2">&quot;CubeDimension_&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">),</span>
+            <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">),</span>
+            <span class="p">[(</span><span class="s2">&quot;len&quot;</span><span class="p">,</span> <span class="n">size</span><span class="p">)],</span>
+        <span class="p">)</span>
+
+    <span class="c1"># Coords and their coord_systems</span>
+    <span class="n">coords</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">coords</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">c</span><span class="p">:</span> <span class="n">c</span><span class="o">.</span><span class="n">name</span><span class="p">())</span>
+    <span class="n">written_cs</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">coord</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">coords</span><span class="p">):</span>
+        <span class="n">coord_label</span> <span class="o">=</span> <span class="s2">&quot;Coord_&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="n">coord_nodes</span> <span class="o">+=</span> <span class="n">_coord_text</span><span class="p">(</span><span class="n">coord_label</span><span class="p">,</span> <span class="n">coord</span><span class="p">)</span>
+        <span class="n">cs</span> <span class="o">=</span> <span class="n">coord</span><span class="o">.</span><span class="n">coord_system</span>
+        <span class="k">if</span> <span class="n">cs</span><span class="p">:</span>
+            <span class="c1"># Create the cs node - or find an identical, already written cs</span>
+            <span class="k">if</span> <span class="n">cs</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">written_cs</span><span class="p">:</span>
+                <span class="n">written_cs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cs</span><span class="p">)</span>
+                <span class="n">uid</span> <span class="o">=</span> <span class="n">written_cs</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">cs</span><span class="p">)</span>
+                <span class="n">coord_system_nodes</span> <span class="o">+=</span> <span class="n">_coord_system_text</span><span class="p">(</span><span class="n">cs</span><span class="p">,</span> <span class="n">uid</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">uid</span> <span class="o">=</span> <span class="n">written_cs</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">cs</span><span class="p">)</span>
+            <span class="n">relationships</span> <span class="o">+=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">    &quot;</span><span class="si">%s</span><span class="s1">&quot; -&gt; &quot;CoordSystem_</span><span class="si">%s</span><span class="s1">_</span><span class="si">%s</span><span class="s1">&quot;&#39;</span> <span class="o">%</span> <span class="p">(</span>
+                <span class="n">coord_label</span><span class="p">,</span>
+                <span class="n">coord</span><span class="o">.</span><span class="n">coord_system</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
+                <span class="n">uid</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="n">relationships</span> <span class="o">+=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">    &quot;:Cube&quot; -&gt; &quot;</span><span class="si">%s</span><span class="s1">&quot;&#39;</span> <span class="o">%</span> <span class="n">coord_label</span>
+
+        <span class="c1"># Are there any relationships to data dimensions?</span>
+        <span class="n">dims</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">coord_dims</span><span class="p">(</span><span class="n">coord</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="n">dims</span><span class="p">:</span>
+            <span class="n">relationships_association</span> <span class="o">+=</span> <span class="p">(</span>
+                <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">    &quot;</span><span class="si">%s</span><span class="s1">&quot; -&gt; &quot;CubeDimension_</span><span class="si">%s</span><span class="s1">&quot;:w&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">coord_label</span><span class="p">,</span> <span class="n">dim</span><span class="p">)</span>
+            <span class="p">)</span>
+
+    <span class="n">dimension_nodes</span> <span class="o">+=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">    }</span>
+<span class="s2">    &quot;&quot;&quot;</span>
+
+    <span class="n">coord_nodes</span> <span class="o">+=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">    }</span>
+<span class="s2">    &quot;&quot;&quot;</span>
+
+    <span class="n">coord_system_nodes</span> <span class="o">+=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">    }</span>
+<span class="s2">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># return a string pulling everything together</span>
+    <span class="n">template</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">digraph CubeGraph{</span>
+
+<span class="s2">    rankdir = &quot;LR&quot;</span>
+<span class="s2">    fontname = &quot;Bitstream Vera Sans&quot;</span>
+<span class="s2">    fontsize = 8</span>
+
+<span class="s2">    node [</span>
+<span class="s2">        fontname = &quot;Bitstream Vera Sans&quot;</span>
+<span class="s2">        fontsize = 8</span>
+<span class="s2">        shape = &quot;record&quot;</span>
+<span class="s2">    ]</span>
+
+<span class="s2">#   Nodes</span>
+<span class="si">%(cube_node)s</span><span class="s2"></span>
+<span class="s2">    </span><span class="si">%(dimension_nodes)s</span><span class="s2"></span>
+<span class="s2">    </span><span class="si">%(coord_nodes)s</span><span class="s2"></span>
+<span class="s2">    </span><span class="si">%(coord_sys_nodes)s</span><span class="s2"></span>
+<span class="s2">    edge [</span>
+<span class="s2">        arrowhead = &quot;normal&quot;</span>
+<span class="s2">    ]</span>
+
+<span class="s2">#   RELATIONSHIPS</span>
+
+<span class="s2">#   Containment</span>
+<span class="s2">    </span><span class="si">%(relationships)s</span><span class="s2"></span>
+<span class="s2">    edge [</span>
+<span class="s2">        style=&quot;dashed&quot;</span>
+<span class="s2">        arrowhead = &quot;onormal&quot;</span>
+<span class="s2">    ]</span>
+
+<span class="s2">#   Association</span>
+<span class="s2">    </span><span class="si">%(associations)s</span><span class="s2"></span>
+<span class="s2">}</span>
+<span class="s2">    &quot;&quot;&quot;</span>
+    <span class="n">cube_attributes</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span>
+        <span class="nb">sorted</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">attributes</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">item</span><span class="p">:</span> <span class="n">item</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="p">)</span>
+    <span class="n">cube_node</span> <span class="o">=</span> <span class="n">_dot_node</span><span class="p">(</span><span class="n">_GRAPH_INDENT</span><span class="p">,</span> <span class="s2">&quot;:Cube&quot;</span><span class="p">,</span> <span class="s2">&quot;Cube&quot;</span><span class="p">,</span> <span class="n">cube_attributes</span><span class="p">)</span>
+    <span class="n">res_string</span> <span class="o">=</span> <span class="n">template</span> <span class="o">%</span> <span class="p">{</span>
+        <span class="s2">&quot;cube_node&quot;</span><span class="p">:</span> <span class="n">cube_node</span><span class="p">,</span>
+        <span class="s2">&quot;dimension_nodes&quot;</span><span class="p">:</span> <span class="n">dimension_nodes</span><span class="p">,</span>
+        <span class="s2">&quot;coord_nodes&quot;</span><span class="p">:</span> <span class="n">coord_nodes</span><span class="p">,</span>
+        <span class="s2">&quot;coord_sys_nodes&quot;</span><span class="p">:</span> <span class="n">coord_system_nodes</span><span class="p">,</span>
+        <span class="s2">&quot;relationships&quot;</span><span class="p">:</span> <span class="n">relationships</span><span class="p">,</span>
+        <span class="s2">&quot;associations&quot;</span><span class="p">:</span> <span class="n">relationships_association</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">res_string</span></div>
+
+
+<span class="k">def</span> <span class="nf">_coord_text</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">coord</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns a string containing the dot representation for a single coordinate node.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">    * label</span>
+<span class="sd">        The dot ID of the coordinate node.</span>
+<span class="sd">    * coord</span>
+<span class="sd">        The coordinate to convert.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Which bits to write?</span>
+    <span class="c1"># Note: This is is not very OO but we are achieving a separation of DOT from cdm by doing this.</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">coord</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">coords</span><span class="o">.</span><span class="n">DimCoord</span><span class="p">):</span>
+        <span class="n">_dot_attrs</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;standard_name&quot;</span><span class="p">,</span> <span class="s2">&quot;long_name&quot;</span><span class="p">,</span> <span class="s2">&quot;units&quot;</span><span class="p">,</span> <span class="s2">&quot;circular&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">coord</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">coords</span><span class="o">.</span><span class="n">AuxCoord</span><span class="p">):</span>
+        <span class="n">_dot_attrs</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;standard_name&quot;</span><span class="p">,</span> <span class="s2">&quot;long_name&quot;</span><span class="p">,</span> <span class="s2">&quot;units&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Unhandled coordinate type: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">coord</span><span class="p">)))</span>
+    <span class="n">attrs</span> <span class="o">=</span> <span class="p">[(</span><span class="n">name</span><span class="p">,</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">coord</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">_dot_attrs</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">coord</span><span class="o">.</span><span class="n">attributes</span><span class="p">:</span>
+        <span class="n">custom_attrs</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span>
+            <span class="n">coord</span><span class="o">.</span><span class="n">attributes</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">item</span><span class="p">:</span> <span class="n">item</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="p">)</span>
+        <span class="n">attrs</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">custom_attrs</span><span class="p">)</span>
+
+    <span class="n">node</span> <span class="o">=</span> <span class="n">_dot_node</span><span class="p">(</span><span class="n">_SUBGRAPH_INDENT</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">coord</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">attrs</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">node</span>
+
+
+<span class="k">def</span> <span class="nf">_coord_system_text</span><span class="p">(</span><span class="n">cs</span><span class="p">,</span> <span class="n">uid</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns a string containing the dot representation for a single coordinate system node.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">    * cs</span>
+<span class="sd">        The coordinate system to convert.</span>
+<span class="sd">    * uid</span>
+<span class="sd">        The uid allows/distinguishes non-identical CoordSystems of the same type.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">attrs</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">cs</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">cube</span><span class="o">.</span><span class="n">Cube</span><span class="p">):</span>
+            <span class="n">attrs</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">k</span><span class="p">,</span> <span class="s2">&quot;defined&quot;</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">attrs</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">))</span>
+
+    <span class="n">attrs</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">attr</span><span class="p">:</span> <span class="n">attr</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+    <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;CoordSystem_</span><span class="si">%s</span><span class="s2">_</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">cs</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">uid</span><span class="p">)</span>
+    <span class="n">node</span> <span class="o">=</span> <span class="n">_dot_node</span><span class="p">(</span><span class="n">_SUBGRAPH_INDENT</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">cs</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">attrs</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">node</span>
+
+
+<span class="k">def</span> <span class="nf">_dot_node</span><span class="p">(</span><span class="n">indent</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">attributes</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns a string containing the dot representation for a single node.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">     * id</span>
+<span class="sd">        The ID of the node.</span>
+<span class="sd">     * name</span>
+<span class="sd">        The visual name of the node.</span>
+<span class="sd">     * attributes</span>
+<span class="sd">        An iterable of (name, value) attribute pairs.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">attributes</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;\n&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">item</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">attributes</span><span class="p">)</span>
+    <span class="n">template</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span><span class="si">%(indent)s</span><span class="s2">&quot;</span><span class="si">%(id)s</span><span class="s2">&quot; [</span>
+<span class="si">%(indent)s</span><span class="s2">    label = &quot;</span><span class="si">%(name)s</span><span class="s2">|</span><span class="si">%(attributes)s</span><span class="s2">&quot;</span>
+<span class="si">%(indent)s</span><span class="s2">]</span>
+<span class="s2">&quot;&quot;&quot;</span>
+    <span class="n">node</span> <span class="o">=</span> <span class="n">template</span> <span class="o">%</span> <span class="p">{</span>
+        <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="nb">id</span><span class="p">,</span>
+        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span>
+        <span class="s2">&quot;attributes&quot;</span><span class="p">:</span> <span class="n">attributes</span><span class="p">,</span>
+        <span class="s2">&quot;indent&quot;</span><span class="p">:</span> <span class="n">indent</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">node</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        
+        &copy; <a href="../../../copyright.html">Copyright</a> Iris Contributors
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
