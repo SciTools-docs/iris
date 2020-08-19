@@ -378,6 +378,7 @@
             <span class="n">model_level_number</span><span class="p">,</span>
             <span class="n">standard_name</span><span class="o">=</span><span class="s2">&quot;model_level_number&quot;</span><span class="p">,</span>
             <span class="n">attributes</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;positive&quot;</span><span class="p">:</span> <span class="s2">&quot;down&quot;</span><span class="p">},</span>
+            <span class="n">units</span><span class="o">=</span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
         <span class="p">)</span>
         <span class="n">coords_and_dims</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">coord</span><span class="p">,</span> <span class="n">dim</span><span class="p">))</span>
 
@@ -428,6 +429,7 @@
                 <span class="n">model_level_number</span><span class="p">,</span>
                 <span class="n">long_name</span><span class="o">=</span><span class="s2">&quot;soil_model_level_number&quot;</span><span class="p">,</span>
                 <span class="n">attributes</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;positive&quot;</span><span class="p">:</span> <span class="s2">&quot;down&quot;</span><span class="p">},</span>
+                <span class="n">units</span><span class="o">=</span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
             <span class="p">)</span>
             <span class="n">coords_and_dims</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">coord</span><span class="p">,</span> <span class="n">dim</span><span class="p">))</span>
         <span class="k">elif</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">brsvd1</span> <span class="o">!=</span> <span class="n">brlev</span><span class="p">):</span>
@@ -466,6 +468,7 @@
             <span class="n">model_level_number</span><span class="p">,</span>
             <span class="n">standard_name</span><span class="o">=</span><span class="s2">&quot;model_level_number&quot;</span><span class="p">,</span>
             <span class="n">attributes</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;positive&quot;</span><span class="p">:</span> <span class="s2">&quot;up&quot;</span><span class="p">},</span>
+            <span class="n">units</span><span class="o">=</span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
         <span class="p">)</span>
         <span class="n">level_pressure</span> <span class="o">=</span> <span class="n">_dim_or_aux</span><span class="p">(</span>
             <span class="n">bhlev</span><span class="p">,</span>
@@ -474,7 +477,10 @@
             <span class="n">bounds</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">bhrlev</span><span class="p">,</span> <span class="n">brsvd2</span><span class="p">))</span><span class="o">.</span><span class="n">T</span><span class="p">,</span>
         <span class="p">)</span>
         <span class="n">sigma</span> <span class="o">=</span> <span class="n">AuxCoord</span><span class="p">(</span>
-            <span class="n">blev</span><span class="p">,</span> <span class="n">long_name</span><span class="o">=</span><span class="s2">&quot;sigma&quot;</span><span class="p">,</span> <span class="n">bounds</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">brlev</span><span class="p">,</span> <span class="n">brsvd1</span><span class="p">))</span><span class="o">.</span><span class="n">T</span>
+            <span class="n">blev</span><span class="p">,</span>
+            <span class="n">long_name</span><span class="o">=</span><span class="s2">&quot;sigma&quot;</span><span class="p">,</span>
+            <span class="n">bounds</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">brlev</span><span class="p">,</span> <span class="n">brsvd1</span><span class="p">))</span><span class="o">.</span><span class="n">T</span><span class="p">,</span>
+            <span class="n">units</span><span class="o">=</span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
         <span class="p">)</span>
         <span class="n">coords_and_dims</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
             <span class="p">[(</span><span class="n">model_level_number</span><span class="p">,</span> <span class="n">dim</span><span class="p">),</span> <span class="p">(</span><span class="n">level_pressure</span><span class="p">,</span> <span class="n">dim</span><span class="p">),</span> <span class="p">(</span><span class="n">sigma</span><span class="p">,</span> <span class="n">dim</span><span class="p">)]</span>
@@ -496,6 +502,7 @@
             <span class="n">model_level_number</span><span class="p">,</span>
             <span class="n">standard_name</span><span class="o">=</span><span class="s2">&quot;model_level_number&quot;</span><span class="p">,</span>
             <span class="n">attributes</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;positive&quot;</span><span class="p">:</span> <span class="s2">&quot;up&quot;</span><span class="p">},</span>
+            <span class="n">units</span><span class="o">=</span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
         <span class="p">)</span>
         <span class="n">level_height</span> <span class="o">=</span> <span class="n">_dim_or_aux</span><span class="p">(</span>
             <span class="n">blev</span><span class="p">,</span>
@@ -505,7 +512,10 @@
             <span class="n">attributes</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;positive&quot;</span><span class="p">:</span> <span class="s2">&quot;up&quot;</span><span class="p">},</span>
         <span class="p">)</span>
         <span class="n">sigma</span> <span class="o">=</span> <span class="n">AuxCoord</span><span class="p">(</span>
-            <span class="n">bhlev</span><span class="p">,</span> <span class="n">long_name</span><span class="o">=</span><span class="s2">&quot;sigma&quot;</span><span class="p">,</span> <span class="n">bounds</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">bhrlev</span><span class="p">,</span> <span class="n">brsvd2</span><span class="p">))</span><span class="o">.</span><span class="n">T</span>
+            <span class="n">bhlev</span><span class="p">,</span>
+            <span class="n">long_name</span><span class="o">=</span><span class="s2">&quot;sigma&quot;</span><span class="p">,</span>
+            <span class="n">bounds</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">bhrlev</span><span class="p">,</span> <span class="n">brsvd2</span><span class="p">))</span><span class="o">.</span><span class="n">T</span><span class="p">,</span>
+            <span class="n">units</span><span class="o">=</span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
         <span class="p">)</span>
         <span class="n">coords_and_dims</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
             <span class="p">[(</span><span class="n">model_level_number</span><span class="p">,</span> <span class="n">dim</span><span class="p">),</span> <span class="p">(</span><span class="n">level_height</span><span class="p">,</span> <span class="n">dim</span><span class="p">),</span> <span class="p">(</span><span class="n">sigma</span><span class="p">,</span> <span class="n">dim</span><span class="p">)]</span>
@@ -1077,7 +1087,7 @@
     <span class="n">coords_and_dims</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">if</span> <span class="n">lbrsvd4</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
         <span class="n">coords_and_dims</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-            <span class="p">(</span><span class="n">DimCoord</span><span class="p">(</span><span class="n">lbrsvd4</span><span class="p">,</span> <span class="n">standard_name</span><span class="o">=</span><span class="s2">&quot;realization&quot;</span><span class="p">),</span> <span class="kc">None</span><span class="p">)</span>
+            <span class="p">(</span><span class="n">DimCoord</span><span class="p">(</span><span class="n">lbrsvd4</span><span class="p">,</span> <span class="n">standard_name</span><span class="o">=</span><span class="s2">&quot;realization&quot;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;1&quot;</span><span class="p">),</span> <span class="kc">None</span><span class="p">)</span>
         <span class="p">)</span>
     <span class="k">return</span> <span class="n">coords_and_dims</span>
 
@@ -1309,7 +1319,7 @@
         <span class="ow">and</span> <span class="n">f</span><span class="o">.</span><span class="n">lbmon</span> <span class="o">==</span> <span class="n">f</span><span class="o">.</span><span class="n">lbmond</span>
     <span class="p">):</span>
         <span class="n">aux_coords_and_dims</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-            <span class="p">(</span><span class="n">AuxCoord</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">lbmon</span><span class="p">,</span> <span class="n">long_name</span><span class="o">=</span><span class="s2">&quot;month_number&quot;</span><span class="p">),</span> <span class="kc">None</span><span class="p">)</span>
+            <span class="p">(</span><span class="n">AuxCoord</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">lbmon</span><span class="p">,</span> <span class="n">long_name</span><span class="o">=</span><span class="s2">&quot;month_number&quot;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;1&quot;</span><span class="p">),</span> <span class="kc">None</span><span class="p">)</span>
         <span class="p">)</span>
         <span class="n">aux_coords_and_dims</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
             <span class="p">(</span>
