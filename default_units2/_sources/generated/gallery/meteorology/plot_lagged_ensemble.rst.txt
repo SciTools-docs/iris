@@ -74,7 +74,7 @@ GloSea4 model, which is then used to produce two types of plot:
             import iris.coords
 
             realization_coord = iris.coords.AuxCoord(
-                np.int32(realization_number), "realization"
+                np.int32(realization_number), "realization", units="1"
             )
             cube.add_aux_coord(realization_coord)
 
@@ -205,7 +205,7 @@ GloSea4 model, which is then used to produce two types of plot:
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  19.516 seconds)
+   **Total running time of the script:** ( 0 minutes  20.054 seconds)
 
 
 .. _sphx_glr_download_generated_gallery_meteorology_plot_lagged_ensemble.py:
