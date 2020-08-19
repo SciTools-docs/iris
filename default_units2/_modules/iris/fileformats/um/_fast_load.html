@@ -1,0 +1,840 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>iris.fileformats.um._fast_load &mdash; Iris 3.0.dev0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../_static/theme_override.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/gallery-dataframe.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/language_data.js"></script>
+        <script src="../../../../_static/clipboard.min.js"></script>
+        <script src="../../../../_static/copybutton.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="copyright" title="Copyright" href="../../../../copyright.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html">
+          
+
+          
+            
+            <img src="../../../../_static/iris-logo-title.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installing.html">Installing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../generated/gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/iris_cubes.html">Iris data structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/loading_iris_cubes.html">Loading Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/saving_iris_cubes.html">Saving Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/navigating_a_cube.html">Navigating a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/subsetting_a_cube.html">Subsetting a Cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/real_and_lazy_data.html">Real and Lazy Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/plotting_a_cube.html">Plotting a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/interpolation_and_regridding.html">Cube interpolation and regridding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/merge_and_concat.html">Merge and concatenate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/cube_statistics.html">Cube statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/cube_maths.html">Basic cube mathematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/citation.html">Citing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/code_maintenance.html">Code maintenance</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developers Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developers_guide/contributing_documentation.html">Contributing to the documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developers_guide/documenting/index.html">Documentation in Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developers_guide/gitwash/index.html">Working with <em>iris</em> source code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developers_guide/code_format.html">Code formatting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developers_guide/pulls.html">Pull request check List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developers_guide/tests.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developers_guide/deprecations.html">Deprecations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developers_guide/release.html">Releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../generated/api/iris.html">Iris API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../whatsnew/index.html">What’s new in Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../techpapers/index.html">Iris Technical Papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../copyright.html">Iris copyright, licensing and contributors</a></li>
+</ul>
+
+            
+          
+
+    
+    
+    
+        <p class="caption">
+            <span class="caption-text">
+            
+                Support
+            
+            </span>
+        </p>
+        <ul>
+            
+                <li class="toctree-l1"><a href="https://github.com/SciTools/iris"><i class="fa fa-github fa-fw"></i> Source Code</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris"><i class="fa fa-comments fa-fw"></i> Users Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris-dev"><i class="fa fa-comments fa-fw"></i> Developers Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://stackoverflow.com/questions/tagged/python-iris"><i class="fa fa-question fa-fw"></i> StackOverflow For "How do I?"</a></li>
+            
+                <li class="toctree-l1"><a href="https://scitools.org.uk/iris/docs/v2.4.0/index.html"><i class="fa fa-book fa-fw"></i> Legacy documentation</a></li>
+            
+        </ul>
+    
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Iris</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../../../iris.html">iris</a> &raquo;</li>
+        
+      <li>iris.fileformats.um._fast_load</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for iris.fileformats.um._fast_load</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright Iris contributors</span>
+<span class="c1">#</span>
+<span class="c1"># This file is part of Iris and is released under the LGPL license.</span>
+<span class="c1"># See COPYING and COPYING.LESSER in the root of the repository for full</span>
+<span class="c1"># licensing details.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Support for &quot;fast&quot; loading of structured UM files in iris load functions,</span>
+<span class="sd">i.e. :meth:`iris.load` and its associates.</span>
+
+<span class="sd">This provides a context manager to enable structured loading via all the iris</span>
+<span class="sd">load function variants.  It is made public in :mod:`iris.fileformats.um`.</span>
+
+<span class="sd">This works with either PP or Fieldsfiles.</span>
+<span class="sd">The various existing PP and FF format loaders all call into</span>
+<span class="sd">:meth:`iris.fileformats.pp._load_cubes_variable_loader`.</span>
+<span class="sd">When enabled, that function calls private functions in this module, to replace</span>
+<span class="sd">the &#39;normal&#39; calls with &#39;structured&#39; loading.</span>
+
+<span class="sd">At present, there is *no* public low-level fields-to-cube interface, equivalent</span>
+<span class="sd">to the pp &quot;as_pairs&quot; functions.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">contextmanager</span>
+<span class="kn">import</span> <span class="nn">threading</span>
+<span class="kn">import</span> <span class="nn">os.path</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Be minimal about what we import from iris, to avoid circular imports.</span>
+<span class="c1"># Below, other parts of iris.fileformats are accessed via deferred imports.</span>
+<span class="kn">from</span> <span class="nn">iris.coords</span> <span class="kn">import</span> <span class="n">DimCoord</span>
+<span class="kn">from</span> <span class="nn">iris.cube</span> <span class="kn">import</span> <span class="n">CubeList</span>
+<span class="kn">from</span> <span class="nn">iris.exceptions</span> <span class="kn">import</span> <span class="n">TranslationError</span>
+<span class="kn">from</span> <span class="nn">iris.fileformats.um._fast_load_structured_fields</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">BasicFieldCollation</span><span class="p">,</span>
+    <span class="n">group_structured_fields</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># Strings to identify the PP and FF file format handler specs.</span>
+<span class="n">_FF_SPEC_NAME</span> <span class="o">=</span> <span class="s2">&quot;UM Fieldsfile&quot;</span>
+<span class="n">_PP_SPEC_NAME</span> <span class="o">=</span> <span class="s2">&quot;UM Post Processing file&quot;</span>
+
+
+<div class="viewcode-block" id="FieldCollation"><a class="viewcode-back" href="../../../../generated/api/iris/fileformats/um.html#iris.fileformats.um.FieldCollation">[docs]</a><span class="k">class</span> <span class="nc">FieldCollation</span><span class="p">(</span><span class="n">BasicFieldCollation</span><span class="p">):</span>
+    <span class="c1"># This class specialises the BasicFieldCollation by adding the file-index</span>
+    <span class="c1"># and file-path concepts.</span>
+    <span class="c1"># This preserves the more abstract scope of the original &#39;FieldCollation&#39;</span>
+    <span class="c1"># class, now renamed &#39;BasicFieldCollation&#39;.</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fields</span><span class="p">,</span> <span class="n">filepath</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Args:</span>
+
+<span class="sd">        * fields (iterable of :class:`iris.fileformats.pp.PPField`):</span>
+<span class="sd">            The fields in the collation.</span>
+
+<span class="sd">        * filepath (string):</span>
+<span class="sd">            The path of the file the collation is loaded from.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">fields</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_load_filepath</span> <span class="o">=</span> <span class="n">filepath</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">data_filepath</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_load_filepath</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">data_field_indices</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Field indices of the contained PPFields in the input file.</span>
+
+<span class="sd">        This records the original file location of the individual data fields</span>
+<span class="sd">        contained, within the input datafile.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            An integer array of shape `self.vector_dims_shape`.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Get shape :  N.B. this calculates (and caches) the structure.</span>
+        <span class="n">vector_dims_shape</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vector_dims_shape</span>
+        <span class="c1"># Get index-in-file of each contained field.</span>
+        <span class="n">indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+            <span class="p">[</span><span class="n">field</span><span class="o">.</span><span class="n">_index_in_structured_load_file</span> <span class="k">for</span> <span class="n">field</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fields</span><span class="p">],</span>
+            <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">indices</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">vector_dims_shape</span><span class="p">)</span></div>
+
+
+<span class="k">def</span> <span class="nf">_basic_load_function</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">pp_filter</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="c1"># The low-level &#39;fields from filename&#39; loader.</span>
+    <span class="c1">#</span>
+    <span class="c1"># This is the &#39;loader.generator&#39; in the control structure passed to the</span>
+    <span class="c1"># generic rules code, :meth:`iris.fileformats.rules.load_cubes`.</span>
+    <span class="c1">#</span>
+    <span class="c1"># As called by generic rules code, this replaces pp.load (and the like).</span>
+    <span class="c1"># It yields a sequence of &quot;fields&quot;, but in this case the &#39;fields&#39; are</span>
+    <span class="c1"># :class:`iris.fileformats.um._fast_load_structured_fields.FieldCollation`</span>
+    <span class="c1"># objects.</span>
+    <span class="c1">#</span>
+    <span class="c1"># NOTE: so, a FieldCollation is passed as the &#39;field&#39; in user callbacks.</span>
+    <span class="c1">#</span>
+    <span class="c1"># Also in our case, we need to support the basic single-field filtering</span>
+    <span class="c1"># operation that speeds up phenomenon selection.</span>
+    <span class="c1"># Therefore, the actual loader will pass this as the &#39;pp_filter&#39; keyword,</span>
+    <span class="c1"># when it is present.</span>
+    <span class="c1"># Additional load keywords are &#39;passed on&#39; to the lower-level function.</span>
+
+    <span class="c1"># Helper function to select the correct fields loader call.</span>
+    <span class="k">def</span> <span class="nf">_select_raw_fields_loader</span><span class="p">(</span><span class="n">fname</span><span class="p">):</span>
+        <span class="c1"># Return the PPfield loading function for a file name.</span>
+        <span class="c1">#</span>
+        <span class="c1"># This decides whether the underlying file is an FF or PP file.</span>
+        <span class="c1"># Because it would be too awkward to modify the whole iris loading</span>
+        <span class="c1"># callchain to &quot;pass down&quot; the file format, this function instead</span>
+        <span class="c1"># &#39;recreates&#39; that information by calling the format picker again.</span>
+        <span class="c1"># NOTE: this may be inefficient, especially for web resources.</span>
+        <span class="kn">from</span> <span class="nn">iris.fileformats</span> <span class="kn">import</span> <span class="n">FORMAT_AGENT</span>
+        <span class="kn">from</span> <span class="nn">iris.fileformats.pp</span> <span class="kn">import</span> <span class="n">load</span> <span class="k">as</span> <span class="n">pp_load</span>
+        <span class="kn">from</span> <span class="nn">iris.fileformats.um</span> <span class="kn">import</span> <span class="n">um_to_pp</span>
+
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fh</span><span class="p">:</span>
+            <span class="n">spec</span> <span class="o">=</span> <span class="n">FORMAT_AGENT</span><span class="o">.</span><span class="n">get_spec</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">fname</span><span class="p">),</span> <span class="n">fh</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">spec</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">_FF_SPEC_NAME</span><span class="p">):</span>
+            <span class="n">loader</span> <span class="o">=</span> <span class="n">um_to_pp</span>
+        <span class="k">elif</span> <span class="n">spec</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">_PP_SPEC_NAME</span><span class="p">):</span>
+            <span class="n">loader</span> <span class="o">=</span> <span class="n">pp_load</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">emsg</span> <span class="o">=</span> <span class="s2">&quot;Require </span><span class="si">{!r}</span><span class="s2"> to be a structured FieldsFile or a PP file.&quot;</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">emsg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">fname</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">loader</span>
+
+    <span class="n">loader</span> <span class="o">=</span> <span class="n">_select_raw_fields_loader</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">iter_fields_decorated_with_load_indices</span><span class="p">(</span><span class="n">fields_iter</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">i_field</span><span class="p">,</span> <span class="n">field</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">fields_iter</span><span class="p">):</span>
+            <span class="n">field</span><span class="o">.</span><span class="n">_index_in_structured_load_file</span> <span class="o">=</span> <span class="n">i_field</span>
+            <span class="k">yield</span> <span class="n">field</span>
+
+    <span class="n">fields</span> <span class="o">=</span> <span class="n">iter_fields_decorated_with_load_indices</span><span class="p">(</span>
+        <span class="n">field</span>
+        <span class="k">for</span> <span class="n">field</span> <span class="ow">in</span> <span class="n">loader</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">pp_filter</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">pp_filter</span><span class="p">(</span><span class="n">field</span><span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">group_structured_fields</span><span class="p">(</span>
+        <span class="n">fields</span><span class="p">,</span> <span class="n">collation_class</span><span class="o">=</span><span class="n">FieldCollation</span><span class="p">,</span> <span class="n">filepath</span><span class="o">=</span><span class="n">filename</span>
+    <span class="p">)</span>
+
+
+<span class="c1"># Define the preferred order of candidate dimension coordinates, as used by</span>
+<span class="c1"># _convert_collation.</span>
+<span class="n">_HINT_COORDS</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="s2">&quot;forecast_reference_time&quot;</span><span class="p">,</span> <span class="s2">&quot;model_level_number&quot;</span><span class="p">]</span>
+<span class="n">_HINTS</span> <span class="o">=</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">_HINT_COORDS</span><span class="p">)),</span> <span class="n">_HINT_COORDS</span><span class="p">)}</span>
+
+
+<span class="k">def</span> <span class="nf">_convert_collation</span><span class="p">(</span><span class="n">collation</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Converts a FieldCollation into the corresponding items of Cube</span>
+<span class="sd">    metadata.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">    * collation:</span>
+<span class="sd">        A FieldCollation object.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A :class:`iris.fileformats.rules.ConversionMetadata` object.</span>
+
+<span class="sd">    .. note:</span>
+<span class="sd">        This is the &#39;loader.converter&#39;, in the control structure passed to the</span>
+<span class="sd">        generic rules code, :meth:`iris.fileformats.rules.load_cubes`.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">from</span> <span class="nn">iris.fileformats.rules</span> <span class="kn">import</span> <span class="n">ConversionMetadata</span>
+    <span class="kn">from</span> <span class="nn">iris.fileformats.pp_load_rules</span> <span class="kn">import</span> <span class="p">(</span>
+        <span class="n">_convert_time_coords</span><span class="p">,</span>
+        <span class="n">_convert_vertical_coords</span><span class="p">,</span>
+        <span class="n">_convert_scalar_realization_coords</span><span class="p">,</span>
+        <span class="n">_convert_scalar_pseudo_level_coords</span><span class="p">,</span>
+        <span class="n">_all_other_rules</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="c1"># For all the scalar conversions, all fields in the collation will</span>
+    <span class="c1"># give the same result, so the choice is arbitrary.</span>
+    <span class="n">field</span> <span class="o">=</span> <span class="n">collation</span><span class="o">.</span><span class="n">fields</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="c1"># Call &quot;all other&quot; rules.</span>
+    <span class="p">(</span>
+        <span class="n">references</span><span class="p">,</span>
+        <span class="n">standard_name</span><span class="p">,</span>
+        <span class="n">long_name</span><span class="p">,</span>
+        <span class="n">units</span><span class="p">,</span>
+        <span class="n">attributes</span><span class="p">,</span>
+        <span class="n">cell_methods</span><span class="p">,</span>
+        <span class="n">dim_coords_and_dims</span><span class="p">,</span>
+        <span class="n">aux_coords_and_dims</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">=</span> <span class="n">_all_other_rules</span><span class="p">(</span><span class="n">field</span><span class="p">)</span>
+
+    <span class="c1"># Adjust any dimension bindings to account for the extra leading</span>
+    <span class="c1"># dimensions added by the collation.</span>
+    <span class="k">if</span> <span class="n">collation</span><span class="o">.</span><span class="n">vector_dims_shape</span><span class="p">:</span>
+
+        <span class="k">def</span> <span class="nf">_adjust_dims</span><span class="p">(</span><span class="n">coords_and_dims</span><span class="p">,</span> <span class="n">n_dims</span><span class="p">):</span>
+            <span class="k">def</span> <span class="nf">adjust</span><span class="p">(</span><span class="n">dims</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">dims</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">dims</span> <span class="o">+=</span> <span class="n">n_dims</span>
+                <span class="k">return</span> <span class="n">dims</span>
+
+            <span class="k">return</span> <span class="p">[(</span><span class="n">coord</span><span class="p">,</span> <span class="n">adjust</span><span class="p">(</span><span class="n">dims</span><span class="p">))</span> <span class="k">for</span> <span class="n">coord</span><span class="p">,</span> <span class="n">dims</span> <span class="ow">in</span> <span class="n">coords_and_dims</span><span class="p">]</span>
+
+        <span class="n">n_collation_dims</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">collation</span><span class="o">.</span><span class="n">vector_dims_shape</span><span class="p">)</span>
+        <span class="n">dim_coords_and_dims</span> <span class="o">=</span> <span class="n">_adjust_dims</span><span class="p">(</span>
+            <span class="n">dim_coords_and_dims</span><span class="p">,</span> <span class="n">n_collation_dims</span>
+        <span class="p">)</span>
+        <span class="n">aux_coords_and_dims</span> <span class="o">=</span> <span class="n">_adjust_dims</span><span class="p">(</span>
+            <span class="n">aux_coords_and_dims</span><span class="p">,</span> <span class="n">n_collation_dims</span>
+        <span class="p">)</span>
+
+    <span class="c1"># Dimensions to which we&#39;ve already assigned dimension coordinates.</span>
+    <span class="n">dim_coord_dims</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+    <span class="c1"># Helper call to choose which coords are dimensions and which auxiliary.</span>
+    <span class="k">def</span> <span class="nf">_bind_coords</span><span class="p">(</span>
+        <span class="n">coords_and_dims</span><span class="p">,</span>
+        <span class="n">dim_coord_dims</span><span class="p">,</span>
+        <span class="n">dim_coords_and_dims</span><span class="p">,</span>
+        <span class="n">aux_coords_and_dims</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="k">def</span> <span class="nf">key_func</span><span class="p">(</span><span class="n">item</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">_HINTS</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">name</span><span class="p">(),</span> <span class="nb">len</span><span class="p">(</span><span class="n">_HINTS</span><span class="p">))</span>
+
+        <span class="c1"># Target the first DimCoord for a dimension at dim_coords,</span>
+        <span class="c1"># and target everything else at aux_coords.</span>
+        <span class="k">for</span> <span class="n">coord</span><span class="p">,</span> <span class="n">dims</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">coords_and_dims</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">key_func</span><span class="p">):</span>
+            <span class="k">if</span> <span class="p">(</span>
+                <span class="nb">isinstance</span><span class="p">(</span><span class="n">coord</span><span class="p">,</span> <span class="n">DimCoord</span><span class="p">)</span>
+                <span class="ow">and</span> <span class="n">dims</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+                <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">dims</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
+                <span class="ow">and</span> <span class="n">dims</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">dim_coord_dims</span>
+            <span class="p">):</span>
+                <span class="n">dim_coords_and_dims</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">coord</span><span class="p">,</span> <span class="n">dims</span><span class="p">))</span>
+                <span class="n">dim_coord_dims</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">dims</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">aux_coords_and_dims</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">coord</span><span class="p">,</span> <span class="n">dims</span><span class="p">))</span>
+
+    <span class="c1"># Call &quot;time&quot; rules.</span>
+    <span class="c1">#</span>
+    <span class="c1"># For &quot;normal&quot; (non-cross-sectional) time values.</span>
+    <span class="n">vector_headers</span> <span class="o">=</span> <span class="n">collation</span><span class="o">.</span><span class="n">element_arrays_and_dims</span>
+    <span class="c1"># If the collation doesn&#39;t define a vector of values for a</span>
+    <span class="c1"># particular header then it must be constant over all fields in the</span>
+    <span class="c1"># collation. In which case it&#39;s safe to get the value from any field.</span>
+    <span class="n">t1</span><span class="p">,</span> <span class="n">t1_dims</span> <span class="o">=</span> <span class="n">vector_headers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;t1&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">field</span><span class="o">.</span><span class="n">t1</span><span class="p">,</span> <span class="p">()))</span>
+    <span class="n">t2</span><span class="p">,</span> <span class="n">t2_dims</span> <span class="o">=</span> <span class="n">vector_headers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;t2&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">field</span><span class="o">.</span><span class="n">t2</span><span class="p">,</span> <span class="p">()))</span>
+    <span class="n">lbft</span><span class="p">,</span> <span class="n">lbft_dims</span> <span class="o">=</span> <span class="n">vector_headers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;lbft&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">field</span><span class="o">.</span><span class="n">lbft</span><span class="p">,</span> <span class="p">()))</span>
+    <span class="n">coords_and_dims</span> <span class="o">=</span> <span class="n">_convert_time_coords</span><span class="p">(</span>
+        <span class="n">field</span><span class="o">.</span><span class="n">lbcode</span><span class="p">,</span>
+        <span class="n">field</span><span class="o">.</span><span class="n">lbtim</span><span class="p">,</span>
+        <span class="n">field</span><span class="o">.</span><span class="n">time_unit</span><span class="p">(</span><span class="s2">&quot;hours&quot;</span><span class="p">),</span>
+        <span class="n">t1</span><span class="p">,</span>
+        <span class="n">t2</span><span class="p">,</span>
+        <span class="n">lbft</span><span class="p">,</span>
+        <span class="n">t1_dims</span><span class="p">,</span>
+        <span class="n">t2_dims</span><span class="p">,</span>
+        <span class="n">lbft_dims</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="c1"># Bind resulting coordinates to dimensions, where suitable.</span>
+    <span class="n">_bind_coords</span><span class="p">(</span>
+        <span class="n">coords_and_dims</span><span class="p">,</span>
+        <span class="n">dim_coord_dims</span><span class="p">,</span>
+        <span class="n">dim_coords_and_dims</span><span class="p">,</span>
+        <span class="n">aux_coords_and_dims</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Call &quot;vertical&quot; rules.</span>
+    <span class="c1">#</span>
+    <span class="c1"># &quot;Normal&quot; (non-cross-sectional) vertical levels</span>
+    <span class="n">blev</span><span class="p">,</span> <span class="n">blev_dims</span> <span class="o">=</span> <span class="n">vector_headers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;blev&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">field</span><span class="o">.</span><span class="n">blev</span><span class="p">,</span> <span class="p">()))</span>
+    <span class="n">lblev</span><span class="p">,</span> <span class="n">lblev_dims</span> <span class="o">=</span> <span class="n">vector_headers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;lblev&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">field</span><span class="o">.</span><span class="n">lblev</span><span class="p">,</span> <span class="p">()))</span>
+    <span class="n">bhlev</span><span class="p">,</span> <span class="n">bhlev_dims</span> <span class="o">=</span> <span class="n">vector_headers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;bhlev&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">field</span><span class="o">.</span><span class="n">bhlev</span><span class="p">,</span> <span class="p">()))</span>
+    <span class="n">bhrlev</span><span class="p">,</span> <span class="n">bhrlev_dims</span> <span class="o">=</span> <span class="n">vector_headers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;bhrlev&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">field</span><span class="o">.</span><span class="n">bhrlev</span><span class="p">,</span> <span class="p">()))</span>
+    <span class="n">brsvd1</span><span class="p">,</span> <span class="n">brsvd1_dims</span> <span class="o">=</span> <span class="n">vector_headers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;brsvd1&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">field</span><span class="o">.</span><span class="n">brsvd</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="p">()))</span>
+    <span class="n">brsvd2</span><span class="p">,</span> <span class="n">brsvd2_dims</span> <span class="o">=</span> <span class="n">vector_headers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;brsvd2&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">field</span><span class="o">.</span><span class="n">brsvd</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="p">()))</span>
+    <span class="n">brlev</span><span class="p">,</span> <span class="n">brlev_dims</span> <span class="o">=</span> <span class="n">vector_headers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;brlev&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">field</span><span class="o">.</span><span class="n">brlev</span><span class="p">,</span> <span class="p">()))</span>
+    <span class="c1"># Find all the non-trivial dimension values</span>
+    <span class="n">dims</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span>
+        <span class="nb">filter</span><span class="p">(</span>
+            <span class="kc">None</span><span class="p">,</span>
+            <span class="p">[</span>
+                <span class="n">blev_dims</span><span class="p">,</span>
+                <span class="n">lblev_dims</span><span class="p">,</span>
+                <span class="n">bhlev_dims</span><span class="p">,</span>
+                <span class="n">bhrlev_dims</span><span class="p">,</span>
+                <span class="n">brsvd1_dims</span><span class="p">,</span>
+                <span class="n">brsvd2_dims</span><span class="p">,</span>
+                <span class="n">brlev_dims</span><span class="p">,</span>
+            <span class="p">],</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">dims</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">TranslationError</span><span class="p">(</span>
+            <span class="s2">&quot;Unsupported multiple values for vertical &quot;</span> <span class="s2">&quot;dimension.&quot;</span>
+        <span class="p">)</span>
+    <span class="k">if</span> <span class="n">dims</span><span class="p">:</span>
+        <span class="n">v_dims</span> <span class="o">=</span> <span class="n">dims</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">v_dims</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">TranslationError</span><span class="p">(</span>
+                <span class="s2">&quot;Unsupported multi-dimension vertical &quot;</span> <span class="s2">&quot;headers.&quot;</span>
+            <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">v_dims</span> <span class="o">=</span> <span class="p">()</span>
+    <span class="n">coords_and_dims</span><span class="p">,</span> <span class="n">factories</span> <span class="o">=</span> <span class="n">_convert_vertical_coords</span><span class="p">(</span>
+        <span class="n">field</span><span class="o">.</span><span class="n">lbcode</span><span class="p">,</span>
+        <span class="n">field</span><span class="o">.</span><span class="n">lbvc</span><span class="p">,</span>
+        <span class="n">blev</span><span class="p">,</span>
+        <span class="n">lblev</span><span class="p">,</span>
+        <span class="n">field</span><span class="o">.</span><span class="n">stash</span><span class="p">,</span>
+        <span class="n">bhlev</span><span class="p">,</span>
+        <span class="n">bhrlev</span><span class="p">,</span>
+        <span class="n">brsvd1</span><span class="p">,</span>
+        <span class="n">brsvd2</span><span class="p">,</span>
+        <span class="n">brlev</span><span class="p">,</span>
+        <span class="n">v_dims</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="c1"># Bind resulting coordinates to dimensions, where suitable.</span>
+    <span class="n">_bind_coords</span><span class="p">(</span>
+        <span class="n">coords_and_dims</span><span class="p">,</span>
+        <span class="n">dim_coord_dims</span><span class="p">,</span>
+        <span class="n">dim_coords_and_dims</span><span class="p">,</span>
+        <span class="n">aux_coords_and_dims</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Realization (aka ensemble) (--&gt; scalar coordinates)</span>
+    <span class="n">aux_coords_and_dims</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
+        <span class="n">_convert_scalar_realization_coords</span><span class="p">(</span><span class="n">lbrsvd4</span><span class="o">=</span><span class="n">field</span><span class="o">.</span><span class="n">lbrsvd</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Pseudo-level coordinate (--&gt; scalar coordinates)</span>
+    <span class="n">aux_coords_and_dims</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
+        <span class="n">_convert_scalar_pseudo_level_coords</span><span class="p">(</span><span class="n">lbuser5</span><span class="o">=</span><span class="n">field</span><span class="o">.</span><span class="n">lbuser</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">ConversionMetadata</span><span class="p">(</span>
+        <span class="n">factories</span><span class="p">,</span>
+        <span class="n">references</span><span class="p">,</span>
+        <span class="n">standard_name</span><span class="p">,</span>
+        <span class="n">long_name</span><span class="p">,</span>
+        <span class="n">units</span><span class="p">,</span>
+        <span class="n">attributes</span><span class="p">,</span>
+        <span class="n">cell_methods</span><span class="p">,</span>
+        <span class="n">dim_coords_and_dims</span><span class="p">,</span>
+        <span class="n">aux_coords_and_dims</span><span class="p">,</span>
+    <span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_combine_structured_cubes</span><span class="p">(</span><span class="n">cubes</span><span class="p">):</span>
+    <span class="c1"># Combine structured cubes from different sourcefiles, in the style of</span>
+    <span class="c1"># merge/concatenate.</span>
+    <span class="c1">#</span>
+    <span class="c1"># Because standard Cube.merge employed in loading can&#39;t do this.</span>
+    <span class="k">if</span> <span class="n">STRUCTURED_LOAD_CONTROLS</span><span class="o">.</span><span class="n">structured_load_is_raw</span><span class="p">:</span>
+        <span class="c1"># Cross-file concatenate is disabled, during a &quot;load_raw&quot; call.</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">cubes</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">CubeList</span><span class="p">(</span><span class="n">cubes</span><span class="p">)</span><span class="o">.</span><span class="n">concatenate</span><span class="p">())</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+
+<span class="k">class</span> <span class="nc">StructuredLoadFlags</span><span class="p">(</span><span class="n">threading</span><span class="o">.</span><span class="n">local</span><span class="p">):</span>
+    <span class="c1"># A thread-safe object to control structured loading operations.</span>
+    <span class="c1"># The object properties are the control flags.</span>
+    <span class="c1">#</span>
+    <span class="c1"># Inheriting from &#39;threading.local&#39; provides a *separate* set of the</span>
+    <span class="c1"># object properties for each thread.</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># Control whether iris load functions do structured loads.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">loads_use_structured</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="c1"># Control whether structured load &#39;combine&#39; is enabled.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">structured_load_is_raw</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="nd">@contextmanager</span>
+    <span class="k">def</span> <span class="nf">context</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">loads_use_structured</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">structured_load_is_raw</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="c1"># Snapshot current states, for restoration afterwards.</span>
+        <span class="n">old_structured</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">loads_use_structured</span>
+        <span class="n">old_raw_load</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">structured_load_is_raw</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># Set flags for duration, as requested.</span>
+            <span class="k">if</span> <span class="n">loads_use_structured</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">loads_use_structured</span> <span class="o">=</span> <span class="n">loads_use_structured</span>
+            <span class="k">if</span> <span class="n">structured_load_is_raw</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">structured_load_is_raw</span> <span class="o">=</span> <span class="n">structured_load_is_raw</span>
+            <span class="c1"># Yield to caller operation.</span>
+            <span class="k">yield</span>
+        <span class="k">finally</span><span class="p">:</span>
+            <span class="c1"># Restore entry state of flags.</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">loads_use_structured</span> <span class="o">=</span> <span class="n">old_structured</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">structured_load_is_raw</span> <span class="o">=</span> <span class="n">old_raw_load</span>
+
+
+<span class="c1"># A singleton structured-load-control object.</span>
+<span class="c1"># Used in :meth:`iris.fileformats.pp._load_cubes_variable_loader`.</span>
+<span class="n">STRUCTURED_LOAD_CONTROLS</span> <span class="o">=</span> <span class="n">StructuredLoadFlags</span><span class="p">()</span>
+
+
+<div class="viewcode-block" id="structured_um_loading"><a class="viewcode-back" href="../../../../generated/api/iris/fileformats/um.html#iris.fileformats.um.structured_um_loading">[docs]</a><span class="nd">@contextmanager</span>
+<span class="k">def</span> <span class="nf">structured_um_loading</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Load cubes from structured UM Fieldsfile and PP files.</span>
+
+<span class="sd">    &quot;Structured&quot; loading is a streamlined, fast load operation, to be used</span>
+<span class="sd">    **only** on fieldsfiles or PP files whose fields repeat regularly over</span>
+<span class="sd">    the same vertical levels and times (see full details below).</span>
+
+<span class="sd">    This method is a context manager which enables an alternative loading</span>
+<span class="sd">    mechanism for &#39;structured&#39; UM files, providing much faster load times.</span>
+<span class="sd">    Within the scope of the context manager, this affects all standard Iris</span>
+<span class="sd">    load functions (:func:`~iris.load`, :func:`~iris.load_cube`,</span>
+<span class="sd">    :func:`~iris.load_cubes` and :func:`~iris.load_raw`), when loading from UM</span>
+<span class="sd">    format files (PP or fieldsfiles).</span>
+
+<span class="sd">    For example:</span>
+
+<span class="sd">        &gt;&gt;&gt; import iris</span>
+<span class="sd">        &gt;&gt;&gt; filepath = iris.sample_data_path(&#39;uk_hires.pp&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; from iris.fileformats.um import structured_um_loading</span>
+<span class="sd">        &gt;&gt;&gt; with structured_um_loading():</span>
+<span class="sd">        ...     cube = iris.load_cube(filepath, &#39;air_potential_temperature&#39;)</span>
+<span class="sd">        ...</span>
+<span class="sd">        &gt;&gt;&gt; cube</span>
+<span class="sd">        &lt;iris &#39;Cube&#39; of air_potential_temperature / (K) \</span>
+<span class="sd">(time: 3; model_level_number: 7; grid_latitude: 204; grid_longitude: 187)&gt;</span>
+
+<span class="sd">    The results from this are normally equivalent to those generated by</span>
+<span class="sd">    :func:`iris.load`, but the operation is substantially faster for input</span>
+<span class="sd">    which is structured.</span>
+
+<span class="sd">    For calls other than :meth:`~iris.load_raw`, the resulting cubes are</span>
+<span class="sd">    concatenated over all the input files, so there is normally just one</span>
+<span class="sd">    output cube per phenomenon.</span>
+
+<span class="sd">    However, actual loaded results are somewhat different from non-structured</span>
+<span class="sd">    loads in many cases, and in a variety of ways.  Most commonly, dimension</span>
+<span class="sd">    ordering and the choice of dimension coordinates are often different.</span>
+
+<span class="sd">    Use of load callbacks:</span>
+
+<span class="sd">        When a user callback function is used with structured-loading, it is</span>
+<span class="sd">        called in a somewhat different way than in a &#39;normal&#39; load :</span>
+<span class="sd">        The callback is called once for each basic *structured* cube loaded,</span>
+<span class="sd">        which is normally the whole of one phenomenon from a single input file.</span>
+<span class="sd">        In particular, the callback&#39;s &quot;field&quot; argument is a</span>
+<span class="sd">        :class:`~iris.fileformats.um.FieldCollation`, from which &quot;field.fields&quot;</span>
+<span class="sd">        gives a *list* of PPFields from which that cube was built, and the</span>
+<span class="sd">        properties &quot;field.load_filepath&quot; and &quot;field.load_file_indices&quot;</span>
+<span class="sd">        reference the original file locations of the cube data.</span>
+<span class="sd">        The code required is therefore different from a &#39;normal&#39; callback.</span>
+<span class="sd">        For an example of this, see `this example in the Iris test code</span>
+<span class="sd">        &lt;https://github.com/SciTools/iris/</span>
+<span class="sd">        blob/ddb46f78e54b6ef4110357dfe9cfcffa7d186d90/</span>
+<span class="sd">        lib/iris/tests/integration/fast_load/test_fast_load.py#L409&gt;`_.</span>
+
+<span class="sd">    Notes on applicability:</span>
+
+<span class="sd">        For results to be **correct and reliable**, the input files must</span>
+<span class="sd">        conform to the following requirements :</span>
+
+<span class="sd">        *  the file must contain fields for all possible combinations of the</span>
+<span class="sd">           vertical levels and time points found in the file.</span>
+
+<span class="sd">        *  the fields must occur in a regular repeating order within the file,</span>
+<span class="sd">           within the fields of each phenomenon.</span>
+
+<span class="sd">           For example: a sequence of fields for NV vertical levels, repeated</span>
+<span class="sd">           for NP different forecast periods, repeated for NT different</span>
+<span class="sd">           forecast times.</span>
+
+<span class="sd">        *  all other metadata must be identical across all fields of the same</span>
+<span class="sd">           phenomenon.</span>
+
+<span class="sd">        Each group of fields with the same values of LBUSER4, LBUSER7 and</span>
+<span class="sd">        LBPROC is identified as a separate phenomenon:  These groups are</span>
+<span class="sd">        processed independently and returned as separate result cubes.</span>
+<span class="sd">        The need for a regular sequence of fields applies separately to the</span>
+<span class="sd">        fields of each phenomenon, such that different phenomena may have</span>
+<span class="sd">        different field structures, and can be interleaved in any way at all.</span>
+
+<span class="sd">        .. note::</span>
+
+<span class="sd">             At present, fields with different values of &#39;LBUSER5&#39;</span>
+<span class="sd">             (pseudo-level) are *also* treated internally as different</span>
+<span class="sd">             phenomena, yielding a raw cube per level.</span>
+<span class="sd">             The effects of this are not normally noticed, as the resulting</span>
+<span class="sd">             multiple raw cubes merge together again in a &#39;normal&#39; load.</span>
+<span class="sd">             However, it is not an ideal solution as operation is less</span>
+<span class="sd">             efficient (in particular, slower) :  it is done to avoid a</span>
+<span class="sd">             limitation in the underlying code which would otherwise load data</span>
+<span class="sd">             on pseudo-levels incorrectly.  In future, this may be corrected.</span>
+
+<span class="sd">    Known current shortcomings:</span>
+
+<span class="sd">        * orography fields may be returned with extra dimensions, e.g. time,</span>
+<span class="sd">          where multiple fields exist in an input file.</span>
+
+<span class="sd">        * if some input files contain a *single* coordinate value while others</span>
+<span class="sd">          contain *multiple* values, these will not be merged into a single</span>
+<span class="sd">          cube over all input files :  Instead, the single- and multiple-valued</span>
+<span class="sd">          sets will typically produce two separate cubes with overlapping</span>
+<span class="sd">          coordinates.</span>
+
+<span class="sd">          * this can be worked around by loading files individually, or with</span>
+<span class="sd">            :meth:`~iris.load_raw`, and merging/concatenating explicitly.</span>
+
+<span class="sd">    .. note::</span>
+
+<span class="sd">        The resulting time-related coordinates (&#39;time&#39;, &#39;forecast_time&#39; and</span>
+<span class="sd">        &#39;forecast_period&#39;) may be mapped to shared cube dimensions and in some</span>
+<span class="sd">        cases can also be multidimensional.  However, the vertical level</span>
+<span class="sd">        information *must* have a simple one-dimensional structure, independent</span>
+<span class="sd">        of the time points, otherwise an error will be raised.</span>
+
+<span class="sd">    .. note::</span>
+
+<span class="sd">        Where input data does *not* have a fully regular arrangement, the</span>
+<span class="sd">        corresponding result cube will have a single anonymous extra dimension</span>
+<span class="sd">        which indexes over all the input fields.</span>
+
+<span class="sd">        This can happen if, for example, some fields are missing; or have</span>
+<span class="sd">        slightly different metadata; or appear out of order in the file.</span>
+
+<span class="sd">    .. warning::</span>
+
+<span class="sd">        Restrictions and limitations:</span>
+
+<span class="sd">        Any non-regular metadata variation in the input should be strictly</span>
+<span class="sd">        avoided, as not all irregularities are detected, which can cause</span>
+<span class="sd">        erroneous results.</span>
+
+<span class="sd">        Various field header words which can in some cases vary are assumed to</span>
+<span class="sd">        have a constant value throughout a given phenomenon.  This is **not**</span>
+<span class="sd">        checked, and can lead to erroneous results if it is not the case.</span>
+<span class="sd">        Header elements of potential concern include LBTIM, LBCODE, LBVC and</span>
+<span class="sd">        LBRSVD4 (ensemble number).</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="n">STRUCTURED_LOAD_CONTROLS</span><span class="o">.</span><span class="n">context</span><span class="p">(</span><span class="n">loads_use_structured</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="k">yield</span></div>
+
+
+<span class="nd">@contextmanager</span>
+<span class="k">def</span> <span class="nf">_raw_structured_loading</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Private context manager called by :func:`iris.load_raw` to prevent</span>
+<span class="sd">    structured loading from concatenating its result cubes in that case.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="n">STRUCTURED_LOAD_CONTROLS</span><span class="o">.</span><span class="n">context</span><span class="p">(</span><span class="n">structured_load_is_raw</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="k">yield</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        
+        &copy; <a href="../../../../copyright.html">Copyright</a> Iris Contributors
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

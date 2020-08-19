@@ -1,0 +1,479 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>iris.experimental.stratify &mdash; Iris 3.0.dev0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/theme_override.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery-dataframe.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script src="../../../_static/clipboard.min.js"></script>
+        <script src="../../../_static/copybutton.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="copyright" title="Copyright" href="../../../copyright.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html">
+          
+
+          
+            
+            <img src="../../../_static/iris-logo-title.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installing.html">Installing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../generated/gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/iris_cubes.html">Iris data structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/loading_iris_cubes.html">Loading Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/saving_iris_cubes.html">Saving Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/navigating_a_cube.html">Navigating a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/subsetting_a_cube.html">Subsetting a Cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/real_and_lazy_data.html">Real and Lazy Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/plotting_a_cube.html">Plotting a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/interpolation_and_regridding.html">Cube interpolation and regridding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/merge_and_concat.html">Merge and concatenate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/cube_statistics.html">Cube statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/cube_maths.html">Basic cube mathematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/citation.html">Citing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/code_maintenance.html">Code maintenance</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developers Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/contributing_documentation.html">Contributing to the documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/documenting/index.html">Documentation in Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/gitwash/index.html">Working with <em>iris</em> source code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/code_format.html">Code formatting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/pulls.html">Pull request check List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/tests.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/deprecations.html">Deprecations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/release.html">Releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../generated/api/iris.html">Iris API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../whatsnew/index.html">What’s new in Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../techpapers/index.html">Iris Technical Papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../copyright.html">Iris copyright, licensing and contributors</a></li>
+</ul>
+
+            
+          
+
+    
+    
+    
+        <p class="caption">
+            <span class="caption-text">
+            
+                Support
+            
+            </span>
+        </p>
+        <ul>
+            
+                <li class="toctree-l1"><a href="https://github.com/SciTools/iris"><i class="fa fa-github fa-fw"></i> Source Code</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris"><i class="fa fa-comments fa-fw"></i> Users Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris-dev"><i class="fa fa-comments fa-fw"></i> Developers Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://stackoverflow.com/questions/tagged/python-iris"><i class="fa fa-question fa-fw"></i> StackOverflow For "How do I?"</a></li>
+            
+                <li class="toctree-l1"><a href="https://scitools.org.uk/iris/docs/v2.4.0/index.html"><i class="fa fa-book fa-fw"></i> Legacy documentation</a></li>
+            
+        </ul>
+    
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Iris</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../../iris.html">iris</a> &raquo;</li>
+        
+      <li>iris.experimental.stratify</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for iris.experimental.stratify</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright Iris contributors</span>
+<span class="c1">#</span>
+<span class="c1"># This file is part of Iris and is released under the LGPL license.</span>
+<span class="c1"># See COPYING and COPYING.LESSER in the root of the repository for full</span>
+<span class="c1"># licensing details.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Routines for putting data on new strata (aka. isosurfaces), often in the</span>
+<span class="sd">Z direction.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">stratify</span>
+
+<span class="kn">from</span> <span class="nn">iris.coords</span> <span class="kn">import</span> <span class="n">Coord</span><span class="p">,</span> <span class="n">AuxCoord</span><span class="p">,</span> <span class="n">DimCoord</span>
+<span class="kn">from</span> <span class="nn">iris.cube</span> <span class="kn">import</span> <span class="n">Cube</span>
+
+
+<span class="k">def</span> <span class="nf">_copy_coords_without_z_dim</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">tgt</span><span class="p">,</span> <span class="n">z_dim</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Helper function to copy across non z-dimenson coordinates between cubes.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    src : :class:`~iris.cube.Cube`</span>
+<span class="sd">        Incoming cube containing the coordinates to be copied from.</span>
+
+<span class="sd">    tgt : :class:`~iris.cube.Cube`</span>
+<span class="sd">        Outgoing cube for the coordinates to be copied to.</span>
+
+<span class="sd">    z_dim : int</span>
+<span class="sd">        Dimension within the `src` cube that is the z-dimension.</span>
+<span class="sd">        This dimension will not be copied. For example, the incoming</span>
+<span class="sd">        z-dimension cube has model level_height, whilst the outgoing</span>
+<span class="sd">        z-dimension cube has pressure.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Copy across non z-dimension coordinates.</span>
+    <span class="k">for</span> <span class="n">coord</span> <span class="ow">in</span> <span class="n">src</span><span class="o">.</span><span class="n">dim_coords</span><span class="p">:</span>
+        <span class="p">[</span><span class="n">dim</span><span class="p">]</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">coord_dims</span><span class="p">(</span><span class="n">coord</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">dim</span> <span class="o">!=</span> <span class="n">z_dim</span><span class="p">:</span>
+            <span class="n">tgt</span><span class="o">.</span><span class="n">add_dim_coord</span><span class="p">(</span><span class="n">coord</span><span class="o">.</span><span class="n">copy</span><span class="p">(),</span> <span class="n">dim</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">coord</span> <span class="ow">in</span> <span class="n">src</span><span class="o">.</span><span class="n">aux_coords</span><span class="p">:</span>
+        <span class="n">dims</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">coord_dims</span><span class="p">(</span><span class="n">coord</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">z_dim</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">dims</span><span class="p">:</span>
+            <span class="n">tgt</span><span class="o">.</span><span class="n">add_aux_coord</span><span class="p">(</span><span class="n">coord</span><span class="o">.</span><span class="n">copy</span><span class="p">(),</span> <span class="n">dims</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">coord</span> <span class="ow">in</span> <span class="n">src</span><span class="o">.</span><span class="n">derived_coords</span><span class="p">:</span>
+        <span class="n">dims</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">coord_dims</span><span class="p">(</span><span class="n">coord</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">z_dim</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">dims</span><span class="p">:</span>
+            <span class="n">tgt</span><span class="o">.</span><span class="n">add_aux_coord</span><span class="p">(</span><span class="n">coord</span><span class="o">.</span><span class="n">copy</span><span class="p">(),</span> <span class="n">dims</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="relevel"><a class="viewcode-back" href="../../../generated/api/iris/experimental/stratify.html#iris.experimental.stratify.relevel">[docs]</a><span class="k">def</span> <span class="nf">relevel</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">src_levels</span><span class="p">,</span> <span class="n">tgt_levels</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">interpolator</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Interpolate the cube onto the specified target levels, given the</span>
+<span class="sd">    source levels of the cube.</span>
+
+<span class="sd">    For example, suppose we have two datasets `P(i,j,k)` and `H(i,j,k)`</span>
+<span class="sd">    and we want `P(i,j,H)`. We call :func:`relevel` with `cube=P`,</span>
+<span class="sd">    `src_levels=H` and `tgt_levels` being an array of the values of `H`</span>
+<span class="sd">    we would like.</span>
+
+<span class="sd">    This routine is especially useful for computing isosurfaces of phenomenon</span>
+<span class="sd">    that are generally monotonic in the direction of interpolation, such as</span>
+<span class="sd">    height/pressure or salinity/depth.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">    cube : :class:`~iris.cube.Cube`</span>
+<span class="sd">        The phenomenon data to be re-levelled.</span>
+
+<span class="sd">    src_levels : :class:`~iris.cube.Cube`, :class:`~iris.coord.Coord` or string</span>
+<span class="sd">        Describes the source levels of the `cube` that will be interpolated</span>
+<span class="sd">        over. The `src_levels` must be in the same system as the `tgt_levels`.</span>
+<span class="sd">        The dimensions of `src_levels` must be broadcastable to the dimensions</span>
+<span class="sd">        of the `cube`.</span>
+<span class="sd">        Note that, the coordinate name containing the source levels in the</span>
+<span class="sd">        `cube` may be provided.</span>
+
+<span class="sd">    tgt_levels : array-like</span>
+<span class="sd">        Describes the target levels of the `cube` to be interpolated to. The</span>
+<span class="sd">        `tgt_levels` must be in the same system as the `src_levels`. The</span>
+<span class="sd">        dimensions of the `tgt_levels` must be broadcastable to the dimensions</span>
+<span class="sd">        of the `cube`, except in the nominated axis of interpolation.</span>
+
+<span class="sd">    axis : int, :class:`~iris.coords.Coord` or string</span>
+<span class="sd">        The axis of interpolation. Defaults to the first dimension of the</span>
+<span class="sd">        `cube`, which is typically the z-dimension. Note that, the coordinate</span>
+<span class="sd">        name specifying the z-dimension of the `cube` may be provided.</span>
+
+<span class="sd">    interpolator : callable or None</span>
+<span class="sd">        The interpolator to use when computing the interpolation. The function</span>
+<span class="sd">        will be passed the following positional arguments::</span>
+
+<span class="sd">            (tgt-data, src-data, cube-data, axis-of-interpolation)</span>
+
+<span class="sd">        If the interpolator is None, :func:`stratify.interpolate` will be used</span>
+<span class="sd">        with linear interpolation and NaN extrapolation.</span>
+
+<span class="sd">        An example of constructing an alternative interpolation scheme::</span>
+
+<span class="sd">            from functools import partial</span>
+<span class="sd">            interpolator = partial(stratify.interpolate,</span>
+<span class="sd">                                   interpolation=stratify.INTERPOLATE_NEAREST,</span>
+<span class="sd">                                   extrapolation=stratify.EXTRAPOLATE_LINEAR)</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Identify the z-coordinate within the phenomenon cube.</span>
+    <span class="k">if</span> <span class="n">axis</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">axis</span><span class="p">,</span> <span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">Coord</span><span class="p">)):</span>
+        <span class="p">[</span><span class="n">axis</span><span class="p">]</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">coord_dims</span><span class="p">(</span><span class="n">axis</span><span class="p">)</span>
+
+    <span class="c1"># Get the source level data.</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">src_levels</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">src_data</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="n">src_levels</span><span class="p">)</span><span class="o">.</span><span class="n">points</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">src_levels</span><span class="p">,</span> <span class="n">Coord</span><span class="p">):</span>
+        <span class="n">src_data</span> <span class="o">=</span> <span class="n">src_levels</span><span class="o">.</span><span class="n">points</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">src_data</span> <span class="o">=</span> <span class="n">src_levels</span><span class="o">.</span><span class="n">data</span>
+
+    <span class="c1"># The dimensions of cube and src_data must be broadcastable.</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">cube_data</span><span class="p">,</span> <span class="n">src_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">broadcast_arrays</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">src_data</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+        <span class="n">emsg</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="s2">&quot;Cannot broadcast the cube and src_levels with &quot;</span>
+            <span class="s2">&quot;shapes </span><span class="si">{}</span><span class="s2"> and </span><span class="si">{}</span><span class="s2">.&quot;</span>
+        <span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">emsg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">src_data</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+
+    <span class="n">tgt_levels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">tgt_levels</span><span class="p">)</span>
+    <span class="n">tgt_aux_dims</span> <span class="o">=</span> <span class="n">axis</span>
+    <span class="k">if</span> <span class="n">tgt_levels</span><span class="o">.</span><span class="n">ndim</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="c1"># The dimensions of tgt_levels must be broadcastable to cube</span>
+        <span class="c1"># in everything but the interpolation axis - otherwise raise</span>
+        <span class="c1"># an exception.</span>
+        <span class="n">dim_delta</span> <span class="o">=</span> <span class="n">cube_data</span><span class="o">.</span><span class="n">ndim</span> <span class="o">-</span> <span class="n">tgt_levels</span><span class="o">.</span><span class="n">ndim</span>
+        <span class="c1"># The axis is relative to the cube. Calculate the axis of</span>
+        <span class="c1"># interplation relative to the tgt_levels.</span>
+        <span class="n">tgt_axis</span> <span class="o">=</span> <span class="n">axis</span> <span class="o">-</span> <span class="n">dim_delta</span>
+        <span class="c1"># Calculate the cube shape without the axis of interpolation.</span>
+        <span class="n">data_shape</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">cube_data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+        <span class="n">data_shape</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">axis</span><span class="p">)</span>
+        <span class="c1"># Calculate the tgt_levels shape without the axis of interpolation.</span>
+        <span class="n">target_shape</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">tgt_levels</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+        <span class="n">target_shape</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">tgt_axis</span><span class="p">)</span>
+        <span class="c1"># Now ensure that the shapes are broadcastable.</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">broadcast_arrays</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">data_shape</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">target_shape</span><span class="p">))</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="n">emsg</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="s2">&quot;Cannot broadcast the cube and tgt_levels with &quot;</span>
+                <span class="s2">&quot;shapes </span><span class="si">{}</span><span class="s2"> and </span><span class="si">{}</span><span class="s2">, whilst ignoring axis of interpolation.&quot;</span>
+            <span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">emsg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cube_data</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">tgt_levels</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+        <span class="c1"># Calculate the dimensions over the cube that the tgt_levels span.</span>
+        <span class="n">tgt_aux_dims</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">cube_data</span><span class="o">.</span><span class="n">ndim</span><span class="p">))[</span><span class="n">dim_delta</span><span class="p">:]</span>
+
+    <span class="k">if</span> <span class="n">interpolator</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># Use the default stratify interpolator.</span>
+        <span class="n">interpolator</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span>
+            <span class="n">stratify</span><span class="o">.</span><span class="n">interpolate</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">,</span> <span class="n">extrapolation</span><span class="o">=</span><span class="s2">&quot;nan&quot;</span>
+        <span class="p">)</span>
+
+    <span class="c1"># Now perform the interpolation.</span>
+    <span class="n">new_data</span> <span class="o">=</span> <span class="n">interpolator</span><span class="p">(</span><span class="n">tgt_levels</span><span class="p">,</span> <span class="n">src_data</span><span class="p">,</span> <span class="n">cube_data</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">)</span>
+
+    <span class="c1"># Create a result cube with the correct shape and metadata.</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">Cube</span><span class="p">(</span><span class="n">new_data</span><span class="p">,</span> <span class="o">**</span><span class="n">cube</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">_asdict</span><span class="p">())</span>
+
+    <span class="c1"># Copy across non z-dimension coordinates from the source cube</span>
+    <span class="c1"># to the result cube.</span>
+    <span class="n">_copy_coords_without_z_dim</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">result</span><span class="p">,</span> <span class="n">axis</span><span class="p">)</span>
+
+    <span class="n">kwargs</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+        <span class="n">standard_name</span><span class="o">=</span><span class="n">src_levels</span><span class="o">.</span><span class="n">standard_name</span><span class="p">,</span>
+        <span class="n">long_name</span><span class="o">=</span><span class="n">src_levels</span><span class="o">.</span><span class="n">long_name</span><span class="p">,</span>
+        <span class="n">var_name</span><span class="o">=</span><span class="n">src_levels</span><span class="o">.</span><span class="n">var_name</span><span class="p">,</span>
+        <span class="n">units</span><span class="o">=</span><span class="n">src_levels</span><span class="o">.</span><span class="n">units</span><span class="p">,</span>
+        <span class="n">attributes</span><span class="o">=</span><span class="n">src_levels</span><span class="o">.</span><span class="n">attributes</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Add our new interpolated coordinate to the result cube.</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">coord</span> <span class="o">=</span> <span class="n">DimCoord</span><span class="p">(</span><span class="n">tgt_levels</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">add_dim_coord</span><span class="p">(</span><span class="n">coord</span><span class="p">,</span> <span class="n">axis</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+        <span class="c1"># Attach the data to the trailing dimensions.</span>
+        <span class="n">coord</span> <span class="o">=</span> <span class="n">AuxCoord</span><span class="p">(</span><span class="n">tgt_levels</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">add_aux_coord</span><span class="p">(</span><span class="n">coord</span><span class="p">,</span> <span class="n">tgt_aux_dims</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">result</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        
+        &copy; <a href="../../../copyright.html">Copyright</a> Iris Contributors
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
