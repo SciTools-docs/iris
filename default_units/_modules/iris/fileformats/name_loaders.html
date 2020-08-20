@@ -1,0 +1,1590 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>iris.fileformats.name_loaders &mdash; Iris 3.0.dev0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/theme_override.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery-dataframe.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script src="../../../_static/clipboard.min.js"></script>
+        <script src="../../../_static/copybutton.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="copyright" title="Copyright" href="../../../copyright.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html">
+          
+
+          
+            
+            <img src="../../../_static/iris-logo-title.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installing.html">Installing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../generated/gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/iris_cubes.html">Iris data structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/loading_iris_cubes.html">Loading Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/saving_iris_cubes.html">Saving Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/navigating_a_cube.html">Navigating a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/subsetting_a_cube.html">Subsetting a Cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/real_and_lazy_data.html">Real and Lazy Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/plotting_a_cube.html">Plotting a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/interpolation_and_regridding.html">Cube interpolation and regridding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/merge_and_concat.html">Merge and concatenate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/cube_statistics.html">Cube statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/cube_maths.html">Basic cube mathematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/citation.html">Citing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/code_maintenance.html">Code maintenance</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developers Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/contributing_documentation.html">Contributing to the documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/documenting/index.html">Documentation in Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/gitwash/index.html">Working with <em>iris</em> source code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/code_format.html">Code formatting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/pulls.html">Pull request check List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/tests.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/deprecations.html">Deprecations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/release.html">Releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../generated/api/iris.html">Iris API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../whatsnew/index.html">What’s new in Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../techpapers/index.html">Iris Technical Papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../copyright.html">Iris copyright, licensing and contributors</a></li>
+</ul>
+
+            
+          
+
+    
+    
+    
+        <p class="caption">
+            <span class="caption-text">
+            
+                Support
+            
+            </span>
+        </p>
+        <ul>
+            
+                <li class="toctree-l1"><a href="https://github.com/SciTools/iris"><i class="fa fa-github fa-fw"></i> Source Code</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris"><i class="fa fa-comments fa-fw"></i> Users Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris-dev"><i class="fa fa-comments fa-fw"></i> Developers Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://stackoverflow.com/questions/tagged/python-iris"><i class="fa fa-question fa-fw"></i> StackOverflow For "How do I?"</a></li>
+            
+                <li class="toctree-l1"><a href="https://scitools.org.uk/iris/docs/v2.4.0/index.html"><i class="fa fa-book fa-fw"></i> Legacy documentation</a></li>
+            
+        </ul>
+    
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Iris</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../../iris.html">iris</a> &raquo;</li>
+        
+      <li>iris.fileformats.name_loaders</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for iris.fileformats.name_loaders</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright Iris contributors</span>
+<span class="c1">#</span>
+<span class="c1"># This file is part of Iris and is released under the LGPL license.</span>
+<span class="c1"># See COPYING and COPYING.LESSER in the root of the repository for full</span>
+<span class="c1"># licensing details.</span>
+<span class="sd">&quot;&quot;&quot;NAME file format loading functions.&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">collections</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+
+<span class="kn">import</span> <span class="nn">cf_units</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">iris.coords</span> <span class="kn">import</span> <span class="n">AuxCoord</span><span class="p">,</span> <span class="n">DimCoord</span><span class="p">,</span> <span class="n">CellMethod</span>
+<span class="kn">import</span> <span class="nn">iris.coord_systems</span>
+<span class="kn">import</span> <span class="nn">iris.cube</span>
+<span class="kn">from</span> <span class="nn">iris.exceptions</span> <span class="kn">import</span> <span class="n">TranslationError</span>
+<span class="kn">import</span> <span class="nn">iris.util</span>
+
+<span class="kn">from</span> <span class="nn">operator</span> <span class="kn">import</span> <span class="n">itemgetter</span>
+
+
+<span class="n">EARTH_RADIUS</span> <span class="o">=</span> <span class="mf">6371229.0</span>
+<span class="n">NAMEIII_DATETIME_FORMAT</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%d</span><span class="s2">/%m/%Y  %H:%M %Z&quot;</span>
+<span class="n">NAMETRAJ_DATETIME_FORMAT</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%d</span><span class="s2">/%m/%Y  %H:%M:%S %Z&quot;</span>
+<span class="n">NAMEII_FIELD_DATETIME_FORMAT</span> <span class="o">=</span> <span class="s2">&quot;%H%M%Z </span><span class="si">%d</span><span class="s2">/%m/%Y&quot;</span>
+<span class="n">NAMEII_TIMESERIES_DATETIME_FORMAT</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%d</span><span class="s2">/%m/%Y  %H:%M:%S&quot;</span>
+
+
+<span class="n">NAMECoord</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">namedtuple</span><span class="p">(</span>
+    <span class="s2">&quot;NAMECoord&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;dimension&quot;</span><span class="p">,</span> <span class="s2">&quot;values&quot;</span><span class="p">]</span>
+<span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_split_name_and_units</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="n">units</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="s2">&quot;(&quot;</span> <span class="ow">in</span> <span class="n">name</span> <span class="ow">and</span> <span class="s2">&quot;)&quot;</span> <span class="ow">in</span> <span class="n">name</span><span class="p">:</span>
+        <span class="n">split</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s2">&quot;(&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">try_units</span> <span class="o">=</span> <span class="n">split</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;)&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">try_units</span> <span class="o">=</span> <span class="n">cf_units</span><span class="o">.</span><span class="n">Unit</span><span class="p">(</span><span class="n">try_units</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="k">pass</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="n">split</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="n">units</span> <span class="o">=</span> <span class="n">try_units</span>
+    <span class="k">return</span> <span class="n">name</span><span class="p">,</span> <span class="n">units</span>
+
+
+<div class="viewcode-block" id="read_header"><a class="viewcode-back" href="../../../generated/api/iris/fileformats/name_loaders.html#iris.fileformats.name_loaders.read_header">[docs]</a><span class="k">def</span> <span class="nf">read_header</span><span class="p">(</span><span class="n">file_handle</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return a dictionary containing the header information extracted</span>
+<span class="sd">    from the the provided NAME file object.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">    * file_handle (file-like object):</span>
+<span class="sd">        A file-like object from which to read the header information.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A dictionary containing the extracted header information.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">header</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">header</span><span class="p">[</span><span class="s2">&quot;NAME Version&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">file_handle</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file_handle</span><span class="p">:</span>
+        <span class="n">words</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">if</span> <span class="s2">&quot;Forward&quot;</span> <span class="ow">in</span> <span class="n">line</span> <span class="ow">or</span> <span class="s2">&quot;Backward&quot;</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+                <span class="n">header</span><span class="p">[</span><span class="s2">&quot;Trajectory direction&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">words</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="k">break</span>
+        <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">]</span>
+        <span class="n">header</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="c1"># Cast some values into floats or integers if they match a</span>
+    <span class="c1"># given name. Set any empty string values to None.</span>
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">header</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">value</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="p">[</span>
+                <span class="s2">&quot;X grid origin&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;Y grid origin&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;X grid resolution&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;Y grid resolution&quot;</span><span class="p">,</span>
+            <span class="p">]:</span>
+                <span class="n">header</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">key</span> <span class="ow">in</span> <span class="p">[</span>
+                <span class="s2">&quot;X grid size&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;Y grid size&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;Number of preliminary cols&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;Number of field cols&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;Number of fields&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;Number of series&quot;</span><span class="p">,</span>
+            <span class="p">]:</span>
+                <span class="n">header</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">header</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">return</span> <span class="n">header</span></div>
+
+
+<span class="k">def</span> <span class="nf">_read_data_arrays</span><span class="p">(</span><span class="n">file_handle</span><span class="p">,</span> <span class="n">n_arrays</span><span class="p">,</span> <span class="n">shape</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return a list of NumPy arrays containing the data extracted from</span>
+<span class="sd">    the provided file object. The number and shape of the arrays</span>
+<span class="sd">    must be specified.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">data_arrays</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_arrays</span><span class="p">)]</span>
+
+    <span class="c1"># Iterate over the remaining lines which represent the data in</span>
+    <span class="c1"># a column form.</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file_handle</span><span class="p">:</span>
+        <span class="c1"># Split the line by comma, removing the last empty column</span>
+        <span class="c1"># caused by the trailing comma</span>
+        <span class="n">vals</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+        <span class="c1"># Cast the x and y grid positions to integers and convert</span>
+        <span class="c1"># them to zero based indices</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">vals</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">vals</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span> <span class="o">-</span> <span class="mi">1</span>
+
+        <span class="c1"># Populate the data arrays (i.e. all columns but the leading 4).</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">data_array</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">data_arrays</span><span class="p">):</span>
+            <span class="n">data_array</span><span class="p">[</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">vals</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">4</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">data_arrays</span>
+
+
+<span class="k">def</span> <span class="nf">_build_lat_lon_for_NAME_field</span><span class="p">(</span>
+    <span class="n">header</span><span class="p">,</span> <span class="n">dimindex</span><span class="p">,</span> <span class="n">x_or_y</span><span class="p">,</span> <span class="n">coord_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;longitude&quot;</span><span class="p">,</span> <span class="s2">&quot;latitude&quot;</span><span class="p">]</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return regular latitude and longitude coordinates extracted from</span>
+<span class="sd">    the provided header dictionary.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">x_or_y</span> <span class="o">==</span> <span class="s2">&quot;X&quot;</span><span class="p">:</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="n">header</span><span class="p">[</span><span class="s2">&quot;X grid origin&quot;</span><span class="p">]</span>
+        <span class="n">step</span> <span class="o">=</span> <span class="n">header</span><span class="p">[</span><span class="s2">&quot;X grid resolution&quot;</span><span class="p">]</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="n">header</span><span class="p">[</span><span class="s2">&quot;X grid size&quot;</span><span class="p">]</span>
+        <span class="n">pts</span> <span class="o">=</span> <span class="n">start</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">count</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span> <span class="o">*</span> <span class="n">step</span>
+        <span class="n">lat_lon</span> <span class="o">=</span> <span class="n">NAMECoord</span><span class="p">(</span>
+            <span class="n">name</span><span class="o">=</span><span class="n">coord_names</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dimension</span><span class="o">=</span><span class="n">dimindex</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="n">pts</span>
+        <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="n">header</span><span class="p">[</span><span class="s2">&quot;Y grid origin&quot;</span><span class="p">]</span>
+        <span class="n">step</span> <span class="o">=</span> <span class="n">header</span><span class="p">[</span><span class="s2">&quot;Y grid resolution&quot;</span><span class="p">]</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="n">header</span><span class="p">[</span><span class="s2">&quot;Y grid size&quot;</span><span class="p">]</span>
+        <span class="n">pts</span> <span class="o">=</span> <span class="n">start</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">count</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span> <span class="o">*</span> <span class="n">step</span>
+        <span class="n">lat_lon</span> <span class="o">=</span> <span class="n">NAMECoord</span><span class="p">(</span>
+            <span class="n">name</span><span class="o">=</span><span class="n">coord_names</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">dimension</span><span class="o">=</span><span class="n">dimindex</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="n">pts</span>
+        <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">lat_lon</span>
+
+
+<span class="k">def</span> <span class="nf">_build_lat_lon_for_NAME_timeseries</span><span class="p">(</span><span class="n">column_headings</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return regular latitude and longitude coordinates extracted from</span>
+<span class="sd">    the provided column_headings dictionary.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\-?[0-9]*\.[0-9]*&quot;</span><span class="p">)</span>
+    <span class="n">new_Xlocation_column_header</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">column_headings</span><span class="p">[</span><span class="s2">&quot;X&quot;</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="s2">&quot;Lat-Long&quot;</span> <span class="ow">in</span> <span class="n">t</span><span class="p">:</span>
+            <span class="n">matches</span> <span class="o">=</span> <span class="n">pattern</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+            <span class="n">new_Xlocation_column_header</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">matches</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">)))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">new_Xlocation_column_header</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+    <span class="n">column_headings</span><span class="p">[</span><span class="s2">&quot;X&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_Xlocation_column_header</span>
+    <span class="n">lon</span> <span class="o">=</span> <span class="n">NAMECoord</span><span class="p">(</span>
+        <span class="n">name</span><span class="o">=</span><span class="s2">&quot;longitude&quot;</span><span class="p">,</span> <span class="n">dimension</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="n">column_headings</span><span class="p">[</span><span class="s2">&quot;X&quot;</span><span class="p">]</span>
+    <span class="p">)</span>
+
+    <span class="n">new_Ylocation_column_header</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">column_headings</span><span class="p">[</span><span class="s2">&quot;Y&quot;</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="s2">&quot;Lat-Long&quot;</span> <span class="ow">in</span> <span class="n">t</span><span class="p">:</span>
+            <span class="n">matches</span> <span class="o">=</span> <span class="n">pattern</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+            <span class="n">new_Ylocation_column_header</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">matches</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">)))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">new_Ylocation_column_header</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+    <span class="n">column_headings</span><span class="p">[</span><span class="s2">&quot;Y&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_Ylocation_column_header</span>
+    <span class="n">lat</span> <span class="o">=</span> <span class="n">NAMECoord</span><span class="p">(</span>
+        <span class="n">name</span><span class="o">=</span><span class="s2">&quot;latitude&quot;</span><span class="p">,</span> <span class="n">dimension</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="n">column_headings</span><span class="p">[</span><span class="s2">&quot;Y&quot;</span><span class="p">]</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">lat</span><span class="p">,</span> <span class="n">lon</span>
+
+
+<span class="k">def</span> <span class="nf">_calc_integration_period</span><span class="p">(</span><span class="n">time_avgs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return a list of datetime.timedelta objects determined from the provided</span>
+<span class="sd">    list of averaging/integration period column headings.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">integration_periods</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
+        <span class="sa">r</span><span class="s2">&quot;\s*(\d{1,2}day)?\s*(\d{1,2}hr)?\s*(\d{1,2}min)?\s*(\w*)\s*&quot;</span>
+    <span class="p">)</span>
+    <span class="k">for</span> <span class="n">time_str</span> <span class="ow">in</span> <span class="n">time_avgs</span><span class="p">:</span>
+        <span class="n">days</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">hours</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">minutes</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">matches</span> <span class="o">=</span> <span class="n">pattern</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">time_str</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">matches</span><span class="p">:</span>
+            <span class="n">_days</span> <span class="o">=</span> <span class="n">matches</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">_days</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">_days</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">days</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">_days</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s2">&quot;day&quot;</span><span class="p">))</span>
+            <span class="n">_hours</span> <span class="o">=</span> <span class="n">matches</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">_hours</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">_hours</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">hours</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">_hours</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s2">&quot;hr&quot;</span><span class="p">))</span>
+            <span class="n">_minutes</span> <span class="o">=</span> <span class="n">matches</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">_minutes</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">_minutes</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">minutes</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">_minutes</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s2">&quot;min&quot;</span><span class="p">))</span>
+        <span class="n">total_hours</span> <span class="o">=</span> <span class="n">days</span> <span class="o">*</span> <span class="mf">24.0</span> <span class="o">+</span> <span class="n">hours</span> <span class="o">+</span> <span class="n">minutes</span> <span class="o">/</span> <span class="mf">60.0</span>
+        <span class="n">integration_periods</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span><span class="o">=</span><span class="n">total_hours</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">integration_periods</span>
+
+
+<span class="k">def</span> <span class="nf">_parse_units</span><span class="p">(</span><span class="n">units</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return a known :class:`cf_units.Unit` given a NAME unit</span>
+
+<span class="sd">    .. note::</span>
+
+<span class="sd">        * Some NAME units are not currently handled.</span>
+<span class="sd">        * Units which are in the wrong case (case is ignored in NAME)</span>
+<span class="sd">        * Units where the space between SI units is missing</span>
+<span class="sd">        * Units where the characters used are non-standard (i.e. &#39;mc&#39; for</span>
+<span class="sd">          micro instead of &#39;u&#39;)</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">    * units (string):</span>
+<span class="sd">        NAME units.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        An instance of :class:`cf_units.Unit`.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">unit_mapper</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;Risks/m3&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>  <span class="c1"># Used for Bluetongue</span>
+        <span class="s2">&quot;TCID50s/m3&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>  <span class="c1"># Used for Foot and Mouth</span>
+        <span class="s2">&quot;TCID50/m3&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>  <span class="c1"># Used for Foot and Mouth</span>
+        <span class="s2">&quot;N/A&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>  <span class="c1"># Used for CHEMET area at risk</span>
+        <span class="s2">&quot;lb&quot;</span><span class="p">:</span> <span class="s2">&quot;pounds&quot;</span><span class="p">,</span>  <span class="c1"># pounds</span>
+        <span class="s2">&quot;oz&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>  <span class="c1"># ounces</span>
+        <span class="s2">&quot;deg&quot;</span><span class="p">:</span> <span class="s2">&quot;degree&quot;</span><span class="p">,</span>  <span class="c1"># angular degree</span>
+        <span class="s2">&quot;oktas&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>  <span class="c1"># oktas</span>
+        <span class="s2">&quot;deg C&quot;</span><span class="p">:</span> <span class="s2">&quot;deg_C&quot;</span><span class="p">,</span>  <span class="c1"># degrees Celsius</span>
+        <span class="s2">&quot;FL&quot;</span><span class="p">:</span> <span class="s2">&quot;unknown&quot;</span><span class="p">,</span>  <span class="c1"># flight level</span>
+    <span class="p">}</span>
+
+    <span class="n">units</span> <span class="o">=</span> <span class="n">unit_mapper</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">units</span><span class="p">,</span> <span class="n">units</span><span class="p">)</span>
+
+    <span class="n">units</span> <span class="o">=</span> <span class="n">units</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;Kg&quot;</span><span class="p">,</span> <span class="s2">&quot;kg&quot;</span><span class="p">)</span>
+    <span class="n">units</span> <span class="o">=</span> <span class="n">units</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;gs&quot;</span><span class="p">,</span> <span class="s2">&quot;g s&quot;</span><span class="p">)</span>
+    <span class="n">units</span> <span class="o">=</span> <span class="n">units</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;Bqs&quot;</span><span class="p">,</span> <span class="s2">&quot;Bq s&quot;</span><span class="p">)</span>
+    <span class="n">units</span> <span class="o">=</span> <span class="n">units</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;mcBq&quot;</span><span class="p">,</span> <span class="s2">&quot;uBq&quot;</span><span class="p">)</span>
+    <span class="n">units</span> <span class="o">=</span> <span class="n">units</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;mcg&quot;</span><span class="p">,</span> <span class="s2">&quot;ug&quot;</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">units</span> <span class="o">=</span> <span class="n">cf_units</span><span class="o">.</span><span class="n">Unit</span><span class="p">(</span><span class="n">units</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Unknown units: </span><span class="si">{!r}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">units</span><span class="p">))</span>
+        <span class="n">units</span> <span class="o">=</span> <span class="n">cf_units</span><span class="o">.</span><span class="n">Unit</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">units</span>
+
+
+<span class="k">def</span> <span class="nf">_cf_height_from_name</span><span class="p">(</span><span class="n">z_coord</span><span class="p">,</span> <span class="n">lower_bound</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">upper_bound</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Parser for the z component of field headings.</span>
+
+<span class="sd">    This parse is specifically for handling the z component of NAME field</span>
+<span class="sd">    headings, which include height above ground level, height above sea level</span>
+<span class="sd">    and flight level etc.  This function returns an iris coordinate</span>
+<span class="sd">    representing this field heading.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">    * z_coord (list):</span>
+<span class="sd">        A field heading, specifically the z component.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        An instance of :class:`iris.coords.AuxCoord` representing the</span>
+<span class="sd">        interpretation of the supplied field heading.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># NAMEII - integer/float support.</span>
+    <span class="c1"># Match against height agl, asl and Pa.</span>
+    <span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
+        <span class="sa">r</span><span class="s2">&quot;^From\s*&quot;</span>
+        <span class="sa">r</span><span class="s2">&quot;(?P&lt;lower_bound&gt;[0-9]+(\.[0-9]+)?)&quot;</span>
+        <span class="sa">r</span><span class="s2">&quot;\s*-\s*&quot;</span>
+        <span class="sa">r</span><span class="s2">&quot;(?P&lt;upper_bound&gt;[0-9]+(\.[0-9]+)?)&quot;</span>
+        <span class="sa">r</span><span class="s2">&quot;\s*(?P&lt;type&gt;m\s*asl|m\s*agl|Pa)&quot;</span>
+        <span class="sa">r</span><span class="s2">&quot;(?P&lt;extra&gt;.*)&quot;</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Match against flight level.</span>
+    <span class="n">pattern_fl</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
+        <span class="sa">r</span><span class="s2">&quot;^From\s*&quot;</span>
+        <span class="sa">r</span><span class="s2">&quot;(?P&lt;type&gt;FL)&quot;</span>
+        <span class="sa">r</span><span class="s2">&quot;(?P&lt;lower_bound&gt;[0-9]+(\.[0-9]+)?)&quot;</span>
+        <span class="sa">r</span><span class="s2">&quot;\s*-\s*FL&quot;</span>
+        <span class="sa">r</span><span class="s2">&quot;(?P&lt;upper_bound&gt;[0-9]+(\.[0-9]+)?)&quot;</span>
+        <span class="sa">r</span><span class="s2">&quot;(?P&lt;extra&gt;.*)&quot;</span>
+    <span class="p">)</span>
+
+    <span class="c1"># NAMEIII - integer/float support.</span>
+    <span class="c1"># Match scalar against height agl, asl, Pa, FL</span>
+    <span class="n">pattern_scalar</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
+        <span class="sa">r</span><span class="s2">&quot;Z\s*=\s*&quot;</span>
+        <span class="sa">r</span><span class="s2">&quot;(?P&lt;point&gt;[0-9]+(\.[0-9]+)?([eE][+-]?\d+)?)&quot;</span>
+        <span class="sa">r</span><span class="s2">&quot;\s*(?P&lt;type&gt;m\s*agl|m\s*asl|FL|Pa)&quot;</span>
+        <span class="sa">r</span><span class="s2">&quot;(?P&lt;extra&gt;.*)&quot;</span>
+    <span class="p">)</span>
+
+    <span class="n">type_name</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;magl&quot;</span><span class="p">:</span> <span class="s2">&quot;height&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;masl&quot;</span><span class="p">:</span> <span class="s2">&quot;altitude&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;FL&quot;</span><span class="p">:</span> <span class="s2">&quot;flight_level&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Pa&quot;</span><span class="p">:</span> <span class="s2">&quot;air_pressure&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="n">patterns</span> <span class="o">=</span> <span class="p">[</span><span class="n">pattern</span><span class="p">,</span> <span class="n">pattern_fl</span><span class="p">,</span> <span class="n">pattern_scalar</span><span class="p">]</span>
+
+    <span class="n">units</span> <span class="o">=</span> <span class="s2">&quot;no-unit&quot;</span>
+    <span class="n">points</span> <span class="o">=</span> <span class="n">z_coord</span>
+    <span class="n">bounds</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">standard_name</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">long_name</span> <span class="o">=</span> <span class="s2">&quot;z&quot;</span>
+
+    <span class="k">if</span> <span class="n">upper_bound</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">lower_bound</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">match_ub</span> <span class="o">=</span> <span class="n">pattern_scalar</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">upper_bound</span><span class="p">)</span>
+        <span class="n">match_lb</span> <span class="o">=</span> <span class="n">pattern_scalar</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">lower_bound</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">pattern</span> <span class="ow">in</span> <span class="n">patterns</span><span class="p">:</span>
+        <span class="n">match</span> <span class="o">=</span> <span class="n">pattern</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">z_coord</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">match</span><span class="p">:</span>
+            <span class="n">match</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">groupdict</span><span class="p">()</span>
+            <span class="c1"># Do not interpret if there is additional information to the match</span>
+            <span class="k">if</span> <span class="n">match</span><span class="p">[</span><span class="s2">&quot;extra&quot;</span><span class="p">]:</span>
+                <span class="k">break</span>
+            <span class="n">units</span> <span class="o">=</span> <span class="n">match</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="n">type_name</span><span class="p">[</span><span class="n">units</span><span class="p">]</span>
+
+            <span class="c1"># Interpret points if present.</span>
+            <span class="k">if</span> <span class="s2">&quot;point&quot;</span> <span class="ow">in</span> <span class="n">match</span><span class="p">:</span>
+                <span class="n">points</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">match</span><span class="p">[</span><span class="s2">&quot;point&quot;</span><span class="p">])</span>
+                <span class="k">if</span> <span class="n">upper_bound</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">lower_bound</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">bounds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+                        <span class="p">[</span>
+                            <span class="nb">float</span><span class="p">(</span><span class="n">match_lb</span><span class="o">.</span><span class="n">groupdict</span><span class="p">()[</span><span class="s2">&quot;point&quot;</span><span class="p">]),</span>
+                            <span class="nb">float</span><span class="p">(</span><span class="n">match_ub</span><span class="o">.</span><span class="n">groupdict</span><span class="p">()[</span><span class="s2">&quot;point&quot;</span><span class="p">]),</span>
+                        <span class="p">]</span>
+                    <span class="p">)</span>
+            <span class="c1"># Interpret points from bounds.</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">bounds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+                    <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">match</span><span class="p">[</span><span class="s2">&quot;lower_bound&quot;</span><span class="p">]),</span> <span class="nb">float</span><span class="p">(</span><span class="n">match</span><span class="p">[</span><span class="s2">&quot;upper_bound&quot;</span><span class="p">])]</span>
+                <span class="p">)</span>
+                <span class="n">points</span> <span class="o">=</span> <span class="n">bounds</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="mf">2.0</span>
+
+            <span class="n">long_name</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;altitude&quot;</span><span class="p">:</span>
+                <span class="n">units</span> <span class="o">=</span> <span class="n">units</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">standard_name</span> <span class="o">=</span> <span class="n">name</span>
+                <span class="n">long_name</span> <span class="o">=</span> <span class="s2">&quot;altitude above sea level&quot;</span>
+            <span class="k">elif</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;height&quot;</span><span class="p">:</span>
+                <span class="n">units</span> <span class="o">=</span> <span class="n">units</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">standard_name</span> <span class="o">=</span> <span class="n">name</span>
+                <span class="n">long_name</span> <span class="o">=</span> <span class="s2">&quot;height above ground level&quot;</span>
+            <span class="k">elif</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;air_pressure&quot;</span><span class="p">:</span>
+                <span class="n">standard_name</span> <span class="o">=</span> <span class="n">name</span>
+            <span class="k">elif</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;flight_level&quot;</span><span class="p">:</span>
+                <span class="n">long_name</span> <span class="o">=</span> <span class="n">name</span>
+            <span class="n">units</span> <span class="o">=</span> <span class="n">_parse_units</span><span class="p">(</span><span class="n">units</span><span class="p">)</span>
+
+            <span class="k">break</span>
+
+    <span class="n">coord</span> <span class="o">=</span> <span class="n">AuxCoord</span><span class="p">(</span>
+        <span class="n">points</span><span class="p">,</span>
+        <span class="n">units</span><span class="o">=</span><span class="n">units</span><span class="p">,</span>
+        <span class="n">standard_name</span><span class="o">=</span><span class="n">standard_name</span><span class="p">,</span>
+        <span class="n">long_name</span><span class="o">=</span><span class="n">long_name</span><span class="p">,</span>
+        <span class="n">bounds</span><span class="o">=</span><span class="n">bounds</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">coord</span>
+
+
+<span class="k">def</span> <span class="nf">_generate_cubes</span><span class="p">(</span>
+    <span class="n">header</span><span class="p">,</span> <span class="n">column_headings</span><span class="p">,</span> <span class="n">coords</span><span class="p">,</span> <span class="n">data_arrays</span><span class="p">,</span> <span class="n">cell_methods</span><span class="o">=</span><span class="kc">None</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Yield :class:`iris.cube.Cube` instances given</span>
+<span class="sd">    the headers, column headings, coords and data_arrays extracted</span>
+<span class="sd">    from a NAME file.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">data_array</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">data_arrays</span><span class="p">):</span>
+        <span class="c1"># Turn the dictionary of column headings with a list of header</span>
+        <span class="c1"># information for each field into a dictionary of headings for</span>
+        <span class="c1"># just this field.</span>
+        <span class="n">field_headings</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">column_headings</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+
+        <span class="c1"># Make a cube.</span>
+        <span class="n">cube</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">cube</span><span class="o">.</span><span class="n">Cube</span><span class="p">(</span><span class="n">data_array</span><span class="p">)</span>
+
+        <span class="c1"># Determine the name and units.</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="n">field_headings</span><span class="p">[</span><span class="s2">&quot;Species&quot;</span><span class="p">],</span> <span class="n">field_headings</span><span class="p">[</span><span class="s2">&quot;Quantity&quot;</span><span class="p">]</span>
+        <span class="p">)</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;_&quot;</span><span class="p">)</span>
+        <span class="n">cube</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+
+        <span class="c1"># Some units are not in SI units, are missing spaces or typed</span>
+        <span class="c1"># in the wrong case. _parse_units returns units that are</span>
+        <span class="c1"># recognised by Iris.</span>
+        <span class="n">cube</span><span class="o">.</span><span class="n">units</span> <span class="o">=</span> <span class="n">_parse_units</span><span class="p">(</span><span class="n">field_headings</span><span class="p">[</span><span class="s2">&quot;Units&quot;</span><span class="p">])</span>
+
+        <span class="c1"># Define and add the singular coordinates of the field (flight</span>
+        <span class="c1"># level, time etc.)</span>
+        <span class="k">if</span> <span class="s2">&quot;Z&quot;</span> <span class="ow">in</span> <span class="n">field_headings</span><span class="p">:</span>
+            <span class="p">(</span><span class="n">upper_bound</span><span class="p">,)</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="n">field_headings</span><span class="p">[</span><span class="s2">&quot;... to [Z]&quot;</span><span class="p">]</span>
+                <span class="k">if</span> <span class="s2">&quot;... to [Z]&quot;</span> <span class="ow">in</span> <span class="n">field_headings</span>
+                <span class="k">else</span> <span class="kc">None</span>
+            <span class="p">]</span>
+            <span class="p">(</span><span class="n">lower_bound</span><span class="p">,)</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="n">field_headings</span><span class="p">[</span><span class="s2">&quot;... from [Z]&quot;</span><span class="p">]</span>
+                <span class="k">if</span> <span class="s2">&quot;... from [Z]&quot;</span> <span class="ow">in</span> <span class="n">field_headings</span>
+                <span class="k">else</span> <span class="kc">None</span>
+            <span class="p">]</span>
+            <span class="n">z_coord</span> <span class="o">=</span> <span class="n">_cf_height_from_name</span><span class="p">(</span>
+                <span class="n">field_headings</span><span class="p">[</span><span class="s2">&quot;Z&quot;</span><span class="p">],</span>
+                <span class="n">upper_bound</span><span class="o">=</span><span class="n">upper_bound</span><span class="p">,</span>
+                <span class="n">lower_bound</span><span class="o">=</span><span class="n">lower_bound</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="n">cube</span><span class="o">.</span><span class="n">add_aux_coord</span><span class="p">(</span><span class="n">z_coord</span><span class="p">)</span>
+
+        <span class="c1"># Define the time unit and use it to serialise the datetime for</span>
+        <span class="c1"># the time coordinate.</span>
+        <span class="n">time_unit</span> <span class="o">=</span> <span class="n">cf_units</span><span class="o">.</span><span class="n">Unit</span><span class="p">(</span>
+            <span class="s2">&quot;hours since epoch&quot;</span><span class="p">,</span> <span class="n">calendar</span><span class="o">=</span><span class="n">cf_units</span><span class="o">.</span><span class="n">CALENDAR_GREGORIAN</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Build time, height, latitude and longitude coordinates.</span>
+        <span class="k">for</span> <span class="n">coord</span> <span class="ow">in</span> <span class="n">coords</span><span class="p">:</span>
+            <span class="n">pts</span> <span class="o">=</span> <span class="n">coord</span><span class="o">.</span><span class="n">values</span>
+            <span class="n">coord_sys</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="k">if</span> <span class="n">coord</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;latitude&quot;</span> <span class="ow">or</span> <span class="n">coord</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;longitude&quot;</span><span class="p">:</span>
+                <span class="n">coord_units</span> <span class="o">=</span> <span class="s2">&quot;degrees&quot;</span>
+                <span class="n">coord_sys</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">coord_systems</span><span class="o">.</span><span class="n">GeogCS</span><span class="p">(</span><span class="n">EARTH_RADIUS</span><span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span>
+                <span class="n">coord</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;projection_x_coordinate&quot;</span>
+                <span class="ow">or</span> <span class="n">coord</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;projection_y_coordinate&quot;</span>
+            <span class="p">):</span>
+                <span class="n">coord_units</span> <span class="o">=</span> <span class="s2">&quot;m&quot;</span>
+                <span class="n">coord_sys</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">coord_systems</span><span class="o">.</span><span class="n">OSGB</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">coord</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;height&quot;</span><span class="p">:</span>
+                <span class="n">coord_units</span> <span class="o">=</span> <span class="s2">&quot;m&quot;</span>
+                <span class="n">long_name</span> <span class="o">=</span> <span class="s2">&quot;height above ground level&quot;</span>
+                <span class="n">pts</span> <span class="o">=</span> <span class="n">coord</span><span class="o">.</span><span class="n">values</span>
+            <span class="k">if</span> <span class="n">coord</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;altitude&quot;</span><span class="p">:</span>
+                <span class="n">coord_units</span> <span class="o">=</span> <span class="s2">&quot;m&quot;</span>
+                <span class="n">long_name</span> <span class="o">=</span> <span class="s2">&quot;altitude above sea level&quot;</span>
+                <span class="n">pts</span> <span class="o">=</span> <span class="n">coord</span><span class="o">.</span><span class="n">values</span>
+            <span class="k">if</span> <span class="n">coord</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;air_pressure&quot;</span><span class="p">:</span>
+                <span class="n">coord_units</span> <span class="o">=</span> <span class="s2">&quot;Pa&quot;</span>
+                <span class="n">pts</span> <span class="o">=</span> <span class="n">coord</span><span class="o">.</span><span class="n">values</span>
+            <span class="k">if</span> <span class="n">coord</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;flight_level&quot;</span><span class="p">:</span>
+                <span class="n">pts</span> <span class="o">=</span> <span class="n">coord</span><span class="o">.</span><span class="n">values</span>
+                <span class="n">long_name</span> <span class="o">=</span> <span class="s2">&quot;flight_level&quot;</span>
+                <span class="n">coord_units</span> <span class="o">=</span> <span class="n">_parse_units</span><span class="p">(</span><span class="s2">&quot;FL&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">coord</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;time&quot;</span><span class="p">:</span>
+                <span class="n">coord_units</span> <span class="o">=</span> <span class="n">time_unit</span>
+                <span class="n">pts</span> <span class="o">=</span> <span class="n">time_unit</span><span class="o">.</span><span class="n">date2num</span><span class="p">(</span><span class="n">coord</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">coord</span><span class="o">.</span><span class="n">dimension</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">coord</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;longitude&quot;</span><span class="p">:</span>
+                    <span class="n">circular</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">_is_circular</span><span class="p">(</span><span class="n">pts</span><span class="p">,</span> <span class="mf">360.0</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">circular</span> <span class="o">=</span> <span class="kc">False</span>
+                <span class="k">if</span> <span class="n">coord</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;flight_level&quot;</span><span class="p">:</span>
+                    <span class="n">icoord</span> <span class="o">=</span> <span class="n">DimCoord</span><span class="p">(</span>
+                        <span class="n">points</span><span class="o">=</span><span class="n">pts</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="n">coord_units</span><span class="p">,</span> <span class="n">long_name</span><span class="o">=</span><span class="n">long_name</span><span class="p">,</span>
+                    <span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">icoord</span> <span class="o">=</span> <span class="n">DimCoord</span><span class="p">(</span>
+                        <span class="n">points</span><span class="o">=</span><span class="n">pts</span><span class="p">,</span>
+                        <span class="n">standard_name</span><span class="o">=</span><span class="n">coord</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                        <span class="n">units</span><span class="o">=</span><span class="n">coord_units</span><span class="p">,</span>
+                        <span class="n">coord_system</span><span class="o">=</span><span class="n">coord_sys</span><span class="p">,</span>
+                        <span class="n">circular</span><span class="o">=</span><span class="n">circular</span><span class="p">,</span>
+                    <span class="p">)</span>
+                <span class="k">if</span> <span class="n">coord</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;height&quot;</span> <span class="ow">or</span> <span class="n">coord</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;altitude&quot;</span><span class="p">:</span>
+                    <span class="n">icoord</span><span class="o">.</span><span class="n">long_name</span> <span class="o">=</span> <span class="n">long_name</span>
+                <span class="k">if</span> <span class="p">(</span>
+                    <span class="n">coord</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;time&quot;</span>
+                    <span class="ow">and</span> <span class="s2">&quot;Av or Int period&quot;</span> <span class="ow">in</span> <span class="n">field_headings</span>
+                <span class="p">):</span>
+                    <span class="n">dt</span> <span class="o">=</span> <span class="n">coord</span><span class="o">.</span><span class="n">values</span> <span class="o">-</span> <span class="n">field_headings</span><span class="p">[</span><span class="s2">&quot;Av or Int period&quot;</span><span class="p">]</span>
+                    <span class="n">bnds</span> <span class="o">=</span> <span class="n">time_unit</span><span class="o">.</span><span class="n">date2num</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">dt</span><span class="p">,</span> <span class="n">coord</span><span class="o">.</span><span class="n">values</span><span class="p">))</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+                    <span class="n">icoord</span><span class="o">.</span><span class="n">bounds</span> <span class="o">=</span> <span class="n">bnds</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">icoord</span><span class="o">.</span><span class="n">guess_bounds</span><span class="p">()</span>
+                <span class="n">cube</span><span class="o">.</span><span class="n">add_dim_coord</span><span class="p">(</span><span class="n">icoord</span><span class="p">,</span> <span class="n">coord</span><span class="o">.</span><span class="n">dimension</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">icoord</span> <span class="o">=</span> <span class="n">AuxCoord</span><span class="p">(</span>
+                    <span class="n">points</span><span class="o">=</span><span class="n">pts</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+                    <span class="n">standard_name</span><span class="o">=</span><span class="n">coord</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                    <span class="n">coord_system</span><span class="o">=</span><span class="n">coord_sys</span><span class="p">,</span>
+                    <span class="n">units</span><span class="o">=</span><span class="n">coord_units</span><span class="p">,</span>
+                <span class="p">)</span>
+                <span class="k">if</span> <span class="p">(</span>
+                    <span class="n">coord</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;time&quot;</span>
+                    <span class="ow">and</span> <span class="s2">&quot;Av or Int period&quot;</span> <span class="ow">in</span> <span class="n">field_headings</span>
+                <span class="p">):</span>
+                    <span class="n">dt</span> <span class="o">=</span> <span class="n">coord</span><span class="o">.</span><span class="n">values</span> <span class="o">-</span> <span class="n">field_headings</span><span class="p">[</span><span class="s2">&quot;Av or Int period&quot;</span><span class="p">]</span>
+                    <span class="n">bnds</span> <span class="o">=</span> <span class="n">time_unit</span><span class="o">.</span><span class="n">date2num</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">dt</span><span class="p">,</span> <span class="n">coord</span><span class="o">.</span><span class="n">values</span><span class="p">))</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+                    <span class="n">icoord</span><span class="o">.</span><span class="n">bounds</span> <span class="o">=</span> <span class="n">bnds</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:]</span>
+                <span class="n">cube</span><span class="o">.</span><span class="n">add_aux_coord</span><span class="p">(</span><span class="n">icoord</span><span class="p">)</span>
+
+        <span class="c1"># Headings/column headings which are encoded elsewhere.</span>
+        <span class="n">headings</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="s2">&quot;X&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Y&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Z&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Time&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;T&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Units&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Av or Int period&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;... from [Z]&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;... to [Z]&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;X grid origin&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Y grid origin&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;X grid size&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Y grid size&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;X grid resolution&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Y grid resolution&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Number of field cols&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Number of preliminary cols&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Number of fields&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Number of series&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Output format&quot;</span><span class="p">,</span>
+        <span class="p">]</span>
+
+        <span class="c1"># Add the Main Headings as attributes.</span>
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">header</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">value</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span> <span class="ow">and</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">headings</span><span class="p">:</span>
+                <span class="n">cube</span><span class="o">.</span><span class="n">attributes</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+
+        <span class="c1"># Add the Column Headings as attributes</span>
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">field_headings</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">value</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span> <span class="ow">and</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">headings</span><span class="p">:</span>
+                <span class="n">cube</span><span class="o">.</span><span class="n">attributes</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+
+        <span class="k">if</span> <span class="n">cell_methods</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">cube</span><span class="o">.</span><span class="n">add_cell_method</span><span class="p">(</span><span class="n">cell_methods</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+        <span class="k">yield</span> <span class="n">cube</span>
+
+
+<span class="k">def</span> <span class="nf">_build_cell_methods</span><span class="p">(</span><span class="n">av_or_ints</span><span class="p">,</span> <span class="n">coord</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return a list of :class:`iris.coords.CellMethod` instances</span>
+<span class="sd">    based on the provided list of column heading entries and the</span>
+<span class="sd">    associated coordinate. If a given entry does not correspond to a cell</span>
+<span class="sd">    method (e.g. &quot;No time averaging&quot;), a value of None is inserted.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">    * av_or_ints (iterable of strings):</span>
+<span class="sd">        An iterable of strings containing the colummn heading entries</span>
+<span class="sd">        to be parsed.</span>
+<span class="sd">    * coord (string or :class:`iris.coords.Coord`):</span>
+<span class="sd">        The coordinate name (or :class:`iris.coords.Coord` instance)</span>
+<span class="sd">        to which the column heading entries refer.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A list that is the same length as `av_or_ints` containing</span>
+<span class="sd">        :class:`iris.coords.CellMethod` instances or values of None.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">cell_methods</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">no_avg_pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;^(no( (.* )?averaging)?)?$&quot;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">av_or_int</span> <span class="ow">in</span> <span class="n">av_or_ints</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">no_avg_pattern</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">av_or_int</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">cell_method</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">elif</span> <span class="s2">&quot;average&quot;</span> <span class="ow">in</span> <span class="n">av_or_int</span> <span class="ow">or</span> <span class="s2">&quot;averaged&quot;</span> <span class="ow">in</span> <span class="n">av_or_int</span><span class="p">:</span>
+            <span class="n">cell_method</span> <span class="o">=</span> <span class="n">CellMethod</span><span class="p">(</span><span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="n">coord</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="s2">&quot;integral&quot;</span> <span class="ow">in</span> <span class="n">av_or_int</span> <span class="ow">or</span> <span class="s2">&quot;integrated&quot;</span> <span class="ow">in</span> <span class="n">av_or_int</span><span class="p">:</span>
+            <span class="n">cell_method</span> <span class="o">=</span> <span class="n">CellMethod</span><span class="p">(</span><span class="s2">&quot;sum&quot;</span><span class="p">,</span> <span class="n">coord</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">cell_method</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Unknown </span><span class="si">{}</span><span class="s2"> statistic: </span><span class="si">{!r}</span><span class="s2">. Unable to create cell method.&quot;</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">coord</span><span class="p">,</span> <span class="n">av_or_int</span><span class="p">))</span>
+        <span class="n">cell_methods</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cell_method</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">cell_methods</span>
+
+
+<div class="viewcode-block" id="load_NAMEIII_field"><a class="viewcode-back" href="../../../generated/api/iris/fileformats/name_loaders.html#iris.fileformats.name_loaders.load_NAMEIII_field">[docs]</a><span class="k">def</span> <span class="nf">load_NAMEIII_field</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Load a NAME III grid output file returning a</span>
+<span class="sd">    generator of :class:`iris.cube.Cube` instances.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">    * filename (string):</span>
+<span class="sd">        Name of file to load.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A generator :class:`iris.cube.Cube` instances.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Loading a file gives a generator of lines which can be progressed using</span>
+    <span class="c1"># the next() function. This will come in handy as we wish to progress</span>
+    <span class="c1"># through the file line by line.</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file_handle</span><span class="p">:</span>
+        <span class="c1"># Create a dictionary which can hold the header metadata about this</span>
+        <span class="c1"># file.</span>
+        <span class="n">header</span> <span class="o">=</span> <span class="n">read_header</span><span class="p">(</span><span class="n">file_handle</span><span class="p">)</span>
+
+        <span class="c1"># Skip the next line (contains the word Fields:) in the file.</span>
+        <span class="nb">next</span><span class="p">(</span><span class="n">file_handle</span><span class="p">)</span>
+
+        <span class="c1"># Read the lines of column definitions.</span>
+        <span class="c1"># In this version a fixed order of column headings is assumed (and</span>
+        <span class="c1"># first 4 columns are ignored).</span>
+        <span class="n">column_headings</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">column_header_name</span> <span class="ow">in</span> <span class="p">[</span>
+            <span class="s2">&quot;Species Category&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Name&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Quantity&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Species&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Units&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Sources&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Ensemble Av&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Time Av or Int&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Horizontal Av or Int&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Vertical Av or Int&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Prob Perc&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Prob Perc Ens&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Prob Perc Time&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Time&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Z&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;D&quot;</span><span class="p">,</span>
+        <span class="p">]:</span>
+            <span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="n">col</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">next</span><span class="p">(</span><span class="n">file_handle</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)]</span>
+            <span class="n">column_headings</span><span class="p">[</span><span class="n">column_header_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">cols</span><span class="p">[</span><span class="mi">4</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+        <span class="c1"># Read in the column titles to determine the coordinate system</span>
+        <span class="n">col_titles</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">file_handle</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s2">&quot;National Grid&quot;</span> <span class="ow">in</span> <span class="n">col_titles</span><span class="p">[</span><span class="mi">2</span><span class="p">]:</span>
+            <span class="n">coord_names</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="s2">&quot;projection_x_coordinate&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;projection_y_coordinate&quot;</span><span class="p">,</span>
+            <span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">coord_names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;longitude&quot;</span><span class="p">,</span> <span class="s2">&quot;latitude&quot;</span><span class="p">]</span>
+
+        <span class="c1"># Convert the time to python datetimes.</span>
+        <span class="n">new_time_column_header</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">column_headings</span><span class="p">[</span><span class="s2">&quot;Time&quot;</span><span class="p">]):</span>
+            <span class="n">dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">NAMEIII_DATETIME_FORMAT</span><span class="p">)</span>
+            <span class="n">new_time_column_header</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>
+        <span class="n">column_headings</span><span class="p">[</span><span class="s2">&quot;Time&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_time_column_header</span>
+
+        <span class="c1"># Convert averaging/integrating period to timedeltas.</span>
+        <span class="n">column_headings</span><span class="p">[</span><span class="s2">&quot;Av or Int period&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_calc_integration_period</span><span class="p">(</span>
+            <span class="n">column_headings</span><span class="p">[</span><span class="s2">&quot;Time Av or Int&quot;</span><span class="p">]</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Build a time coordinate.</span>
+        <span class="n">tdim</span> <span class="o">=</span> <span class="n">NAMECoord</span><span class="p">(</span>
+            <span class="n">name</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span>
+            <span class="n">dimension</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">values</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">column_headings</span><span class="p">[</span><span class="s2">&quot;Time&quot;</span><span class="p">]),</span>
+        <span class="p">)</span>
+
+        <span class="n">cell_methods</span> <span class="o">=</span> <span class="n">_build_cell_methods</span><span class="p">(</span>
+            <span class="n">column_headings</span><span class="p">[</span><span class="s2">&quot;Time Av or Int&quot;</span><span class="p">],</span> <span class="n">tdim</span><span class="o">.</span><span class="n">name</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Build regular latitude and longitude coordinates.</span>
+        <span class="n">lon</span> <span class="o">=</span> <span class="n">_build_lat_lon_for_NAME_field</span><span class="p">(</span>
+            <span class="n">header</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;X&quot;</span><span class="p">,</span> <span class="n">coord_names</span><span class="o">=</span><span class="n">coord_names</span>
+        <span class="p">)</span>
+        <span class="n">lat</span> <span class="o">=</span> <span class="n">_build_lat_lon_for_NAME_field</span><span class="p">(</span>
+            <span class="n">header</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Y&quot;</span><span class="p">,</span> <span class="n">coord_names</span><span class="o">=</span><span class="n">coord_names</span>
+        <span class="p">)</span>
+
+        <span class="n">coords</span> <span class="o">=</span> <span class="p">[</span><span class="n">lon</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">tdim</span><span class="p">]</span>
+
+        <span class="c1"># Create data arrays to hold the data for each column.</span>
+        <span class="n">n_arrays</span> <span class="o">=</span> <span class="n">header</span><span class="p">[</span><span class="s2">&quot;Number of field cols&quot;</span><span class="p">]</span>
+        <span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="n">header</span><span class="p">[</span><span class="s2">&quot;Y grid size&quot;</span><span class="p">],</span> <span class="n">header</span><span class="p">[</span><span class="s2">&quot;X grid size&quot;</span><span class="p">])</span>
+        <span class="n">data_arrays</span> <span class="o">=</span> <span class="n">_read_data_arrays</span><span class="p">(</span><span class="n">file_handle</span><span class="p">,</span> <span class="n">n_arrays</span><span class="p">,</span> <span class="n">shape</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">_generate_cubes</span><span class="p">(</span>
+        <span class="n">header</span><span class="p">,</span> <span class="n">column_headings</span><span class="p">,</span> <span class="n">coords</span><span class="p">,</span> <span class="n">data_arrays</span><span class="p">,</span> <span class="n">cell_methods</span>
+    <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="load_NAMEII_field"><a class="viewcode-back" href="../../../generated/api/iris/fileformats/name_loaders.html#iris.fileformats.name_loaders.load_NAMEII_field">[docs]</a><span class="k">def</span> <span class="nf">load_NAMEII_field</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Load a NAME II grid output file returning a</span>
+<span class="sd">    generator of :class:`iris.cube.Cube` instances.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">    * filename (string):</span>
+<span class="sd">        Name of file to load.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A generator :class:`iris.cube.Cube` instances.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file_handle</span><span class="p">:</span>
+        <span class="c1"># Create a dictionary which can hold the header metadata about this</span>
+        <span class="c1"># file.</span>
+        <span class="n">header</span> <span class="o">=</span> <span class="n">read_header</span><span class="p">(</span><span class="n">file_handle</span><span class="p">)</span>
+
+        <span class="c1"># Origin in namever=2 format is bottom-left hand corner so alter this</span>
+        <span class="c1"># to centre of a grid box</span>
+        <span class="n">header</span><span class="p">[</span><span class="s2">&quot;X grid origin&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">header</span><span class="p">[</span><span class="s2">&quot;X grid origin&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">header</span><span class="p">[</span><span class="s2">&quot;X grid resolution&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="mi">2</span>
+        <span class="p">)</span>
+        <span class="n">header</span><span class="p">[</span><span class="s2">&quot;Y grid origin&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">header</span><span class="p">[</span><span class="s2">&quot;Y grid origin&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">header</span><span class="p">[</span><span class="s2">&quot;Y grid resolution&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="mi">2</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Read the lines of column definitions.</span>
+        <span class="c1"># In this version a fixed order of column headings is assumed (and</span>
+        <span class="c1"># first 4 columns are ignored).</span>
+        <span class="n">column_headings</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">column_header_name</span> <span class="ow">in</span> <span class="p">[</span>
+            <span class="s2">&quot;Species Category&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Species&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Time Av or Int&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Quantity&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Units&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Z&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Time&quot;</span><span class="p">,</span>
+        <span class="p">]:</span>
+            <span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="n">col</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">next</span><span class="p">(</span><span class="n">file_handle</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)]</span>
+            <span class="n">column_headings</span><span class="p">[</span><span class="n">column_header_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">cols</span><span class="p">[</span><span class="mi">4</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+        <span class="c1"># Convert the time to python datetimes</span>
+        <span class="n">new_time_column_header</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">column_headings</span><span class="p">[</span><span class="s2">&quot;Time&quot;</span><span class="p">]):</span>
+            <span class="n">dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">NAMEII_FIELD_DATETIME_FORMAT</span><span class="p">)</span>
+            <span class="n">new_time_column_header</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>
+        <span class="n">column_headings</span><span class="p">[</span><span class="s2">&quot;Time&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_time_column_header</span>
+
+        <span class="c1"># Convert averaging/integrating period to timedeltas.</span>
+        <span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\s*(\d</span><span class="si">{3}</span><span class="s2">)\s*(hr)?\s*(time)\s*(\w*)&quot;</span><span class="p">)</span>
+        <span class="n">column_headings</span><span class="p">[</span><span class="s2">&quot;Av or Int period&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">column_headings</span><span class="p">[</span><span class="s2">&quot;Time Av or Int&quot;</span><span class="p">]):</span>
+            <span class="n">matches</span> <span class="o">=</span> <span class="n">pattern</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+            <span class="n">hours</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">if</span> <span class="n">matches</span><span class="p">:</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">matches</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">hours</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">matches</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+            <span class="n">column_headings</span><span class="p">[</span><span class="s2">&quot;Av or Int period&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span><span class="o">=</span><span class="n">hours</span><span class="p">)</span>
+            <span class="p">)</span>
+
+        <span class="c1"># Build a time coordinate.</span>
+        <span class="n">tdim</span> <span class="o">=</span> <span class="n">NAMECoord</span><span class="p">(</span>
+            <span class="n">name</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span>
+            <span class="n">dimension</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">values</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">column_headings</span><span class="p">[</span><span class="s2">&quot;Time&quot;</span><span class="p">]),</span>
+        <span class="p">)</span>
+
+        <span class="n">cell_methods</span> <span class="o">=</span> <span class="n">_build_cell_methods</span><span class="p">(</span>
+            <span class="n">column_headings</span><span class="p">[</span><span class="s2">&quot;Time Av or Int&quot;</span><span class="p">],</span> <span class="n">tdim</span><span class="o">.</span><span class="n">name</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Build regular latitude and longitude coordinates.</span>
+        <span class="n">lon</span> <span class="o">=</span> <span class="n">_build_lat_lon_for_NAME_field</span><span class="p">(</span><span class="n">header</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;X&quot;</span><span class="p">)</span>
+        <span class="n">lat</span> <span class="o">=</span> <span class="n">_build_lat_lon_for_NAME_field</span><span class="p">(</span><span class="n">header</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Y&quot;</span><span class="p">)</span>
+
+        <span class="n">coords</span> <span class="o">=</span> <span class="p">[</span><span class="n">lon</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">tdim</span><span class="p">]</span>
+
+        <span class="c1"># Skip the blank line after the column headings.</span>
+        <span class="nb">next</span><span class="p">(</span><span class="n">file_handle</span><span class="p">)</span>
+
+        <span class="c1"># Create data arrays to hold the data for each column.</span>
+        <span class="n">n_arrays</span> <span class="o">=</span> <span class="n">header</span><span class="p">[</span><span class="s2">&quot;Number of fields&quot;</span><span class="p">]</span>
+        <span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="n">header</span><span class="p">[</span><span class="s2">&quot;Y grid size&quot;</span><span class="p">],</span> <span class="n">header</span><span class="p">[</span><span class="s2">&quot;X grid size&quot;</span><span class="p">])</span>
+        <span class="n">data_arrays</span> <span class="o">=</span> <span class="n">_read_data_arrays</span><span class="p">(</span><span class="n">file_handle</span><span class="p">,</span> <span class="n">n_arrays</span><span class="p">,</span> <span class="n">shape</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">_generate_cubes</span><span class="p">(</span>
+        <span class="n">header</span><span class="p">,</span> <span class="n">column_headings</span><span class="p">,</span> <span class="n">coords</span><span class="p">,</span> <span class="n">data_arrays</span><span class="p">,</span> <span class="n">cell_methods</span>
+    <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="load_NAMEIII_timeseries"><a class="viewcode-back" href="../../../generated/api/iris/fileformats/name_loaders.html#iris.fileformats.name_loaders.load_NAMEIII_timeseries">[docs]</a><span class="k">def</span> <span class="nf">load_NAMEIII_timeseries</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Load a NAME III time series file returning a</span>
+<span class="sd">    generator of :class:`iris.cube.Cube` instances.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">    * filename (string):</span>
+<span class="sd">        Name of file to load.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A generator :class:`iris.cube.Cube` instances.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file_handle</span><span class="p">:</span>
+        <span class="c1"># Create a dictionary which can hold the header metadata about this</span>
+        <span class="c1"># file.</span>
+        <span class="n">header</span> <span class="o">=</span> <span class="n">read_header</span><span class="p">(</span><span class="n">file_handle</span><span class="p">)</span>
+
+        <span class="c1"># skip the next line (contains the word Fields:) in the file.</span>
+        <span class="nb">next</span><span class="p">(</span><span class="n">file_handle</span><span class="p">)</span>
+
+        <span class="c1"># Read the lines of column definitions - currently hardwired</span>
+        <span class="n">column_headings</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">column_header_name</span> <span class="ow">in</span> <span class="p">[</span>
+            <span class="s2">&quot;Species Category&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Name&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Quantity&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Species&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Units&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Sources&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Ens Av&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Time Av or Int&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Horizontal Av or Int&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Vertical Av or Int&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Prob Perc&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Prob Perc Ens&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Prob Perc Time&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Location&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;X&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Y&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Z&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;D&quot;</span><span class="p">,</span>
+        <span class="p">]:</span>
+            <span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="n">col</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">next</span><span class="p">(</span><span class="n">file_handle</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)]</span>
+            <span class="n">column_headings</span><span class="p">[</span><span class="n">column_header_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">cols</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+        <span class="c1"># Determine the coordinates of the data and store in namedtuples.</span>
+        <span class="c1"># Extract latitude and longitude information from X, Y location</span>
+        <span class="c1"># headings.</span>
+        <span class="n">lat</span><span class="p">,</span> <span class="n">lon</span> <span class="o">=</span> <span class="n">_build_lat_lon_for_NAME_timeseries</span><span class="p">(</span><span class="n">column_headings</span><span class="p">)</span>
+
+        <span class="c1"># Convert averaging/integrating period to timedeltas.</span>
+        <span class="n">column_headings</span><span class="p">[</span><span class="s2">&quot;Av or Int period&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_calc_integration_period</span><span class="p">(</span>
+            <span class="n">column_headings</span><span class="p">[</span><span class="s2">&quot;Time Av or Int&quot;</span><span class="p">]</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Skip the line after the column headings.</span>
+        <span class="nb">next</span><span class="p">(</span><span class="n">file_handle</span><span class="p">)</span>
+
+        <span class="c1"># Make a list of data lists to hold the data for each column.</span>
+        <span class="n">data_lists</span> <span class="o">=</span> <span class="p">[[]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">header</span><span class="p">[</span><span class="s2">&quot;Number of field cols&quot;</span><span class="p">])]</span>
+        <span class="n">time_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="c1"># Iterate over the remaining lines which represent the data in a</span>
+        <span class="c1"># column form.</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file_handle</span><span class="p">:</span>
+            <span class="c1"># Split the line by comma, removing the last empty column caused</span>
+            <span class="c1"># by the trailing comma.</span>
+            <span class="n">vals</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+            <span class="c1"># Time is stored in the first column.</span>
+            <span class="n">t</span> <span class="o">=</span> <span class="n">vals</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="n">dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">NAMEIII_DATETIME_FORMAT</span><span class="p">)</span>
+            <span class="n">time_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>
+
+            <span class="c1"># Populate the data arrays.</span>
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">data_list</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">data_lists</span><span class="p">):</span>
+                <span class="n">data_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">vals</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]))</span>
+
+        <span class="n">data_arrays</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">dl</span><span class="p">)</span> <span class="k">for</span> <span class="n">dl</span> <span class="ow">in</span> <span class="n">data_lists</span><span class="p">]</span>
+        <span class="n">time_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">time_list</span><span class="p">)</span>
+        <span class="n">tdim</span> <span class="o">=</span> <span class="n">NAMECoord</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">dimension</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="n">time_array</span><span class="p">)</span>
+
+        <span class="n">coords</span> <span class="o">=</span> <span class="p">[</span><span class="n">lon</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">tdim</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">_generate_cubes</span><span class="p">(</span><span class="n">header</span><span class="p">,</span> <span class="n">column_headings</span><span class="p">,</span> <span class="n">coords</span><span class="p">,</span> <span class="n">data_arrays</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="load_NAMEII_timeseries"><a class="viewcode-back" href="../../../generated/api/iris/fileformats/name_loaders.html#iris.fileformats.name_loaders.load_NAMEII_timeseries">[docs]</a><span class="k">def</span> <span class="nf">load_NAMEII_timeseries</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Load a NAME II Time Series file returning a</span>
+<span class="sd">    generator of :class:`iris.cube.Cube` instances.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">    * filename (string):</span>
+<span class="sd">        Name of file to load.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A generator :class:`iris.cube.Cube` instances.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file_handle</span><span class="p">:</span>
+        <span class="c1"># Create a dictionary which can hold the header metadata about this</span>
+        <span class="c1"># file.</span>
+        <span class="n">header</span> <span class="o">=</span> <span class="n">read_header</span><span class="p">(</span><span class="n">file_handle</span><span class="p">)</span>
+
+        <span class="c1"># Read the lines of column definitions.</span>
+        <span class="n">column_headings</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">column_header_name</span> <span class="ow">in</span> <span class="p">[</span>
+            <span class="s2">&quot;Y&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;X&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Location&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Species Category&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Species&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Quantity&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Z&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Units&quot;</span><span class="p">,</span>
+        <span class="p">]:</span>
+            <span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="n">col</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">next</span><span class="p">(</span><span class="n">file_handle</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)]</span>
+            <span class="n">column_headings</span><span class="p">[</span><span class="n">column_header_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">cols</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+        <span class="c1"># Determine the coordinates of the data and store in namedtuples.</span>
+        <span class="c1"># Extract latitude and longitude information from X, Y location</span>
+        <span class="c1"># headings.</span>
+        <span class="n">lat</span><span class="p">,</span> <span class="n">lon</span> <span class="o">=</span> <span class="n">_build_lat_lon_for_NAME_timeseries</span><span class="p">(</span><span class="n">column_headings</span><span class="p">)</span>
+
+        <span class="c1"># Skip the blank line after the column headings.</span>
+        <span class="nb">next</span><span class="p">(</span><span class="n">file_handle</span><span class="p">)</span>
+
+        <span class="c1"># Make a list of data arrays to hold the data for each column.</span>
+        <span class="n">data_lists</span> <span class="o">=</span> <span class="p">[[]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">header</span><span class="p">[</span><span class="s2">&quot;Number of series&quot;</span><span class="p">])]</span>
+        <span class="n">time_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="c1"># Iterate over the remaining lines which represent the data in a</span>
+        <span class="c1"># column form.</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file_handle</span><span class="p">:</span>
+            <span class="c1"># Split the line by comma, removing the last empty column caused</span>
+            <span class="c1"># by the trailing comma.</span>
+            <span class="n">vals</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+            <span class="c1"># Time is stored in the first two columns.</span>
+            <span class="n">t</span> <span class="o">=</span> <span class="n">vals</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">vals</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="n">dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span>
+                <span class="n">t</span><span class="p">,</span> <span class="n">NAMEII_TIMESERIES_DATETIME_FORMAT</span>
+            <span class="p">)</span>
+            <span class="n">time_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>
+
+            <span class="c1"># Populate the data arrays.</span>
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">data_list</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">data_lists</span><span class="p">):</span>
+                <span class="n">data_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">vals</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">2</span><span class="p">]))</span>
+
+        <span class="n">data_arrays</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">dl</span><span class="p">)</span> <span class="k">for</span> <span class="n">dl</span> <span class="ow">in</span> <span class="n">data_lists</span><span class="p">]</span>
+        <span class="n">time_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">time_list</span><span class="p">)</span>
+        <span class="n">tdim</span> <span class="o">=</span> <span class="n">NAMECoord</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">dimension</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="n">time_array</span><span class="p">)</span>
+
+        <span class="n">coords</span> <span class="o">=</span> <span class="p">[</span><span class="n">lon</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">tdim</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">_generate_cubes</span><span class="p">(</span><span class="n">header</span><span class="p">,</span> <span class="n">column_headings</span><span class="p">,</span> <span class="n">coords</span><span class="p">,</span> <span class="n">data_arrays</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="load_NAMEIII_version2"><a class="viewcode-back" href="../../../generated/api/iris/fileformats/name_loaders.html#iris.fileformats.name_loaders.load_NAMEIII_version2">[docs]</a><span class="k">def</span> <span class="nf">load_NAMEIII_version2</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Load a NAME III version 2 file returning a</span>
+<span class="sd">    generator of :class:`iris.cube.Cube` instances.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">    * filename (string):</span>
+<span class="sd">        Name of file to load.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A generator :class:`iris.cube.Cube` instances.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># loading a file gives a generator of lines which can be progressed</span>
+    <span class="c1"># using the next() method. This will come in handy as we wish to</span>
+    <span class="c1"># progress through the file line by line.</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file_handle</span><span class="p">:</span>
+
+        <span class="c1"># define a dictionary to hold the header metadata about this file</span>
+        <span class="n">header</span> <span class="o">=</span> <span class="n">read_header</span><span class="p">(</span><span class="n">file_handle</span><span class="p">)</span>
+
+        <span class="c1"># Skip next line which contains (Fields:)</span>
+        <span class="nb">next</span><span class="p">(</span><span class="n">file_handle</span><span class="p">)</span>
+
+        <span class="c1"># Now carry on and read column headers</span>
+        <span class="n">column_headings</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">datacol1</span> <span class="o">=</span> <span class="n">header</span><span class="p">[</span><span class="s2">&quot;Number of preliminary cols&quot;</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file_handle</span><span class="p">:</span>
+
+            <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">col</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)][:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+            <span class="c1"># If first column is not zero we have reached the end</span>
+            <span class="c1">#  of the headers</span>
+            <span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+                <span class="k">break</span>
+
+            <span class="n">column_key</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">datacol1</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+
+            <span class="c1"># This will filter out any zero columns</span>
+            <span class="k">if</span> <span class="nb">filter</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="n">datacol1</span><span class="p">:]):</span>
+                <span class="n">column_headings</span><span class="p">[</span><span class="n">column_key</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">datacol1</span><span class="p">:]</span>
+
+        <span class="c1"># Some tidying up</span>
+        <span class="k">if</span> <span class="s2">&quot;T&quot;</span> <span class="ow">in</span> <span class="n">column_headings</span><span class="p">:</span>
+            <span class="n">new_time_column_header</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">column_headings</span><span class="p">[</span><span class="s2">&quot;T&quot;</span><span class="p">]):</span>
+                <span class="n">dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">NAMEIII_DATETIME_FORMAT</span><span class="p">)</span>
+                <span class="n">new_time_column_header</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>
+            <span class="n">column_headings</span><span class="p">[</span><span class="s2">&quot;T&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_time_column_header</span>
+
+        <span class="c1"># Convert averaging/integrating period to timedeltas.</span>
+        <span class="n">column_headings</span><span class="p">[</span><span class="s2">&quot;Av or Int period&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_calc_integration_period</span><span class="p">(</span>
+            <span class="n">column_headings</span><span class="p">[</span><span class="s2">&quot;Time av/int info&quot;</span><span class="p">]</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Next we need to figure out what we have in the preliminary columns</span>
+        <span class="c1"># For X and Y we want the index</span>
+        <span class="c1"># And the values can be extracted from the header information</span>
+        <span class="n">xindex</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">yindex</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">dim_coords</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="c1"># First determine whether we are using National Grid or lat/lon</span>
+        <span class="k">if</span> <span class="s2">&quot;X (UK National Grid (m))&quot;</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+            <span class="n">coord_names</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="s2">&quot;projection_x_coordinate&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;projection_y_coordinate&quot;</span><span class="p">,</span>
+            <span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">coord_names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;longitude&quot;</span><span class="p">,</span> <span class="s2">&quot;latitude&quot;</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="s2">&quot;Y Index&quot;</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+            <span class="n">yindex</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;Y Index&quot;</span><span class="p">)</span>
+            <span class="n">dim_coords</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;Y&quot;</span><span class="p">)</span>
+            <span class="n">lat</span> <span class="o">=</span> <span class="n">_build_lat_lon_for_NAME_field</span><span class="p">(</span>
+                <span class="n">header</span><span class="p">,</span> <span class="n">dim_coords</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;Y&quot;</span><span class="p">),</span> <span class="s2">&quot;Y&quot;</span><span class="p">,</span> <span class="n">coord_names</span><span class="o">=</span><span class="n">coord_names</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="s2">&quot;X Index&quot;</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+            <span class="n">xindex</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;X Index&quot;</span><span class="p">)</span>
+            <span class="n">dim_coords</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;X&quot;</span><span class="p">)</span>
+            <span class="n">lon</span> <span class="o">=</span> <span class="n">_build_lat_lon_for_NAME_field</span><span class="p">(</span>
+                <span class="n">header</span><span class="p">,</span> <span class="n">dim_coords</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;X&quot;</span><span class="p">),</span> <span class="s2">&quot;X&quot;</span><span class="p">,</span> <span class="n">coord_names</span><span class="o">=</span><span class="n">coord_names</span>
+            <span class="p">)</span>
+
+        <span class="c1"># For all other variables we need the values (note that for Z the units</span>
+        <span class="c1"># will also be given in the column header)</span>
+        <span class="n">tindex</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">zindex</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="s2">&quot;T&quot;</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+            <span class="n">tindex</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;T&quot;</span><span class="p">)</span>
+            <span class="n">dim_coords</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;T&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="s2">&quot;Z&quot;</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+            <span class="n">zgrid</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">data</span> <span class="k">if</span> <span class="n">item</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Z (&quot;</span><span class="p">]</span>
+            <span class="n">zunits</span> <span class="o">=</span> <span class="n">zgrid</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;(&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;)&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">zunits</span> <span class="o">==</span> <span class="s2">&quot;m asl&quot;</span><span class="p">:</span>
+                <span class="n">z_name</span> <span class="o">=</span> <span class="s2">&quot;altitude&quot;</span>
+            <span class="k">elif</span> <span class="n">zunits</span> <span class="o">==</span> <span class="s2">&quot;m agl&quot;</span><span class="p">:</span>
+                <span class="n">z_name</span> <span class="o">=</span> <span class="s2">&quot;height&quot;</span>
+            <span class="k">elif</span> <span class="n">zunits</span> <span class="o">==</span> <span class="s2">&quot;FL&quot;</span><span class="p">:</span>
+                <span class="n">z_name</span> <span class="o">=</span> <span class="s2">&quot;flight_level&quot;</span>
+            <span class="k">elif</span> <span class="n">zunits</span> <span class="o">==</span> <span class="s2">&quot;Pa&quot;</span><span class="p">:</span>
+                <span class="n">z_name</span> <span class="o">=</span> <span class="s2">&quot;air_pressure&quot;</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Vertical coordinate unkown&quot;</span><span class="p">)</span>
+            <span class="n">zindex</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">zgrid</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">dim_coords</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;Z&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Make a list of data lists to hold the data</span>
+        <span class="c1"># for each column.(aimed at T-Z data)</span>
+        <span class="n">data_lists</span> <span class="o">=</span> <span class="p">[[]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">header</span><span class="p">[</span><span class="s2">&quot;Number of field cols&quot;</span><span class="p">])]</span>
+        <span class="n">coord_lists</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="p">[]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">header</span><span class="p">[</span><span class="s2">&quot;Number of preliminary cols&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="p">]</span>
+
+        <span class="c1"># Iterate over the remaining lines which represent the data in a</span>
+        <span class="c1"># column form.</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file_handle</span><span class="p">:</span>
+            <span class="c1"># Split the line by comma, removing the last empty column caused</span>
+            <span class="c1"># by the trailing comma.</span>
+            <span class="n">vals</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+            <span class="c1"># Time is stored in the column labelled T index</span>
+            <span class="k">if</span> <span class="n">tindex</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">t</span> <span class="o">=</span> <span class="n">vals</span><span class="p">[</span><span class="n">tindex</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+                <span class="n">dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">NAMEIII_DATETIME_FORMAT</span><span class="p">)</span>
+                <span class="n">coord_lists</span><span class="p">[</span><span class="n">dim_coords</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;T&quot;</span><span class="p">)]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>
+
+            <span class="c1"># Z is stored in the column labelled ZIndex</span>
+            <span class="k">if</span> <span class="n">zindex</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">z</span> <span class="o">=</span> <span class="n">vals</span><span class="p">[</span><span class="n">zindex</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+                <span class="n">coord_lists</span><span class="p">[</span><span class="n">dim_coords</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;Z&quot;</span><span class="p">)]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">z</span><span class="p">))</span>
+
+            <span class="c1"># For X and Y we are extracting indices not values</span>
+            <span class="k">if</span> <span class="n">yindex</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">yind</span> <span class="o">=</span> <span class="n">vals</span><span class="p">[</span><span class="n">yindex</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+                <span class="n">coord_lists</span><span class="p">[</span><span class="n">dim_coords</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;Y&quot;</span><span class="p">)]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">yind</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">xindex</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">xind</span> <span class="o">=</span> <span class="n">vals</span><span class="p">[</span><span class="n">xindex</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+                <span class="n">coord_lists</span><span class="p">[</span><span class="n">dim_coords</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;X&quot;</span><span class="p">)]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">xind</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+
+            <span class="c1"># Populate the data arrays.</span>
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">data_list</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">data_lists</span><span class="p">):</span>
+                <span class="n">data_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">vals</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="n">datacol1</span><span class="p">]))</span>
+
+        <span class="n">data_arrays</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">dl</span><span class="p">)</span> <span class="k">for</span> <span class="n">dl</span> <span class="ow">in</span> <span class="n">data_lists</span><span class="p">]</span>
+
+        <span class="c1"># Convert Z and T arrays into arrays of indices</span>
+        <span class="n">zind</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="n">zindex</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">z_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">coord_lists</span><span class="p">[</span><span class="n">dim_coords</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;Z&quot;</span><span class="p">)])</span>
+            <span class="n">z_unique</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">coord_lists</span><span class="p">[</span><span class="n">dim_coords</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;Z&quot;</span><span class="p">)])))</span>
+            <span class="n">z_coord</span> <span class="o">=</span> <span class="n">NAMECoord</span><span class="p">(</span>
+                <span class="n">name</span><span class="o">=</span><span class="n">z_name</span><span class="p">,</span> <span class="n">dimension</span><span class="o">=</span><span class="n">dim_coords</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;Z&quot;</span><span class="p">),</span> <span class="n">values</span><span class="o">=</span><span class="n">z_unique</span>
+            <span class="p">)</span>
+            <span class="k">for</span> <span class="n">z</span> <span class="ow">in</span> <span class="n">z_array</span><span class="p">:</span>
+                <span class="n">zind</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">z_unique</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">z</span><span class="p">))</span>
+            <span class="n">coord_lists</span><span class="p">[</span><span class="n">dim_coords</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;Z&quot;</span><span class="p">)]</span> <span class="o">=</span> <span class="n">zind</span>
+
+        <span class="n">tind</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="n">tindex</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">time_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">coord_lists</span><span class="p">[</span><span class="n">dim_coords</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;T&quot;</span><span class="p">)])</span>
+            <span class="n">t_unique</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">coord_lists</span><span class="p">[</span><span class="n">dim_coords</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;T&quot;</span><span class="p">)])))</span>
+            <span class="n">time</span> <span class="o">=</span> <span class="n">NAMECoord</span><span class="p">(</span>
+                <span class="n">name</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span>
+                <span class="n">dimension</span><span class="o">=</span><span class="n">dim_coords</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;T&quot;</span><span class="p">),</span>
+                <span class="n">values</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">t_unique</span><span class="p">),</span>
+            <span class="p">)</span>
+            <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">time_array</span><span class="p">:</span>
+                <span class="n">tind</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t_unique</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+            <span class="n">coord_lists</span><span class="p">[</span><span class="n">dim_coords</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;T&quot;</span><span class="p">)]</span> <span class="o">=</span> <span class="n">tind</span>
+
+        <span class="c1"># Now determine the shape of the multidimensional array to store</span>
+        <span class="c1"># the data in based on the length of the coordinates</span>
+        <span class="n">array_shape_list</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">coords</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">cname</span> <span class="ow">in</span> <span class="n">dim_coords</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">cname</span> <span class="o">==</span> <span class="s2">&quot;X&quot;</span><span class="p">:</span>
+                <span class="n">coords</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">lon</span><span class="p">)</span>
+                <span class="n">array_shape_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">lon</span><span class="o">.</span><span class="n">values</span><span class="p">))</span>
+            <span class="k">elif</span> <span class="n">cname</span> <span class="o">==</span> <span class="s2">&quot;Y&quot;</span><span class="p">:</span>
+                <span class="n">coords</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">lat</span><span class="p">)</span>
+                <span class="n">array_shape_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">lat</span><span class="o">.</span><span class="n">values</span><span class="p">))</span>
+            <span class="k">elif</span> <span class="n">cname</span> <span class="o">==</span> <span class="s2">&quot;Z&quot;</span><span class="p">:</span>
+                <span class="n">coords</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">z_coord</span><span class="p">)</span>
+                <span class="n">array_shape_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">z_coord</span><span class="o">.</span><span class="n">values</span><span class="p">))</span>
+            <span class="k">elif</span> <span class="n">cname</span> <span class="o">==</span> <span class="s2">&quot;T&quot;</span><span class="p">:</span>
+                <span class="n">coords</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">time</span><span class="p">)</span>
+                <span class="n">array_shape_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">values</span><span class="p">))</span>
+        <span class="n">array_shape</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">array_shape_list</span><span class="p">)</span>
+
+        <span class="c1"># Reshape the data to the new multidimensional shape</span>
+        <span class="n">new_data_arrays</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">data_array</span> <span class="ow">in</span> <span class="n">data_arrays</span><span class="p">:</span>
+            <span class="n">new_data_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">array_shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">ind1</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">data_array</span><span class="p">):</span>
+                <span class="n">index_list</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="k">for</span> <span class="n">column</span><span class="p">,</span> <span class="n">dcoord</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">dim_coords</span><span class="p">):</span>
+                    <span class="n">index_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">coord_lists</span><span class="p">[</span><span class="n">column</span><span class="p">][</span><span class="n">ind1</span><span class="p">])</span>
+                <span class="n">index_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">index_list</span><span class="p">)</span>
+                <span class="n">mindex</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ravel_multi_index</span><span class="p">(</span><span class="n">index_array</span><span class="p">,</span> <span class="n">array_shape</span><span class="p">)</span>
+                <span class="n">new_data_array</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">unravel_index</span><span class="p">(</span><span class="n">mindex</span><span class="p">,</span> <span class="n">array_shape</span><span class="p">)]</span> <span class="o">=</span> <span class="n">item</span>
+            <span class="n">new_data_arrays</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_data_array</span><span class="p">)</span>
+
+    <span class="c1"># If X and Y are in the column headings build coordinates</span>
+    <span class="k">if</span> <span class="s2">&quot;X&quot;</span> <span class="ow">in</span> <span class="n">column_headings</span> <span class="ow">and</span> <span class="s2">&quot;Y&quot;</span> <span class="ow">in</span> <span class="n">column_headings</span><span class="p">:</span>
+        <span class="n">lat</span><span class="p">,</span> <span class="n">lon</span> <span class="o">=</span> <span class="n">_build_lat_lon_for_NAME_timeseries</span><span class="p">(</span><span class="n">column_headings</span><span class="p">)</span>
+        <span class="n">coords</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">lat</span><span class="p">)</span>
+        <span class="n">coords</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">lon</span><span class="p">)</span>
+
+    <span class="c1"># If time is in the column heading build a coordinate</span>
+    <span class="k">if</span> <span class="s2">&quot;T&quot;</span> <span class="ow">in</span> <span class="n">column_headings</span><span class="p">:</span>
+        <span class="n">tdim</span> <span class="o">=</span> <span class="n">NAMECoord</span><span class="p">(</span>
+            <span class="n">name</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">dimension</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">column_headings</span><span class="p">[</span><span class="s2">&quot;T&quot;</span><span class="p">])</span>
+        <span class="p">)</span>
+        <span class="n">coords</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tdim</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">_generate_cubes</span><span class="p">(</span>
+        <span class="n">header</span><span class="p">,</span> <span class="n">column_headings</span><span class="p">,</span> <span class="n">coords</span><span class="p">,</span> <span class="n">new_data_arrays</span><span class="p">,</span> <span class="n">cell_methods</span><span class="o">=</span><span class="kc">None</span>
+    <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="load_NAMEIII_trajectory"><a class="viewcode-back" href="../../../generated/api/iris/fileformats/name_loaders.html#iris.fileformats.name_loaders.load_NAMEIII_trajectory">[docs]</a><span class="k">def</span> <span class="nf">load_NAMEIII_trajectory</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Load a NAME III trajectory file returning a</span>
+<span class="sd">    generator of :class:`iris.cube.Cube` instances.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">    * filename (string):</span>
+<span class="sd">        Name of file to load.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A generator :class:`iris.cube.Cube` instances.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">time_unit</span> <span class="o">=</span> <span class="n">cf_units</span><span class="o">.</span><span class="n">Unit</span><span class="p">(</span>
+        <span class="s2">&quot;hours since epoch&quot;</span><span class="p">,</span> <span class="n">calendar</span><span class="o">=</span><span class="n">cf_units</span><span class="o">.</span><span class="n">CALENDAR_GREGORIAN</span>
+    <span class="p">)</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">infile</span><span class="p">:</span>
+        <span class="n">header</span> <span class="o">=</span> <span class="n">read_header</span><span class="p">(</span><span class="n">infile</span><span class="p">)</span>
+
+        <span class="c1"># read the column headings</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">infile</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;    &quot;</span><span class="p">):</span>
+                <span class="k">break</span>
+        <span class="n">headings</span> <span class="o">=</span> <span class="p">[</span><span class="n">heading</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">heading</span> <span class="ow">in</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)]</span>
+
+        <span class="c1"># read the columns</span>
+        <span class="n">columns</span> <span class="o">=</span> <span class="p">[[]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">headings</span><span class="p">))]</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">infile</span><span class="p">:</span>
+            <span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="n">v</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)]</span>
+            <span class="k">for</span> <span class="n">c</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">values</span><span class="p">):</span>
+                <span class="k">if</span> <span class="s2">&quot;UTC&quot;</span> <span class="ow">in</span> <span class="n">v</span><span class="p">:</span>
+                    <span class="n">v</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">NAMETRAJ_DATETIME_FORMAT</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">try</span><span class="p">:</span>
+                        <span class="n">v</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+                    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                        <span class="k">pass</span>
+                <span class="n">columns</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+
+    <span class="c1"># Sort columns according to PP Index</span>
+    <span class="n">columns_t</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">columns</span><span class="p">)))</span>
+    <span class="n">columns_t</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">itemgetter</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+    <span class="n">columns</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">columns_t</span><span class="p">)))</span>
+
+    <span class="c1"># Where&#39;s the Z column?</span>
+    <span class="n">z_column</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">heading</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">headings</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">heading</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;Z &quot;</span><span class="p">):</span>
+            <span class="n">z_column</span> <span class="o">=</span> <span class="n">i</span>
+            <span class="k">break</span>
+    <span class="k">if</span> <span class="n">z_column</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">TranslationError</span><span class="p">(</span><span class="s2">&quot;Expected a Z column&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Every column up to Z becomes a coordinate.</span>
+    <span class="n">coords</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">values</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">headings</span><span class="p">[:</span> <span class="n">z_column</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> <span class="n">columns</span><span class="p">[:</span> <span class="n">z_column</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]):</span>
+        <span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">values</span><span class="p">)</span> <span class="o">==</span> <span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+            <span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+
+        <span class="n">long_name</span> <span class="o">=</span> <span class="n">units</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">):</span>
+            <span class="n">values</span> <span class="o">=</span> <span class="n">time_unit</span><span class="o">.</span><span class="n">date2num</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+            <span class="n">units</span> <span class="o">=</span> <span class="n">time_unit</span>
+            <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;Time&quot;</span><span class="p">:</span>
+                <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;time&quot;</span>
+        <span class="k">elif</span> <span class="s2">&quot; (Lat-Long)&quot;</span> <span class="ow">in</span> <span class="n">name</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;X&quot;</span><span class="p">):</span>
+                <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;longitude&quot;</span>
+            <span class="k">elif</span> <span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;Y&quot;</span><span class="p">):</span>
+                <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;latitude&quot;</span>
+            <span class="n">units</span> <span class="o">=</span> <span class="s2">&quot;degrees&quot;</span>
+        <span class="k">elif</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;Z (m asl)&quot;</span><span class="p">:</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;altitude&quot;</span>
+            <span class="n">units</span> <span class="o">=</span> <span class="s2">&quot;m&quot;</span>
+            <span class="n">long_name</span> <span class="o">=</span> <span class="s2">&quot;altitude above sea level&quot;</span>
+        <span class="k">elif</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;Z (m agl)&quot;</span><span class="p">:</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;height&quot;</span>
+            <span class="n">units</span> <span class="o">=</span> <span class="s2">&quot;m&quot;</span>
+            <span class="n">long_name</span> <span class="o">=</span> <span class="s2">&quot;height above ground level&quot;</span>
+        <span class="k">elif</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;Z (FL)&quot;</span><span class="p">:</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;flight_level&quot;</span>
+            <span class="n">long_name</span> <span class="o">=</span> <span class="n">name</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">coord</span> <span class="o">=</span> <span class="n">DimCoord</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="n">units</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="n">coord</span> <span class="o">=</span> <span class="n">AuxCoord</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="n">units</span><span class="p">)</span>
+        <span class="n">coord</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">coord</span><span class="o">.</span><span class="n">long_name</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">long_name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">coord</span><span class="o">.</span><span class="n">long_name</span> <span class="o">=</span> <span class="n">long_name</span>
+        <span class="n">coords</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">coord</span><span class="p">)</span>
+
+    <span class="c1"># Every numerical column after the Z becomes a cube.</span>
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">values</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">headings</span><span class="p">[</span><span class="n">z_column</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">:],</span> <span class="n">columns</span><span class="p">[</span><span class="n">z_column</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">:]):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="nb">float</span><span class="p">(</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="c1"># units embedded in column heading?</span>
+        <span class="n">name</span><span class="p">,</span> <span class="n">units</span> <span class="o">=</span> <span class="n">_split_name_and_units</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="n">cube</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">cube</span><span class="o">.</span><span class="n">Cube</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="n">units</span><span class="p">)</span>
+        <span class="n">cube</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="c1"># Add the Main Headings as attributes.</span>
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">header</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">value</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span> <span class="ow">and</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">headings</span><span class="p">:</span>
+                <span class="n">cube</span><span class="o">.</span><span class="n">attributes</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="c1"># Add coordinates</span>
+        <span class="k">for</span> <span class="n">coord</span> <span class="ow">in</span> <span class="n">coords</span><span class="p">:</span>
+            <span class="n">dim</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">coord</span><span class="o">.</span><span class="n">points</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="kc">None</span>
+            <span class="k">if</span> <span class="n">dim</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">coord</span><span class="o">.</span><span class="n">name</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;time&quot;</span><span class="p">:</span>
+                <span class="n">cube</span><span class="o">.</span><span class="n">add_dim_coord</span><span class="p">(</span><span class="n">coord</span><span class="o">.</span><span class="n">copy</span><span class="p">(),</span> <span class="n">dim</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">dim</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">coord</span><span class="o">.</span><span class="n">name</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;PP Index&quot;</span><span class="p">:</span>
+                <span class="n">cube</span><span class="o">.</span><span class="n">add_dim_coord</span><span class="p">(</span><span class="n">coord</span><span class="o">.</span><span class="n">copy</span><span class="p">(),</span> <span class="n">dim</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">cube</span><span class="o">.</span><span class="n">add_aux_coord</span><span class="p">(</span><span class="n">coord</span><span class="o">.</span><span class="n">copy</span><span class="p">(),</span> <span class="n">dim</span><span class="p">)</span>
+        <span class="k">yield</span> <span class="n">cube</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        
+        &copy; <a href="../../../copyright.html">Copyright</a> Iris Contributors
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

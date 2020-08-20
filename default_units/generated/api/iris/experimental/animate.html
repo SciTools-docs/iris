@@ -1,0 +1,404 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>iris.experimental.animate &mdash; Iris 3.0.dev0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../_static/theme_override.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/gallery-dataframe.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/language_data.js"></script>
+        <script src="../../../../_static/clipboard.min.js"></script>
+        <script src="../../../../_static/copybutton.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="copyright" title="Copyright" href="../../../../copyright.html" />
+    <link rel="next" title="iris.experimental.equalise_cubes" href="equalise_cubes.html" />
+    <link rel="prev" title="iris.experimental" href="../experimental.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html">
+          
+
+          
+            
+            <img src="../../../../_static/iris-logo-title.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installing.html">Installing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/iris_cubes.html">Iris data structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/loading_iris_cubes.html">Loading Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/saving_iris_cubes.html">Saving Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/navigating_a_cube.html">Navigating a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/subsetting_a_cube.html">Subsetting a Cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/real_and_lazy_data.html">Real and Lazy Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/plotting_a_cube.html">Plotting a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/interpolation_and_regridding.html">Cube interpolation and regridding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/merge_and_concat.html">Merge and concatenate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/cube_statistics.html">Cube statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/cube_maths.html">Basic cube mathematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/citation.html">Citing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/code_maintenance.html">Code maintenance</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developers Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../developers_guide/contributing_documentation.html">Contributing to the documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developers_guide/documenting/index.html">Documentation in Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developers_guide/gitwash/index.html">Working with <em>iris</em> source code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developers_guide/code_format.html">Code formatting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developers_guide/pulls.html">Pull request check List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developers_guide/tests.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developers_guide/deprecations.html">Deprecations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developers_guide/release.html">Releases</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../iris.html">Iris API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../analysis.html">iris.analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../aux_factory.html">iris.aux_factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../common.html">iris.common</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../config.html">iris.config</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../coord_categorisation.html">iris.coord_categorisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../coord_systems.html">iris.coord_systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../coords.html">iris.coords</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cube.html">iris.cube</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exceptions.html">iris.exceptions</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../experimental.html">iris.experimental</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">iris.experimental.animate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="equalise_cubes.html">iris.experimental.equalise_cubes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="regrid.html">iris.experimental.regrid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="regrid_conservative.html">iris.experimental.regrid_conservative</a></li>
+<li class="toctree-l3"><a class="reference internal" href="representation.html">iris.experimental.representation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stratify.html">iris.experimental.stratify</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ugrid.html">iris.experimental.ugrid</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../fileformats.html">iris.fileformats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../io.html">iris.io</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../iterate.html">iris.iterate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../palette.html">iris.palette</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandas.html">iris.pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plot.html">iris.plot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickplot.html">iris.quickplot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../std_names.html">iris.std_names</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../symbols.html">iris.symbols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../time.html">iris.time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../util.html">iris.util</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../whatsnew/index.html">What’s new in Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../techpapers/index.html">Iris Technical Papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../copyright.html">Iris copyright, licensing and contributors</a></li>
+</ul>
+
+            
+          
+
+    
+    
+    
+        <p class="caption">
+            <span class="caption-text">
+            
+                Support
+            
+            </span>
+        </p>
+        <ul>
+            
+                <li class="toctree-l1"><a href="https://github.com/SciTools/iris"><i class="fa fa-github fa-fw"></i> Source Code</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris"><i class="fa fa-comments fa-fw"></i> Users Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris-dev"><i class="fa fa-comments fa-fw"></i> Developers Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://stackoverflow.com/questions/tagged/python-iris"><i class="fa fa-question fa-fw"></i> StackOverflow For "How do I?"</a></li>
+            
+                <li class="toctree-l1"><a href="https://scitools.org.uk/iris/docs/v2.4.0/index.html"><i class="fa fa-book fa-fw"></i> Legacy documentation</a></li>
+            
+        </ul>
+    
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Iris</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../iris.html">Iris API</a> &raquo;</li>
+        
+          <li><a href="../experimental.html">iris.experimental</a> &raquo;</li>
+        
+      <li>iris.experimental.animate</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/generated/api/iris/experimental/animate.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="iris-experimental-animate">
+<span id="id1"></span><h1>iris.experimental.animate<a class="headerlink" href="#iris-experimental-animate" title="Permalink to this headline">¶</a></h1>
+<span class="target" id="module-iris.experimental.animate"></span><p>Wrapper for animating iris cubes using iris or matplotlib plotting functions</p>
+<p>In this module:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference internal" href="#iris.experimental.animate.animate" title="iris.experimental.animate.animate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">animate</span></code></a></p></li>
+</ul>
+</div></blockquote>
+<dl class="py function">
+<dt id="iris.experimental.animate.animate">
+<code class="sig-prename descclassname">iris.experimental.animate.</code><code class="sig-name descname">animate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cube_iterator</span></em>, <em class="sig-param"><span class="n">plot_func</span></em>, <em class="sig-param"><span class="n">fig</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/iris/experimental/animate.html#animate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iris.experimental.animate.animate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Animates the given cube iterator.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>cube_iterator (iterable of <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.cube.Cube</span></code></a> objects):</dt><dd><p>Each animation frame corresponds to each <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.cube.Cube</span></code></a>
+object. See <a class="reference internal" href="../cube.html#iris.cube.Cube.slices" title="iris.cube.Cube.slices"><code class="xref py py-meth docutils literal notranslate"><span class="pre">iris.cube.Cube.slices()</span></code></a>.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>plot_func (<a class="reference internal" href="../plot.html#module-iris.plot" title="iris.plot"><code class="xref py py-mod docutils literal notranslate"><span class="pre">iris.plot</span></code></a> or <a class="reference internal" href="../quickplot.html#module-iris.quickplot" title="iris.quickplot"><code class="xref py py-mod docutils literal notranslate"><span class="pre">iris.quickplot</span></code></a> plotting function):</dt><dd><p>Plotting function used to animate. Must accept the signature
+<code class="docutils literal notranslate"><span class="pre">plot_func(cube,</span> <span class="pre">vmin=vmin,</span> <span class="pre">vmax=vmax,</span> <span class="pre">coords=coords)</span></code>.
+<a class="reference internal" href="../plot.html#iris.plot.contourf" title="iris.plot.contourf"><code class="xref py py-func docutils literal notranslate"><span class="pre">contourf()</span></code></a>, <a class="reference internal" href="../plot.html#iris.plot.contour" title="iris.plot.contour"><code class="xref py py-func docutils literal notranslate"><span class="pre">contour()</span></code></a>,
+<a class="reference internal" href="../plot.html#iris.plot.pcolor" title="iris.plot.pcolor"><code class="xref py py-func docutils literal notranslate"><span class="pre">pcolor()</span></code></a> and <a class="reference internal" href="../plot.html#iris.plot.pcolormesh" title="iris.plot.pcolormesh"><code class="xref py py-func docutils literal notranslate"><span class="pre">pcolormesh()</span></code></a>
+all conform to this signature.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Kwargs:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>fig (<a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.figure.Figure.html#matplotlib.figure.Figure" title="(in Matplotlib v3.3.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.figure.Figure</span></code></a> instance):</dt><dd><p>By default, the current figure will be used or a new figure instance
+created if no figure is available. See <a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.gcf.html#matplotlib.pyplot.gcf" title="(in Matplotlib v3.3.1)"><code class="xref py py-func docutils literal notranslate"><span class="pre">matplotlib.pyplot.gcf()</span></code></a>.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>coords (list of <a class="reference internal" href="../coords.html#iris.coords.Coord" title="iris.coords.Coord"><code class="xref py py-class docutils literal notranslate"><span class="pre">Coord</span></code></a> objects or coordinate names):</dt><dd><p>Use the given coordinates as the axes for the plot. The order of the
+given coordinates indicates which axis to use for each, where the first
+element is the horizontal axis of the plot and the second element is
+the vertical axis of the plot.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>interval (int, float or long):</dt><dd><p>Defines the time interval in milliseconds between successive frames.
+A default interval of 100ms is set.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>vmin, vmax (int, float or long):</dt><dd><p>Color scaling values, see <a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.colors.Normalize.html#matplotlib.colors.Normalize" title="(in Matplotlib v3.3.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.colors.Normalize</span></code></a> for
+further details. Default values are determined by the min-max across
+the data set over the entire sequence.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>See <a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.animation.FuncAnimation.html#matplotlib.animation.FuncAnimation" title="(in Matplotlib v3.3.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.animation.FuncAnimation</span></code></a> for details of other valid
+keyword arguments.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p><a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.animation.FuncAnimation.html#matplotlib.animation.FuncAnimation" title="(in Matplotlib v3.3.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">FuncAnimation</span></code></a> object suitable for
+saving and or plotting.</p>
+</dd>
+</dl>
+<p>For example, to animate along a set of cube slices:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cube_iter</span> <span class="o">=</span> <span class="n">cubes</span><span class="o">.</span><span class="n">slices</span><span class="p">((</span><span class="s1">&#39;grid_longitude&#39;</span><span class="p">,</span> <span class="s1">&#39;grid_latitude&#39;</span><span class="p">))</span>
+<span class="n">ani</span> <span class="o">=</span> <span class="n">animate</span><span class="p">(</span><span class="n">cube_iter</span><span class="p">,</span> <span class="n">qplt</span><span class="o">.</span><span class="n">contourf</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="equalise_cubes.html" class="btn btn-neutral float-right" title="iris.experimental.equalise_cubes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../experimental.html" class="btn btn-neutral float-left" title="iris.experimental" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        
+        &copy; <a href="../../../../copyright.html">Copyright</a> Iris Contributors
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

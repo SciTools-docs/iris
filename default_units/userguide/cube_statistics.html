@@ -1,95 +1,249 @@
 
-<!DOCTYPE html>
 
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>10. Cube statistics &#8212; Iris 3.0.dev0 documentation</title>
-    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Cube statistics &mdash; Iris 3.0.dev0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/theme_override.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-dataframe.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
-    <link rel="next" title="11. Basic cube mathematics" href="cube_maths.html" />
-    <link rel="prev" title="9. Merge and Concatenate" href="merge_and_concat.html" />
- 
-    <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
-    <META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE"> 
+    <link rel="next" title="Basic cube mathematics" href="cube_maths.html" />
+    <link rel="prev" title="Merge and concatenate" href="merge_and_concat.html" /> 
+</head>
 
-    <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    <script type="text/javascript" src="https://docs.python.org/2/_static/copybutton.js"></script>
+<body class="wy-body-for-nav">
 
-    <link rel="icon" type="image/png" sizes="32x32" href="../_static/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../_static/favicon-16x16.png">
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
 
-    <link href="https://fonts.googleapis.com/css?family=Alike|Noto+Sans" rel="stylesheet">
+          
+            <a href="../index.html">
+          
 
-  </head><body>
+          
+            
+            <img src="../_static/iris-logo-title.png" class="logo" alt="Logo"/>
+          
+          </a>
 
-<a href="https://github.com/SciTools/iris">
-    <img class="github-forkme" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"
-         alt="Fork Iris on GitHub" />
-</a>
+          
+            
+            
+              <div class="version">
+                3.0
+              </div>
+            
+          
 
-
-<div class="header-content">
-    <a href="../index.html">
-        <img src="../_static/Iris7_1_trim_100.png" alt="Iris logo" />
-    </a>
-    <div class="strapline">
-      <h1>
-          Iris <span class="version">v3.0</span>
-      </h1>
-      <p>
-         A powerful, format-agnostic, community-driven Python library for analysing and
-         visualising Earth science data.
-      </p>
-    </div>
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
 </div>
 
+          
+        </div>
 
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="../py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="cube_maths.html" title="11. Basic cube mathematics"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="merge_and_concat.html" title="9. Merge and Concatenate"
-             accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">home</a>|&nbsp;</li>
-        <li><a href="../examples/index.html">examples</a>|&nbsp;</li>
-        <li><a href="../gallery.html">gallery</a>|&nbsp;</li>
-        <li><a href="../contents.html">contents</a>|&nbsp;</li>
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installing.html">Installing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../generated/gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iris_cubes.html">Iris data structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loading_iris_cubes.html">Loading Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="saving_iris_cubes.html">Saving Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="navigating_a_cube.html">Navigating a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="subsetting_a_cube.html">Subsetting a Cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="real_and_lazy_data.html">Real and Lazy Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plotting_a_cube.html">Plotting a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interpolation_and_regridding.html">Cube interpolation and regridding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="merge_and_concat.html">Merge and concatenate</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Cube statistics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#collapsing-entire-data-dimensions">Collapsing entire data dimensions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#area-averaging">Area averaging</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#partially-reducing-data-dimensions">Partially reducing data dimensions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#aggregation-of-grouped-data">Aggregation of grouped data</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cube_maths.html">Basic cube mathematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="citation.html">Citing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code_maintenance.html">Code maintenance</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developers Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/contributing_documentation.html">Contributing to the documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/documenting/index.html">Documentation in Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/gitwash/index.html">Working with <em>iris</em> source code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/code_format.html">Code formatting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/pulls.html">Pull request check List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/tests.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/deprecations.html">Deprecations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/release.html">Releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../generated/api/iris.html">Iris API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../whatsnew/index.html">What’s new in Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../techpapers/index.html">Iris Technical Papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../copyright.html">Iris copyright, licensing and contributors</a></li>
+</ul>
 
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Iris user guide</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href=""><span class="section-number">10. </span>Cube statistics</a></li> 
-      </ul>
-    </div>
+            
+          
+
+    
+    
+    
+        <p class="caption">
+            <span class="caption-text">
+            
+                Support
+            
+            </span>
+        </p>
+        <ul>
+            
+                <li class="toctree-l1"><a href="https://github.com/SciTools/iris"><i class="fa fa-github fa-fw"></i> Source Code</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris"><i class="fa fa-comments fa-fw"></i> Users Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris-dev"><i class="fa fa-comments fa-fw"></i> Developers Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://stackoverflow.com/questions/tagged/python-iris"><i class="fa fa-question fa-fw"></i> StackOverflow For "How do I?"</a></li>
+            
+                <li class="toctree-l1"><a href="https://scitools.org.uk/iris/docs/v2.4.0/index.html"><i class="fa fa-book fa-fw"></i> Legacy documentation</a></li>
+            
+        </ul>
+    
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Iris</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Cube statistics</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/userguide/cube_statistics.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
   
-
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
             
   <div class="section" id="cube-statistics">
-<span id="id1"></span><h1><span class="section-number">10. </span>Cube statistics<a class="headerlink" href="#cube-statistics" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h1>Cube statistics<a class="headerlink" href="#cube-statistics" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="collapsing-entire-data-dimensions">
-<span id="cube-statistics-collapsing"></span><h2><span class="section-number">10.1. </span>Collapsing entire data dimensions<a class="headerlink" href="#collapsing-entire-data-dimensions" title="Permalink to this headline">¶</a></h2>
+<span id="cube-statistics-collapsing"></span><h2>Collapsing entire data dimensions<a class="headerlink" href="#collapsing-entire-data-dimensions" title="Permalink to this headline">¶</a></h2>
 <p>In the <a class="reference internal" href="subsetting_a_cube.html"><span class="doc">Subsetting a Cube</span></a> section we saw how to extract a subset of a
 cube in order to reduce either its dimensionality or its resolution.
 Instead of simply extracting a sub-region of the data,
@@ -125,7 +279,7 @@ such as a ‘mean over time’ or ‘minimum over latitude’.</p>
 <p>In this case we have a 4 dimensional cube;
 to mean the vertical (z) dimension down to a single valued extent
 we can pass the coordinate name and the aggregation definition to the
-<a class="reference internal" href="../iris/iris/cube.html#iris.cube.Cube.collapsed" title="iris.cube.Cube.collapsed"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Cube.collapsed()</span></code></a> method:</p>
+<a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.Cube.collapsed" title="iris.cube.Cube.collapsed"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Cube.collapsed()</span></code></a> method:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">iris.analysis</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">vertical_mean</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">collapsed</span><span class="p">(</span><span class="s1">&#39;model_level_number&#39;</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">MEAN</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">vertical_mean</span><span class="p">)</span>
@@ -153,18 +307,19 @@ we can pass the coordinate name and the aggregation definition to the
 </pre></div>
 </div>
 <p>Similarly other analysis operators such as <code class="docutils literal notranslate"><span class="pre">MAX</span></code>, <code class="docutils literal notranslate"><span class="pre">MIN</span></code> and <code class="docutils literal notranslate"><span class="pre">STD_DEV</span></code>
-can be used instead of <code class="docutils literal notranslate"><span class="pre">MEAN</span></code>, see <a class="reference internal" href="../iris/iris/analysis.html#module-iris.analysis" title="iris.analysis"><code class="xref py py-mod docutils literal notranslate"><span class="pre">iris.analysis</span></code></a> for a full list
+can be used instead of <code class="docutils literal notranslate"><span class="pre">MEAN</span></code>, see <a class="reference internal" href="../generated/api/iris/analysis.html#module-iris.analysis" title="iris.analysis"><code class="xref py py-mod docutils literal notranslate"><span class="pre">iris.analysis</span></code></a> for a full list
 of currently supported operators.</p>
 <p>For an example of using this functionality, the
-<a class="reference internal" href="../examples/Meteorology/hovmoller.html#meteorology-hovmoller"><span class="std std-ref">Hovmoller diagram</span></a> example found
+<a class="reference internal" href="../generated/gallery/meteorology/plot_hovmoller.html#sphx-glr-generated-gallery-meteorology-plot-hovmoller-py"><span class="std std-ref">Hovmoller diagram of monthly surface temperature</span></a>
+example found
 in the gallery takes a zonal mean of an <code class="docutils literal notranslate"><span class="pre">XYT</span></code> cube by using the
 <code class="docutils literal notranslate"><span class="pre">collapsed</span></code> method with <code class="docutils literal notranslate"><span class="pre">latitude</span></code> and <code class="docutils literal notranslate"><span class="pre">iris.analysis.MEAN</span></code> as arguments.</p>
 <div class="section" id="area-averaging">
-<span id="cube-statistics-collapsing-average"></span><h3><span class="section-number">10.1.1. </span>Area averaging<a class="headerlink" href="#area-averaging" title="Permalink to this headline">¶</a></h3>
+<span id="cube-statistics-collapsing-average"></span><h3>Area averaging<a class="headerlink" href="#area-averaging" title="Permalink to this headline">¶</a></h3>
 <p>Some operators support additional keywords to the <code class="docutils literal notranslate"><span class="pre">cube.collapsed</span></code> method.
-For example, <a class="reference internal" href="../iris/iris/analysis.html#iris.analysis.MEAN" title="iris.analysis.MEAN"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.analysis.MEAN</span></code></a> supports
+For example, <a class="reference internal" href="../generated/api/iris/analysis.html#iris.analysis.MEAN" title="iris.analysis.MEAN"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.analysis.MEAN</span></code></a> supports
 a weights keyword which can be combined with
-<a class="reference internal" href="../iris/iris/analysis/cartography.html#iris.analysis.cartography.area_weights" title="iris.analysis.cartography.area_weights"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.analysis.cartography.area_weights()</span></code></a> to calculate an area average.</p>
+<a class="reference internal" href="../generated/api/iris/analysis/cartography.html#iris.analysis.cartography.area_weights" title="iris.analysis.cartography.area_weights"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.analysis.cartography.area_weights()</span></code></a> to calculate an area average.</p>
 <p>Let’s use the same data as was loaded in the previous example.
 Since <code class="docutils literal notranslate"><span class="pre">grid_latitude</span></code> and <code class="docutils literal notranslate"><span class="pre">grid_longitude</span></code> were both point coordinates
 we must guess bound positions for them
@@ -202,21 +357,21 @@ in order to calculate the area of the grid boxes:</p>
 </pre></div>
 </div>
 <p>Several examples of area averaging exist in the gallery which may be of interest,
-including an example on taking a <a class="reference internal" href="../examples/Meteorology/COP_1d_plot.html#meteorology-cop-1d-plot"><span class="std std-ref">global area-weighted mean</span></a>.</p>
+including an example on taking a <a class="reference internal" href="../generated/gallery/meteorology/plot_COP_1d.html#sphx-glr-generated-gallery-meteorology-plot-cop-1d-py"><span class="std std-ref">global area-weighted mean</span></a>.</p>
 </div>
 </div>
 <div class="section" id="partially-reducing-data-dimensions">
-<span id="cube-statistics-aggregated-by"></span><h2><span class="section-number">10.2. </span>Partially reducing data dimensions<a class="headerlink" href="#partially-reducing-data-dimensions" title="Permalink to this headline">¶</a></h2>
+<span id="cube-statistics-aggregated-by"></span><h2>Partially reducing data dimensions<a class="headerlink" href="#partially-reducing-data-dimensions" title="Permalink to this headline">¶</a></h2>
 <p>Instead of completely collapsing a dimension, other methods can be applied
 to reduce or filter the number of data points of a particular dimension.</p>
 <div class="section" id="aggregation-of-grouped-data">
-<h3><span class="section-number">10.2.1. </span>Aggregation of grouped data<a class="headerlink" href="#aggregation-of-grouped-data" title="Permalink to this headline">¶</a></h3>
-<p>The <a class="reference internal" href="../iris/iris/cube.html#iris.cube.Cube.aggregated_by" title="iris.cube.Cube.aggregated_by"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Cube.aggregated_by</span></code></a> operation
+<h3>Aggregation of grouped data<a class="headerlink" href="#aggregation-of-grouped-data" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.Cube.aggregated_by" title="iris.cube.Cube.aggregated_by"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Cube.aggregated_by</span></code></a> operation
 combines data for all points with the same value of a given coordinate.
 To do this, you need a coordinate whose points take on only a limited set
 of different values – the <em>number</em> of these then determines the size of the
 reduced dimension.
-The <a class="reference internal" href="../iris/iris/coord_categorisation.html#module-iris.coord_categorisation" title="iris.coord_categorisation"><code class="xref py py-mod docutils literal notranslate"><span class="pre">iris.coord_categorisation</span></code></a> module can be used to make such
+The <a class="reference internal" href="../generated/api/iris/coord_categorisation.html#module-iris.coord_categorisation" title="iris.coord_categorisation"><code class="xref py py-mod docutils literal notranslate"><span class="pre">iris.coord_categorisation</span></code></a> module can be used to make such
 ‘categorical’ coordinates out of ordinary ones: The most common use is
 to aggregate data over regular <em>time intervals</em>,
 such as by calendar month or day of the week.</p>
@@ -236,7 +391,7 @@ to represent the climatological seasons and the season year respectively:</p>
 <p class="admonition-title">Note</p>
 <p>The ‘season year’ is not the same as year number, because (e.g.) the months
 Dec11, Jan12 + Feb12 all belong to ‘DJF-12’.
-See <a class="reference internal" href="../iris/iris/coord_categorisation.html#iris.coord_categorisation.add_season_year" title="iris.coord_categorisation.add_season_year"><code class="xref py py-meth docutils literal notranslate"><span class="pre">iris.coord_categorisation.add_season_year()</span></code></a>.</p>
+See <a class="reference internal" href="../generated/api/iris/coord_categorisation.html#iris.coord_categorisation.add_season_year" title="iris.coord_categorisation.add_season_year"><code class="xref py py-meth docutils literal notranslate"><span class="pre">iris.coord_categorisation.add_season_year()</span></code></a>.</p>
 </div>
 <p>Printing this cube now shows that two extra coordinates exist on the cube:</p>
 <div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">cube</span><span class="p">)</span>
@@ -268,7 +423,7 @@ See <a class="reference internal" href="../iris/iris/coord_categorisation.html#i
 </div>
 <p>The primary change in the cube is that the cube’s data has been
 reduced in the ‘time’ dimension by aggregation (taking means, in this case).
-This has collected together all datapoints with the same values of season and
+This has collected together all data points with the same values of season and
 season-year.
 The results are now indexed by the 19 different possible values of season and
 season-year in a new, reduced ‘time’ dimension.</p>
@@ -349,86 +504,60 @@ from jja-2006 to jja-2010:</p>
 </div>
 
 
-            <div class="clearer"></div>
+           </div>
+           
           </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cube_maths.html" class="btn btn-neutral float-right" title="Basic cube mathematics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="merge_and_concat.html" class="btn btn-neutral float-left" title="Merge and concatenate" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        
+        &copy; <a href="../copyright.html">Copyright</a> Iris Contributors
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="../contents.html">Table of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">10. Cube statistics</a><ul>
-<li><a class="reference internal" href="#collapsing-entire-data-dimensions">10.1. Collapsing entire data dimensions</a><ul>
-<li><a class="reference internal" href="#area-averaging">10.1.1. Area averaging</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#partially-reducing-data-dimensions">10.2. Partially reducing data dimensions</a><ul>
-<li><a class="reference internal" href="#aggregation-of-grouped-data">10.2.1. Aggregation of grouped data</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="merge_and_concat.html"
-                        title="previous chapter"><span class="section-number">9. </span>Merge and Concatenate</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="cube_maths.html"
-                        title="next chapter"><span class="section-number">11. </span>Basic cube mathematics</a></p>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="../_sources/userguide/cube_statistics.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>$('#searchbox').show(0);</script>
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="../py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="cube_maths.html" title="11. Basic cube mathematics"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="merge_and_concat.html" title="9. Merge and Concatenate"
-             >previous</a> |</li>
-        <li><a href="../index.html">home</a>|&nbsp;</li>
-        <li><a href="../examples/index.html">examples</a>|&nbsp;</li>
-        <li><a href="../gallery.html">gallery</a>|&nbsp;</li>
-        <li><a href="../contents.html">contents</a>|&nbsp;</li>
+    </section>
 
-          <li class="nav-item nav-item-1"><a href="index.html" >Iris user guide</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href=""><span class="section-number">10. </span>Cube statistics</a></li> 
-      </ul>
-    </div>
+  </div>
+  
 
-    <div class="footer">
-    <p style="text-align: left; float: left; margin: 0px; padding: 0 0 0 5px;">Documentation licensed under the <a href="http://reference.data.gov.uk/id/open-government-licence" rel="license">Open Government Licence</a></p>
-        &copy; <a href="../copyright.html">British Crown Copyright</a> 2010 - 2020, Met Office
-    </div>
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
 
-    <!-- Include a version switcher to easily move between the documentation of different versions -->
-    <script type=text/javascript src="/iris/docs/version_switch.js" async></script>
+  
+  
+    
+   
 
-  </body>
+</body>
 </html>

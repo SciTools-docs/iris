@@ -1,230 +1,441 @@
 
-<!DOCTYPE html>
 
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Releases &#8212; Iris 3.0.dev0 documentation</title>
-    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Releases &mdash; Iris 3.0.dev0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/theme_override.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-dataframe.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
-    <link rel="next" title="Iris technical ‘Whitepapers’" href="../whitepapers/index.html" />
-    <link rel="prev" title="Deprecations" href="deprecations.html" />
- 
-    <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
-    <META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE"> 
+    <link rel="next" title="Iris API" href="../generated/api/iris.html" />
+    <link rel="prev" title="Deprecations" href="deprecations.html" /> 
+</head>
 
-    <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    <script type="text/javascript" src="https://docs.python.org/2/_static/copybutton.js"></script>
+<body class="wy-body-for-nav">
 
-    <link rel="icon" type="image/png" sizes="32x32" href="../_static/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../_static/favicon-16x16.png">
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
 
-    <link href="https://fonts.googleapis.com/css?family=Alike|Noto+Sans" rel="stylesheet">
+          
+            <a href="../index.html">
+          
 
-  </head><body>
+          
+            
+            <img src="../_static/iris-logo-title.png" class="logo" alt="Logo"/>
+          
+          </a>
 
-<a href="https://github.com/SciTools/iris">
-    <img class="github-forkme" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"
-         alt="Fork Iris on GitHub" />
-</a>
+          
+            
+            
+              <div class="version">
+                3.0
+              </div>
+            
+          
 
-
-<div class="header-content">
-    <a href="../index.html">
-        <img src="../_static/Iris7_1_trim_100.png" alt="Iris logo" />
-    </a>
-    <div class="strapline">
-      <h1>
-          Iris <span class="version">v3.0</span>
-      </h1>
-      <p>
-         A powerful, format-agnostic, community-driven Python library for analysing and
-         visualising Earth science data.
-      </p>
-    </div>
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
 </div>
 
+          
+        </div>
 
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="../py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="../whitepapers/index.html" title="Iris technical ‘Whitepapers’"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="deprecations.html" title="Deprecations"
-             accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">home</a>|&nbsp;</li>
-        <li><a href="../examples/index.html">examples</a>|&nbsp;</li>
-        <li><a href="../gallery.html">gallery</a>|&nbsp;</li>
-        <li><a href="../contents.html">contents</a>|&nbsp;</li>
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installing.html">Installing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../generated/gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/iris_cubes.html">Iris data structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/loading_iris_cubes.html">Loading Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/saving_iris_cubes.html">Saving Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/navigating_a_cube.html">Navigating a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/subsetting_a_cube.html">Subsetting a Cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/real_and_lazy_data.html">Real and Lazy Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/plotting_a_cube.html">Plotting a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/interpolation_and_regridding.html">Cube interpolation and regridding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/merge_and_concat.html">Merge and concatenate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/cube_statistics.html">Cube statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/cube_maths.html">Basic cube mathematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/citation.html">Citing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/code_maintenance.html">Code maintenance</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developers Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="contributing_documentation.html">Contributing to the documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documenting/index.html">Documentation in Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gitwash/index.html">Working with <em>iris</em> source code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code_format.html">Code formatting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pulls.html">Pull request check List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tests.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deprecations.html">Deprecations</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Releases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#release-branch">Release branch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#release-candidate">Release candidate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#documentation">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-release">The release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#conda-recipe">Conda recipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#merge-back">Merge back</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#point-releases">Point releases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#maintainer-steps">Maintainer steps</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#release-steps">Release steps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#post-release-steps">Post release steps</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../generated/api/iris.html">Iris API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../whatsnew/index.html">What’s new in Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../techpapers/index.html">Iris Technical Papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../copyright.html">Iris copyright, licensing and contributors</a></li>
+</ul>
 
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Iris developer guide</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Releases</a></li> 
-      </ul>
-    </div>
+            
+          
+
+    
+    
+    
+        <p class="caption">
+            <span class="caption-text">
+            
+                Support
+            
+            </span>
+        </p>
+        <ul>
+            
+                <li class="toctree-l1"><a href="https://github.com/SciTools/iris"><i class="fa fa-github fa-fw"></i> Source Code</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris"><i class="fa fa-comments fa-fw"></i> Users Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris-dev"><i class="fa fa-comments fa-fw"></i> Developers Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://stackoverflow.com/questions/tagged/python-iris"><i class="fa fa-question fa-fw"></i> StackOverflow For "How do I?"</a></li>
+            
+                <li class="toctree-l1"><a href="https://scitools.org.uk/iris/docs/v2.4.0/index.html"><i class="fa fa-book fa-fw"></i> Legacy documentation</a></li>
+            
+        </ul>
+    
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Iris</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Releases</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/developers_guide/release.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
   
-
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
             
   <div class="section" id="releases">
 <span id="iris-development-releases"></span><h1>Releases<a class="headerlink" href="#releases" title="Permalink to this headline">¶</a></h1>
-<p>A release of Iris is a tag on the SciTools/Iris Github repository.</p>
+<p>A release of Iris is a <a class="reference external" href="https://github.com/SciTools/iris/releases">tag on the SciTools/Iris</a>
+Github repository.</p>
+<p>The summary below is of the main areas that constitute the release.  The final
+section details the <a class="reference internal" href="#iris-development-releases-steps"><span class="std std-ref">Maintainer steps</span></a> to take.</p>
 <div class="section" id="release-branch">
-<h2>Release Branch<a class="headerlink" href="#release-branch" title="Permalink to this headline">¶</a></h2>
-<p>Once the features intended for the release are on master, a release branch should be created, in the SciTools/Iris repository.  This will have the name:</p>
+<h2>Release branch<a class="headerlink" href="#release-branch" title="Permalink to this headline">¶</a></h2>
+<p>Once the features intended for the release are on master, a release branch
+should be created, in the SciTools/Iris repository.  This will have the name:</p>
 <blockquote>
-<div><p><code class="docutils literal notranslate"><span class="pre">{major</span> <span class="pre">release</span> <span class="pre">number}.{minor</span> <span class="pre">release</span> <span class="pre">number}.x</span></code></p>
+<div><p><code class="docutils literal notranslate"><span class="pre">v{major</span> <span class="pre">release</span> <span class="pre">number}.{minor</span> <span class="pre">release</span> <span class="pre">number}.x</span></code></p>
 </div></blockquote>
 <p>for example:</p>
 <blockquote>
 <div><p><code class="docutils literal notranslate"><span class="pre">v1.9.x</span></code></p>
 </div></blockquote>
-<p>This branch shall be used to finalise the release details in preparation for the release candidate.</p>
+<p>This branch shall be used to finalise the release details in preparation for
+the release candidate.</p>
 </div>
 <div class="section" id="release-candidate">
-<h2>Release Candidate<a class="headerlink" href="#release-candidate" title="Permalink to this headline">¶</a></h2>
-<p>Prior to a release, a release candidate tag may be created, marked as a pre-release in github, with a tag ending with <code class="docutils literal notranslate"><span class="pre">rc</span></code> followed by a number, e.g.:</p>
+<h2>Release candidate<a class="headerlink" href="#release-candidate" title="Permalink to this headline">¶</a></h2>
+<p>Prior to a release, a release candidate tag may be created, marked as a
+pre-release in github, with a tag ending with <code class="docutils literal notranslate"><span class="pre">rc</span></code> followed by a
+number, e.g.:</p>
 <blockquote>
 <div><p><code class="docutils literal notranslate"><span class="pre">v1.9.0rc1</span></code></p>
 </div></blockquote>
-<p>If created, the pre-release shall be available for at least one week prior to the release being cut.  User groups should be notified of the existence of the pre-release and encouraged to test the functionality.</p>
-<p>A pre-release is expected for a minor release, but not normally provided for a point release.</p>
-<p>If new features are required for a release after a release candidate has been cut, a new pre-release shall be issued first.</p>
+<p>If created, the pre-release shall be available for a minimum of two weeks
+prior to the release being cut.  However a 4 week period should be the goal
+to allow user groups to be notified of the existence of the pre-release and
+encouraged to test the functionality.</p>
+<p>A pre-release is expected for a minor release, but will not for a
+point release.</p>
+<p>If new features are required for a release after a release candidate has been
+cut, a new pre-release shall be issued first.</p>
 </div>
 <div class="section" id="documentation">
 <h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
-<p>The documentation should include all of the what’s new snippets, which must be compiled into a what’s new.  This content should be reviewed and adapted as required and the snippets removed from the branch to produce a coherent what’s new page.</p>
-<p>Upon release, the documentation shall be added to the SciTools scitools.org.uk github project’s gh-pages branch as the latest documentation.</p>
-</div>
-<div class="section" id="testing-the-conda-recipe">
-<h2>Testing the Conda Recipe<a class="headerlink" href="#testing-the-conda-recipe" title="Permalink to this headline">¶</a></h2>
-<p>Before a release is cut, the SciTools conda-recipes-scitools recipe for Iris shall be tested to build the release branch of Iris; this test recipe shall not be merged onto conda-recipes-scitools.</p>
+<p>The documentation should include all of the what’s new entries for the release.
+This content should be reviewed and adapted as required.</p>
+<p>Steps to achieve this can be found in the <a class="reference internal" href="#iris-development-releases-steps"><span class="std std-ref">Maintainer steps</span></a>.</p>
 </div>
 <div class="section" id="the-release">
-<h2>The Release<a class="headerlink" href="#the-release" title="Permalink to this headline">¶</a></h2>
-<p>The final steps are to change the version string in the source of <code class="docutils literal notranslate"><span class="pre">Iris.__init__.py</span></code> and include the release date in the relevant what’s new page within the documentation.</p>
-<p>Once all checks are complete, the release is cut by the creation of a new tag in the SciTools Iris repository.</p>
+<h2>The release<a class="headerlink" href="#the-release" title="Permalink to this headline">¶</a></h2>
+<p>The final steps are to change the version string in the source of
+<code class="docutils literal notranslate"><span class="pre">Iris.__init__.py</span></code> and include the release date in the relevant what’s
+new page within the documentation.</p>
+<p>Once all checks are complete, the release is cut by the creation of a new tag
+in the SciTools Iris repository.</p>
 </div>
 <div class="section" id="conda-recipe">
-<h2>Conda Recipe<a class="headerlink" href="#conda-recipe" title="Permalink to this headline">¶</a></h2>
-<p>Once a release is cut, the SciTools conda-recipes-scitools recipe for Iris shall be updated to build the latest release of Iris and push this artefact to anaconda.org.  The build and push is all automated as part of the merge process.</p>
+<h2>Conda recipe<a class="headerlink" href="#conda-recipe" title="Permalink to this headline">¶</a></h2>
+<p>Once a release is cut, the <a class="reference external" href="https://github.com/conda-forge/iris-feedstock/tree/master/recipe">Iris feedstock</a> for the conda recipe must be
+updated to build the latest release of Iris and push this artefact to
+<a class="reference external" href="https://anaconda.org/conda-forge/iris">conda forge</a>.</p>
 </div>
 <div class="section" id="merge-back">
-<h2>Merge Back<a class="headerlink" href="#merge-back" title="Permalink to this headline">¶</a></h2>
-<p>After the release is cut, the changes shall be merged back onto the scitools master.</p>
-<p>To achieve this, first cut a local branch from the release branch, <code class="docutils literal notranslate"><span class="pre">{release}.x</span></code>.  Next add a commit changing the release string to match the release string on scitools/master.
-This branch can now be proposed as a pull request to master.  This work flow ensures that the commit identifiers are consistent between the <code class="docutils literal notranslate"><span class="pre">.x</span></code> branch and <code class="docutils literal notranslate"><span class="pre">master</span></code>.</p>
+<h2>Merge back<a class="headerlink" href="#merge-back" title="Permalink to this headline">¶</a></h2>
+<p>After the release is cut, the changes shall be merged back onto the
+Scitools/iris master branch.</p>
+<p>To achieve this, first cut a local branch from the release branch,
+<code class="docutils literal notranslate"><span class="pre">{release}.x</span></code>.  Next add a commit changing the release string to match
+the release string on scitools/master.  This branch can now be proposed as a
+pull request to master.  This work flow ensures that the commit identifiers are
+consistent between the <code class="docutils literal notranslate"><span class="pre">.x</span></code> branch and <code class="docutils literal notranslate"><span class="pre">master</span></code>.</p>
 </div>
 <div class="section" id="point-releases">
-<h2>Point Releases<a class="headerlink" href="#point-releases" title="Permalink to this headline">¶</a></h2>
-<p>Bug fixes may be implemented and targeted as the <code class="docutils literal notranslate"><span class="pre">.x</span></code> branch.  These should lead to a new point release, another tag.
-For example, a fix for a problem with 1.9.0 will be merged into 1.9.x, and then released by tagging 1.9.1.</p>
+<h2>Point releases<a class="headerlink" href="#point-releases" title="Permalink to this headline">¶</a></h2>
+<p>Bug fixes may be implemented and targeted as the <code class="docutils literal notranslate"><span class="pre">.x</span></code> branch.  These
+should lead to a new point release, another tag.  For example, a fix for a
+problem with 1.9.0 will be merged into 1.9.x, and then released by tagging
+1.9.1.</p>
 <p>New features shall not be included in a point release, these are for bug fixes.</p>
-<p>A point release does not require a release candidate, but the rest of the release process is to be followed, including the merge back of changes into <code class="docutils literal notranslate"><span class="pre">master</span></code>.</p>
+<p>A point release does not require a release candidate, but the rest of the
+release process is to be followed, including the merge back of changes into
+<code class="docutils literal notranslate"><span class="pre">master</span></code>.</p>
 </div>
-</div>
-
-
-            <div class="clearer"></div>
-          </div>
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="../contents.html">Table of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">Releases</a><ul>
-<li><a class="reference internal" href="#release-branch">Release Branch</a></li>
-<li><a class="reference internal" href="#release-candidate">Release Candidate</a></li>
-<li><a class="reference internal" href="#documentation">Documentation</a></li>
-<li><a class="reference internal" href="#testing-the-conda-recipe">Testing the Conda Recipe</a></li>
-<li><a class="reference internal" href="#the-release">The Release</a></li>
-<li><a class="reference internal" href="#conda-recipe">Conda Recipe</a></li>
-<li><a class="reference internal" href="#merge-back">Merge Back</a></li>
-<li><a class="reference internal" href="#point-releases">Point Releases</a></li>
+<div class="section" id="maintainer-steps">
+<span id="iris-development-releases-steps"></span><h2>Maintainer steps<a class="headerlink" href="#maintainer-steps" title="Permalink to this headline">¶</a></h2>
+<p>These steps assume a release for <code class="docutils literal notranslate"><span class="pre">v1.9</span></code> is to be created</p>
+<div class="section" id="release-steps">
+<h3>Release steps<a class="headerlink" href="#release-steps" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p>Create the branch <code class="docutils literal notranslate"><span class="pre">1.9.x</span></code> on the main repo, not in a forked repo, for the
+release candidate or release.  The only exception is for a point/bugfix
+release as it should already exist</p></li>
+<li><p>Update the what’s new for the release:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Copy <code class="docutils literal notranslate"><span class="pre">docs/iris/src/whatsnew/latest.rst</span></code> to a file named
+<code class="docutils literal notranslate"><span class="pre">v1.9.rst</span></code></p></li>
+<li><p>Delete the <code class="docutils literal notranslate"><span class="pre">docs/iris/src/whatsnew/latest.rst</span></code> file so it will not
+cause an issue in the build</p></li>
+<li><p>In <code class="docutils literal notranslate"><span class="pre">v1.9.rst</span></code> update the page title (first line of the file) to show
+the date and version in the format of <code class="docutils literal notranslate"><span class="pre">v1.9</span> <span class="pre">(DD</span> <span class="pre">MMM</span> <span class="pre">YYYY)</span></code>.  For
+example <code class="docutils literal notranslate"><span class="pre">v1.9</span> <span class="pre">(03</span> <span class="pre">Aug</span> <span class="pre">2020)</span></code></p></li>
+<li><p>Review the file for correctness</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">v1.9.rst</span></code> to git and commit all changes, including removal of
+<code class="docutils literal notranslate"><span class="pre">latest.rst</span></code></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Update the what’s new index <code class="docutils literal notranslate"><span class="pre">docs/iris/src/whatsnew/index.rst</span></code></p>
+<ul class="simple">
+<li><p>Temporarily remove reference to <code class="docutils literal notranslate"><span class="pre">latest.rst</span></code></p></li>
+<li><p>Add a reference to <code class="docutils literal notranslate"><span class="pre">v1.9.rst</span></code> to the top of the list</p></li>
 </ul>
 </li>
-</ul>
-
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="deprecations.html"
-                        title="previous chapter">Deprecations</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="../whitepapers/index.html"
-                        title="next chapter">Iris technical ‘Whitepapers’</a></p>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="../_sources/developers_guide/release.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="Go" />
-    </form>
-    </div>
+<li><p>Update the <code class="docutils literal notranslate"><span class="pre">Iris.__init__.py</span></code> version string, to <code class="docutils literal notranslate"><span class="pre">1.9.0</span></code></p></li>
+<li><p>Check your changes by building the documentation and viewing the changes</p></li>
+<li><p>Once all the above steps are complete, the release is cut, using
+the <span class="guilabel">Draft a new release</span> button on the
+<a class="reference external" href="https://github.com/SciTools/iris/releases">Iris release page</a></p></li>
+</ol>
 </div>
-<script>$('#searchbox').show(0);</script>
+<div class="section" id="post-release-steps">
+<h3>Post release steps<a class="headerlink" href="#post-release-steps" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Check the documentation has built on <a class="reference external" href="https://readthedocs.org/projects/scitools-iris/builds/">Read The Docs</a>.  The build is
+triggered by any commit to master.  Additionally check that the versions
+available in the pop out menu in the bottom left corner include the new
+release version.  If it is not present you will need to configure the
+versions available in the <strong>admin</strong> dashboard in Read The Docs</p></li>
+<li><p>Copy <code class="docutils literal notranslate"><span class="pre">docs/iris/src/whatsnew/latest.rst.template</span></code> to
+<code class="docutils literal notranslate"><span class="pre">docs/iris/src/whatsnew/latest.rst</span></code>.  This will reset
+the file with the <code class="docutils literal notranslate"><span class="pre">unreleased</span></code> heading and placeholders for the what’s
+new headings</p></li>
+<li><p>Add back in the reference to <code class="docutils literal notranslate"><span class="pre">latest.rst</span></code> to the what’s new index
+<code class="docutils literal notranslate"><span class="pre">docs/iris/src/whatsnew/index.rst</span></code></p></li>
+<li><p>Update <code class="docutils literal notranslate"><span class="pre">Iris.__init__.py</span></code> version string to show as <code class="docutils literal notranslate"><span class="pre">1.10.dev0</span></code></p></li>
+<li><p>Merge back to master</p></li>
+</ol>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../generated/api/iris.html" class="btn btn-neutral float-right" title="Iris API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="deprecations.html" class="btn btn-neutral float-left" title="Deprecations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        
+        &copy; <a href="../copyright.html">Copyright</a> Iris Contributors
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="../py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="../whitepapers/index.html" title="Iris technical ‘Whitepapers’"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="deprecations.html" title="Deprecations"
-             >previous</a> |</li>
-        <li><a href="../index.html">home</a>|&nbsp;</li>
-        <li><a href="../examples/index.html">examples</a>|&nbsp;</li>
-        <li><a href="../gallery.html">gallery</a>|&nbsp;</li>
-        <li><a href="../contents.html">contents</a>|&nbsp;</li>
 
-          <li class="nav-item nav-item-1"><a href="index.html" >Iris developer guide</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Releases</a></li> 
-      </ul>
-    </div>
+    </section>
 
-    <div class="footer">
-    <p style="text-align: left; float: left; margin: 0px; padding: 0 0 0 5px;">Documentation licensed under the <a href="http://reference.data.gov.uk/id/open-government-licence" rel="license">Open Government Licence</a></p>
-        &copy; <a href="../copyright.html">British Crown Copyright</a> 2010 - 2020, Met Office
-    </div>
+  </div>
+  
 
-    <!-- Include a version switcher to easily move between the documentation of different versions -->
-    <script type=text/javascript src="/iris/docs/version_switch.js" async></script>
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
 
-  </body>
+  
+  
+    
+   
+
+</body>
 </html>
