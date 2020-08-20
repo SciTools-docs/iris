@@ -691,7 +691,10 @@
 
 <span class="k">def</span> <span class="nf">_assert_case_specific_facts</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="n">cf</span><span class="p">,</span> <span class="n">cf_group</span><span class="p">):</span>
     <span class="c1"># Initialise pyke engine &quot;provides&quot; hooks.</span>
-    <span class="n">engine</span><span class="o">.</span><span class="n">provides</span><span class="p">[</span><span class="s2">&quot;coordinates&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="c1"># These are used to patch non-processed element attributes after rules activation.</span>
+    <span class="n">engine</span><span class="o">.</span><span class="n">cube_parts</span><span class="p">[</span><span class="s2">&quot;coordinates&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">engine</span><span class="o">.</span><span class="n">cube_parts</span><span class="p">[</span><span class="s2">&quot;cell_measures&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">engine</span><span class="o">.</span><span class="n">cube_parts</span><span class="p">[</span><span class="s2">&quot;ancillary_variables&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
 
     <span class="c1"># Assert facts for CF coordinates.</span>
     <span class="k">for</span> <span class="n">cf_name</span> <span class="ow">in</span> <span class="n">cf_group</span><span class="o">.</span><span class="n">coordinates</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
@@ -709,6 +712,12 @@
     <span class="k">for</span> <span class="n">cf_name</span> <span class="ow">in</span> <span class="n">cf_group</span><span class="o">.</span><span class="n">cell_measures</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
         <span class="n">engine</span><span class="o">.</span><span class="n">add_case_specific_fact</span><span class="p">(</span>
             <span class="n">_PYKE_FACT_BASE</span><span class="p">,</span> <span class="s2">&quot;cell_measure&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">cf_name</span><span class="p">,)</span>
+        <span class="p">)</span>
+
+    <span class="c1"># Assert facts for CF ancillary variables.</span>
+    <span class="k">for</span> <span class="n">cf_name</span> <span class="ow">in</span> <span class="n">cf_group</span><span class="o">.</span><span class="n">ancillary_variables</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="n">engine</span><span class="o">.</span><span class="n">add_case_specific_fact</span><span class="p">(</span>
+            <span class="n">_PYKE_FACT_BASE</span><span class="p">,</span> <span class="s2">&quot;ancillary_variable&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">cf_name</span><span class="p">,)</span>
         <span class="p">)</span>
 
     <span class="c1"># Assert facts for CF grid_mappings.</span>
@@ -818,7 +827,7 @@
     <span class="c1"># Initialise pyke engine rule processing hooks.</span>
     <span class="n">engine</span><span class="o">.</span><span class="n">cf_var</span> <span class="o">=</span> <span class="n">cf_var</span>
     <span class="n">engine</span><span class="o">.</span><span class="n">cube</span> <span class="o">=</span> <span class="n">cube</span>
-    <span class="n">engine</span><span class="o">.</span><span class="n">provides</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">engine</span><span class="o">.</span><span class="n">cube_parts</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="n">engine</span><span class="o">.</span><span class="n">requires</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="n">engine</span><span class="o">.</span><span class="n">rule_triggered</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
     <span class="n">engine</span><span class="o">.</span><span class="n">filename</span> <span class="o">=</span> <span class="n">filename</span>
@@ -829,31 +838,38 @@
     <span class="c1"># Run pyke inference engine with forward chaining rules.</span>
     <span class="n">engine</span><span class="o">.</span><span class="n">activate</span><span class="p">(</span><span class="n">_PYKE_RULE_BASE</span><span class="p">)</span>
 
-    <span class="c1"># Populate coordinate attributes with the untouched attributes from the</span>
-    <span class="c1"># associated CF-netCDF variable.</span>
-    <span class="n">coordinates</span> <span class="o">=</span> <span class="n">engine</span><span class="o">.</span><span class="n">provides</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;coordinates&quot;</span><span class="p">,</span> <span class="p">[])</span>
-
+    <span class="c1"># Having run the rules, now populate the attributes of all the cf elements with the</span>
+    <span class="c1"># &quot;unused&quot; attributes from the associated CF-netCDF variable.</span>
+    <span class="c1"># That is, all those that aren&#39;t CF reserved terms.</span>
     <span class="k">def</span> <span class="nf">attribute_predicate</span><span class="p">(</span><span class="n">item</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">item</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">_CF_ATTRS</span>
 
-    <span class="k">for</span> <span class="n">coord</span><span class="p">,</span> <span class="n">cf_var_name</span> <span class="ow">in</span> <span class="n">coordinates</span><span class="p">:</span>
-        <span class="n">tmpvar</span> <span class="o">=</span> <span class="nb">filter</span><span class="p">(</span>
-            <span class="n">attribute_predicate</span><span class="p">,</span> <span class="n">cf</span><span class="o">.</span><span class="n">cf_group</span><span class="p">[</span><span class="n">cf_var_name</span><span class="p">]</span><span class="o">.</span><span class="n">cf_attrs_unused</span><span class="p">()</span>
-        <span class="p">)</span>
+    <span class="k">def</span> <span class="nf">add_unused_attributes</span><span class="p">(</span><span class="n">iris_object</span><span class="p">,</span> <span class="n">cf_var</span><span class="p">):</span>
+        <span class="n">tmpvar</span> <span class="o">=</span> <span class="nb">filter</span><span class="p">(</span><span class="n">attribute_predicate</span><span class="p">,</span> <span class="n">cf_var</span><span class="o">.</span><span class="n">cf_attrs_unused</span><span class="p">())</span>
         <span class="k">for</span> <span class="n">attr_name</span><span class="p">,</span> <span class="n">attr_value</span> <span class="ow">in</span> <span class="n">tmpvar</span><span class="p">:</span>
-            <span class="n">_set_attributes</span><span class="p">(</span><span class="n">coord</span><span class="o">.</span><span class="n">attributes</span><span class="p">,</span> <span class="n">attr_name</span><span class="p">,</span> <span class="n">attr_value</span><span class="p">)</span>
+            <span class="n">_set_attributes</span><span class="p">(</span><span class="n">iris_object</span><span class="o">.</span><span class="n">attributes</span><span class="p">,</span> <span class="n">attr_name</span><span class="p">,</span> <span class="n">attr_value</span><span class="p">)</span>
 
-    <span class="n">tmpvar</span> <span class="o">=</span> <span class="nb">filter</span><span class="p">(</span><span class="n">attribute_predicate</span><span class="p">,</span> <span class="n">cf_var</span><span class="o">.</span><span class="n">cf_attrs_unused</span><span class="p">())</span>
-    <span class="c1"># Attach untouched attributes of the associated CF-netCDF data variable to</span>
-    <span class="c1"># the cube.</span>
-    <span class="k">for</span> <span class="n">attr_name</span><span class="p">,</span> <span class="n">attr_value</span> <span class="ow">in</span> <span class="n">tmpvar</span><span class="p">:</span>
-        <span class="n">_set_attributes</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">attributes</span><span class="p">,</span> <span class="n">attr_name</span><span class="p">,</span> <span class="n">attr_value</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">fix_attributes_all_elements</span><span class="p">(</span><span class="n">role_name</span><span class="p">):</span>
+        <span class="n">elements_and_names</span> <span class="o">=</span> <span class="n">engine</span><span class="o">.</span><span class="n">cube_parts</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">role_name</span><span class="p">,</span> <span class="p">[])</span>
 
+        <span class="k">for</span> <span class="n">iris_object</span><span class="p">,</span> <span class="n">cf_var_name</span> <span class="ow">in</span> <span class="n">elements_and_names</span><span class="p">:</span>
+            <span class="n">add_unused_attributes</span><span class="p">(</span><span class="n">iris_object</span><span class="p">,</span> <span class="n">cf</span><span class="o">.</span><span class="n">cf_group</span><span class="p">[</span><span class="n">cf_var_name</span><span class="p">])</span>
+
+    <span class="c1"># Populate the attributes of all coordinates, cell-measures and ancillary-vars.</span>
+    <span class="n">fix_attributes_all_elements</span><span class="p">(</span><span class="s2">&quot;coordinates&quot;</span><span class="p">)</span>
+    <span class="n">fix_attributes_all_elements</span><span class="p">(</span><span class="s2">&quot;ancillary_variables&quot;</span><span class="p">)</span>
+    <span class="n">fix_attributes_all_elements</span><span class="p">(</span><span class="s2">&quot;cell_measures&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Also populate attributes of the top-level cube itself.</span>
+    <span class="n">add_unused_attributes</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">cf_var</span><span class="p">)</span>
+
+    <span class="c1"># Work out reference names for all the coords.</span>
     <span class="n">names</span> <span class="o">=</span> <span class="p">{</span>
         <span class="n">coord</span><span class="o">.</span><span class="n">var_name</span><span class="p">:</span> <span class="n">coord</span><span class="o">.</span><span class="n">standard_name</span> <span class="ow">or</span> <span class="n">coord</span><span class="o">.</span><span class="n">var_name</span> <span class="ow">or</span> <span class="s2">&quot;unknown&quot;</span>
         <span class="k">for</span> <span class="n">coord</span> <span class="ow">in</span> <span class="n">cube</span><span class="o">.</span><span class="n">coords</span><span class="p">()</span>
     <span class="p">}</span>
 
+    <span class="c1"># Add all the cube cell methods.</span>
     <span class="n">cube</span><span class="o">.</span><span class="n">cell_methods</span> <span class="o">=</span> <span class="p">[</span>
         <span class="n">iris</span><span class="o">.</span><span class="n">coords</span><span class="o">.</span><span class="n">CellMethod</span><span class="p">(</span>
             <span class="n">method</span><span class="o">=</span><span class="n">method</span><span class="o">.</span><span class="n">method</span><span class="p">,</span>
@@ -893,7 +909,7 @@
             <span class="c1"># Convert term names to coordinates (via netCDF variable names).</span>
             <span class="n">name</span> <span class="o">=</span> <span class="n">engine</span><span class="o">.</span><span class="n">requires</span><span class="p">[</span><span class="s2">&quot;formula_terms&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">term</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-                <span class="k">for</span> <span class="n">coord</span><span class="p">,</span> <span class="n">cf_var_name</span> <span class="ow">in</span> <span class="n">engine</span><span class="o">.</span><span class="n">provides</span><span class="p">[</span><span class="s2">&quot;coordinates&quot;</span><span class="p">]:</span>
+                <span class="k">for</span> <span class="n">coord</span><span class="p">,</span> <span class="n">cf_var_name</span> <span class="ow">in</span> <span class="n">engine</span><span class="o">.</span><span class="n">cube_parts</span><span class="p">[</span><span class="s2">&quot;coordinates&quot;</span><span class="p">]:</span>
                     <span class="k">if</span> <span class="n">cf_var_name</span> <span class="o">==</span> <span class="n">name</span><span class="p">:</span>
                         <span class="k">return</span> <span class="n">coord</span>
                 <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
