@@ -1,100 +1,254 @@
 
-<!DOCTYPE html>
 
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>6. Real and Lazy Data &#8212; Iris 3.0.dev0 documentation</title>
-    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Real and Lazy Data &mdash; Iris 3.0.dev0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/theme_override.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-dataframe.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
-    <link rel="next" title="7. Plotting a cube" href="plotting_a_cube.html" />
-    <link rel="prev" title="5. Subsetting a Cube" href="subsetting_a_cube.html" />
- 
-    <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
-    <META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE"> 
+    <link rel="next" title="Plotting a cube" href="plotting_a_cube.html" />
+    <link rel="prev" title="Subsetting a Cube" href="subsetting_a_cube.html" /> 
+</head>
 
-    <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    <script type="text/javascript" src="https://docs.python.org/2/_static/copybutton.js"></script>
+<body class="wy-body-for-nav">
 
-    <link rel="icon" type="image/png" sizes="32x32" href="../_static/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../_static/favicon-16x16.png">
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
 
-    <link href="https://fonts.googleapis.com/css?family=Alike|Noto+Sans" rel="stylesheet">
+          
+            <a href="../index.html">
+          
 
-  </head><body>
+          
+            
+            <img src="../_static/iris-logo-title.png" class="logo" alt="Logo"/>
+          
+          </a>
 
-<a href="https://github.com/SciTools/iris">
-    <img class="github-forkme" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"
-         alt="Fork Iris on GitHub" />
-</a>
+          
+            
+            
+              <div class="version">
+                3.0
+              </div>
+            
+          
 
-
-<div class="header-content">
-    <a href="../index.html">
-        <img src="../_static/Iris7_1_trim_100.png" alt="Iris logo" />
-    </a>
-    <div class="strapline">
-      <h1>
-          Iris <span class="version">v3.0</span>
-      </h1>
-      <p>
-         A powerful, format-agnostic, community-driven Python library for analysing and
-         visualising Earth science data.
-      </p>
-    </div>
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
 </div>
 
+          
+        </div>
 
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="../py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="plotting_a_cube.html" title="7. Plotting a cube"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="subsetting_a_cube.html" title="5. Subsetting a Cube"
-             accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">home</a>|&nbsp;</li>
-        <li><a href="../examples/index.html">examples</a>|&nbsp;</li>
-        <li><a href="../gallery.html">gallery</a>|&nbsp;</li>
-        <li><a href="../contents.html">contents</a>|&nbsp;</li>
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installing.html">Installing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../generated/gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iris_cubes.html">Iris data structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loading_iris_cubes.html">Loading Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="saving_iris_cubes.html">Saving Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="navigating_a_cube.html">Navigating a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="subsetting_a_cube.html">Subsetting a Cube</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Real and Lazy Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-real-and-lazy-data">What is real and lazy data?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#benefits">Benefits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#when-does-my-data-become-real">When does my data become real?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#core-data">Core data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#coordinates">Coordinates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dask-processing-options">Dask processing options</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="plotting_a_cube.html">Plotting a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interpolation_and_regridding.html">Cube interpolation and regridding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="merge_and_concat.html">Merge and concatenate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cube_statistics.html">Cube statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cube_maths.html">Basic cube mathematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="citation.html">Citing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code_maintenance.html">Code maintenance</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developers Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/contributing_documentation.html">Contributing to the documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/documenting/index.html">Documentation in Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/gitwash/index.html">Working with <em>iris</em> source code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/code_format.html">Code formatting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/pulls.html">Pull request check List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/tests.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/deprecations.html">Deprecations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/release.html">Releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../generated/api/iris.html">Iris API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../whatsnew/index.html">What’s new in Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../techpapers/index.html">Iris Technical Papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../copyright.html">Iris copyright, licensing and contributors</a></li>
+</ul>
 
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Iris user guide</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href=""><span class="section-number">6. </span>Real and Lazy Data</a></li> 
-      </ul>
-    </div>
+            
+          
+
+    
+    
+    
+        <p class="caption">
+            <span class="caption-text">
+            
+                Support
+            
+            </span>
+        </p>
+        <ul>
+            
+                <li class="toctree-l1"><a href="https://github.com/SciTools/iris"><i class="fa fa-github fa-fw"></i> Source Code</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris"><i class="fa fa-comments fa-fw"></i> Users Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris-dev"><i class="fa fa-comments fa-fw"></i> Developers Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://stackoverflow.com/questions/tagged/python-iris"><i class="fa fa-question fa-fw"></i> StackOverflow For "How do I?"</a></li>
+            
+                <li class="toctree-l1"><a href="https://scitools.org.uk/iris/docs/v2.4.0/index.html"><i class="fa fa-book fa-fw"></i> Legacy documentation</a></li>
+            
+        </ul>
+    
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Iris</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Real and Lazy Data</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/userguide/real_and_lazy_data.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
   
-
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
             
   <span class="target" id="real-and-lazy-data"></span><div class="section" id="id1">
-<h1><span class="section-number">6. </span>Real and Lazy Data<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
-<p>We have seen in the <a class="reference internal" href="iris_cubes.html"><span class="doc">Introduction</span></a> section of the user guide that
+<h1>Real and Lazy Data<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>We have seen in the <a class="reference internal" href="iris_cubes.html"><span class="doc">Iris data structures</span></a> section of the user guide that
 Iris cubes contain data and metadata about a phenomenon. The data element of a cube
 is always an array, but the array may be either “real” or “lazy”.</p>
 <p>In this section of the user guide we will look specifically at the concepts of
 real and lazy data as they apply to the cube and other data structures in Iris.</p>
 <div class="section" id="what-is-real-and-lazy-data">
-<h2><span class="section-number">6.1. </span>What is real and lazy data?<a class="headerlink" href="#what-is-real-and-lazy-data" title="Permalink to this headline">¶</a></h2>
+<h2>What is real and lazy data?<a class="headerlink" href="#what-is-real-and-lazy-data" title="Permalink to this headline">¶</a></h2>
 <p>In Iris, we use the term <strong>real data</strong> to describe data arrays that are loaded
 into memory. Real data is typically provided as a
 <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.array.html">NumPy array</a>,
@@ -125,7 +279,7 @@ This is also referred to simply as “touching” the data.</p>
 <p>See the section <a class="reference internal" href="#when-real-data"><span class="std std-ref">When does my data become real?</span></a>
 for more examples of this.</p>
 <p>You can check whether a cube has real data or lazy data by using the method
-<a class="reference internal" href="../iris/iris/cube.html#iris.cube.Cube.has_lazy_data" title="iris.cube.Cube.has_lazy_data"><code class="xref py py-meth docutils literal notranslate"><span class="pre">has_lazy_data()</span></code></a>. For example:</p>
+<a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.Cube.has_lazy_data" title="iris.cube.Cube.has_lazy_data"><code class="xref py py-meth docutils literal notranslate"><span class="pre">has_lazy_data()</span></code></a>. For example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cube</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;air_temp.pp&#39;</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cube</span><span class="o">.</span><span class="n">has_lazy_data</span><span class="p">()</span>
 <span class="go">True</span>
@@ -137,7 +291,7 @@ for more examples of this.</p>
 </div>
 </div>
 <div class="section" id="benefits">
-<h2><span class="section-number">6.2. </span>Benefits<a class="headerlink" href="#benefits" title="Permalink to this headline">¶</a></h2>
+<h2>Benefits<a class="headerlink" href="#benefits" title="Permalink to this headline">¶</a></h2>
 <p>The primary advantage of using lazy data is that it enables
 <a class="reference external" href="https://en.wikipedia.org/wiki/Out-of-core_algorithm">out-of-core processing</a>;
 that is, the loading and manipulating of datasets without loading the full data into memory.</p>
@@ -155,7 +309,7 @@ dataset, of which only a certain portion is required at any one time
 In such cases, a required portion can be extracted and realised without calculating the entire result.</p>
 </div>
 <div class="section" id="when-does-my-data-become-real">
-<span id="when-real-data"></span><h2><span class="section-number">6.3. </span>When does my data become real?<a class="headerlink" href="#when-does-my-data-become-real" title="Permalink to this headline">¶</a></h2>
+<span id="when-real-data"></span><h2>When does my data become real?<a class="headerlink" href="#when-does-my-data-become-real" title="Permalink to this headline">¶</a></h2>
 <p>Certain operations, such as cube indexing and statistics, can be
 performed in a lazy fashion, producing a ‘lazy’ result from a lazy input, so
 that no realisation immediately occurs.
@@ -186,15 +340,15 @@ Calling such operations on lazy data will automatically realise your lazy data.<
 To ‘touch’ the data means directly accessing the data by calling <code class="docutils literal notranslate"><span class="pre">cube.data</span></code>,
 as in the previous example.</p>
 <div class="section" id="core-data">
-<h3><span class="section-number">6.3.1. </span>Core data<a class="headerlink" href="#core-data" title="Permalink to this headline">¶</a></h3>
+<h3>Core data<a class="headerlink" href="#core-data" title="Permalink to this headline">¶</a></h3>
 <p>Cubes have the concept of “core data”. This returns the cube’s data in its
 current state:</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>If a cube has lazy data, calling the cube’s <a class="reference internal" href="../iris/iris/cube.html#iris.cube.Cube.core_data" title="iris.cube.Cube.core_data"><code class="xref py py-meth docutils literal notranslate"><span class="pre">core_data()</span></code></a> method
+<li><p>If a cube has lazy data, calling the cube’s <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.Cube.core_data" title="iris.cube.Cube.core_data"><code class="xref py py-meth docutils literal notranslate"><span class="pre">core_data()</span></code></a> method
 will return the cube’s lazy dask array. Calling the cube’s
-<a class="reference internal" href="../iris/iris/cube.html#iris.cube.Cube.core_data" title="iris.cube.Cube.core_data"><code class="xref py py-meth docutils literal notranslate"><span class="pre">core_data()</span></code></a> method <strong>will never realise</strong> the cube’s data.</p></li>
-<li><p>If a cube has real data, calling the cube’s <a class="reference internal" href="../iris/iris/cube.html#iris.cube.Cube.core_data" title="iris.cube.Cube.core_data"><code class="xref py py-meth docutils literal notranslate"><span class="pre">core_data()</span></code></a> method
+<a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.Cube.core_data" title="iris.cube.Cube.core_data"><code class="xref py py-meth docutils literal notranslate"><span class="pre">core_data()</span></code></a> method <strong>will never realise</strong> the cube’s data.</p></li>
+<li><p>If a cube has real data, calling the cube’s <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.Cube.core_data" title="iris.cube.Cube.core_data"><code class="xref py py-meth docutils literal notranslate"><span class="pre">core_data()</span></code></a> method
 will return the cube’s real NumPy array.</p></li>
 </ul>
 </div></blockquote>
@@ -221,18 +375,18 @@ will return the cube’s real NumPy array.</p></li>
 </div>
 </div>
 <div class="section" id="coordinates">
-<h2><span class="section-number">6.4. </span>Coordinates<a class="headerlink" href="#coordinates" title="Permalink to this headline">¶</a></h2>
+<h2>Coordinates<a class="headerlink" href="#coordinates" title="Permalink to this headline">¶</a></h2>
 <p>In the same way that Iris cubes contain a data array, Iris coordinates contain a
 points array and an optional bounds array.
 Coordinate points and bounds arrays can also be real or lazy:</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>A <a class="reference internal" href="../iris/iris/coords.html#iris.coords.DimCoord" title="iris.coords.DimCoord"><code class="xref py py-class docutils literal notranslate"><span class="pre">DimCoord</span></code></a> will only ever have <strong>real</strong> points and bounds
+<li><p>A <a class="reference internal" href="../generated/api/iris/coords.html#iris.coords.DimCoord" title="iris.coords.DimCoord"><code class="xref py py-class docutils literal notranslate"><span class="pre">DimCoord</span></code></a> will only ever have <strong>real</strong> points and bounds
 arrays because of monotonicity checks that realise lazy arrays.</p></li>
-<li><p>An <a class="reference internal" href="../iris/iris/coords.html#iris.coords.AuxCoord" title="iris.coords.AuxCoord"><code class="xref py py-class docutils literal notranslate"><span class="pre">AuxCoord</span></code></a> can have <strong>real or lazy</strong> points and bounds.</p></li>
-<li><p>An <a class="reference internal" href="../iris/iris/aux_factory.html#iris.aux_factory.AuxCoordFactory" title="iris.aux_factory.AuxCoordFactory"><code class="xref py py-class docutils literal notranslate"><span class="pre">AuxCoordFactory</span></code></a> (or derived coordinate)
+<li><p>An <a class="reference internal" href="../generated/api/iris/coords.html#iris.coords.AuxCoord" title="iris.coords.AuxCoord"><code class="xref py py-class docutils literal notranslate"><span class="pre">AuxCoord</span></code></a> can have <strong>real or lazy</strong> points and bounds.</p></li>
+<li><p>An <a class="reference internal" href="../generated/api/iris/aux_factory.html#iris.aux_factory.AuxCoordFactory" title="iris.aux_factory.AuxCoordFactory"><code class="xref py py-class docutils literal notranslate"><span class="pre">AuxCoordFactory</span></code></a> (or derived coordinate)
 can have <strong>real or lazy</strong> points and bounds. If all of the
-<a class="reference internal" href="../iris/iris/coords.html#iris.coords.AuxCoord" title="iris.coords.AuxCoord"><code class="xref py py-class docutils literal notranslate"><span class="pre">AuxCoord</span></code></a> instances used to construct the derived coordinate
+<a class="reference internal" href="../generated/api/iris/coords.html#iris.coords.AuxCoord" title="iris.coords.AuxCoord"><code class="xref py py-class docutils literal notranslate"><span class="pre">AuxCoord</span></code></a> instances used to construct the derived coordinate
 have real points and bounds then the derived coordinate will have real points
 and bounds, otherwise the derived coordinate will have lazy points and bounds.</p></li>
 </ul>
@@ -275,11 +429,11 @@ coordinates’ lazy points and bounds:</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Printing a lazy <a class="reference internal" href="../iris/iris/coords.html#iris.coords.AuxCoord" title="iris.coords.AuxCoord"><code class="xref py py-class docutils literal notranslate"><span class="pre">AuxCoord</span></code></a> will realise its points and bounds arrays!</p>
+<p>Printing a lazy <a class="reference internal" href="../generated/api/iris/coords.html#iris.coords.AuxCoord" title="iris.coords.AuxCoord"><code class="xref py py-class docutils literal notranslate"><span class="pre">AuxCoord</span></code></a> will realise its points and bounds arrays!</p>
 </div>
 </div>
 <div class="section" id="dask-processing-options">
-<h2><span class="section-number">6.5. </span>Dask processing options<a class="headerlink" href="#dask-processing-options" title="Permalink to this headline">¶</a></h2>
+<h2>Dask processing options<a class="headerlink" href="#dask-processing-options" title="Permalink to this headline">¶</a></h2>
 <p>Iris uses dask to provide lazy data arrays for both Iris cubes and coordinates,
 and for computing deferred operations on lazy arrays.</p>
 <p>Dask provides processing options to control how deferred operations on lazy arrays
@@ -290,86 +444,60 @@ for more information on setting dask processing options.</p>
 </div>
 
 
-            <div class="clearer"></div>
+           </div>
+           
           </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="plotting_a_cube.html" class="btn btn-neutral float-right" title="Plotting a cube" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="subsetting_a_cube.html" class="btn btn-neutral float-left" title="Subsetting a Cube" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        
+        &copy; <a href="../copyright.html">Copyright</a> Iris Contributors
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="../contents.html">Table of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">6. Real and Lazy Data</a><ul>
-<li><a class="reference internal" href="#what-is-real-and-lazy-data">6.1. What is real and lazy data?</a></li>
-<li><a class="reference internal" href="#benefits">6.2. Benefits</a></li>
-<li><a class="reference internal" href="#when-does-my-data-become-real">6.3. When does my data become real?</a><ul>
-<li><a class="reference internal" href="#core-data">6.3.1. Core data</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#coordinates">6.4. Coordinates</a></li>
-<li><a class="reference internal" href="#dask-processing-options">6.5. Dask processing options</a></li>
-</ul>
-</li>
-</ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="subsetting_a_cube.html"
-                        title="previous chapter"><span class="section-number">5. </span>Subsetting a Cube</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="plotting_a_cube.html"
-                        title="next chapter"><span class="section-number">7. </span>Plotting a cube</a></p>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="../_sources/userguide/real_and_lazy_data.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>$('#searchbox').show(0);</script>
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="../py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="plotting_a_cube.html" title="7. Plotting a cube"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="subsetting_a_cube.html" title="5. Subsetting a Cube"
-             >previous</a> |</li>
-        <li><a href="../index.html">home</a>|&nbsp;</li>
-        <li><a href="../examples/index.html">examples</a>|&nbsp;</li>
-        <li><a href="../gallery.html">gallery</a>|&nbsp;</li>
-        <li><a href="../contents.html">contents</a>|&nbsp;</li>
+    </section>
 
-          <li class="nav-item nav-item-1"><a href="index.html" >Iris user guide</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href=""><span class="section-number">6. </span>Real and Lazy Data</a></li> 
-      </ul>
-    </div>
+  </div>
+  
 
-    <div class="footer">
-    <p style="text-align: left; float: left; margin: 0px; padding: 0 0 0 5px;">Documentation licensed under the <a href="http://reference.data.gov.uk/id/open-government-licence" rel="license">Open Government Licence</a></p>
-        &copy; <a href="../copyright.html">British Crown Copyright</a> 2010 - 2020, Met Office
-    </div>
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
 
-    <!-- Include a version switcher to easily move between the documentation of different versions -->
-    <script type=text/javascript src="/iris/docs/version_switch.js" async></script>
+  
+  
+    
+   
 
-  </body>
+</body>
 </html>

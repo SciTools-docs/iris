@@ -1,0 +1,1188 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>iris.analysis.trajectory &mdash; Iris 3.0.dev0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/theme_override.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery-dataframe.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script src="../../../_static/clipboard.min.js"></script>
+        <script src="../../../_static/copybutton.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="copyright" title="Copyright" href="../../../copyright.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html">
+          
+
+          
+            
+            <img src="../../../_static/iris-logo-title.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installing.html">Installing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../generated/gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/iris_cubes.html">Iris data structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/loading_iris_cubes.html">Loading Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/saving_iris_cubes.html">Saving Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/navigating_a_cube.html">Navigating a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/subsetting_a_cube.html">Subsetting a Cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/real_and_lazy_data.html">Real and Lazy Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/plotting_a_cube.html">Plotting a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/interpolation_and_regridding.html">Cube interpolation and regridding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/merge_and_concat.html">Merge and concatenate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/cube_statistics.html">Cube statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/cube_maths.html">Basic cube mathematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/citation.html">Citing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/code_maintenance.html">Code maintenance</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developers Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/contributing_documentation.html">Contributing to the documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/documenting/index.html">Documentation in Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/gitwash/index.html">Working with <em>iris</em> source code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/code_format.html">Code formatting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/pulls.html">Pull request check List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/tests.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/deprecations.html">Deprecations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/release.html">Releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../generated/api/iris.html">Iris API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../whatsnew/index.html">What’s new in Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../techpapers/index.html">Iris Technical Papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../copyright.html">Iris copyright, licensing and contributors</a></li>
+</ul>
+
+            
+          
+
+    
+    
+    
+        <p class="caption">
+            <span class="caption-text">
+            
+                Support
+            
+            </span>
+        </p>
+        <ul>
+            
+                <li class="toctree-l1"><a href="https://github.com/SciTools/iris"><i class="fa fa-github fa-fw"></i> Source Code</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris"><i class="fa fa-comments fa-fw"></i> Users Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris-dev"><i class="fa fa-comments fa-fw"></i> Developers Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://stackoverflow.com/questions/tagged/python-iris"><i class="fa fa-question fa-fw"></i> StackOverflow For "How do I?"</a></li>
+            
+                <li class="toctree-l1"><a href="https://scitools.org.uk/iris/docs/v2.4.0/index.html"><i class="fa fa-book fa-fw"></i> Legacy documentation</a></li>
+            
+        </ul>
+    
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Iris</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../../iris.html">iris</a> &raquo;</li>
+        
+          <li><a href="../analysis.html">iris.analysis</a> &raquo;</li>
+        
+      <li>iris.analysis.trajectory</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for iris.analysis.trajectory</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright Iris contributors</span>
+<span class="c1">#</span>
+<span class="c1"># This file is part of Iris and is released under the LGPL license.</span>
+<span class="c1"># See COPYING and COPYING.LESSER in the root of the repository for full</span>
+<span class="c1"># licensing details.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Defines a Trajectory class, and a routine to extract a sub-cube along a</span>
+<span class="sd">trajectory.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">math</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy.spatial</span> <span class="kn">import</span> <span class="n">cKDTree</span>
+
+<span class="kn">import</span> <span class="nn">iris.analysis</span>
+<span class="kn">import</span> <span class="nn">iris.coord_systems</span>
+<span class="kn">import</span> <span class="nn">iris.coords</span>
+
+<span class="kn">from</span> <span class="nn">iris.analysis</span> <span class="kn">import</span> <span class="n">Linear</span>
+<span class="kn">from</span> <span class="nn">iris.analysis._interpolation</span> <span class="kn">import</span> <span class="n">snapshot_grid</span>
+<span class="kn">from</span> <span class="nn">iris.util</span> <span class="kn">import</span> <span class="n">_meshgrid</span>
+
+
+<span class="k">class</span> <span class="nc">_Segment</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;A single trajectory line segment: Two points, as described in the</span>
+<span class="sd">    Trajectory class.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p0</span><span class="p">,</span> <span class="n">p1</span><span class="p">):</span>
+        <span class="c1"># check keys</span>
+        <span class="k">if</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">p0</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="o">!=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">p1</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;keys do not match&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">pts</span> <span class="o">=</span> <span class="p">[</span><span class="n">p0</span><span class="p">,</span> <span class="n">p1</span><span class="p">]</span>
+
+        <span class="c1"># calculate our length</span>
+        <span class="n">squares</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">pts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="n">delta</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pts</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">key</span><span class="p">]</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">pts</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">key</span><span class="p">]</span>
+            <span class="n">squares</span> <span class="o">+=</span> <span class="n">delta</span> <span class="o">*</span> <span class="n">delta</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">length</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">squares</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="Trajectory"><a class="viewcode-back" href="../../../generated/api/iris/analysis/trajectory.html#iris.analysis.trajectory.Trajectory">[docs]</a><span class="k">class</span> <span class="nc">Trajectory</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;A series of given waypoints with pre-calculated sample points.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">waypoints</span><span class="p">,</span> <span class="n">sample_count</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Defines a trajectory using a sequence of waypoints.</span>
+
+<span class="sd">        For example::</span>
+
+<span class="sd">            waypoints = [{&#39;latitude&#39;: 45, &#39;longitude&#39;: -60},</span>
+<span class="sd">                         {&#39;latitude&#39;: 45, &#39;longitude&#39;: 0}]</span>
+<span class="sd">            Trajectory(waypoints)</span>
+
+<span class="sd">        .. note:: All the waypoint dictionaries must contain the same</span>
+<span class="sd">            coordinate names.</span>
+
+<span class="sd">        Args:</span>
+
+<span class="sd">        * waypoints</span>
+<span class="sd">            A sequence of dictionaries, mapping coordinate names to values.</span>
+
+<span class="sd">        Kwargs:</span>
+
+<span class="sd">        * sample_count</span>
+<span class="sd">            The number of sample positions to use along the trajectory.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">waypoints</span> <span class="o">=</span> <span class="n">waypoints</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sample_count</span> <span class="o">=</span> <span class="n">sample_count</span>
+
+        <span class="c1"># create line segments from the waypoints</span>
+        <span class="n">segments</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">_Segment</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">waypoints</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">waypoints</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">waypoints</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="p">]</span>
+
+        <span class="c1"># calculate our total length</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">length</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">seg</span><span class="o">.</span><span class="n">length</span> <span class="k">for</span> <span class="n">seg</span> <span class="ow">in</span> <span class="n">segments</span><span class="p">])</span>
+
+        <span class="c1"># generate our sampled points</span>
+        <span class="c1">#: The trajectory points, as dictionaries of {coord_name: value}.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sampled_points</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">sample_step</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">length</span> <span class="o">/</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sample_count</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+
+        <span class="c1"># start with the first segment</span>
+        <span class="n">cur_seg_i</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">cur_seg</span> <span class="o">=</span> <span class="n">segments</span><span class="p">[</span><span class="n">cur_seg_i</span><span class="p">]</span>
+        <span class="n">len_accum</span> <span class="o">=</span> <span class="n">cur_seg</span><span class="o">.</span><span class="n">length</span>
+        <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sample_count</span><span class="p">):</span>
+
+            <span class="c1"># calculate the sample position along our total length</span>
+            <span class="n">sample_at_len</span> <span class="o">=</span> <span class="n">p</span> <span class="o">*</span> <span class="n">sample_step</span>
+
+            <span class="c1"># skip forward to the containing segment</span>
+            <span class="k">while</span> <span class="n">len_accum</span> <span class="o">&lt;</span> <span class="n">sample_at_len</span> <span class="ow">and</span> <span class="n">cur_seg_i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">segments</span><span class="p">):</span>
+                <span class="n">cur_seg_i</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">cur_seg</span> <span class="o">=</span> <span class="n">segments</span><span class="p">[</span><span class="n">cur_seg_i</span><span class="p">]</span>
+                <span class="n">len_accum</span> <span class="o">+=</span> <span class="n">cur_seg</span><span class="o">.</span><span class="n">length</span>
+
+            <span class="c1"># how far through the segment is our sample point?</span>
+            <span class="n">seg_start_len</span> <span class="o">=</span> <span class="n">len_accum</span> <span class="o">-</span> <span class="n">cur_seg</span><span class="o">.</span><span class="n">length</span>
+            <span class="n">seg_frac</span> <span class="o">=</span> <span class="p">(</span><span class="n">sample_at_len</span> <span class="o">-</span> <span class="n">seg_start_len</span><span class="p">)</span> <span class="o">/</span> <span class="n">cur_seg</span><span class="o">.</span><span class="n">length</span>
+
+            <span class="c1"># sample each coordinate in this segment, to create a new</span>
+            <span class="c1"># sampled point</span>
+            <span class="n">new_sampled_point</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">cur_seg</span><span class="o">.</span><span class="n">pts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                <span class="n">seg_coord_delta</span> <span class="o">=</span> <span class="n">cur_seg</span><span class="o">.</span><span class="n">pts</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">key</span><span class="p">]</span> <span class="o">-</span> <span class="n">cur_seg</span><span class="o">.</span><span class="n">pts</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">key</span><span class="p">]</span>
+                <span class="n">new_sampled_point</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+                    <span class="p">{</span><span class="n">key</span><span class="p">:</span> <span class="n">cur_seg</span><span class="o">.</span><span class="n">pts</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">key</span><span class="p">]</span> <span class="o">+</span> <span class="n">seg_frac</span> <span class="o">*</span> <span class="n">seg_coord_delta</span><span class="p">}</span>
+                <span class="p">)</span>
+
+            <span class="c1"># add this new sampled point</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sampled_points</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_sampled_point</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;Trajectory(</span><span class="si">%s</span><span class="s2">, sample_count=</span><span class="si">%s</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">waypoints</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sample_count</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_get_interp_points</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Translate `self.sampled_points` to the format expected by the</span>
+<span class="sd">        interpolator.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            `self.sampled points` in the format required by</span>
+<span class="sd">            `:func:`~iris.analysis.trajectory.interpolate`.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">points</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">k</span><span class="p">:</span> <span class="p">[</span><span class="n">point_dict</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="k">for</span> <span class="n">point_dict</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sampled_points</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sampled_points</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="p">[(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">points</span><span class="o">.</span><span class="n">items</span><span class="p">()]</span>
+
+    <span class="k">def</span> <span class="nf">_src_cube_anon_dims</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cube</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        A helper method to locate the index of anonymous dimensions on the</span>
+<span class="sd">        interpolation target, ``cube``.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The index of any anonymous dimensions in ``cube``.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">named_dims</span> <span class="o">=</span> <span class="p">[</span><span class="n">cube</span><span class="o">.</span><span class="n">coord_dims</span><span class="p">(</span><span class="n">c</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">cube</span><span class="o">.</span><span class="n">dim_coords</span><span class="p">]</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">ndim</span><span class="p">))</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="n">named_dims</span><span class="p">))</span>
+
+<div class="viewcode-block" id="Trajectory.interpolate"><a class="viewcode-back" href="../../../generated/api/iris/analysis/trajectory.html#iris.analysis.trajectory.Trajectory.interpolate">[docs]</a>    <span class="k">def</span> <span class="nf">interpolate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cube</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Calls :func:`~iris.analysis.trajectory.interpolate` to interpolate</span>
+<span class="sd">        ``cube`` on the defined trajectory.</span>
+
+<span class="sd">        Assumes that the coordinate names supplied in the waypoints</span>
+<span class="sd">        dictionaries match to coordinate names in `cube`, and that points are</span>
+<span class="sd">        supplied in the same coord_system as in `cube`, where appropriate (i.e.</span>
+<span class="sd">        for horizontal coordinate points).</span>
+
+<span class="sd">        Args:</span>
+
+<span class="sd">        * cube</span>
+<span class="sd">             The source Cube to interpolate.</span>
+
+<span class="sd">        Kwargs:</span>
+
+<span class="sd">        * method:</span>
+<span class="sd">            The interpolation method to use; &quot;linear&quot; (default) or &quot;nearest&quot;.</span>
+<span class="sd">            Only nearest is available when specifying multi-dimensional</span>
+<span class="sd">            coordinates.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">sample_points</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_interp_points</span><span class="p">()</span>
+        <span class="n">interpolated_cube</span> <span class="o">=</span> <span class="n">interpolate</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">sample_points</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="n">method</span><span class="p">)</span>
+        <span class="c1"># Add an &quot;index&quot; coord to name the anonymous dimension produced by</span>
+        <span class="c1"># the interpolation, if present.</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">interpolated_cube</span><span class="o">.</span><span class="n">dim_coords</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">interpolated_cube</span><span class="o">.</span><span class="n">ndim</span><span class="p">:</span>
+            <span class="c1"># Add a new coord `index` to describe the new dimension created by</span>
+            <span class="c1"># interpolating.</span>
+            <span class="n">index_coord</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">coords</span><span class="o">.</span><span class="n">DimCoord</span><span class="p">(</span>
+                <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sample_count</span><span class="p">),</span> <span class="n">long_name</span><span class="o">=</span><span class="s2">&quot;index&quot;</span>
+            <span class="p">)</span>
+            <span class="c1"># Make sure anonymous dims in `cube` do not mistakenly get labelled</span>
+            <span class="c1"># as the new `index` dimension created by interpolating.</span>
+            <span class="n">src_anon_dims</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_src_cube_anon_dims</span><span class="p">(</span><span class="n">cube</span><span class="p">)</span>
+            <span class="n">interp_anon_dims</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_src_cube_anon_dims</span><span class="p">(</span><span class="n">interpolated_cube</span><span class="p">)</span>
+            <span class="p">(</span><span class="n">anon_dim_index</span><span class="p">,)</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span>
+                <span class="nb">set</span><span class="p">(</span><span class="n">interp_anon_dims</span><span class="p">)</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="n">src_anon_dims</span><span class="p">)</span>
+            <span class="p">)</span>
+            <span class="c1"># Add the new coord to the interpolated cube.</span>
+            <span class="n">interpolated_cube</span><span class="o">.</span><span class="n">add_dim_coord</span><span class="p">(</span><span class="n">index_coord</span><span class="p">,</span> <span class="n">anon_dim_index</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">interpolated_cube</span></div></div>
+
+
+<div class="viewcode-block" id="interpolate"><a class="viewcode-back" href="../../../generated/api/iris/analysis/trajectory.html#iris.analysis.trajectory.interpolate">[docs]</a><span class="k">def</span> <span class="nf">interpolate</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">sample_points</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Extract a sub-cube at the given n-dimensional points.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">    * cube</span>
+<span class="sd">        The source Cube.</span>
+
+<span class="sd">    * sample_points</span>
+<span class="sd">        A sequence of coordinate (name) - values pairs.</span>
+
+<span class="sd">    Kwargs:</span>
+
+<span class="sd">    * method</span>
+<span class="sd">        Request &quot;linear&quot; interpolation (default) or &quot;nearest&quot; neighbour.</span>
+<span class="sd">        Only nearest neighbour is available when specifying multi-dimensional</span>
+<span class="sd">        coordinates.</span>
+
+
+<span class="sd">    For example::</span>
+
+<span class="sd">        sample_points = [(&#39;latitude&#39;, [45, 45, 45]),</span>
+<span class="sd">        (&#39;longitude&#39;, [-60, -50, -40])]</span>
+<span class="sd">        interpolated_cube = interpolate(cube, sample_points)</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">method</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;linear&quot;</span><span class="p">,</span> <span class="s2">&quot;nearest&quot;</span><span class="p">]:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Unhandled interpolation specified : </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">method</span><span class="p">)</span>
+
+    <span class="c1"># Convert any coordinate names to coords</span>
+    <span class="n">points</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">coord</span><span class="p">,</span> <span class="n">values</span> <span class="ow">in</span> <span class="n">sample_points</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">coord</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="n">coord</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="n">coord</span><span class="p">)</span>
+        <span class="n">points</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">coord</span><span class="p">,</span> <span class="n">values</span><span class="p">))</span>
+    <span class="n">sample_points</span> <span class="o">=</span> <span class="n">points</span>
+
+    <span class="c1"># Do all value sequences have the same number of values?</span>
+    <span class="n">coord</span><span class="p">,</span> <span class="n">values</span> <span class="o">=</span> <span class="n">sample_points</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">trajectory_size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">coord</span><span class="p">,</span> <span class="n">values</span> <span class="ow">in</span> <span class="n">sample_points</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">)</span> <span class="o">!=</span> <span class="n">trajectory_size</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Lengths of coordinate values are inconsistent.&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Which dimensions are we squishing into the last dimension?</span>
+    <span class="n">squish_my_dims</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">coord</span><span class="p">,</span> <span class="n">values</span> <span class="ow">in</span> <span class="n">sample_points</span><span class="p">:</span>
+        <span class="n">dims</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">coord_dims</span><span class="p">(</span><span class="n">coord</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="n">dims</span><span class="p">:</span>
+            <span class="n">squish_my_dims</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span>
+
+    <span class="c1"># Derive the new cube&#39;s shape by filtering out all the dimensions we&#39;re</span>
+    <span class="c1"># about to sample,</span>
+    <span class="c1"># and then adding a new dimension to accommodate all the sample points.</span>
+    <span class="n">remaining</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">(</span><span class="n">dim</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">dim</span><span class="p">,</span> <span class="n">size</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">dim</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">squish_my_dims</span>
+    <span class="p">]</span>
+    <span class="n">new_data_shape</span> <span class="o">=</span> <span class="p">[</span><span class="n">size</span> <span class="k">for</span> <span class="n">dim</span><span class="p">,</span> <span class="n">size</span> <span class="ow">in</span> <span class="n">remaining</span><span class="p">]</span>
+    <span class="n">new_data_shape</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">trajectory_size</span><span class="p">)</span>
+
+    <span class="c1"># Start with empty data and then fill in the &quot;column&quot; of values for each</span>
+    <span class="c1"># trajectory point.</span>
+    <span class="n">new_cube</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">cube</span><span class="o">.</span><span class="n">Cube</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">new_data_shape</span><span class="p">))</span>
+    <span class="n">new_cube</span><span class="o">.</span><span class="n">metadata</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">metadata</span>
+
+    <span class="c1"># Derive the mapping from the non-trajectory source dimensions to their</span>
+    <span class="c1"># corresponding destination dimensions.</span>
+    <span class="n">remaining_dims</span> <span class="o">=</span> <span class="p">[</span><span class="n">dim</span> <span class="k">for</span> <span class="n">dim</span><span class="p">,</span> <span class="n">size</span> <span class="ow">in</span> <span class="n">remaining</span><span class="p">]</span>
+    <span class="n">dimension_remap</span> <span class="o">=</span> <span class="p">{</span><span class="n">dim</span><span class="p">:</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">dim</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">remaining_dims</span><span class="p">)}</span>
+
+    <span class="c1"># Record a mapping from old coordinate IDs to new coordinates,</span>
+    <span class="c1"># for subsequent use in creating updated aux_factories.</span>
+    <span class="n">coord_mapping</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="c1"># Create all the non-squished coords</span>
+    <span class="k">for</span> <span class="n">coord</span> <span class="ow">in</span> <span class="n">cube</span><span class="o">.</span><span class="n">dim_coords</span><span class="p">:</span>
+        <span class="n">src_dims</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">coord_dims</span><span class="p">(</span><span class="n">coord</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">squish_my_dims</span><span class="o">.</span><span class="n">isdisjoint</span><span class="p">(</span><span class="n">src_dims</span><span class="p">):</span>
+            <span class="n">dest_dims</span> <span class="o">=</span> <span class="p">[</span><span class="n">dimension_remap</span><span class="p">[</span><span class="n">dim</span><span class="p">]</span> <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="n">src_dims</span><span class="p">]</span>
+            <span class="n">new_coord</span> <span class="o">=</span> <span class="n">coord</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="n">new_cube</span><span class="o">.</span><span class="n">add_dim_coord</span><span class="p">(</span><span class="n">new_coord</span><span class="p">,</span> <span class="n">dest_dims</span><span class="p">)</span>
+            <span class="n">coord_mapping</span><span class="p">[</span><span class="nb">id</span><span class="p">(</span><span class="n">coord</span><span class="p">)]</span> <span class="o">=</span> <span class="n">new_coord</span>
+    <span class="k">for</span> <span class="n">coord</span> <span class="ow">in</span> <span class="n">cube</span><span class="o">.</span><span class="n">aux_coords</span><span class="p">:</span>
+        <span class="n">src_dims</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">coord_dims</span><span class="p">(</span><span class="n">coord</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">squish_my_dims</span><span class="o">.</span><span class="n">isdisjoint</span><span class="p">(</span><span class="n">src_dims</span><span class="p">):</span>
+            <span class="n">dest_dims</span> <span class="o">=</span> <span class="p">[</span><span class="n">dimension_remap</span><span class="p">[</span><span class="n">dim</span><span class="p">]</span> <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="n">src_dims</span><span class="p">]</span>
+            <span class="n">new_coord</span> <span class="o">=</span> <span class="n">coord</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="n">new_cube</span><span class="o">.</span><span class="n">add_aux_coord</span><span class="p">(</span><span class="n">new_coord</span><span class="p">,</span> <span class="n">dest_dims</span><span class="p">)</span>
+            <span class="n">coord_mapping</span><span class="p">[</span><span class="nb">id</span><span class="p">(</span><span class="n">coord</span><span class="p">)]</span> <span class="o">=</span> <span class="n">new_coord</span>
+
+    <span class="c1"># Create all the squished (non derived) coords, not filled in yet.</span>
+    <span class="n">trajectory_dim</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">remaining_dims</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">coord</span> <span class="ow">in</span> <span class="n">cube</span><span class="o">.</span><span class="n">dim_coords</span> <span class="o">+</span> <span class="n">cube</span><span class="o">.</span><span class="n">aux_coords</span><span class="p">:</span>
+        <span class="n">src_dims</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">coord_dims</span><span class="p">(</span><span class="n">coord</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">squish_my_dims</span><span class="o">.</span><span class="n">isdisjoint</span><span class="p">(</span><span class="n">src_dims</span><span class="p">):</span>
+            <span class="n">points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">coord</span><span class="o">.</span><span class="n">points</span><span class="o">.</span><span class="n">flatten</span><span class="p">()[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">*</span> <span class="n">trajectory_size</span><span class="p">)</span>
+            <span class="n">new_coord</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">coords</span><span class="o">.</span><span class="n">AuxCoord</span><span class="p">(</span>
+                <span class="n">points</span><span class="p">,</span>
+                <span class="n">standard_name</span><span class="o">=</span><span class="n">coord</span><span class="o">.</span><span class="n">standard_name</span><span class="p">,</span>
+                <span class="n">long_name</span><span class="o">=</span><span class="n">coord</span><span class="o">.</span><span class="n">long_name</span><span class="p">,</span>
+                <span class="n">units</span><span class="o">=</span><span class="n">coord</span><span class="o">.</span><span class="n">units</span><span class="p">,</span>
+                <span class="n">bounds</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="n">attributes</span><span class="o">=</span><span class="n">coord</span><span class="o">.</span><span class="n">attributes</span><span class="p">,</span>
+                <span class="n">coord_system</span><span class="o">=</span><span class="n">coord</span><span class="o">.</span><span class="n">coord_system</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="n">new_cube</span><span class="o">.</span><span class="n">add_aux_coord</span><span class="p">(</span><span class="n">new_coord</span><span class="p">,</span> <span class="n">trajectory_dim</span><span class="p">)</span>
+            <span class="n">coord_mapping</span><span class="p">[</span><span class="nb">id</span><span class="p">(</span><span class="n">coord</span><span class="p">)]</span> <span class="o">=</span> <span class="n">new_coord</span>
+
+    <span class="k">for</span> <span class="n">factory</span> <span class="ow">in</span> <span class="n">cube</span><span class="o">.</span><span class="n">aux_factories</span><span class="p">:</span>
+        <span class="n">new_cube</span><span class="o">.</span><span class="n">add_aux_factory</span><span class="p">(</span><span class="n">factory</span><span class="o">.</span><span class="n">updated</span><span class="p">(</span><span class="n">coord_mapping</span><span class="p">))</span>
+
+    <span class="c1"># Are the given coords all 1-dimensional? (can we do linear interp?)</span>
+    <span class="k">for</span> <span class="n">coord</span><span class="p">,</span> <span class="n">values</span> <span class="ow">in</span> <span class="n">sample_points</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">coord</span><span class="o">.</span><span class="n">ndim</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;linear&quot;</span><span class="p">:</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="s2">&quot;Cannot currently perform linear interpolation for &quot;</span>
+                    <span class="s2">&quot;multi-dimensional coordinates.&quot;</span>
+                <span class="p">)</span>
+                <span class="k">raise</span> <span class="n">iris</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">CoordinateMultiDimError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="n">method</span> <span class="o">=</span> <span class="s2">&quot;nearest&quot;</span>
+            <span class="k">break</span>
+
+    <span class="k">if</span> <span class="n">method</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;linear&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">]:</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">trajectory_size</span><span class="p">):</span>
+            <span class="n">point</span> <span class="o">=</span> <span class="p">[(</span><span class="n">coord</span><span class="p">,</span> <span class="n">values</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="k">for</span> <span class="n">coord</span><span class="p">,</span> <span class="n">values</span> <span class="ow">in</span> <span class="n">sample_points</span><span class="p">]</span>
+            <span class="n">column</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">point</span><span class="p">,</span> <span class="n">Linear</span><span class="p">())</span>
+            <span class="n">new_cube</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">column</span><span class="o">.</span><span class="n">data</span>
+            <span class="c1"># Fill in the empty squashed (non derived) coords.</span>
+            <span class="k">for</span> <span class="n">column_coord</span> <span class="ow">in</span> <span class="n">column</span><span class="o">.</span><span class="n">dim_coords</span> <span class="o">+</span> <span class="n">column</span><span class="o">.</span><span class="n">aux_coords</span><span class="p">:</span>
+                <span class="n">src_dims</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">coord_dims</span><span class="p">(</span><span class="n">column_coord</span><span class="p">)</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">squish_my_dims</span><span class="o">.</span><span class="n">isdisjoint</span><span class="p">(</span><span class="n">src_dims</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">column_coord</span><span class="o">.</span><span class="n">points</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+                        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Expected to find exactly one point. Found </span><span class="si">{}</span><span class="s2">.&quot;</span>
+                        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">column_coord</span><span class="o">.</span><span class="n">points</span><span class="p">))</span>
+                    <span class="n">new_cube</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="n">column_coord</span><span class="o">.</span><span class="n">name</span><span class="p">())</span><span class="o">.</span><span class="n">points</span><span class="p">[</span>
+                        <span class="n">i</span>
+                    <span class="p">]</span> <span class="o">=</span> <span class="n">column_coord</span><span class="o">.</span><span class="n">points</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">elif</span> <span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;nearest&quot;</span><span class="p">:</span>
+        <span class="c1"># Use a cache with _nearest_neighbour_indices_ndcoords()</span>
+        <span class="n">cache</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">column_indexes</span> <span class="o">=</span> <span class="n">_nearest_neighbour_indices_ndcoords</span><span class="p">(</span>
+            <span class="n">cube</span><span class="p">,</span> <span class="n">sample_points</span><span class="p">,</span> <span class="n">cache</span><span class="o">=</span><span class="n">cache</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Construct &quot;fancy&quot; indexes, so we can create the result data array in</span>
+        <span class="c1"># a single numpy indexing operation.</span>
+        <span class="c1"># ALSO: capture the index range in each dimension, so that we can fetch</span>
+        <span class="c1"># only a required (square) sub-region of the source data.</span>
+        <span class="n">fancy_source_indices</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">region_slices</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">n_index_length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">column_indexes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">dims_reduced</span> <span class="o">=</span> <span class="p">[</span><span class="kc">False</span><span class="p">]</span> <span class="o">*</span> <span class="n">n_index_length</span>
+        <span class="k">for</span> <span class="n">i_ind</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_index_length</span><span class="p">):</span>
+            <span class="n">contents</span> <span class="o">=</span> <span class="p">[</span><span class="n">column_index</span><span class="p">[</span><span class="n">i_ind</span><span class="p">]</span> <span class="k">for</span> <span class="n">column_index</span> <span class="ow">in</span> <span class="n">column_indexes</span><span class="p">]</span>
+            <span class="n">each_used</span> <span class="o">=</span> <span class="p">[</span><span class="n">content</span> <span class="o">!=</span> <span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span> <span class="k">for</span> <span class="n">content</span> <span class="ow">in</span> <span class="n">contents</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">each_used</span><span class="p">):</span>
+                <span class="c1"># This dimension is addressed : use a list of indices.</span>
+                <span class="n">dims_reduced</span><span class="p">[</span><span class="n">i_ind</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="c1"># Select the region by min+max indices.</span>
+                <span class="n">start_ind</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">contents</span><span class="p">)</span>
+                <span class="n">stop_ind</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">contents</span><span class="p">)</span>
+                <span class="n">region_slice</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="n">start_ind</span><span class="p">,</span> <span class="n">stop_ind</span><span class="p">)</span>
+                <span class="c1"># Record point indices with start subtracted from all of them.</span>
+                <span class="n">fancy_index</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">contents</span><span class="p">)</span> <span class="o">-</span> <span class="n">start_ind</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">each_used</span><span class="p">):</span>
+                <span class="c1"># This dimension is not addressed by the operation.</span>
+                <span class="c1"># Use a &quot;:&quot; as the index.</span>
+                <span class="n">fancy_index</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+                <span class="c1"># No sub-region selection for this dimension.</span>
+                <span class="n">region_slice</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># Should really never happen, if _ndcoords is right.</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="s2">&quot;Internal error in trajectory interpolation : point &quot;</span>
+                    <span class="s2">&quot;selection indices should all have the same form.&quot;</span>
+                <span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+            <span class="n">fancy_source_indices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">fancy_index</span><span class="p">)</span>
+            <span class="n">region_slices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">region_slice</span><span class="p">)</span>
+
+        <span class="c1"># Fetch the required (square-section) region of the source data.</span>
+        <span class="c1"># NOTE: This is not quite as good as only fetching the individual</span>
+        <span class="c1"># points used, but it avoids creating a sub-cube for each point,</span>
+        <span class="c1"># which is very slow, especially when points are re-used a lot ...</span>
+        <span class="n">source_area_indices</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">region_slices</span><span class="p">)</span>
+        <span class="n">source_data</span> <span class="o">=</span> <span class="n">cube</span><span class="p">[</span><span class="n">source_area_indices</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+
+        <span class="c1"># Transpose source data before indexing it to get the final result.</span>
+        <span class="c1"># Because.. the fancy indexing will replace the indexed (horizontal)</span>
+        <span class="c1"># dimensions with a new single dimension over trajectory points.</span>
+        <span class="c1"># Move those dimensions to the end *first* : this ensures that the new</span>
+        <span class="c1"># dimension also appears at the end, which is where we want it.</span>
+        <span class="c1"># Make a list of dims with the reduced ones last.</span>
+        <span class="n">dims_reduced</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">dims_reduced</span><span class="p">)</span>
+        <span class="n">dims_order</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n_index_length</span><span class="p">)</span>
+        <span class="n">dims_order</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span>
+            <span class="p">(</span><span class="n">dims_order</span><span class="p">[</span><span class="o">~</span><span class="n">dims_reduced</span><span class="p">],</span> <span class="n">dims_order</span><span class="p">[</span><span class="n">dims_reduced</span><span class="p">])</span>
+        <span class="p">)</span>
+        <span class="c1"># Rearrange the data dimensions and the fancy indices into that order.</span>
+        <span class="n">source_data</span> <span class="o">=</span> <span class="n">source_data</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">dims_order</span><span class="p">)</span>
+        <span class="n">fancy_source_indices</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">fancy_source_indices</span><span class="p">[</span><span class="n">i_dim</span><span class="p">]</span> <span class="k">for</span> <span class="n">i_dim</span> <span class="ow">in</span> <span class="n">dims_order</span>
+        <span class="p">]</span>
+
+        <span class="c1"># Apply the fancy indexing to get all the result data points.</span>
+        <span class="n">source_data</span> <span class="o">=</span> <span class="n">source_data</span><span class="p">[</span><span class="nb">tuple</span><span class="p">(</span><span class="n">fancy_source_indices</span><span class="p">)]</span>
+
+        <span class="c1"># &quot;Fix&quot; problems with missing datapoints producing odd values</span>
+        <span class="c1"># when copied from a masked into an unmasked array.</span>
+        <span class="c1"># TODO: proper masked data handling.</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">isMaskedArray</span><span class="p">(</span><span class="n">source_data</span><span class="p">):</span>
+            <span class="c1"># This is **not** proper mask handling, because we cannot produce a</span>
+            <span class="c1"># masked result, but it ensures we use a &quot;filled&quot; version of the</span>
+            <span class="c1"># input in this case.</span>
+            <span class="n">source_data</span> <span class="o">=</span> <span class="n">source_data</span><span class="o">.</span><span class="n">filled</span><span class="p">()</span>
+        <span class="n">new_cube</span><span class="o">.</span><span class="n">data</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">source_data</span>
+        <span class="c1"># NOTE: we assign to &quot;new_cube.data[:]&quot; and *not* just &quot;new_cube.data&quot;,</span>
+        <span class="c1"># because the existing code produces a default dtype from &#39;np.empty&#39;</span>
+        <span class="c1"># instead of preserving the input dtype.</span>
+        <span class="c1"># TODO: maybe this should be fixed -- i.e. to preserve input dtype ??</span>
+
+        <span class="c1"># Fill in the empty squashed (non derived) coords.</span>
+        <span class="n">column_coords</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">coord</span>
+            <span class="k">for</span> <span class="n">coord</span> <span class="ow">in</span> <span class="n">cube</span><span class="o">.</span><span class="n">dim_coords</span> <span class="o">+</span> <span class="n">cube</span><span class="o">.</span><span class="n">aux_coords</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">squish_my_dims</span><span class="o">.</span><span class="n">isdisjoint</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">coord_dims</span><span class="p">(</span><span class="n">coord</span><span class="p">))</span>
+        <span class="p">]</span>
+        <span class="n">new_cube_coords</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">new_cube</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="n">column_coord</span><span class="o">.</span><span class="n">name</span><span class="p">())</span>
+            <span class="k">for</span> <span class="n">column_coord</span> <span class="ow">in</span> <span class="n">column_coords</span>
+        <span class="p">]</span>
+        <span class="n">all_point_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">column_indexes</span><span class="p">)</span>
+        <span class="n">single_point_test_cube</span> <span class="o">=</span> <span class="n">cube</span><span class="p">[</span><span class="n">column_indexes</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+        <span class="k">for</span> <span class="n">new_cube_coord</span><span class="p">,</span> <span class="n">src_coord</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">new_cube_coords</span><span class="p">,</span> <span class="n">column_coords</span><span class="p">):</span>
+            <span class="c1"># Check structure of the indexed coord (at one selected point).</span>
+            <span class="n">point_coord</span> <span class="o">=</span> <span class="n">single_point_test_cube</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="n">src_coord</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">point_coord</span><span class="o">.</span><span class="n">points</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="s2">&quot;Coord </span><span class="si">{}</span><span class="s2"> at one x-y position has the shape </span><span class="si">{}</span><span class="s2">, &quot;</span>
+                    <span class="s2">&quot;instead of being a single point. &quot;</span>
+                <span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">src_coord</span><span class="o">.</span><span class="n">name</span><span class="p">(),</span> <span class="n">src_coord</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+
+            <span class="c1"># Work out which indices apply to the input coord.</span>
+            <span class="c1"># NOTE: we know how to index the source cube to get a cube with a</span>
+            <span class="c1"># single point for each coord, but this is very inefficient.</span>
+            <span class="c1"># So here, we translate cube indexes into *coord* indexes.</span>
+            <span class="n">src_coord_dims</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">coord_dims</span><span class="p">(</span><span class="n">src_coord</span><span class="p">)</span>
+            <span class="n">fancy_coord_index_arrays</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="nb">list</span><span class="p">(</span><span class="n">all_point_indices</span><span class="p">[:,</span> <span class="n">src_dim</span><span class="p">])</span>
+                <span class="k">for</span> <span class="n">src_dim</span> <span class="ow">in</span> <span class="n">src_coord_dims</span>
+            <span class="p">]</span>
+
+            <span class="c1"># Fill the new coord with all the correct points from the old one.</span>
+            <span class="n">new_cube_coord</span><span class="o">.</span><span class="n">points</span> <span class="o">=</span> <span class="n">src_coord</span><span class="o">.</span><span class="n">points</span><span class="p">[</span>
+                <span class="nb">tuple</span><span class="p">(</span><span class="n">fancy_coord_index_arrays</span><span class="p">)</span>
+            <span class="p">]</span>
+            <span class="c1"># NOTE: the new coords do *not* have bounds.</span>
+
+    <span class="k">return</span> <span class="n">new_cube</span></div>
+
+
+<span class="k">def</span> <span class="nf">_ll_to_cart</span><span class="p">(</span><span class="n">lon</span><span class="p">,</span> <span class="n">lat</span><span class="p">):</span>
+    <span class="c1"># Based on cartopy.img_transform.ll_to_cart().</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="mi">90</span> <span class="o">-</span> <span class="n">lat</span><span class="p">))</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">lon</span><span class="p">))</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="mi">90</span> <span class="o">-</span> <span class="n">lat</span><span class="p">))</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">lon</span><span class="p">))</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="mi">90</span> <span class="o">-</span> <span class="n">lat</span><span class="p">))</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_cartesian_sample_points</span><span class="p">(</span><span class="n">sample_points</span><span class="p">,</span> <span class="n">sample_point_coord_names</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Replace geographic lat/lon with cartesian xyz.</span>
+<span class="sd">    Generates coords suitable for nearest point calculations with</span>
+<span class="sd">    `scipy.spatial.cKDTree`.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">    * sample_points[coord][datum]:</span>
+<span class="sd">        list of sample_positions for each datum, formatted for fast use of</span>
+<span class="sd">        :func:`_ll_to_cart()`.</span>
+
+<span class="sd">    * sample_point_coord_names[coord]:</span>
+<span class="sd">        list of n coord names</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        list of [x,y,z,t,etc] positions, formatted for kdtree.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Find lat and lon coord indices</span>
+    <span class="n">i_lat</span> <span class="o">=</span> <span class="n">i_lon</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">i_non_latlon</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sample_point_coord_names</span><span class="p">)))</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sample_point_coord_names</span><span class="p">):</span>
+        <span class="k">if</span> <span class="s2">&quot;latitude&quot;</span> <span class="ow">in</span> <span class="n">name</span><span class="p">:</span>
+            <span class="n">i_lat</span> <span class="o">=</span> <span class="n">i</span>
+            <span class="n">i_non_latlon</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">i_lat</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s2">&quot;longitude&quot;</span> <span class="ow">in</span> <span class="n">name</span><span class="p">:</span>
+            <span class="n">i_lon</span> <span class="o">=</span> <span class="n">i</span>
+            <span class="n">i_non_latlon</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">i_lon</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">i_lat</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">i_lon</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">sample_points</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+
+    <span class="n">num_points</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">sample_points</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">cartesian_points</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">num_points</span>
+
+    <span class="c1"># Get the point coordinates without the latlon</span>
+    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_points</span><span class="p">):</span>
+        <span class="n">cartesian_points</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">sample_points</span><span class="p">[</span><span class="n">c</span><span class="p">][</span><span class="n">p</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">i_non_latlon</span><span class="p">]</span>
+
+    <span class="c1"># Add cartesian xyz coordinates from latlon</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">_ll_to_cart</span><span class="p">(</span><span class="n">sample_points</span><span class="p">[</span><span class="n">i_lon</span><span class="p">],</span> <span class="n">sample_points</span><span class="p">[</span><span class="n">i_lat</span><span class="p">])</span>
+    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_points</span><span class="p">):</span>
+        <span class="n">cartesian_point</span> <span class="o">=</span> <span class="n">cartesian_points</span><span class="p">[</span><span class="n">p</span><span class="p">]</span>
+        <span class="n">cartesian_point</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">p</span><span class="p">])</span>
+        <span class="n">cartesian_point</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">p</span><span class="p">])</span>
+        <span class="n">cartesian_point</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">z</span><span class="p">[</span><span class="n">p</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">cartesian_points</span>
+
+
+<span class="k">def</span> <span class="nf">_nearest_neighbour_indices_ndcoords</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">sample_points</span><span class="p">,</span> <span class="n">cache</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns the indices to select the data value(s) closest to the given</span>
+<span class="sd">    coordinate point values.</span>
+
+<span class="sd">    &#39;sample_points&#39; is of the form [[coord-or-coord-name, point-value(s)]*].</span>
+<span class="sd">    The lengths of all the point-values sequences must be equal.</span>
+
+<span class="sd">    This function is adapted for points sampling a multi-dimensional coord,</span>
+<span class="sd">    and can currently only do nearest neighbour interpolation.</span>
+
+<span class="sd">    Because this function can be slow for multidimensional coordinates,</span>
+<span class="sd">    a &#39;cache&#39; dictionary can be provided by the calling code.</span>
+
+<span class="sd">    .. Note::</span>
+
+<span class="sd">        If the points are longitudes/latitudes, these are handled correctly as</span>
+<span class="sd">        points on the sphere, but the values must be in &#39;degrees&#39;.</span>
+
+<span class="sd">    Developer notes:</span>
+<span class="sd">    A &quot;sample space cube&quot; is made which only has the coords and dims we are</span>
+<span class="sd">    sampling on.</span>
+<span class="sd">    We get the nearest neighbour using this sample space cube.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">sample_points</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">coord</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="n">sample_points</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">except</span> <span class="p">(</span><span class="ne">KeyError</span><span class="p">,</span> <span class="ne">ValueError</span><span class="p">):</span>
+            <span class="n">emsg</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="s2">&quot;Sample points must be a list of &quot;</span>
+                <span class="s2">&quot;(coordinate, value) pairs, got </span><span class="si">{!r}</span><span class="s2">.&quot;</span>
+            <span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">emsg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sample_points</span><span class="p">))</span>
+
+    <span class="c1"># Convert names to coords in sample_point and reformat sample point values</span>
+    <span class="c1"># for use in `_cartesian_sample_points()`.</span>
+    <span class="n">coord_values</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">sample_point_coords</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">sample_point_coord_names</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">ok_coord_ids</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">cube</span><span class="o">.</span><span class="n">dim_coords</span> <span class="o">+</span> <span class="n">cube</span><span class="o">.</span><span class="n">aux_coords</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">coord</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">sample_points</span><span class="p">:</span>
+        <span class="n">coord</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="n">coord</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">id</span><span class="p">(</span><span class="n">coord</span><span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ok_coord_ids</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="s2">&quot;Invalid sample coordinate </span><span class="si">{!r}</span><span class="s2">: derived coordinates are&quot;</span>
+                <span class="s2">&quot; not allowed.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">coord</span><span class="o">.</span><span class="n">name</span><span class="p">())</span>
+            <span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="n">sample_point_coords</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">coord</span><span class="p">)</span>
+        <span class="n">sample_point_coord_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">coord</span><span class="o">.</span><span class="n">name</span><span class="p">())</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">ndmin</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">coord_values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+    <span class="n">coord_point_lens</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">coord_values</span><span class="p">])</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">coord_point_lens</span> <span class="o">==</span> <span class="n">coord_point_lens</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;All coordinates must have the same number of sample points.&quot;</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+    <span class="n">coord_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">coord_values</span><span class="p">)</span>
+
+    <span class="c1"># Which dims are we sampling?</span>
+    <span class="n">sample_dims</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">coord</span> <span class="ow">in</span> <span class="n">sample_point_coords</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="n">cube</span><span class="o">.</span><span class="n">coord_dims</span><span class="p">(</span><span class="n">coord</span><span class="p">):</span>
+            <span class="n">sample_dims</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span>
+    <span class="n">sample_dims</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">sample_dims</span><span class="p">))</span>
+
+    <span class="c1"># Extract a sub cube that lives in just the sampling space.</span>
+    <span class="n">sample_space_slice</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">cube</span><span class="o">.</span><span class="n">ndim</span>
+    <span class="k">for</span> <span class="n">sample_dim</span> <span class="ow">in</span> <span class="n">sample_dims</span><span class="p">:</span>
+        <span class="n">sample_space_slice</span><span class="p">[</span><span class="n">sample_dim</span><span class="p">]</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="n">sample_space_slice</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">sample_space_slice</span><span class="p">)</span>
+    <span class="n">sample_space_cube</span> <span class="o">=</span> <span class="n">cube</span><span class="p">[</span><span class="n">sample_space_slice</span><span class="p">]</span>
+
+    <span class="c1"># Just the sampling coords.</span>
+    <span class="k">for</span> <span class="n">coord</span> <span class="ow">in</span> <span class="n">sample_space_cube</span><span class="o">.</span><span class="n">coords</span><span class="p">():</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">coord</span><span class="o">.</span><span class="n">name</span><span class="p">()</span> <span class="ow">in</span> <span class="n">sample_point_coord_names</span><span class="p">:</span>
+            <span class="n">sample_space_cube</span><span class="o">.</span><span class="n">remove_coord</span><span class="p">(</span><span class="n">coord</span><span class="p">)</span>
+
+    <span class="c1"># Order the sample point coords according to the sample space cube coords.</span>
+    <span class="n">sample_space_coord_names</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">coord</span><span class="o">.</span><span class="n">name</span><span class="p">()</span> <span class="k">for</span> <span class="n">coord</span> <span class="ow">in</span> <span class="n">sample_space_cube</span><span class="o">.</span><span class="n">coords</span><span class="p">()</span>
+    <span class="p">]</span>
+    <span class="n">new_order</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">sample_space_coord_names</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">sample_point_coord_names</span>
+    <span class="p">]</span>
+    <span class="n">coord_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">coord_values</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">new_order</span><span class="p">])</span>
+    <span class="n">sample_point_coord_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">sample_point_coord_names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">new_order</span><span class="p">]</span>
+
+    <span class="n">sample_space_coords</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">sample_space_cube</span><span class="o">.</span><span class="n">dim_coords</span> <span class="o">+</span> <span class="n">sample_space_cube</span><span class="o">.</span><span class="n">aux_coords</span>
+    <span class="p">)</span>
+    <span class="n">sample_space_coords_and_dims</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">(</span><span class="n">coord</span><span class="p">,</span> <span class="n">sample_space_cube</span><span class="o">.</span><span class="n">coord_dims</span><span class="p">(</span><span class="n">coord</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">coord</span> <span class="ow">in</span> <span class="n">sample_space_coords</span>
+    <span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">cache</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">cube</span> <span class="ow">in</span> <span class="n">cache</span><span class="p">:</span>
+        <span class="n">kdtree</span> <span class="o">=</span> <span class="n">cache</span><span class="p">[</span><span class="n">cube</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># Create a &quot;sample space position&quot; for each</span>
+        <span class="c1"># `datum.sample_space_data_positions[coord_index][datum_index]`.</span>
+        <span class="n">sample_space_data_positions</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span>
+            <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sample_space_coords_and_dims</span><span class="p">),</span> <span class="n">sample_space_cube</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">size</span><span class="p">),</span>
+            <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="k">for</span> <span class="n">d</span><span class="p">,</span> <span class="n">ndi</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ndindex</span><span class="p">(</span><span class="n">sample_space_cube</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">)):</span>
+            <span class="k">for</span> <span class="n">c</span><span class="p">,</span> <span class="p">(</span><span class="n">coord</span><span class="p">,</span> <span class="n">coord_dims</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span>
+                <span class="n">sample_space_coords_and_dims</span>
+            <span class="p">):</span>
+                <span class="c1"># Index of this datum along this coordinate (could be nD).</span>
+                <span class="k">if</span> <span class="n">coord_dims</span><span class="p">:</span>
+                    <span class="n">keys</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">ndi</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span> <span class="k">for</span> <span class="n">ind</span> <span class="ow">in</span> <span class="n">coord_dims</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">keys</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+                <span class="c1"># Position of this datum along this coordinate.</span>
+                <span class="n">sample_space_data_positions</span><span class="p">[</span><span class="n">c</span><span class="p">][</span><span class="n">d</span><span class="p">]</span> <span class="o">=</span> <span class="n">coord</span><span class="o">.</span><span class="n">points</span><span class="p">[</span><span class="n">keys</span><span class="p">]</span>
+
+        <span class="c1"># Convert to cartesian coordinates. Flatten for kdtree compatibility.</span>
+        <span class="n">cartesian_space_data_coords</span> <span class="o">=</span> <span class="n">_cartesian_sample_points</span><span class="p">(</span>
+            <span class="n">sample_space_data_positions</span><span class="p">,</span> <span class="n">sample_point_coord_names</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Create a kdtree for the nearest-distance lookup to these 3d points.</span>
+        <span class="n">kdtree</span> <span class="o">=</span> <span class="n">cKDTree</span><span class="p">(</span><span class="n">cartesian_space_data_coords</span><span class="p">)</span>
+        <span class="c1"># This can find the nearest datum point to any given target point,</span>
+        <span class="c1"># which is the goal of this function.</span>
+
+    <span class="c1"># Update cache.</span>
+    <span class="k">if</span> <span class="n">cache</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">cache</span><span class="p">[</span><span class="n">cube</span><span class="p">]</span> <span class="o">=</span> <span class="n">kdtree</span>
+
+    <span class="c1"># Convert the sample points to cartesian (3d) coords.</span>
+    <span class="c1"># If there is no latlon within the coordinate there will be no change.</span>
+    <span class="c1"># Otherwise, geographic latlon is replaced with cartesian xyz.</span>
+    <span class="n">cartesian_sample_points</span> <span class="o">=</span> <span class="n">_cartesian_sample_points</span><span class="p">(</span>
+        <span class="n">coord_values</span><span class="p">,</span> <span class="n">sample_point_coord_names</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Use kdtree to get the nearest sourcepoint index for each target point.</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">datum_index_lists</span> <span class="o">=</span> <span class="n">kdtree</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">cartesian_sample_points</span><span class="p">)</span>
+
+    <span class="c1"># Convert flat indices back into multidimensional sample-space indices.</span>
+    <span class="n">sample_space_dimension_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unravel_index</span><span class="p">(</span>
+        <span class="n">datum_index_lists</span><span class="p">,</span> <span class="n">sample_space_cube</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span>
+    <span class="p">)</span>
+    <span class="c1"># Convert this from &quot;pointwise list of index arrays for each dimension&quot;,</span>
+    <span class="c1"># to &quot;list of cube indices for each point&quot;.</span>
+    <span class="n">sample_space_ndis</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">sample_space_dimension_indices</span><span class="p">)</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+
+    <span class="c1"># For the returned result, we must convert these indices into the source</span>
+    <span class="c1"># (sample-space) cube, to equivalent indices into the target &#39;cube&#39;.</span>
+
+    <span class="c1"># Make a result array: (cube.ndim * &lt;index&gt;), per sample point.</span>
+    <span class="n">n_points</span> <span class="o">=</span> <span class="n">coord_values</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">main_cube_slices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">n_points</span><span class="p">,</span> <span class="n">cube</span><span class="o">.</span><span class="n">ndim</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">)</span>
+    <span class="c1"># Initialise so all unused indices are &quot;:&quot;.</span>
+    <span class="n">main_cube_slices</span><span class="p">[:]</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+
+    <span class="c1"># Move result indices according to the source (sample) and target (cube)</span>
+    <span class="c1"># dimension mappings.</span>
+    <span class="k">for</span> <span class="n">sample_coord</span><span class="p">,</span> <span class="n">sample_coord_dims</span> <span class="ow">in</span> <span class="n">sample_space_coords_and_dims</span><span class="p">:</span>
+        <span class="c1"># Find the coord in the main cube</span>
+        <span class="n">main_coord</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="n">sample_coord</span><span class="o">.</span><span class="n">name</span><span class="p">())</span>
+        <span class="n">main_coord_dims</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">coord_dims</span><span class="p">(</span><span class="n">main_coord</span><span class="p">)</span>
+        <span class="c1"># Fill nearest-point data indices for each coord dimension.</span>
+        <span class="k">for</span> <span class="n">sample_i</span><span class="p">,</span> <span class="n">main_i</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">sample_coord_dims</span><span class="p">,</span> <span class="n">main_coord_dims</span><span class="p">):</span>
+            <span class="n">main_cube_slices</span><span class="p">[:,</span> <span class="n">main_i</span><span class="p">]</span> <span class="o">=</span> <span class="n">sample_space_ndis</span><span class="p">[:,</span> <span class="n">sample_i</span><span class="p">]</span>
+
+    <span class="c1"># Return as a list of **tuples** : required for correct indexing usage.</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="nb">tuple</span><span class="p">(</span><span class="n">inds</span><span class="p">)</span> <span class="k">for</span> <span class="n">inds</span> <span class="ow">in</span> <span class="n">main_cube_slices</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+
+<div class="viewcode-block" id="UnstructuredNearestNeigbourRegridder"><a class="viewcode-back" href="../../../generated/api/iris/analysis/trajectory.html#iris.analysis.trajectory.UnstructuredNearestNeigbourRegridder">[docs]</a><span class="k">class</span> <span class="nc">UnstructuredNearestNeigbourRegridder</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Encapsulate the operation of :meth:`iris.analysis.trajectory.interpolate`</span>
+<span class="sd">    with given source and target grids.</span>
+
+<span class="sd">    This is the type used by the :class:`~iris.analysis.UnstructuredNearest`</span>
+<span class="sd">    regridding scheme.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># TODO: cache the necessary bits of the operation so re-use can actually</span>
+    <span class="c1"># be more efficient.</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">src_cube</span><span class="p">,</span> <span class="n">target_grid_cube</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        A nearest-neighbour regridder to perform regridding from the source</span>
+<span class="sd">        grid to the target grid.</span>
+
+<span class="sd">        This can then be applied to any source data with the same structure as</span>
+<span class="sd">        the original &#39;src_cube&#39;.</span>
+
+<span class="sd">        Args:</span>
+
+<span class="sd">        * src_cube:</span>
+<span class="sd">            The :class:`~iris.cube.Cube` defining the source grid.</span>
+<span class="sd">            The X and Y coordinates can have any shape, but must be mapped over</span>
+<span class="sd">            the same cube dimensions.</span>
+
+<span class="sd">        * target_grid_cube:</span>
+<span class="sd">            A :class:`~iris.cube.Cube`, whose X and Y coordinates specify a</span>
+<span class="sd">            desired target grid.</span>
+<span class="sd">            The X and Y coordinates must be one-dimensional dimension</span>
+<span class="sd">            coordinates, mapped to different dimensions.</span>
+<span class="sd">            All other cube components are ignored.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            regridder : (object)</span>
+
+<span class="sd">            A callable object with the interface:</span>
+<span class="sd">                `result_cube = regridder(data)`</span>
+
+<span class="sd">            where `data` is a cube with the same grid as the original</span>
+<span class="sd">            `src_cube`, that is to be regridded to the `target_grid_cube`.</span>
+
+<span class="sd">        .. Note::</span>
+
+<span class="sd">            For latitude-longitude coordinates, the nearest-neighbour distances</span>
+<span class="sd">            are computed on the sphere, otherwise flat Euclidean distances are</span>
+<span class="sd">            used.</span>
+
+<span class="sd">            The source and target X and Y coordinates must all have the same</span>
+<span class="sd">            coordinate system, which may also be None.</span>
+<span class="sd">            If any X and Y coordinates are latitudes or longitudes, they *all*</span>
+<span class="sd">            must be.  Otherwise, the corresponding X and Y coordinates must</span>
+<span class="sd">            have the same units in the source and grid cubes.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Make a copy of the source cube, so we can convert coordinate units.</span>
+        <span class="n">src_cube</span> <span class="o">=</span> <span class="n">src_cube</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+        <span class="c1"># Snapshot the target grid and check it is a &quot;normal&quot; grid.</span>
+        <span class="n">tgt_x_coord</span><span class="p">,</span> <span class="n">tgt_y_coord</span> <span class="o">=</span> <span class="n">snapshot_grid</span><span class="p">(</span><span class="n">target_grid_cube</span><span class="p">)</span>
+
+        <span class="c1"># Check that the source has unique X and Y coords over common dims.</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">src_cube</span><span class="o">.</span><span class="n">coords</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">src_cube</span><span class="o">.</span><span class="n">coords</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">):</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Source cube must have X- and Y-axis coordinates.&quot;</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="n">src_x_coord</span> <span class="o">=</span> <span class="n">src_cube</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+        <span class="n">src_y_coord</span> <span class="o">=</span> <span class="n">src_cube</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">src_cube</span><span class="o">.</span><span class="n">coord_dims</span><span class="p">(</span><span class="n">src_x_coord</span><span class="p">)</span> <span class="o">!=</span> <span class="n">src_cube</span><span class="o">.</span><span class="n">coord_dims</span><span class="p">(</span>
+            <span class="n">src_y_coord</span>
+        <span class="p">):</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="s2">&quot;Source cube X and Y coordinates must have the same &quot;</span>
+                <span class="s2">&quot;cube dimensions.&quot;</span>
+            <span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+        <span class="c1"># Record *copies* of the original grid coords, in the desired</span>
+        <span class="c1"># dimension order.</span>
+        <span class="c1"># This lets us convert the actual ones in use to units of &quot;degrees&quot;.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">src_grid_coords</span> <span class="o">=</span> <span class="p">[</span><span class="n">src_y_coord</span><span class="o">.</span><span class="n">copy</span><span class="p">(),</span> <span class="n">src_x_coord</span><span class="o">.</span><span class="n">copy</span><span class="p">()]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tgt_grid_coords</span> <span class="o">=</span> <span class="p">[</span><span class="n">tgt_y_coord</span><span class="o">.</span><span class="n">copy</span><span class="p">(),</span> <span class="n">tgt_x_coord</span><span class="o">.</span><span class="n">copy</span><span class="p">()]</span>
+
+        <span class="c1"># Check that all XY coords have suitable coordinate systems and units.</span>
+        <span class="n">coords_all</span> <span class="o">=</span> <span class="p">[</span><span class="n">src_x_coord</span><span class="p">,</span> <span class="n">src_y_coord</span><span class="p">,</span> <span class="n">tgt_x_coord</span><span class="p">,</span> <span class="n">tgt_y_coord</span><span class="p">]</span>
+        <span class="n">cs</span> <span class="o">=</span> <span class="n">coords_all</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">coord_system</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="n">coord</span><span class="o">.</span><span class="n">coord_system</span> <span class="o">==</span> <span class="n">cs</span> <span class="k">for</span> <span class="n">coord</span> <span class="ow">in</span> <span class="n">coords_all</span><span class="p">):</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="s2">&quot;Source and target cube X and Y coordinates must all have &quot;</span>
+                <span class="s2">&quot;the same coordinate system.&quot;</span>
+            <span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+        <span class="c1"># Check *all* X and Y coords are lats+lons, if any are.</span>
+        <span class="n">latlons</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="s2">&quot;latitude&quot;</span> <span class="ow">in</span> <span class="n">coord</span><span class="o">.</span><span class="n">name</span><span class="p">()</span> <span class="ow">or</span> <span class="s2">&quot;longitude&quot;</span> <span class="ow">in</span> <span class="n">coord</span><span class="o">.</span><span class="n">name</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">coord</span> <span class="ow">in</span> <span class="n">coords_all</span>
+        <span class="p">]</span>
+        <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">latlons</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="n">latlons</span><span class="p">):</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="s2">&quot;If any X and Y coordinates are latitudes/longitudes, &quot;</span>
+                <span class="s2">&quot;then they all must be.&quot;</span>
+            <span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">grid_is_latlon</span> <span class="o">=</span> <span class="nb">any</span><span class="p">(</span><span class="n">latlons</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">grid_is_latlon</span><span class="p">:</span>
+            <span class="c1"># Convert all XY coordinates to units of &quot;degrees&quot;.</span>
+            <span class="c1"># N.B. already copied the target grid, so the result matches that.</span>
+            <span class="k">for</span> <span class="n">coord</span> <span class="ow">in</span> <span class="n">coords_all</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">coord</span><span class="o">.</span><span class="n">convert_units</span><span class="p">(</span><span class="s2">&quot;degrees&quot;</span><span class="p">)</span>
+                <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                    <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+                        <span class="s2">&quot;Coordinate </span><span class="si">{!r}</span><span class="s2"> has units of </span><span class="si">{!r}</span><span class="s2">, which does not &quot;</span>
+                        <span class="s1">&#39;convert to &quot;degrees&quot;.&#39;</span>
+                    <span class="p">)</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                        <span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">coord</span><span class="o">.</span><span class="n">name</span><span class="p">(),</span> <span class="nb">str</span><span class="p">(</span><span class="n">coord</span><span class="o">.</span><span class="n">units</span><span class="p">))</span>
+                    <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Check that source and target have the same X and Y units.</span>
+            <span class="k">if</span> <span class="p">(</span>
+                <span class="n">src_x_coord</span><span class="o">.</span><span class="n">units</span> <span class="o">!=</span> <span class="n">tgt_x_coord</span><span class="o">.</span><span class="n">units</span>
+                <span class="ow">or</span> <span class="n">src_y_coord</span><span class="o">.</span><span class="n">units</span> <span class="o">!=</span> <span class="n">tgt_y_coord</span><span class="o">.</span><span class="n">units</span>
+            <span class="p">):</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="s2">&quot;Source and target cube X and Y coordinates must &quot;</span>
+                    <span class="s2">&quot;have the same units.&quot;</span>
+                <span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+        <span class="c1"># Record the resulting grid shape.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tgt_grid_shape</span> <span class="o">=</span> <span class="n">tgt_y_coord</span><span class="o">.</span><span class="n">shape</span> <span class="o">+</span> <span class="n">tgt_x_coord</span><span class="o">.</span><span class="n">shape</span>
+
+        <span class="c1"># Calculate sample points as 2d arrays, like broadcast (NY,1)*(1,NX).</span>
+        <span class="n">x_2d</span><span class="p">,</span> <span class="n">y_2d</span> <span class="o">=</span> <span class="n">_meshgrid</span><span class="p">(</span><span class="n">tgt_x_coord</span><span class="o">.</span><span class="n">points</span><span class="p">,</span> <span class="n">tgt_y_coord</span><span class="o">.</span><span class="n">points</span><span class="p">)</span>
+        <span class="c1"># Cast as a &quot;trajectory&quot;, to suit the method used.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">trajectory</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="p">(</span><span class="n">tgt_x_coord</span><span class="o">.</span><span class="n">name</span><span class="p">(),</span> <span class="n">x_2d</span><span class="o">.</span><span class="n">flatten</span><span class="p">()),</span>
+            <span class="p">(</span><span class="n">tgt_y_coord</span><span class="o">.</span><span class="n">name</span><span class="p">(),</span> <span class="n">y_2d</span><span class="o">.</span><span class="n">flatten</span><span class="p">()),</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">src_cube</span><span class="p">):</span>
+        <span class="c1"># Check the source cube X and Y coords match the original.</span>
+        <span class="c1"># Note: for now, this is sufficient to ensure a valid trajectory</span>
+        <span class="c1"># interpolation, but if in future we save + re-use the cache context</span>
+        <span class="c1"># for the &#39;interpolate&#39; call, we may need more checks here.</span>
+
+        <span class="c1"># Check the given cube against the original.</span>
+        <span class="n">x_cos</span> <span class="o">=</span> <span class="n">src_cube</span><span class="o">.</span><span class="n">coords</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+        <span class="n">y_cos</span> <span class="o">=</span> <span class="n">src_cube</span><span class="o">.</span><span class="n">coords</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span>
+            <span class="ow">not</span> <span class="n">x_cos</span>
+            <span class="ow">or</span> <span class="ow">not</span> <span class="n">y_cos</span>
+            <span class="ow">or</span> <span class="n">y_cos</span> <span class="o">!=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">src_grid_coords</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+            <span class="ow">or</span> <span class="n">x_cos</span> <span class="o">!=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">src_grid_coords</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+        <span class="p">):</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="s2">&quot;The given cube is not defined on the same source &quot;</span>
+                <span class="s2">&quot;grid as this regridder.&quot;</span>
+            <span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+        <span class="c1"># Convert source XY coordinates to degrees if required.</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">grid_is_latlon</span><span class="p">:</span>
+            <span class="n">src_cube</span> <span class="o">=</span> <span class="n">src_cube</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="n">src_cube</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">convert_units</span><span class="p">(</span><span class="s2">&quot;degrees&quot;</span><span class="p">)</span>
+            <span class="n">src_cube</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">convert_units</span><span class="p">(</span><span class="s2">&quot;degrees&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Get the basic interpolated results.</span>
+        <span class="n">result_trajectory_cube</span> <span class="o">=</span> <span class="n">interpolate</span><span class="p">(</span>
+            <span class="n">src_cube</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">trajectory</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;nearest&quot;</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Reconstruct this as a cube &quot;like&quot; the source data.</span>
+        <span class="c1"># TODO: handle all aux-coords, cell measures ??</span>
+
+        <span class="c1"># The shape is that of the basic result, minus the trajectory (last)</span>
+        <span class="c1"># dimension, plus the target grid dimensions.</span>
+        <span class="n">target_shape</span> <span class="o">=</span> <span class="n">result_trajectory_cube</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">tgt_grid_shape</span>
+        <span class="n">data_2d_x_and_y</span> <span class="o">=</span> <span class="n">result_trajectory_cube</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">target_shape</span><span class="p">)</span>
+
+        <span class="c1"># Make a new result cube with the reshaped data.</span>
+        <span class="n">result_cube</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">cube</span><span class="o">.</span><span class="n">Cube</span><span class="p">(</span><span class="n">data_2d_x_and_y</span><span class="p">)</span>
+        <span class="n">result_cube</span><span class="o">.</span><span class="n">metadata</span> <span class="o">=</span> <span class="n">src_cube</span><span class="o">.</span><span class="n">metadata</span>
+
+        <span class="c1"># Copy all the coords from the trajectory result.</span>
+        <span class="n">i_trajectory_dim</span> <span class="o">=</span> <span class="n">result_trajectory_cube</span><span class="o">.</span><span class="n">ndim</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="k">for</span> <span class="n">coord</span> <span class="ow">in</span> <span class="n">result_trajectory_cube</span><span class="o">.</span><span class="n">dim_coords</span><span class="p">:</span>
+            <span class="n">dims</span> <span class="o">=</span> <span class="n">result_trajectory_cube</span><span class="o">.</span><span class="n">coord_dims</span><span class="p">(</span><span class="n">coord</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">i_trajectory_dim</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">dims</span><span class="p">:</span>
+                <span class="n">result_cube</span><span class="o">.</span><span class="n">add_dim_coord</span><span class="p">(</span><span class="n">coord</span><span class="o">.</span><span class="n">copy</span><span class="p">(),</span> <span class="n">dims</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">coord</span> <span class="ow">in</span> <span class="n">result_trajectory_cube</span><span class="o">.</span><span class="n">aux_coords</span><span class="p">:</span>
+            <span class="n">dims</span> <span class="o">=</span> <span class="n">result_trajectory_cube</span><span class="o">.</span><span class="n">coord_dims</span><span class="p">(</span><span class="n">coord</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">i_trajectory_dim</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">dims</span><span class="p">:</span>
+                <span class="n">result_cube</span><span class="o">.</span><span class="n">add_aux_coord</span><span class="p">(</span><span class="n">coord</span><span class="o">.</span><span class="n">copy</span><span class="p">(),</span> <span class="n">dims</span><span class="p">)</span>
+
+        <span class="c1"># Add the X+Y grid coords from the grid cube, mapped to the new Y and X</span>
+        <span class="c1"># dimensions, i.e. the last 2.</span>
+        <span class="k">for</span> <span class="n">i_dim</span><span class="p">,</span> <span class="n">coord</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tgt_grid_coords</span><span class="p">):</span>
+            <span class="n">result_cube</span><span class="o">.</span><span class="n">add_dim_coord</span><span class="p">(</span><span class="n">coord</span><span class="o">.</span><span class="n">copy</span><span class="p">(),</span> <span class="n">i_dim</span> <span class="o">+</span> <span class="n">i_trajectory_dim</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">result_cube</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        
+        &copy; <a href="../../../copyright.html">Copyright</a> Iris Contributors
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

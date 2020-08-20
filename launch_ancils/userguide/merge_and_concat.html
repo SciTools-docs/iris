@@ -1,93 +1,255 @@
 
-<!DOCTYPE html>
 
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>9. Merge and Concatenate &#8212; Iris 3.0.dev0 documentation</title>
-    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Merge and concatenate &mdash; Iris 3.0.dev0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/theme_override.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-dataframe.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
-    <link rel="next" title="10. Cube statistics" href="cube_statistics.html" />
-    <link rel="prev" title="8. Cube interpolation and regridding" href="interpolation_and_regridding.html" />
- 
-    <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
-    <META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE"> 
+    <link rel="next" title="Cube statistics" href="cube_statistics.html" />
+    <link rel="prev" title="Cube interpolation and regridding" href="interpolation_and_regridding.html" /> 
+</head>
 
-    <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    <script type="text/javascript" src="https://docs.python.org/2/_static/copybutton.js"></script>
+<body class="wy-body-for-nav">
 
-    <link rel="icon" type="image/png" sizes="32x32" href="../_static/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../_static/favicon-16x16.png">
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
 
-    <link href="https://fonts.googleapis.com/css?family=Alike|Noto+Sans" rel="stylesheet">
+          
+            <a href="../index.html">
+          
 
-  </head><body>
+          
+            
+            <img src="../_static/iris-logo-title.png" class="logo" alt="Logo"/>
+          
+          </a>
 
-<a href="https://github.com/SciTools/iris">
-    <img class="github-forkme" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"
-         alt="Fork Iris on GitHub" />
-</a>
+          
+            
+            
+              <div class="version">
+                3.0
+              </div>
+            
+          
 
-
-<div class="header-content">
-    <a href="../index.html">
-        <img src="../_static/Iris7_1_trim_100.png" alt="Iris logo" />
-    </a>
-    <div class="strapline">
-      <h1>
-          Iris <span class="version">v3.0</span>
-      </h1>
-      <p>
-         A powerful, format-agnostic, community-driven Python library for analysing and
-         visualising Earth science data.
-      </p>
-    </div>
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
 </div>
 
+          
+        </div>
 
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="../py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="cube_statistics.html" title="10. Cube statistics"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="interpolation_and_regridding.html" title="8. Cube interpolation and regridding"
-             accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">home</a>|&nbsp;</li>
-        <li><a href="../examples/index.html">examples</a>|&nbsp;</li>
-        <li><a href="../gallery.html">gallery</a>|&nbsp;</li>
-        <li><a href="../contents.html">contents</a>|&nbsp;</li>
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installing.html">Installing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../generated/gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iris_cubes.html">Iris data structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loading_iris_cubes.html">Loading Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="saving_iris_cubes.html">Saving Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="navigating_a_cube.html">Navigating a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="subsetting_a_cube.html">Subsetting a Cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="real_and_lazy_data.html">Real and Lazy Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plotting_a_cube.html">Plotting a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interpolation_and_regridding.html">Cube interpolation and regridding</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Merge and concatenate</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#merge">Merge</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#using-cubelist-merge">Using CubeList.merge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-cubelist-merge-cube">Using CubeList.merge_cube</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#merge-in-iris-load">Merge in Iris load</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#concatenate">Concatenate</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#using-cubelist-concatenate">Using CubeList.concatenate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-cubelist-concatenate-cube">Using CubeList.concatenate_cube</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#common-issues-with-merge-and-concatenate">Common issues with merge and concatenate</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Merge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Concatenate</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cube_statistics.html">Cube statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cube_maths.html">Basic cube mathematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="citation.html">Citing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code_maintenance.html">Code maintenance</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developers Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/contributing_documentation.html">Contributing to the documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/documenting/index.html">Documentation in Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/gitwash/index.html">Working with <em>iris</em> source code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/code_format.html">Code formatting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/pulls.html">Pull request check List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/tests.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/deprecations.html">Deprecations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/release.html">Releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../generated/api/iris.html">Iris API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../whatsnew/index.html">What’s new in Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../techpapers/index.html">Iris Technical Papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../copyright.html">Iris copyright, licensing and contributors</a></li>
+</ul>
 
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Iris user guide</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href=""><span class="section-number">9. </span>Merge and Concatenate</a></li> 
-      </ul>
-    </div>
+            
+          
+
+    
+    
+    
+        <p class="caption">
+            <span class="caption-text">
+            
+                Support
+            
+            </span>
+        </p>
+        <ul>
+            
+                <li class="toctree-l1"><a href="https://github.com/SciTools/iris"><i class="fa fa-github fa-fw"></i> Source Code</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris"><i class="fa fa-comments fa-fw"></i> Users Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris-dev"><i class="fa fa-comments fa-fw"></i> Developers Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://stackoverflow.com/questions/tagged/python-iris"><i class="fa fa-question fa-fw"></i> StackOverflow For "How do I?"</a></li>
+            
+                <li class="toctree-l1"><a href="https://scitools.org.uk/iris/docs/v2.4.0/index.html"><i class="fa fa-book fa-fw"></i> Legacy documentation</a></li>
+            
+        </ul>
+    
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Iris</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Merge and concatenate</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/userguide/merge_and_concat.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
   
-
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
             
   <div class="section" id="merge-and-concatenate">
-<span id="merge-and-concat"></span><h1><span class="section-number">9. </span>Merge and Concatenate<a class="headerlink" href="#merge-and-concatenate" title="Permalink to this headline">¶</a></h1>
+<span id="merge-and-concat"></span><h1>Merge and concatenate<a class="headerlink" href="#merge-and-concatenate" title="Permalink to this headline">¶</a></h1>
 <p>We saw in the <a class="reference internal" href="loading_iris_cubes.html"><span class="doc">Loading Iris cubes</span></a> chapter that Iris tries to load as few cubes as
 possible. This is done by collecting together multiple fields with a shared standard
 name (and other key metadata) into a single multidimensional cube. The processes that
@@ -112,15 +274,15 @@ sequential dimension coordinates</em>.</p></li>
 </div></blockquote>
 <p>Let’s imagine 28 individual cubes representing the
 temperature at a location <code class="docutils literal notranslate"><span class="pre">(y,</span> <span class="pre">x)</span></code>; one cube for each day of February. We can use
-<a class="reference internal" href="../iris/iris/cube.html#iris.cube.CubeList.merge" title="iris.cube.CubeList.merge"><code class="xref py py-meth docutils literal notranslate"><span class="pre">merge()</span></code></a> to combine the 28 <code class="docutils literal notranslate"><span class="pre">(y,</span> <span class="pre">x)</span></code> cubes into
+<a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.CubeList.merge" title="iris.cube.CubeList.merge"><code class="xref py py-meth docutils literal notranslate"><span class="pre">merge()</span></code></a> to combine the 28 <code class="docutils literal notranslate"><span class="pre">(y,</span> <span class="pre">x)</span></code> cubes into
 a single <code class="docutils literal notranslate"><span class="pre">(t,</span> <span class="pre">y,</span> <span class="pre">x)</span></code> cube, where the length of the <code class="docutils literal notranslate"><span class="pre">t</span></code> dimension is 28.</p>
 <p>Now imagine 12 individual cubes representing daily temperature at a time and
 location <code class="docutils literal notranslate"><span class="pre">(t,</span> <span class="pre">y,</span> <span class="pre">x)</span></code>; one cube for each month in the year. We can use
-<a class="reference internal" href="../iris/iris/cube.html#iris.cube.CubeList.concatenate" title="iris.cube.CubeList.concatenate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">concatenate()</span></code></a> to combine the 12
+<a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.CubeList.concatenate" title="iris.cube.CubeList.concatenate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">concatenate()</span></code></a> to combine the 12
 <code class="docutils literal notranslate"><span class="pre">(t,</span> <span class="pre">y,</span> <span class="pre">x)</span></code> cubes into a single <code class="docutils literal notranslate"><span class="pre">(t,</span> <span class="pre">y,</span> <span class="pre">x)</span></code> cube, where the length
 of the <code class="docutils literal notranslate"><span class="pre">t</span></code> dimension is now 365.</p>
 <div class="section" id="merge">
-<h2><span class="section-number">9.1. </span>Merge<a class="headerlink" href="#merge" title="Permalink to this headline">¶</a></h2>
+<h2>Merge<a class="headerlink" href="#merge" title="Permalink to this headline">¶</a></h2>
 <p>We’ve seen that the <code class="docutils literal notranslate"><span class="pre">merge</span></code> process combines multiple input cubes into a
 single resultant cube with new dimensions created from the
 <em>scalar coordinate values</em> of the input cubes.</p>
@@ -137,14 +299,14 @@ other aspects of the input cubes must be consistent across all of the input cube
 covered in the <a class="reference internal" href="#merge-concat-common-issues"><span class="std std-ref">Common issues with merge and concatenate</span></a> section.</p>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">merge</span></code> process can be accessed using two methods. The two methods are
-<a class="reference internal" href="../iris/iris/cube.html#iris.cube.CubeList.merge" title="iris.cube.CubeList.merge"><code class="xref py py-meth docutils literal notranslate"><span class="pre">merge()</span></code></a> and <a class="reference internal" href="../iris/iris/cube.html#iris.cube.CubeList.merge_cube" title="iris.cube.CubeList.merge_cube"><code class="xref py py-meth docutils literal notranslate"><span class="pre">merge_cube()</span></code></a>,
+<a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.CubeList.merge" title="iris.cube.CubeList.merge"><code class="xref py py-meth docutils literal notranslate"><span class="pre">merge()</span></code></a> and <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.CubeList.merge_cube" title="iris.cube.CubeList.merge_cube"><code class="xref py py-meth docutils literal notranslate"><span class="pre">merge_cube()</span></code></a>,
 which are described below.</p>
 <div class="section" id="using-cubelist-merge">
-<h3><span class="section-number">9.1.1. </span>Using CubeList.merge<a class="headerlink" href="#using-cubelist-merge" title="Permalink to this headline">¶</a></h3>
-<p>The <a class="reference internal" href="../iris/iris/cube.html#iris.cube.CubeList.merge" title="iris.cube.CubeList.merge"><code class="xref py py-meth docutils literal notranslate"><span class="pre">CubeList.merge</span></code></a> method operates on a list
-of cubes and returns a new <a class="reference internal" href="../iris/iris/cube.html#iris.cube.CubeList" title="iris.cube.CubeList"><code class="xref py py-class docutils literal notranslate"><span class="pre">CubeList</span></code></a> containing the cubes
+<h3>Using CubeList.merge<a class="headerlink" href="#using-cubelist-merge" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.CubeList.merge" title="iris.cube.CubeList.merge"><code class="xref py py-meth docutils literal notranslate"><span class="pre">CubeList.merge</span></code></a> method operates on a list
+of cubes and returns a new <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.CubeList" title="iris.cube.CubeList"><code class="xref py py-class docutils literal notranslate"><span class="pre">CubeList</span></code></a> containing the cubes
 that have been merged.</p>
-<p>Let’s have a look at the <a class="reference internal" href="../iris/iris/cube.html#iris.cube.CubeList.merge" title="iris.cube.CubeList.merge"><code class="xref py py-meth docutils literal notranslate"><span class="pre">merge()</span></code></a> method in operation.
+<p>Let’s have a look at the <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.CubeList.merge" title="iris.cube.CubeList.merge"><code class="xref py py-meth docutils literal notranslate"><span class="pre">merge()</span></code></a> method in operation.
 In this example we have a list of three lateral (<em>x</em>, <em>y</em>) cubes in a
 variable called <code class="docutils literal notranslate"><span class="pre">cubes</span></code>, each with a scalar <code class="docutils literal notranslate"><span class="pre">z</span></code> coordinate of
 differing value. We can merge these cubes by stacking the scalar <code class="docutils literal notranslate"><span class="pre">z</span></code> coordinates to
@@ -178,21 +340,21 @@ make a new <code class="docutils literal notranslate"><span class="pre">z</span>
 <img alt="Pictographic of merge." class="align-center" src="../_images/merge.png" />
 <p>The diagram illustrates that we have three input cubes of identical shape
 that stack on the <code class="docutils literal notranslate"><span class="pre">z</span></code> dimension.
-After merging our three input cubes we get a new <a class="reference internal" href="../iris/iris/cube.html#iris.cube.CubeList" title="iris.cube.CubeList"><code class="xref py py-class docutils literal notranslate"><span class="pre">CubeList</span></code></a> containing
+After merging our three input cubes we get a new <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.CubeList" title="iris.cube.CubeList"><code class="xref py py-class docutils literal notranslate"><span class="pre">CubeList</span></code></a> containing
 one cube with a new <code class="docutils literal notranslate"><span class="pre">z</span></code> coordinate.</p>
 </div>
 <div class="section" id="using-cubelist-merge-cube">
-<h3><span class="section-number">9.1.2. </span>Using CubeList.merge_cube<a class="headerlink" href="#using-cubelist-merge-cube" title="Permalink to this headline">¶</a></h3>
-<p>The <a class="reference internal" href="../iris/iris/cube.html#iris.cube.CubeList.merge_cube" title="iris.cube.CubeList.merge_cube"><code class="xref py py-meth docutils literal notranslate"><span class="pre">merge_cube()</span></code></a> method guarantees that <em>exactly one cube will be returned</em>
+<h3>Using CubeList.merge_cube<a class="headerlink" href="#using-cubelist-merge-cube" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.CubeList.merge_cube" title="iris.cube.CubeList.merge_cube"><code class="xref py py-meth docutils literal notranslate"><span class="pre">merge_cube()</span></code></a> method guarantees that <em>exactly one cube will be returned</em>
 as a result of merging the input cubes.
-If <a class="reference internal" href="../iris/iris/cube.html#iris.cube.CubeList.merge_cube" title="iris.cube.CubeList.merge_cube"><code class="xref py py-meth docutils literal notranslate"><span class="pre">merge_cube()</span></code></a> cannot fulfil this guarantee, a descriptive error
+If <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.CubeList.merge_cube" title="iris.cube.CubeList.merge_cube"><code class="xref py py-meth docutils literal notranslate"><span class="pre">merge_cube()</span></code></a> cannot fulfil this guarantee, a descriptive error
 will be raised providing details to help diagnose the differences between the input cubes.
-In contrast, the <a class="reference internal" href="../iris/iris/cube.html#iris.cube.CubeList.merge" title="iris.cube.CubeList.merge"><code class="xref py py-meth docutils literal notranslate"><span class="pre">merge()</span></code></a> method makes no check on the number of cubes returned.</p>
-<p>To demonstrate the differences between <a class="reference internal" href="../iris/iris/cube.html#iris.cube.CubeList.merge" title="iris.cube.CubeList.merge"><code class="xref py py-meth docutils literal notranslate"><span class="pre">merge()</span></code></a>
-and <a class="reference internal" href="../iris/iris/cube.html#iris.cube.CubeList.merge_cube" title="iris.cube.CubeList.merge_cube"><code class="xref py py-meth docutils literal notranslate"><span class="pre">merge_cube()</span></code></a>, let’s return to our three cubes
+In contrast, the <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.CubeList.merge" title="iris.cube.CubeList.merge"><code class="xref py py-meth docutils literal notranslate"><span class="pre">merge()</span></code></a> method makes no check on the number of cubes returned.</p>
+<p>To demonstrate the differences between <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.CubeList.merge" title="iris.cube.CubeList.merge"><code class="xref py py-meth docutils literal notranslate"><span class="pre">merge()</span></code></a>
+and <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.CubeList.merge_cube" title="iris.cube.CubeList.merge_cube"><code class="xref py py-meth docutils literal notranslate"><span class="pre">merge_cube()</span></code></a>, let’s return to our three cubes
 from the earlier merge example.</p>
 <p>For the purposes of this example a <code class="docutils literal notranslate"><span class="pre">Conventions</span></code> attribute has been added to the first
-cube’s <a class="reference internal" href="../iris/iris/cube.html#iris.cube.Cube.attributes" title="iris.cube.Cube.attributes"><code class="xref py py-data docutils literal notranslate"><span class="pre">attributes</span></code></a> dictionary.
+cube’s <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.Cube.attributes" title="iris.cube.Cube.attributes"><code class="xref py py-data docutils literal notranslate"><span class="pre">attributes</span></code></a> dictionary.
 Remember that the attributes <em>must</em> be consistent across all cubes in order to merge
 into a single cube:</p>
 <div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">cubes</span><span class="p">)</span>
@@ -219,34 +381,34 @@ into a single cube:</p>
 <span class="go">  cube.attributes keys differ: &#39;Conventions&#39;</span>
 </pre></div>
 </div>
-<p>Note that <a class="reference internal" href="../iris/iris/cube.html#iris.cube.CubeList.merge" title="iris.cube.CubeList.merge"><code class="xref py py-meth docutils literal notranslate"><span class="pre">merge()</span></code></a> returns two cubes here.
+<p>Note that <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.CubeList.merge" title="iris.cube.CubeList.merge"><code class="xref py py-meth docutils literal notranslate"><span class="pre">merge()</span></code></a> returns two cubes here.
 All the cubes that can be merged have been merged. Any cubes that can’t be merged are
-included unchanged in the returned <a class="reference internal" href="../iris/iris/cube.html#iris.cube.CubeList" title="iris.cube.CubeList"><code class="xref py py-class docutils literal notranslate"><span class="pre">CubeList</span></code></a>.
-When <a class="reference internal" href="../iris/iris/cube.html#iris.cube.CubeList.merge_cube" title="iris.cube.CubeList.merge_cube"><code class="xref py py-meth docutils literal notranslate"><span class="pre">merge_cube()</span></code></a> is called on <code class="docutils literal notranslate"><span class="pre">cubes</span></code> it raises a
+included unchanged in the returned <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.CubeList" title="iris.cube.CubeList"><code class="xref py py-class docutils literal notranslate"><span class="pre">CubeList</span></code></a>.
+When <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.CubeList.merge_cube" title="iris.cube.CubeList.merge_cube"><code class="xref py py-meth docutils literal notranslate"><span class="pre">merge_cube()</span></code></a> is called on <code class="docutils literal notranslate"><span class="pre">cubes</span></code> it raises a
 descriptive error that highlights the difference in the <code class="docutils literal notranslate"><span class="pre">attributes</span></code> dictionaries.
 It is this difference that is preventing <code class="docutils literal notranslate"><span class="pre">cubes</span></code> being merged into a
 single cube. An example of fixing an issue like this can be found in the
 <a class="reference internal" href="#merge-concat-common-issues"><span class="std std-ref">Common issues with merge and concatenate</span></a> section.</p>
 </div>
 <div class="section" id="merge-in-iris-load">
-<h3><span class="section-number">9.1.3. </span>Merge in Iris load<a class="headerlink" href="#merge-in-iris-load" title="Permalink to this headline">¶</a></h3>
-<p>The CubeList’s <a class="reference internal" href="../iris/iris/cube.html#iris.cube.CubeList.merge" title="iris.cube.CubeList.merge"><code class="xref py py-meth docutils literal notranslate"><span class="pre">merge()</span></code></a> method is used internally
+<h3>Merge in Iris load<a class="headerlink" href="#merge-in-iris-load" title="Permalink to this headline">¶</a></h3>
+<p>The CubeList’s <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.CubeList.merge" title="iris.cube.CubeList.merge"><code class="xref py py-meth docutils literal notranslate"><span class="pre">merge()</span></code></a> method is used internally
 by the three main Iris load functions introduced in <a class="reference internal" href="loading_iris_cubes.html"><span class="doc">Loading Iris cubes</span></a>.
 For file formats such as GRIB and PP, which store fields as many
 individual 2D arrays, Iris loading uses the <code class="docutils literal notranslate"><span class="pre">merge</span></code> process to produce a
 more intuitive higher dimensional cube of each phenomenon where possible.</p>
 <p>Sometimes the <code class="docutils literal notranslate"><span class="pre">merge</span></code> process doesn’t behave as expected. In almost all
 cases this is due to the input cubes containing unexpected or inconsistent metadata.
-For this reason, a fourth Iris file loading function, <a class="reference internal" href="../iris/iris.html#iris.load_raw" title="iris.load_raw"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.load_raw()</span></code></a>, exists.
-The <a class="reference internal" href="../iris/iris.html#iris.load_raw" title="iris.load_raw"><code class="xref py py-func docutils literal notranslate"><span class="pre">load_raw()</span></code></a> function is intended as a diagnostic tool that can be used to
+For this reason, a fourth Iris file loading function, <a class="reference internal" href="../generated/api/iris.html#iris.load_raw" title="iris.load_raw"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.load_raw()</span></code></a>, exists.
+The <a class="reference internal" href="../generated/api/iris.html#iris.load_raw" title="iris.load_raw"><code class="xref py py-func docutils literal notranslate"><span class="pre">load_raw()</span></code></a> function is intended as a diagnostic tool that can be used to
 load cubes from files without the <code class="docutils literal notranslate"><span class="pre">merge</span></code> process taking place. The return value of
-<a class="reference internal" href="../iris/iris.html#iris.load_raw" title="iris.load_raw"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.load_raw()</span></code></a> is always a <a class="reference internal" href="../iris/iris/cube.html#iris.cube.CubeList" title="iris.cube.CubeList"><code class="xref py py-class docutils literal notranslate"><span class="pre">CubeList</span></code></a> instance.
-You can then call the <a class="reference internal" href="../iris/iris/cube.html#iris.cube.CubeList.merge_cube" title="iris.cube.CubeList.merge_cube"><code class="xref py py-meth docutils literal notranslate"><span class="pre">merge_cube()</span></code></a> method on this returned
-<a class="reference internal" href="../iris/iris/cube.html#iris.cube.CubeList" title="iris.cube.CubeList"><code class="xref py py-class docutils literal notranslate"><span class="pre">CubeList</span></code></a> to help identify merge related load issues.</p>
+<a class="reference internal" href="../generated/api/iris.html#iris.load_raw" title="iris.load_raw"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.load_raw()</span></code></a> is always a <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.CubeList" title="iris.cube.CubeList"><code class="xref py py-class docutils literal notranslate"><span class="pre">CubeList</span></code></a> instance.
+You can then call the <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.CubeList.merge_cube" title="iris.cube.CubeList.merge_cube"><code class="xref py py-meth docutils literal notranslate"><span class="pre">merge_cube()</span></code></a> method on this returned
+<a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.CubeList" title="iris.cube.CubeList"><code class="xref py py-class docutils literal notranslate"><span class="pre">CubeList</span></code></a> to help identify merge related load issues.</p>
 </div>
 </div>
 <div class="section" id="concatenate">
-<h2><span class="section-number">9.2. </span>Concatenate<a class="headerlink" href="#concatenate" title="Permalink to this headline">¶</a></h2>
+<h2>Concatenate<a class="headerlink" href="#concatenate" title="Permalink to this headline">¶</a></h2>
 <p>We’ve seen that the <code class="docutils literal notranslate"><span class="pre">concatenate</span></code> process combines multiple input cubes into a
 single resultant cube with the same <em>number of dimensions</em> as the input cubes,
 but with the length of one or more dimensions extended by <em>joining together
@@ -262,14 +424,14 @@ other aspects of the input cubes must be consistent across all of the input cube
 covered in the <a class="reference internal" href="#merge-concat-common-issues"><span class="std std-ref">Common issues with merge and concatenate</span></a> section.</p>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">concatenate</span></code> process can be accessed using two methods. The two methods are
-<a class="reference internal" href="../iris/iris/cube.html#iris.cube.CubeList.concatenate" title="iris.cube.CubeList.concatenate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">concatenate()</span></code></a> and <a class="reference internal" href="../iris/iris/cube.html#iris.cube.CubeList.concatenate_cube" title="iris.cube.CubeList.concatenate_cube"><code class="xref py py-meth docutils literal notranslate"><span class="pre">concatenate_cube()</span></code></a>,
+<a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.CubeList.concatenate" title="iris.cube.CubeList.concatenate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">concatenate()</span></code></a> and <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.CubeList.concatenate_cube" title="iris.cube.CubeList.concatenate_cube"><code class="xref py py-meth docutils literal notranslate"><span class="pre">concatenate_cube()</span></code></a>,
 which are described below.</p>
 <div class="section" id="using-cubelist-concatenate">
-<h3><span class="section-number">9.2.1. </span>Using CubeList.concatenate<a class="headerlink" href="#using-cubelist-concatenate" title="Permalink to this headline">¶</a></h3>
-<p>The <a class="reference internal" href="../iris/iris/cube.html#iris.cube.CubeList.concatenate" title="iris.cube.CubeList.concatenate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">CubeList.concatenate</span></code></a> method operates on a list
-of cubes and returns a new <a class="reference internal" href="../iris/iris/cube.html#iris.cube.CubeList" title="iris.cube.CubeList"><code class="xref py py-class docutils literal notranslate"><span class="pre">CubeList</span></code></a> containing the cubes
+<h3>Using CubeList.concatenate<a class="headerlink" href="#using-cubelist-concatenate" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.CubeList.concatenate" title="iris.cube.CubeList.concatenate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">CubeList.concatenate</span></code></a> method operates on a list
+of cubes and returns a new <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.CubeList" title="iris.cube.CubeList"><code class="xref py py-class docutils literal notranslate"><span class="pre">CubeList</span></code></a> containing the cubes
 that have been concatenated.</p>
-<p>Let’s have a look at the <a class="reference internal" href="../iris/iris/cube.html#iris.cube.CubeList.concatenate" title="iris.cube.CubeList.concatenate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">concatenate()</span></code></a> method in operation.
+<p>Let’s have a look at the <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.CubeList.concatenate" title="iris.cube.CubeList.concatenate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">concatenate()</span></code></a> method in operation.
 In the example below we have three 3D <code class="docutils literal notranslate"><span class="pre">(t,</span> <span class="pre">y,</span> <span class="pre">x)</span></code> cubes whose <code class="docutils literal notranslate"><span class="pre">t</span></code> coordinates
 have sequentially increasing ranges.
 These cubes can be concatenated by combining the <code class="docutils literal notranslate"><span class="pre">t</span></code> coordinates of the input
@@ -287,22 +449,22 @@ cubes to form a new cube with an extended <code class="docutils literal notransl
 <img alt="Pictographic of concatenate." class="align-center" src="../_images/concat.png" />
 <p>The diagram illustrates that we have three 3D input cubes
 that line up on the <code class="docutils literal notranslate"><span class="pre">t</span></code> dimension.
-After concatenating our three input cubes we get a new <a class="reference internal" href="../iris/iris/cube.html#iris.cube.CubeList" title="iris.cube.CubeList"><code class="xref py py-class docutils literal notranslate"><span class="pre">CubeList</span></code></a>
+After concatenating our three input cubes we get a new <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.CubeList" title="iris.cube.CubeList"><code class="xref py py-class docutils literal notranslate"><span class="pre">CubeList</span></code></a>
 containing one cube with an extended <code class="docutils literal notranslate"><span class="pre">t</span></code> coordinate.</p>
 </div>
 <div class="section" id="using-cubelist-concatenate-cube">
-<h3><span class="section-number">9.2.2. </span>Using CubeList.concatenate_cube<a class="headerlink" href="#using-cubelist-concatenate-cube" title="Permalink to this headline">¶</a></h3>
-<p>The <a class="reference internal" href="../iris/iris/cube.html#iris.cube.CubeList.concatenate_cube" title="iris.cube.CubeList.concatenate_cube"><code class="xref py py-meth docutils literal notranslate"><span class="pre">concatenate_cube()</span></code></a> method guarantees that <em>exactly one
+<h3>Using CubeList.concatenate_cube<a class="headerlink" href="#using-cubelist-concatenate-cube" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.CubeList.concatenate_cube" title="iris.cube.CubeList.concatenate_cube"><code class="xref py py-meth docutils literal notranslate"><span class="pre">concatenate_cube()</span></code></a> method guarantees that <em>exactly one
 cube will be returned</em> as a result of concatenating the input cubes.
-If <a class="reference internal" href="../iris/iris/cube.html#iris.cube.CubeList.concatenate_cube" title="iris.cube.CubeList.concatenate_cube"><code class="xref py py-meth docutils literal notranslate"><span class="pre">concatenate_cube()</span></code></a> cannot fulfil this guarantee, a descriptive error
+If <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.CubeList.concatenate_cube" title="iris.cube.CubeList.concatenate_cube"><code class="xref py py-meth docutils literal notranslate"><span class="pre">concatenate_cube()</span></code></a> cannot fulfil this guarantee, a descriptive error
 will be raised providing details to help diagnose the differences between the input cubes.
-In contrast, the <a class="reference internal" href="../iris/iris/cube.html#iris.cube.CubeList.concatenate" title="iris.cube.CubeList.concatenate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">concatenate()</span></code></a> method makes no check on the number
+In contrast, the <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.CubeList.concatenate" title="iris.cube.CubeList.concatenate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">concatenate()</span></code></a> method makes no check on the number
 of cubes returned.</p>
-<p>To demonstrate the differences between <a class="reference internal" href="../iris/iris/cube.html#iris.cube.CubeList.concatenate" title="iris.cube.CubeList.concatenate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">concatenate()</span></code></a>
-and <a class="reference internal" href="../iris/iris/cube.html#iris.cube.CubeList.concatenate_cube" title="iris.cube.CubeList.concatenate_cube"><code class="xref py py-meth docutils literal notranslate"><span class="pre">concatenate_cube()</span></code></a>, let’s return to our three cubes
+<p>To demonstrate the differences between <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.CubeList.concatenate" title="iris.cube.CubeList.concatenate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">concatenate()</span></code></a>
+and <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.CubeList.concatenate_cube" title="iris.cube.CubeList.concatenate_cube"><code class="xref py py-meth docutils literal notranslate"><span class="pre">concatenate_cube()</span></code></a>, let’s return to our three cubes
 from the earlier concatenate example.</p>
 <p>For the purposes of this example we’ll add a <em>History</em> attribute to the first
-cube’s <a class="reference internal" href="../iris/iris/cube.html#iris.cube.Cube.attributes" title="iris.cube.Cube.attributes"><code class="xref py py-data docutils literal notranslate"><span class="pre">attributes</span></code></a> dictionary.
+cube’s <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.Cube.attributes" title="iris.cube.Cube.attributes"><code class="xref py py-data docutils literal notranslate"><span class="pre">attributes</span></code></a> dictionary.
 Remember that the attributes <em>must</em> be consistent across all cubes in order to
 concatenate into a single cube:</p>
 <div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">cubes</span><span class="p">)</span>
@@ -326,10 +488,10 @@ concatenate into a single cube:</p>
 <span class="go">  Cube metadata differs for phenomenon: air_temperature</span>
 </pre></div>
 </div>
-<p>Note that <a class="reference internal" href="../iris/iris/cube.html#iris.cube.CubeList.concatenate" title="iris.cube.CubeList.concatenate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">concatenate()</span></code></a> returns two cubes here.
+<p>Note that <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.CubeList.concatenate" title="iris.cube.CubeList.concatenate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">concatenate()</span></code></a> returns two cubes here.
 All the cubes that can be concatenated have been concatenated. Any cubes that can’t be concatenated are
-included unchanged in the returned <a class="reference internal" href="../iris/iris/cube.html#iris.cube.CubeList" title="iris.cube.CubeList"><code class="xref py py-class docutils literal notranslate"><span class="pre">CubeList</span></code></a>.
-When <a class="reference internal" href="../iris/iris/cube.html#iris.cube.CubeList.concatenate_cube" title="iris.cube.CubeList.concatenate_cube"><code class="xref py py-meth docutils literal notranslate"><span class="pre">concatenate_cube()</span></code></a> is called on <code class="docutils literal notranslate"><span class="pre">cubes</span></code> it raises a
+included unchanged in the returned <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.CubeList" title="iris.cube.CubeList"><code class="xref py py-class docutils literal notranslate"><span class="pre">CubeList</span></code></a>.
+When <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.CubeList.concatenate_cube" title="iris.cube.CubeList.concatenate_cube"><code class="xref py py-meth docutils literal notranslate"><span class="pre">concatenate_cube()</span></code></a> is called on <code class="docutils literal notranslate"><span class="pre">cubes</span></code> it raises a
 descriptive error that highlights the difference in the <code class="docutils literal notranslate"><span class="pre">attributes</span></code> dictionaries.
 It is this difference that is preventing <code class="docutils literal notranslate"><span class="pre">cubes</span></code> being concatenated into a
 single cube. An example of fixing an issue like this can be found in the
@@ -337,43 +499,43 @@ single cube. An example of fixing an issue like this can be found in the
 </div>
 </div>
 <div class="section" id="common-issues-with-merge-and-concatenate">
-<span id="merge-concat-common-issues"></span><h2><span class="section-number">9.3. </span>Common issues with merge and concatenate<a class="headerlink" href="#common-issues-with-merge-and-concatenate" title="Permalink to this headline">¶</a></h2>
-<p>The Iris algorithms that drive <a class="reference internal" href="../iris/iris/cube.html#iris.cube.CubeList.merge" title="iris.cube.CubeList.merge"><code class="xref py py-meth docutils literal notranslate"><span class="pre">merge()</span></code></a> and
-<a class="reference internal" href="../iris/iris/cube.html#iris.cube.CubeList.concatenate" title="iris.cube.CubeList.concatenate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">concatenate()</span></code></a> are complex and depend
+<span id="merge-concat-common-issues"></span><h2>Common issues with merge and concatenate<a class="headerlink" href="#common-issues-with-merge-and-concatenate" title="Permalink to this headline">¶</a></h2>
+<p>The Iris algorithms that drive <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.CubeList.merge" title="iris.cube.CubeList.merge"><code class="xref py py-meth docutils literal notranslate"><span class="pre">merge()</span></code></a> and
+<a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.CubeList.concatenate" title="iris.cube.CubeList.concatenate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">concatenate()</span></code></a> are complex and depend
 on a number of different elements of the input cubes being consistent across
 all input cubes.
 If this consistency is not maintained then the
-<a class="reference internal" href="../iris/iris/cube.html#iris.cube.CubeList.merge" title="iris.cube.CubeList.merge"><code class="xref py py-meth docutils literal notranslate"><span class="pre">merge()</span></code></a> or
-<a class="reference internal" href="../iris/iris/cube.html#iris.cube.CubeList.concatenate" title="iris.cube.CubeList.concatenate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">concatenate()</span></code></a> process can fail in a
+<a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.CubeList.merge" title="iris.cube.CubeList.merge"><code class="xref py py-meth docutils literal notranslate"><span class="pre">merge()</span></code></a> or
+<a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.CubeList.concatenate" title="iris.cube.CubeList.concatenate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">concatenate()</span></code></a> process can fail in a
 seemingly arbitrary manner.</p>
-<p>The methods <a class="reference internal" href="../iris/iris/cube.html#iris.cube.CubeList.merge_cube" title="iris.cube.CubeList.merge_cube"><code class="xref py py-meth docutils literal notranslate"><span class="pre">merge_cube()</span></code></a> and
-<a class="reference internal" href="../iris/iris/cube.html#iris.cube.CubeList.concatenate_cube" title="iris.cube.CubeList.concatenate_cube"><code class="xref py py-meth docutils literal notranslate"><span class="pre">concatenate_cube()</span></code></a>
+<p>The methods <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.CubeList.merge_cube" title="iris.cube.CubeList.merge_cube"><code class="xref py py-meth docutils literal notranslate"><span class="pre">merge_cube()</span></code></a> and
+<a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.CubeList.concatenate_cube" title="iris.cube.CubeList.concatenate_cube"><code class="xref py py-meth docutils literal notranslate"><span class="pre">concatenate_cube()</span></code></a>
 were introduced to Iris to help you locate differences in input cubes
 that prevent the input cubes merging or concatenating.
 Nevertheless, certain difficulties with using
-<a class="reference internal" href="../iris/iris/cube.html#iris.cube.CubeList.merge" title="iris.cube.CubeList.merge"><code class="xref py py-meth docutils literal notranslate"><span class="pre">merge()</span></code></a> and
-<a class="reference internal" href="../iris/iris/cube.html#iris.cube.CubeList.concatenate" title="iris.cube.CubeList.concatenate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">concatenate()</span></code></a> occur frequently.
+<a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.CubeList.merge" title="iris.cube.CubeList.merge"><code class="xref py py-meth docutils literal notranslate"><span class="pre">merge()</span></code></a> and
+<a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.CubeList.concatenate" title="iris.cube.CubeList.concatenate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">concatenate()</span></code></a> occur frequently.
 This section describes these common difficulties, why they arise and
 what you can do to avoid them.</p>
 <div class="section" id="id1">
-<h3><span class="section-number">9.3.1. </span>Merge<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<h3>Merge<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p id="merge-issues-attrs-mismatch"><strong>Attributes Mismatch</strong></p>
-<p>Differences in the <a class="reference internal" href="../iris/iris/cube.html#iris.cube.Cube.attributes" title="iris.cube.Cube.attributes"><code class="xref py py-data docutils literal notranslate"><span class="pre">attributes</span></code></a> the input cubes probably
+<p>Differences in the <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.Cube.attributes" title="iris.cube.Cube.attributes"><code class="xref py py-data docutils literal notranslate"><span class="pre">attributes</span></code></a> the input cubes probably
 cause the greatest amount of merge-related difficulties.
 In recognition of this, Iris has a helper function,
-<a class="reference internal" href="../iris/iris/util.html#iris.util.equalise_attributes" title="iris.util.equalise_attributes"><code class="xref py py-func docutils literal notranslate"><span class="pre">equalise_attributes()</span></code></a>, to equalise
+<a class="reference internal" href="../generated/api/iris/util.html#iris.util.equalise_attributes" title="iris.util.equalise_attributes"><code class="xref py py-func docutils literal notranslate"><span class="pre">equalise_attributes()</span></code></a>, to equalise
 attributes differences in the input cubes.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The functionality provided by <a class="reference internal" href="../iris/iris/util.html#iris.util.describe_diff" title="iris.util.describe_diff"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.util.describe_diff()</span></code></a> and
-<a class="reference internal" href="../iris/iris/cube.html#iris.cube.Cube.is_compatible" title="iris.cube.Cube.is_compatible"><code class="xref py py-meth docutils literal notranslate"><span class="pre">iris.cube.Cube.is_compatible()</span></code></a> are <strong>not</strong> designed to give user
+<p>The functionality provided by <a class="reference internal" href="../generated/api/iris/util.html#iris.util.describe_diff" title="iris.util.describe_diff"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.util.describe_diff()</span></code></a> and
+<a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.Cube.is_compatible" title="iris.cube.Cube.is_compatible"><code class="xref py py-meth docutils literal notranslate"><span class="pre">iris.cube.Cube.is_compatible()</span></code></a> are <strong>not</strong> designed to give user
 indication of whether two cubes can be merged.</p>
 </div>
-<p>To demonstrate using <a class="reference internal" href="../iris/iris/util.html#iris.util.equalise_attributes" title="iris.util.equalise_attributes"><code class="xref py py-func docutils literal notranslate"><span class="pre">equalise_attributes()</span></code></a>,
+<p>To demonstrate using <a class="reference internal" href="../generated/api/iris/util.html#iris.util.equalise_attributes" title="iris.util.equalise_attributes"><code class="xref py py-func docutils literal notranslate"><span class="pre">equalise_attributes()</span></code></a>,
 let’s return to our non-merging list of input cubes from the merge_cube example
 from earlier.
-We’ll call <a class="reference internal" href="../iris/iris/util.html#iris.util.equalise_attributes" title="iris.util.equalise_attributes"><code class="xref py py-func docutils literal notranslate"><span class="pre">equalise_attributes()</span></code></a> on the
-input cubes before merging the input cubes using <a class="reference internal" href="../iris/iris/cube.html#iris.cube.CubeList.merge_cube" title="iris.cube.CubeList.merge_cube"><code class="xref py py-meth docutils literal notranslate"><span class="pre">merge_cube()</span></code></a>:</p>
+We’ll call <a class="reference internal" href="../generated/api/iris/util.html#iris.util.equalise_attributes" title="iris.util.equalise_attributes"><code class="xref py py-func docutils literal notranslate"><span class="pre">equalise_attributes()</span></code></a> on the
+input cubes before merging the input cubes using <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.CubeList.merge_cube" title="iris.cube.CubeList.merge_cube"><code class="xref py py-meth docutils literal notranslate"><span class="pre">merge_cube()</span></code></a>:</p>
 <div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">iris.util</span> <span class="kn">import</span> <span class="n">equalise_attributes</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">cubes</span><span class="p">)</span>
 <span class="go">0: air_temperature / (kelvin)          (y: 4; x: 5)</span>
@@ -430,7 +592,7 @@ This is shown in the example below:</p>
 <p>The Iris load process does not merge duplicate cubes (two or more identical cubes in
 the input cubes) by default.
 This behaviour can be changed by setting the <code class="docutils literal notranslate"><span class="pre">unique</span></code> keyword argument
-to <a class="reference internal" href="../iris/iris/cube.html#iris.cube.CubeList.merge" title="iris.cube.CubeList.merge"><code class="xref py py-meth docutils literal notranslate"><span class="pre">merge()</span></code></a> to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+to <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.CubeList.merge" title="iris.cube.CubeList.merge"><code class="xref py py-meth docutils literal notranslate"><span class="pre">merge()</span></code></a> to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
 <p>Merging duplicate cubes can cause misleading results. Let’s demonstrate these
 behaviours and misleading results with the following example.
 In this example we have three input cubes.
@@ -479,7 +641,7 @@ sequential</em> <strong>dimension</strong> <em>coordinates</em>.</p></li>
 coordinate of length 1 <em>which does not describe a data dimension</em>.</p>
 <p>Let’s look at two example cubes to demonstrate this.</p>
 <p>If your cubes are similar to those below (the single value <code class="docutils literal notranslate"><span class="pre">z</span></code> coordinate
-is not on a dimension) then use <a class="reference internal" href="../iris/iris/cube.html#iris.cube.CubeList.merge" title="iris.cube.CubeList.merge"><code class="xref py py-meth docutils literal notranslate"><span class="pre">merge()</span></code></a> to
+is not on a dimension) then use <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.CubeList.merge" title="iris.cube.CubeList.merge"><code class="xref py py-meth docutils literal notranslate"><span class="pre">merge()</span></code></a> to
 combine your cubes:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">cubes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <span class="go">air_temperature / (kelvin)          (y: 4; x: 5)</span>
@@ -498,7 +660,7 @@ combine your cubes:</p>
 </pre></div>
 </div>
 <p>If your cubes are similar to those below (the single value <code class="docutils literal notranslate"><span class="pre">z</span></code> coordinate is
-associated with a dimension) then use <a class="reference internal" href="../iris/iris/cube.html#iris.cube.CubeList.concatenate" title="iris.cube.CubeList.concatenate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">concatenate()</span></code></a> to
+associated with a dimension) then use <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.CubeList.concatenate" title="iris.cube.CubeList.concatenate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">concatenate()</span></code></a> to
 combine your cubes:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">cubes</span><span class="p">)</span>
 <span class="go">0: air_temperature / (kelvin)          (z: 1; y: 4; x: 5)</span>
@@ -507,17 +669,17 @@ combine your cubes:</p>
 </div>
 </div>
 <div class="section" id="id2">
-<h3><span class="section-number">9.3.2. </span>Concatenate<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<h3>Concatenate<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <p><strong>Time Units</strong></p>
 <p>Differences in the units of the time coordinates of the input cubes probably cause
 the greatest amount of concatenate-related difficulties.
 In recognition of this, Iris has a helper function,
-<a class="reference internal" href="../iris/iris/util.html#iris.util.unify_time_units" title="iris.util.unify_time_units"><code class="xref py py-func docutils literal notranslate"><span class="pre">unify_time_units()</span></code></a>, to apply a common time unit to all the input cubes.</p>
-<p>To demonstrate using <a class="reference internal" href="../iris/iris/util.html#iris.util.unify_time_units" title="iris.util.unify_time_units"><code class="xref py py-func docutils literal notranslate"><span class="pre">unify_time_units()</span></code></a>,
+<a class="reference internal" href="../generated/api/iris/util.html#iris.util.unify_time_units" title="iris.util.unify_time_units"><code class="xref py py-func docutils literal notranslate"><span class="pre">unify_time_units()</span></code></a>, to apply a common time unit to all the input cubes.</p>
+<p>To demonstrate using <a class="reference internal" href="../generated/api/iris/util.html#iris.util.unify_time_units" title="iris.util.unify_time_units"><code class="xref py py-func docutils literal notranslate"><span class="pre">unify_time_units()</span></code></a>,
 let’s adapt our list of input cubes from the <code class="docutils literal notranslate"><span class="pre">concatenate_cube</span></code> example from earlier.
 We’ll give the input cubes unequal time coordinate units and call
-<a class="reference internal" href="../iris/iris/util.html#iris.util.unify_time_units" title="iris.util.unify_time_units"><code class="xref py py-func docutils literal notranslate"><span class="pre">unify_time_units()</span></code></a> on the input cubes before concatenating
-the input cubes using <a class="reference internal" href="../iris/iris/cube.html#iris.cube.CubeList.concatenate_cube" title="iris.cube.CubeList.concatenate_cube"><code class="xref py py-meth docutils literal notranslate"><span class="pre">concatenate_cube()</span></code></a>:</p>
+<a class="reference internal" href="../generated/api/iris/util.html#iris.util.unify_time_units" title="iris.util.unify_time_units"><code class="xref py py-func docutils literal notranslate"><span class="pre">unify_time_units()</span></code></a> on the input cubes before concatenating
+the input cubes using <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.CubeList.concatenate_cube" title="iris.cube.CubeList.concatenate_cube"><code class="xref py py-meth docutils literal notranslate"><span class="pre">concatenate_cube()</span></code></a>:</p>
 <div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">iris.util</span> <span class="kn">import</span> <span class="n">unify_time_units</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">cubes</span><span class="p">)</span>
 <span class="go">0: air_temperature / (kelvin)          (t: 31; y: 3; x: 4)</span>
@@ -558,94 +720,60 @@ chapter gives further information on attributes mismatch.</p>
 </div>
 
 
-            <div class="clearer"></div>
+           </div>
+           
           </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cube_statistics.html" class="btn btn-neutral float-right" title="Cube statistics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="interpolation_and_regridding.html" class="btn btn-neutral float-left" title="Cube interpolation and regridding" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        
+        &copy; <a href="../copyright.html">Copyright</a> Iris Contributors
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="../contents.html">Table of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">9. Merge and Concatenate</a><ul>
-<li><a class="reference internal" href="#merge">9.1. Merge</a><ul>
-<li><a class="reference internal" href="#using-cubelist-merge">9.1.1. Using CubeList.merge</a></li>
-<li><a class="reference internal" href="#using-cubelist-merge-cube">9.1.2. Using CubeList.merge_cube</a></li>
-<li><a class="reference internal" href="#merge-in-iris-load">9.1.3. Merge in Iris load</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#concatenate">9.2. Concatenate</a><ul>
-<li><a class="reference internal" href="#using-cubelist-concatenate">9.2.1. Using CubeList.concatenate</a></li>
-<li><a class="reference internal" href="#using-cubelist-concatenate-cube">9.2.2. Using CubeList.concatenate_cube</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#common-issues-with-merge-and-concatenate">9.3. Common issues with merge and concatenate</a><ul>
-<li><a class="reference internal" href="#id1">9.3.1. Merge</a></li>
-<li><a class="reference internal" href="#id2">9.3.2. Concatenate</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="interpolation_and_regridding.html"
-                        title="previous chapter"><span class="section-number">8. </span>Cube interpolation and regridding</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="cube_statistics.html"
-                        title="next chapter"><span class="section-number">10. </span>Cube statistics</a></p>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="../_sources/userguide/merge_and_concat.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>$('#searchbox').show(0);</script>
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="../py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="cube_statistics.html" title="10. Cube statistics"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="interpolation_and_regridding.html" title="8. Cube interpolation and regridding"
-             >previous</a> |</li>
-        <li><a href="../index.html">home</a>|&nbsp;</li>
-        <li><a href="../examples/index.html">examples</a>|&nbsp;</li>
-        <li><a href="../gallery.html">gallery</a>|&nbsp;</li>
-        <li><a href="../contents.html">contents</a>|&nbsp;</li>
+    </section>
 
-          <li class="nav-item nav-item-1"><a href="index.html" >Iris user guide</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href=""><span class="section-number">9. </span>Merge and Concatenate</a></li> 
-      </ul>
-    </div>
+  </div>
+  
 
-    <div class="footer">
-    <p style="text-align: left; float: left; margin: 0px; padding: 0 0 0 5px;">Documentation licensed under the <a href="http://reference.data.gov.uk/id/open-government-licence" rel="license">Open Government Licence</a></p>
-        &copy; <a href="../copyright.html">British Crown Copyright</a> 2010 - 2020, Met Office
-    </div>
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
 
-    <!-- Include a version switcher to easily move between the documentation of different versions -->
-    <script type=text/javascript src="/iris/docs/version_switch.js" async></script>
+  
+  
+    
+   
 
-  </body>
+</body>
 </html>

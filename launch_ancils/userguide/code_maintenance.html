@@ -1,116 +1,264 @@
 
-<!DOCTYPE html>
 
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>13. Code Maintenance &#8212; Iris 3.0.dev0 documentation</title>
-    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Code maintenance &mdash; Iris 3.0.dev0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/theme_override.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-dataframe.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
-    <link rel="next" title="14. End of the user guide" href="end_of_userguide.html" />
-    <link rel="prev" title="12. Citing Iris" href="citation.html" />
- 
-    <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
-    <META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE"> 
+    <link rel="next" title="Contributing to the documentation" href="../developers_guide/contributing_documentation.html" />
+    <link rel="prev" title="Citing Iris" href="citation.html" /> 
+</head>
 
-    <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-    <script type="text/javascript" src="https://docs.python.org/2/_static/copybutton.js"></script>
+<body class="wy-body-for-nav">
 
-    <link rel="icon" type="image/png" sizes="32x32" href="../_static/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../_static/favicon-16x16.png">
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
 
-    <link href="https://fonts.googleapis.com/css?family=Alike|Noto+Sans" rel="stylesheet">
+          
+            <a href="../index.html">
+          
 
-  </head><body>
+          
+            
+            <img src="../_static/iris-logo-title.png" class="logo" alt="Logo"/>
+          
+          </a>
 
-<a href="https://github.com/SciTools/iris">
-    <img class="github-forkme" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"
-         alt="Fork Iris on GitHub" />
-</a>
+          
+            
+            
+              <div class="version">
+                3.0
+              </div>
+            
+          
 
-
-<div class="header-content">
-    <a href="../index.html">
-        <img src="../_static/Iris7_1_trim_100.png" alt="Iris logo" />
-    </a>
-    <div class="strapline">
-      <h1>
-          Iris <span class="version">v3.0</span>
-      </h1>
-      <p>
-         A powerful, format-agnostic, community-driven Python library for analysing and
-         visualising Earth science data.
-      </p>
-    </div>
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
 </div>
 
+          
+        </div>
 
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="../py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="end_of_userguide.html" title="14. End of the user guide"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="citation.html" title="12. Citing Iris"
-             accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">home</a>|&nbsp;</li>
-        <li><a href="../examples/index.html">examples</a>|&nbsp;</li>
-        <li><a href="../gallery.html">gallery</a>|&nbsp;</li>
-        <li><a href="../contents.html">contents</a>|&nbsp;</li>
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installing.html">Installing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../generated/gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iris_cubes.html">Iris data structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loading_iris_cubes.html">Loading Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="saving_iris_cubes.html">Saving Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="navigating_a_cube.html">Navigating a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="subsetting_a_cube.html">Subsetting a Cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="real_and_lazy_data.html">Real and Lazy Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plotting_a_cube.html">Plotting a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interpolation_and_regridding.html">Cube interpolation and regridding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="merge_and_concat.html">Merge and concatenate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cube_statistics.html">Cube statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cube_maths.html">Basic cube mathematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="citation.html">Citing Iris</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Code maintenance</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#stability-and-change">Stability and change</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#principles-of-change-management">Principles of change management</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Developers Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/contributing_documentation.html">Contributing to the documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/documenting/index.html">Documentation in Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/gitwash/index.html">Working with <em>iris</em> source code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/code_format.html">Code formatting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/pulls.html">Pull request check List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/tests.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/deprecations.html">Deprecations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/release.html">Releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../generated/api/iris.html">Iris API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../whatsnew/index.html">What’s new in Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../techpapers/index.html">Iris Technical Papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../copyright.html">Iris copyright, licensing and contributors</a></li>
+</ul>
 
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Iris user guide</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href=""><span class="section-number">13. </span>Code Maintenance</a></li> 
-      </ul>
-    </div>
+            
+          
+
+    
+    
+    
+        <p class="caption">
+            <span class="caption-text">
+            
+                Support
+            
+            </span>
+        </p>
+        <ul>
+            
+                <li class="toctree-l1"><a href="https://github.com/SciTools/iris"><i class="fa fa-github fa-fw"></i> Source Code</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris"><i class="fa fa-comments fa-fw"></i> Users Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris-dev"><i class="fa fa-comments fa-fw"></i> Developers Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://stackoverflow.com/questions/tagged/python-iris"><i class="fa fa-question fa-fw"></i> StackOverflow For "How do I?"</a></li>
+            
+                <li class="toctree-l1"><a href="https://scitools.org.uk/iris/docs/v2.4.0/index.html"><i class="fa fa-book fa-fw"></i> Legacy documentation</a></li>
+            
+        </ul>
+    
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Iris</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Code maintenance</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/userguide/code_maintenance.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
   
-
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
             
   <div class="section" id="code-maintenance">
-<h1><span class="section-number">13. </span>Code Maintenance<a class="headerlink" href="#code-maintenance" title="Permalink to this headline">¶</a></h1>
+<h1>Code maintenance<a class="headerlink" href="#code-maintenance" title="Permalink to this headline">¶</a></h1>
 <p>From a user point of view “code maintenance” means ensuring that your existing
 working code stays working, in the face of changes to Iris.</p>
 <div class="section" id="stability-and-change">
-<h2><span class="section-number">13.1. </span>Stability and Change<a class="headerlink" href="#stability-and-change" title="Permalink to this headline">¶</a></h2>
+<h2>Stability and change<a class="headerlink" href="#stability-and-change" title="Permalink to this headline">¶</a></h2>
 <p>In practice, as Iris develops, most users will want to periodically upgrade
-their installed version to access new features or at least bugfixes.</p>
+their installed version to access new features or at least bug fixes.</p>
 <p>This is obvious if you are still developing other code that uses Iris, or using
 code from other sources.
 However, even if you have only legacy code that remains untouched, some code
-maintenance effort is probably still necessary :</p>
+maintenance effort is probably still necessary:</p>
 <blockquote>
 <div><ul class="simple">
 <li><p>On the one hand, <em>in principle</em>, working code will go on working, as long
 as you don’t change anything else.</p></li>
-<li><p>However, such “version statis” can easily become a growing burden, if you
-are simply waiting until an update becomes unavoidable :  Often, that will
+<li><p>However, such “version stasis” can easily become a growing burden, if you
+are simply waiting until an update becomes unavoidable, often that will
 eventually occur when you need to update some other software component,
 for some completely unconnected reason.</p></li>
 </ul>
 </div></blockquote>
 </div>
 <div class="section" id="principles-of-change-management">
-<h2><span class="section-number">13.2. </span>Principles of Change Management<a class="headerlink" href="#principles-of-change-management" title="Permalink to this headline">¶</a></h2>
+<h2>Principles of change management<a class="headerlink" href="#principles-of-change-management" title="Permalink to this headline">¶</a></h2>
 <p>When you upgrade software to a new version, you often find that you need to
 rewrite your legacy code, simply to keep it working.</p>
 <p>In Iris, however, we aim to reduce code maintenance problems to an absolute
@@ -141,80 +289,60 @@ a minimum.</p>
 </div>
 
 
-            <div class="clearer"></div>
+           </div>
+           
           </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../developers_guide/contributing_documentation.html" class="btn btn-neutral float-right" title="Contributing to the documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="citation.html" class="btn btn-neutral float-left" title="Citing Iris" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        
+        &copy; <a href="../copyright.html">Copyright</a> Iris Contributors
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="../contents.html">Table of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">13. Code Maintenance</a><ul>
-<li><a class="reference internal" href="#stability-and-change">13.1. Stability and Change</a></li>
-<li><a class="reference internal" href="#principles-of-change-management">13.2. Principles of Change Management</a></li>
-</ul>
-</li>
-</ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="citation.html"
-                        title="previous chapter"><span class="section-number">12. </span>Citing Iris</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="end_of_userguide.html"
-                        title="next chapter"><span class="section-number">14. </span>End of the user guide</a></p>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="../_sources/userguide/code_maintenance.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>$('#searchbox').show(0);</script>
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="../py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="end_of_userguide.html" title="14. End of the user guide"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="citation.html" title="12. Citing Iris"
-             >previous</a> |</li>
-        <li><a href="../index.html">home</a>|&nbsp;</li>
-        <li><a href="../examples/index.html">examples</a>|&nbsp;</li>
-        <li><a href="../gallery.html">gallery</a>|&nbsp;</li>
-        <li><a href="../contents.html">contents</a>|&nbsp;</li>
+    </section>
 
-          <li class="nav-item nav-item-1"><a href="index.html" >Iris user guide</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href=""><span class="section-number">13. </span>Code Maintenance</a></li> 
-      </ul>
-    </div>
+  </div>
+  
 
-    <div class="footer">
-    <p style="text-align: left; float: left; margin: 0px; padding: 0 0 0 5px;">Documentation licensed under the <a href="http://reference.data.gov.uk/id/open-government-licence" rel="license">Open Government Licence</a></p>
-        &copy; <a href="../copyright.html">British Crown Copyright</a> 2010 - 2020, Met Office
-    </div>
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
 
-    <!-- Include a version switcher to easily move between the documentation of different versions -->
-    <script type=text/javascript src="/iris/docs/version_switch.js" async></script>
+  
+  
+    
+   
 
-  </body>
+</body>
 </html>
