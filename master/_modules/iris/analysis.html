@@ -1034,7 +1034,9 @@
         <span class="c1"># order cube.</span>
         <span class="k">for</span> <span class="n">point</span> <span class="ow">in</span> <span class="n">points</span><span class="p">:</span>
             <span class="n">cube</span> <span class="o">=</span> <span class="n">collapsed_cube</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-            <span class="n">coord</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">coords</span><span class="o">.</span><span class="n">AuxCoord</span><span class="p">(</span><span class="n">point</span><span class="p">,</span> <span class="n">long_name</span><span class="o">=</span><span class="n">coord_name</span><span class="p">)</span>
+            <span class="n">coord</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">coords</span><span class="o">.</span><span class="n">AuxCoord</span><span class="p">(</span>
+                <span class="n">point</span><span class="p">,</span> <span class="n">long_name</span><span class="o">=</span><span class="n">coord_name</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;percent&quot;</span>
+            <span class="p">)</span>
             <span class="n">cube</span><span class="o">.</span><span class="n">add_aux_coord</span><span class="p">(</span><span class="n">coord</span><span class="p">)</span>
             <span class="n">cubes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cube</span><span class="p">)</span>
 
