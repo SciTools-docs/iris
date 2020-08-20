@@ -1,0 +1,1559 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>iris.fileformats.cf &mdash; Iris 3.0.dev0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/theme_override.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery-dataframe.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script src="../../../_static/clipboard.min.js"></script>
+        <script src="../../../_static/copybutton.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="copyright" title="Copyright" href="../../../copyright.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html">
+          
+
+          
+            
+            <img src="../../../_static/iris-logo-title.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installing.html">Installing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../generated/gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/iris_cubes.html">Iris data structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/loading_iris_cubes.html">Loading Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/saving_iris_cubes.html">Saving Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/navigating_a_cube.html">Navigating a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/subsetting_a_cube.html">Subsetting a Cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/real_and_lazy_data.html">Real and Lazy Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/plotting_a_cube.html">Plotting a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/interpolation_and_regridding.html">Cube interpolation and regridding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/merge_and_concat.html">Merge and concatenate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/cube_statistics.html">Cube statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/cube_maths.html">Basic cube mathematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/citation.html">Citing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/code_maintenance.html">Code maintenance</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developers Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/contributing_documentation.html">Contributing to the documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/documenting/index.html">Documentation in Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/gitwash/index.html">Working with <em>iris</em> source code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/code_format.html">Code formatting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/pulls.html">Pull request check List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/tests.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/deprecations.html">Deprecations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/release.html">Releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../generated/api/iris.html">Iris API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../whatsnew/index.html">What’s new in Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../techpapers/index.html">Iris Technical Papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../copyright.html">Iris copyright, licensing and contributors</a></li>
+</ul>
+
+            
+          
+
+    
+    
+    
+        <p class="caption">
+            <span class="caption-text">
+            
+                Support
+            
+            </span>
+        </p>
+        <ul>
+            
+                <li class="toctree-l1"><a href="https://github.com/SciTools/iris"><i class="fa fa-github fa-fw"></i> Source Code</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris"><i class="fa fa-comments fa-fw"></i> Users Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris-dev"><i class="fa fa-comments fa-fw"></i> Developers Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://stackoverflow.com/questions/tagged/python-iris"><i class="fa fa-question fa-fw"></i> StackOverflow For "How do I?"</a></li>
+            
+                <li class="toctree-l1"><a href="https://scitools.org.uk/iris/docs/v2.4.0/index.html"><i class="fa fa-book fa-fw"></i> Legacy documentation</a></li>
+            
+        </ul>
+    
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Iris</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../../iris.html">iris</a> &raquo;</li>
+        
+      <li>iris.fileformats.cf</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for iris.fileformats.cf</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright Iris contributors</span>
+<span class="c1">#</span>
+<span class="c1"># This file is part of Iris and is released under the LGPL license.</span>
+<span class="c1"># See COPYING and COPYING.LESSER in the root of the repository for full</span>
+<span class="c1"># licensing details.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Provides the capability to load netCDF files and interpret them</span>
+<span class="sd">according to the &#39;NetCDF Climate and Forecast (CF) Metadata Conventions&#39;.</span>
+
+<span class="sd">References:</span>
+
+<span class="sd">[CF]  NetCDF Climate and Forecast (CF) Metadata conventions, Version 1.5, October, 2010.</span>
+<span class="sd">[NUG] NetCDF User&#39;s Guide, https://www.unidata.ucar.edu/software/netcdf/documentation/NUG/</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">ABCMeta</span><span class="p">,</span> <span class="n">abstractmethod</span>
+
+<span class="kn">from</span> <span class="nn">collections.abc</span> <span class="kn">import</span> <span class="n">Iterable</span><span class="p">,</span> <span class="n">MutableMapping</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+
+<span class="kn">import</span> <span class="nn">netCDF4</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">numpy.ma</span> <span class="k">as</span> <span class="nn">ma</span>
+
+<span class="kn">import</span> <span class="nn">iris.util</span>
+
+
+<span class="c1">#</span>
+<span class="c1"># CF parse pattern common to both formula terms and measure CF variables.</span>
+<span class="c1">#</span>
+<span class="n">_CF_PARSE</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">                           \s*</span>
+<span class="sd">                           (?P&lt;lhs&gt;[\w_]+)</span>
+<span class="sd">                           \s*:\s*</span>
+<span class="sd">                           (?P&lt;rhs&gt;[\w_]+)</span>
+<span class="sd">                           \s*</span>
+<span class="sd">                        &quot;&quot;&quot;</span><span class="p">,</span>
+    <span class="n">re</span><span class="o">.</span><span class="n">VERBOSE</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># NetCDF variable attributes handled by the netCDF4 module and</span>
+<span class="c1"># therefore automatically classed as &quot;used&quot; attributes.</span>
+<span class="n">_CF_ATTRS_IGNORE</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span>
+    <span class="p">[</span><span class="s2">&quot;_FillValue&quot;</span><span class="p">,</span> <span class="s2">&quot;add_offset&quot;</span><span class="p">,</span> <span class="s2">&quot;missing_value&quot;</span><span class="p">,</span> <span class="s2">&quot;scale_factor&quot;</span><span class="p">,]</span>
+<span class="p">)</span>
+
+<span class="c1">#: Supported dimensionless vertical coordinate reference surface/phemomenon</span>
+<span class="c1">#: formula terms. Ref: [CF] Appendix D.</span>
+<span class="n">reference_terms</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="n">atmosphere_sigma_coordinate</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;ps&quot;</span><span class="p">],</span>
+    <span class="n">atmosphere_hybrid_sigma_pressure_coordinate</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;ps&quot;</span><span class="p">],</span>
+    <span class="n">atmosphere_hybrid_height_coordinate</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;orog&quot;</span><span class="p">],</span>
+    <span class="n">atmosphere_sleve_coordinate</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;zsurf1&quot;</span><span class="p">,</span> <span class="s2">&quot;zsurf2&quot;</span><span class="p">],</span>
+    <span class="n">ocean_sigma_coordinate</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;eta&quot;</span><span class="p">,</span> <span class="s2">&quot;depth&quot;</span><span class="p">],</span>
+    <span class="n">ocean_s_coordinate</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;eta&quot;</span><span class="p">,</span> <span class="s2">&quot;depth&quot;</span><span class="p">],</span>
+    <span class="n">ocean_sigma_z_coordinate</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;eta&quot;</span><span class="p">,</span> <span class="s2">&quot;depth&quot;</span><span class="p">],</span>
+    <span class="n">ocean_s_coordinate_g1</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;eta&quot;</span><span class="p">,</span> <span class="s2">&quot;depth&quot;</span><span class="p">],</span>
+    <span class="n">ocean_s_coordinate_g2</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;eta&quot;</span><span class="p">,</span> <span class="s2">&quot;depth&quot;</span><span class="p">],</span>
+<span class="p">)</span>
+
+
+<span class="c1"># NetCDF returns a different type for strings depending on Python version.</span>
+<span class="k">def</span> <span class="nf">_is_str_dtype</span><span class="p">(</span><span class="n">var</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">issubdtype</span><span class="p">(</span><span class="n">var</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">bytes_</span><span class="p">)</span>
+
+
+<span class="c1">################################################################################</span>
+<div class="viewcode-block" id="CFVariable"><a class="viewcode-back" href="../../../generated/api/iris/fileformats/cf.html#iris.fileformats.cf.CFVariable">[docs]</a><span class="k">class</span> <span class="nc">CFVariable</span><span class="p">(</span><span class="n">metaclass</span><span class="o">=</span><span class="n">ABCMeta</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Abstract base class wrapper for a CF-netCDF variable.&quot;&quot;&quot;</span>
+
+    <span class="c1">#: Name of the netCDF variable attribute that identifies this</span>
+    <span class="c1">#: CF-netCDF variable.</span>
+    <span class="n">cf_identity</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="c1"># Accessing the list of netCDF attributes is surprisingly slow.</span>
+        <span class="c1"># Since it&#39;s used repeatedly, caching the list makes things</span>
+        <span class="c1"># quite a bit faster.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_nc_attrs</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">ncattrs</span><span class="p">()</span>
+
+        <span class="c1">#: NetCDF variable name.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cf_name</span> <span class="o">=</span> <span class="n">name</span>
+
+        <span class="c1">#: NetCDF4 Variable data instance.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cf_data</span> <span class="o">=</span> <span class="n">data</span>
+
+        <span class="c1">#: Collection of CF-netCDF variables associated with this variable.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cf_group</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="c1">#: CF-netCDF formula terms that his variable participates in.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cf_terms_by_root</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">cf_attrs_reset</span><span class="p">()</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_identify_common</span><span class="p">(</span><span class="n">variables</span><span class="p">,</span> <span class="n">ignore</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">ignore</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">ignore</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">if</span> <span class="n">target</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">target</span> <span class="o">=</span> <span class="n">variables</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">target</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">variables</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="s2">&quot;Cannot identify unknown target CF-netCDF variable </span><span class="si">%r</span><span class="s2">&quot;</span>
+                    <span class="o">%</span> <span class="n">target</span>
+                <span class="p">)</span>
+            <span class="n">target</span> <span class="o">=</span> <span class="p">{</span><span class="n">target</span><span class="p">:</span> <span class="n">variables</span><span class="p">[</span><span class="n">target</span><span class="p">]}</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Expect a target CF-netCDF variable name&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="p">(</span><span class="n">ignore</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
+
+<div class="viewcode-block" id="CFVariable.identify"><a class="viewcode-back" href="../../../generated/api/iris/fileformats/cf.html#iris.fileformats.cf.CFVariable.identify">[docs]</a>    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">identify</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">variables</span><span class="p">,</span> <span class="n">ignore</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">warn</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Identify all variables that match the criterion for this CF-netCDF variable class.</span>
+
+<span class="sd">        Args:</span>
+
+<span class="sd">        * variables:</span>
+<span class="sd">            Dictionary of netCDF4.Variable instance by variable name.</span>
+
+<span class="sd">        Kwargs:</span>
+
+<span class="sd">        * ignore:</span>
+<span class="sd">            List of variable names to ignore.</span>
+<span class="sd">        * target:</span>
+<span class="sd">            Name of a single variable to check.</span>
+<span class="sd">        * warn:</span>
+<span class="sd">            Issue a warning if a missing variable is referenced.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Dictionary of CFVariable instance by variable name.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="CFVariable.spans"><a class="viewcode-back" href="../../../generated/api/iris/fileformats/cf.html#iris.fileformats.cf.CFVariable.spans">[docs]</a>    <span class="k">def</span> <span class="nf">spans</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cf_variable</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Determine whether the dimensionality of this variable</span>
+<span class="sd">        is a subset of the specified target variable.</span>
+
+<span class="sd">        Note that, by default scalar variables always span the</span>
+<span class="sd">        dimensionality of the target variable.</span>
+
+<span class="sd">        Args:</span>
+
+<span class="sd">        * cf_variable:</span>
+<span class="sd">            Compare dimensionality with the :class:`CFVariable`.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Boolean.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dimensions</span><span class="p">)</span><span class="o">.</span><span class="n">issubset</span><span class="p">(</span><span class="n">cf_variable</span><span class="o">.</span><span class="n">dimensions</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span></div>
+
+    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="c1"># CF variable names are unique.</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">cf_name</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">cf_name</span>
+
+    <span class="k">def</span> <span class="fm">__ne__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="c1"># CF variable names are unique.</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">cf_name</span> <span class="o">!=</span> <span class="n">other</span><span class="o">.</span><span class="n">cf_name</span>
+
+    <span class="k">def</span> <span class="fm">__hash__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># CF variable names are unique.</span>
+        <span class="k">return</span> <span class="nb">hash</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cf_name</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="c1"># Accessing netCDF attributes is surprisingly slow. Since</span>
+        <span class="c1"># they&#39;re often read repeatedly, caching the values makes things</span>
+        <span class="c1"># quite a bit faster.</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_nc_attrs</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_cf_attrs</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cf_data</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+        <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">value</span>
+
+    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">cf_data</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">cf_data</span><span class="o">.</span><span class="fm">__len__</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">(</span><span class="si">%r</span><span class="s2">, </span><span class="si">%r</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cf_name</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cf_data</span><span class="p">,</span>
+        <span class="p">)</span>
+
+<div class="viewcode-block" id="CFVariable.cf_attrs"><a class="viewcode-back" href="../../../generated/api/iris/fileformats/cf.html#iris.fileformats.cf.CFVariable.cf_attrs">[docs]</a>    <span class="k">def</span> <span class="nf">cf_attrs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a list of all attribute name and value pairs of the CF-netCDF variable.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span>
+            <span class="p">(</span><span class="n">attr</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">getncattr</span><span class="p">(</span><span class="n">attr</span><span class="p">))</span> <span class="k">for</span> <span class="n">attr</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_nc_attrs</span><span class="p">)</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="CFVariable.cf_attrs_ignored"><a class="viewcode-back" href="../../../generated/api/iris/fileformats/cf.html#iris.fileformats.cf.CFVariable.cf_attrs_ignored">[docs]</a>    <span class="k">def</span> <span class="nf">cf_attrs_ignored</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a list of all ignored attribute name and value pairs of the CF-netCDF variable.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span>
+            <span class="p">(</span><span class="n">attr</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">getncattr</span><span class="p">(</span><span class="n">attr</span><span class="p">))</span>
+            <span class="k">for</span> <span class="n">attr</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_nc_attrs</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">_CF_ATTRS_IGNORE</span><span class="p">)</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="CFVariable.cf_attrs_used"><a class="viewcode-back" href="../../../generated/api/iris/fileformats/cf.html#iris.fileformats.cf.CFVariable.cf_attrs_used">[docs]</a>    <span class="k">def</span> <span class="nf">cf_attrs_used</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a list of all accessed attribute name and value pairs of the CF-netCDF variable.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span>
+            <span class="p">(</span><span class="n">attr</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">getncattr</span><span class="p">(</span><span class="n">attr</span><span class="p">))</span> <span class="k">for</span> <span class="n">attr</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_cf_attrs</span><span class="p">)</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="CFVariable.cf_attrs_unused"><a class="viewcode-back" href="../../../generated/api/iris/fileformats/cf.html#iris.fileformats.cf.CFVariable.cf_attrs_unused">[docs]</a>    <span class="k">def</span> <span class="nf">cf_attrs_unused</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a list of all non-accessed attribute name and value pairs of the CF-netCDF variable.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span>
+            <span class="p">(</span><span class="n">attr</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">getncattr</span><span class="p">(</span><span class="n">attr</span><span class="p">))</span>
+            <span class="k">for</span> <span class="n">attr</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_nc_attrs</span><span class="p">)</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cf_attrs</span><span class="p">)</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="CFVariable.cf_attrs_reset"><a class="viewcode-back" href="../../../generated/api/iris/fileformats/cf.html#iris.fileformats.cf.CFVariable.cf_attrs_reset">[docs]</a>    <span class="k">def</span> <span class="nf">cf_attrs_reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Reset the history of accessed attribute names of the CF-netCDF variable.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cf_attrs</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="n">item</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cf_attrs_ignored</span><span class="p">()])</span></div>
+
+<div class="viewcode-block" id="CFVariable.add_formula_term"><a class="viewcode-back" href="../../../generated/api/iris/fileformats/cf.html#iris.fileformats.cf.CFVariable.add_formula_term">[docs]</a>    <span class="k">def</span> <span class="nf">add_formula_term</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">,</span> <span class="n">term</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Register the participation of this CF-netCDF variable in a CF-netCDF formula term.</span>
+
+<span class="sd">        Args:</span>
+
+<span class="sd">        * root (string):</span>
+<span class="sd">            The name of CF-netCDF variable that defines the CF-netCDF formula_terms attribute.</span>
+<span class="sd">        * term (string):</span>
+<span class="sd">            The associated term name of this variable in the formula_terms definition.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            None.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cf_terms_by_root</span><span class="p">[</span><span class="n">root</span><span class="p">]</span> <span class="o">=</span> <span class="n">term</span></div>
+
+<div class="viewcode-block" id="CFVariable.has_formula_terms"><a class="viewcode-back" href="../../../generated/api/iris/fileformats/cf.html#iris.fileformats.cf.CFVariable.has_formula_terms">[docs]</a>    <span class="k">def</span> <span class="nf">has_formula_terms</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Determine whether this CF-netCDF variable participates in a CF-netcdf formula term.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Boolean.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">bool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cf_terms_by_root</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="CFAncillaryDataVariable"><a class="viewcode-back" href="../../../generated/api/iris/fileformats/cf.html#iris.fileformats.cf.CFAncillaryDataVariable">[docs]</a><span class="k">class</span> <span class="nc">CFAncillaryDataVariable</span><span class="p">(</span><span class="n">CFVariable</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A CF-netCDF ancillary data variable is a variable that provides metadata</span>
+<span class="sd">    about the individual values of another data variable.</span>
+
+<span class="sd">    Identified by the CF-netCDF variable attribute &#39;ancillary_variables&#39;.</span>
+
+<span class="sd">    Ref: [CF] Section 3.4. Ancillary Data.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">cf_identity</span> <span class="o">=</span> <span class="s2">&quot;ancillary_variables&quot;</span>
+
+<div class="viewcode-block" id="CFAncillaryDataVariable.identify"><a class="viewcode-back" href="../../../generated/api/iris/fileformats/cf.html#iris.fileformats.cf.CFAncillaryDataVariable.identify">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">identify</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">variables</span><span class="p">,</span> <span class="n">ignore</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">warn</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">ignore</span><span class="p">,</span> <span class="n">target</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_identify_common</span><span class="p">(</span><span class="n">variables</span><span class="p">,</span> <span class="n">ignore</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
+
+        <span class="c1"># Identify all CF ancillary data variables.</span>
+        <span class="k">for</span> <span class="n">nc_var_name</span><span class="p">,</span> <span class="n">nc_var</span> <span class="ow">in</span> <span class="n">target</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="c1"># Check for ancillary data variable references.</span>
+            <span class="n">nc_var_att</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">nc_var</span><span class="p">,</span> <span class="bp">cls</span><span class="o">.</span><span class="n">cf_identity</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">nc_var_att</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">nc_var_att</span><span class="o">.</span><span class="n">split</span><span class="p">():</span>
+                    <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ignore</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">variables</span><span class="p">:</span>
+                            <span class="k">if</span> <span class="n">warn</span><span class="p">:</span>
+                                <span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;Missing CF-netCDF ancillary data variable </span><span class="si">%r</span><span class="s2">, referenced by netCDF variable </span><span class="si">%r</span><span class="s2">&quot;</span>
+                                <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">message</span> <span class="o">%</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">nc_var_name</span><span class="p">))</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="n">result</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">CFAncillaryDataVariable</span><span class="p">(</span>
+                                <span class="n">name</span><span class="p">,</span> <span class="n">variables</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+                            <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">result</span></div></div>
+
+
+<div class="viewcode-block" id="CFAuxiliaryCoordinateVariable"><a class="viewcode-back" href="../../../generated/api/iris/fileformats/cf.html#iris.fileformats.cf.CFAuxiliaryCoordinateVariable">[docs]</a><span class="k">class</span> <span class="nc">CFAuxiliaryCoordinateVariable</span><span class="p">(</span><span class="n">CFVariable</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A CF-netCDF auxiliary coordinate variable is any netCDF variable that contains</span>
+<span class="sd">    coordinate data, but is not a CF-netCDF coordinate variable by definition.</span>
+
+<span class="sd">    There is no relationship between the name of a CF-netCDF auxiliary coordinate</span>
+<span class="sd">    variable and the name(s) of its dimension(s).</span>
+
+<span class="sd">    Identified by the CF-netCDF variable attribute &#39;coordinates&#39;.</span>
+<span class="sd">    Also see :class:`iris.fileformats.cf.CFLabelVariable`.</span>
+
+<span class="sd">    Ref: [CF] Chapter 5. Coordinate Systems.</span>
+<span class="sd">         [CF] Section 6.2. Alternative Coordinates.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">cf_identity</span> <span class="o">=</span> <span class="s2">&quot;coordinates&quot;</span>
+
+<div class="viewcode-block" id="CFAuxiliaryCoordinateVariable.identify"><a class="viewcode-back" href="../../../generated/api/iris/fileformats/cf.html#iris.fileformats.cf.CFAuxiliaryCoordinateVariable.identify">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">identify</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">variables</span><span class="p">,</span> <span class="n">ignore</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">warn</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">ignore</span><span class="p">,</span> <span class="n">target</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_identify_common</span><span class="p">(</span><span class="n">variables</span><span class="p">,</span> <span class="n">ignore</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
+
+        <span class="c1"># Identify all CF auxiliary coordinate variables.</span>
+        <span class="k">for</span> <span class="n">nc_var_name</span><span class="p">,</span> <span class="n">nc_var</span> <span class="ow">in</span> <span class="n">target</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="c1"># Check for auxiliary coordinate variable references.</span>
+            <span class="n">nc_var_att</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">nc_var</span><span class="p">,</span> <span class="bp">cls</span><span class="o">.</span><span class="n">cf_identity</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">nc_var_att</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">nc_var_att</span><span class="o">.</span><span class="n">split</span><span class="p">():</span>
+                    <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ignore</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">variables</span><span class="p">:</span>
+                            <span class="k">if</span> <span class="n">warn</span><span class="p">:</span>
+                                <span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;Missing CF-netCDF auxiliary coordinate variable </span><span class="si">%r</span><span class="s2">, referenced by netCDF variable </span><span class="si">%r</span><span class="s2">&quot;</span>
+                                <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">message</span> <span class="o">%</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">nc_var_name</span><span class="p">))</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="c1"># Restrict to non-string type i.e. not a CFLabelVariable.</span>
+                            <span class="k">if</span> <span class="ow">not</span> <span class="n">_is_str_dtype</span><span class="p">(</span><span class="n">variables</span><span class="p">[</span><span class="n">name</span><span class="p">]):</span>
+                                <span class="n">result</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">CFAuxiliaryCoordinateVariable</span><span class="p">(</span>
+                                    <span class="n">name</span><span class="p">,</span> <span class="n">variables</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+                                <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">result</span></div></div>
+
+
+<div class="viewcode-block" id="CFBoundaryVariable"><a class="viewcode-back" href="../../../generated/api/iris/fileformats/cf.html#iris.fileformats.cf.CFBoundaryVariable">[docs]</a><span class="k">class</span> <span class="nc">CFBoundaryVariable</span><span class="p">(</span><span class="n">CFVariable</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A CF-netCDF boundary variable is associated with a CF-netCDF variable that contains</span>
+<span class="sd">    coordinate data. When a data value provides information about conditions in a cell</span>
+<span class="sd">    occupying a region of space/time or some other dimension, the boundary variable</span>
+<span class="sd">    provides a description of cell extent.</span>
+
+<span class="sd">    A CF-netCDF boundary variable will have one more dimension than its associated</span>
+<span class="sd">    CF-netCDF coordinate variable or CF-netCDF auxiliary coordinate variable.</span>
+
+<span class="sd">    Identified by the CF-netCDF variable attribute &#39;bounds&#39;.</span>
+
+<span class="sd">    Ref: [CF] Section 7.1. Cell Boundaries.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">cf_identity</span> <span class="o">=</span> <span class="s2">&quot;bounds&quot;</span>
+
+<div class="viewcode-block" id="CFBoundaryVariable.identify"><a class="viewcode-back" href="../../../generated/api/iris/fileformats/cf.html#iris.fileformats.cf.CFBoundaryVariable.identify">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">identify</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">variables</span><span class="p">,</span> <span class="n">ignore</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">warn</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">ignore</span><span class="p">,</span> <span class="n">target</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_identify_common</span><span class="p">(</span><span class="n">variables</span><span class="p">,</span> <span class="n">ignore</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
+
+        <span class="c1"># Identify all CF boundary variables.</span>
+        <span class="k">for</span> <span class="n">nc_var_name</span><span class="p">,</span> <span class="n">nc_var</span> <span class="ow">in</span> <span class="n">target</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="c1"># Check for a boundary variable reference.</span>
+            <span class="n">nc_var_att</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">nc_var</span><span class="p">,</span> <span class="bp">cls</span><span class="o">.</span><span class="n">cf_identity</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">nc_var_att</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">name</span> <span class="o">=</span> <span class="n">nc_var_att</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+                <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ignore</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">variables</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="n">warn</span><span class="p">:</span>
+                            <span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;Missing CF-netCDF boundary variable </span><span class="si">%r</span><span class="s2">, referenced by netCDF variable </span><span class="si">%r</span><span class="s2">&quot;</span>
+                            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">message</span> <span class="o">%</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">nc_var_name</span><span class="p">))</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">result</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">CFBoundaryVariable</span><span class="p">(</span>
+                            <span class="n">name</span><span class="p">,</span> <span class="n">variables</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+                        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">result</span></div>
+
+<div class="viewcode-block" id="CFBoundaryVariable.spans"><a class="viewcode-back" href="../../../generated/api/iris/fileformats/cf.html#iris.fileformats.cf.CFBoundaryVariable.spans">[docs]</a>    <span class="k">def</span> <span class="nf">spans</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cf_variable</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Determine whether the dimensionality of this variable</span>
+<span class="sd">        is a subset of the specified target variable.</span>
+
+<span class="sd">        Note that, by default scalar variables always span the</span>
+<span class="sd">        dimensionality of the target variable.</span>
+
+<span class="sd">        Args:</span>
+
+<span class="sd">        * cf_variable:</span>
+<span class="sd">            Compare dimensionality with the :class:`CFVariable`.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Boolean.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Scalar variables always span the target variable.</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dimensions</span><span class="p">:</span>
+            <span class="n">source</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dimensions</span>
+            <span class="n">target</span> <span class="o">=</span> <span class="n">cf_variable</span><span class="o">.</span><span class="n">dimensions</span>
+            <span class="c1"># Ignore the bounds extent dimension.</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">source</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">issubset</span><span class="p">(</span><span class="n">target</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">set</span><span class="p">(</span>
+                <span class="n">source</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+            <span class="p">)</span><span class="o">.</span><span class="n">issubset</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span></div></div>
+
+
+<div class="viewcode-block" id="CFClimatologyVariable"><a class="viewcode-back" href="../../../generated/api/iris/fileformats/cf.html#iris.fileformats.cf.CFClimatologyVariable">[docs]</a><span class="k">class</span> <span class="nc">CFClimatologyVariable</span><span class="p">(</span><span class="n">CFVariable</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A CF-netCDF climatology variable is associated with a CF-netCDF variable that contains</span>
+<span class="sd">    coordinate data. When a data value provides information about conditions in a cell</span>
+<span class="sd">    occupying a region of space/time or some other dimension, the climatology variable</span>
+<span class="sd">    provides a climatological description of cell extent.</span>
+
+<span class="sd">    A CF-netCDF climatology variable will have one more dimension than its associated</span>
+<span class="sd">    CF-netCDF coordinate variable.</span>
+
+<span class="sd">    Identified by the CF-netCDF variable attribute &#39;climatology&#39;.</span>
+
+<span class="sd">    Ref: [CF] Section 7.4. Climatological Statistics</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">cf_identity</span> <span class="o">=</span> <span class="s2">&quot;climatology&quot;</span>
+
+<div class="viewcode-block" id="CFClimatologyVariable.identify"><a class="viewcode-back" href="../../../generated/api/iris/fileformats/cf.html#iris.fileformats.cf.CFClimatologyVariable.identify">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">identify</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">variables</span><span class="p">,</span> <span class="n">ignore</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">warn</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">ignore</span><span class="p">,</span> <span class="n">target</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_identify_common</span><span class="p">(</span><span class="n">variables</span><span class="p">,</span> <span class="n">ignore</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
+
+        <span class="c1"># Identify all CF climatology variables.</span>
+        <span class="k">for</span> <span class="n">nc_var_name</span><span class="p">,</span> <span class="n">nc_var</span> <span class="ow">in</span> <span class="n">target</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="c1"># Check for a climatology variable reference.</span>
+            <span class="n">nc_var_att</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">nc_var</span><span class="p">,</span> <span class="bp">cls</span><span class="o">.</span><span class="n">cf_identity</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">nc_var_att</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">name</span> <span class="o">=</span> <span class="n">nc_var_att</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+                <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ignore</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">variables</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="n">warn</span><span class="p">:</span>
+                            <span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;Missing CF-netCDF climatology variable </span><span class="si">%r</span><span class="s2">, referenced by netCDF variable </span><span class="si">%r</span><span class="s2">&quot;</span>
+                            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">message</span> <span class="o">%</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">nc_var_name</span><span class="p">))</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">result</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">CFClimatologyVariable</span><span class="p">(</span>
+                            <span class="n">name</span><span class="p">,</span> <span class="n">variables</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+                        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">result</span></div>
+
+<div class="viewcode-block" id="CFClimatologyVariable.spans"><a class="viewcode-back" href="../../../generated/api/iris/fileformats/cf.html#iris.fileformats.cf.CFClimatologyVariable.spans">[docs]</a>    <span class="k">def</span> <span class="nf">spans</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cf_variable</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Determine whether the dimensionality of this variable</span>
+<span class="sd">        is a subset of the specified target variable.</span>
+
+<span class="sd">        Note that, by default scalar variables always span the</span>
+<span class="sd">        dimensionality of the target variable.</span>
+
+<span class="sd">        Args:</span>
+
+<span class="sd">        * cf_variable:</span>
+<span class="sd">            Compare dimensionality with the :class:`CFVariable`.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Boolean.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Scalar variables always span the target variable.</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dimensions</span><span class="p">:</span>
+            <span class="n">source</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dimensions</span>
+            <span class="n">target</span> <span class="o">=</span> <span class="n">cf_variable</span><span class="o">.</span><span class="n">dimensions</span>
+            <span class="c1"># Ignore the climatology extent dimension.</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">source</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">issubset</span><span class="p">(</span><span class="n">target</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">set</span><span class="p">(</span>
+                <span class="n">source</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+            <span class="p">)</span><span class="o">.</span><span class="n">issubset</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span></div></div>
+
+
+<div class="viewcode-block" id="CFCoordinateVariable"><a class="viewcode-back" href="../../../generated/api/iris/fileformats/cf.html#iris.fileformats.cf.CFCoordinateVariable">[docs]</a><span class="k">class</span> <span class="nc">CFCoordinateVariable</span><span class="p">(</span><span class="n">CFVariable</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A CF-netCDF coordinate variable is a one-dimensional variable with the same name</span>
+<span class="sd">    as its dimension, and it is defined as a numeric data type with values that are</span>
+<span class="sd">    ordered monotonically. Missing values are not allowed in CF-netCDF coordinate</span>
+<span class="sd">    variables. Also see [NUG] Section 2.3.1.</span>
+
+<span class="sd">    Identified by the above criterion, there is no associated CF-netCDF variable</span>
+<span class="sd">    attribute.</span>
+
+<span class="sd">    Ref: [CF] 1.2. Terminology.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="CFCoordinateVariable.identify"><a class="viewcode-back" href="../../../generated/api/iris/fileformats/cf.html#iris.fileformats.cf.CFCoordinateVariable.identify">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">identify</span><span class="p">(</span>
+        <span class="bp">cls</span><span class="p">,</span> <span class="n">variables</span><span class="p">,</span> <span class="n">ignore</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">warn</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">monotonic</span><span class="o">=</span><span class="kc">False</span>
+    <span class="p">):</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">ignore</span><span class="p">,</span> <span class="n">target</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_identify_common</span><span class="p">(</span><span class="n">variables</span><span class="p">,</span> <span class="n">ignore</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
+
+        <span class="c1"># Identify all CF coordinate variables.</span>
+        <span class="k">for</span> <span class="n">nc_var_name</span><span class="p">,</span> <span class="n">nc_var</span> <span class="ow">in</span> <span class="n">target</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">nc_var_name</span> <span class="ow">in</span> <span class="n">ignore</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="c1"># String variables can&#39;t be coordinates</span>
+            <span class="k">if</span> <span class="n">_is_str_dtype</span><span class="p">(</span><span class="n">nc_var</span><span class="p">):</span>
+                <span class="k">continue</span>
+            <span class="c1"># Restrict to one-dimensional with name as dimension</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">nc_var</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">nc_var_name</span> <span class="ow">in</span> <span class="n">nc_var</span><span class="o">.</span><span class="n">dimensions</span><span class="p">):</span>
+                <span class="k">continue</span>
+            <span class="c1"># Restrict to monotonic?</span>
+            <span class="k">if</span> <span class="n">monotonic</span><span class="p">:</span>
+                <span class="n">data</span> <span class="o">=</span> <span class="n">nc_var</span><span class="p">[:]</span>
+                <span class="c1"># Gracefully fill a masked coordinate.</span>
+                <span class="k">if</span> <span class="n">ma</span><span class="o">.</span><span class="n">isMaskedArray</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+                    <span class="n">data</span> <span class="o">=</span> <span class="n">ma</span><span class="o">.</span><span class="n">filled</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+                <span class="k">if</span> <span class="p">(</span>
+                    <span class="n">nc_var</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">()</span>
+                    <span class="ow">or</span> <span class="n">nc_var</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">1</span><span class="p">,)</span>
+                    <span class="ow">or</span> <span class="n">iris</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">monotonic</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+                <span class="p">):</span>
+                    <span class="n">result</span><span class="p">[</span><span class="n">nc_var_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">CFCoordinateVariable</span><span class="p">(</span>
+                        <span class="n">nc_var_name</span><span class="p">,</span> <span class="n">nc_var</span>
+                    <span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">result</span><span class="p">[</span><span class="n">nc_var_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">CFCoordinateVariable</span><span class="p">(</span><span class="n">nc_var_name</span><span class="p">,</span> <span class="n">nc_var</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">result</span></div></div>
+
+
+<div class="viewcode-block" id="CFDataVariable"><a class="viewcode-back" href="../../../generated/api/iris/fileformats/cf.html#iris.fileformats.cf.CFDataVariable">[docs]</a><span class="k">class</span> <span class="nc">CFDataVariable</span><span class="p">(</span><span class="n">CFVariable</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A CF-netCDF variable containing data pay-load that maps to an Iris :class:`iris.cube.Cube`.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="CFDataVariable.identify"><a class="viewcode-back" href="../../../generated/api/iris/fileformats/cf.html#iris.fileformats.cf.CFDataVariable.identify">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">identify</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">variables</span><span class="p">,</span> <span class="n">ignore</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">warn</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div></div>
+
+
+<span class="k">class</span> <span class="nc">_CFFormulaTermsVariable</span><span class="p">(</span><span class="n">CFVariable</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A CF-netCDF formula terms variable corresponds to a term in a formula that</span>
+<span class="sd">    allows dimensional vertical coordinate values to be computed from dimensionless</span>
+<span class="sd">    vertical coordinate values and associated variables at specific grid points.</span>
+
+<span class="sd">    Identified by the CF-netCDF variable attribute &#39;formula_terms&#39;.</span>
+
+<span class="sd">    Ref: [CF] Section 4.3.2. Dimensional Vertical Coordinate.</span>
+<span class="sd">         [CF] Appendix D. Dimensionless Vertical Coordinates.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">cf_identity</span> <span class="o">=</span> <span class="s2">&quot;formula_terms&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">formula_root</span><span class="p">,</span> <span class="n">formula_term</span><span class="p">):</span>
+        <span class="n">CFVariable</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+        <span class="c1"># Register the formula root and term relationship.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_formula_term</span><span class="p">(</span><span class="n">formula_root</span><span class="p">,</span> <span class="n">formula_term</span><span class="p">)</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">identify</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">variables</span><span class="p">,</span> <span class="n">ignore</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">warn</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">ignore</span><span class="p">,</span> <span class="n">target</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_identify_common</span><span class="p">(</span><span class="n">variables</span><span class="p">,</span> <span class="n">ignore</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
+
+        <span class="c1"># Identify all CF formula terms variables.</span>
+        <span class="k">for</span> <span class="n">nc_var_name</span><span class="p">,</span> <span class="n">nc_var</span> <span class="ow">in</span> <span class="n">target</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="c1"># Check for formula terms variable references.</span>
+            <span class="n">nc_var_att</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">nc_var</span><span class="p">,</span> <span class="bp">cls</span><span class="o">.</span><span class="n">cf_identity</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">nc_var_att</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">match_item</span> <span class="ow">in</span> <span class="n">_CF_PARSE</span><span class="o">.</span><span class="n">finditer</span><span class="p">(</span><span class="n">nc_var_att</span><span class="p">):</span>
+                    <span class="n">match_group</span> <span class="o">=</span> <span class="n">match_item</span><span class="o">.</span><span class="n">groupdict</span><span class="p">()</span>
+                    <span class="c1"># Ensure that term name is lower case, as expected.</span>
+                    <span class="n">term_name</span> <span class="o">=</span> <span class="n">match_group</span><span class="p">[</span><span class="s2">&quot;lhs&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+                    <span class="n">variable_name</span> <span class="o">=</span> <span class="n">match_group</span><span class="p">[</span><span class="s2">&quot;rhs&quot;</span><span class="p">]</span>
+
+                    <span class="k">if</span> <span class="n">variable_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ignore</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="n">variable_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">variables</span><span class="p">:</span>
+                            <span class="k">if</span> <span class="n">warn</span><span class="p">:</span>
+                                <span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;Missing CF-netCDF formula term variable </span><span class="si">%r</span><span class="s2">, referenced by netCDF variable </span><span class="si">%r</span><span class="s2">&quot;</span>
+                                <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+                                    <span class="n">message</span> <span class="o">%</span> <span class="p">(</span><span class="n">variable_name</span><span class="p">,</span> <span class="n">nc_var_name</span><span class="p">)</span>
+                                <span class="p">)</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="k">if</span> <span class="n">variable_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
+                                <span class="n">result</span><span class="p">[</span>
+                                    <span class="n">variable_name</span>
+                                <span class="p">]</span> <span class="o">=</span> <span class="n">_CFFormulaTermsVariable</span><span class="p">(</span>
+                                    <span class="n">variable_name</span><span class="p">,</span>
+                                    <span class="n">variables</span><span class="p">[</span><span class="n">variable_name</span><span class="p">],</span>
+                                    <span class="n">nc_var_name</span><span class="p">,</span>
+                                    <span class="n">term_name</span><span class="p">,</span>
+                                <span class="p">)</span>
+                            <span class="k">else</span><span class="p">:</span>
+                                <span class="n">result</span><span class="p">[</span><span class="n">variable_name</span><span class="p">]</span><span class="o">.</span><span class="n">add_formula_term</span><span class="p">(</span>
+                                    <span class="n">nc_var_name</span><span class="p">,</span> <span class="n">term_name</span>
+                                <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">result</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">(</span><span class="si">%r</span><span class="s2">, </span><span class="si">%r</span><span class="s2">, </span><span class="si">%r</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cf_name</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cf_data</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cf_terms_by_root</span><span class="p">,</span>
+        <span class="p">)</span>
+
+
+<div class="viewcode-block" id="CFGridMappingVariable"><a class="viewcode-back" href="../../../generated/api/iris/fileformats/cf.html#iris.fileformats.cf.CFGridMappingVariable">[docs]</a><span class="k">class</span> <span class="nc">CFGridMappingVariable</span><span class="p">(</span><span class="n">CFVariable</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A CF-netCDF grid mapping variable contains a list of specific attributes that</span>
+<span class="sd">    define a particular grid mapping. A CF-netCDF grid mapping variable must contain</span>
+<span class="sd">    the attribute &#39;grid_mapping_name&#39;.</span>
+
+<span class="sd">    Based on the value of the &#39;grid_mapping_name&#39; attribute, there are associated</span>
+<span class="sd">    standard names of CF-netCDF coordinate variables that contain the mapping&#39;s</span>
+<span class="sd">    independent variables.</span>
+
+<span class="sd">    Identified by the CF-netCDF variable attribute &#39;grid_mapping&#39;.</span>
+
+<span class="sd">    Ref: [CF] Section 5.6. Horizontal Coordinate Reference Systems, Grid Mappings, and Projections.</span>
+<span class="sd">         [CF] Appendix F. Grid Mappings.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">cf_identity</span> <span class="o">=</span> <span class="s2">&quot;grid_mapping&quot;</span>
+
+<div class="viewcode-block" id="CFGridMappingVariable.identify"><a class="viewcode-back" href="../../../generated/api/iris/fileformats/cf.html#iris.fileformats.cf.CFGridMappingVariable.identify">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">identify</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">variables</span><span class="p">,</span> <span class="n">ignore</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">warn</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">ignore</span><span class="p">,</span> <span class="n">target</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_identify_common</span><span class="p">(</span><span class="n">variables</span><span class="p">,</span> <span class="n">ignore</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
+
+        <span class="c1"># Identify all grid mapping variables.</span>
+        <span class="k">for</span> <span class="n">nc_var_name</span><span class="p">,</span> <span class="n">nc_var</span> <span class="ow">in</span> <span class="n">target</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="c1"># Check for a grid mapping variable reference.</span>
+            <span class="n">nc_var_att</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">nc_var</span><span class="p">,</span> <span class="bp">cls</span><span class="o">.</span><span class="n">cf_identity</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">nc_var_att</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">name</span> <span class="o">=</span> <span class="n">nc_var_att</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+                <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ignore</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">variables</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="n">warn</span><span class="p">:</span>
+                            <span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;Missing CF-netCDF grid mapping variable </span><span class="si">%r</span><span class="s2">, referenced by netCDF variable </span><span class="si">%r</span><span class="s2">&quot;</span>
+                            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">message</span> <span class="o">%</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">nc_var_name</span><span class="p">))</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">result</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">CFGridMappingVariable</span><span class="p">(</span>
+                            <span class="n">name</span><span class="p">,</span> <span class="n">variables</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+                        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">result</span></div></div>
+
+
+<div class="viewcode-block" id="CFLabelVariable"><a class="viewcode-back" href="../../../generated/api/iris/fileformats/cf.html#iris.fileformats.cf.CFLabelVariable">[docs]</a><span class="k">class</span> <span class="nc">CFLabelVariable</span><span class="p">(</span><span class="n">CFVariable</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A CF-netCDF CF label variable is any netCDF variable that contain string</span>
+<span class="sd">    textual information, or labels.</span>
+
+<span class="sd">    Identified by the CF-netCDF variable attribute &#39;coordinates&#39;.</span>
+<span class="sd">    Also see :class:`iris.fileformats.cf.CFAuxiliaryCoordinateVariable`.</span>
+
+<span class="sd">    Ref: [CF] Section 6.1. Labels.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">cf_identity</span> <span class="o">=</span> <span class="s2">&quot;coordinates&quot;</span>
+
+<div class="viewcode-block" id="CFLabelVariable.identify"><a class="viewcode-back" href="../../../generated/api/iris/fileformats/cf.html#iris.fileformats.cf.CFLabelVariable.identify">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">identify</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">variables</span><span class="p">,</span> <span class="n">ignore</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">warn</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">ignore</span><span class="p">,</span> <span class="n">target</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_identify_common</span><span class="p">(</span><span class="n">variables</span><span class="p">,</span> <span class="n">ignore</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
+
+        <span class="c1"># Identify all CF label variables.</span>
+        <span class="k">for</span> <span class="n">nc_var_name</span><span class="p">,</span> <span class="n">nc_var</span> <span class="ow">in</span> <span class="n">target</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="c1"># Check for label variable references.</span>
+            <span class="n">nc_var_att</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">nc_var</span><span class="p">,</span> <span class="bp">cls</span><span class="o">.</span><span class="n">cf_identity</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">nc_var_att</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">nc_var_att</span><span class="o">.</span><span class="n">split</span><span class="p">():</span>
+                    <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ignore</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">variables</span><span class="p">:</span>
+                            <span class="k">if</span> <span class="n">warn</span><span class="p">:</span>
+                                <span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;Missing CF-netCDF label variable </span><span class="si">%r</span><span class="s2">, referenced by netCDF variable </span><span class="si">%r</span><span class="s2">&quot;</span>
+                                <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">message</span> <span class="o">%</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">nc_var_name</span><span class="p">))</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="c1"># Register variable, but only allow string type.</span>
+                            <span class="n">var</span> <span class="o">=</span> <span class="n">variables</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+                            <span class="k">if</span> <span class="n">_is_str_dtype</span><span class="p">(</span><span class="n">var</span><span class="p">):</span>
+                                <span class="n">result</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">CFLabelVariable</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">var</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">result</span></div>
+
+<div class="viewcode-block" id="CFLabelVariable.cf_label_data"><a class="viewcode-back" href="../../../generated/api/iris/fileformats/cf.html#iris.fileformats.cf.CFLabelVariable.cf_label_data">[docs]</a>    <span class="k">def</span> <span class="nf">cf_label_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cf_data_var</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return the associated CF-netCDF label variable strings.</span>
+
+<span class="sd">        Args:</span>
+
+<span class="sd">        * cf_data_var (:class:`iris.fileformats.cf.CFDataVariable`):</span>
+<span class="sd">            The CF-netCDF data variable which the CF-netCDF label variable describes.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            String labels.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">cf_data_var</span><span class="p">,</span> <span class="n">CFDataVariable</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+                <span class="s2">&quot;cf_data_var argument should be of type CFDataVariable. Got </span><span class="si">%r</span><span class="s2">.&quot;</span>
+                <span class="o">%</span> <span class="nb">type</span><span class="p">(</span><span class="n">cf_data_var</span><span class="p">)</span>
+            <span class="p">)</span>
+
+        <span class="c1"># Determine the name of the label string (or length) dimension by</span>
+        <span class="c1"># finding the dimension name that doesn&#39;t exist within the data dimensions.</span>
+        <span class="n">str_dim_name</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dimensions</span><span class="p">)</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="n">cf_data_var</span><span class="o">.</span><span class="n">dimensions</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">str_dim_name</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;Invalid string dimensions for CF-netCDF label variable </span><span class="si">%r</span><span class="s2">&quot;</span>
+                <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">cf_name</span>
+            <span class="p">)</span>
+
+        <span class="n">str_dim_name</span> <span class="o">=</span> <span class="n">str_dim_name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">label_data</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[:]</span>
+
+        <span class="k">if</span> <span class="n">ma</span><span class="o">.</span><span class="n">isMaskedArray</span><span class="p">(</span><span class="n">label_data</span><span class="p">):</span>
+            <span class="n">label_data</span> <span class="o">=</span> <span class="n">label_data</span><span class="o">.</span><span class="n">filled</span><span class="p">()</span>
+
+        <span class="c1"># Determine whether we have a string-valued scalar label</span>
+        <span class="c1"># i.e. a character variable that only has one dimension (the length of the string).</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">label_string</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">label_data</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="n">label_string</span> <span class="o">=</span> <span class="n">label_string</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf8&quot;</span><span class="p">)</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">label_string</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Determine the index of the string dimension.</span>
+            <span class="n">str_dim</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dimensions</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">str_dim_name</span><span class="p">)</span>
+
+            <span class="c1"># Calculate new label data shape (without string dimension) and create payload array.</span>
+            <span class="n">new_shape</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span>
+                <span class="n">dim_len</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">dim_len</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="k">if</span> <span class="n">i</span> <span class="o">!=</span> <span class="n">str_dim</span>
+            <span class="p">)</span>
+            <span class="n">string_basetype</span> <span class="o">=</span> <span class="s2">&quot;|U</span><span class="si">%d</span><span class="s2">&quot;</span>
+            <span class="n">string_dtype</span> <span class="o">=</span> <span class="n">string_basetype</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="n">str_dim</span><span class="p">]</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">new_shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">string_dtype</span><span class="p">)</span>
+
+            <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">ndindex</span><span class="p">(</span><span class="n">new_shape</span><span class="p">):</span>
+                <span class="c1"># Create the slice for the label data.</span>
+                <span class="k">if</span> <span class="n">str_dim</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">label_index</span> <span class="o">=</span> <span class="p">(</span><span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">),)</span> <span class="o">+</span> <span class="n">index</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">label_index</span> <span class="o">=</span> <span class="n">index</span> <span class="o">+</span> <span class="p">(</span><span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">),)</span>
+
+                <span class="n">label_string</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">label_data</span><span class="p">[</span><span class="n">label_index</span><span class="p">])</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+                <span class="n">label_string</span> <span class="o">=</span> <span class="n">label_string</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf8&quot;</span><span class="p">)</span>
+                <span class="n">data</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">label_string</span>
+
+        <span class="k">return</span> <span class="n">data</span></div>
+
+<div class="viewcode-block" id="CFLabelVariable.cf_label_dimensions"><a class="viewcode-back" href="../../../generated/api/iris/fileformats/cf.html#iris.fileformats.cf.CFLabelVariable.cf_label_dimensions">[docs]</a>    <span class="k">def</span> <span class="nf">cf_label_dimensions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cf_data_var</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return the name of the associated CF-netCDF label variable data dimensions.</span>
+
+<span class="sd">        Args:</span>
+
+<span class="sd">        * cf_data_var (:class:`iris.fileformats.cf.CFDataVariable`):</span>
+<span class="sd">            The CF-netCDF data variable which the CF-netCDF label variable describes.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Tuple of label data dimension names.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">cf_data_var</span><span class="p">,</span> <span class="n">CFDataVariable</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+                <span class="s2">&quot;cf_data_var argument should be of type CFDataVariable. Got </span><span class="si">%r</span><span class="s2">.&quot;</span>
+                <span class="o">%</span> <span class="nb">type</span><span class="p">(</span><span class="n">cf_data_var</span><span class="p">)</span>
+            <span class="p">)</span>
+
+        <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span>
+            <span class="p">[</span>
+                <span class="n">dim_name</span>
+                <span class="k">for</span> <span class="n">dim_name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dimensions</span>
+                <span class="k">if</span> <span class="n">dim_name</span> <span class="ow">in</span> <span class="n">cf_data_var</span><span class="o">.</span><span class="n">dimensions</span>
+            <span class="p">]</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="CFLabelVariable.spans"><a class="viewcode-back" href="../../../generated/api/iris/fileformats/cf.html#iris.fileformats.cf.CFLabelVariable.spans">[docs]</a>    <span class="k">def</span> <span class="nf">spans</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cf_variable</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Determine whether the dimensionality of this variable</span>
+<span class="sd">        is a subset of the specified target variable.</span>
+
+<span class="sd">        Note that, by default scalar variables always span the</span>
+<span class="sd">        dimensionality of the target variable.</span>
+
+<span class="sd">        Args:</span>
+
+<span class="sd">        * cf_variable:</span>
+<span class="sd">            Compare dimensionality with the :class:`CFVariable`.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Boolean.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Scalar variables always span the target variable.</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dimensions</span><span class="p">:</span>
+            <span class="n">source</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dimensions</span>
+            <span class="n">target</span> <span class="o">=</span> <span class="n">cf_variable</span><span class="o">.</span><span class="n">dimensions</span>
+            <span class="c1"># Ignore label string length dimension.</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">source</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">issubset</span><span class="p">(</span><span class="n">target</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">set</span><span class="p">(</span>
+                <span class="n">source</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+            <span class="p">)</span><span class="o">.</span><span class="n">issubset</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span></div></div>
+
+
+<div class="viewcode-block" id="CFMeasureVariable"><a class="viewcode-back" href="../../../generated/api/iris/fileformats/cf.html#iris.fileformats.cf.CFMeasureVariable">[docs]</a><span class="k">class</span> <span class="nc">CFMeasureVariable</span><span class="p">(</span><span class="n">CFVariable</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A CF-netCDF measure variable is a variable that contains cell areas or volumes.</span>
+
+<span class="sd">    Identified by the CF-netCDF variable attribute &#39;cell_measures&#39;.</span>
+
+<span class="sd">    Ref: [CF] Section 7.2. Cell Measures.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">cf_identity</span> <span class="o">=</span> <span class="s2">&quot;cell_measures&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">measure</span><span class="p">):</span>
+        <span class="n">CFVariable</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+        <span class="c1">#: Associated cell measure of the cell variable</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cf_measure</span> <span class="o">=</span> <span class="n">measure</span>
+
+<div class="viewcode-block" id="CFMeasureVariable.identify"><a class="viewcode-back" href="../../../generated/api/iris/fileformats/cf.html#iris.fileformats.cf.CFMeasureVariable.identify">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">identify</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">variables</span><span class="p">,</span> <span class="n">ignore</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">warn</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">ignore</span><span class="p">,</span> <span class="n">target</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_identify_common</span><span class="p">(</span><span class="n">variables</span><span class="p">,</span> <span class="n">ignore</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
+
+        <span class="c1"># Identify all CF measure variables.</span>
+        <span class="k">for</span> <span class="n">nc_var_name</span><span class="p">,</span> <span class="n">nc_var</span> <span class="ow">in</span> <span class="n">target</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="c1"># Check for measure variable references.</span>
+            <span class="n">nc_var_att</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">nc_var</span><span class="p">,</span> <span class="bp">cls</span><span class="o">.</span><span class="n">cf_identity</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">nc_var_att</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">match_item</span> <span class="ow">in</span> <span class="n">_CF_PARSE</span><span class="o">.</span><span class="n">finditer</span><span class="p">(</span><span class="n">nc_var_att</span><span class="p">):</span>
+                    <span class="n">match_group</span> <span class="o">=</span> <span class="n">match_item</span><span class="o">.</span><span class="n">groupdict</span><span class="p">()</span>
+                    <span class="n">measure</span> <span class="o">=</span> <span class="n">match_group</span><span class="p">[</span><span class="s2">&quot;lhs&quot;</span><span class="p">]</span>
+                    <span class="n">variable_name</span> <span class="o">=</span> <span class="n">match_group</span><span class="p">[</span><span class="s2">&quot;rhs&quot;</span><span class="p">]</span>
+
+                    <span class="n">var_matches_nc</span> <span class="o">=</span> <span class="n">variable_name</span> <span class="o">!=</span> <span class="n">nc_var_name</span>
+                    <span class="k">if</span> <span class="n">variable_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ignore</span> <span class="ow">and</span> <span class="n">var_matches_nc</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="n">variable_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">variables</span><span class="p">:</span>
+                            <span class="k">if</span> <span class="n">warn</span><span class="p">:</span>
+                                <span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;Missing CF-netCDF measure variable </span><span class="si">%r</span><span class="s2">, referenced by netCDF variable </span><span class="si">%r</span><span class="s2">&quot;</span>
+                                <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+                                    <span class="n">message</span> <span class="o">%</span> <span class="p">(</span><span class="n">variable_name</span><span class="p">,</span> <span class="n">nc_var_name</span><span class="p">)</span>
+                                <span class="p">)</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="n">result</span><span class="p">[</span><span class="n">variable_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">CFMeasureVariable</span><span class="p">(</span>
+                                <span class="n">variable_name</span><span class="p">,</span>
+                                <span class="n">variables</span><span class="p">[</span><span class="n">variable_name</span><span class="p">],</span>
+                                <span class="n">measure</span><span class="p">,</span>
+                            <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">result</span></div></div>
+
+
+<span class="c1">################################################################################</span>
+<div class="viewcode-block" id="CFGroup"><a class="viewcode-back" href="../../../generated/api/iris/fileformats/cf.html#iris.fileformats.cf.CFGroup">[docs]</a><span class="k">class</span> <span class="nc">CFGroup</span><span class="p">(</span><span class="n">MutableMapping</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Represents a collection of &#39;NetCDF Climate and Forecast (CF) Metadata</span>
+<span class="sd">    Conventions&#39; variables and netCDF global attributes.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1">#: Collection of CF-netCDF variables</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cf_variables</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="c1">#: Collection of netCDF global attributes</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">global_attributes</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="c1">#: Collection of CF-netCDF variables promoted to a CFDataVariable.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">promoted</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">def</span> <span class="nf">_cf_getter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">cls</span><span class="p">):</span>
+        <span class="c1"># Generate dictionary with dictionary comprehension.</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="n">cf_name</span><span class="p">:</span> <span class="n">cf_var</span>
+            <span class="k">for</span> <span class="n">cf_name</span><span class="p">,</span> <span class="n">cf_var</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cf_variables</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">cf_var</span><span class="p">,</span> <span class="bp">cls</span><span class="p">)</span>
+        <span class="p">}</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">ancillary_variables</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Collection of CF-netCDF ancillary variables.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cf_getter</span><span class="p">(</span><span class="n">CFAncillaryDataVariable</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">auxiliary_coordinates</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Collection of CF-netCDF auxiliary coordinate variables.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cf_getter</span><span class="p">(</span><span class="n">CFAuxiliaryCoordinateVariable</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">bounds</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Collection of CF-netCDF boundary variables.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cf_getter</span><span class="p">(</span><span class="n">CFBoundaryVariable</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">climatology</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Collection of CF-netCDF climatology variables.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cf_getter</span><span class="p">(</span><span class="n">CFClimatologyVariable</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">coordinates</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Collection of CF-netCDF coordinate variables.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cf_getter</span><span class="p">(</span><span class="n">CFCoordinateVariable</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">data_variables</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Collection of CF-netCDF data pay-load variables.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cf_getter</span><span class="p">(</span><span class="n">CFDataVariable</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">formula_terms</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Collection of CF-netCDF variables that participate in a CF-netCDF formula term.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="n">cf_name</span><span class="p">:</span> <span class="n">cf_var</span>
+            <span class="k">for</span> <span class="n">cf_name</span><span class="p">,</span> <span class="n">cf_var</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cf_variables</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">cf_var</span><span class="o">.</span><span class="n">has_formula_terms</span><span class="p">()</span>
+        <span class="p">}</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">grid_mappings</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Collection of CF-netCDF grid mapping variables.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cf_getter</span><span class="p">(</span><span class="n">CFGridMappingVariable</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">labels</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Collection of CF-netCDF label variables.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cf_getter</span><span class="p">(</span><span class="n">CFLabelVariable</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cell_measures</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Collection of CF-netCDF measure variables.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cf_getter</span><span class="p">(</span><span class="n">CFMeasureVariable</span><span class="p">)</span>
+
+<div class="viewcode-block" id="CFGroup.keys"><a class="viewcode-back" href="../../../generated/api/iris/fileformats/cf.html#iris.fileformats.cf.CFGroup.keys">[docs]</a>    <span class="k">def</span> <span class="nf">keys</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return the names of all the CF-netCDF variables in the group.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cf_variables</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span></div>
+
+    <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_cf_variables</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cf_variables</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="n">item</span>
+
+    <span class="k">def</span> <span class="fm">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">variable</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">variable</span><span class="p">,</span> <span class="n">CFVariable</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+                <span class="s2">&quot;Attempted to add an invalid CF-netCDF variable to the </span><span class="si">%s</span><span class="s2">&quot;</span>
+                <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
+            <span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">name</span> <span class="o">!=</span> <span class="n">variable</span><span class="o">.</span><span class="n">cf_name</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;Mismatch between key name </span><span class="si">%r</span><span class="s2"> and CF-netCDF variable name </span><span class="si">%r</span><span class="s2">&quot;</span>
+                <span class="o">%</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">name</span><span class="p">),</span> <span class="n">variable</span><span class="o">.</span><span class="n">cf_name</span><span class="p">)</span>
+            <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cf_variables</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">variable</span>
+
+    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cf_variables</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span>
+                <span class="s2">&quot;Cannot get unknown CF-netCDF variable name </span><span class="si">%r</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+            <span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cf_variables</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__delitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cf_variables</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span>
+                <span class="s2">&quot;Cannot delete unknown CF-netcdf variable name </span><span class="si">%r</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+            <span class="p">)</span>
+
+        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cf_variables</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;variables:</span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_cf_variables</span><span class="p">))</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;global_attributes:</span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">global_attributes</span><span class="p">))</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;promoted:</span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">promoted</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="s2">&quot;&lt;</span><span class="si">%s</span><span class="s2"> of </span><span class="si">%s</span><span class="s2">&gt;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">result</span><span class="p">))</span></div>
+
+
+<span class="c1">################################################################################</span>
+<div class="viewcode-block" id="CFReader"><a class="viewcode-back" href="../../../generated/api/iris/fileformats/cf.html#iris.fileformats.cf.CFReader">[docs]</a><span class="k">class</span> <span class="nc">CFReader</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This class allows the contents of a netCDF file to be interpreted according</span>
+<span class="sd">    to the &#39;NetCDF Climate and Forecast (CF) Metadata Conventions&#39;.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">warn</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">monotonic</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+        <span class="c1"># All CF variable types EXCEPT for the &quot;special cases&quot; of</span>
+        <span class="c1"># CFDataVariable, CFCoordinateVariable and _CFFormulaTermsVariable.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_variable_types</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">CFAncillaryDataVariable</span><span class="p">,</span>
+            <span class="n">CFAuxiliaryCoordinateVariable</span><span class="p">,</span>
+            <span class="n">CFBoundaryVariable</span><span class="p">,</span>
+            <span class="n">CFClimatologyVariable</span><span class="p">,</span>
+            <span class="n">CFGridMappingVariable</span><span class="p">,</span>
+            <span class="n">CFLabelVariable</span><span class="p">,</span>
+            <span class="n">CFMeasureVariable</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="c1">#: Collection of CF-netCDF variables associated with this netCDF file</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cf_group</span> <span class="o">=</span> <span class="n">CFGroup</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dataset</span> <span class="o">=</span> <span class="n">netCDF4</span><span class="o">.</span><span class="n">Dataset</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_filename</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Issue load optimisation warning.</span>
+        <span class="k">if</span> <span class="n">warn</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dataset</span><span class="o">.</span><span class="n">file_format</span> <span class="ow">in</span> <span class="p">[</span>
+            <span class="s2">&quot;NETCDF3_CLASSIC&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;NETCDF3_64BIT&quot;</span><span class="p">,</span>
+        <span class="p">]:</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+                <span class="s2">&quot;Optimise CF-netCDF loading by converting data from NetCDF3 &quot;</span>
+                <span class="s1">&#39;to NetCDF4 file format using the &quot;nccopy&quot; command.&#39;</span>
+            <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_check_monotonic</span> <span class="o">=</span> <span class="n">monotonic</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_translate</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_build_cf_groups</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_reset</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">(</span><span class="si">%r</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_filename</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_translate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Classify the netCDF variables into CF-netCDF variables.&quot;&quot;&quot;</span>
+
+        <span class="n">netcdf_variable_names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_dataset</span><span class="o">.</span><span class="n">variables</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+
+        <span class="c1"># Identify all CF coordinate variables first. This must be done</span>
+        <span class="c1"># first as, by CF convention, the definition of a CF auxiliary</span>
+        <span class="c1"># coordinate variable may include a scalar CF coordinate variable,</span>
+        <span class="c1"># whereas we want these two types of variables to be mutually exclusive.</span>
+        <span class="n">coords</span> <span class="o">=</span> <span class="n">CFCoordinateVariable</span><span class="o">.</span><span class="n">identify</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_dataset</span><span class="o">.</span><span class="n">variables</span><span class="p">,</span> <span class="n">monotonic</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_check_monotonic</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cf_group</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">coords</span><span class="p">)</span>
+        <span class="n">coordinate_names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cf_group</span><span class="o">.</span><span class="n">coordinates</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+
+        <span class="c1"># Identify all CF variables EXCEPT for the &quot;special cases&quot;.</span>
+        <span class="k">for</span> <span class="n">variable_type</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_variable_types</span><span class="p">:</span>
+            <span class="c1"># Prevent grid mapping variables being mis-identified as CF coordinate variables.</span>
+            <span class="n">ignore</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="kc">None</span>
+                <span class="k">if</span> <span class="nb">issubclass</span><span class="p">(</span><span class="n">variable_type</span><span class="p">,</span> <span class="n">CFGridMappingVariable</span><span class="p">)</span>
+                <span class="k">else</span> <span class="n">coordinate_names</span>
+            <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cf_group</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+                <span class="n">variable_type</span><span class="o">.</span><span class="n">identify</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_dataset</span><span class="o">.</span><span class="n">variables</span><span class="p">,</span> <span class="n">ignore</span><span class="o">=</span><span class="n">ignore</span><span class="p">)</span>
+            <span class="p">)</span>
+
+        <span class="c1"># Identify global netCDF attributes.</span>
+        <span class="n">attr_dict</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">attr_name</span><span class="p">:</span> <span class="n">_getncattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_dataset</span><span class="p">,</span> <span class="n">attr_name</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">attr_name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dataset</span><span class="o">.</span><span class="n">ncattrs</span><span class="p">()</span>
+        <span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cf_group</span><span class="o">.</span><span class="n">global_attributes</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">attr_dict</span><span class="p">)</span>
+
+        <span class="c1"># Identify and register all CF formula terms.</span>
+        <span class="n">formula_terms</span> <span class="o">=</span> <span class="n">_CFFormulaTermsVariable</span><span class="o">.</span><span class="n">identify</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_dataset</span><span class="o">.</span><span class="n">variables</span>
+        <span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">cf_var</span> <span class="ow">in</span> <span class="n">formula_terms</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+            <span class="k">for</span> <span class="n">cf_root</span><span class="p">,</span> <span class="n">cf_term</span> <span class="ow">in</span> <span class="n">cf_var</span><span class="o">.</span><span class="n">cf_terms_by_root</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="c1"># Ignore formula terms owned by a bounds variable.</span>
+                <span class="k">if</span> <span class="n">cf_root</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cf_group</span><span class="o">.</span><span class="n">bounds</span><span class="p">:</span>
+                    <span class="n">cf_name</span> <span class="o">=</span> <span class="n">cf_var</span><span class="o">.</span><span class="n">cf_name</span>
+                    <span class="k">if</span> <span class="n">cf_var</span><span class="o">.</span><span class="n">cf_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cf_group</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">cf_group</span><span class="p">[</span><span class="n">cf_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">CFAuxiliaryCoordinateVariable</span><span class="p">(</span>
+                            <span class="n">cf_name</span><span class="p">,</span> <span class="n">cf_var</span><span class="o">.</span><span class="n">cf_data</span>
+                        <span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">cf_group</span><span class="p">[</span><span class="n">cf_name</span><span class="p">]</span><span class="o">.</span><span class="n">add_formula_term</span><span class="p">(</span><span class="n">cf_root</span><span class="p">,</span> <span class="n">cf_term</span><span class="p">)</span>
+
+        <span class="c1"># Determine the CF data variables.</span>
+        <span class="n">data_variable_names</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="nb">set</span><span class="p">(</span><span class="n">netcdf_variable_names</span><span class="p">)</span>
+            <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cf_group</span><span class="o">.</span><span class="n">ancillary_variables</span><span class="p">)</span>
+            <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cf_group</span><span class="o">.</span><span class="n">auxiliary_coordinates</span><span class="p">)</span>
+            <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cf_group</span><span class="o">.</span><span class="n">bounds</span><span class="p">)</span>
+            <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cf_group</span><span class="o">.</span><span class="n">climatology</span><span class="p">)</span>
+            <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cf_group</span><span class="o">.</span><span class="n">coordinates</span><span class="p">)</span>
+            <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cf_group</span><span class="o">.</span><span class="n">grid_mappings</span><span class="p">)</span>
+            <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cf_group</span><span class="o">.</span><span class="n">labels</span><span class="p">)</span>
+            <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cf_group</span><span class="o">.</span><span class="n">cell_measures</span><span class="p">)</span>
+        <span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">data_variable_names</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cf_group</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">CFDataVariable</span><span class="p">(</span>
+                <span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dataset</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+            <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_build_cf_groups</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Build the first order relationships between CF-netCDF variables.&quot;&quot;&quot;</span>
+
+        <span class="k">def</span> <span class="nf">_build</span><span class="p">(</span><span class="n">cf_variable</span><span class="p">):</span>
+            <span class="n">coordinate_names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cf_group</span><span class="o">.</span><span class="n">coordinates</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+            <span class="n">cf_group</span> <span class="o">=</span> <span class="n">CFGroup</span><span class="p">()</span>
+
+            <span class="c1"># Build CF variable relationships.</span>
+            <span class="k">for</span> <span class="n">variable_type</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_variable_types</span><span class="p">:</span>
+                <span class="c1"># Prevent grid mapping variables being mis-identified as</span>
+                <span class="c1"># CF coordinate variables.</span>
+                <span class="k">if</span> <span class="nb">issubclass</span><span class="p">(</span><span class="n">variable_type</span><span class="p">,</span> <span class="n">CFGridMappingVariable</span><span class="p">):</span>
+                    <span class="n">ignore</span> <span class="o">=</span> <span class="kc">None</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">ignore</span> <span class="o">=</span> <span class="n">coordinate_names</span>
+                <span class="n">match</span> <span class="o">=</span> <span class="n">variable_type</span><span class="o">.</span><span class="n">identify</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_dataset</span><span class="o">.</span><span class="n">variables</span><span class="p">,</span>
+                    <span class="n">ignore</span><span class="o">=</span><span class="n">ignore</span><span class="p">,</span>
+                    <span class="n">target</span><span class="o">=</span><span class="n">cf_variable</span><span class="o">.</span><span class="n">cf_name</span><span class="p">,</span>
+                    <span class="n">warn</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                <span class="p">)</span>
+                <span class="c1"># Sanity check dimensionality coverage.</span>
+                <span class="k">for</span> <span class="n">cf_name</span><span class="p">,</span> <span class="n">cf_var</span> <span class="ow">in</span> <span class="n">match</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                    <span class="k">if</span> <span class="n">cf_var</span><span class="o">.</span><span class="n">spans</span><span class="p">(</span><span class="n">cf_variable</span><span class="p">):</span>
+                        <span class="n">cf_group</span><span class="p">[</span><span class="n">cf_name</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cf_group</span><span class="p">[</span><span class="n">cf_name</span><span class="p">]</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="c1"># Register the ignored variable.</span>
+                        <span class="c1"># N.B. &#39;ignored&#39; variable from enclosing scope.</span>
+                        <span class="n">ignored</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">cf_name</span><span class="p">)</span>
+                        <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+                            <span class="s2">&quot;Ignoring variable </span><span class="si">{!r}</span><span class="s2"> referenced &quot;</span>
+                            <span class="s2">&quot;by variable </span><span class="si">{!r}</span><span class="s2">: Dimensions </span><span class="si">{!r}</span><span class="s2"> do not &quot;</span>
+                            <span class="s2">&quot;span </span><span class="si">{!r}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                                <span class="n">cf_name</span><span class="p">,</span>
+                                <span class="n">cf_variable</span><span class="o">.</span><span class="n">cf_name</span><span class="p">,</span>
+                                <span class="n">cf_var</span><span class="o">.</span><span class="n">dimensions</span><span class="p">,</span>
+                                <span class="n">cf_variable</span><span class="o">.</span><span class="n">dimensions</span><span class="p">,</span>
+                            <span class="p">)</span>
+                        <span class="p">)</span>
+                        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+            <span class="c1"># Build CF data variable relationships.</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">cf_variable</span><span class="p">,</span> <span class="n">CFDataVariable</span><span class="p">):</span>
+                <span class="c1"># Add global netCDF attributes.</span>
+                <span class="n">cf_group</span><span class="o">.</span><span class="n">global_attributes</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">cf_group</span><span class="o">.</span><span class="n">global_attributes</span>
+                <span class="p">)</span>
+                <span class="c1"># Add appropriate &quot;dimensioned&quot; CF coordinate variables.</span>
+                <span class="n">cf_group</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+                    <span class="p">{</span>
+                        <span class="n">cf_name</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">cf_group</span><span class="p">[</span><span class="n">cf_name</span><span class="p">]</span>
+                        <span class="k">for</span> <span class="n">cf_name</span> <span class="ow">in</span> <span class="n">cf_variable</span><span class="o">.</span><span class="n">dimensions</span>
+                        <span class="k">if</span> <span class="n">cf_name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cf_group</span><span class="o">.</span><span class="n">coordinates</span>
+                    <span class="p">}</span>
+                <span class="p">)</span>
+                <span class="c1"># Add appropriate &quot;dimensionless&quot; CF coordinate variables.</span>
+                <span class="n">coordinates_attr</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">cf_variable</span><span class="p">,</span> <span class="s2">&quot;coordinates&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+                <span class="n">cf_group</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+                    <span class="p">{</span>
+                        <span class="n">cf_name</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">cf_group</span><span class="p">[</span><span class="n">cf_name</span><span class="p">]</span>
+                        <span class="k">for</span> <span class="n">cf_name</span> <span class="ow">in</span> <span class="n">coordinates_attr</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+                        <span class="k">if</span> <span class="n">cf_name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cf_group</span><span class="o">.</span><span class="n">coordinates</span>
+                    <span class="p">}</span>
+                <span class="p">)</span>
+                <span class="c1"># Add appropriate formula terms.</span>
+                <span class="k">for</span> <span class="n">cf_var</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cf_group</span><span class="o">.</span><span class="n">formula_terms</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+                    <span class="k">for</span> <span class="n">cf_root</span> <span class="ow">in</span> <span class="n">cf_var</span><span class="o">.</span><span class="n">cf_terms_by_root</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="p">(</span>
+                            <span class="n">cf_root</span> <span class="ow">in</span> <span class="n">cf_group</span>
+                            <span class="ow">and</span> <span class="n">cf_var</span><span class="o">.</span><span class="n">cf_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">cf_group</span>
+                        <span class="p">):</span>
+                            <span class="c1"># Sanity check dimensionality.</span>
+                            <span class="k">if</span> <span class="n">cf_var</span><span class="o">.</span><span class="n">spans</span><span class="p">(</span><span class="n">cf_variable</span><span class="p">):</span>
+                                <span class="n">cf_group</span><span class="p">[</span><span class="n">cf_var</span><span class="o">.</span><span class="n">cf_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">cf_var</span>
+                            <span class="k">else</span><span class="p">:</span>
+                                <span class="c1"># Register the ignored variable.</span>
+                                <span class="c1"># N.B. &#39;ignored&#39; variable from enclosing scope.</span>
+                                <span class="n">ignored</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">cf_var</span><span class="o">.</span><span class="n">cf_name</span><span class="p">)</span>
+                                <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+                                    <span class="s2">&quot;Ignoring formula terms variable </span><span class="si">{!r}</span><span class="s2"> &quot;</span>
+                                    <span class="s2">&quot;referenced by data variable </span><span class="si">{!r}</span><span class="s2"> via &quot;</span>
+                                    <span class="s2">&quot;variable </span><span class="si">{!r}</span><span class="s2">: Dimensions </span><span class="si">{!r}</span><span class="s2"> do not &quot;</span>
+                                    <span class="s2">&quot;span </span><span class="si">{!r}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                                        <span class="n">cf_var</span><span class="o">.</span><span class="n">cf_name</span><span class="p">,</span>
+                                        <span class="n">cf_variable</span><span class="o">.</span><span class="n">cf_name</span><span class="p">,</span>
+                                        <span class="n">cf_root</span><span class="p">,</span>
+                                        <span class="n">cf_var</span><span class="o">.</span><span class="n">dimensions</span><span class="p">,</span>
+                                        <span class="n">cf_variable</span><span class="o">.</span><span class="n">dimensions</span><span class="p">,</span>
+                                    <span class="p">)</span>
+                                <span class="p">)</span>
+                                <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+            <span class="c1"># Add the CF group to the variable.</span>
+            <span class="n">cf_variable</span><span class="o">.</span><span class="n">cf_group</span> <span class="o">=</span> <span class="n">cf_group</span>
+
+        <span class="c1"># Ignored variables are those that cannot be attached to a</span>
+        <span class="c1"># data variable as the dimensionality of that variable is not</span>
+        <span class="c1"># a subset of the dimensionality of the data variable.</span>
+        <span class="n">ignored</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+        <span class="k">for</span> <span class="n">cf_variable</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cf_group</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+            <span class="n">_build</span><span class="p">(</span><span class="n">cf_variable</span><span class="p">)</span>
+
+        <span class="c1"># Determine whether there are any formula terms that</span>
+        <span class="c1"># may be promoted to a CFDataVariable and restrict promotion to only</span>
+        <span class="c1"># those formula terms that are reference surface/phenomenon.</span>
+        <span class="k">for</span> <span class="n">cf_var</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cf_group</span><span class="o">.</span><span class="n">formula_terms</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+            <span class="k">for</span> <span class="n">cf_root</span><span class="p">,</span> <span class="n">cf_term</span> <span class="ow">in</span> <span class="n">cf_var</span><span class="o">.</span><span class="n">cf_terms_by_root</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="n">cf_root_var</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cf_group</span><span class="p">[</span><span class="n">cf_root</span><span class="p">]</span>
+                <span class="n">name</span> <span class="o">=</span> <span class="n">cf_root_var</span><span class="o">.</span><span class="n">standard_name</span> <span class="ow">or</span> <span class="n">cf_root_var</span><span class="o">.</span><span class="n">long_name</span>
+                <span class="n">terms</span> <span class="o">=</span> <span class="n">reference_terms</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="p">[])</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">terms</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">terms</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">):</span>
+                    <span class="n">terms</span> <span class="o">=</span> <span class="p">[</span><span class="n">terms</span><span class="p">]</span>
+                <span class="n">cf_var_name</span> <span class="o">=</span> <span class="n">cf_var</span><span class="o">.</span><span class="n">cf_name</span>
+                <span class="k">if</span> <span class="p">(</span>
+                    <span class="n">cf_term</span> <span class="ow">in</span> <span class="n">terms</span>
+                    <span class="ow">and</span> <span class="n">cf_var_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cf_group</span><span class="o">.</span><span class="n">promoted</span>
+                <span class="p">):</span>
+                    <span class="n">data_var</span> <span class="o">=</span> <span class="n">CFDataVariable</span><span class="p">(</span><span class="n">cf_var_name</span><span class="p">,</span> <span class="n">cf_var</span><span class="o">.</span><span class="n">cf_data</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">cf_group</span><span class="o">.</span><span class="n">promoted</span><span class="p">[</span><span class="n">cf_var_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_var</span>
+                    <span class="n">_build</span><span class="p">(</span><span class="n">data_var</span><span class="p">)</span>
+                    <span class="k">break</span>
+        <span class="c1"># Promote any ignored variables.</span>
+        <span class="n">promoted</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="n">not_promoted</span> <span class="o">=</span> <span class="n">ignored</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">promoted</span><span class="p">)</span>
+        <span class="k">while</span> <span class="n">not_promoted</span><span class="p">:</span>
+            <span class="n">cf_name</span> <span class="o">=</span> <span class="n">not_promoted</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+            <span class="k">if</span> <span class="p">(</span>
+                <span class="n">cf_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cf_group</span><span class="o">.</span><span class="n">data_variables</span>
+                <span class="ow">and</span> <span class="n">cf_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cf_group</span><span class="o">.</span><span class="n">promoted</span>
+            <span class="p">):</span>
+                <span class="n">data_var</span> <span class="o">=</span> <span class="n">CFDataVariable</span><span class="p">(</span>
+                    <span class="n">cf_name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cf_group</span><span class="p">[</span><span class="n">cf_name</span><span class="p">]</span><span class="o">.</span><span class="n">cf_data</span>
+                <span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">cf_group</span><span class="o">.</span><span class="n">promoted</span><span class="p">[</span><span class="n">cf_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_var</span>
+                <span class="n">_build</span><span class="p">(</span><span class="n">data_var</span><span class="p">)</span>
+            <span class="c1"># Determine whether there are still any ignored variables</span>
+            <span class="c1"># yet to be promoted.</span>
+            <span class="n">promoted</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">cf_name</span><span class="p">)</span>
+            <span class="n">not_promoted</span> <span class="o">=</span> <span class="n">ignored</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">promoted</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Reset the attribute touch history of each variable.&quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">nc_var_name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dataset</span><span class="o">.</span><span class="n">variables</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cf_group</span><span class="p">[</span><span class="n">nc_var_name</span><span class="p">]</span><span class="o">.</span><span class="n">cf_attrs_reset</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># Explicitly close dataset to prevent file remaining open.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dataset</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+
+
+<span class="k">def</span> <span class="nf">_getncattr</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">attr</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Simple wrapper round `netCDF4.Dataset.getncattr` to make it behave</span>
+<span class="sd">    more like `getattr`.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">getncattr</span><span class="p">(</span><span class="n">attr</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="n">default</span>
+    <span class="k">return</span> <span class="n">value</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        
+        &copy; <a href="../../../copyright.html">Copyright</a> Iris Contributors
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
