@@ -4,7 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>8. Cube interpolation and regridding &#8212; Iris 3.0.dev0 documentation</title>
     <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -324,10 +324,7 @@ is often not necessary if performed just for visualisation purposes.</p>
 </pre></div>
 </div>
 <p>We can visually confirm that they are on different grids by plotting the two cubes:</p>
-<p>(<a class="reference external" href="../userguide/regridding_plots/regridding_plot.py">Source code</a>, <a class="reference external" href="../userguide/regridding_plots/regridding_plot.png">png</a>)</p>
-<div class="figure align-default" id="regridding-plot">
-<img alt="../_images/regridding_plot.png" src="../_images/regridding_plot.png" />
-</div>
+<p>(<a class="reference external" href="../userguide/regridding_plots/regridding_plot.py">Source code</a>)</p>
 <p>Let’s regrid the <code class="docutils literal notranslate"><span class="pre">global_air_temp</span></code> cube onto a rotated pole grid
 using a linear regridding scheme. To achieve this we pass the <code class="docutils literal notranslate"><span class="pre">rotated_psl</span></code>
 cube to the regridder to supply the target grid to regrid the <code class="docutils literal notranslate"><span class="pre">global_air_temp</span></code>
@@ -335,10 +332,7 @@ cube onto:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">rotated_air_temp</span> <span class="o">=</span> <span class="n">global_air_temp</span><span class="o">.</span><span class="n">regrid</span><span class="p">(</span><span class="n">rotated_psl</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">Linear</span><span class="p">())</span>
 </pre></div>
 </div>
-<p>(<a class="reference external" href="../userguide/regridding_plots/regridded_to_rotated.py">Source code</a>, <a class="reference external" href="../userguide/regridding_plots/regridded_to_rotated.png">png</a>)</p>
-<div class="figure align-default" id="regridded-to-rotated">
-<img alt="../_images/regridded_to_rotated.png" src="../_images/regridded_to_rotated.png" />
-</div>
+<p>(<a class="reference external" href="../userguide/regridding_plots/regridded_to_rotated.py">Source code</a>)</p>
 <p>We could regrid the pressure values onto the global grid, but this will involve
 some form of extrapolation. As with interpolation, we can control the extrapolation
 mode when defining the regridding scheme.</p>
@@ -370,10 +364,7 @@ pole grid:</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">global_psl</span> <span class="o">=</span> <span class="n">rotated_psl</span><span class="o">.</span><span class="n">regrid</span><span class="p">(</span><span class="n">global_air_temp</span><span class="p">,</span> <span class="n">scheme</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>(<a class="reference external" href="../userguide/regridding_plots/regridded_to_global.py">Source code</a>, <a class="reference external" href="../userguide/regridding_plots/regridded_to_global.png">png</a>)</p>
-<div class="figure align-default" id="regridded-to-global">
-<img alt="../_images/regridded_to_global.png" src="../_images/regridded_to_global.png" />
-</div>
+<p>(<a class="reference external" href="../userguide/regridding_plots/regridded_to_global.py">Source code</a>)</p>
 <p>Notice that although we can still see the approximate shape of the rotated pole grid, the
 cells have now become rectangular in a plate carrée (equirectangular) projection.
 The spatial grid of the resulting cube is really global, with a large proportion of the
@@ -446,10 +437,7 @@ anything other than 1 will prevent the scheme from being fully conservative, as
 some data will be disregarded if it lies close to masked data.</p>
 <p>To visualise the above regrid, let’s plot the original data, along with 3 distinct
 <code class="docutils literal notranslate"><span class="pre">mdtol</span></code> values to compare the result:</p>
-<p>(<a class="reference external" href="../userguide/regridding_plots/regridded_to_global_area_weighted.py">Source code</a>, <a class="reference external" href="../userguide/regridding_plots/regridded_to_global_area_weighted.png">png</a>)</p>
-<div class="figure align-default" id="regridded-to-global-area-weighted">
-<img alt="../_images/regridded_to_global_area_weighted.png" src="../_images/regridded_to_global_area_weighted.png" />
-</div>
+<p>(<a class="reference external" href="../userguide/regridding_plots/regridded_to_global_area_weighted.py">Source code</a>)</p>
 </div>
 <div class="section" id="caching-a-regridder">
 <span id="id4"></span><h3><span class="section-number">8.2.2. </span>Caching a regridder<a class="headerlink" href="#caching-a-regridder" title="Permalink to this headline">¶</a></h3>

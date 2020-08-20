@@ -4,7 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>iris.palette &#8212; Iris 3.0.dev0 documentation</title>
     <link rel="stylesheet" href="../../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -123,7 +123,7 @@ matplotlib cmap and norm keyword arguments.</p>
 --><dl class="py function">
 <dt id="iris.palette.cmap_norm">
 <code class="sig-prename descclassname">iris.palette.</code><code class="sig-name descname">cmap_norm</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cube</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.palette.cmap_norm" title="Permalink to this definition">¶</a></dt>
-<dd><p>Determine the default <a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.colors.LinearSegmentedColormap.html#matplotlib.colors.LinearSegmentedColormap" title="(in Matplotlib v3.2.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.colors.LinearSegmentedColormap</span></code></a>
+<dd><p>Determine the default <a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.colors.LinearSegmentedColormap.html#matplotlib.colors.LinearSegmentedColormap" title="(in Matplotlib v3.3.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.colors.LinearSegmentedColormap</span></code></a>
 and <a class="reference internal" href="#iris.palette.SymmetricNormalize" title="iris.palette.SymmetricNormalize"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.palette.SymmetricNormalize</span></code></a> instances associated with
 the cube.</p>
 <p>Args:</p>
@@ -135,7 +135,7 @@ the cube.</p>
 </li>
 </ul>
 <dl class="simple">
-<dt>Returns:</dt><dd><p>Tuple of <a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.colors.LinearSegmentedColormap.html#matplotlib.colors.LinearSegmentedColormap" title="(in Matplotlib v3.2.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.colors.LinearSegmentedColormap</span></code></a> and
+<dt>Returns:</dt><dd><p>Tuple of <a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.colors.LinearSegmentedColormap.html#matplotlib.colors.LinearSegmentedColormap" title="(in Matplotlib v3.3.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.colors.LinearSegmentedColormap</span></code></a> and
 <a class="reference internal" href="#iris.palette.SymmetricNormalize" title="iris.palette.SymmetricNormalize"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.palette.SymmetricNormalize</span></code></a></p>
 </dd>
 </dl>
@@ -178,7 +178,7 @@ the cube.</p>
 <dl class="py method">
 <dt id="iris.palette.SymmetricNormalize.autoscale_None">
 <code class="sig-name descname">autoscale_None</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">A</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.palette.SymmetricNormalize.autoscale_None" title="Permalink to this definition">¶</a></dt>
-<dd><p>Autoscale only None-valued vmin or vmax.</p>
+<dd><p>If vmin or vmax are not set, use the min/max of <em>A</em> to set them.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -191,14 +191,16 @@ the cube.</p>
 <em class="property">static </em><code class="sig-name descname">process_value</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.palette.SymmetricNormalize.process_value" title="Permalink to this definition">¶</a></dt>
 <dd><p>Homogenize the input <em>value</em> for easy and efficient normalization.</p>
 <p><em>value</em> can be a scalar or sequence.</p>
-<p>Returns <em>result</em>, <em>is_scalar</em>, where <em>result</em> is a
-masked array matching <em>value</em>.  Float dtypes are preserved;
-integer types with two bytes or smaller are converted to
-np.float32, and larger types are converted to np.float64.
+<dl class="simple">
+<dt>result<span class="classifier">masked array</span></dt><dd><p>Masked array with the same shape as <em>value</em>.</p>
+</dd>
+<dt>is_scalar<span class="classifier">bool</span></dt><dd><p>Whether <em>value</em> is a scalar.</p>
+</dd>
+</dl>
+<p>Float dtypes are preserved; integer types with two bytes or smaller are
+converted to np.float32, and larger types are converted to np.float64.
 Preserving float32 when possible, and using in-place operations,
-can greatly improve speed for large arrays.</p>
-<p>Experimental; we may want to add an option to force the
-use of float32.</p>
+greatly improves speed for large arrays.</p>
 </dd></dl>
 
 <dl class="py method">
