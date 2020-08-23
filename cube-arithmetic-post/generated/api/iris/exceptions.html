@@ -1,0 +1,754 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>iris.exceptions &mdash; Iris 3.0.dev0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/theme_override.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery-dataframe.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script src="../../../_static/clipboard.min.js"></script>
+        <script src="../../../_static/copybutton.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="copyright" title="Copyright" href="../../../copyright.html" />
+    <link rel="next" title="iris.experimental" href="experimental.html" />
+    <link rel="prev" title="iris.cube" href="cube.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html">
+          
+
+          
+            
+            <img src="../../../_static/iris-logo-title.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installing.html">Installing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/iris_cubes.html">Iris data structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/loading_iris_cubes.html">Loading Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/saving_iris_cubes.html">Saving Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/navigating_a_cube.html">Navigating a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/subsetting_a_cube.html">Subsetting a Cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/real_and_lazy_data.html">Real and Lazy Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/plotting_a_cube.html">Plotting a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/interpolation_and_regridding.html">Cube interpolation and regridding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/merge_and_concat.html">Merge and concatenate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/cube_statistics.html">Cube statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/cube_maths.html">Basic cube mathematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/citation.html">Citing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/code_maintenance.html">Code maintenance</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developers Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/contributing_documentation.html">Contributing to the documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/documenting/index.html">Documentation in Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/gitwash/index.html">Working with <em>iris</em> source code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/code_format.html">Code formatting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/pulls.html">Pull request check List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/tests.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/deprecations.html">Deprecations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/release.html">Releases</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../iris.html">Iris API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="analysis.html">iris.analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aux_factory.html">iris.aux_factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common.html">iris.common</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config.html">iris.config</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coord_categorisation.html">iris.coord_categorisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coord_systems.html">iris.coord_systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coords.html">iris.coords</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cube.html">iris.cube</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">iris.exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="experimental.html">iris.experimental</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fileformats.html">iris.fileformats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="io.html">iris.io</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iterate.html">iris.iterate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="palette.html">iris.palette</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pandas.html">iris.pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot.html">iris.plot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickplot.html">iris.quickplot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="std_names.html">iris.std_names</a></li>
+<li class="toctree-l2"><a class="reference internal" href="symbols.html">iris.symbols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="time.html">iris.time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="util.html">iris.util</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../whatsnew/index.html">What’s new in Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../techpapers/index.html">Iris Technical Papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../copyright.html">Iris copyright, licensing and contributors</a></li>
+</ul>
+
+            
+          
+
+    
+    
+    
+        <p class="caption">
+            <span class="caption-text">
+            
+                Support
+            
+            </span>
+        </p>
+        <ul>
+            
+                <li class="toctree-l1"><a href="https://github.com/SciTools/iris"><i class="fa fa-github fa-fw"></i> Source Code</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris"><i class="fa fa-comments fa-fw"></i> Users Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris-dev"><i class="fa fa-comments fa-fw"></i> Developers Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://stackoverflow.com/questions/tagged/python-iris"><i class="fa fa-question fa-fw"></i> StackOverflow For "How do I?"</a></li>
+            
+                <li class="toctree-l1"><a href="https://scitools.org.uk/iris/docs/v2.4.0/index.html"><i class="fa fa-book fa-fw"></i> Legacy documentation</a></li>
+            
+        </ul>
+    
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Iris</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../iris.html">Iris API</a> &raquo;</li>
+        
+      <li>iris.exceptions</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/generated/api/iris/exceptions.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="iris-exceptions">
+<span id="id1"></span><h1>iris.exceptions<a class="headerlink" href="#iris-exceptions" title="Permalink to this headline">¶</a></h1>
+<span class="target" id="module-iris.exceptions"></span><p>Exceptions specific to the Iris package.</p>
+<p>In this module:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference internal" href="#iris.exceptions.AncillaryVariableNotFoundError" title="iris.exceptions.AncillaryVariableNotFoundError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AncillaryVariableNotFoundError</span></code></a></p></li>
+<li><p><a class="reference internal" href="#iris.exceptions.CellMeasureNotFoundError" title="iris.exceptions.CellMeasureNotFoundError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CellMeasureNotFoundError</span></code></a></p></li>
+<li><p><a class="reference internal" href="#iris.exceptions.ConcatenateError" title="iris.exceptions.ConcatenateError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ConcatenateError</span></code></a></p></li>
+<li><p><a class="reference internal" href="#iris.exceptions.ConstraintMismatchError" title="iris.exceptions.ConstraintMismatchError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ConstraintMismatchError</span></code></a></p></li>
+<li><p><a class="reference internal" href="#iris.exceptions.CoordinateCollapseError" title="iris.exceptions.CoordinateCollapseError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CoordinateCollapseError</span></code></a></p></li>
+<li><p><a class="reference internal" href="#iris.exceptions.CoordinateMultiDimError" title="iris.exceptions.CoordinateMultiDimError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CoordinateMultiDimError</span></code></a></p></li>
+<li><p><a class="reference internal" href="#iris.exceptions.CoordinateNotFoundError" title="iris.exceptions.CoordinateNotFoundError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CoordinateNotFoundError</span></code></a></p></li>
+<li><p><a class="reference internal" href="#iris.exceptions.CoordinateNotRegularError" title="iris.exceptions.CoordinateNotRegularError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CoordinateNotRegularError</span></code></a></p></li>
+<li><p><a class="reference internal" href="#iris.exceptions.DuplicateDataError" title="iris.exceptions.DuplicateDataError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DuplicateDataError</span></code></a></p></li>
+<li><p><a class="reference internal" href="#iris.exceptions.IgnoreCubeException" title="iris.exceptions.IgnoreCubeException"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IgnoreCubeException</span></code></a></p></li>
+<li><p><a class="reference internal" href="#iris.exceptions.InvalidCubeError" title="iris.exceptions.InvalidCubeError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">InvalidCubeError</span></code></a></p></li>
+<li><p><a class="reference internal" href="#iris.exceptions.IrisError" title="iris.exceptions.IrisError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IrisError</span></code></a></p></li>
+<li><p><a class="reference internal" href="#iris.exceptions.LazyAggregatorError" title="iris.exceptions.LazyAggregatorError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LazyAggregatorError</span></code></a></p></li>
+<li><p><a class="reference internal" href="#iris.exceptions.MergeError" title="iris.exceptions.MergeError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MergeError</span></code></a></p></li>
+<li><p><a class="reference internal" href="#iris.exceptions.NotYetImplementedError" title="iris.exceptions.NotYetImplementedError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NotYetImplementedError</span></code></a></p></li>
+<li><p><a class="reference internal" href="#iris.exceptions.TranslationError" title="iris.exceptions.TranslationError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TranslationError</span></code></a></p></li>
+<li><p><a class="reference internal" href="#iris.exceptions.UnitConversionError" title="iris.exceptions.UnitConversionError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UnitConversionError</span></code></a></p></li>
+</ul>
+</div></blockquote>
+<p>Raised when a search yields no ancillary variables.</p>
+<blockquote>
+<div><dl class="py class">
+<dt id="iris.exceptions.AncillaryVariableNotFoundError">
+<em class="property">class </em><code class="sig-prename descclassname">iris.exceptions.</code><code class="sig-name descname">AncillaryVariableNotFoundError</code><a class="reference internal" href="../../../_modules/iris/exceptions.html#AncillaryVariableNotFoundError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iris.exceptions.AncillaryVariableNotFoundError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Raised when a search yields no ancillary variables.</p>
+<dl class="py method">
+<dt id="iris.exceptions.AncillaryVariableNotFoundError.with_traceback">
+<code class="sig-name descname">with_traceback</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.exceptions.AncillaryVariableNotFoundError.with_traceback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exception.with_traceback(tb) –
+set self.__traceback__ to tb and return self.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="iris.exceptions.AncillaryVariableNotFoundError.args">
+<code class="sig-name descname">args</code><a class="headerlink" href="#iris.exceptions.AncillaryVariableNotFoundError.args" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div></blockquote>
+<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
+<!--<hr class="docutils" />
+--><p>Raised when a search yields no cell measures.</p>
+<blockquote>
+<div><dl class="py class">
+<dt id="iris.exceptions.CellMeasureNotFoundError">
+<em class="property">class </em><code class="sig-prename descclassname">iris.exceptions.</code><code class="sig-name descname">CellMeasureNotFoundError</code><a class="reference internal" href="../../../_modules/iris/exceptions.html#CellMeasureNotFoundError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iris.exceptions.CellMeasureNotFoundError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Raised when a search yields no cell measures.</p>
+<dl class="py method">
+<dt id="iris.exceptions.CellMeasureNotFoundError.with_traceback">
+<code class="sig-name descname">with_traceback</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.exceptions.CellMeasureNotFoundError.with_traceback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exception.with_traceback(tb) –
+set self.__traceback__ to tb and return self.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="iris.exceptions.CellMeasureNotFoundError.args">
+<code class="sig-name descname">args</code><a class="headerlink" href="#iris.exceptions.CellMeasureNotFoundError.args" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div></blockquote>
+<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
+<!--<hr class="docutils" />
+--><p>Raised when concatenate is expected to produce a single cube, but fails to
+do so.</p>
+<blockquote>
+<div><dl class="py class">
+<dt id="iris.exceptions.ConcatenateError">
+<em class="property">class </em><code class="sig-prename descclassname">iris.exceptions.</code><code class="sig-name descname">ConcatenateError</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">differences</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/iris/exceptions.html#ConcatenateError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iris.exceptions.ConcatenateError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a ConcatenateError with a list of textual descriptions of
+the differences which prevented a concatenate.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>differences:</dt><dd><p>The list of strings which describe the differences.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="py method">
+<dt id="iris.exceptions.ConcatenateError.with_traceback">
+<code class="sig-name descname">with_traceback</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.exceptions.ConcatenateError.with_traceback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exception.with_traceback(tb) –
+set self.__traceback__ to tb and return self.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="iris.exceptions.ConcatenateError.args">
+<code class="sig-name descname">args</code><a class="headerlink" href="#iris.exceptions.ConcatenateError.args" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div></blockquote>
+<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
+<!--<hr class="docutils" />
+--><p>Raised when a constraint operation has failed to find the correct number
+of results.</p>
+<blockquote>
+<div><dl class="py class">
+<dt id="iris.exceptions.ConstraintMismatchError">
+<em class="property">class </em><code class="sig-prename descclassname">iris.exceptions.</code><code class="sig-name descname">ConstraintMismatchError</code><a class="reference internal" href="../../../_modules/iris/exceptions.html#ConstraintMismatchError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iris.exceptions.ConstraintMismatchError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Raised when a constraint operation has failed to find the correct number
+of results.</p>
+<dl class="py method">
+<dt id="iris.exceptions.ConstraintMismatchError.with_traceback">
+<code class="sig-name descname">with_traceback</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.exceptions.ConstraintMismatchError.with_traceback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exception.with_traceback(tb) –
+set self.__traceback__ to tb and return self.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="iris.exceptions.ConstraintMismatchError.args">
+<code class="sig-name descname">args</code><a class="headerlink" href="#iris.exceptions.ConstraintMismatchError.args" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div></blockquote>
+<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
+<!--<hr class="docutils" />
+--><p>Raised when a requested coordinate cannot be collapsed.</p>
+<blockquote>
+<div><dl class="py class">
+<dt id="iris.exceptions.CoordinateCollapseError">
+<em class="property">class </em><code class="sig-prename descclassname">iris.exceptions.</code><code class="sig-name descname">CoordinateCollapseError</code><a class="reference internal" href="../../../_modules/iris/exceptions.html#CoordinateCollapseError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iris.exceptions.CoordinateCollapseError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Raised when a requested coordinate cannot be collapsed.</p>
+<dl class="py method">
+<dt id="iris.exceptions.CoordinateCollapseError.with_traceback">
+<code class="sig-name descname">with_traceback</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.exceptions.CoordinateCollapseError.with_traceback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exception.with_traceback(tb) –
+set self.__traceback__ to tb and return self.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="iris.exceptions.CoordinateCollapseError.args">
+<code class="sig-name descname">args</code><a class="headerlink" href="#iris.exceptions.CoordinateCollapseError.args" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div></blockquote>
+<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
+<!--<hr class="docutils" />
+--><p>Raised when a routine doesn’t support multi-dimensional coordinates.</p>
+<blockquote>
+<div><dl class="py class">
+<dt id="iris.exceptions.CoordinateMultiDimError">
+<em class="property">class </em><code class="sig-prename descclassname">iris.exceptions.</code><code class="sig-name descname">CoordinateMultiDimError</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">msg</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/iris/exceptions.html#CoordinateMultiDimError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iris.exceptions.CoordinateMultiDimError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Raised when a routine doesn’t support multi-dimensional coordinates.</p>
+<dl class="py method">
+<dt id="iris.exceptions.CoordinateMultiDimError.with_traceback">
+<code class="sig-name descname">with_traceback</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.exceptions.CoordinateMultiDimError.with_traceback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exception.with_traceback(tb) –
+set self.__traceback__ to tb and return self.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="iris.exceptions.CoordinateMultiDimError.args">
+<code class="sig-name descname">args</code><a class="headerlink" href="#iris.exceptions.CoordinateMultiDimError.args" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div></blockquote>
+<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
+<!--<hr class="docutils" />
+--><p>Raised when a search yields no coordinates.</p>
+<blockquote>
+<div><dl class="py class">
+<dt id="iris.exceptions.CoordinateNotFoundError">
+<em class="property">class </em><code class="sig-prename descclassname">iris.exceptions.</code><code class="sig-name descname">CoordinateNotFoundError</code><a class="reference internal" href="../../../_modules/iris/exceptions.html#CoordinateNotFoundError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iris.exceptions.CoordinateNotFoundError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Raised when a search yields no coordinates.</p>
+<dl class="py method">
+<dt id="iris.exceptions.CoordinateNotFoundError.with_traceback">
+<code class="sig-name descname">with_traceback</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.exceptions.CoordinateNotFoundError.with_traceback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exception.with_traceback(tb) –
+set self.__traceback__ to tb and return self.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="iris.exceptions.CoordinateNotFoundError.args">
+<code class="sig-name descname">args</code><a class="headerlink" href="#iris.exceptions.CoordinateNotFoundError.args" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div></blockquote>
+<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
+<!--<hr class="docutils" />
+--><p>Raised when a coordinate is unexpectedly irregular.</p>
+<blockquote>
+<div><dl class="py class">
+<dt id="iris.exceptions.CoordinateNotRegularError">
+<em class="property">class </em><code class="sig-prename descclassname">iris.exceptions.</code><code class="sig-name descname">CoordinateNotRegularError</code><a class="reference internal" href="../../../_modules/iris/exceptions.html#CoordinateNotRegularError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iris.exceptions.CoordinateNotRegularError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Raised when a coordinate is unexpectedly irregular.</p>
+<dl class="py method">
+<dt id="iris.exceptions.CoordinateNotRegularError.with_traceback">
+<code class="sig-name descname">with_traceback</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.exceptions.CoordinateNotRegularError.with_traceback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exception.with_traceback(tb) –
+set self.__traceback__ to tb and return self.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="iris.exceptions.CoordinateNotRegularError.args">
+<code class="sig-name descname">args</code><a class="headerlink" href="#iris.exceptions.CoordinateNotRegularError.args" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div></blockquote>
+<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
+<!--<hr class="docutils" />
+--><p>Raised when merging two or more cubes that have identical metadata.</p>
+<blockquote>
+<div><dl class="py class">
+<dt id="iris.exceptions.DuplicateDataError">
+<em class="property">class </em><code class="sig-prename descclassname">iris.exceptions.</code><code class="sig-name descname">DuplicateDataError</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">msg</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/iris/exceptions.html#DuplicateDataError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iris.exceptions.DuplicateDataError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Raised when merging two or more cubes that have identical metadata.</p>
+<dl class="py method">
+<dt id="iris.exceptions.DuplicateDataError.with_traceback">
+<code class="sig-name descname">with_traceback</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.exceptions.DuplicateDataError.with_traceback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exception.with_traceback(tb) –
+set self.__traceback__ to tb and return self.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="iris.exceptions.DuplicateDataError.args">
+<code class="sig-name descname">args</code><a class="headerlink" href="#iris.exceptions.DuplicateDataError.args" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div></blockquote>
+<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
+<!--<hr class="docutils" />
+--><p>Raised from a callback function when a cube should be ignored on load.</p>
+<blockquote>
+<div><dl class="py class">
+<dt id="iris.exceptions.IgnoreCubeException">
+<em class="property">class </em><code class="sig-prename descclassname">iris.exceptions.</code><code class="sig-name descname">IgnoreCubeException</code><a class="reference internal" href="../../../_modules/iris/exceptions.html#IgnoreCubeException"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iris.exceptions.IgnoreCubeException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Raised from a callback function when a cube should be ignored on load.</p>
+<dl class="py method">
+<dt id="iris.exceptions.IgnoreCubeException.with_traceback">
+<code class="sig-name descname">with_traceback</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.exceptions.IgnoreCubeException.with_traceback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exception.with_traceback(tb) –
+set self.__traceback__ to tb and return self.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="iris.exceptions.IgnoreCubeException.args">
+<code class="sig-name descname">args</code><a class="headerlink" href="#iris.exceptions.IgnoreCubeException.args" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div></blockquote>
+<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
+<!--<hr class="docutils" />
+--><p>Raised when a Cube validation check fails.</p>
+<blockquote>
+<div><dl class="py class">
+<dt id="iris.exceptions.InvalidCubeError">
+<em class="property">class </em><code class="sig-prename descclassname">iris.exceptions.</code><code class="sig-name descname">InvalidCubeError</code><a class="reference internal" href="../../../_modules/iris/exceptions.html#InvalidCubeError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iris.exceptions.InvalidCubeError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Raised when a Cube validation check fails.</p>
+<dl class="py method">
+<dt id="iris.exceptions.InvalidCubeError.with_traceback">
+<code class="sig-name descname">with_traceback</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.exceptions.InvalidCubeError.with_traceback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exception.with_traceback(tb) –
+set self.__traceback__ to tb and return self.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="iris.exceptions.InvalidCubeError.args">
+<code class="sig-name descname">args</code><a class="headerlink" href="#iris.exceptions.InvalidCubeError.args" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div></blockquote>
+<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
+<!--<hr class="docutils" />
+--><p>Base class for errors in the Iris package.</p>
+<blockquote>
+<div><dl class="py class">
+<dt id="iris.exceptions.IrisError">
+<em class="property">class </em><code class="sig-prename descclassname">iris.exceptions.</code><code class="sig-name descname">IrisError</code><a class="reference internal" href="../../../_modules/iris/exceptions.html#IrisError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iris.exceptions.IrisError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Base class for errors in the Iris package.</p>
+<dl class="py method">
+<dt id="iris.exceptions.IrisError.with_traceback">
+<code class="sig-name descname">with_traceback</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.exceptions.IrisError.with_traceback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exception.with_traceback(tb) –
+set self.__traceback__ to tb and return self.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="iris.exceptions.IrisError.args">
+<code class="sig-name descname">args</code><a class="headerlink" href="#iris.exceptions.IrisError.args" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div></blockquote>
+<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
+<!--<hr class="docutils" />
+--><p>Common base class for all non-exit exceptions.</p>
+<blockquote>
+<div><dl class="py class">
+<dt id="iris.exceptions.LazyAggregatorError">
+<em class="property">class </em><code class="sig-prename descclassname">iris.exceptions.</code><code class="sig-name descname">LazyAggregatorError</code><a class="reference internal" href="../../../_modules/iris/exceptions.html#LazyAggregatorError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iris.exceptions.LazyAggregatorError" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py method">
+<dt id="iris.exceptions.LazyAggregatorError.with_traceback">
+<code class="sig-name descname">with_traceback</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.exceptions.LazyAggregatorError.with_traceback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exception.with_traceback(tb) –
+set self.__traceback__ to tb and return self.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="iris.exceptions.LazyAggregatorError.args">
+<code class="sig-name descname">args</code><a class="headerlink" href="#iris.exceptions.LazyAggregatorError.args" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div></blockquote>
+<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
+<!--<hr class="docutils" />
+--><p>Raised when merge is expected to produce a single cube, but fails to
+do so.</p>
+<blockquote>
+<div><dl class="py class">
+<dt id="iris.exceptions.MergeError">
+<em class="property">class </em><code class="sig-prename descclassname">iris.exceptions.</code><code class="sig-name descname">MergeError</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">differences</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/iris/exceptions.html#MergeError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iris.exceptions.MergeError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a MergeError with a list of textual descriptions of
+the differences which prevented a merge.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>differences:</dt><dd><p>The list of strings which describe the differences.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="py method">
+<dt id="iris.exceptions.MergeError.with_traceback">
+<code class="sig-name descname">with_traceback</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.exceptions.MergeError.with_traceback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exception.with_traceback(tb) –
+set self.__traceback__ to tb and return self.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="iris.exceptions.MergeError.args">
+<code class="sig-name descname">args</code><a class="headerlink" href="#iris.exceptions.MergeError.args" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div></blockquote>
+<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
+<!--<hr class="docutils" />
+--><p>Raised by missing functionality.</p>
+<p>Different meaning to NotImplementedError, which is for abstract methods.</p>
+<blockquote>
+<div><dl class="py class">
+<dt id="iris.exceptions.NotYetImplementedError">
+<em class="property">class </em><code class="sig-prename descclassname">iris.exceptions.</code><code class="sig-name descname">NotYetImplementedError</code><a class="reference internal" href="../../../_modules/iris/exceptions.html#NotYetImplementedError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iris.exceptions.NotYetImplementedError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Raised by missing functionality.</p>
+<p>Different meaning to NotImplementedError, which is for abstract methods.</p>
+<dl class="py method">
+<dt id="iris.exceptions.NotYetImplementedError.with_traceback">
+<code class="sig-name descname">with_traceback</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.exceptions.NotYetImplementedError.with_traceback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exception.with_traceback(tb) –
+set self.__traceback__ to tb and return self.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="iris.exceptions.NotYetImplementedError.args">
+<code class="sig-name descname">args</code><a class="headerlink" href="#iris.exceptions.NotYetImplementedError.args" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div></blockquote>
+<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
+<!--<hr class="docutils" />
+--><p>Raised when Iris is unable to translate format-specific codes.</p>
+<blockquote>
+<div><dl class="py class">
+<dt id="iris.exceptions.TranslationError">
+<em class="property">class </em><code class="sig-prename descclassname">iris.exceptions.</code><code class="sig-name descname">TranslationError</code><a class="reference internal" href="../../../_modules/iris/exceptions.html#TranslationError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iris.exceptions.TranslationError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Raised when Iris is unable to translate format-specific codes.</p>
+<dl class="py method">
+<dt id="iris.exceptions.TranslationError.with_traceback">
+<code class="sig-name descname">with_traceback</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.exceptions.TranslationError.with_traceback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exception.with_traceback(tb) –
+set self.__traceback__ to tb and return self.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="iris.exceptions.TranslationError.args">
+<code class="sig-name descname">args</code><a class="headerlink" href="#iris.exceptions.TranslationError.args" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div></blockquote>
+<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
+<!--<hr class="docutils" />
+--><p>Raised when Iris is unable to convert a unit.</p>
+<blockquote>
+<div><dl class="py class">
+<dt id="iris.exceptions.UnitConversionError">
+<em class="property">class </em><code class="sig-prename descclassname">iris.exceptions.</code><code class="sig-name descname">UnitConversionError</code><a class="reference internal" href="../../../_modules/iris/exceptions.html#UnitConversionError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iris.exceptions.UnitConversionError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Raised when Iris is unable to convert a unit.</p>
+<dl class="py method">
+<dt id="iris.exceptions.UnitConversionError.with_traceback">
+<code class="sig-name descname">with_traceback</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#iris.exceptions.UnitConversionError.with_traceback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exception.with_traceback(tb) –
+set self.__traceback__ to tb and return self.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="iris.exceptions.UnitConversionError.args">
+<code class="sig-name descname">args</code><a class="headerlink" href="#iris.exceptions.UnitConversionError.args" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div></blockquote>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="experimental.html" class="btn btn-neutral float-right" title="iris.experimental" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="cube.html" class="btn btn-neutral float-left" title="iris.cube" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        
+        &copy; <a href="../../../copyright.html">Copyright</a> Iris Contributors
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,445 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>v1.12 (31 Jan 2017) &mdash; Iris 3.0.dev0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/theme_override.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-dataframe.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <link rel="next" title="v1.11 (29 Oct 2016)" href="1.11.html" />
+    <link rel="prev" title="v1.13 (17 May 2017)" href="1.13.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/iris-logo-title.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installing.html">Installing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../generated/gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/iris_cubes.html">Iris data structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/loading_iris_cubes.html">Loading Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/saving_iris_cubes.html">Saving Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/navigating_a_cube.html">Navigating a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/subsetting_a_cube.html">Subsetting a Cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/real_and_lazy_data.html">Real and Lazy Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/plotting_a_cube.html">Plotting a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/interpolation_and_regridding.html">Cube interpolation and regridding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/merge_and_concat.html">Merge and concatenate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/cube_statistics.html">Cube statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/cube_maths.html">Basic cube mathematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/citation.html">Citing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/code_maintenance.html">Code maintenance</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developers Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/contributing_documentation.html">Contributing to the documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/documenting/index.html">Documentation in Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/gitwash/index.html">Working with <em>iris</em> source code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/code_format.html">Code formatting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/pulls.html">Pull request check List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/tests.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/deprecations.html">Deprecations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/release.html">Releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../generated/api/iris.html">Iris API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">What’s new in Iris</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="latest.html">&lt;unreleased&gt;</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.4.html">v2.4 (20 Feb 2020)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.3.html">v2.3 (19 Dec 2019)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.2.html">v2.2 (11 Oct 2018)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.1.html">v2.1 (06 Jun 2018)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2.0.html">v2.0 (14 Feb 2018)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.13.html">v1.13 (17 May 2017)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">v1.12 (31 Jan 2017)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#features">Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#deprecations">Deprecations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#documentation">Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="1.11.html">v1.11 (29 Oct 2016)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.10.html">v1.10 (05 Sep 2016)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.9.html">v1.9 (10 Dec 2015)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.8.html">v1.8 (14 Apr 2015)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.7.html">v1.7 (04 Jul 2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.6.html">v1.6 (26 Jan 2014)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.5.html">v1.5 (13 Sep 2013)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.4.html">v1.4 (14 Jun 2013)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.3.html">v1.3 (27 Mar 2013)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.2.html">v1.2 (28 Feb 2013)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.1.html">v1.1 (03 Jan 2013)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1.0.html">v1.0 (17 Oct 2012)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../techpapers/index.html">Iris Technical Papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../copyright.html">Iris copyright, licensing and contributors</a></li>
+</ul>
+
+            
+          
+
+    
+    
+    
+        <p class="caption">
+            <span class="caption-text">
+            
+                Support
+            
+            </span>
+        </p>
+        <ul>
+            
+                <li class="toctree-l1"><a href="https://github.com/SciTools/iris"><i class="fa fa-github fa-fw"></i> Source Code</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris"><i class="fa fa-comments fa-fw"></i> Users Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris-dev"><i class="fa fa-comments fa-fw"></i> Developers Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://stackoverflow.com/questions/tagged/python-iris"><i class="fa fa-question fa-fw"></i> StackOverflow For "How do I?"</a></li>
+            
+                <li class="toctree-l1"><a href="https://scitools.org.uk/iris/docs/v2.4.0/index.html"><i class="fa fa-book fa-fw"></i> Legacy documentation</a></li>
+            
+        </ul>
+    
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Iris</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">What’s new in Iris</a> &raquo;</li>
+        
+      <li>v1.12 (31 Jan 2017)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/whatsnew/1.12.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="v1-12-31-jan-2017">
+<h1>v1.12 (31 Jan 2017)<a class="headerlink" href="#v1-12-31-jan-2017" title="Permalink to this headline">¶</a></h1>
+<p>This document explains the changes made to Iris for this release
+(<a class="reference internal" href="index.html"><span class="doc">View all changes</span></a>.)</p>
+<div class="contents local topic" id="skip-to-section">
+<p class="topic-title">Skip to section:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#features" id="id1">Features</a></p></li>
+<li><p><a class="reference internal" href="#deprecations" id="id2">Deprecations</a></p></li>
+<li><p><a class="reference internal" href="#documentation" id="id3">Documentation</a></p></li>
+</ul>
+</div>
+<div class="section" id="features">
+<h2><a class="toc-backref" href="#id1">Features</a><a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-showcase-feature-new-regridding-schemes admonition" id="showcase">
+<p class="admonition-title">Showcase Feature: New regridding schemes</p>
+<p>A new regridding scheme, <a class="reference internal" href="../generated/api/iris/analysis.html#iris.analysis.UnstructuredNearest" title="iris.analysis.UnstructuredNearest"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.analysis.UnstructuredNearest</span></code></a>,
+performs nearest-neighbour regridding from “unstructured” onto “structured”
+grids. Here, “unstructured” means that the data has X and Y coordinate values
+defined at each horizontal location, instead of the independent X and Y
+dimensions that constitute a structured grid.
+For example, data sampled on a trajectory or a tripolar ocean grid would be
+unstructured.</p>
+<p>In addition, added experimental ProjectedUnstructured regridders which use
+scipy.interpolate.griddata to regrid unstructured data
+(see <a class="reference internal" href="../generated/api/iris/experimental/regrid.html#iris.experimental.regrid.ProjectedUnstructuredLinear" title="iris.experimental.regrid.ProjectedUnstructuredLinear"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.experimental.regrid.ProjectedUnstructuredLinear</span></code></a> and
+<a class="reference internal" href="../generated/api/iris/experimental/regrid.html#iris.experimental.regrid.ProjectedUnstructuredNearest" title="iris.experimental.regrid.ProjectedUnstructuredNearest"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.experimental.regrid.ProjectedUnstructuredNearest</span></code></a>). The
+essential purpose is the same as <a class="reference internal" href="../generated/api/iris/analysis.html#iris.analysis.UnstructuredNearest" title="iris.analysis.UnstructuredNearest"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.analysis.UnstructuredNearest</span></code></a>.
+This scheme, by comparison, is generally faster, but less accurate.</p>
+</div>
+<div class="admonition-showcase-feature-fast-um-file-loading admonition">
+<p class="admonition-title">Showcase Feature: Fast UM file loading</p>
+<p>Support has been added for accelerated loading of UM files (PP and
+Fieldsfile), when these have a suitable regular “structured” form.</p>
+<p>A context manager is used to enable fast um loading in all the regular Iris
+load functions, such as <a class="reference internal" href="../generated/api/iris.html#iris.load" title="iris.load"><code class="xref py py-meth docutils literal notranslate"><span class="pre">iris.load()</span></code></a> and <a class="reference internal" href="../generated/api/iris.html#iris.load_cube" title="iris.load_cube"><code class="xref py py-meth docutils literal notranslate"><span class="pre">iris.load_cube()</span></code></a>,
+when loading data from UM file types.
+For example:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">iris</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">filepath</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;uk_hires.pp&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">iris.fileformats.um</span> <span class="kn">import</span> <span class="n">structured_um_loading</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">structured_um_loading</span><span class="p">():</span>
+<span class="gp">... </span>    <span class="n">cube</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="s1">&#39;air_potential_temperature&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This approach can deliver loading which is 10 times faster or more.
+For example :</p>
+<ul class="simple">
+<li><p>a 78 Gb fieldsfile of 51,840 fields loads in about 13 rather than 190
+seconds.</p></li>
+<li><p>a set of 25 800Mb PP files loads in about 21 rather than 220 seconds.</p></li>
+</ul>
+<p>You can load data with structured loading and compare the results with those
+from “normal” loading to check whether they are equivalent.</p>
+<ul class="simple">
+<li><p>The results will normally differ, if at all, only in having dimensions in a
+different order or a different choice of dimension coordinates.
+<strong>In these cases, structured loading can be used with confidence.</strong></p></li>
+<li><p>Ordinary Fieldsfiles (i.e. model outputs) are generally suitable for
+structured loading.  Many PP files also are, especially if produced
+directly from Fieldsfiles, and retaining the same field ordering.</p></li>
+<li><p>Some inputs however (generally PP) will be unsuitable for structured
+loading :  For instance if a particular combination of vertical levels and
+time has been omitted, or some fields appear out of order.</p></li>
+<li><p>There are also some known unsupported cases, including data which is
+produced on pseudo-levels.  See the detail documentation on this.</p></li>
+</ul>
+<p>It is the user’s responsibility to use structured loading only with suitable
+inputs.  Otherwise, odd behaviour and even incorrect loading can result, as
+input files are not checked as fully as in a normal load.</p>
+<p>Although the user loading call for structured loading can be just the same,
+and the returned results are also often identical, structured loading is not
+in fact an exact <em>identical</em> replacement for normal loading:</p>
+<ul class="simple">
+<li><p>results are often somewhat different, especially regarding the order
+of dimensions and the choice of dimension coordinates.</p></li>
+<li><p>although both constraints and user callbacks are supported, callback
+routines will generally need to be re-written.  This is because a
+‘raw’ cube in structured loading generally covers <em>multiple</em> PPfields,
+which therefore need to be handled as a collection :  A grouping object
+containing them is passed to the callback ‘field’ argument.
+An example showing callbacks suitable for both normal and structured
+loading can be seen <a class="reference external" href="https://github.com/pp-mo/iris/blob/9042b4217ab6dd78dcfccfec19584170a5a6250a/lib/iris/tests/integration/fast_load/test_fast_load.py#L409">here</a>.</p></li>
+</ul>
+<p>For full details, see : <a class="reference internal" href="../generated/api/iris/fileformats/um.html#iris.fileformats.um.structured_um_loading" title="iris.fileformats.um.structured_um_loading"><code class="xref py py-meth docutils literal notranslate"><span class="pre">iris.fileformats.um.structured_um_loading()</span></code></a>.</p>
+</div>
+<ul class="simple">
+<li><p>A skip pattern is introduced to the fields file loader, such that fields
+which cannot be turned into iris PPField instances are skipped and the
+remaining fields are loaded.  This especially applies to certain types of
+files that can contain fields with a non-standard LBREL value : Iris can now
+load such a file, skipping the unreadable field and printing a warning
+message.</p></li>
+<li><p>Iris can now load PP files containing a PP field whose LBLREC value does not
+match the field length recorded in the file.
+A warning message is printed, and all fields up to the offending one are
+loaded and returned.
+Previously, this simply resulted in an unrecoverable error.</p></li>
+<li><p>The transpose method of a Cube now results in a lazy transposed view of the
+original rather than realising the data then transposing it.</p></li>
+<li><p>The <a class="reference internal" href="../generated/api/iris/analysis/cartography.html#iris.analysis.cartography.area_weights" title="iris.analysis.cartography.area_weights"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.analysis.cartography.area_weights()</span></code></a> function is now more
+accurate for single precision input bounds.</p></li>
+<li><p>Iris is now able to read seconds in datetimes provided in NAME trajectory
+files.</p></li>
+<li><p>Optimisations to trajectory interpolations have resulted in a significant
+speed improvement.</p></li>
+<li><p>Many new and updated translations between CF spec and STASH codes.</p></li>
+</ul>
+</div>
+<div class="section" id="deprecations">
+<h2><a class="toc-backref" href="#id2">Deprecations</a><a class="headerlink" href="#deprecations" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>The module <code class="xref py py-mod docutils literal notranslate"><span class="pre">iris.experimental.fieldsfile</span></code> has been deprecated, in favour
+of the new fast-loading mechanism provided by
+<a class="reference internal" href="../generated/api/iris/fileformats/um.html#iris.fileformats.um.structured_um_loading" title="iris.fileformats.um.structured_um_loading"><code class="xref py py-meth docutils literal notranslate"><span class="pre">iris.fileformats.um.structured_um_loading()</span></code></a>.</p></li>
+</ul>
+</div>
+<div class="section" id="documentation">
+<h2><a class="toc-backref" href="#id3">Documentation</a><a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Corrected documentation of <a class="reference internal" href="../generated/api/iris/analysis.html#iris.analysis.AreaWeighted" title="iris.analysis.AreaWeighted"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.analysis.AreaWeighted</span></code></a> scheme to make
+the usage scope clearer.</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="1.11.html" class="btn btn-neutral float-right" title="v1.11 (29 Oct 2016)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="1.13.html" class="btn btn-neutral float-left" title="v1.13 (17 May 2017)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        
+        &copy; <a href="../copyright.html">Copyright</a> Iris Contributors
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

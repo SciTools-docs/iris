@@ -1,0 +1,878 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>iris._constraints &mdash; Iris 3.0.dev0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/theme_override.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery-dataframe.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="copyright" title="Copyright" href="../../copyright.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/iris-logo-title.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installing.html">Installing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../generated/gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/iris_cubes.html">Iris data structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/loading_iris_cubes.html">Loading Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/saving_iris_cubes.html">Saving Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/navigating_a_cube.html">Navigating a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/subsetting_a_cube.html">Subsetting a Cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/real_and_lazy_data.html">Real and Lazy Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/plotting_a_cube.html">Plotting a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/interpolation_and_regridding.html">Cube interpolation and regridding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/merge_and_concat.html">Merge and concatenate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/cube_statistics.html">Cube statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/cube_maths.html">Basic cube mathematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/citation.html">Citing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/code_maintenance.html">Code maintenance</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developers Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../developers_guide/contributing_documentation.html">Contributing to the documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developers_guide/documenting/index.html">Documentation in Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developers_guide/gitwash/index.html">Working with <em>iris</em> source code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developers_guide/code_format.html">Code formatting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developers_guide/pulls.html">Pull request check List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developers_guide/tests.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developers_guide/deprecations.html">Deprecations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developers_guide/release.html">Releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../generated/api/iris.html">Iris API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../whatsnew/index.html">What’s new in Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../techpapers/index.html">Iris Technical Papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../copyright.html">Iris copyright, licensing and contributors</a></li>
+</ul>
+
+            
+          
+
+    
+    
+    
+        <p class="caption">
+            <span class="caption-text">
+            
+                Support
+            
+            </span>
+        </p>
+        <ul>
+            
+                <li class="toctree-l1"><a href="https://github.com/SciTools/iris"><i class="fa fa-github fa-fw"></i> Source Code</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris"><i class="fa fa-comments fa-fw"></i> Users Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris-dev"><i class="fa fa-comments fa-fw"></i> Developers Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://stackoverflow.com/questions/tagged/python-iris"><i class="fa fa-question fa-fw"></i> StackOverflow For "How do I?"</a></li>
+            
+                <li class="toctree-l1"><a href="https://scitools.org.uk/iris/docs/v2.4.0/index.html"><i class="fa fa-book fa-fw"></i> Legacy documentation</a></li>
+            
+        </ul>
+    
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Iris</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../iris.html">iris</a> &raquo;</li>
+        
+      <li>iris._constraints</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for iris._constraints</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright Iris contributors</span>
+<span class="c1">#</span>
+<span class="c1"># This file is part of Iris and is released under the LGPL license.</span>
+<span class="c1"># See COPYING and COPYING.LESSER in the root of the repository for full</span>
+<span class="c1"># licensing details.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Provides objects for building up expressions useful for pattern matching.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">collections.abc</span> <span class="kn">import</span> <span class="n">Iterable</span><span class="p">,</span> <span class="n">Mapping</span>
+<span class="kn">import</span> <span class="nn">operator</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">import</span> <span class="nn">iris.coords</span>
+<span class="kn">import</span> <span class="nn">iris.exceptions</span>
+
+
+<div class="viewcode-block" id="Constraint"><a class="viewcode-back" href="../../generated/api/iris.html#iris.Constraint">[docs]</a><span class="k">class</span> <span class="nc">Constraint</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Constraints are the mechanism by which cubes can be pattern matched and</span>
+<span class="sd">    filtered according to specific criteria.</span>
+
+<span class="sd">    Once a constraint has been defined, it can be applied to cubes using the</span>
+<span class="sd">    :meth:`Constraint.extract` method.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cube_func</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">coord_values</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates a new instance of a Constraint which can be used for filtering</span>
+<span class="sd">        cube loading or cube list extraction.</span>
+
+<span class="sd">        Args:</span>
+
+<span class="sd">        * name:   string or None</span>
+<span class="sd">            If a string, it is used as the name to match against the</span>
+<span class="sd">            `~iris.cube.Cube.names` property.</span>
+<span class="sd">        * cube_func:   callable or None</span>
+<span class="sd">            If a callable, it must accept a Cube as its first and only argument</span>
+<span class="sd">            and return either True or False.</span>
+<span class="sd">        * coord_values:   dict or None</span>
+<span class="sd">            If a dict, it must map coordinate name to the condition on the</span>
+<span class="sd">            associated coordinate.</span>
+<span class="sd">        * `**kwargs`:</span>
+<span class="sd">            The remaining keyword arguments are converted to coordinate</span>
+<span class="sd">            constraints. The name of the argument gives the name of a</span>
+<span class="sd">            coordinate, and the value of the argument is the condition to meet</span>
+<span class="sd">            on that coordinate::</span>
+
+<span class="sd">                Constraint(model_level_number=10)</span>
+
+<span class="sd">            Coordinate level constraints can be of several types:</span>
+
+<span class="sd">            * **string, int or float** - the value of the coordinate to match.</span>
+<span class="sd">              e.g. ``model_level_number=10``</span>
+
+<span class="sd">            * **list of values** - the possible values that the coordinate may</span>
+<span class="sd">              have to match. e.g. ``model_level_number=[10, 12]``</span>
+
+<span class="sd">            * **callable** - a function which accepts a</span>
+<span class="sd">              :class:`iris.coords.Cell` instance as its first and only argument</span>
+<span class="sd">              returning True or False if the value of the Cell is desired.</span>
+<span class="sd">              e.g. ``model_level_number=lambda cell: 5 &lt; cell &lt; 10``</span>
+
+<span class="sd">        The :ref:`user guide &lt;loading_iris_cubes&gt;` covers cube much of</span>
+<span class="sd">        constraining in detail, however an example which uses all of the</span>
+<span class="sd">        features of this class is given here for completeness::</span>
+
+<span class="sd">            Constraint(name=&#39;air_potential_temperature&#39;,</span>
+<span class="sd">                       cube_func=lambda cube: cube.units == &#39;kelvin&#39;,</span>
+<span class="sd">                       coord_values={&#39;latitude&#39;:lambda cell: 0 &lt; cell &lt; 90},</span>
+<span class="sd">                       model_level_number=[10, 12])</span>
+<span class="sd">                       &amp; Constraint(ensemble_member=2)</span>
+
+<span class="sd">        Constraint filtering is performed at the cell level.</span>
+<span class="sd">        For further details on how cell comparisons are performed see</span>
+<span class="sd">        :class:`iris.coords.Cell`.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">name</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="nb">str</span><span class="p">)):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;name must be None or string, got </span><span class="si">%r</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">name</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">cube_func</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">callable</span><span class="p">(</span><span class="n">cube_func</span><span class="p">)):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+                <span class="s2">&quot;cube_func must be None or callable, got </span><span class="si">%r</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">cube_func</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">coord_values</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">coord_values</span><span class="p">,</span> <span class="n">Mapping</span><span class="p">)):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+                <span class="s2">&quot;coord_values must be None or a &quot;</span>
+                <span class="s2">&quot;collections.Mapping, got </span><span class="si">%r</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">coord_values</span>
+            <span class="p">)</span>
+
+        <span class="n">coord_values</span> <span class="o">=</span> <span class="n">coord_values</span> <span class="ow">or</span> <span class="p">{}</span>
+        <span class="n">duplicate_keys</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">coord_values</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="o">&amp;</span> <span class="nb">set</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+        <span class="k">if</span> <span class="n">duplicate_keys</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;Duplicate coordinate conditions specified for: &quot;</span>
+                <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="nb">list</span><span class="p">(</span><span class="n">duplicate_keys</span><span class="p">)</span>
+            <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cube_func</span> <span class="o">=</span> <span class="n">cube_func</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_coord_values</span> <span class="o">=</span> <span class="n">coord_values</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_coord_values</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_coord_constraints</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">coord_name</span><span class="p">,</span> <span class="n">coord_thing</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_coord_values</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_coord_constraints</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="n">_CoordConstraint</span><span class="p">(</span><span class="n">coord_name</span><span class="p">,</span> <span class="n">coord_thing</span><span class="p">)</span>
+            <span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">args</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_name</span><span class="p">:</span>
+            <span class="n">args</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_name</span><span class="p">))</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cube_func</span><span class="p">:</span>
+            <span class="n">args</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s2">&quot;cube_func&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cube_func</span><span class="p">))</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_coord_values</span><span class="p">:</span>
+            <span class="n">args</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s2">&quot;coord_values&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_coord_values</span><span class="p">))</span>
+        <span class="k">return</span> <span class="s2">&quot;Constraint(</span><span class="si">%s</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">=</span><span class="si">%r</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">args</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_coordless_match</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cube</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return whether this constraint matches the given cube when not</span>
+<span class="sd">        taking coordinates into account.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">match</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_name</span><span class="p">:</span>
+            <span class="c1"># Require to also check against cube.name() for the fallback</span>
+            <span class="c1"># &quot;unknown&quot; default case, when there is no name metadata available.</span>
+            <span class="n">match</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_name</span> <span class="ow">in</span> <span class="n">cube</span><span class="o">.</span><span class="n">_names</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_name</span> <span class="o">==</span> <span class="n">cube</span><span class="o">.</span><span class="n">name</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">match</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cube_func</span><span class="p">:</span>
+            <span class="n">match</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cube_func</span><span class="p">(</span><span class="n">cube</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">match</span>
+
+<div class="viewcode-block" id="Constraint.extract"><a class="viewcode-back" href="../../generated/api/iris.html#iris.Constraint.extract">[docs]</a>    <span class="k">def</span> <span class="nf">extract</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cube</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return the subset of the given cube which matches this constraint,</span>
+<span class="sd">        else return None.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">resultant_CIM</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_CIM_extract</span><span class="p">(</span><span class="n">cube</span><span class="p">)</span>
+        <span class="n">slice_tuple</span> <span class="o">=</span> <span class="n">resultant_CIM</span><span class="o">.</span><span class="n">as_slice</span><span class="p">()</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">slice_tuple</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># Slicing the cube is an expensive operation.</span>
+            <span class="k">if</span> <span class="nb">all</span><span class="p">([</span><span class="n">item</span> <span class="o">==</span> <span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">slice_tuple</span><span class="p">]):</span>
+                <span class="c1"># Don&#39;t perform a full slice, just return the cube.</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="n">cube</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># Performing the partial slice.</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="n">cube</span><span class="p">[</span><span class="n">slice_tuple</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">result</span></div>
+
+    <span class="k">def</span> <span class="nf">_CIM_extract</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cube</span><span class="p">):</span>
+        <span class="c1"># Returns _ColumnIndexManager</span>
+
+        <span class="c1"># Cater for scalar cubes by setting the dimensionality to 1</span>
+        <span class="c1"># when cube.ndim is 0.</span>
+        <span class="n">resultant_CIM</span> <span class="o">=</span> <span class="n">_ColumnIndexManager</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">ndim</span> <span class="ow">or</span> <span class="mi">1</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_coordless_match</span><span class="p">(</span><span class="n">cube</span><span class="p">):</span>
+            <span class="n">resultant_CIM</span><span class="o">.</span><span class="n">all_false</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">coord_constraint</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_coord_constraints</span><span class="p">:</span>
+                <span class="n">resultant_CIM</span> <span class="o">=</span> <span class="n">resultant_CIM</span> <span class="o">&amp;</span> <span class="n">coord_constraint</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="n">cube</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">resultant_CIM</span>
+
+    <span class="k">def</span> <span class="fm">__and__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">ConstraintCombination</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">,</span> <span class="n">operator</span><span class="o">.</span><span class="fm">__and__</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__rand__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">ConstraintCombination</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="n">operator</span><span class="o">.</span><span class="fm">__and__</span><span class="p">)</span></div>
+
+
+<span class="k">class</span> <span class="nc">ConstraintCombination</span><span class="p">(</span><span class="n">Constraint</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Represents the binary combination of two Constraint instances.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lhs</span><span class="p">,</span> <span class="n">rhs</span><span class="p">,</span> <span class="n">operator</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        A ConstraintCombination instance is created by providing two</span>
+<span class="sd">        Constraint instances and the appropriate :mod:`operator`.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">lhs_constraint</span> <span class="o">=</span> <span class="n">as_constraint</span><span class="p">(</span><span class="n">lhs</span><span class="p">)</span>
+            <span class="n">rhs_constraint</span> <span class="o">=</span> <span class="n">as_constraint</span><span class="p">(</span><span class="n">rhs</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+                <span class="s2">&quot;Can only combine Constraint instances, &quot;</span>
+                <span class="s2">&quot;got: </span><span class="si">%s</span><span class="s2"> and </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">lhs</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="n">rhs</span><span class="p">))</span>
+            <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lhs</span> <span class="o">=</span> <span class="n">lhs_constraint</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rhs</span> <span class="o">=</span> <span class="n">rhs_constraint</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">operator</span> <span class="o">=</span> <span class="n">operator</span>
+
+    <span class="k">def</span> <span class="nf">_coordless_match</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cube</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">operator</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">lhs</span><span class="o">.</span><span class="n">_coordless_match</span><span class="p">(</span><span class="n">cube</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">rhs</span><span class="o">.</span><span class="n">_coordless_match</span><span class="p">(</span><span class="n">cube</span><span class="p">)</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;ConstraintCombination(</span><span class="si">%r</span><span class="s2">, </span><span class="si">%r</span><span class="s2">, </span><span class="si">%r</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">lhs</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">rhs</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">operator</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_CIM_extract</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cube</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">operator</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">lhs</span><span class="o">.</span><span class="n">_CIM_extract</span><span class="p">(</span><span class="n">cube</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">rhs</span><span class="o">.</span><span class="n">_CIM_extract</span><span class="p">(</span><span class="n">cube</span><span class="p">)</span>
+        <span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">_CoordConstraint</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Represents the atomic elements which might build up a Constraint.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">coord_name</span><span class="p">,</span> <span class="n">coord_thing</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create a coordinate constraint given the coordinate name and a</span>
+<span class="sd">        thing to compare it with.</span>
+
+<span class="sd">        Arguments:</span>
+
+<span class="sd">        * coord_name  -  string</span>
+<span class="sd">            The name of the coordinate to constrain</span>
+<span class="sd">        * coord_thing</span>
+<span class="sd">            The object to compare</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">coord_name</span> <span class="o">=</span> <span class="n">coord_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_coord_thing</span> <span class="o">=</span> <span class="n">coord_thing</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;_CoordConstraint(</span><span class="si">%r</span><span class="s2">, </span><span class="si">%r</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">coord_name</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_coord_thing</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">extract</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cube</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the the column based indices of the given cube which</span>
+<span class="sd">        match the constraint.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Cater for scalar cubes by setting the dimensionality to 1</span>
+        <span class="c1"># when cube.ndim is 0.</span>
+        <span class="n">cube_cim</span> <span class="o">=</span> <span class="n">_ColumnIndexManager</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">ndim</span> <span class="ow">or</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">coord</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">coord_name</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">iris</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">CoordinateNotFoundError</span><span class="p">:</span>
+            <span class="n">cube_cim</span><span class="o">.</span><span class="n">all_false</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">cube_cim</span>
+        <span class="n">dims</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">coord_dims</span><span class="p">(</span><span class="n">coord</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">dims</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Cannot apply constraints to multidimensional coordinates&quot;</span>
+            <span class="k">raise</span> <span class="n">iris</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">CoordinateMultiDimError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+        <span class="n">try_quick</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">if</span> <span class="n">callable</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_coord_thing</span><span class="p">):</span>
+            <span class="n">call_func</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_coord_thing</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_coord_thing</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_coord_thing</span><span class="p">,</span> <span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">coords</span><span class="o">.</span><span class="n">Cell</span><span class="p">)</span>
+        <span class="p">):</span>
+            <span class="n">desired_values</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_coord_thing</span><span class="p">)</span>
+            <span class="c1"># A dramatic speedup can be had if we don&#39;t have bounds.</span>
+            <span class="k">if</span> <span class="n">coord</span><span class="o">.</span><span class="n">has_bounds</span><span class="p">():</span>
+
+                <span class="k">def</span> <span class="nf">call_func</span><span class="p">(</span><span class="n">cell</span><span class="p">):</span>
+                    <span class="k">return</span> <span class="n">cell</span> <span class="ow">in</span> <span class="n">desired_values</span>
+
+            <span class="k">else</span><span class="p">:</span>
+
+                <span class="k">def</span> <span class="nf">call_func</span><span class="p">(</span><span class="n">cell</span><span class="p">):</span>
+                    <span class="k">return</span> <span class="n">cell</span><span class="o">.</span><span class="n">point</span> <span class="ow">in</span> <span class="n">desired_values</span>
+
+        <span class="k">else</span><span class="p">:</span>
+
+            <span class="k">def</span> <span class="nf">call_func</span><span class="p">(</span><span class="n">c</span><span class="p">):</span>
+                <span class="k">return</span> <span class="n">c</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_coord_thing</span>
+
+            <span class="n">try_quick</span> <span class="o">=</span> <span class="nb">isinstance</span><span class="p">(</span>
+                <span class="n">coord</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">coords</span><span class="o">.</span><span class="n">DimCoord</span>
+            <span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_coord_thing</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">coords</span><span class="o">.</span><span class="n">Cell</span><span class="p">)</span>
+
+        <span class="c1"># Simple, yet dramatic, optimisation for the monotonic case.</span>
+        <span class="k">if</span> <span class="n">try_quick</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">i</span> <span class="o">=</span> <span class="n">coord</span><span class="o">.</span><span class="n">nearest_neighbour_index</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_coord_thing</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+                <span class="n">try_quick</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">if</span> <span class="n">try_quick</span><span class="p">:</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">coord</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">bool</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">coord</span><span class="o">.</span><span class="n">cell</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_coord_thing</span><span class="p">:</span>
+                <span class="n">r</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">call_func</span><span class="p">(</span><span class="n">cell</span><span class="p">)</span> <span class="k">for</span> <span class="n">cell</span> <span class="ow">in</span> <span class="n">coord</span><span class="o">.</span><span class="n">cells</span><span class="p">()])</span>
+        <span class="k">if</span> <span class="n">dims</span><span class="p">:</span>
+            <span class="n">cube_cim</span><span class="p">[</span><span class="n">dims</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="n">r</span>
+        <span class="k">elif</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
+            <span class="n">cube_cim</span><span class="o">.</span><span class="n">all_false</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">cube_cim</span>
+
+
+<span class="k">class</span> <span class="nc">_ColumnIndexManager</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class to represent column aligned slices which can be operated on</span>
+<span class="sd">    using ``&amp;``, ``|`` or ``^``.</span>
+
+<span class="sd">    ::</span>
+
+<span class="sd">        # 4 Dimensional slices</span>
+<span class="sd">        import numpy as np</span>
+<span class="sd">        cim = _ColumnIndexManager(4)</span>
+<span class="sd">        cim[1] = np.array([3, 4, 5]) &gt; 3</span>
+<span class="sd">        print(cim.as_slice())</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ndims</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        A _ColumnIndexManager is always created to span the given</span>
+<span class="sd">        number of dimensions.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_column_arrays</span> <span class="o">=</span> <span class="p">[</span><span class="kc">True</span><span class="p">]</span> <span class="o">*</span> <span class="n">ndims</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ndims</span> <span class="o">=</span> <span class="n">ndims</span>
+
+    <span class="k">def</span> <span class="fm">__and__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_bitwise_operator</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">operator</span><span class="o">.</span><span class="fm">__and__</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__or__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_bitwise_operator</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">operator</span><span class="o">.</span><span class="fm">__or__</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__xor__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_bitwise_operator</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">operator</span><span class="o">.</span><span class="fm">__xor__</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_bitwise_operator</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">,</span> <span class="n">operator</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">_ColumnIndexManager</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">NotImplemented</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ndims</span> <span class="o">!=</span> <span class="n">other</span><span class="o">.</span><span class="n">ndims</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;Cannot do </span><span class="si">%s</span><span class="s2"> for </span><span class="si">%r</span><span class="s2"> and </span><span class="si">%r</span><span class="s2"> as they have a &quot;</span>
+                <span class="s2">&quot;different number of dimensions.&quot;</span> <span class="o">%</span> <span class="n">operator</span>
+            <span class="p">)</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">_ColumnIndexManager</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ndims</span><span class="p">)</span>
+        <span class="c1"># iterate over each dimension an combine appropriately</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">lhs</span><span class="p">,</span> <span class="n">rhs</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)):</span>
+            <span class="n">r</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">operator</span><span class="p">(</span><span class="n">lhs</span><span class="p">,</span> <span class="n">rhs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">r</span>
+
+    <span class="k">def</span> <span class="nf">all_false</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Turn all slices into False.&quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ndims</span><span class="p">):</span>
+            <span class="bp">self</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_column_arrays</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="n">is_vector</span> <span class="o">=</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="ow">and</span> <span class="n">value</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">is_vector</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">bool</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_column_arrays</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+                <span class="s2">&quot;Expecting value to be a 1 dimensional numpy array&quot;</span>
+                <span class="s2">&quot;, or a boolean. Got </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
+            <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">as_slice</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Turns a _ColumnIndexManager into a tuple which can be used in an</span>
+<span class="sd">        indexing operation.</span>
+
+<span class="sd">        If no index is possible, None will be returned.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">ndims</span>
+
+        <span class="k">for</span> <span class="n">dim</span><span class="p">,</span> <span class="n">dimension_array</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="c1"># If dimension_array has not been set, span the entire dimension</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">dimension_array</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+                <span class="n">where_true</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">dimension_array</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="c1"># If the array had no True values in it, then the dimension</span>
+                <span class="c1"># is equivalent to False</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">where_true</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">result</span> <span class="o">=</span> <span class="kc">None</span>
+                    <span class="k">break</span>
+
+                <span class="c1"># If there was exactly one match, the key should be an integer</span>
+                <span class="k">if</span> <span class="n">where_true</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">1</span><span class="p">,):</span>
+                    <span class="n">result</span><span class="p">[</span><span class="n">dim</span><span class="p">]</span> <span class="o">=</span> <span class="n">where_true</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="c1"># Finally, we can either provide a slice if possible,</span>
+                    <span class="c1"># or a tuple of indices which match. In order to determine</span>
+                    <span class="c1"># if we can provide a slice, calculate the deltas between</span>
+                    <span class="c1"># the indices and check if they are the same.</span>
+                    <span class="n">delta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">where_true</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+                    <span class="c1"># if the diff is consistent we can create a slice object</span>
+                    <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">delta</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">delta</span><span class="p">):</span>
+                        <span class="n">result</span><span class="p">[</span><span class="n">dim</span><span class="p">]</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span>
+                            <span class="n">where_true</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">where_true</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">delta</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                        <span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="c1"># otherwise, key is a tuple</span>
+                        <span class="n">result</span><span class="p">[</span><span class="n">dim</span><span class="p">]</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">where_true</span><span class="p">)</span>
+
+            <span class="c1"># Handle the case where dimension_array is a boolean</span>
+            <span class="k">elif</span> <span class="n">dimension_array</span><span class="p">:</span>
+                <span class="n">result</span><span class="p">[</span><span class="n">dim</span><span class="p">]</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="kc">None</span>
+                <span class="k">break</span>
+
+        <span class="k">if</span> <span class="n">result</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">result</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">list_of_constraints</span><span class="p">(</span><span class="n">constraints</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Turns the given constraints into a list of valid constraints</span>
+<span class="sd">    using :func:`as_constraint`.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">constraints</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">constraints</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">):</span>
+        <span class="n">constraints</span> <span class="o">=</span> <span class="p">[</span><span class="n">constraints</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="p">[</span><span class="n">as_constraint</span><span class="p">(</span><span class="n">constraint</span><span class="p">)</span> <span class="k">for</span> <span class="n">constraint</span> <span class="ow">in</span> <span class="n">constraints</span><span class="p">]</span>
+
+
+<span class="k">def</span> <span class="nf">as_constraint</span><span class="p">(</span><span class="n">thing</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Casts an object into a cube constraint where possible, otherwise</span>
+<span class="sd">    a TypeError will be raised.</span>
+
+<span class="sd">    If the given object is already a valid constraint then the given object</span>
+<span class="sd">    will be returned, else a TypeError will be raised.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">thing</span><span class="p">,</span> <span class="n">Constraint</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">thing</span>
+    <span class="k">elif</span> <span class="n">thing</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">Constraint</span><span class="p">()</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">thing</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Constraint</span><span class="p">(</span><span class="n">thing</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%r</span><span class="s2"> cannot be cast to a constraint.&quot;</span> <span class="o">%</span> <span class="n">thing</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="AttributeConstraint"><a class="viewcode-back" href="../../generated/api/iris.html#iris.AttributeConstraint">[docs]</a><span class="k">class</span> <span class="nc">AttributeConstraint</span><span class="p">(</span><span class="n">Constraint</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Provides a simple Cube-attribute based :class:`Constraint`.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">attributes</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Example usage::</span>
+
+<span class="sd">            iris.AttributeConstraint(STASH=&#39;m01s16i004&#39;)</span>
+
+<span class="sd">            iris.AttributeConstraint(</span>
+<span class="sd">                STASH=lambda stash: str(stash).endswith(&#39;i005&#39;))</span>
+
+<span class="sd">        .. note:: Attribute constraint names are case sensitive.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_attributes</span> <span class="o">=</span> <span class="n">attributes</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">cube_func</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_cube_func</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_cube_func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cube</span><span class="p">):</span>
+        <span class="n">match</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_attributes</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">cube</span><span class="o">.</span><span class="n">attributes</span><span class="p">:</span>
+                <span class="n">cube_attr</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">attributes</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+                <span class="c1"># if we have a callable, then call it with the value,</span>
+                <span class="c1"># otherwise, assert equality</span>
+                <span class="k">if</span> <span class="n">callable</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="ow">not</span> <span class="n">value</span><span class="p">(</span><span class="n">cube_attr</span><span class="p">):</span>
+                        <span class="n">match</span> <span class="o">=</span> <span class="kc">False</span>
+                        <span class="k">break</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">cube_attr</span> <span class="o">!=</span> <span class="n">value</span><span class="p">:</span>
+                        <span class="n">match</span> <span class="o">=</span> <span class="kc">False</span>
+                        <span class="k">break</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">match</span> <span class="o">=</span> <span class="kc">False</span>
+                <span class="k">break</span>
+        <span class="k">return</span> <span class="n">match</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;AttributeConstraint(</span><span class="si">%r</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">_attributes</span></div>
+
+
+<div class="viewcode-block" id="NameConstraint"><a class="viewcode-back" href="../../generated/api/iris.html#iris.NameConstraint">[docs]</a><span class="k">class</span> <span class="nc">NameConstraint</span><span class="p">(</span><span class="n">Constraint</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Provides a simple Cube name based :class:`Constraint`.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">standard_name</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">,</span>
+        <span class="n">long_name</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">,</span>
+        <span class="n">var_name</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">,</span>
+        <span class="n">STASH</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides a simple Cube name based :class:`Constraint`, which matches</span>
+<span class="sd">        against each of the names provided, which may be either standard name,</span>
+<span class="sd">        long name, NetCDF variable name and/or the STASH from the attributes</span>
+<span class="sd">        dictionary.</span>
+
+<span class="sd">        The name constraint will only succeed if *all* of the provided names</span>
+<span class="sd">        match.</span>
+
+<span class="sd">        Kwargs:</span>
+
+<span class="sd">        * standard_name:</span>
+<span class="sd">            A string or callable representing the standard name to match</span>
+<span class="sd">            against.</span>
+<span class="sd">        * long_name:</span>
+<span class="sd">            A string or callable representing the long name to match against.</span>
+<span class="sd">        * var_name:</span>
+<span class="sd">            A string or callable representing the NetCDF variable name to match</span>
+<span class="sd">            against.</span>
+<span class="sd">        * STASH:</span>
+<span class="sd">            A string or callable representing the UM STASH code to match</span>
+<span class="sd">            against.</span>
+
+<span class="sd">        .. note::</span>
+<span class="sd">            The default value of each of the keyword arguments is the string</span>
+<span class="sd">            &quot;none&quot;, rather than the singleton None, as None may be a legitimate</span>
+<span class="sd">            value to be matched against e.g., to constrain against all cubes</span>
+<span class="sd">            where the standard_name is not set, then use standard_name=None.</span>
+
+<span class="sd">        Returns:</span>
+
+<span class="sd">        * Boolean</span>
+
+<span class="sd">        Example usage::</span>
+
+<span class="sd">            iris.NameConstraint(long_name=&#39;air temp&#39;, var_name=None)</span>
+
+<span class="sd">            iris.NameConstraint(long_name=lambda name: &#39;temp&#39; in name)</span>
+
+<span class="sd">            iris.NameConstraint(standard_name=&#39;air_temperature&#39;,</span>
+<span class="sd">                                STASH=lambda stash: stash.item == 203)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">standard_name</span> <span class="o">=</span> <span class="n">standard_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">long_name</span> <span class="o">=</span> <span class="n">long_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">var_name</span> <span class="o">=</span> <span class="n">var_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">STASH</span> <span class="o">=</span> <span class="n">STASH</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_names</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;standard_name&quot;</span><span class="p">,</span> <span class="s2">&quot;long_name&quot;</span><span class="p">,</span> <span class="s2">&quot;var_name&quot;</span><span class="p">,</span> <span class="s2">&quot;STASH&quot;</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">cube_func</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_cube_func</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_cube_func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cube</span><span class="p">):</span>
+        <span class="k">def</span> <span class="nf">matcher</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">callable</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="kc">False</span>
+                <span class="k">if</span> <span class="n">target</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="c1">#</span>
+                    <span class="c1"># Don&#39;t pass None through into the callable. Users should</span>
+                    <span class="c1"># use the &quot;name=None&quot; pattern instead. Otherwise, users</span>
+                    <span class="c1"># will need to explicitly handle the None case, which is</span>
+                    <span class="c1"># unnecessary and pretty darn ugly e.g.,</span>
+                    <span class="c1">#</span>
+                    <span class="c1"># lambda name: name is not None and name.startswith(&#39;ick&#39;)</span>
+                    <span class="c1">#</span>
+                    <span class="n">result</span> <span class="o">=</span> <span class="n">value</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="n">value</span> <span class="o">==</span> <span class="n">target</span>
+            <span class="k">return</span> <span class="n">result</span>
+
+        <span class="n">match</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_names</span><span class="p">:</span>
+            <span class="n">expected</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">expected</span> <span class="o">!=</span> <span class="s2">&quot;none&quot;</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;STASH&quot;</span><span class="p">:</span>
+                    <span class="n">actual</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">attributes</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">actual</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+                <span class="n">match</span> <span class="o">=</span> <span class="n">matcher</span><span class="p">(</span><span class="n">actual</span><span class="p">,</span> <span class="n">expected</span><span class="p">)</span>
+                <span class="c1"># Make this is a short-circuit match.</span>
+                <span class="k">if</span> <span class="n">match</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
+                    <span class="k">break</span>
+
+        <span class="k">return</span> <span class="n">match</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">names</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_names</span><span class="p">:</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">value</span> <span class="o">!=</span> <span class="s2">&quot;none&quot;</span><span class="p">:</span>
+                <span class="n">names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">=</span><span class="si">{!r}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
+        <span class="k">return</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">(</span><span class="si">{}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">names</span><span class="p">))</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        
+        &copy; <a href="../../copyright.html">Copyright</a> Iris Contributors
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
