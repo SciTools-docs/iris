@@ -509,8 +509,8 @@ everything is inherited from <a class="reference internal" href="#iris.coords.Co
 <p>Args:</p>
 <ul class="simple">
 <li><dl class="simple">
-<dt>points:</dt><dd><p>The values (or value in the case of a scalar coordinate) of the
-coordinate for each cell.</p>
+<dt>points:</dt><dd><p>The values (or value in the case of a scalar coordinate) for each
+cell of the coordinate.</p>
 </dd>
 </dl>
 </li>
@@ -1422,8 +1422,8 @@ was applied.</p>
 <p>Args:</p>
 <ul class="simple">
 <li><dl class="simple">
-<dt>points:</dt><dd><p>The values (or value in the case of a scalar coordinate) of the
-coordinate for each cell.</p>
+<dt>points:</dt><dd><p>The values (or value in the case of a scalar coordinate) for each
+cell of the coordinate.</p>
 </dd>
 </dl>
 </li>
@@ -2043,6 +2043,84 @@ in the selection. Default is True.</p>
 <em class="property">class </em><code class="sig-prename descclassname">iris.coords.</code><code class="sig-name descname">DimCoord</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">points</span></em>, <em class="sig-param"><span class="n">standard_name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">long_name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">var_name</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">units</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">bounds</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">attributes</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">coord_system</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">circular</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">climatological</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/iris/coords.html#DimCoord"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iris.coords.DimCoord" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a 1D, numeric, and strictly monotonic <a class="reference internal" href="#iris.coords.Coord" title="iris.coords.Coord"><code class="xref py py-class docutils literal notranslate"><span class="pre">Coord</span></code></a> with
 read-only points and bounds.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>points:</dt><dd><p>1D numpy array-like of values (or single value in the case of a
+scalar coordinate) for each cell of the coordinate.  The values
+must be strictly monotonic and masked values are not allowed.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Kwargs:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>standard_name:</dt><dd><p>CF standard name of the coordinate.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>long_name:</dt><dd><p>Descriptive name of the coordinate.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>var_name:</dt><dd><p>The netCDF variable name for the coordinate.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>units</dt><dd><p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">Unit</span></code> of the coordinate’s values.
+Can be a string, which will be converted to a Unit object.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>bounds</dt><dd><p>An array of values describing the bounds of each cell. Given n
+bounds and m cells, the shape of the bounds array should be
+(m, n). For each bound, the values must be strictly monotonic along
+the cells, and the direction of monotonicity must be consistent
+across the bounds.  For example, a DimCoord with 100 points and two
+bounds per cell would have a bounds array of shape (100, 2), and
+the slices <code class="docutils literal notranslate"><span class="pre">bounds[:,</span> <span class="pre">0]</span></code> and <code class="docutils literal notranslate"><span class="pre">bounds[:,</span> <span class="pre">1]</span></code> would be monotonic
+in the same direction.  Masked values are not allowed.
+Note if the data is a climatology, <cite>climatological</cite>
+should be set.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>attributes</dt><dd><p>A dictionary containing other cf and user-defined attributes.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>coord_system</dt><dd><p>A <a class="reference internal" href="coord_systems.html#iris.coord_systems.CoordSystem" title="iris.coord_systems.CoordSystem"><code class="xref py py-class docutils literal notranslate"><span class="pre">CoordSystem</span></code></a> representing the
+coordinate system of the coordinate,
+e.g. a <a class="reference internal" href="coord_systems.html#iris.coord_systems.GeogCS" title="iris.coord_systems.GeogCS"><code class="xref py py-class docutils literal notranslate"><span class="pre">GeogCS</span></code></a> for a longitude Coord.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>circular (bool)</dt><dd><p>For units with a modulus (e.g. degrees), do the points wrap around
+the full circle?</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>climatological (bool):</dt><dd><p>When True: the coordinate is a NetCDF climatological time axis.
+When True: saving in NetCDF will give the coordinate variable a
+‘climatology’ attribute and will create a boundary variable called
+‘&lt;coordinate-name&gt;_climatology’ in place of a standard bounds
+attribute and bounds variable.
+Will set to True when a climatological time axis is loaded
+from NetCDF.
+Always False if no bounds exist.</p>
+</dd>
+</dl>
+</li>
+</ul>
 <dl class="py method">
 <dt id="iris.coords.DimCoord.cell">
 <code class="sig-name descname">cell</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">index</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.DimCoord.cell" title="Permalink to this definition">¶</a></dt>

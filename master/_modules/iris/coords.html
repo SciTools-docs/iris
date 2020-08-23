@@ -1527,8 +1527,8 @@
 <span class="sd">        Args:</span>
 
 <span class="sd">        * points:</span>
-<span class="sd">            The values (or value in the case of a scalar coordinate) of the</span>
-<span class="sd">            coordinate for each cell.</span>
+<span class="sd">            The values (or value in the case of a scalar coordinate) for each</span>
+<span class="sd">            cell of the coordinate.</span>
 
 <span class="sd">        Kwargs:</span>
 
@@ -2566,6 +2566,54 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Create a 1D, numeric, and strictly monotonic :class:`Coord` with</span>
 <span class="sd">        read-only points and bounds.</span>
+
+<span class="sd">        Args:</span>
+
+<span class="sd">        * points:</span>
+<span class="sd">            1D numpy array-like of values (or single value in the case of a</span>
+<span class="sd">            scalar coordinate) for each cell of the coordinate.  The values</span>
+<span class="sd">            must be strictly monotonic and masked values are not allowed.</span>
+
+<span class="sd">        Kwargs:</span>
+
+<span class="sd">        * standard_name:</span>
+<span class="sd">            CF standard name of the coordinate.</span>
+<span class="sd">        * long_name:</span>
+<span class="sd">            Descriptive name of the coordinate.</span>
+<span class="sd">        * var_name:</span>
+<span class="sd">            The netCDF variable name for the coordinate.</span>
+<span class="sd">        * units</span>
+<span class="sd">            The :class:`~cf_units.Unit` of the coordinate&#39;s values.</span>
+<span class="sd">            Can be a string, which will be converted to a Unit object.</span>
+<span class="sd">        * bounds</span>
+<span class="sd">            An array of values describing the bounds of each cell. Given n</span>
+<span class="sd">            bounds and m cells, the shape of the bounds array should be</span>
+<span class="sd">            (m, n). For each bound, the values must be strictly monotonic along</span>
+<span class="sd">            the cells, and the direction of monotonicity must be consistent</span>
+<span class="sd">            across the bounds.  For example, a DimCoord with 100 points and two</span>
+<span class="sd">            bounds per cell would have a bounds array of shape (100, 2), and</span>
+<span class="sd">            the slices ``bounds[:, 0]`` and ``bounds[:, 1]`` would be monotonic</span>
+<span class="sd">            in the same direction.  Masked values are not allowed.</span>
+<span class="sd">            Note if the data is a climatology, `climatological`</span>
+<span class="sd">            should be set.</span>
+<span class="sd">        * attributes</span>
+<span class="sd">            A dictionary containing other cf and user-defined attributes.</span>
+<span class="sd">        * coord_system</span>
+<span class="sd">            A :class:`~iris.coord_systems.CoordSystem` representing the</span>
+<span class="sd">            coordinate system of the coordinate,</span>
+<span class="sd">            e.g. a :class:`~iris.coord_systems.GeogCS` for a longitude Coord.</span>
+<span class="sd">        * circular (bool)</span>
+<span class="sd">            For units with a modulus (e.g. degrees), do the points wrap around</span>
+<span class="sd">            the full circle?</span>
+<span class="sd">        * climatological (bool):</span>
+<span class="sd">            When True: the coordinate is a NetCDF climatological time axis.</span>
+<span class="sd">            When True: saving in NetCDF will give the coordinate variable a</span>
+<span class="sd">            &#39;climatology&#39; attribute and will create a boundary variable called</span>
+<span class="sd">            &#39;&lt;coordinate-name&gt;_climatology&#39; in place of a standard bounds</span>
+<span class="sd">            attribute and bounds variable.</span>
+<span class="sd">            Will set to True when a climatological time axis is loaded</span>
+<span class="sd">            from NetCDF.</span>
+<span class="sd">            Always False if no bounds exist.</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># Configure the metadata manager.</span>
