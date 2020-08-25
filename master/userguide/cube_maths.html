@@ -122,6 +122,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#calculating-the-difference-between-two-cubes">Calculating the difference between two cubes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#calculating-a-cube-anomaly">Calculating a cube anomaly</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#combining-multiple-phenomena-to-form-a-new-one">Combining multiple phenomena to form a new one</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#combining-units">Combining units</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="citation.html">Citing Iris</a></li>
@@ -422,6 +423,37 @@ using the equation above:</p>
 <a class="reference internal" href="plotting_a_cube.html"><span class="doc">Plotting a cube</span></a> section.</p>
 <p>A very similar example to this can be found in
 <a class="reference internal" href="../generated/gallery/meteorology/plot_deriving_phenomena.html#sphx-glr-generated-gallery-meteorology-plot-deriving-phenomena-py"><span class="std std-ref">Deriving Exner Pressure and Air Temperature</span></a>.</p>
+</div>
+<div class="section" id="combining-units">
+<h2>Combining units<a class="headerlink" href="#combining-units" title="Permalink to this headline">¶</a></h2>
+<p>It should be noted that when combining cubes by multiplication, division or
+power operations, the resulting cube will have a unit which is an appropriate
+combination of the constituent units. In the above example, since <code class="docutils literal notranslate"><span class="pre">pressure</span></code>
+and <code class="docutils literal notranslate"><span class="pre">p0</span></code> have the same unit, then <code class="docutils literal notranslate"><span class="pre">pressure</span> <span class="pre">/</span> <span class="pre">p0</span></code> has a dimensionless
+unit of <code class="docutils literal notranslate"><span class="pre">'1'</span></code>. Since <code class="docutils literal notranslate"><span class="pre">(pressure</span> <span class="pre">/</span> <span class="pre">p0)</span></code> has a unit of <code class="docutils literal notranslate"><span class="pre">'1'</span></code>, this does
+not change under power operations and so
+<code class="docutils literal notranslate"><span class="pre">(</span> <span class="pre">(pressure</span> <span class="pre">/</span> <span class="pre">p0)</span> <span class="pre">**</span> <span class="pre">(287.05</span> <span class="pre">/</span> <span class="pre">1005)</span> <span class="pre">)</span></code> also has unit <code class="docutils literal notranslate"><span class="pre">1</span></code>. Multiplying
+by a cube with unit <code class="docutils literal notranslate"><span class="pre">'1'</span></code> will preserve units, so the cube <code class="docutils literal notranslate"><span class="pre">temperature</span></code>
+will be given the same units as are in <code class="docutils literal notranslate"><span class="pre">pot_temperature</span></code>. It should be
+noted that some combinations of units, particularly those involving power
+operations, will not result in a valid unit and will cause the calculation
+to fail. For example, a cube <code class="docutils literal notranslate"><span class="pre">a</span></code> had units <code class="docutils literal notranslate"><span class="pre">'m'</span></code> then <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">**</span> <span class="pre">0.5</span></code>
+would result in an error since the square root of a meter has no meaningful
+unit (if <code class="docutils literal notranslate"><span class="pre">a</span></code> had units <code class="docutils literal notranslate"><span class="pre">'m2'</span></code> then <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">**</span> <span class="pre">0.5</span></code> would result in a cube
+with units <code class="docutils literal notranslate"><span class="pre">'m'</span></code>).</p>
+<p>Iris inherits units from <a class="reference external" href="https://scitools.org.uk/cf-units/docs/latest/">cf_units</a>
+which in turn inherits from <a class="reference external" href="https://www.unidata.ucar.edu/software/udunits/udunits-current/doc/udunits/udunits2.html">UDUNITS</a>.
+As well as the units UDUNITS provides, cf units also provides the units
+<code class="docutils literal notranslate"><span class="pre">'no-unit'</span></code> and <code class="docutils literal notranslate"><span class="pre">'unknown'</span></code>. A unit of <code class="docutils literal notranslate"><span class="pre">'no-unit'</span></code> means that the
+associated data is not suitable for describing with a unit, cf units
+considers <code class="docutils literal notranslate"><span class="pre">'no-unit'</span></code> unsuitable for combining and therefore any
+arithmetic done on a cube with <code class="docutils literal notranslate"><span class="pre">'no-unit'</span></code> will fail. A unit of
+<code class="docutils literal notranslate"><span class="pre">'unknown'</span></code> means that the unit describing the associated data
+cannot be determined. cf units and Iris will allow arithmetic on cubes
+with a unit of <code class="docutils literal notranslate"><span class="pre">'unknown'</span></code>, but the resulting cube will always have
+a unit of <code class="docutils literal notranslate"><span class="pre">'unknown'</span></code>. If a calculation is prevented because it would
+result in inappropriate units, it may be forced by setting the units of
+the original cubes to be <code class="docutils literal notranslate"><span class="pre">'unknown'</span></code>.</p>
 </div>
 </div>
 
