@@ -290,6 +290,9 @@ associated with an axis over which the statistic is being run.</p></li>
 dependency on <a class="reference external" href="https://matplotlib.org/">matplotlib</a> at <code class="docutils literal notranslate"><span class="pre">v2.x</span></code>.  Now that <code class="docutils literal notranslate"><span class="pre">Python2</span></code> support has
 been dropped, <code class="docutils literal notranslate"><span class="pre">Iris</span></code> is free to use the latest version of <a class="reference external" href="https://matplotlib.org/">matplotlib</a>.</p></li>
 <li><p><a class="reference external" href="https://cfconventions.org/Data/cf-conventions/cf-conventions-1.8/cf-conventions.html#ancillary-data">CF Ancillary Data</a> variables are now supported.</p></li>
+<li><p>Python <a class="reference external" href="https://docs.python.org/3/library/logging.html">logging</a> is now supported within <a class="reference internal" href="../generated/api/iris/analysis/maths.html#module-iris.analysis.maths" title="iris.analysis.maths"><code class="xref py py-mod docutils literal notranslate"><span class="pre">iris.analysis.maths</span></code></a>,
+<a class="reference internal" href="../generated/api/iris/common/lenient.html#module-iris.common.lenient" title="iris.common.lenient"><code class="xref py py-mod docutils literal notranslate"><span class="pre">iris.common.lenient</span></code></a>, and <a class="reference internal" href="../generated/api/iris/common/metadata.html#module-iris.common.metadata" title="iris.common.metadata"><code class="xref py py-mod docutils literal notranslate"><span class="pre">iris.common.metadata</span></code></a>. Each module
+now defines a <a class="reference external" href="https://docs.python.org/2.7/library/logging.html#logging.Logger" title="(in Python v2.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">logging.Logger</span></code></a> instance called <code class="docutils literal notranslate"><span class="pre">logger</span></code>.</p></li>
 </ul>
 </div>
 <div class="section" id="bugs-fixed">
@@ -337,6 +340,14 @@ function instead.</p></li>
 <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.CubeList.concatenate" title="iris.cube.CubeList.concatenate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">iris.cube.CubeList.concatenate()</span></code></a> method.  Since then, calling the
 <code class="xref py py-func docutils literal notranslate"><span class="pre">iris.experimental.concatenate.concatenate()</span></code> function raised an
 exception.</p></li>
+<li><p>The <a class="reference internal" href="../generated/api/iris/analysis/maths.html#iris.analysis.maths.apply_ufunc" title="iris.analysis.maths.apply_ufunc"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.analysis.maths.apply_ufunc()</span></code></a> keyword argument has changed
+from <code class="docutils literal notranslate"><span class="pre">other_cube</span></code> to <code class="docutils literal notranslate"><span class="pre">other</span></code>, which aligns it with the rest of the
+<a class="reference internal" href="../generated/api/iris/analysis/maths.html#module-iris.analysis.maths" title="iris.analysis.maths"><code class="xref py py-mod docutils literal notranslate"><span class="pre">iris.analysis.maths</span></code></a> API.</p></li>
+<li><p>The <code class="xref py py-meth docutils literal notranslate"><span class="pre">iris.analysis.maths.IFunc.__call__()</span></code> now ignores any surplus <code class="docutils literal notranslate"><span class="pre">other</span></code>
+keyword argument provided for a <code class="docutils literal notranslate"><span class="pre">data_func</span></code> that only requires <strong>one</strong> argument.
+This aligns the behaviour of <code class="xref py py-meth docutils literal notranslate"><span class="pre">iris.analysis.maths.IFunc.__call__()</span></code> with
+<a class="reference internal" href="../generated/api/iris/analysis/maths.html#iris.analysis.maths.apply_ufunc" title="iris.analysis.maths.apply_ufunc"><code class="xref py py-func docutils literal notranslate"><span class="pre">apply_ufunc()</span></code></a>. Previously a <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> exception
+was raised.</p></li>
 </ul>
 </div>
 <div class="section" id="deprecations">
