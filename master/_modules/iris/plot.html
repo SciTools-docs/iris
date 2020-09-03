@@ -672,6 +672,11 @@
                     <span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="n">data_dim</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.5</span>
                 <span class="k">else</span><span class="p">:</span>
                     <span class="n">values</span> <span class="o">=</span> <span class="n">coord</span><span class="o">.</span><span class="n">contiguous_bounds</span><span class="p">()</span>
+                    <span class="n">values</span> <span class="o">=</span> <span class="n">_fixup_dates</span><span class="p">(</span><span class="n">coord</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">values</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">(</span><span class="nb">object</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span>
+                        <span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span>
+                    <span class="p">):</span>
+                        <span class="n">values</span> <span class="o">=</span> <span class="n">mpl_dates</span><span class="o">.</span><span class="n">date2num</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
 
             <span class="n">plot_arrays</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
 

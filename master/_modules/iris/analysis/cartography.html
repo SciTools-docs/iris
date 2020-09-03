@@ -832,6 +832,12 @@
 <span class="sd">        on the statistics of the data e.g. the mean and standard deviation</span>
 <span class="sd">        will not be preserved.</span>
 
+<span class="sd">    .. warning::</span>
+
+<span class="sd">        If the target projection is non-rectangular, e.g. Robinson, the target</span>
+<span class="sd">        grid may include points outside the boundary of the projection. The</span>
+<span class="sd">        latitude/longitude of such points may be unpredictable.</span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">lon_coord</span><span class="p">,</span> <span class="n">lat_coord</span> <span class="o">=</span> <span class="n">_get_lon_lat_coords</span><span class="p">(</span><span class="n">cube</span><span class="p">)</span>
