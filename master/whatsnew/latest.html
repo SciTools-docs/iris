@@ -293,7 +293,9 @@ associated with an axis over which the statistic is being run.</p></li>
 <li><p>Supporting <code class="docutils literal notranslate"><span class="pre">Iris</span></code> for both <code class="docutils literal notranslate"><span class="pre">Python2</span></code> and <code class="docutils literal notranslate"><span class="pre">Python3</span></code> resulted in pinning our
 dependency on <a href="#id14"><span class="problematic" id="id15">`matplotlib`_</span></a> at <code class="docutils literal notranslate"><span class="pre">v2.x</span></code>.  Now that <code class="docutils literal notranslate"><span class="pre">Python2</span></code> support has
 been dropped, <code class="docutils literal notranslate"><span class="pre">Iris</span></code> is free to use the latest version of <a href="#id16"><span class="problematic" id="id17">`matplotlib`_</span></a>.</p></li>
-<li><p><a class="reference external" href="https://cfconventions.org/Data/cf-conventions/cf-conventions-1.8/cf-conventions.html#ancillary-data">CF Ancillary Data</a> variables are now supported.</p></li>
+<li><p><a class="reference external" href="https://cfconventions.org/Data/cf-conventions/cf-conventions-1.8/cf-conventions.html#ancillary-data">CF Ancillary Data</a> variables are now supported, and can be loaded from and
+saved to NetCDF-CF files. Support for <a class="reference external" href="https://cfconventions.org/Data/cf-conventions/cf-conventions-1.8/cf-conventions.html#flags">Quality Flags</a> is also provided to
+ensure they load and save with appropriate units. See <a class="reference external" href="https://github.com/SciTools/iris/pull/3800">PR #3800</a>.</p></li>
 </ul>
 </div>
 <div class="section" id="dependency-updates">
@@ -335,6 +337,9 @@ this behaviour).</p></li>
 <code class="docutils literal notranslate"><span class="pre">epoch</span></code> used in <a class="reference external" href="https://matplotlib.org/api/dates_api.html#matplotlib.dates.date2num">matplotlib.dates.date2num</a>
 (previously would take the unit from a time coordinate, if present, even
 though the coordinate’s value had been changed via <code class="docutils literal notranslate"><span class="pre">date2num</span></code>).</p></li>
+<li><p>Attributes of cell measures in NetCDF-CF files were being discarded during
+loading. They are now available on the <a class="reference internal" href="../generated/api/iris/coords.html#iris.coords.CellMeasure" title="iris.coords.CellMeasure"><code class="xref py py-class docutils literal notranslate"><span class="pre">CellMeasure</span></code></a> in
+the loaded <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a>. See <a class="reference external" href="https://github.com/SciTools/iris/pull/3800">PR #3800</a>.</p></li>
 </ul>
 </div>
 <div class="section" id="incompatible-changes">
@@ -361,6 +366,10 @@ function instead.</p></li>
 <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.CubeList.concatenate" title="iris.cube.CubeList.concatenate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">iris.cube.CubeList.concatenate()</span></code></a> method.  Since then, calling the
 <code class="xref py py-func docutils literal notranslate"><span class="pre">iris.experimental.concatenate.concatenate()</span></code> function raised an
 exception.</p></li>
+<li><p>When loading data from NetCDF-CF files, where a variable has no <code class="docutils literal notranslate"><span class="pre">units</span></code>
+property, the corresponding Iris object will have <code class="docutils literal notranslate"><span class="pre">units='unknown'</span></code>.
+Prior to Iris <code class="docutils literal notranslate"><span class="pre">3.0.0</span></code>, these cases defaulted to <code class="docutils literal notranslate"><span class="pre">units='1'</span></code>.
+See <a class="reference external" href="https://github.com/SciTools/iris/pull/3795">PR #3795</a>.</p></li>
 </ul>
 </div>
 <div class="section" id="internal">
@@ -414,6 +423,8 @@ The PDF may be accessed by clicking on the version at the bottom of the side
 bar, then selecting <code class="docutils literal notranslate"><span class="pre">PDF</span></code> from the <code class="docutils literal notranslate"><span class="pre">Downloads</span></code> section.</p></li>
 <li><p>Added a warning to the <a class="reference internal" href="../generated/api/iris/analysis/cartography.html#iris.analysis.cartography.project" title="iris.analysis.cartography.project"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.analysis.cartography.project()</span></code></a> function
 regarding its behaviour on projections with non-rectangular boundaries.</p></li>
+<li><p>Added the <a class="reference internal" href="../userguide/cube_maths.html#cube-maths-combining-units"><span class="std std-ref">Combining units</span></a> section to the user guide to
+clarify how <code class="docutils literal notranslate"><span class="pre">Units</span></code> are handled during cube arithmetic.</p></li>
 </ul>
 </div>
 </div>
