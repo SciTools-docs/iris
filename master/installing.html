@@ -103,16 +103,10 @@
               <p class="caption"><span class="caption-text">Getting started</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Installing Iris</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#installing-using-conda">Installing using conda</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#installing-from-source">Installing from source</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#in-place-build-an-alternative-for-developers">In-place build - an alternative for developers</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#generating-conda-requirements">Generating conda requirements</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#running-the-tests">Running the tests</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#custom-site-configuration">Custom site configuration</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#installing-using-conda-users">Installing using conda (users)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installing-from-source-devs">Installing from source (devs)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#running-the-tests">Running the tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#custom-site-configuration">Custom site configuration</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="generated/gallery/index.html">Gallery</a></li>
@@ -244,21 +238,23 @@
             
   <div class="section" id="installing-iris">
 <span id="id1"></span><h1>Installing Iris<a class="headerlink" href="#installing-iris" title="Permalink to this headline">¶</a></h1>
-<p>You can either install Iris using the conda package manager or from source.</p>
-<div class="section" id="installing-using-conda">
-<h2>Installing using conda<a class="headerlink" href="#installing-using-conda" title="Permalink to this headline">¶</a></h2>
 <p>Iris is available using conda for the following platforms:</p>
-<blockquote>
-<div><ul class="simple">
+<ul class="simple">
 <li><p>Linux 64-bit,</p></li>
 <li><p>Mac OSX 64-bit, and</p></li>
-<li><p>Windows 32-bit and 64-bit.</p></li>
+<li><p>Windows 64-bit.</p></li>
 </ul>
-</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Iris currently supports and is tested against <strong>Python 3.6</strong> and
+<strong>Python 3.7</strong>.</p>
+</div>
+<div class="section" id="installing-using-conda-users">
+<span id="installing-using-conda"></span><h2>Installing using conda (users)<a class="headerlink" href="#installing-using-conda-users" title="Permalink to this headline">¶</a></h2>
 <p>To install Iris using conda, you must first download and install conda,
-for example from <a class="reference external" href="http://conda.pydata.org/miniconda.html">http://conda.pydata.org/miniconda.html</a>.</p>
-<p>Once conda is installed, you can install Iris using conda on any platform with
-the following command:</p>
+for example from <a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html">https://docs.conda.io/en/latest/miniconda.html</a>.</p>
+<p>Once conda is installed, you can install Iris using conda with the following
+command:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">iris</span>
 </pre></div>
 </div>
@@ -268,61 +264,51 @@ need the Iris sample data. This can also be installed using conda:</p>
 </pre></div>
 </div>
 <p>Further documentation on using conda and the features it provides can be found
-at <a class="reference external" href="http://conda.pydata.org/docs/intro.html">http://conda.pydata.org/docs/intro.html</a>.</p>
+at <a class="reference external" href="https://conda.io/en/latest/index.html">https://conda.io/en/latest/index.html</a>.</p>
 </div>
-<div class="section" id="installing-from-source">
-<h2>Installing from source<a class="headerlink" href="#installing-from-source" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="installing-from-source-devs">
+<span id="installing-from-source"></span><h2>Installing from source (devs)<a class="headerlink" href="#installing-from-source-devs" title="Permalink to this headline">¶</a></h2>
 <p>The latest Iris source release is available from
 <a class="reference external" href="https://github.com/SciTools/iris">https://github.com/SciTools/iris</a>.</p>
-<p>Iris makes use of a range of other libraries and python modules. These
-dependencies must be in place before you can successfully install
-Iris. Once you have satisfied the requirements detailed in the
-<code class="docutils literal notranslate"><span class="pre">requirements</span></code> directory, go to the root of Iris’ and run:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">.</span>
+<p>For instructions on how to obtain the Iris project source from GitHub see
+<a class="reference internal" href="developers_guide/gitwash/forking_hell.html#forking"><span class="std std-ref">Making your own copy (fork) of Iris</span></a> and <a class="reference internal" href="developers_guide/gitwash/set_up_fork.html#set-up-fork"><span class="std std-ref">Set up your fork</span></a> for instructions.</p>
+<p>Once conda is installed, you can install Iris using conda and then activate
+it.  The example commands below assume you are in the root directory of your
+local copy of Iris:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">env</span> <span class="n">create</span> <span class="o">--</span><span class="n">file</span><span class="o">=</span><span class="n">requirements</span><span class="o">/</span><span class="n">ci</span><span class="o">/</span><span class="n">iris</span><span class="o">.</span><span class="n">yml</span>
+<span class="n">conda</span> <span class="n">activate</span> <span class="n">iris</span><span class="o">-</span><span class="n">dev</span>
 </pre></div>
 </div>
-<div class="section" id="in-place-build-an-alternative-for-developers">
-<h3>In-place build - an alternative for developers<a class="headerlink" href="#in-place-build-an-alternative-for-developers" title="Permalink to this headline">¶</a></h3>
-<p>We are very keen to encourage contributions to Iris. For this type of
-development activity an in-place build can be useful. Once you’ve cloned
-the Iris git repository you can perform an in-place build with:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">e</span> <span class="o">.</span>
-</pre></div>
+<p>The <code class="docutils literal notranslate"><span class="pre">requirements/ci/iris.yml</span></code> file defines the Iris development conda
+environment <em>name</em> and all the relevant <em>top level</em> <cite>conda-forge</cite> package
+dependencies that you need to <strong>code</strong>, <strong>test</strong>, and <strong>build</strong> the
+documentation.  If you wish to minimise the environment footprint, simply
+remove any unwanted packages from the requirements file e.g., if you don’t
+intend to run the Iris tests locally or build the documentation, then remove
+all the packages from the <cite>testing</cite> and <cite>documentation</cite> sections.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">requirements/ci/iris.yml</span></code> file will always use the latest
+Iris tested Python version available.  For all Python versions that
+are supported and tested against by Iris, view the contents of
+the <a class="reference external" href="https://github.com/scitools/iris/tree/master/requirements/ci">requirements/ci</a> directory.</p>
 </div>
-<div class="section" id="generating-conda-requirements">
-<h4>Generating conda requirements<a class="headerlink" href="#generating-conda-requirements" title="Permalink to this headline">¶</a></h4>
-<p>Requirements for Iris are stored in the <code class="docutils literal notranslate"><span class="pre">requirements</span></code> directory in the root of the source repository.
-It is possible to generate a requirements file suitable for use with conda:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">requirements</span><span class="o">/</span><span class="n">gen_conda_requirements</span><span class="o">.</span><span class="n">py</span> <span class="o">&gt;</span> <span class="n">conda_requirements</span><span class="o">.</span><span class="n">txt</span>
-</pre></div>
-</div>
-<p>This may then be installed with:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">my_iris_env</span> <span class="o">--</span><span class="n">file</span> <span class="n">conda_requirements</span><span class="o">.</span><span class="n">txt</span>
-</pre></div>
-</div>
-<p>Alternatively, a full requirements file that includes all optional dependencies can be produced with:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">requirements</span><span class="o">/</span><span class="n">gen_conda_requirements</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">groups</span> <span class="nb">all</span> <span class="o">&gt;</span> <span class="n">conda_requirements</span><span class="o">.</span><span class="n">txt</span>
+<p>Finally you need to run the command to configure your shell environment
+to find your local Iris code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">develop</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="running-the-tests">
-<h4>Running the tests<a class="headerlink" href="#running-the-tests" title="Permalink to this headline">¶</a></h4>
-<p>In order to run the tests, you will need to use the <cite>test</cite> and <cite>docs</cite> groups (we include the <cite>docs</cite> group so that you can run the pull request tests locally).
-Hence the commands change to:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">requirements</span><span class="o">/</span><span class="n">gen_conda_requirements</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">groups</span> <span class="n">test</span> <span class="n">docs</span> <span class="o">&gt;</span> <span class="n">conda_requirements</span><span class="o">.</span><span class="n">txt</span>
-<span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">my_iris_env</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="o">--</span><span class="n">file</span> <span class="n">conda_requirements</span><span class="o">.</span><span class="n">txt</span>
-<span class="n">conda</span> <span class="n">activate</span> <span class="n">my_iris_env</span>  <span class="c1"># or whatever other name you gave it</span>
-<span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">e</span> <span class="o">.</span>
-</pre></div>
-</div>
-<p>The tests can then be run with:</p>
+<h2>Running the tests<a class="headerlink" href="#running-the-tests" title="Permalink to this headline">¶</a></h2>
+<p>To ensure your setup is configured correctly you can run the test suite using
+the command:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">test</span>
 </pre></div>
 </div>
 </div>
-</div>
 <div class="section" id="custom-site-configuration">
-<h3>Custom site configuration<a class="headerlink" href="#custom-site-configuration" title="Permalink to this headline">¶</a></h3>
+<h2>Custom site configuration<a class="headerlink" href="#custom-site-configuration" title="Permalink to this headline">¶</a></h2>
 <p>The default site configuration values can be overridden by creating the file
 <code class="docutils literal notranslate"><span class="pre">iris/etc/site.cfg</span></code>. For example, the following snippet can be used to
 specify a non-standard location for your dot executable:</p>
@@ -332,7 +318,6 @@ specify a non-standard location for your dot executable:</p>
 </div>
 <p>An example configuration file is available in <code class="docutils literal notranslate"><span class="pre">iris/etc/site.cfg.template</span></code>.
 See <a class="reference internal" href="generated/api/iris/config.html#module-iris.config" title="iris.config"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.config()</span></code></a> for further configuration options.</p>
-</div>
 </div>
 </div>
 
