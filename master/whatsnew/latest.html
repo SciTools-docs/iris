@@ -270,17 +270,17 @@
 <div class="contents local topic" id="skip-to-section">
 <p class="topic-title">Skip to section:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#features" id="id7">Features</a></p></li>
-<li><p><a class="reference internal" href="#dependency-updates" id="id8">Dependency Updates</a></p></li>
-<li><p><a class="reference internal" href="#bugs-fixed" id="id9">Bugs Fixed</a></p></li>
-<li><p><a class="reference internal" href="#incompatible-changes" id="id10">Incompatible Changes</a></p></li>
-<li><p><a class="reference internal" href="#internal" id="id11">Internal</a></p></li>
-<li><p><a class="reference internal" href="#deprecations" id="id12">Deprecations</a></p></li>
-<li><p><a class="reference internal" href="#documentation" id="id13">Documentation</a></p></li>
+<li><p><a class="reference internal" href="#features" id="id5">Features</a></p></li>
+<li><p><a class="reference internal" href="#dependency-updates" id="id6">Dependency Updates</a></p></li>
+<li><p><a class="reference internal" href="#bugs-fixed" id="id7">Bugs Fixed</a></p></li>
+<li><p><a class="reference internal" href="#incompatible-changes" id="id8">Incompatible Changes</a></p></li>
+<li><p><a class="reference internal" href="#internal" id="id9">Internal</a></p></li>
+<li><p><a class="reference internal" href="#deprecations" id="id10">Deprecations</a></p></li>
+<li><p><a class="reference internal" href="#documentation" id="id11">Documentation</a></p></li>
 </ul>
 </div>
 <div class="section" id="features">
-<h2><a class="toc-backref" href="#id7">Features</a><a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id5">Features</a><a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>The <a class="reference internal" href="../generated/api/iris/fileformats/nimrod.html#module-iris.fileformats.nimrod" title="iris.fileformats.nimrod"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nimrod</span></code></a> module provides richer meta-data translation
 when loading <code class="docutils literal notranslate"><span class="pre">Nimrod</span></code> data into cubes. This covers most known
@@ -291,27 +291,28 @@ previously removed every <code class="xref py py-class docutils literal notransl
 cube.  Now, a <code class="xref py py-class docutils literal notranslate"><span class="pre">iris.coord.CellMeasure</span></code> will only be removed if it is
 associated with an axis over which the statistic is being run.</p></li>
 <li><p>Supporting <code class="docutils literal notranslate"><span class="pre">Iris</span></code> for both <code class="docutils literal notranslate"><span class="pre">Python2</span></code> and <code class="docutils literal notranslate"><span class="pre">Python3</span></code> resulted in pinning our
-dependency on <a href="#id14"><span class="problematic" id="id15">`matplotlib`_</span></a> at <code class="docutils literal notranslate"><span class="pre">v2.x</span></code>.  Now that <code class="docutils literal notranslate"><span class="pre">Python2</span></code> support has
-been dropped, <code class="docutils literal notranslate"><span class="pre">Iris</span></code> is free to use the latest version of <a href="#id16"><span class="problematic" id="id17">`matplotlib`_</span></a>.</p></li>
+dependency on <a class="reference external" href="https://matplotlib.org/">Matplotlib</a> at <code class="docutils literal notranslate"><span class="pre">v2.x</span></code>.  Now that <code class="docutils literal notranslate"><span class="pre">Python2</span></code> support has
+been dropped, <code class="docutils literal notranslate"><span class="pre">Iris</span></code> is free to use the latest version of <a class="reference external" href="https://matplotlib.org/">Matplotlib</a>.</p></li>
 <li><p><a class="reference external" href="https://cfconventions.org/Data/cf-conventions/cf-conventions-1.8/cf-conventions.html#ancillary-data">CF Ancillary Data</a> variables are now supported, and can be loaded from and
 saved to NetCDF-CF files. Support for <a class="reference external" href="https://cfconventions.org/Data/cf-conventions/cf-conventions-1.8/cf-conventions.html#flags">Quality Flags</a> is also provided to
 ensure they load and save with appropriate units. See <a class="reference external" href="https://github.com/SciTools/iris/pull/3800">PR #3800</a>.</p></li>
 </ul>
 </div>
 <div class="section" id="dependency-updates">
-<h2><a class="toc-backref" href="#id8">Dependency Updates</a><a class="headerlink" href="#dependency-updates" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id6">Dependency Updates</a><a class="headerlink" href="#dependency-updates" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Iris now supports the latest version of
-<a class="reference external" href="https://github.com/OSGeo/PROJ">Proj</a>.</p></li>
+<li><p>Iris now supports the latest version of <a class="reference external" href="https://github.com/OSGeo/PROJ">Proj</a>.</p></li>
 <li><p>Iris now requires <a class="reference external" href="https://github.com/SciTools/cartopy">Cartopy</a> &gt;= 0.18 in
-order to remain compatible with the latest version of
-<a class="reference external" href="https://github.com/matplotlib/matplotlib">Matplotlib</a>.</p></li>
+order to remain compatible with the latest version of <a class="reference external" href="https://matplotlib.org/">Matplotlib</a>.</p></li>
 <li><p>GDAL is removed from the extensions dependency group. We no longer consider it to
 be an extension.</p></li>
+<li><p>Configuring Iris and <a class="reference internal" href="../installing.html#installing-from-source"><span class="std std-ref">Installing from source (devs)</span></a> as a developer, with all the
+required package dependencies is now easier with our curated conda environment
+YAML files. See <a class="reference external" href="https://github.com/SciTools/iris/pull/3812">PR #3812</a>.</p></li>
 </ul>
 </div>
 <div class="section" id="bugs-fixed">
-<h2><a class="toc-backref" href="#id9">Bugs Fixed</a><a class="headerlink" href="#bugs-fixed" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id7">Bugs Fixed</a><a class="headerlink" href="#bugs-fixed" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>The method <code class="xref py py-meth docutils literal notranslate"><span class="pre">remove_coord()</span></code> would fail to remove derived
 coordinates, will now remove derived coordinates by removing aux_factories.</p></li>
@@ -343,7 +344,7 @@ the loaded <a class="reference internal" href="../generated/api/iris/cube.html#i
 </ul>
 </div>
 <div class="section" id="incompatible-changes">
-<h2><a class="toc-backref" href="#id10">Incompatible Changes</a><a class="headerlink" href="#incompatible-changes" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id8">Incompatible Changes</a><a class="headerlink" href="#incompatible-changes" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>The method <code class="xref py py-meth docutils literal notranslate"><span class="pre">extract_strict()</span></code>, and the <code class="docutils literal notranslate"><span class="pre">strict</span></code>
 keyword to <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.CubeList.extract" title="iris.cube.CubeList.extract"><code class="xref py py-meth docutils literal notranslate"><span class="pre">extract()</span></code></a> method have been removed, and
@@ -373,12 +374,15 @@ See <a class="reference external" href="https://github.com/SciTools/iris/pull/37
 </ul>
 </div>
 <div class="section" id="internal">
-<h2><a class="toc-backref" href="#id11">Internal</a><a class="headerlink" href="#internal" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id9">Internal</a><a class="headerlink" href="#internal" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Changed the numerical values in tests involving the Robinson projection due
-to improvements made in <a class="reference external" href="https://github.com/OSGeo/PROJ">Proj</a> (see <a class="reference external" href="https://github.com/OSGeo/PROJ/pull/1292">proj#1292</a> and <a class="reference external" href="https://github.com/OSGeo/PROJ/pull/2151">proj#2151</a>).</p></li>
+to improvements made in <a class="reference external" href="https://github.com/OSGeo/PROJ">Proj</a> (see
+<a class="reference external" href="https://github.com/OSGeo/PROJ/pull/1292">proj#1292</a> and
+<a class="reference external" href="https://github.com/OSGeo/PROJ/pull/2151">proj#2151</a>).</p></li>
 <li><p>Change tests to account for more detailed descriptions of projections in
-<a class="reference external" href="https://github.com/OSGeo/gdal">GDAL</a> (<a class="reference external" href="https://github.com/OSGeo/gdal/pull/1185">see GDAL#1185</a>).</p></li>
+<a class="reference external" href="https://github.com/OSGeo/gdal">GDAL</a>
+(<a class="reference external" href="https://github.com/OSGeo/gdal/pull/1185">see GDAL#1185</a>).</p></li>
 <li><p>Change tests to account for <a class="reference external" href="https://github.com/OSGeo/gdal">GDAL</a> now
 saving fill values for data without masked points.</p></li>
 <li><p>Changed every graphics test that includes <a class="reference external" href="https://scitools.org.uk/cartopy/docs/latest/matplotlib/geoaxes.html?highlight=coastlines#cartopy.mpl.geoaxes.GeoAxes.coastlines">Cartopy’s coastlines</a>
@@ -386,12 +390,11 @@ to account for new adaptive coastline scaling (<a class="reference external" hre
 <li><p>Changed graphics tests to account for some new default grid-line spacing in
 <a class="reference external" href="https://github.com/SciTools/cartopy">Cartopy</a> (<a class="reference external" href="https://github.com/SciTools/cartopy/pull/1117">part of cartopy#1117</a>).</p></li>
 <li><p>Additional acceptable graphics test targets to account for very minor changes
-in <a class="reference external" href="https://github.com/matplotlib/matplotlib">Matplotlib</a> version 3.3
-(colormaps, fonts and axes borders).</p></li>
+in <a class="reference external" href="https://matplotlib.org/">Matplotlib</a> version 3.3 (colormaps, fonts and axes borders).</p></li>
 </ul>
 </div>
 <div class="section" id="deprecations">
-<h2><a class="toc-backref" href="#id12">Deprecations</a><a class="headerlink" href="#deprecations" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id10">Deprecations</a><a class="headerlink" href="#deprecations" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>The deprecated <a class="reference internal" href="../generated/api/iris.html#iris.Future" title="iris.Future"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.Future</span></code></a> flags <code class="docutils literal notranslate"><span class="pre">cell_date_time_objects</span></code>,
 <code class="docutils literal notranslate"><span class="pre">netcdf_promote</span></code>, <code class="docutils literal notranslate"><span class="pre">netcdf_no_unlimited</span></code> and <code class="docutils literal notranslate"><span class="pre">clip_latitudes</span></code> have
@@ -401,7 +404,7 @@ deprecated attributes <code class="docutils literal notranslate"><span class="pr
 </ul>
 </div>
 <div class="section" id="documentation">
-<h2><a class="toc-backref" href="#id13">Documentation</a><a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id11">Documentation</a><a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Moved the <a class="reference internal" href="../generated/gallery/oceanography/plot_orca_projection.html#sphx-glr-generated-gallery-oceanography-plot-orca-projection-py"><span class="std std-ref">Tri-Polar Grid Projected Plotting</span></a>
 from the general part of the gallery to oceanography.</p></li>
