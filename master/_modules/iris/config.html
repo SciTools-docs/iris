@@ -263,11 +263,77 @@
 
 <span class="kn">import</span> <span class="nn">configparser</span>
 <span class="kn">import</span> <span class="nn">contextlib</span>
-<span class="kn">import</span> <span class="nn">logging.config</span>
+<span class="kn">import</span> <span class="nn">logging</span>
 <span class="kn">import</span> <span class="nn">os.path</span>
-<span class="kn">import</span> <span class="nn">pathlib</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
-<span class="kn">import</span> <span class="nn">yaml</span>
+
+
+<div class="viewcode-block" id="get_logger"><a class="viewcode-back" href="../../generated/api/iris/config.html#iris.config.get_logger">[docs]</a><span class="k">def</span> <span class="nf">get_logger</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">datefmt</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">propagate</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create a :class:`logging.Logger` with a :class:`logging.StreamHandler`</span>
+<span class="sd">    and custom :class:`logging.Formatter`.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">    * name:</span>
+<span class="sd">        The name of the logger. Typically this is the module filename that</span>
+<span class="sd">        owns the logger.</span>
+
+<span class="sd">    Kwargs:</span>
+
+<span class="sd">    * datefmt:</span>
+<span class="sd">        The date format string of the :class:`logging.Formatter`.</span>
+<span class="sd">        Defaults to ``%d-%m-%Y %H:%M:%S``.</span>
+
+<span class="sd">    * fmt:</span>
+<span class="sd">        The additional format string of the :class:`logging.Formatter`.</span>
+<span class="sd">        This is appended to the default format string</span>
+<span class="sd">        ``%(asctime)s %(name)s %(levelname)s - %(message)s``.</span>
+
+<span class="sd">    * level:</span>
+<span class="sd">        The threshold level of the logger. Defaults to ``INFO``.</span>
+
+<span class="sd">    * propagate:</span>
+<span class="sd">        Sets the ``propagate`` attribute of the :class:`logging.Logger`,</span>
+<span class="sd">        which determines whether events logged to this logger will be</span>
+<span class="sd">        passed to the handlers of higher level loggers. Defaults to</span>
+<span class="sd">        ``False``.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">datefmt</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># Default date format string.</span>
+        <span class="n">datefmt</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%d</span><span class="s2">-%m-%Y %H:%M:%S&quot;</span>
+
+    <span class="c1"># Default format string.</span>
+    <span class="n">_fmt</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%(asctime)s</span><span class="s2"> </span><span class="si">%(name)s</span><span class="s2"> </span><span class="si">%(levelname)s</span><span class="s2"> - </span><span class="si">%(message)s</span><span class="s2">&quot;</span>
+    <span class="c1"># Append additional format string, if appropriate.</span>
+    <span class="n">fmt</span> <span class="o">=</span> <span class="n">_fmt</span> <span class="k">if</span> <span class="n">fmt</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">_fmt</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">fmt</span><span class="si">}</span><span class="s2">&quot;</span>
+
+    <span class="k">if</span> <span class="n">level</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># Default logging level.</span>
+        <span class="n">level</span> <span class="o">=</span> <span class="s2">&quot;INFO&quot;</span>
+
+    <span class="k">if</span> <span class="n">propagate</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># Default logging propagate behaviour.</span>
+        <span class="n">propagate</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="c1"># Create the named logger.</span>
+    <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">level</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">propagate</span> <span class="o">=</span> <span class="n">propagate</span>
+
+    <span class="c1"># Create a formatter.</span>
+    <span class="n">formatter</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">(</span><span class="n">fmt</span><span class="o">=</span><span class="n">fmt</span><span class="p">,</span> <span class="n">datefmt</span><span class="o">=</span><span class="n">datefmt</span><span class="p">)</span>
+
+    <span class="c1"># Create a logging handler.</span>
+    <span class="n">handler</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">StreamHandler</span><span class="p">()</span>
+    <span class="c1"># handler.setLevel(level)</span>
+    <span class="n">handler</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">formatter</span><span class="p">)</span>
+
+    <span class="c1"># Add the handler to the logger.</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">handler</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">logger</span></div>
 
 
 <span class="c1"># Returns simple string options</span>
@@ -314,15 +380,6 @@
 <span class="c1"># Load the optional &quot;site.cfg&quot; file if it exists.</span>
 <span class="n">config</span> <span class="o">=</span> <span class="n">configparser</span><span class="o">.</span><span class="n">ConfigParser</span><span class="p">()</span>
 <span class="n">config</span><span class="o">.</span><span class="n">read</span><span class="p">([</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">CONFIG_PATH</span><span class="p">,</span> <span class="s2">&quot;site.cfg&quot;</span><span class="p">)])</span>
-
-<span class="c1"># Configure logging.</span>
-<span class="n">fname_logging</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">CONFIG_PATH</span><span class="p">)</span> <span class="o">/</span> <span class="s2">&quot;logging.yaml&quot;</span>
-<span class="k">if</span> <span class="ow">not</span> <span class="n">fname_logging</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
-    <span class="n">emsg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Logging configuration file &#39;</span><span class="si">{</span><span class="n">fname_logging</span><span class="si">!s}</span><span class="s2">&#39; does not exist.&quot;</span>
-    <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="n">emsg</span><span class="p">)</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname_logging</span><span class="p">)</span> <span class="k">as</span> <span class="n">fi</span><span class="p">:</span>
-    <span class="n">logging</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">dictConfig</span><span class="p">(</span><span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">fi</span><span class="p">))</span>
-<span class="k">del</span> <span class="n">fname_logging</span>
 
 <span class="c1">##################</span>
 <span class="c1"># Resource options</span>

@@ -242,14 +242,15 @@
 <span class="kn">from</span> <span class="nn">dask.array.core</span> <span class="kn">import</span> <span class="n">broadcast_shapes</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="kn">from</span> <span class="nn">iris.common</span> <span class="kn">import</span> <span class="n">LENIENT</span>
+<span class="kn">from</span> <span class="nn">..config</span> <span class="kn">import</span> <span class="n">get_logger</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">LENIENT</span>
 
 
 <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Resolve&quot;</span><span class="p">]</span>
 
 
 <span class="c1"># Configure the logger.</span>
-<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+<span class="n">logger</span> <span class="o">=</span> <span class="n">get_logger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;[</span><span class="si">%(funcName)s</span><span class="s2">]&quot;</span><span class="p">)</span>
 
 
 <span class="n">_AuxCoverage</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span>

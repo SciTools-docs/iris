@@ -243,7 +243,6 @@
 
 <span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">lru_cache</span>
 <span class="kn">import</span> <span class="nn">inspect</span>
-<span class="kn">import</span> <span class="nn">logging</span>
 <span class="kn">import</span> <span class="nn">math</span>
 <span class="kn">import</span> <span class="nn">operator</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
@@ -256,6 +255,7 @@
 <span class="kn">import</span> <span class="nn">iris.analysis</span>
 <span class="kn">from</span> <span class="nn">iris.common</span> <span class="kn">import</span> <span class="n">SERVICES</span><span class="p">,</span> <span class="n">Resolve</span>
 <span class="kn">from</span> <span class="nn">iris.common.lenient</span> <span class="kn">import</span> <span class="n">_lenient_client</span>
+<span class="kn">from</span> <span class="nn">iris.config</span> <span class="kn">import</span> <span class="n">get_logger</span>
 <span class="kn">import</span> <span class="nn">iris.coords</span>
 <span class="kn">import</span> <span class="nn">iris.cube</span>
 <span class="kn">import</span> <span class="nn">iris.exceptions</span>
@@ -263,7 +263,7 @@
 
 
 <span class="c1"># Configure the logger.</span>
-<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+<span class="n">logger</span> <span class="o">=</span> <span class="n">get_logger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
 
 <span class="nd">@lru_cache</span><span class="p">(</span><span class="n">maxsize</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">typed</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
