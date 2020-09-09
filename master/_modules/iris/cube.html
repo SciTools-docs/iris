@@ -4679,7 +4679,7 @@
         <span class="k">return</span> <span class="n">interp</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="n">collapse_scalar</span><span class="o">=</span><span class="n">collapse_scalar</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Cube.regrid"><a class="viewcode-back" href="../../generated/api/iris/cube.html#iris.cube.Cube.regrid">[docs]</a>    <span class="k">def</span> <span class="nf">regrid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">grid</span><span class="p">,</span> <span class="n">scheme</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+        <span class="sa">r</span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Regrid this :class:`~iris.cube.Cube` on to the given target `grid`</span>
 <span class="sd">        using the given regridding `scheme`.</span>
 
@@ -4689,18 +4689,24 @@
 <span class="sd">            A :class:`~iris.cube.Cube` that defines the target grid.</span>
 <span class="sd">        * scheme:</span>
 <span class="sd">            The type of regridding to use to regrid this cube onto the</span>
-<span class="sd">            target grid. The regridding schemes currently available</span>
-<span class="sd">            in Iris are:</span>
+<span class="sd">            target grid. The regridding schemes in Iris currently include:</span>
 
-<span class="sd">                * :class:`iris.analysis.Linear`,</span>
-<span class="sd">                * :class:`iris.analysis.Nearest`, and</span>
-<span class="sd">                * :class:`iris.analysis.AreaWeighted`.</span>
+<span class="sd">                * :class:`iris.analysis.Linear`\*,</span>
+<span class="sd">                * :class:`iris.analysis.Nearest`\*,</span>
+<span class="sd">                * :class:`iris.analysis.AreaWeighted`\*,</span>
+<span class="sd">                * :class:`iris.analysis.UnstructuredNearest`,</span>
+<span class="sd">                * :class:`iris.analysis.PointInCell`,</span>
+
+<span class="sd">            \* Supports lazy regridding.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            A cube defined with the horizontal dimensions of the target grid</span>
 <span class="sd">            and the other dimensions from this cube. The data values of</span>
 <span class="sd">            this cube will be converted to values on the new grid</span>
 <span class="sd">            according to the given regridding scheme.</span>
+
+<span class="sd">            The returned cube will have lazy data if the original cube has</span>
+<span class="sd">            lazy data and the regridding scheme supports lazy regridding.</span>
 
 <span class="sd">        .. note::</span>
 

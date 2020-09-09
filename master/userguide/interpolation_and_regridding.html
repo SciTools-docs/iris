@@ -124,6 +124,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#regridding">Regridding</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#area-weighted-regridding">Area-weighted regridding</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#caching-a-regridder">Caching a regridder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#regridding-lazy-data">Regridding lazy data</a></li>
 </ul>
 </li>
 </ul>
@@ -264,6 +265,10 @@ available in Iris:</p>
 <li><p>area-weighted regridding (<a class="reference internal" href="../generated/api/iris/analysis.html#iris.analysis.AreaWeighted" title="iris.analysis.AreaWeighted"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.analysis.AreaWeighted</span></code></a>, first-order conservative).</p></li>
 </ul>
 </div></blockquote>
+<p>The linear, nearest-neighbor, and area-weighted regridding schemes support
+lazy regridding, i.e. if the source cube has lazy data, the resulting cube
+will also have lazy data.
+See <a class="reference internal" href="real_and_lazy_data.html"><span class="doc">Real and Lazy Data</span></a> for an introduction to lazy data.</p>
 <div class="section" id="interpolation">
 <span id="id1"></span><h2>Interpolation<a class="headerlink" href="#interpolation" title="Permalink to this headline">¶</a></h2>
 <p>Interpolating a cube is achieved with the <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.Cube.interpolate" title="iris.cube.Cube.interpolate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">interpolate()</span></code></a>
@@ -637,6 +642,45 @@ regridded to the target grid. For example:</p>
 <p>In each case <code class="docutils literal notranslate"><span class="pre">result</span></code> will be the input cube regridded to the grid defined by
 the target grid cube (in this case <code class="docutils literal notranslate"><span class="pre">rotated_psl</span></code>) that we used to define the
 cached regridder.</p>
+</div>
+<div class="section" id="regridding-lazy-data">
+<h3>Regridding lazy data<a class="headerlink" href="#regridding-lazy-data" title="Permalink to this headline">¶</a></h3>
+<p>If you are working with large cubes, especially when you are regridding to a
+high resolution target grid, you may run out of memory when trying to
+regrid a cube. When this happens, make sure the input cube has lazy data</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">air_temp</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load_cube</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">sample_data_path</span><span class="p">(</span><span class="s1">&#39;A1B_north_america.nc&#39;</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">air_temp</span>
+<span class="go">&lt;iris &#39;Cube&#39; of air_temperature / (K) (time: 240; latitude: 37; longitude: 49)&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">air_temp</span><span class="o">.</span><span class="n">has_lazy_data</span><span class="p">()</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>and the regridding scheme supports lazy data. All regridding schemes described
+here support lazy data. If you still run out of memory even while using lazy
+data, inspect the
+<a class="reference external" href="https://docs.dask.org/en/latest/array-chunks.html">chunks</a>
+:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">air_temp</span><span class="o">.</span><span class="n">lazy_data</span><span class="p">()</span><span class="o">.</span><span class="n">chunks</span>
+<span class="go">((240,), (37,), (49,))</span>
+</pre></div>
+</div>
+<p>The cube above consist of a single chunk, because it is fairly small. For
+larger cubes, iris will automatically create chunks of an optimal size when
+loading the data. However, because regridding to a high resolution grid
+may dramatically increase the size of the data, the automatically chosen
+chunks might be too large.</p>
+<p>As an example of how to solve this, we could manually re-chunk the time
+dimension, to regrid it in 8 chunks of 30 timesteps at a time:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">air_temp</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">air_temp</span><span class="o">.</span><span class="n">lazy_data</span><span class="p">()</span><span class="o">.</span><span class="n">rechunk</span><span class="p">([</span><span class="mi">30</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">air_temp</span><span class="o">.</span><span class="n">lazy_data</span><span class="p">()</span><span class="o">.</span><span class="n">chunks</span>
+<span class="go">((30, 30, 30, 30, 30, 30, 30, 30), (37,), (49,))</span>
+</pre></div>
+</div>
+<p>Assuming that Dask is configured such that it processes only a few chunks of
+the data array at a time, this will further reduce memory use.</p>
+<p>Note that chunking in the horizontal dimensions is not supported by the
+regridding schemes. Chunks in these dimensions will automatically be combined
+before regridding.</p>
 </div>
 </div>
 </div>
