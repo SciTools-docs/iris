@@ -234,6 +234,13 @@
 <span class="c1"># This file is part of Iris and is released under the LGPL license.</span>
 <span class="c1"># See COPYING and COPYING.LESSER in the root of the repository for full</span>
 <span class="c1"># licensing details.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Provides the infrastructure to support the analysis, identification and</span>
+<span class="sd">combination of metadata common between two :class:`~iris.cube.Cube`</span>
+<span class="sd">operands into a single resultant :class:`~iris.cube.Cube`, which will be</span>
+<span class="sd">auto-transposed, and with the appropriate broadcast shape.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
 
 <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span>
 <span class="kn">from</span> <span class="nn">collections.abc</span> <span class="kn">import</span> <span class="n">Iterable</span>
@@ -288,12 +295,260 @@
 
 
 <div class="viewcode-block" id="Resolve"><a class="viewcode-back" href="../../../generated/api/iris/common/resolve.html#iris.common.resolve.Resolve">[docs]</a><span class="k">class</span> <span class="nc">Resolve</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    At present, :class:`~iris.common.resolve.Resolve` is used by Iris solely</span>
+<span class="sd">    during cube arithmetic to combine a left-hand :class:`~iris.cube.Cube`</span>
+<span class="sd">    operand and a right-hand :class:`~iris.cube.Cube` operand into a resultant</span>
+<span class="sd">    :class:`~iris.cube.Cube` with common metadata, suitably auto-transposed</span>
+<span class="sd">    dimensions, and an appropriate broadcast shape.</span>
+
+<span class="sd">    However, the capability and benefit provided by :class:`~iris.common.resolve.Resolve`</span>
+<span class="sd">    may be exercised as a general means to easily and consistently combine the metadata</span>
+<span class="sd">    of two :class:`~iris.cube.Cube` operands together into a single resultant</span>
+<span class="sd">    :class:`~iris.cube.Cube`. This is highlighted through the following use case</span>
+<span class="sd">    patterns.</span>
+
+<span class="sd">    Firstly, creating a ``resolver`` instance with *specific* :class:`~iris.cube.Cube`</span>
+<span class="sd">    operands, and then supplying ``data`` with suitable dimensionality and shape to</span>
+<span class="sd">    create the resultant resolved :class:`~iris.cube.Cube`, e.g.,</span>
+
+<span class="sd">    .. testsetup::</span>
+
+<span class="sd">        import iris</span>
+<span class="sd">        import numpy as np</span>
+<span class="sd">        from iris.common import Resolve</span>
+<span class="sd">        cube1 = iris.load_cube(iris.sample_data_path(&quot;A1B_north_america.nc&quot;))</span>
+<span class="sd">        cube2 = iris.load_cube(iris.sample_data_path(&quot;E1_north_america.nc&quot;))[0]</span>
+<span class="sd">        cube2.transpose()</span>
+<span class="sd">        cube3, cube4 = cube1, cube2</span>
+<span class="sd">        data = np.zeros(cube1.shape)</span>
+<span class="sd">        data1 = data * 10</span>
+<span class="sd">        data2 = data * 20</span>
+<span class="sd">        data3 = data * 30</span>
+
+<span class="sd">    .. doctest::</span>
+
+<span class="sd">        &gt;&gt;&gt; print(cube1)</span>
+<span class="sd">        air_temperature / (K)               (time: 240; latitude: 37; longitude: 49)</span>
+<span class="sd">             Dimension coordinates:</span>
+<span class="sd">                  time                           x              -              -</span>
+<span class="sd">                  latitude                       -              x              -</span>
+<span class="sd">                  longitude                      -              -              x</span>
+<span class="sd">             Auxiliary coordinates:</span>
+<span class="sd">                  forecast_period                x              -              -</span>
+<span class="sd">             Scalar coordinates:</span>
+<span class="sd">                  forecast_reference_time: 1859-09-01 06:00:00</span>
+<span class="sd">                  height: 1.5 m</span>
+<span class="sd">             Attributes:</span>
+<span class="sd">                  Conventions: CF-1.5</span>
+<span class="sd">                  Model scenario: A1B</span>
+<span class="sd">                  STASH: m01s03i236</span>
+<span class="sd">                  source: Data from Met Office Unified Model 6.05</span>
+<span class="sd">             Cell methods:</span>
+<span class="sd">                  mean: time (6 hour)</span>
+<span class="sd">        &gt;&gt;&gt; print(cube2)</span>
+<span class="sd">        air_temperature / (K)               (longitude: 49; latitude: 37)</span>
+<span class="sd">             Dimension coordinates:</span>
+<span class="sd">                  longitude                           x             -</span>
+<span class="sd">                  latitude                            -             x</span>
+<span class="sd">             Scalar coordinates:</span>
+<span class="sd">                  forecast_period: 10794 hours</span>
+<span class="sd">                  forecast_reference_time: 1859-09-01 06:00:00</span>
+<span class="sd">                  height: 1.5 m</span>
+<span class="sd">                  time: 1860-06-01 00:00:00, bound=(1859-12-01 00:00:00, 1860-12-01 00:00:00)</span>
+<span class="sd">             Attributes:</span>
+<span class="sd">                  Conventions: CF-1.5</span>
+<span class="sd">                  Model scenario: E1</span>
+<span class="sd">                  STASH: m01s03i236</span>
+<span class="sd">                  source: Data from Met Office Unified Model 6.05</span>
+<span class="sd">             Cell methods:</span>
+<span class="sd">                  mean: time (6 hour)</span>
+<span class="sd">        &gt;&gt;&gt; print(data.shape)</span>
+<span class="sd">        (240, 37, 49)</span>
+<span class="sd">        &gt;&gt;&gt; resolver = Resolve(cube1, cube2)</span>
+<span class="sd">        &gt;&gt;&gt; result = resolver.cube(data)</span>
+<span class="sd">        &gt;&gt;&gt; print(result)</span>
+<span class="sd">        air_temperature / (K)               (time: 240; latitude: 37; longitude: 49)</span>
+<span class="sd">             Dimension coordinates:</span>
+<span class="sd">                  time                           x              -              -</span>
+<span class="sd">                  latitude                       -              x              -</span>
+<span class="sd">                  longitude                      -              -              x</span>
+<span class="sd">             Auxiliary coordinates:</span>
+<span class="sd">                  forecast_period                x              -              -</span>
+<span class="sd">             Scalar coordinates:</span>
+<span class="sd">                  forecast_reference_time: 1859-09-01 06:00:00</span>
+<span class="sd">                  height: 1.5 m</span>
+<span class="sd">             Attributes:</span>
+<span class="sd">                  Conventions: CF-1.5</span>
+<span class="sd">                  STASH: m01s03i236</span>
+<span class="sd">                  source: Data from Met Office Unified Model 6.05</span>
+<span class="sd">             Cell methods:</span>
+<span class="sd">                  mean: time (6 hour)</span>
+
+<span class="sd">    Secondly, creating an *empty* ``resolver`` instance, that may be called *multiple*</span>
+<span class="sd">    times with *different* :class:`~iris.cube.Cube` operands and *different* ``data``,</span>
+<span class="sd">    e.g.,</span>
+
+<span class="sd">    .. doctest::</span>
+
+<span class="sd">        &gt;&gt;&gt; resolver = Resolve()</span>
+<span class="sd">        &gt;&gt;&gt; result1 = resolver(cube1, cube2).cube(data1)</span>
+<span class="sd">        &gt;&gt;&gt; result2 = resolver(cube3, cube4).cube(data2)</span>
+
+<span class="sd">    Lastly, creating a ``resolver`` instance with *specific* :class:`~iris.cube.Cube`</span>
+<span class="sd">    operands, and then supply *different* ``data`` *multiple* times, e.g.,</span>
+
+<span class="sd">        &gt;&gt;&gt; payload = (data1, data2, data3)</span>
+<span class="sd">        &gt;&gt;&gt; resolver = Resolve(cube1, cube2)</span>
+<span class="sd">        &gt;&gt;&gt; results = [resolver.cube(data) for data in payload]</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lhs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">rhs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Resolve the provided ``lhs`` :class:`~iris.cube.Cube` operand and</span>
+<span class="sd">        ``rhs`` :class:`~iris.cube.Cube` operand to determine the metadata</span>
+<span class="sd">        that is common between them, and the auto-transposed, broadcast shape</span>
+<span class="sd">        of the resultant :class:`~iris.cube.Cube`.</span>
+
+<span class="sd">        This includes the identification of common :class:`~iris.common.metadata.CubeMetadata`,</span>
+<span class="sd">        :class:`~iris.coords.DimCoord`, :class:`~iris.coords.AuxCoord`, and</span>
+<span class="sd">        :class:`~iris.aux_factory.AuxCoordFactory` metadata.</span>
+
+<span class="sd">        .. note::</span>
+
+<span class="sd">            Resolving common :class:`~iris.coords.AncillaryVariable` and</span>
+<span class="sd">            :class:`~iris.coords.CellMeasure` metadata is not supported at</span>
+<span class="sd">            this time. (:issue:`3839`)</span>
+
+<span class="sd">        .. note::</span>
+
+<span class="sd">            A :class:`~iris.common.resolve.Resolve` instance is **callable**,</span>
+<span class="sd">            allowing two new ``lhs`` and ``rhs`` :class:`~iris.cube.Cube` operands</span>
+<span class="sd">            to be resolved. Note that, :class:`~iris.common.resolve.Resolve` only</span>
+<span class="sd">            supports resolving **two** operands at a time, and no more.</span>
+
+<span class="sd">        .. warning::</span>
+
+<span class="sd">            :class:`~iris.common.resolve.Resolve` attempts to preserve commutativity,</span>
+<span class="sd">            but this may not be possible when auto-transposition or extended broadcasting</span>
+<span class="sd">            is involved during the operation.</span>
+
+<span class="sd">        For example,</span>
+
+<span class="sd">        .. doctest::</span>
+
+<span class="sd">            &gt;&gt;&gt; cube1</span>
+<span class="sd">            &lt;iris &#39;Cube&#39; of air_temperature / (K) (time: 240; latitude: 37; longitude: 49)&gt;</span>
+<span class="sd">            &gt;&gt;&gt; cube2</span>
+<span class="sd">            &lt;iris &#39;Cube&#39; of air_temperature / (K) (longitude: 49; latitude: 37)&gt;</span>
+<span class="sd">            &gt;&gt;&gt; result1 = Resolve(cube1, cube2).cube(data)</span>
+<span class="sd">            &gt;&gt;&gt; result2 = Resolve(cube2, cube1).cube(data)</span>
+<span class="sd">            &gt;&gt;&gt; result1 == result2</span>
+<span class="sd">            True</span>
+
+<span class="sd">        Kwargs:</span>
+
+<span class="sd">        * lhs:</span>
+<span class="sd">            The left-hand-side :class:`~iris.cube.Cube` operand.</span>
+
+<span class="sd">        * rhs:</span>
+<span class="sd">            The right-hand-side :class:`~iris.cube.Cube` operand.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1">#: The ``lhs`` operand to be resolved into the resultant :class:`~iris.cube.Cube`.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lhs_cube</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># set in _call__</span>
+        <span class="c1">#: The ``rhs`` operand to be resolved into the resultant :class:`~iris.cube.Cube`.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rhs_cube</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># set in __call__</span>
+
+        <span class="c1">#: The transposed/reshaped (if required) ``lhs`` :class:`~iris.cube.Cube`, which</span>
+        <span class="c1">#: can be broadcast with the ``rhs`` :class:`~iris.cube.Cube`.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lhs_cube_resolved</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1">#: The transposed/reshaped (if required) ``rhs`` :class:`~iris.cube.Cube`, which</span>
+        <span class="c1">#: can be broadcast with the ``lhs`` :class:`~iris.cube.Cube`.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rhs_cube_resolved</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="c1">#: Categorised dim, aux and scalar coordinate items for ``lhs`` :class:`~iris.cube.Cube`.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lhs_cube_category</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># set in _metadata_resolve</span>
+        <span class="c1">#: Categorised dim, aux and scalar coordinate items for ``rhs`` :class:`~iris.cube.Cube`.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rhs_cube_category</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># set in _metadata_resolve</span>
+
+        <span class="c1">#: Categorised dim, aux and scalar coordinate items **local** to the</span>
+        <span class="c1">#: ``lhs`` :class:`~iris.cube.Cube` only.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lhs_cube_category_local</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># set in _metadata_resolve</span>
+        <span class="c1">#: Categorised dim, aux and scalar coordinate items **local** to the</span>
+        <span class="c1">#: ``rhs`` :class:`~iris.cube.Cube` only.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rhs_cube_category_local</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># set in _metadata_resolve</span>
+        <span class="c1">#: Categorised dim, aux and scalar coordinate items **common** to both</span>
+        <span class="c1">#: the ``lhs`` :class:`~iris.cube.Cube` and the ``rhs`` :class:`~iris.cube.Cube`.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">category_common</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># set in _metadata_resolve</span>
+
+        <span class="c1">#: Analysis of dim coordinates spanning the ``lhs`` :class:`~iris.cube.Cube`.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lhs_cube_dim_coverage</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># set in _metadata_coverage</span>
+        <span class="c1">#: Analysis of aux and scalar coordinates spanning the ``lhs`` :class:`~iris.cube.Cube`.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lhs_cube_aux_coverage</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># set in _metadata_coverage</span>
+        <span class="c1">#: Analysis of dim coordinates spanning the ``rhs`` :class:`~iris.cube.Cube`.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rhs_cube_dim_coverage</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># set in _metadata_coverage</span>
+        <span class="c1">#: Analysis of aux and scalar coordinates spanning the ``rhs`` :class:`~iris.cube.Cube`.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rhs_cube_aux_coverage</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># set in _metadata_coverage</span>
+
+        <span class="c1">#: Map **common** metadata from the ``rhs`` :class:`~iris.cube.Cube` to</span>
+        <span class="c1">#: the ``lhs`` :class:`~iris.cube.Cube` if ``lhs-rank`` &gt;= ``rhs-rank``,</span>
+        <span class="c1">#: otherwise map **common** metadata from the ``lhs`` :class:`~iris.cube.Cube`</span>
+        <span class="c1">#: to the ``rhs`` :class:`~iris.cube.Cube`.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">map_rhs_to_lhs</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># set in __call__</span>
+
+        <span class="c1">#: Mapping of the dimensions between **common** metadata for the :class:`~iris.cube.Cube`</span>
+        <span class="c1">#: operands, where the direction of the mapping is governed by</span>
+        <span class="c1">#: :attr:`~iris.common.resolve.Resolve.map_rhs_to_lhs`.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mapping</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># set in _metadata_mapping</span>
+
+        <span class="c1">#: Cache containing a list of dim, aux and scalar coordinates prepared</span>
+        <span class="c1">#: and ready for creating and attaching to the resultant resolved</span>
+        <span class="c1">#: :class:`~iris.cube.Cube`.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">prepared_category</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># set in _metadata_prepare</span>
+
+        <span class="c1">#: Cache containing a list of aux factories prepared and ready for</span>
+        <span class="c1">#: creating and attaching to the resultant resolved</span>
+        <span class="c1">#: :class:`~iris.cube.Cube`.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">prepared_factories</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># set in _metadata_prepare</span>
+
+        <span class="c1"># The shape of the resultant resolved cube.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_broadcast_shape</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># set in _as_compatible_cubes</span>
+
         <span class="k">if</span> <span class="n">lhs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">rhs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># Attempt to resolve the cube operands.</span>
             <span class="bp">self</span><span class="p">(</span><span class="n">lhs</span><span class="p">,</span> <span class="n">rhs</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lhs</span><span class="p">,</span> <span class="n">rhs</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_init</span><span class="p">(</span><span class="n">lhs</span><span class="p">,</span> <span class="n">rhs</span><span class="p">)</span>
+        <span class="kn">from</span> <span class="nn">iris.cube</span> <span class="kn">import</span> <span class="n">Cube</span>
+
+        <span class="n">emsg</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="s2">&quot;</span><span class="si">{cls}</span><span class="s2"> requires </span><span class="si">{arg!r}</span><span class="s2"> argument to be a &#39;Cube&#39;, got </span><span class="si">{actual!r}</span><span class="s2">.&quot;</span>
+        <span class="p">)</span>
+        <span class="n">clsname</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">lhs</span><span class="p">,</span> <span class="n">Cube</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+                <span class="n">emsg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">cls</span><span class="o">=</span><span class="n">clsname</span><span class="p">,</span> <span class="n">arg</span><span class="o">=</span><span class="s2">&quot;LHS&quot;</span><span class="p">,</span> <span class="n">actual</span><span class="o">=</span><span class="nb">type</span><span class="p">(</span><span class="n">lhs</span><span class="p">))</span>
+            <span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">rhs</span><span class="p">,</span> <span class="n">Cube</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+                <span class="n">emsg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">cls</span><span class="o">=</span><span class="n">clsname</span><span class="p">,</span> <span class="n">arg</span><span class="o">=</span><span class="s2">&quot;RHS&quot;</span><span class="p">,</span> <span class="n">actual</span><span class="o">=</span><span class="nb">type</span><span class="p">(</span><span class="n">rhs</span><span class="p">))</span>
+            <span class="p">)</span>
+
+        <span class="c1"># Initialise the operand state.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lhs_cube</span> <span class="o">=</span> <span class="n">lhs</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rhs_cube</span> <span class="o">=</span> <span class="n">rhs</span>
+
+        <span class="c1"># Determine the initial direction to map operands.</span>
+        <span class="c1"># This may flip for operands with equal rank, particularly after</span>
+        <span class="c1"># later analysis informs the decision.</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">lhs_cube</span><span class="o">.</span><span class="n">ndim</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rhs_cube</span><span class="o">.</span><span class="n">ndim</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">map_rhs_to_lhs</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">map_rhs_to_lhs</span> <span class="o">=</span> <span class="kc">False</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_metadata_resolve</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_metadata_coverage</span><span class="p">()</span>
@@ -306,6 +561,8 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_metadata_mapping</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_metadata_prepare</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="bp">self</span>
 
     <span class="k">def</span> <span class="nf">_as_compatible_cubes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="kn">from</span> <span class="nn">iris.cube</span> <span class="kn">import</span> <span class="n">Cube</span>
@@ -727,86 +984,6 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">mapping</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">free_mapping</span><span class="p">)</span>
         <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;mapping free dimensions gives, mapping=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">mapping</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">_init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lhs</span><span class="p">,</span> <span class="n">rhs</span><span class="p">):</span>
-        <span class="kn">from</span> <span class="nn">iris.cube</span> <span class="kn">import</span> <span class="n">Cube</span>
-
-        <span class="n">emsg</span> <span class="o">=</span> <span class="p">(</span>
-            <span class="s2">&quot;</span><span class="si">{cls}</span><span class="s2"> requires </span><span class="si">{arg!r}</span><span class="s2"> argument to be a &#39;Cube&#39;, got </span><span class="si">{actual!r}</span><span class="s2">.&quot;</span>
-        <span class="p">)</span>
-        <span class="n">clsname</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
-
-        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">lhs</span><span class="p">,</span> <span class="n">Cube</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
-                <span class="n">emsg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">cls</span><span class="o">=</span><span class="n">clsname</span><span class="p">,</span> <span class="n">arg</span><span class="o">=</span><span class="s2">&quot;LHS&quot;</span><span class="p">,</span> <span class="n">actual</span><span class="o">=</span><span class="nb">type</span><span class="p">(</span><span class="n">lhs</span><span class="p">))</span>
-            <span class="p">)</span>
-
-        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">rhs</span><span class="p">,</span> <span class="n">Cube</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
-                <span class="n">emsg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">cls</span><span class="o">=</span><span class="n">clsname</span><span class="p">,</span> <span class="n">arg</span><span class="o">=</span><span class="s2">&quot;RHS&quot;</span><span class="p">,</span> <span class="n">actual</span><span class="o">=</span><span class="nb">type</span><span class="p">(</span><span class="n">rhs</span><span class="p">))</span>
-            <span class="p">)</span>
-
-        <span class="c1"># The LHS cube to be resolved into the resultant cube.</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">lhs_cube</span> <span class="o">=</span> <span class="n">lhs</span>
-        <span class="c1"># The RHS cube to be resolved into the resultant cube.</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">rhs_cube</span> <span class="o">=</span> <span class="n">rhs</span>
-
-        <span class="c1"># The transposed/reshaped (if required) LHS cube, which</span>
-        <span class="c1"># can be broadcast with RHS cube.</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">lhs_cube_resolved</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># The transposed/reshaped (if required) RHS cube, which</span>
-        <span class="c1"># can be broadcast with LHS cube.</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">rhs_cube_resolved</span> <span class="o">=</span> <span class="kc">None</span>
-
-        <span class="c1"># Categorised dim, aux and scalar coordinate items for LHS cube.</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">lhs_cube_category</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># Categorised dim, aux and scalar coordinate items for RHS cube.</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">rhs_cube_category</span> <span class="o">=</span> <span class="kc">None</span>
-
-        <span class="c1"># Categorised dim, aux and scalar coordinate items local to LHS cube only.</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">lhs_cube_category_local</span> <span class="o">=</span> <span class="n">_CategoryItems</span><span class="p">(</span>
-            <span class="n">items_dim</span><span class="o">=</span><span class="p">[],</span> <span class="n">items_aux</span><span class="o">=</span><span class="p">[],</span> <span class="n">items_scalar</span><span class="o">=</span><span class="p">[]</span>
-        <span class="p">)</span>
-        <span class="c1"># Categorised dim, aux and scalar coordinate items local to RHS cube only.</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">rhs_cube_category_local</span> <span class="o">=</span> <span class="n">_CategoryItems</span><span class="p">(</span>
-            <span class="n">items_dim</span><span class="o">=</span><span class="p">[],</span> <span class="n">items_aux</span><span class="o">=</span><span class="p">[],</span> <span class="n">items_scalar</span><span class="o">=</span><span class="p">[]</span>
-        <span class="p">)</span>
-        <span class="c1"># Categorised dim, aux and scalar coordinate items common to both</span>
-        <span class="c1"># LHS cube and RHS cube.</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">category_common</span> <span class="o">=</span> <span class="n">_CategoryItems</span><span class="p">(</span>
-            <span class="n">items_dim</span><span class="o">=</span><span class="p">[],</span> <span class="n">items_aux</span><span class="o">=</span><span class="p">[],</span> <span class="n">items_scalar</span><span class="o">=</span><span class="p">[]</span>
-        <span class="p">)</span>
-
-        <span class="c1"># Analysis of dim coordinates spanning LHS cube.</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">lhs_cube_dim_coverage</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># Analysis of aux and scalar coordinates spanning LHS cube.</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">lhs_cube_aux_coverage</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># Analysis of dim coordinates spanning RHS cube.</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">rhs_cube_dim_coverage</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="c1"># Analysis of aux and scalar coordinates spanning RHS cube.</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">rhs_cube_aux_coverage</span> <span class="o">=</span> <span class="kc">None</span>
-
-        <span class="c1"># Map common metadata from RHS cube to LHS cube if LHS-rank &gt;= RHS-rank,</span>
-        <span class="c1"># otherwise map common metadata from LHS cube to RHS cube.</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">lhs_cube</span><span class="o">.</span><span class="n">ndim</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rhs_cube</span><span class="o">.</span><span class="n">ndim</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">map_rhs_to_lhs</span> <span class="o">=</span> <span class="kc">True</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">map_rhs_to_lhs</span> <span class="o">=</span> <span class="kc">False</span>
-
-        <span class="c1"># Mapping of the dimensions between common metadata for the cubes,</span>
-        <span class="c1"># where the direction of the mapping is governed by map_rhs_to_lhs.</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">mapping</span> <span class="o">=</span> <span class="kc">None</span>
-
-        <span class="c1"># Cache containing a list of dim, aux and scalar coordinates prepared</span>
-        <span class="c1"># and ready for creating and attaching to the resultant cube.</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">prepared_category</span> <span class="o">=</span> <span class="kc">None</span>
-
-        <span class="c1"># Cache containing a list of aux factories prepared and ready for</span>
-        <span class="c1"># creating and attaching to the resultant cube.</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">prepared_factories</span> <span class="o">=</span> <span class="kc">None</span>
-
-        <span class="c1"># The shape of the resultant resolved cube.</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_broadcast_shape</span> <span class="o">=</span> <span class="kc">None</span>
-
     <span class="k">def</span> <span class="nf">_metadata_coverage</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="c1"># Determine the common dim coordinate metadata coverage.</span>
         <span class="n">common_dim_metadata</span> <span class="o">=</span> <span class="p">[</span>
@@ -898,6 +1075,7 @@
 
         <span class="c1"># Given the resultant broadcast shape, determine whether the</span>
         <span class="c1"># mapping requires to be reversed.</span>
+        <span class="c1"># Only applies to equal src/tgt dimensionality.</span>
         <span class="n">broadcast_flip</span> <span class="o">=</span> <span class="p">(</span>
             <span class="n">src_cube</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="n">tgt_cube</span><span class="o">.</span><span class="n">ndim</span>
             <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tgt_cube_resolved</span><span class="o">.</span><span class="n">shape</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">shape</span>
@@ -906,13 +1084,16 @@
 
         <span class="c1"># Given the number of free dimensions, determine whether the</span>
         <span class="c1"># mapping requires to be reversed.</span>
+        <span class="c1"># Only applies to equal src/tgt dimensionality.</span>
         <span class="n">src_free</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">src_dim_coverage</span><span class="o">.</span><span class="n">dims_free</span><span class="p">)</span> <span class="o">&amp;</span> <span class="nb">set</span><span class="p">(</span>
             <span class="n">src_aux_coverage</span><span class="o">.</span><span class="n">dims_free</span>
         <span class="p">)</span>
         <span class="n">tgt_free</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">tgt_dim_coverage</span><span class="o">.</span><span class="n">dims_free</span><span class="p">)</span> <span class="o">&amp;</span> <span class="nb">set</span><span class="p">(</span>
             <span class="n">tgt_aux_coverage</span><span class="o">.</span><span class="n">dims_free</span>
         <span class="p">)</span>
-        <span class="n">free_flip</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">tgt_free</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">src_free</span><span class="p">)</span>
+        <span class="n">free_flip</span> <span class="o">=</span> <span class="n">src_cube</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="n">tgt_cube</span><span class="o">.</span><span class="n">ndim</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">tgt_free</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span>
+            <span class="n">src_free</span>
+        <span class="p">)</span>
 
         <span class="c1"># Reverse the mapping direction.</span>
         <span class="k">if</span> <span class="n">broadcast_flip</span> <span class="ow">or</span> <span class="n">free_flip</span><span class="p">:</span>
@@ -1005,6 +1186,20 @@
         <span class="c1"># for each individual cube.</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">lhs_cube_category</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_categorise_items</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lhs_cube</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">rhs_cube_category</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_categorise_items</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rhs_cube</span><span class="p">)</span>
+
+        <span class="c1"># Categorised dim, aux and scalar coordinate items local to LHS cube only.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lhs_cube_category_local</span> <span class="o">=</span> <span class="n">_CategoryItems</span><span class="p">(</span>
+            <span class="n">items_dim</span><span class="o">=</span><span class="p">[],</span> <span class="n">items_aux</span><span class="o">=</span><span class="p">[],</span> <span class="n">items_scalar</span><span class="o">=</span><span class="p">[]</span>
+        <span class="p">)</span>
+        <span class="c1"># Categorised dim, aux and scalar coordinate items local to RHS cube only.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rhs_cube_category_local</span> <span class="o">=</span> <span class="n">_CategoryItems</span><span class="p">(</span>
+            <span class="n">items_dim</span><span class="o">=</span><span class="p">[],</span> <span class="n">items_aux</span><span class="o">=</span><span class="p">[],</span> <span class="n">items_scalar</span><span class="o">=</span><span class="p">[]</span>
+        <span class="p">)</span>
+        <span class="c1"># Categorised dim, aux and scalar coordinate items common to both</span>
+        <span class="c1"># LHS cube and RHS cube.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">category_common</span> <span class="o">=</span> <span class="n">_CategoryItems</span><span class="p">(</span>
+            <span class="n">items_dim</span><span class="o">=</span><span class="p">[],</span> <span class="n">items_aux</span><span class="o">=</span><span class="p">[],</span> <span class="n">items_scalar</span><span class="o">=</span><span class="p">[]</span>
+        <span class="p">)</span>
 
         <span class="k">def</span> <span class="nf">_categorise</span><span class="p">(</span>
             <span class="n">lhs_items</span><span class="p">,</span>
@@ -1582,6 +1777,7 @@
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">_src_cube</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">map_rhs_to_lhs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">map_rhs_to_lhs</span><span class="p">:</span>
             <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rhs_cube</span>
         <span class="k">else</span><span class="p">:</span>
@@ -1590,6 +1786,7 @@
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">_src_cube_position</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">map_rhs_to_lhs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">map_rhs_to_lhs</span><span class="p">:</span>
             <span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;RHS&quot;</span>
         <span class="k">else</span><span class="p">:</span>
@@ -1598,6 +1795,7 @@
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">_src_cube_resolved</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">map_rhs_to_lhs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">map_rhs_to_lhs</span><span class="p">:</span>
             <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rhs_cube_resolved</span>
         <span class="k">else</span><span class="p">:</span>
@@ -1606,6 +1804,7 @@
 
     <span class="nd">@_src_cube_resolved</span><span class="o">.</span><span class="n">setter</span>
     <span class="k">def</span> <span class="nf">_src_cube_resolved</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cube</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">map_rhs_to_lhs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">map_rhs_to_lhs</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">rhs_cube_resolved</span> <span class="o">=</span> <span class="n">cube</span>
         <span class="k">else</span><span class="p">:</span>
@@ -1613,6 +1812,7 @@
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">_tgt_cube</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">map_rhs_to_lhs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">map_rhs_to_lhs</span><span class="p">:</span>
             <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lhs_cube</span>
         <span class="k">else</span><span class="p">:</span>
@@ -1621,6 +1821,7 @@
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">_tgt_cube_position</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">map_rhs_to_lhs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">map_rhs_to_lhs</span><span class="p">:</span>
             <span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;LHS&quot;</span>
         <span class="k">else</span><span class="p">:</span>
@@ -1629,6 +1830,7 @@
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">_tgt_cube_resolved</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">map_rhs_to_lhs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">map_rhs_to_lhs</span><span class="p">:</span>
             <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lhs_cube_resolved</span>
         <span class="k">else</span><span class="p">:</span>
@@ -1637,6 +1839,7 @@
 
     <span class="nd">@_tgt_cube_resolved</span><span class="o">.</span><span class="n">setter</span>
     <span class="k">def</span> <span class="nf">_tgt_cube_resolved</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cube</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">map_rhs_to_lhs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">map_rhs_to_lhs</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">lhs_cube_resolved</span> <span class="o">=</span> <span class="n">cube</span>
         <span class="k">else</span><span class="p">:</span>
@@ -1665,6 +1868,80 @@
             <span class="n">cube</span><span class="o">.</span><span class="n">remove_ancillary_variable</span><span class="p">(</span><span class="n">av</span><span class="p">)</span>
 
 <div class="viewcode-block" id="Resolve.cube"><a class="viewcode-back" href="../../../generated/api/iris/common/resolve.html#iris.common.resolve.Resolve.cube">[docs]</a>    <span class="k">def</span> <span class="nf">cube</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">in_place</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create the resultant :class:`~iris.cube.Cube` from the resolved ``lhs``</span>
+<span class="sd">        and ``rhs`` :class:`~iris.cube.Cube` operands, using the provided</span>
+<span class="sd">        ``data``.</span>
+
+<span class="sd">        Args:</span>
+
+<span class="sd">        * data:</span>
+<span class="sd">            The data payload for the resultant :class:`~iris.cube.Cube`, which</span>
+<span class="sd">            **must match** the expected resolved</span>
+<span class="sd">            :attr:`~iris.common.resolve.Resolve.shape`.</span>
+
+<span class="sd">        Kwargs:</span>
+
+<span class="sd">        * in_place:</span>
+<span class="sd">            If ``True``, the ``data`` is inserted into the ``tgt``</span>
+<span class="sd">            :class:`~iris.cube.Cube`. The existing metadata of the ``tgt``</span>
+<span class="sd">            :class:`~iris.cube.Cube` is replaced with the resolved metadata from</span>
+<span class="sd">            the ``lhs`` and ``rhs`` :class:`~iris.cube.Cube` operands. Otherwise,</span>
+<span class="sd">            a **new** :class:`~iris.cube.Cube` instance is returned.</span>
+<span class="sd">            Default is ``False``.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            :class:`~iris.cube.Cube`</span>
+
+<span class="sd">        .. note::</span>
+
+<span class="sd">            :class:`~iris.common.resolve.Resolve` will determine whether the</span>
+<span class="sd">            ``lhs`` :class:`~iris.cube.Cube` operand is mapped to the</span>
+<span class="sd">            ``rhs`` :class:`~iris.cube.Cube` operand, or vice versa.</span>
+<span class="sd">            In general, the **lower rank** operand (``src``) is mapped to the</span>
+<span class="sd">            **higher rank** operand (``tgt``). Therefore, the ``src``</span>
+<span class="sd">            :class:`~iris.cube.Cube` may be either the ``lhs`` or the ``rhs``</span>
+<span class="sd">            :class:`~iris.cube.Cube` operand, given the direction of the</span>
+<span class="sd">            mapping. See :attr:`~iris.common.resolve.Resolve.map_rhs_to_lhs`.</span>
+
+<span class="sd">        .. warning::</span>
+
+<span class="sd">            It may not be possible to perform an ``in_place`` operation,</span>
+<span class="sd">            due to any transposition or extended broadcasting that requires</span>
+<span class="sd">            to be performed i.e., the ``tgt`` :class:`~iris.cube.Cube` **must</span>
+<span class="sd">            match** the expected resolved</span>
+<span class="sd">            :attr:`~iris.common.resolve.Resolve.shape`.</span>
+
+<span class="sd">        For example,</span>
+
+<span class="sd">        .. testsetup::</span>
+
+<span class="sd">            import iris</span>
+<span class="sd">            import numpy as np</span>
+<span class="sd">            from iris.common import Resolve</span>
+<span class="sd">            tgt = iris.load_cube(iris.sample_data_path(&quot;A1B_north_america.nc&quot;))</span>
+<span class="sd">            src = iris.load_cube(iris.sample_data_path(&quot;E1_north_america.nc&quot;))[0]</span>
+<span class="sd">            src.transpose()</span>
+<span class="sd">            zeros = np.zeros(tgt.shape, dtype=tgt.dtype)</span>
+
+<span class="sd">        .. doctest::</span>
+
+<span class="sd">            &gt;&gt;&gt; resolver = Resolve(tgt, src)</span>
+<span class="sd">            &gt;&gt;&gt; resolver.map_rhs_to_lhs</span>
+<span class="sd">            True</span>
+<span class="sd">            &gt;&gt;&gt; tgt.data.sum()</span>
+<span class="sd">            124652160.0</span>
+<span class="sd">            &gt;&gt;&gt; zeros.shape</span>
+<span class="sd">            (240, 37, 49)</span>
+<span class="sd">            &gt;&gt;&gt; zeros.sum()</span>
+<span class="sd">            0.0</span>
+<span class="sd">            &gt;&gt;&gt; result = resolver.cube(zeros, in_place=True)</span>
+<span class="sd">            &gt;&gt;&gt; result is tgt</span>
+<span class="sd">            True</span>
+<span class="sd">            &gt;&gt;&gt; tgt.data.sum()</span>
+<span class="sd">            0.0</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="kn">from</span> <span class="nn">iris.cube</span> <span class="kn">import</span> <span class="n">Cube</span>
 
         <span class="n">expected_shape</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">shape</span>
@@ -1762,16 +2039,140 @@
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">mapped</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Returns the state of whether all src cube dimensions have been</span>
-<span class="sd">        associated with relevant tgt cube dimensions.</span>
+<span class="sd">        Boolean state representing whether **all** ``src`` :class:`~iris.cube.Cube`</span>
+<span class="sd">        dimensions have been associated with relevant ``tgt``</span>
+<span class="sd">        :class:`~iris.cube.Cube` dimensions.</span>
+
+<span class="sd">        .. note::</span>
+
+<span class="sd">            :class:`~iris.common.resolve.Resolve` will determine whether the</span>
+<span class="sd">            ``lhs`` :class:`~iris.cube.Cube` operand is mapped to the</span>
+<span class="sd">            ``rhs`` :class:`~iris.cube.Cube` operand, or vice versa.</span>
+<span class="sd">            In general, the **lower rank** operand (``src``) is mapped to the</span>
+<span class="sd">            **higher rank** operand (``tgt``). Therefore, the ``src``</span>
+<span class="sd">            :class:`~iris.cube.Cube` may be either the ``lhs`` or the ``rhs``</span>
+<span class="sd">            :class:`~iris.cube.Cube` operand, given the direction of the</span>
+<span class="sd">            mapping. See :attr:`~iris.common.resolve.Resolve.map_rhs_to_lhs`.</span>
+
+<span class="sd">        If no :class:`~iris.cube.Cube` operands have been provided, then</span>
+<span class="sd">        ``mapped`` is ``None``.</span>
+
+<span class="sd">        For example,</span>
+
+<span class="sd">        .. doctest::</span>
+
+<span class="sd">            &gt;&gt;&gt; print(cube1)</span>
+<span class="sd">            air_temperature / (K)               (time: 240; latitude: 37; longitude: 49)</span>
+<span class="sd">                 Dimension coordinates:</span>
+<span class="sd">                      time                           x              -              -</span>
+<span class="sd">                      latitude                       -              x              -</span>
+<span class="sd">                      longitude                      -              -              x</span>
+<span class="sd">                 Auxiliary coordinates:</span>
+<span class="sd">                      forecast_period                x              -              -</span>
+<span class="sd">                 Scalar coordinates:</span>
+<span class="sd">                      forecast_reference_time: 1859-09-01 06:00:00</span>
+<span class="sd">                      height: 1.5 m</span>
+<span class="sd">                 Attributes:</span>
+<span class="sd">                      Conventions: CF-1.5</span>
+<span class="sd">                      Model scenario: A1B</span>
+<span class="sd">                      STASH: m01s03i236</span>
+<span class="sd">                      source: Data from Met Office Unified Model 6.05</span>
+<span class="sd">                 Cell methods:</span>
+<span class="sd">                      mean: time (6 hour)</span>
+<span class="sd">            &gt;&gt;&gt; print(cube2)</span>
+<span class="sd">            air_temperature / (K)               (longitude: 49; latitude: 37)</span>
+<span class="sd">                 Dimension coordinates:</span>
+<span class="sd">                      longitude                           x             -</span>
+<span class="sd">                      latitude                            -             x</span>
+<span class="sd">                 Scalar coordinates:</span>
+<span class="sd">                      forecast_period: 10794 hours</span>
+<span class="sd">                      forecast_reference_time: 1859-09-01 06:00:00</span>
+<span class="sd">                      height: 1.5 m</span>
+<span class="sd">                      time: 1860-06-01 00:00:00, bound=(1859-12-01 00:00:00, 1860-12-01 00:00:00)</span>
+<span class="sd">                 Attributes:</span>
+<span class="sd">                      Conventions: CF-1.5</span>
+<span class="sd">                      Model scenario: E1</span>
+<span class="sd">                      STASH: m01s03i236</span>
+<span class="sd">                      source: Data from Met Office Unified Model 6.05</span>
+<span class="sd">                 Cell methods:</span>
+<span class="sd">                      mean: time (6 hour)</span>
+<span class="sd">            &gt;&gt;&gt; Resolve().mapped is None</span>
+<span class="sd">            True</span>
+<span class="sd">            &gt;&gt;&gt; resolver = Resolve(cube1, cube2)</span>
+<span class="sd">            &gt;&gt;&gt; resolver.mapped</span>
+<span class="sd">            True</span>
+<span class="sd">            &gt;&gt;&gt; resolver.map_rhs_to_lhs</span>
+<span class="sd">            True</span>
+<span class="sd">            &gt;&gt;&gt; resolver = Resolve(cube2, cube1)</span>
+<span class="sd">            &gt;&gt;&gt; resolver.mapped</span>
+<span class="sd">            True</span>
+<span class="sd">            &gt;&gt;&gt; resolver.map_rhs_to_lhs</span>
+<span class="sd">            False</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_src_cube</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mapping</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mapping</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_src_cube</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mapping</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">shape</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Returns the shape of the resultant resolved cube.&quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;_broadcast_shape&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span></div>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Proposed shape of the final resolved cube given the ``lhs``</span>
+<span class="sd">        :class:`~iris.cube.Cube` operand and the ``rhs`` :class:`~iris.cube.Cube`</span>
+<span class="sd">        operand.</span>
+
+<span class="sd">        If no :class:`~iris.cube.Cube` operands have been provided, then</span>
+<span class="sd">        ``shape`` is ``None``.</span>
+
+<span class="sd">        For example,</span>
+
+<span class="sd">        .. doctest::</span>
+
+<span class="sd">            &gt;&gt;&gt; print(cube1)</span>
+<span class="sd">            air_temperature / (K)               (time: 240; latitude: 37; longitude: 49)</span>
+<span class="sd">                 Dimension coordinates:</span>
+<span class="sd">                      time                           x              -              -</span>
+<span class="sd">                      latitude                       -              x              -</span>
+<span class="sd">                      longitude                      -              -              x</span>
+<span class="sd">                 Auxiliary coordinates:</span>
+<span class="sd">                      forecast_period                x              -              -</span>
+<span class="sd">                 Scalar coordinates:</span>
+<span class="sd">                      forecast_reference_time: 1859-09-01 06:00:00</span>
+<span class="sd">                      height: 1.5 m</span>
+<span class="sd">                 Attributes:</span>
+<span class="sd">                      Conventions: CF-1.5</span>
+<span class="sd">                      Model scenario: A1B</span>
+<span class="sd">                      STASH: m01s03i236</span>
+<span class="sd">                      source: Data from Met Office Unified Model 6.05</span>
+<span class="sd">                 Cell methods:</span>
+<span class="sd">                      mean: time (6 hour)</span>
+<span class="sd">            &gt;&gt;&gt; print(cube2)</span>
+<span class="sd">            air_temperature / (K)               (longitude: 49; latitude: 37)</span>
+<span class="sd">                 Dimension coordinates:</span>
+<span class="sd">                      longitude                           x             -</span>
+<span class="sd">                      latitude                            -             x</span>
+<span class="sd">                 Scalar coordinates:</span>
+<span class="sd">                      forecast_period: 10794 hours</span>
+<span class="sd">                      forecast_reference_time: 1859-09-01 06:00:00</span>
+<span class="sd">                      height: 1.5 m</span>
+<span class="sd">                      time: 1860-06-01 00:00:00, bound=(1859-12-01 00:00:00, 1860-12-01 00:00:00)</span>
+<span class="sd">                 Attributes:</span>
+<span class="sd">                      Conventions: CF-1.5</span>
+<span class="sd">                      Model scenario: E1</span>
+<span class="sd">                      STASH: m01s03i236</span>
+<span class="sd">                      source: Data from Met Office Unified Model 6.05</span>
+<span class="sd">                 Cell methods:</span>
+<span class="sd">                      mean: time (6 hour)</span>
+<span class="sd">            &gt;&gt;&gt; Resolve().shape is None</span>
+<span class="sd">            True</span>
+<span class="sd">            &gt;&gt;&gt; Resolve(cube1, cube2).shape</span>
+<span class="sd">            (240, 37, 49)</span>
+<span class="sd">            &gt;&gt;&gt; Resolve(cube2, cube1).shape</span>
+<span class="sd">            (240, 37, 49)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_broadcast_shape</span></div>
 </pre></div>
 
            </div>
