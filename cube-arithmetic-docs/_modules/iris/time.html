@@ -1,0 +1,458 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>iris.time &mdash; Iris 3.0.dev0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/theme_override.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery-dataframe.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="copyright" title="Copyright" href="../../copyright.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/iris-logo-title.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installing.html">Installing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../generated/gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/iris_cubes.html">Iris data structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/loading_iris_cubes.html">Loading Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/saving_iris_cubes.html">Saving Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/navigating_a_cube.html">Navigating a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/subsetting_a_cube.html">Subsetting a Cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/real_and_lazy_data.html">Real and Lazy Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/plotting_a_cube.html">Plotting a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/interpolation_and_regridding.html">Cube interpolation and regridding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/merge_and_concat.html">Merge and concatenate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/cube_statistics.html">Cube statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/cube_maths.html">Basic cube mathematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/citation.html">Citing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/code_maintenance.html">Code maintenance</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developers Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../developers_guide/contributing_documentation.html">Contributing to the documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developers_guide/documenting/index.html">Documentation in Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developers_guide/gitwash/index.html">Working with <em>iris</em> source code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developers_guide/code_format.html">Code formatting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developers_guide/pulls.html">Pull request check List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developers_guide/tests.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developers_guide/deprecations.html">Deprecations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developers_guide/release.html">Releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../generated/api/iris.html">Iris API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../whatsnew/index.html">What’s new in Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../techpapers/index.html">Iris Technical Papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../copyright.html">Iris copyright, licensing and contributors</a></li>
+</ul>
+
+            
+          
+
+    
+    
+    
+        <p class="caption">
+            <span class="caption-text">
+            
+                Support
+            
+            </span>
+        </p>
+        <ul>
+            
+                <li class="toctree-l1"><a href="https://github.com/SciTools/iris"><i class="fa fa-github fa-fw"></i> Source Code</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris"><i class="fa fa-comments fa-fw"></i> Users Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris-dev"><i class="fa fa-comments fa-fw"></i> Developers Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://stackoverflow.com/questions/tagged/python-iris"><i class="fa fa-question fa-fw"></i> StackOverflow For "How do I?"</a></li>
+            
+                <li class="toctree-l1"><a href="https://scitools.org.uk/iris/docs/v2.4.0/index.html"><i class="fa fa-book fa-fw"></i> Legacy documentation</a></li>
+            
+        </ul>
+    
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Iris</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../iris.html">iris</a> &raquo;</li>
+        
+      <li>iris.time</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for iris.time</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright Iris contributors</span>
+<span class="c1">#</span>
+<span class="c1"># This file is part of Iris and is released under the LGPL license.</span>
+<span class="c1"># See COPYING and COPYING.LESSER in the root of the repository for full</span>
+<span class="c1"># licensing details.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Time handling.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">functools</span>
+
+
+<div class="viewcode-block" id="PartialDateTime"><a class="viewcode-back" href="../../generated/api/iris/time.html#iris.time.PartialDateTime">[docs]</a><span class="nd">@functools</span><span class="o">.</span><span class="n">total_ordering</span>
+<span class="k">class</span> <span class="nc">PartialDateTime</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A :class:`PartialDateTime` object specifies values for some subset of</span>
+<span class="sd">    the calendar/time fields (year, month, hour, etc.) for comparing</span>
+<span class="sd">    with :class:`datetime.datetime`-like instances.</span>
+
+<span class="sd">    Comparisons are defined against any other class with all of the</span>
+<span class="sd">    attributes: year, month, day, hour, minute, and second.</span>
+<span class="sd">    Notably, this includes :class:`datetime.datetime` and</span>
+<span class="sd">    :class:`cftime.datetime`. Comparison also extends to the</span>
+<span class="sd">    microsecond attribute for classes, such as</span>
+<span class="sd">    :class:`datetime.datetime`, which define it.</span>
+
+<span class="sd">    A :class:`PartialDateTime` object is not limited to any particular</span>
+<span class="sd">    calendar, so no restriction is placed on the range of values</span>
+<span class="sd">    allowed in its component fields. Thus, it is perfectly legitimate to</span>
+<span class="sd">    create an instance as: `PartialDateTime(month=2, day=30)`.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="vm">__slots__</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">&quot;year&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;month&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;day&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;hour&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;minute&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;second&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;microsecond&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="c1">#: A dummy value provided as a workaround to allow comparisons with</span>
+    <span class="c1">#: :class:`datetime.datetime`.</span>
+    <span class="c1">#: See http://bugs.python.org/issue8005.</span>
+    <span class="c1"># NB. It doesn&#39;t even matter what this value is.</span>
+    <span class="n">timetuple</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">year</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">month</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">day</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">hour</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">minute</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">second</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">microsecond</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Allows partial comparisons against datetime-like objects.</span>
+
+<span class="sd">        Args:</span>
+
+<span class="sd">        * year (int):</span>
+<span class="sd">        * month (int):</span>
+<span class="sd">        * day (int):</span>
+<span class="sd">        * hour (int):</span>
+<span class="sd">        * minute (int):</span>
+<span class="sd">        * second (int):</span>
+<span class="sd">        * microsecond (int):</span>
+
+<span class="sd">        For example, to select any days of the year after the 3rd of April:</span>
+
+<span class="sd">        &gt;&gt;&gt; from iris.time import PartialDateTime</span>
+<span class="sd">        &gt;&gt;&gt; import datetime</span>
+<span class="sd">        &gt;&gt;&gt; pdt = PartialDateTime(month=4, day=3)</span>
+<span class="sd">        &gt;&gt;&gt; datetime.datetime(2014, 4, 1) &gt; pdt</span>
+<span class="sd">        False</span>
+<span class="sd">        &gt;&gt;&gt; datetime.datetime(2014, 4, 5) &gt; pdt</span>
+<span class="sd">        True</span>
+<span class="sd">        &gt;&gt;&gt; datetime.datetime(2014, 5, 1) &gt; pdt</span>
+<span class="sd">        True</span>
+<span class="sd">        &gt;&gt;&gt; datetime.datetime(2015, 2, 1) &gt; pdt</span>
+<span class="sd">        False</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1">#: The year number as an integer, or None.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">year</span> <span class="o">=</span> <span class="n">year</span>
+        <span class="c1">#: The month number as an integer, or None.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">month</span> <span class="o">=</span> <span class="n">month</span>
+        <span class="c1">#: The day number as an integer, or None.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">day</span> <span class="o">=</span> <span class="n">day</span>
+        <span class="c1">#: The hour number as an integer, or None.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hour</span> <span class="o">=</span> <span class="n">hour</span>
+        <span class="c1">#: The minute number as an integer, or None.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">minute</span> <span class="o">=</span> <span class="n">minute</span>
+        <span class="c1">#: The second number as an integer, or None.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">second</span> <span class="o">=</span> <span class="n">second</span>
+        <span class="c1">#: The microsecond number as an integer, or None.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">microsecond</span> <span class="o">=</span> <span class="n">microsecond</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">attr_pieces</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
+            <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__slots__</span>
+            <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+        <span class="p">]</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">(</span><span class="si">{}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">attr_pieces</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">result</span>
+
+    <span class="k">def</span> <span class="fm">__gt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Cannot order PartialDateTime instances.&quot;</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># Everything except &#39;microsecond&#39; is mandatory</span>
+            <span class="k">for</span> <span class="n">attr_name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__slots__</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+                <span class="n">attr</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr_name</span><span class="p">)</span>
+                <span class="n">other_attr</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">attr_name</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">attr</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">attr</span> <span class="o">!=</span> <span class="n">other_attr</span><span class="p">:</span>
+                    <span class="n">result</span> <span class="o">=</span> <span class="n">attr</span> <span class="o">&gt;</span> <span class="n">other_attr</span>
+                    <span class="k">break</span>
+            <span class="c1"># &#39;microsecond&#39; is optional</span>
+            <span class="k">if</span> <span class="n">result</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="s2">&quot;microsecond&quot;</span><span class="p">):</span>
+                <span class="n">attr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">microsecond</span>
+                <span class="n">other_attr</span> <span class="o">=</span> <span class="n">other</span><span class="o">.</span><span class="n">microsecond</span>
+                <span class="k">if</span> <span class="n">attr</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">attr</span> <span class="o">!=</span> <span class="n">other_attr</span><span class="p">:</span>
+                    <span class="n">result</span> <span class="o">=</span> <span class="n">attr</span> <span class="o">&gt;</span> <span class="n">other_attr</span>
+        <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="bp">NotImplemented</span>
+        <span class="k">return</span> <span class="n">result</span>
+
+    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)):</span>
+            <span class="n">slots</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__slots__</span>
+            <span class="n">self_tuple</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">slots</span><span class="p">)</span>
+            <span class="n">other_tuple</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">slots</span><span class="p">)</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">self_tuple</span> <span class="o">==</span> <span class="n">other_tuple</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="c1"># Everything except &#39;microsecond&#39; is mandatory</span>
+                <span class="k">for</span> <span class="n">attr_name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__slots__</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+                    <span class="n">attr</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr_name</span><span class="p">)</span>
+                    <span class="n">other_attr</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">attr_name</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">attr</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">attr</span> <span class="o">!=</span> <span class="n">other_attr</span><span class="p">:</span>
+                        <span class="n">result</span> <span class="o">=</span> <span class="kc">False</span>
+                        <span class="k">break</span>
+                <span class="c1"># &#39;microsecond&#39; is optional</span>
+                <span class="k">if</span> <span class="n">result</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="s2">&quot;microsecond&quot;</span><span class="p">):</span>
+                    <span class="n">attr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">microsecond</span>
+                    <span class="n">other_attr</span> <span class="o">=</span> <span class="n">other</span><span class="o">.</span><span class="n">microsecond</span>
+                    <span class="k">if</span> <span class="n">attr</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">attr</span> <span class="o">!=</span> <span class="n">other_attr</span><span class="p">:</span>
+                        <span class="n">result</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="bp">NotImplemented</span>
+        <span class="k">return</span> <span class="n">result</span>
+
+    <span class="k">def</span> <span class="fm">__ne__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__eq__</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">result</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">NotImplemented</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">result</span>
+        <span class="k">return</span> <span class="n">result</span>
+
+    <span class="k">def</span> <span class="nf">__cmp__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="c1"># Since we&#39;ve defined all the rich comparison operators (via</span>
+        <span class="c1"># functools.total_ordering), we can only reach this point if</span>
+        <span class="c1"># neither this class nor the other class had a rich comparison</span>
+        <span class="c1"># that could handle the type combination.</span>
+        <span class="c1"># We don&#39;t want Python to fall back to the default `object`</span>
+        <span class="c1"># behaviour (which compares using object IDs), so we raise an</span>
+        <span class="c1"># exception here instead.</span>
+        <span class="n">fmt</span> <span class="o">=</span> <span class="s2">&quot;unable to compare PartialDateTime with </span><span class="si">{}</span><span class="s2">&quot;</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">fmt</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">other</span><span class="p">)))</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        
+        &copy; <a href="../../copyright.html">Copyright</a> Iris Contributors
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

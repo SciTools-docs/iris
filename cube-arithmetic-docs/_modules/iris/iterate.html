@@ -1,0 +1,596 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>iris.iterate &mdash; Iris 3.0.dev0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/theme_override.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery-dataframe.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="copyright" title="Copyright" href="../../copyright.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/iris-logo-title.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installing.html">Installing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../generated/gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/iris_cubes.html">Iris data structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/loading_iris_cubes.html">Loading Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/saving_iris_cubes.html">Saving Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/navigating_a_cube.html">Navigating a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/subsetting_a_cube.html">Subsetting a Cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/real_and_lazy_data.html">Real and Lazy Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/plotting_a_cube.html">Plotting a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/interpolation_and_regridding.html">Cube interpolation and regridding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/merge_and_concat.html">Merge and concatenate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/cube_statistics.html">Cube statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/cube_maths.html">Basic cube mathematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/citation.html">Citing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/code_maintenance.html">Code maintenance</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developers Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../developers_guide/contributing_documentation.html">Contributing to the documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developers_guide/documenting/index.html">Documentation in Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developers_guide/gitwash/index.html">Working with <em>iris</em> source code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developers_guide/code_format.html">Code formatting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developers_guide/pulls.html">Pull request check List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developers_guide/tests.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developers_guide/deprecations.html">Deprecations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developers_guide/release.html">Releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../generated/api/iris.html">Iris API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../whatsnew/index.html">What’s new in Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../techpapers/index.html">Iris Technical Papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../copyright.html">Iris copyright, licensing and contributors</a></li>
+</ul>
+
+            
+          
+
+    
+    
+    
+        <p class="caption">
+            <span class="caption-text">
+            
+                Support
+            
+            </span>
+        </p>
+        <ul>
+            
+                <li class="toctree-l1"><a href="https://github.com/SciTools/iris"><i class="fa fa-github fa-fw"></i> Source Code</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris"><i class="fa fa-comments fa-fw"></i> Users Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris-dev"><i class="fa fa-comments fa-fw"></i> Developers Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://stackoverflow.com/questions/tagged/python-iris"><i class="fa fa-question fa-fw"></i> StackOverflow For "How do I?"</a></li>
+            
+                <li class="toctree-l1"><a href="https://scitools.org.uk/iris/docs/v2.4.0/index.html"><i class="fa fa-book fa-fw"></i> Legacy documentation</a></li>
+            
+        </ul>
+    
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Iris</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../iris.html">iris</a> &raquo;</li>
+        
+      <li>iris.iterate</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for iris.iterate</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright Iris contributors</span>
+<span class="c1">#</span>
+<span class="c1"># This file is part of Iris and is released under the LGPL license.</span>
+<span class="c1"># See COPYING and COPYING.LESSER in the root of the repository for full</span>
+<span class="c1"># licensing details.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Cube functions for iteration in step.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">collections.abc</span> <span class="kn">import</span> <span class="n">Iterator</span>
+<span class="kn">import</span> <span class="nn">itertools</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;izip&quot;</span><span class="p">]</span>
+
+
+<div class="viewcode-block" id="izip"><a class="viewcode-back" href="../../generated/api/iris/iterate.html#iris.iterate.izip">[docs]</a><span class="k">def</span> <span class="nf">izip</span><span class="p">(</span><span class="o">*</span><span class="n">cubes</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return an iterator for iterating over a collection of cubes in step.</span>
+
+<span class="sd">    If the input cubes have dimensions for which there are no common</span>
+<span class="sd">    coordinates, those dimensions will be treated as orthogonal. The</span>
+<span class="sd">    resulting iterator will step through combinations of the associated</span>
+<span class="sd">    coordinates.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">    * cubes (:class:`iris.cube.Cube`):</span>
+<span class="sd">        One or more :class:`iris.cube.Cube` instances over which to iterate in</span>
+<span class="sd">        step. Each cube should be provided as a separate argument e.g.</span>
+<span class="sd">        ``iris.iterate.izip(cube_a, cube_b, cube_c, ...)``.</span>
+
+<span class="sd">    Kwargs:</span>
+
+<span class="sd">    * coords (string, coord or a list of strings/coords):</span>
+<span class="sd">        Coordinate names/coordinates of the desired subcubes (i.e. those</span>
+<span class="sd">        that are not iterated over). They must all be orthogonal (i.e. point</span>
+<span class="sd">        to different dimensions).</span>
+<span class="sd">    * ordered (Boolean):</span>
+<span class="sd">        If True (default), the order of the coordinates in the resulting</span>
+<span class="sd">        subcubes will match the order of the coordinates in the coords</span>
+<span class="sd">        keyword argument. If False, the order of the coordinates will</span>
+<span class="sd">        be preserved and will match that of the input cubes.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        An iterator over a collection of tuples that contain the resulting</span>
+<span class="sd">        subcubes.</span>
+
+<span class="sd">    For example:</span>
+<span class="sd">        &gt;&gt;&gt; e_content, e_density = iris.load_cubes(</span>
+<span class="sd">        ...     iris.sample_data_path(&#39;space_weather.nc&#39;),</span>
+<span class="sd">        ...     [&#39;total electron content&#39;, &#39;electron density&#39;])</span>
+<span class="sd">        &gt;&gt;&gt; for tslice, hslice in iris.iterate.izip(e_content, e_density,</span>
+<span class="sd">        ...                                         coords=[&#39;grid_latitude&#39;,</span>
+<span class="sd">        ...                                                 &#39;grid_longitude&#39;]):</span>
+<span class="sd">        ...    pass</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">cubes</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Expected one or more cubes.&quot;</span><span class="p">)</span>
+
+    <span class="n">ordered</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;ordered&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ordered</span><span class="p">,</span> <span class="nb">bool</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Expected bool ordered parameter, got </span><span class="si">%r</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">ordered</span><span class="p">)</span>
+
+    <span class="c1"># Convert any coordinate names to coordinates (and ensure each cube has</span>
+    <span class="c1"># requested slice coords).</span>
+    <span class="n">coords_to_slice</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;coords&quot;</span><span class="p">)</span>
+    <span class="n">coords_by_cube</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">cube</span> <span class="ow">in</span> <span class="n">cubes</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">coords_to_slice</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">coords_to_slice</span><span class="p">:</span>
+            <span class="n">coords_by_cube</span><span class="o">.</span><span class="n">append</span><span class="p">([])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">coords_by_cube</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">_as_list_of_coords</span><span class="p">(</span><span class="n">coords_to_slice</span><span class="p">))</span>
+
+    <span class="c1"># For each input cube, generate the union of all describing dimensions for</span>
+    <span class="c1"># the resulting subcube.</span>
+    <span class="n">requested_dims_by_cube</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">coords</span><span class="p">,</span> <span class="n">cube</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">coords_by_cube</span><span class="p">,</span> <span class="n">cubes</span><span class="p">):</span>
+        <span class="n">requested_dims</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">coord</span> <span class="ow">in</span> <span class="n">coords</span><span class="p">:</span>
+            <span class="n">requested_dims</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">coord_dims</span><span class="p">(</span><span class="n">coord</span><span class="p">))</span>
+
+        <span class="c1"># Make sure this cube has no shared dimensions between the requested</span>
+        <span class="c1"># coords.</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">requested_dims</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">sum</span><span class="p">(</span>
+            <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">coord_dims</span><span class="p">(</span><span class="n">coord</span><span class="p">))</span> <span class="k">for</span> <span class="n">coord</span> <span class="ow">in</span> <span class="n">coords</span><span class="p">)</span>
+        <span class="p">):</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="s2">&quot;The requested coordinates (</span><span class="si">%r</span><span class="s2">) of cube (</span><span class="si">%r</span><span class="s2">) are not &quot;</span>
+                <span class="s2">&quot;orthogonal.&quot;</span> <span class="o">%</span> <span class="p">([</span><span class="n">coord</span><span class="o">.</span><span class="n">name</span><span class="p">()</span> <span class="k">for</span> <span class="n">coord</span> <span class="ow">in</span> <span class="n">coords</span><span class="p">],</span> <span class="n">cube</span><span class="p">)</span>
+            <span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+        <span class="n">requested_dims_by_cube</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">requested_dims</span><span class="p">)</span>
+
+    <span class="c1"># Checks on coordinates you are going to iterate over.</span>
+    <span class="c1"># Create a list of sets (one set per cube), with each set containing the</span>
+    <span class="c1"># dimensioned coordinates that will be iterated over (i.e exclude slice</span>
+    <span class="c1"># coords).</span>
+    <span class="n">dimensioned_iter_coords_by_cube</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">requested_dims</span><span class="p">,</span> <span class="n">cube</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">requested_dims_by_cube</span><span class="p">,</span> <span class="n">cubes</span><span class="p">):</span>
+        <span class="n">dimensioned_iter_coords</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="c1"># Loop over dimensioned coords in each cube.</span>
+        <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">shape</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="n">dim</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">requested_dims</span><span class="p">:</span>
+                <span class="n">dimensioned_iter_coords</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+                    <span class="n">cube</span><span class="o">.</span><span class="n">coords</span><span class="p">(</span><span class="n">contains_dimension</span><span class="o">=</span><span class="n">dim</span><span class="p">)</span>
+                <span class="p">)</span>
+        <span class="n">dimensioned_iter_coords_by_cube</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dimensioned_iter_coords</span><span class="p">)</span>
+
+    <span class="c1"># Check for multidimensional coords - current implementation cannot</span>
+    <span class="c1"># iterate over multidimensional coords.</span>
+    <span class="c1"># for dimensioned_iter_coords in dimensioned_iter_coords_by_cube:</span>
+    <span class="c1">#    for coord in dimensioned_iter_coords:</span>
+    <span class="c1">#        if coord.ndim &gt; 1:</span>
+    <span class="c1">#            raise iris.exceptions.CoordinateMultiDimError(coord)</span>
+
+    <span class="c1"># Iterate through all the possible pairs of cubes to compare dimensioned</span>
+    <span class="c1"># coordinates.</span>
+    <span class="n">pairs_iter</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">combinations</span><span class="p">(</span><span class="n">dimensioned_iter_coords_by_cube</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">dimensioned_iter_coords_a</span><span class="p">,</span> <span class="n">dimensioned_iter_coords_b</span> <span class="ow">in</span> <span class="n">pairs_iter</span><span class="p">:</span>
+        <span class="n">coords_by_def_a</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span>
+            <span class="n">_CoordWrapper</span><span class="p">(</span><span class="n">coord</span><span class="p">)</span> <span class="k">for</span> <span class="n">coord</span> <span class="ow">in</span> <span class="n">dimensioned_iter_coords_a</span>
+        <span class="p">)</span>
+        <span class="n">coords_by_def_b</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span>
+            <span class="n">_CoordWrapper</span><span class="p">(</span><span class="n">coord</span><span class="p">)</span> <span class="k">for</span> <span class="n">coord</span> <span class="ow">in</span> <span class="n">dimensioned_iter_coords_b</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Check that the dimensioned coords that are common across the cubes</span>
+        <span class="c1"># (i.e. have same definition/metadata) have the same shape. If this is</span>
+        <span class="c1"># not the case it makes no sense to iterate through the coordinate in</span>
+        <span class="c1"># step and an exception is raised.</span>
+        <span class="n">common</span> <span class="o">=</span> <span class="n">coords_by_def_a</span> <span class="o">&amp;</span> <span class="n">coords_by_def_b</span>
+        <span class="k">for</span> <span class="n">definition_coord</span> <span class="ow">in</span> <span class="n">common</span><span class="p">:</span>
+            <span class="c1"># Extract matching coord from dimensioned_iter_coords_a and</span>
+            <span class="c1"># dimensioned_iter_coords_b to access shape.</span>
+            <span class="n">coord_a</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span>
+                <span class="n">coord</span>
+                <span class="k">for</span> <span class="n">coord</span> <span class="ow">in</span> <span class="n">dimensioned_iter_coords_a</span>
+                <span class="k">if</span> <span class="n">definition_coord</span> <span class="o">==</span> <span class="n">coord</span>
+            <span class="p">)</span>
+            <span class="n">coord_b</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span>
+                <span class="n">coord</span>
+                <span class="k">for</span> <span class="n">coord</span> <span class="ow">in</span> <span class="n">dimensioned_iter_coords_b</span>
+                <span class="k">if</span> <span class="n">definition_coord</span> <span class="o">==</span> <span class="n">coord</span>
+            <span class="p">)</span>
+            <span class="k">if</span> <span class="n">coord_a</span><span class="o">.</span><span class="n">shape</span> <span class="o">!=</span> <span class="n">coord_b</span><span class="o">.</span><span class="n">shape</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="s2">&quot;Shape of common dimensioned coordinate &#39;</span><span class="si">%s</span><span class="s2">&#39; &quot;</span>
+                    <span class="s2">&quot;does not match across all cubes. Unable &quot;</span>
+                    <span class="s2">&quot;to iterate over this coordinate in &quot;</span>
+                    <span class="s2">&quot;step.&quot;</span> <span class="o">%</span> <span class="n">coord_a</span><span class="o">.</span><span class="n">name</span><span class="p">()</span>
+                <span class="p">)</span>
+            <span class="k">if</span> <span class="n">coord_a</span> <span class="o">!=</span> <span class="n">coord_b</span><span class="p">:</span>
+                <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+                    <span class="s2">&quot;Iterating over coordinate &#39;</span><span class="si">%s</span><span class="s2">&#39; in step whose &quot;</span>
+                    <span class="s2">&quot;definitions match but whose values &quot;</span>
+                    <span class="s2">&quot;differ.&quot;</span> <span class="o">%</span> <span class="n">coord_a</span><span class="o">.</span><span class="n">name</span><span class="p">()</span>
+                <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">_ZipSlicesIterator</span><span class="p">(</span>
+        <span class="n">cubes</span><span class="p">,</span> <span class="n">requested_dims_by_cube</span><span class="p">,</span> <span class="n">ordered</span><span class="p">,</span> <span class="n">coords_by_cube</span>
+    <span class="p">)</span></div>
+
+
+<span class="k">class</span> <span class="nc">_ZipSlicesIterator</span><span class="p">(</span><span class="n">Iterator</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Extension to _SlicesIterator (see cube.py) to support iteration over a</span>
+<span class="sd">    collection of cubes in step.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cubes</span><span class="p">,</span> <span class="n">requested_dims_by_cube</span><span class="p">,</span> <span class="n">ordered</span><span class="p">,</span> <span class="n">coords_by_cube</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cubes</span> <span class="o">=</span> <span class="n">cubes</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_requested_dims_by_cube</span> <span class="o">=</span> <span class="n">requested_dims_by_cube</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ordered</span> <span class="o">=</span> <span class="n">ordered</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_coords_by_cube</span> <span class="o">=</span> <span class="n">coords_by_cube</span>
+
+        <span class="c1"># Check that the requested_dims_by_cube and coords_by_cube lists are</span>
+        <span class="c1"># the same length as cubes so it is feasible that there is a 1-1</span>
+        <span class="c1"># mapping of values (itertool.izip won&#39;t catch this).</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">requested_dims_by_cube</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">cubes</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;requested_dims_by_cube parameter is not the same&quot;</span>
+                <span class="s2">&quot; length as cubes.&quot;</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">coords_by_cube</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">cubes</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;coords_by_cube parameter is not the same length &quot;</span> <span class="s2">&quot;as cubes.&quot;</span>
+            <span class="p">)</span>
+
+        <span class="c1"># Create an all encompassing dims_index called master_dims_index that</span>
+        <span class="c1"># is iterated over (using np.ndindex) and from which the indices of the</span>
+        <span class="c1"># subcubes can be extracted using offsets i.e. position of the</span>
+        <span class="c1"># associated coord in the master_dims_index.</span>
+        <span class="n">master_dimensioned_coord_list</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">master_dims_index</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_offsets_by_cube</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">requested_dims</span><span class="p">,</span> <span class="n">cube</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">requested_dims_by_cube</span><span class="p">,</span> <span class="n">cubes</span><span class="p">):</span>
+            <span class="c1"># Create a list of the shape of each cube, and set the dimensions</span>
+            <span class="c1"># which have been requested to length 1.</span>
+            <span class="n">dims_index</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="n">requested_dims</span><span class="p">:</span>
+                <span class="n">dims_index</span><span class="p">[</span><span class="n">dim</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="n">offsets</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="c1"># Loop over dimensions in each cube.</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">shape</span><span class="p">)):</span>
+                <span class="c1"># Obtain the coordinates for this dimension.</span>
+                <span class="n">cube_coords</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">coords</span><span class="p">(</span><span class="n">dimensions</span><span class="o">=</span><span class="n">i</span><span class="p">)</span>
+                <span class="n">found</span> <span class="o">=</span> <span class="kc">False</span>
+                <span class="c1"># Loop over coords in this dimension (could be just one).</span>
+                <span class="k">for</span> <span class="n">coord</span> <span class="ow">in</span> <span class="n">cube_coords</span><span class="p">:</span>
+                    <span class="c1"># Search for coord in master_dimensioned_coord_list.</span>
+                    <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">master_coords</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span>
+                        <span class="n">master_dimensioned_coord_list</span>
+                    <span class="p">):</span>
+                        <span class="c1"># Use coord wrapper with desired equality</span>
+                        <span class="c1"># functionality.</span>
+                        <span class="k">if</span> <span class="n">_CoordWrapper</span><span class="p">(</span><span class="n">coord</span><span class="p">)</span> <span class="ow">in</span> <span class="n">master_coords</span><span class="p">:</span>
+                            <span class="n">offsets</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+                            <span class="n">found</span> <span class="o">=</span> <span class="kc">True</span>
+                            <span class="k">break</span>
+                    <span class="k">if</span> <span class="n">found</span><span class="p">:</span>
+                        <span class="k">break</span>
+                <span class="c1"># If a coordinate with an equivalent definition (i.e. same</span>
+                <span class="c1"># metadata) is not found in the master_dimensioned_coord_list,</span>
+                <span class="c1"># add the coords assocaited with the dimension to the list,</span>
+                <span class="c1"># add the size of the dimension to the master_dims_index and</span>
+                <span class="c1"># store the offset.</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">found</span><span class="p">:</span>
+                    <span class="n">master_dimensioned_coord_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                        <span class="nb">set</span><span class="p">((</span><span class="n">_CoordWrapper</span><span class="p">(</span><span class="n">coord</span><span class="p">)</span> <span class="k">for</span> <span class="n">coord</span> <span class="ow">in</span> <span class="n">cube_coords</span><span class="p">))</span>
+                    <span class="p">)</span>
+                    <span class="n">master_dims_index</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dims_index</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                    <span class="n">offsets</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">master_dims_index</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="c1"># Store the offsets for each cube so they can be used in</span>
+            <span class="c1"># _ZipSlicesIterator.next().</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_offsets_by_cube</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">offsets</span><span class="p">)</span>
+
+        <span class="c1"># Let Numpy do some work in providing all of the permutations of our</span>
+        <span class="c1"># data shape based on the combination of dimension sizes called</span>
+        <span class="c1"># master_dims_index. This functionality is something like:</span>
+        <span class="c1"># ndindex(2, 1, 3) -&gt; [(0, 0, 0), (0, 0, 1), (0, 0, 2), (1, 0, 0),</span>
+        <span class="c1"># (1, 0, 1), (1, 0, 2)]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ndindex</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ndindex</span><span class="p">(</span><span class="o">*</span><span class="n">master_dims_index</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># When self._ndindex runs out it will raise StopIteration for us.</span>
+        <span class="n">master_index_tuple</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_ndindex</span><span class="p">)</span>
+
+        <span class="n">subcubes</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">offsets</span><span class="p">,</span> <span class="n">requested_dims</span><span class="p">,</span> <span class="n">coords</span><span class="p">,</span> <span class="n">cube</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_offsets_by_cube</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_requested_dims_by_cube</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_coords_by_cube</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_cubes</span><span class="p">,</span>
+        <span class="p">):</span>
+            <span class="c1"># Extract the index_list for each cube from the master index using</span>
+            <span class="c1"># the offsets and for each of the spanning dimensions requested,</span>
+            <span class="c1"># replace the index_list value (will be a zero from np.ndindex())</span>
+            <span class="c1"># with a spanning slice.</span>
+            <span class="n">index_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">master_index_tuple</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">offsets</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="n">requested_dims</span><span class="p">:</span>
+                <span class="n">index_list</span><span class="p">[</span><span class="n">dim</span><span class="p">]</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+            <span class="c1"># Extract slices from the cube</span>
+            <span class="n">subcube</span> <span class="o">=</span> <span class="n">cube</span><span class="p">[</span><span class="nb">tuple</span><span class="p">(</span><span class="n">index_list</span><span class="p">)]</span>
+            <span class="c1"># Call transpose if necessary (taken from _SlicesIterator in</span>
+            <span class="c1"># cube.py).</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ordered</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+                <span class="n">transpose_order</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="k">for</span> <span class="n">coord</span> <span class="ow">in</span> <span class="n">coords</span><span class="p">:</span>
+                    <span class="n">transpose_order</span> <span class="o">+=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">subcube</span><span class="o">.</span><span class="n">coord_dims</span><span class="p">(</span><span class="n">coord</span><span class="p">))</span>
+                <span class="k">if</span> <span class="n">transpose_order</span> <span class="o">!=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">subcube</span><span class="o">.</span><span class="n">ndim</span><span class="p">)):</span>
+                    <span class="n">subcube</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">transpose_order</span><span class="p">)</span>
+            <span class="n">subcubes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">subcube</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">subcubes</span><span class="p">)</span>
+
+    <span class="nb">next</span> <span class="o">=</span> <span class="fm">__next__</span>
+
+
+<span class="k">class</span> <span class="nc">_CoordWrapper</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Class for creating a coordinate wrapper that allows the use of an</span>
+<span class="sd">    alternative equality function based on metadata rather than</span>
+<span class="sd">    metadata + points/bounds.</span>
+
+<span class="sd">    .. note::</span>
+
+<span class="sd">        Uses a lightweight/incomplete implementation of the Decorator</span>
+<span class="sd">        pattern.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">coord</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_coord</span> <span class="o">=</span> <span class="n">coord</span>
+
+    <span class="c1"># Methods of contained class we need to expose/use.</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_coord</span><span class="o">.</span><span class="n">metadata</span>
+
+    <span class="c1"># Methods of contained class we want to override/customise.</span>
+    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_coord</span><span class="o">.</span><span class="n">metadata</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">metadata</span>
+
+    <span class="c1"># Force use of __eq__ for set operations.</span>
+    <span class="k">def</span> <span class="fm">__hash__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="mi">1</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        
+        &copy; <a href="../../copyright.html">Copyright</a> Iris Contributors
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
