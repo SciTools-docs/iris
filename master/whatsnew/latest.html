@@ -338,10 +338,10 @@ though the coordinate’s value had been changed via <code class="docutils liter
 file loading; they were previously being discarded. They are now available on
 the <a class="reference internal" href="../generated/api/iris/coords.html#iris.coords.CellMeasure" title="iris.coords.CellMeasure"><code class="xref py py-class docutils literal notranslate"><span class="pre">CellMeasure</span></code></a> in the loaded <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a>.
 (<a class="reference external" href="https://github.com/SciTools/iris/pull/3800">PR #3800</a>)</p></li>
-<li><p>the netcdf loader can now handle any grid-mapping variables with missing
-<code class="docutils literal notranslate"><span class="pre">false_easting</span></code> and <code class="docutils literal notranslate"><span class="pre">false_northing</span></code> properties, which was previously
-failing for some coordinate systems.
-See <a class="reference external" href="https://github.com/SciTools/iris/issues/3629">Issue #3629</a>.</p></li>
+<li><p><a class="reference external" href="https://github.com/pp-mo">Patrick Peglar</a> fixed the netcdf loader to now handle any grid-mapping
+variables with missing <code class="docutils literal notranslate"><span class="pre">false_easting</span></code> and <code class="docutils literal notranslate"><span class="pre">false_northing</span></code> properties,
+which was previously failing for some coordinate systems. See <a class="reference external" href="https://github.com/SciTools/iris/issues/3629">Issue #3629</a>.
+(<a class="reference external" href="https://github.com/SciTools/iris/pull/3804">PR #3804</a>)</p></li>
 </ul>
 </div>
 <div class="section" id="incompatible-changes">
