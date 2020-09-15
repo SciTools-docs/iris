@@ -129,6 +129,7 @@
 <li class="toctree-l2"><a class="reference internal" href="docstrings.html">Docstrings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rest_guide.html">reST quick start</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Contributing a “What’s New” entry</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#git-conflicts">Git Conflicts</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#writing-a-contribution">Writing a contribution</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#contribution-categories">Contribution categories</a></li>
 </ul>
@@ -137,7 +138,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../gitwash/index.html">Working with <em>iris</em> source code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../code_format.html">Code formatting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../pulls.html">Pull request check List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pulls.html">Pull request check list</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tests.html">Testing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../deprecations.html">Deprecations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../release.html">Releases</a></li>
@@ -249,28 +250,74 @@ document are written by the developer most familiar with the change made.
 The contribution should be included as part of the Iris Pull Request that
 introduces the change.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">latest.rst</span></code> and the past release notes are kept in
-<code class="docutils literal notranslate"><span class="pre">docs/iris/src/whatsnew/</span></code>.</p>
+<code class="docutils literal notranslate"><span class="pre">docs/iris/src/whatsnew/</span></code>. If you are writing the first contribution after
+an Iris release: <strong>create the new</strong> <code class="docutils literal notranslate"><span class="pre">latest.rst</span></code> by copying the content from
+<code class="docutils literal notranslate"><span class="pre">latest.rst.template</span></code> in the same directory.</p>
+<p>Since the <a class="reference internal" href="#contribution-categories">Contribution categories</a> include Internal changes, <strong>all</strong> Iris
+Pull Requests should be accompanied by a “What’s New” contribution.</p>
+<div class="section" id="git-conflicts">
+<h2>Git Conflicts<a class="headerlink" href="#git-conflicts" title="Permalink to this headline">¶</a></h2>
+<p>If changes to <code class="docutils literal notranslate"><span class="pre">latest.rst</span></code> are being suggested in several simultaneous
+Iris Pull Requests, Git will likely encounter merge conflicts. If this
+situation is thought likely (large PR, high repo activity etc.):</p>
+<ul>
+<li><p>PR author: Do not include a “What’s New” entry. Mention in the PR text that a
+“What’s New” entry is pending</p></li>
+<li><p>PR reviewer: Review the PR as normal. Once the PR is acceptable, ask that
+a <strong>new pull request</strong> be created specifically for the “What’s New” entry,
+which references the main pull request and titled (e.g. for PR#9999):</p>
+<blockquote>
+<div><p>What’s New for #9999</p>
+</div></blockquote>
+</li>
+<li><p>PR author: create the “What’s New” pull request</p></li>
+<li><p>PR reviewer: once the “What’s New” PR is created, <strong>merge the main PR</strong>.
+(this will fix any <a class="reference external" href="https://travis-ci.org/github/SciTools/iris">travis-ci</a> linkcheck errors where the links in the
+“What’s New” PR reference new features introduced in the main PR)</p></li>
+<li><p>PR reviewer: review the “What’s New” PR, merge once acceptable</p></li>
+</ul>
+<p>These measures should mean the suggested <code class="docutils literal notranslate"><span class="pre">latest.rst</span></code> changes are outstanding
+for the minimum time, minimising conflicts and minimising the need to rebase or
+merge from trunk.</p>
+</div>
 <div class="section" id="writing-a-contribution">
 <h2>Writing a contribution<a class="headerlink" href="#writing-a-contribution" title="Permalink to this headline">¶</a></h2>
 <p>As introduced above, a contribution is the description of a change to Iris
 which improved Iris in some way. As such, a single Iris Pull Request may
 contain multiple changes that are worth highlighting as contributions to the
 what’s new document.</p>
+<p>The appropriate contribution for a pull request might in fact be an addition or
+change to an existing “What’s New” entry.</p>
 <p>Each contribution will ideally be written as a single concise bullet point
-in a reStructuredText format with a trailing blank line.  For example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>* Fixed :issue:`9999`.  Lorem ipsum dolor sit amet, consectetur adipiscing
-  elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-  &lt;blank line&gt;
+in a reStructuredText format. Where possible do not exceed <strong>column 80</strong> and
+ensure that any subsequent lines of the same bullet point are aligned with the
+first. The content should target an Iris user as the audience. The required
+content, in order, is as follows:</p>
+<ul class="simple">
+<li><p>Names of those who contributed the change. These should be their GitHub
+display name, or if that is not available use their GitHub user name. Link
+the name to their GitHub profile. E.g.
+<code class="docutils literal notranslate"><span class="pre">`Bill</span> <span class="pre">Little</span> <span class="pre">&lt;https://github.com/bjlittle&gt;`_</span> <span class="pre">and</span>
+<span class="pre">`tkknight</span> <span class="pre">&lt;https://github.com/tkknight&gt;`_</span> <span class="pre">changed...</span></code></p></li>
+<li><p>The new/changed behaviour</p></li>
+<li><p>Context to the change. Possible examples include: what this fixes, why
+something was added, issue references (e.g. <code class="docutils literal notranslate"><span class="pre">:issue:`9999`</span></code>), more specific
+detail on the change itself.</p></li>
+<li><p>Pull request references, bracketed, following the final period. E.g.
+<code class="docutils literal notranslate"><span class="pre">(:pull:`1111`,</span> <span class="pre">:pull:`9999`)</span></code></p></li>
+<li><p>A trailing blank line (standard reStructuredText bullet format)</p></li>
+</ul>
+<p>For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>* `Bill Little &lt;https://github.com/bjlittle&gt;`_ and
+  `tkknight &lt;https://github.com/tkknight&gt;`_ changed changed argument ``x``
+  to be optional in :class:`~iris.module.class` and
+  :meth:`iris.module.method`. This allows greater flexibility as requested in
+  :issue:`9999`. (:pull:`1111`, :pull:`9999`)
 </pre></div>
 </div>
-<p>Note that this example also cites the related issue, optionally you may also
-include the pull request using the notation <code class="docutils literal notranslate"><span class="pre">:pull:`9999`</span></code>.  Where possible
-do not exceed <strong>column 80</strong> and ensure that any subsequent lines
-of the same bullet point is aligned with the first.</p>
-<p>The content of the bullet point should highlight the change that has been made
-to Iris, targeting an Iris user as the audience.</p>
-<p>For inspiration that may include adding links to code please examine past
-what’s <a class="reference internal" href="../../whatsnew/index.html#iris-whatsnew"><span class="std std-ref">What’s new in Iris</span></a> entries.</p>
+<p>The above example also demonstrates some of the possible syntax for including
+links to code. For more inspiration on possible content and references, please
+examine past what’s <a class="reference internal" href="../../whatsnew/index.html#iris-whatsnew"><span class="std std-ref">What’s new in Iris</span></a> entries.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The reStructuredText syntax will be checked as part of building
@@ -291,12 +338,14 @@ users.  To achieve this several categories may be used.</p>
 </dd>
 <dt><em>Incompatible Changes</em></dt><dd><p>A change that causes an incompatibility with prior versions of Iris.</p>
 </dd>
-<dt><em>Internal</em></dt><dd><p>Changes to any internal or development related topics, such as testing,
-environment dependencies etc</p>
-</dd>
 <dt><em>Deprecations</em></dt><dd><p>Deprecations of functionality.</p>
 </dd>
+<dt><em>Dependencies</em></dt><dd><p>Additions, removals and version changes in Iris’ package dependencies.</p>
+</dd>
 <dt><em>Documentation</em></dt><dd><p>Changes to documentation.</p>
+</dd>
+<dt><em>Internal</em></dt><dd><p>Changes to any internal or development related topics, such as testing,
+environment dependencies etc.</p>
 </dd>
 </dl>
 </div>

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Pull request check List &mdash; Iris 3.0.dev0 documentation</title>
+  <title>Pull request check list &mdash; Iris 3.0.dev0 documentation</title>
   
 
   
@@ -128,7 +128,7 @@
 <li class="toctree-l1"><a class="reference internal" href="documenting/index.html">Documentation in Iris</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gitwash/index.html">Working with <em>iris</em> source code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="code_format.html">Code formatting</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Pull request check List</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Pull request check list</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#the-iris-check-list">The Iris check list</a></li>
 </ul>
 </li>
@@ -214,7 +214,7 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Pull request check List</li>
+      <li>Pull request check list</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -234,7 +234,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="pull-request-check-list">
-<span id="pr-check"></span><h1>Pull request check List<a class="headerlink" href="#pull-request-check-list" title="Permalink to this headline">¶</a></h1>
+<span id="pr-check"></span><h1>Pull request check list<a class="headerlink" href="#pull-request-check-list" title="Permalink to this headline">¶</a></h1>
 <p>A pull request to a SciTools project master should be ready to merge into the
 master branch.</p>
 <p>All pull request will be reviewed by a core developer who will manage the
@@ -253,8 +253,7 @@ I.E. what has changed and why.  This should include:</p></li>
 <div><ul class="simple">
 <li><p>the aim of the change ; the problem addressed ; a link to the issue.</p></li>
 <li><p>how the change has been delivered.</p></li>
-<li><p>a “What’s New” entry, submitted as a new file added in the pull request.
-See <a class="reference external" href="http://scitools.org.uk/iris/docs/latest/developers_guide/documenting/whats_new_contributions.html">Contributing a “What’s New” entry</a>.</p></li>
+<li><p>a “What’s New” entry - see <a class="reference internal" href="documenting/whats_new_contributions.html#whats-new-contributions"><span class="std std-ref">Contributing a “What’s New” entry</span></a>.</p></li>
 </ul>
 </div></blockquote>
 <ul class="simple">
@@ -268,25 +267,14 @@ line utility included.</p></li>
 </div></blockquote>
 <ul class="simple">
 <li><p>Have new tests been provided for all additional functionality?</p></li>
-<li><p>Do all modified and new source files pass PEP8?</p></li>
-</ul>
-<blockquote>
-<div><ul class="simple">
-<li><p><a class="reference external" href="http://www.python.org/dev/peps/pep-0008/">PEP8</a> is the Python source code style guide.</p></li>
-<li><p>There is a python module for checking pep8 compliance: <a class="reference external" href="https://pypi.python.org/pypi/pep8">python-pep8</a></p></li>
-<li><p>a standard Iris test checks that all source files meet PEP8 compliance
-(see “iris.tests.test_coding_standards.TestCodeFormat”).</p></li>
-</ul>
-</div></blockquote>
-<ul class="simple">
-<li><p>Do all modified and new source files have a correct, up-to-date copyright
-header?</p></li>
+<li><p>Do all modified and new source files conform to the required
+<a class="reference internal" href="code_format.html#iris-code-format"><span class="std std-ref">Code formatting</span></a>?</p></li>
+<li><p>Do all modified and new source files have a correct copyright header?</p></li>
 </ul>
 <blockquote>
 <div><ul class="simple">
 <li><p>a standard Iris test checks that all source files include a copyright
-message, including the correct year of the latest change
-(see “iris.tests.test_coding_standards.TestLicenseHeaders”).</p></li>
+message (see “iris.tests.test_coding_standards.TestLicenseHeaders”).</p></li>
 </ul>
 </div></blockquote>
 <ul class="simple">
@@ -294,7 +282,7 @@ message, including the correct year of the latest change
 </ul>
 <blockquote>
 <div><ul class="simple">
-<li><p>refer to the developer guide on <a class="reference external" href="http://scitools.org.uk/iris/docs/latest/developers_guide/documenting/docstrings.html">docstrings</a></p></li>
+<li><p>refer to the developer guide on <a class="reference internal" href="documenting/docstrings.html#docstrings"><span class="std std-ref">Docstrings</span></a></p></li>
 </ul>
 </div></blockquote>
 <ul class="simple">
@@ -326,8 +314,7 @@ considerably enhance the documentation.</p></li>
 </ul>
 <blockquote>
 <div><ul class="simple">
-<li><p>this should be done for all changes that affect API or behaviour.
-See <a class="reference internal" href="documenting/whats_new_contributions.html#whats-new-contributions"><span class="std std-ref">Contributing a “What’s New” entry</span></a></p></li>
+<li><p>this should be done for <strong>all</strong> changes - see <a class="reference internal" href="documenting/whats_new_contributions.html#whats-new-contributions"><span class="std std-ref">Contributing a “What’s New” entry</span></a></p></li>
 </ul>
 </div></blockquote>
 <ul class="simple">
@@ -375,7 +362,7 @@ and code examples :</p></li>
 tests.</p></li>
 <li><p><a class="reference external" href="https://github.com/SciTools/iris-sample-data">iris-sample-data</a> is a github project containing all the data to support
 the gallery and examples.</p></li>
-<li><p><a class="reference external" href="https://github.com/SciTools/test-images-scitools">test-images-scitools</a> is a github project containing reference plot images
+<li><p><a class="reference external" href="https://github.com/SciTools/test-iris-imagehash">test-iris-imagehash</a> is a github project containing reference plot images
 to support iris graphics tests : see <a class="reference internal" href="graphics_tests.html#developer-graphics-tests"><span class="std std-ref">Graphics tests</span></a>.</p></li>
 </ul>
 </div></blockquote>
