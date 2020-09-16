@@ -480,7 +480,17 @@
 
     <span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span> <span class="k">if</span> <span class="n">axes</span> <span class="k">else</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
     <span class="k">for</span> <span class="n">axis</span><span class="p">,</span> <span class="n">ticks</span> <span class="ow">in</span> <span class="n">string_axes</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-        <span class="n">formatter</span> <span class="o">=</span> <span class="n">mpl_ticker</span><span class="o">.</span><span class="n">IndexFormatter</span><span class="p">(</span><span class="n">ticks</span><span class="p">)</span>
+        <span class="c1"># Define a tick formatter. This will assign a label to all ticks</span>
+        <span class="c1"># located precisely on  an integer in range(len(ticks)) and assign</span>
+        <span class="c1"># an empty string to any other ticks.</span>
+        <span class="k">def</span> <span class="nf">ticker_func</span><span class="p">(</span><span class="n">tick_location</span><span class="p">,</span> <span class="n">_</span><span class="p">):</span>
+            <span class="n">tick_locations</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ticks</span><span class="p">))</span>
+            <span class="n">labels</span> <span class="o">=</span> <span class="n">ticks</span>
+            <span class="n">label_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">tick_locations</span><span class="p">,</span> <span class="n">labels</span><span class="p">))</span>
+            <span class="n">label</span> <span class="o">=</span> <span class="n">label_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">tick_location</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">label</span>
+
+        <span class="n">formatter</span> <span class="o">=</span> <span class="n">mpl_ticker</span><span class="o">.</span><span class="n">FuncFormatter</span><span class="p">(</span><span class="n">ticker_func</span><span class="p">)</span>
         <span class="n">locator</span> <span class="o">=</span> <span class="n">mpl_ticker</span><span class="o">.</span><span class="n">MaxNLocator</span><span class="p">(</span><span class="n">integer</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="n">this_axis</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">axis</span><span class="p">)</span>
         <span class="n">this_axis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">formatter</span><span class="p">)</span>
