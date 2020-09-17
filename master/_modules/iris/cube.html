@@ -3878,8 +3878,8 @@
 
             <span class="c1"># having checked the metadata, now check the coordinates</span>
             <span class="k">if</span> <span class="n">result</span><span class="p">:</span>
-                <span class="n">coord_compares</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">_dimensional_metadata_comparison</span><span class="p">(</span>
-                    <span class="bp">self</span><span class="p">,</span> <span class="n">other</span>
+                <span class="n">coord_compares</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">_dimensional_metadata_comparison</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
                 <span class="p">)</span>
                 <span class="c1"># if there are any coordinates which are not equal</span>
                 <span class="n">result</span> <span class="o">=</span> <span class="ow">not</span> <span class="p">(</span>
@@ -3889,7 +3889,7 @@
 
             <span class="k">if</span> <span class="n">result</span><span class="p">:</span>
                 <span class="n">cm_compares</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">_dimensional_metadata_comparison</span><span class="p">(</span>
-                    <span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">,</span> <span class="n">object_get</span><span class="o">=</span><span class="n">Cube</span><span class="o">.</span><span class="n">cell_measures</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">,</span> <span class="n">object_get</span><span class="o">=</span><span class="n">Cube</span><span class="o">.</span><span class="n">cell_measures</span>
                 <span class="p">)</span>
                 <span class="c1"># if there are any cell measures which are not equal</span>
                 <span class="n">result</span> <span class="o">=</span> <span class="ow">not</span> <span class="p">(</span>
@@ -3899,7 +3899,7 @@
 
             <span class="k">if</span> <span class="n">result</span><span class="p">:</span>
                 <span class="n">av_compares</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">_dimensional_metadata_comparison</span><span class="p">(</span>
-                    <span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">,</span> <span class="n">object_get</span><span class="o">=</span><span class="n">Cube</span><span class="o">.</span><span class="n">ancillary_variables</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">,</span> <span class="n">object_get</span><span class="o">=</span><span class="n">Cube</span><span class="o">.</span><span class="n">ancillary_variables</span>
                 <span class="p">)</span>
                 <span class="c1"># if there are any ancillary variables which are not equal</span>
                 <span class="n">result</span> <span class="o">=</span> <span class="ow">not</span> <span class="p">(</span>

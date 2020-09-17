@@ -856,10 +856,14 @@
         <span class="c1">#    (d/dtheta (i_cube * sin(lat)) - d_j_cube_dphi)</span>
         <span class="c1"># phi_cmpt = 1/r * ( d/dr (r * j_cube) - d_k_cube_dtheta)</span>
         <span class="c1"># theta_cmpt = 1/r * ( 1/cos(lat) * d_k_cube_dphi - d/dr (r * i_cube)</span>
-        <span class="k">if</span> <span class="n">y_coord</span><span class="o">.</span><span class="n">name</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span>
-            <span class="s2">&quot;latitude&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;grid_latitude&quot;</span><span class="p">,</span>
-        <span class="p">]</span> <span class="ow">or</span> <span class="n">x_coord</span><span class="o">.</span><span class="n">name</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;longitude&quot;</span><span class="p">,</span> <span class="s2">&quot;grid_longitude&quot;</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="p">(</span>
+            <span class="n">y_coord</span><span class="o">.</span><span class="n">name</span><span class="p">()</span>
+            <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span>
+                <span class="s2">&quot;latitude&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;grid_latitude&quot;</span><span class="p">,</span>
+            <span class="p">]</span>
+            <span class="ow">or</span> <span class="n">x_coord</span><span class="o">.</span><span class="n">name</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;longitude&quot;</span><span class="p">,</span> <span class="s2">&quot;grid_longitude&quot;</span><span class="p">]</span>
+        <span class="p">):</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
                 <span class="s2">&quot;Expecting latitude as the y coord and &quot;</span>
                 <span class="s2">&quot;longitude as the x coord for spherical curl.&quot;</span>
