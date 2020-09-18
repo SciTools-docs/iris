@@ -385,7 +385,12 @@ use the <a class="reference internal" href="../generated/api/iris/util.html#iris
 exception. (<a class="reference external" href="https://github.com/SciTools/iris/pull/3523">PR #3523</a>)</p></li>
 <li><p><a class="reference external" href="https://github.com/stephenworsley">&#64;stephenworsley</a> changed Iris objects loaded from NetCDF-CF files to have
 <code class="docutils literal notranslate"><span class="pre">units='unknown'</span></code> where the corresponding NetCDF variable has no <code class="docutils literal notranslate"><span class="pre">units</span></code>
-property. Previously these cases defaulted to <code class="docutils literal notranslate"><span class="pre">units='1'</span></code>. (<a class="reference external" href="https://github.com/SciTools/iris/pull/3795">PR #3795</a>)</p></li>
+property. Previously these cases defaulted to <code class="docutils literal notranslate"><span class="pre">units='1'</span></code>.
+This affects loading of coordinates whose file variable has no “units”
+attribute (not valid, under <a class="reference external" href="https://cfconventions.org/Data/cf-conventions/cf-conventions-1.8/cf-conventions.html#units">CF units rules</a>):  These will now have units
+of <cite>“unknown”</cite>, rather than <cite>“1”</cite>, which <strong>may prevent the creation of
+a hybrid vertical coordinate</strong>.  While these cases used to “work”, this was
+never really correct behaviour. (<a class="reference external" href="https://github.com/SciTools/iris/pull/3795">PR #3795</a>)</p></li>
 <li><p><a class="reference external" href="https://github.com/SimonPeatman">&#64;SimonPeatman</a> added attribute <code class="docutils literal notranslate"><span class="pre">var_name</span></code> to coordinates created by the
 <a class="reference internal" href="../generated/api/iris/analysis/trajectory.html#iris.analysis.trajectory.interpolate" title="iris.analysis.trajectory.interpolate"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.analysis.trajectory.interpolate()</span></code></a> function.  This prevents
 duplicate coordinate errors in certain circumstances. (<a class="reference external" href="https://github.com/SciTools/iris/pull/3718">PR #3718</a>)</p></li>
