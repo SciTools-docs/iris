@@ -47,7 +47,7 @@
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="copyright" title="Copyright" href="../../copyright.html" />
     <link rel="next" title="reST quick start" href="rest_guide.html" />
-    <link rel="prev" title="Documentation in Iris" href="index.html" /> 
+    <link rel="prev" title="Code formatting" href="../contributing_code_formatting.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -124,8 +124,11 @@
 </ul>
 <p class="caption"><span class="caption-text">Developers Guide</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../contributing_getting_involved.html">Getting Involved</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gitwash/index.html">Working with <em>iris</em> source code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contributing_documentation.html">Contributing to the documentation</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Documentation in Iris</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../contributing_codebase_index.html">Contributing to the code base</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../contributing_code_formatting.html">Code formatting</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Docstrings</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#single-line-docstrings">Single-line docstrings</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#multi-line-docstrings">Multi-line docstrings</a><ul>
@@ -140,14 +143,11 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="rest_guide.html">reST quick start</a></li>
-<li class="toctree-l2"><a class="reference internal" href="whats_new_contributions.html">Contributing a “What’s New” entry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing_deprecations.html">Deprecations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing_testing_index.html">Testing</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../gitwash/index.html">Working with <em>iris</em> source code</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../code_format.html">Code formatting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../pulls.html">Pull request check list</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tests.html">Testing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../deprecations.html">Deprecations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing_changes.html">Contributing your changes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../release.html">Releases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../generated/api/iris.html">Iris API</a></li>
 </ul>
@@ -228,7 +228,7 @@
     
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
-          <li><a href="index.html">Documentation in Iris</a> &raquo;</li>
+          <li><a href="../contributing_codebase_index.html">Contributing to the code base</a> &raquo;</li>
         
       <li>Docstrings</li>
     
@@ -251,8 +251,9 @@
             
   <div class="section" id="docstrings">
 <span id="id1"></span><h1>Docstrings<a class="headerlink" href="#docstrings" title="Permalink to this headline">¶</a></h1>
-<p>Guiding principle: Every public object in the Iris package should have an
-appropriate docstring.</p>
+<p>Every public object in the Iris package should have an appropriate docstring.
+This is important as the docstrings are used by developers to understand
+the code and may be read directly in the source or via the <a class="reference internal" href="../../generated/api/iris.html#iris"><span class="std std-ref">Iris API</span></a>.</p>
 <p>This document has been influenced by the following PEP’s,</p>
 <blockquote>
 <div><ul class="simple">
@@ -260,19 +261,35 @@ appropriate docstring.</p>
 <li><p>Docstring Conventions <span class="target" id="index-1"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0257"><strong>PEP 257</strong></a></p></li>
 </ul>
 </div></blockquote>
-<p>For consistency, always use <code class="docutils literal notranslate"><span class="pre">&quot;&quot;&quot;triple</span> <span class="pre">double</span> <span class="pre">quotes&quot;&quot;&quot;</span></code> around docstrings. Use <code class="docutils literal notranslate"><span class="pre">r&quot;&quot;&quot;raw</span> <span class="pre">triple</span> <span class="pre">double</span> <span class="pre">quotes&quot;&quot;&quot;</span></code> if you use any backslashes in your docstrings. For Unicode docstrings, use <code class="docutils literal notranslate"><span class="pre">u&quot;&quot;&quot;Unicode</span> <span class="pre">triple-quoted</span> <span class="pre">string&quot;&quot;&quot;</span></code>.</p>
-<p>All docstrings should be written in rST (reStructuredText) markup; an rST guide follows this page.</p>
-<p>There are two forms of docstrings: <strong>single-line</strong> and <strong>multi-line</strong> docstrings.</p>
+<p>For consistency always use:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;&quot;&quot;triple</span> <span class="pre">double</span> <span class="pre">quotes&quot;&quot;&quot;</span></code> around docstrings.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">r&quot;&quot;&quot;raw</span> <span class="pre">triple</span> <span class="pre">double</span> <span class="pre">quotes&quot;&quot;&quot;</span></code> if you use any backslashes in your
+docstrings.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">u&quot;&quot;&quot;Unicode</span> <span class="pre">triple-quoted</span> <span class="pre">string&quot;&quot;&quot;</span></code> for Unicode docstrings</p></li>
+</ul>
+<p>All docstrings should be written in reST (reStructuredText) markup.  See the
+<a class="reference internal" href="rest_guide.html#rest-quick-start"><span class="std std-ref">reST quick start</span></a> for more detail.</p>
+<p>There are two forms of docstrings: <strong>single-line</strong> and <strong>multi-line</strong>
+docstrings.</p>
 <div class="section" id="single-line-docstrings">
 <h2>Single-line docstrings<a class="headerlink" href="#single-line-docstrings" title="Permalink to this headline">¶</a></h2>
-<p>The single line docstring of an object must state the <em>purpose</em> of that object, known as the <em>purpose section</em>. This terse overview must be on one line and ideally no longer than 90 characters.</p>
+<p>The single line docstring of an object must state the <strong>purpose</strong> of that
+object, known as the <strong>purpose section</strong>. This terse overview must be on one
+line and ideally no longer than 80 characters.</p>
 </div>
 <div class="section" id="multi-line-docstrings">
 <h2>Multi-line docstrings<a class="headerlink" href="#multi-line-docstrings" title="Permalink to this headline">¶</a></h2>
-<p>Multi-line docstrings must consist of at least a purpose section akin to the single-line docstring, followed by a blank line and then any other content, as described below. The entire docstring should be indented to the same level as the quotes at the docstring’s first line.</p>
+<p>Multi-line docstrings must consist of at least a purpose section akin to the
+single-line docstring, followed by a blank line and then any other content, as
+described below. The entire docstring should be indented to the same level as
+the quotes at the docstring’s first line.</p>
 <div class="section" id="description">
 <h3>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h3>
-<p>The multi-line docstring  <em>description section</em> should expand on what was stated in the one line <em>purpose section</em>. The description section should try not to document <em>argument</em> and <em>keyword argument</em> details. Such information should be documented in the following <em>arguments and keywords section</em>.</p>
+<p>The multi-line docstring  <em>description section</em> should expand on what was
+stated in the one line <em>purpose section</em>. The description section should try
+not to document <em>argument</em> and <em>keyword argument</em> details. Such information
+should be documented in the following <em>arguments and keywords section</em>.</p>
 </div>
 <div class="section" id="sample-multi-line-docstring">
 <h3>Sample multi-line docstring<a class="headerlink" href="#sample-multi-line-docstring" title="Permalink to this headline">¶</a></h3>
@@ -364,11 +381,19 @@ can be multi-lined.</p>
 </div>
 <div class="section" id="documenting-classes">
 <h2>Documenting classes<a class="headerlink" href="#documenting-classes" title="Permalink to this headline">¶</a></h2>
-<p>The class constructor should be documented in the docstring for its <code class="docutils literal notranslate"><span class="pre">__init__</span></code> or <code class="docutils literal notranslate"><span class="pre">__new__</span></code> method. Methods should be documented by their own docstring, not in the class header itself.</p>
-<p>If a class subclasses another class and its behaviour is mostly inherited from that class, its docstring should mention this and summarise the differences. Use the verb “override” to indicate that a subclass method replaces a superclass method and does not call the superclass method; use the verb “extend” to indicate that a subclass method calls the superclass method (in addition to its own behaviour).</p>
+<p>The class constructor should be documented in the docstring for its
+<code class="docutils literal notranslate"><span class="pre">__init__</span></code> or <code class="docutils literal notranslate"><span class="pre">__new__</span></code> method. Methods should be documented by their own
+docstring, not in the class header itself.</p>
+<p>If a class subclasses another class and its behaviour is mostly inherited from
+that class, its docstring should mention this and summarise the differences.
+Use the verb “override” to indicate that a subclass method replaces a
+superclass method and does not call the superclass method; use the verb
+“extend” to indicate that a subclass method calls the superclass method
+(in addition to its own behaviour).</p>
 <div class="section" id="attribute-and-property-docstrings">
 <h3>Attribute and property docstrings<a class="headerlink" href="#attribute-and-property-docstrings" title="Permalink to this headline">¶</a></h3>
-<p>Here is a simple example of a class containing an attribute docstring and a property docstring:</p>
+<p>Here is a simple example of a class containing an attribute docstring and a
+property docstring:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ExampleClass</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Class Summary</span>
@@ -460,7 +485,8 @@ can be multi-lined.</p>
 </div></blockquote>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The purpose section of the property docstring <strong>must</strong> state whether the property is read-only.</p>
+<p>The purpose section of the property docstring <strong>must</strong> state whether
+the property is read-only.</p>
 </div>
 </div>
 </div>
@@ -477,7 +503,7 @@ can be multi-lined.</p>
         <a href="rest_guide.html" class="btn btn-neutral float-right" title="reST quick start" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral float-left" title="Documentation in Iris" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../contributing_code_formatting.html" class="btn btn-neutral float-left" title="Code formatting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

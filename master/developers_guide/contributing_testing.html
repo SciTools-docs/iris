@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Testing &mdash; Iris 3.0.dev0 documentation</title>
+  <title>Test categories &mdash; Iris 3.0.dev0 documentation</title>
   
 
   
@@ -46,8 +46,8 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
-    <link rel="next" title="Deprecations" href="deprecations.html" />
-    <link rel="prev" title="Pull request check list" href="pulls.html" /> 
+    <link rel="next" title="Graphics tests" href="contributing_graphics_tests.html" />
+    <link rel="prev" title="Testing" href="contributing_testing_index.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -124,22 +124,28 @@
 </ul>
 <p class="caption"><span class="caption-text">Developers Guide</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="contributing_documentation.html">Contributing to the documentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="documenting/index.html">Documentation in Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing_getting_involved.html">Getting Involved</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gitwash/index.html">Working with <em>iris</em> source code</a></li>
-<li class="toctree-l1"><a class="reference internal" href="code_format.html">Code formatting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pulls.html">Pull request check list</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Testing</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#unit-tests">Unit tests</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#classes">Classes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#functions">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing_documentation.html">Contributing to the documentation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="contributing_codebase_index.html">Contributing to the code base</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="contributing_code_formatting.html">Code formatting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documenting/docstrings.html">Docstrings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documenting/rest_guide.html">reST quick start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing_deprecations.html">Deprecations</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="contributing_testing_index.html">Testing</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Test categories</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#unit-tests">Unit tests</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#integration-tests">Integration tests</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#integration-tests">Integration tests</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#graphics-tests">Graphics tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contributing_graphics_tests.html">Graphics tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contributing_running_tests.html">Running the tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contributing_ci_tests.html">Continuous Integration (CI) Testing</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="deprecations.html">Deprecations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contributing_changes.html">Contributing your changes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="release.html">Releases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../generated/api/iris.html">Iris API</a></li>
 </ul>
@@ -220,13 +226,17 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Testing</li>
+          <li><a href="contributing_codebase_index.html">Contributing to the code base</a> &raquo;</li>
+        
+          <li><a href="contributing_testing_index.html">Testing</a> &raquo;</li>
+        
+      <li>Test categories</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/developers_guide/tests.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/developers_guide/contributing_testing.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -239,25 +249,21 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="testing">
-<span id="developer-tests"></span><h1>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h1>
-<p>The Iris tests may be run with <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">test</span></code> which has a
-command line utility included.</p>
-<p>There are three categories of tests within Iris:</p>
+  <div class="section" id="test-categories">
+<span id="developer-test-categories"></span><h1>Test categories<a class="headerlink" href="#test-categories" title="Permalink to this headline">¶</a></h1>
+<p>There are two main categories of tests within Iris:</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>Unit tests</p></li>
-<li><p>Integration tests</p></li>
-<li><p>Legacy tests</p></li>
+<li><p><a class="reference internal" href="#testing-unit-test"><span class="std std-ref">Unit tests</span></a></p></li>
+<li><p><a class="reference internal" href="#testing-integration"><span class="std std-ref">Integration tests</span></a></p></li>
 </ul>
 </div></blockquote>
 <p>Ideally, all code changes should be accompanied by one or more unit
-tests, and by zero or more integration tests. And where possible, new
-tests should not be added to the legacy tests.</p>
+tests, and by zero or more integration tests.</p>
 <p>But if in any doubt about what tests to add or how to write them please
 feel free to submit a pull-request in any state and ask for assistance.</p>
 <div class="section" id="unit-tests">
-<h2>Unit tests<a class="headerlink" href="#unit-tests" title="Permalink to this headline">¶</a></h2>
+<span id="testing-unit-test"></span><h2>Unit tests<a class="headerlink" href="#unit-tests" title="Permalink to this headline">¶</a></h2>
 <p>Code changes should be accompanied by enough unit tests to give a
 high degree of confidence that the change works as expected. In
 addition, the unit tests can help describe the intent behind a change.</p>
@@ -269,15 +275,17 @@ For example:</p>
 <p>All unit tests must be placed and named according to the following
 structure:</p>
 <div class="section" id="classes">
-<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h3>
+<span id="testing-classes"></span><h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h3>
 <p>When testing a class all the tests must reside in the module:</p>
 <blockquote>
 <div><p><code class="docutils literal notranslate"><span class="pre">lib/iris/tests/unit/&lt;fully/qualified/module&gt;/test_&lt;ClassName&gt;.py</span></code></p>
 </div></blockquote>
 <p>Within this test module each tested method must have one or more
-corresponding test classes:
-- Either: <cite>Test_name_of_public_method</cite>
-- Or: <cite>Test_name_of_public_method__aspect_of_method</cite></p>
+corresponding test classes, for example:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Test_&lt;name</span> <span class="pre">of</span> <span class="pre">public</span> <span class="pre">method&gt;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Test_&lt;name</span> <span class="pre">of</span> <span class="pre">public</span> <span class="pre">method&gt;__&lt;aspect</span> <span class="pre">of</span> <span class="pre">method&gt;</span></code></p></li>
+</ul>
 <p>And within those test classes, the test methods must be named according
 to the aspect of the tested method which they address.</p>
 <p><strong>Examples</strong>:</p>
@@ -308,14 +316,16 @@ to the aspect of the tested method which they address.</p>
 </div>
 </div>
 <div class="section" id="functions">
-<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
+<span id="testing-functions"></span><h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
 <p>When testing a function all the tests must reside in the module:</p>
 <blockquote>
 <div><p><code class="docutils literal notranslate"><span class="pre">lib/iris/tests/unit/&lt;fully/qualified/module&gt;/test_&lt;function_name&gt;.py</span></code></p>
 </div></blockquote>
-<p>Within this test module there must be one or more test classes:
-- Either: <cite>Test</cite>
-- Or: <cite>TestAspectOfFunction</cite></p>
+<p>Within this test module there must be one or more test classes, for example:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Test</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TestAspectOfFunction</span></code></p></li>
+</ul>
 <p>And within those test classes, the test methods must be named according
 to the aspect of the tested function which they address.</p>
 <p><strong>Examples</strong>:</p>
@@ -342,26 +352,17 @@ must reside in:</p>
 </div>
 </div>
 <div class="section" id="integration-tests">
-<h2>Integration tests<a class="headerlink" href="#integration-tests" title="Permalink to this headline">¶</a></h2>
+<span id="testing-integration"></span><h2>Integration tests<a class="headerlink" href="#integration-tests" title="Permalink to this headline">¶</a></h2>
 <p>Some code changes may require tests which exercise several units in
 order to demonstrate an important consequence of their interaction which
 may not be apparent when considering the units in isolation.</p>
-<p>These tests must be placed in the <cite>lib/iris/tests/integration</cite> folder.
+<p>These tests must be placed in the <code class="docutils literal notranslate"><span class="pre">lib/iris/tests/integration</span></code> folder.
 Unlike unit tests, there is no fixed naming scheme for integration
 tests. But folders and files must be created as required to help
 developers locate relevant tests. It is recommended they are named
 according to the capabilities under test, e.g.
-<cite>metadata/test_pp_preservation.py</cite>, and not named according to the
+<code class="docutils literal notranslate"><span class="pre">metadata/test_pp_preservation.py</span></code>, and not named according to the
 module(s) under test.</p>
-</div>
-<div class="section" id="graphics-tests">
-<h2>Graphics tests<a class="headerlink" href="#graphics-tests" title="Permalink to this headline">¶</a></h2>
-<p>Certain Iris tests are based on checking plotted images.
-This the only way of testing the modules <a class="reference internal" href="../generated/api/iris/plot.html#module-iris.plot" title="iris.plot"><code class="xref py py-mod docutils literal notranslate"><span class="pre">iris.plot</span></code></a> and
-<a class="reference internal" href="../generated/api/iris/quickplot.html#module-iris.quickplot" title="iris.quickplot"><code class="xref py py-mod docutils literal notranslate"><span class="pre">iris.quickplot</span></code></a>, but is also used for some other legacy and integration-
-style testcases.</p>
-<p>There are specific mechanisms for handling this.
-See <a class="reference internal" href="graphics_tests.html#developer-graphics-tests"><span class="std std-ref">Graphics tests</span></a>.</p>
 </div>
 </div>
 
@@ -373,10 +374,10 @@ See <a class="reference internal" href="graphics_tests.html#developer-graphics-t
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="deprecations.html" class="btn btn-neutral float-right" title="Deprecations" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="contributing_graphics_tests.html" class="btn btn-neutral float-right" title="Graphics tests" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="pulls.html" class="btn btn-neutral float-left" title="Pull request check list" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="contributing_testing_index.html" class="btn btn-neutral float-left" title="Testing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

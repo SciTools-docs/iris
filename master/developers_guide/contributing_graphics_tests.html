@@ -1,0 +1,468 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Graphics tests &mdash; Iris 3.0.dev0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/theme_override.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-dataframe.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <link rel="next" title="Running the tests" href="contributing_running_tests.html" />
+    <link rel="prev" title="Test categories" href="contributing_testing.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/iris-logo-title.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installing.html">Installing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../generated/gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/iris_cubes.html">Iris data structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/loading_iris_cubes.html">Loading Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/saving_iris_cubes.html">Saving Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/navigating_a_cube.html">Navigating a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/subsetting_a_cube.html">Subsetting a Cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/real_and_lazy_data.html">Real and Lazy Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/plotting_a_cube.html">Plotting a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/interpolation_and_regridding.html">Cube interpolation and regridding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/merge_and_concat.html">Merge and concatenate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/cube_statistics.html">Cube statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/cube_maths.html">Basic cube mathematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/citation.html">Citing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/code_maintenance.html">Code maintenance</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developers Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="contributing_getting_involved.html">Getting Involved</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gitwash/index.html">Working with <em>iris</em> source code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing_documentation.html">Contributing to the documentation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="contributing_codebase_index.html">Contributing to the code base</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="contributing_code_formatting.html">Code formatting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documenting/docstrings.html">Docstrings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documenting/rest_guide.html">reST quick start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing_deprecations.html">Deprecations</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="contributing_testing_index.html">Testing</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="contributing_testing.html">Test categories</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Graphics tests</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#challenges">Challenges</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#testing-strategy">Testing strategy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reviewing-failing-tests">Reviewing failing tests</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#add-your-changes-to-iris">Add your changes to Iris</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="contributing_running_tests.html">Running the tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contributing_ci_tests.html">Continuous Integration (CI) Testing</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contributing_changes.html">Contributing your changes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release.html">Releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../generated/api/iris.html">Iris API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../whatsnew/index.html">What’s new in Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../techpapers/index.html">Iris Technical Papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../copyright.html">Iris copyright, licensing and contributors</a></li>
+</ul>
+
+            
+          
+
+    
+    
+    
+        <p class="caption">
+            <span class="caption-text">
+            
+                Support
+            
+            </span>
+        </p>
+        <ul>
+            
+                <li class="toctree-l1"><a href="https://github.com/SciTools/iris"><i class="fa fa-github fa-fw"></i> Source Code</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris"><i class="fa fa-comments fa-fw"></i> Users Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris-dev"><i class="fa fa-comments fa-fw"></i> Developers Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://stackoverflow.com/questions/tagged/python-iris"><i class="fa fa-question fa-fw"></i> StackOverflow For "How do I?"</a></li>
+            
+                <li class="toctree-l1"><a href="https://scitools.org.uk/iris/docs/v2.4.0/index.html"><i class="fa fa-book fa-fw"></i> Legacy documentation</a></li>
+            
+        </ul>
+    
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Iris</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="contributing_codebase_index.html">Contributing to the code base</a> &raquo;</li>
+        
+          <li><a href="contributing_testing_index.html">Testing</a> &raquo;</li>
+        
+      <li>Graphics tests</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/developers_guide/contributing_graphics_tests.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="graphics-tests">
+<span id="testing-graphics"></span><h1>Graphics tests<a class="headerlink" href="#graphics-tests" title="Permalink to this headline">¶</a></h1>
+<p>Iris may be used to create various forms of graphical output; to ensure
+the output is consistent, there are automated tests to check against
+known acceptable graphical output.  See <a class="reference internal" href="contributing_running_tests.html#developer-running-tests"><span class="std std-ref">Running the tests</span></a> for
+more information.</p>
+<p>At present graphical tests are used in the following areas of Iris:</p>
+<ul class="simple">
+<li><p>Module <code class="docutils literal notranslate"><span class="pre">iris.tests.test_plot</span></code></p></li>
+<li><p>Module <code class="docutils literal notranslate"><span class="pre">iris.tests.test_quickplot</span></code></p></li>
+<li><p><a class="reference internal" href="../generated/gallery/index.html#sphx-glr-generated-gallery"><span class="std std-ref">Gallery</span></a> plots contained in
+<code class="docutils literal notranslate"><span class="pre">docs/iris/gallery_tests</span></code>.</p></li>
+</ul>
+<div class="section" id="challenges">
+<h2>Challenges<a class="headerlink" href="#challenges" title="Permalink to this headline">¶</a></h2>
+<p>Iris uses many dependencies that provide functionality, an example that
+applies here is <a class="reference external" href="https://matplotlib.org/">matplotlib</a>.  For more information on the dependences, see
+<a class="reference internal" href="../installing.html#installing-iris"><span class="std std-ref">Installing Iris</span></a>.  When there are updates to the <a class="reference external" href="https://matplotlib.org/">matplotlib</a> or a
+dependency of matplotlib, this may result in a change in the rendered graphical
+output.  This means that there may be no changes to <a class="reference external" href="https://github.com/SciTools/iris">Iris</a>, but due to an
+updated dependency any automated tests that compare a graphical output to a
+known acceptable output may fail.  The failure may also not be visually
+perceived as it may be a simple pixel shift.</p>
+</div>
+<div class="section" id="testing-strategy">
+<h2>Testing strategy<a class="headerlink" href="#testing-strategy" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="https://github.com/scitools/iris/blob/master/.travis.yml#L15">Iris Travis matrix</a> defines multiple test runs that use
+different versions of Python to ensure Iris is working as expected.</p>
+<p>To make this manageable, the <code class="docutils literal notranslate"><span class="pre">iris.tests.IrisTest_nometa.check_graphic</span></code> test
+routine tests against multiple alternative <strong>acceptable</strong> results.  It does
+this using an image <strong>hash</strong> comparison technique which avoids storing
+reference images in the Iris repository itself.</p>
+<p>This consists of:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">iris.tests.IrisTest_nometa.check_graphic</span></code> function uses a perceptual
+<strong>image hash</strong> of the outputs (see <a class="reference external" href="https://github.com/JohannesBuchner/imagehash">https://github.com/JohannesBuchner/imagehash</a>)
+as the basis for checking test results.</p></li>
+<li><p>The hashes of known <strong>acceptable</strong> results for each test are stored in a
+lookup dictionary, saved to the repo file
+<code class="docutils literal notranslate"><span class="pre">lib/iris/tests/results/imagerepo.json</span></code>
+(<a class="reference external" href="https://github.com/SciTools/iris/blob/master/lib/iris/tests/results/imagerepo.json">link</a>) .</p></li>
+<li><p>An actual reference image for each hash value is stored in a <em>separate</em>
+public repository <a class="reference external" href="https://github.com/SciTools/test-iris-imagehash">https://github.com/SciTools/test-iris-imagehash</a>.</p></li>
+<li><p>The reference images allow human-eye assessment of whether a new output is
+judged to be close enough to the older ones, or not.</p></li>
+<li><p>The utility script <code class="docutils literal notranslate"><span class="pre">iris/tests/idiff.py</span></code> automates checking, enabling the
+developer to easily compare proposed new <strong>acceptable</strong> result images
+against the existing accepted reference images, for each failing test.</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="reviewing-failing-tests">
+<h2>Reviewing failing tests<a class="headerlink" href="#reviewing-failing-tests" title="Permalink to this headline">¶</a></h2>
+<p>When you find that a graphics test in the Iris testing suite has failed,
+following changes in Iris or the run dependencies, this is the process
+you should follow:</p>
+<ol class="arabic">
+<li><p>Create a new, empty directory to store temporary image results, at the path
+<code class="docutils literal notranslate"><span class="pre">lib/iris/tests/result_image_comparison</span></code> in your Iris repository checkout.</p></li>
+<li><p><strong>In your Iris repo root directory</strong>, run the relevant (failing) tests
+directly as python scripts, or by using a command such as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">unittest</span> <span class="n">discover</span> <span class="n">paths</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">test</span><span class="o">/</span><span class="n">files</span>
+</pre></div>
+</div>
+</li>
+<li><p>In the <code class="docutils literal notranslate"><span class="pre">iris/lib/iris/tests</span></code> folder, run the command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">idiff</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>This will open a window for you to visually inspect
+side-by-side <strong>old</strong>, <strong>new</strong> and <strong>difference</strong> images for each failed
+graphics test.  Hit a button to either <span class="guilabel">accept</span>,
+<span class="guilabel">reject</span> or <span class="guilabel">skip</span> each new result.</p>
+<p>If the change is <strong>accepted</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>the imagehash value of the new result image is added into the relevant
+set of ‘valid result hashes’ in the image result database file,
+<code class="docutils literal notranslate"><span class="pre">tests/results/imagerepo.json</span></code></p></li>
+<li><p>the relevant output file in <code class="docutils literal notranslate"><span class="pre">tests/result_image_comparison</span></code> is
+renamed according to the image hash value, as <code class="docutils literal notranslate"><span class="pre">&lt;hash&gt;.png</span></code>.
+A copy of this new PNG file must then be added into the reference image
+repository at <a class="reference external" href="https://github.com/SciTools/test-iris-imagehash">https://github.com/SciTools/test-iris-imagehash</a>
+(See below).</p></li>
+</ul>
+</div></blockquote>
+<p>If a change is <strong>skipped</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>no further changes are made in the repo.</p></li>
+<li><p>when you run <code class="docutils literal notranslate"><span class="pre">iris/tests/idiff.py</span></code> again, the skipped choice will be
+presented again.</p></li>
+</ul>
+</div></blockquote>
+<p>If a change is <strong>rejected</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>the output image is deleted from <code class="docutils literal notranslate"><span class="pre">result_image_comparison</span></code>.</p></li>
+<li><p>when you run <code class="docutils literal notranslate"><span class="pre">iris/tests/idiff.py</span></code> again, the skipped choice will not
+appear, unless the relevant failing test is re-run.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>Now re-run the tests</strong>. The <strong>new</strong> result should now be recognised and the
+relevant test should pass.  However, some tests can perform <em>multiple</em>
+graphics checks within a single test case function.  In those cases, any
+failing check will prevent the following ones from being run, so a test
+re-run may encounter further (new) graphical test failures.  If that
+happens, simply repeat the check-and-accept process until all tests pass.</p></li>
+</ol>
+</div>
+<div class="section" id="add-your-changes-to-iris">
+<h2>Add your changes to Iris<a class="headerlink" href="#add-your-changes-to-iris" title="Permalink to this headline">¶</a></h2>
+<p>To add your changes to Iris, you need to make two pull requests (PR).</p>
+<ol class="arabic">
+<li><p>The first PR is made in the <code class="docutils literal notranslate"><span class="pre">test-iris-imagehash</span></code> repository, at
+<a class="reference external" href="https://github.com/SciTools/test-iris-imagehash">https://github.com/SciTools/test-iris-imagehash</a>.</p>
+<blockquote>
+<div><ul>
+<li><p>First, add all the newly-generated referenced PNG files into the
+<code class="docutils literal notranslate"><span class="pre">images/v4</span></code> directory.  In your Iris repo, these files are to be found
+in the temporary results folder <code class="docutils literal notranslate"><span class="pre">iris/tests/result_image_comparison</span></code>.</p></li>
+<li><p>Then, to update the file which lists available images,
+<code class="docutils literal notranslate"><span class="pre">v4_files_listing.txt</span></code>, run from the project root directory:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">recreate_v4_files_listing</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+</li>
+<li><p>Create a PR proposing these changes, in the usual way.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>The second PR is created in the <a class="reference external" href="https://github.com/SciTools/iris">Iris</a> repository, and
+should only include the change to the image results database,
+<code class="docutils literal notranslate"><span class="pre">tests/results/imagerepo.json</span></code>.
+The description box of this pull request should contain a reference to
+the matching one in <code class="docutils literal notranslate"><span class="pre">test-iris-imagehash</span></code>.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">result_image_comparison</span></code> folder is covered by a project
+<code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> setting, so those files <em>will not show up</em> in a
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> check.</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The Iris pull-request will not test successfully in Travis until the
+<code class="docutils literal notranslate"><span class="pre">test-iris-imagehash</span></code> pull request has been merged.  This is because there
+is an <a class="reference external" href="https://github.com/SciTools/iris">Iris</a> test which ensures the existence of the reference images (uris)
+for all the targets in the image results database.  It will also fail
+if you forgot to run <code class="docutils literal notranslate"><span class="pre">recreate_v4_files_listing.py</span></code> to update the
+image-listing file in <code class="docutils literal notranslate"><span class="pre">test-iris-imagehash</span></code>.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="contributing_running_tests.html" class="btn btn-neutral float-right" title="Running the tests" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="contributing_testing.html" class="btn btn-neutral float-left" title="Test categories" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        
+        &copy; <a href="../copyright.html">Copyright</a> Iris Contributors
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

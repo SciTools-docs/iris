@@ -46,8 +46,8 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
-    <link rel="next" title="Testing" href="tests.html" />
-    <link rel="prev" title="Code formatting" href="code_format.html" /> 
+    <link rel="next" title="Releases" href="release.html" />
+    <link rel="prev" title="Contributing a “What’s New” entry" href="documenting/whats_new_contributions.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -124,16 +124,15 @@
 </ul>
 <p class="caption"><span class="caption-text">Developers Guide</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="contributing_documentation.html">Contributing to the documentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="documenting/index.html">Documentation in Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing_getting_involved.html">Getting Involved</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gitwash/index.html">Working with <em>iris</em> source code</a></li>
-<li class="toctree-l1"><a class="reference internal" href="code_format.html">Code formatting</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Pull request check list</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#the-iris-check-list">The Iris check list</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing_documentation.html">Contributing to the documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing_codebase_index.html">Contributing to the code base</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="contributing_changes.html">Contributing your changes</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="documenting/whats_new_contributions.html">Contributing a “What’s New” entry</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Pull request check list</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="tests.html">Testing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="deprecations.html">Deprecations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="release.html">Releases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../generated/api/iris.html">Iris API</a></li>
 </ul>
@@ -214,13 +213,15 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
+          <li><a href="contributing_changes.html">Contributing your changes</a> &raquo;</li>
+        
       <li>Pull request check list</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/developers_guide/pulls.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/developers_guide/contributing_pull_request_checklist.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -235,145 +236,57 @@
             
   <div class="section" id="pull-request-check-list">
 <span id="pr-check"></span><h1>Pull request check list<a class="headerlink" href="#pull-request-check-list" title="Permalink to this headline">¶</a></h1>
-<p>A pull request to a SciTools project master should be ready to merge into the
-master branch.</p>
 <p>All pull request will be reviewed by a core developer who will manage the
 process of merging. It is the responsibility of a developer submitting a
 pull request to do their best to deliver a pull request which meets the
 requirements of the project it is submitted to.</p>
 <p>The check list summarises criteria which will be checked before a pull request
 is merged.  Before submitting a pull request please consider this list.</p>
-<div class="section" id="the-iris-check-list">
-<h2>The Iris check list<a class="headerlink" href="#the-iris-check-list" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Have you provided a helpful description of the Pull Request?
-I.E. what has changed and why.  This should include:</p></li>
-</ul>
+<ol class="arabic simple">
+<li><p><strong>Provide a helpful description</strong> of the Pull Request.  This should include:</p></li>
+</ol>
 <blockquote>
 <div><ul class="simple">
-<li><p>the aim of the change ; the problem addressed ; a link to the issue.</p></li>
-<li><p>how the change has been delivered.</p></li>
-<li><p>a “What’s New” entry - see <a class="reference internal" href="documenting/whats_new_contributions.html#whats-new-contributions"><span class="std std-ref">Contributing a “What’s New” entry</span></a>.</p></li>
+<li><p>The aim of the change / the problem addressed / a link to the issue.</p></li>
+<li><p>How the change has been delivered.</p></li>
 </ul>
 </div></blockquote>
-<ul class="simple">
-<li><p>Do all the tests pass locally?</p></li>
-</ul>
+<ol class="arabic">
+<li><p><strong>Include a “What’s New” entry</strong>, if appropriate.
+See <a class="reference internal" href="documenting/whats_new_contributions.html#whats-new-contributions"><span class="std std-ref">Contributing a “What’s New” entry</span></a>.</p></li>
+<li><p><strong>Check all tests pass</strong>.  This includes existing tests and any new tests
+added for any new functionality.  For more information see
+<a class="reference internal" href="contributing_running_tests.html#developer-running-tests"><span class="std std-ref">Running the tests</span></a>.</p></li>
+<li><p><strong>Check all modified and new source files conform to the required</strong>
+<a class="reference internal" href="contributing_code_formatting.html#code-formatting"><span class="std std-ref">Code formatting</span></a>.</p></li>
+<li><p><strong>Check the source documentation been updated to explain all new or changed
+features</strong>.  See <a class="reference internal" href="documenting/docstrings.html#docstrings"><span class="std std-ref">Docstrings</span></a>.</p></li>
+<li><p><strong>Include code examples inside the docstrings where appropriate</strong>.  See
+<a class="reference internal" href="contributing_documentation.html#contributing-documentation-testing"><span class="std std-ref">Testing</span></a>.</p></li>
+<li><p><strong>Check the documentation builds without warnings or errors</strong>.  See
+<a class="reference internal" href="contributing_documentation.html#contributing-documentation-building"><span class="std std-ref">Building</span></a></p></li>
+<li><p><strong>Check for any new dependencies in the</strong> <a class="reference external" href="https://github.com/SciTools/iris/blob/master/.travis.yml">.travis.yml</a> <strong>config file.</strong></p></li>
+<li><p><strong>Check for any new dependencies in the</strong> <a class="reference external" href="https://github.com/SciTools/iris/blob/master/requirements/ci/readthedocs.yml">readthedocs.yml</a> <strong>file</strong>.  This
+file is used to build the documentation that is served from
+<a class="reference external" href="https://scitools-iris.readthedocs.io/en/latest/">https://scitools-iris.readthedocs.io/en/latest/</a></p></li>
+<li><p><strong>Check for updates needed for supporting projects for test or example
+data</strong>.  For example:</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>The Iris tests may be run with <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">test</span></code> which has a command
-line utility included.</p></li>
-</ul>
-</div></blockquote>
-<ul class="simple">
-<li><p>Have new tests been provided for all additional functionality?</p></li>
-<li><p>Do all modified and new source files conform to the required
-<a class="reference internal" href="code_format.html#iris-code-format"><span class="std std-ref">Code formatting</span></a>?</p></li>
-<li><p>Do all modified and new source files have a correct copyright header?</p></li>
-</ul>
-<blockquote>
-<div><ul class="simple">
-<li><p>a standard Iris test checks that all source files include a copyright
-message (see “iris.tests.test_coding_standards.TestLicenseHeaders”).</p></li>
-</ul>
-</div></blockquote>
-<ul class="simple">
-<li><p>Has the documentation been updated to explain all new or changed features?</p></li>
-</ul>
-<blockquote>
-<div><ul class="simple">
-<li><p>refer to the developer guide on <a class="reference internal" href="documenting/docstrings.html#docstrings"><span class="std std-ref">Docstrings</span></a></p></li>
-</ul>
-</div></blockquote>
-<ul class="simple">
-<li><p>Have code examples been provided inside docstrings, where relevant?</p></li>
-</ul>
-<blockquote>
-<div><ul class="simple">
-<li><p>these are strongly recommended as concrete (working) examples always
-considerably enhance the documentation.</p></li>
-</ul>
-<blockquote>
-<div><ul class="simple">
-<li><p>live test code can be included in docstrings.</p></li>
-</ul>
-<blockquote>
-<div><ul class="simple">
-<li><p>See for example <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.Cube.data" title="iris.cube.Cube.data"><code class="xref py py-data docutils literal notranslate"><span class="pre">iris.cube.Cube.data</span></code></a></p></li>
-<li><p>Details at <a class="reference external" href="http://www.sphinx-doc.org/en/stable/ext/doctest.html">http://www.sphinx-doc.org/en/stable/ext/doctest.html</a></p></li>
-</ul>
-</div></blockquote>
-<ul class="simple">
-<li><p>The documentation tests may be run with <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">doctest</span></code>, from within the
-<code class="docutils literal notranslate"><span class="pre">./docs/iris</span></code> subdirectory.</p></li>
-</ul>
-</div></blockquote>
-</div></blockquote>
-<ul class="simple">
-<li><p>Have you provided a “what’s new” contribution?</p></li>
-</ul>
-<blockquote>
-<div><ul class="simple">
-<li><p>this should be done for <strong>all</strong> changes - see <a class="reference internal" href="documenting/whats_new_contributions.html#whats-new-contributions"><span class="std std-ref">Contributing a “What’s New” entry</span></a></p></li>
-</ul>
-</div></blockquote>
-<ul class="simple">
-<li><p>Does the documentation build without errors?</p></li>
-</ul>
-<blockquote>
-<div><ul class="simple">
-<li><p>The documentation is built using <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">html</span></code> in <code class="docutils literal notranslate"><span class="pre">./docs/iris</span></code>.</p></li>
-</ul>
-</div></blockquote>
-<ul class="simple">
-<li><p>Do the documentation and code-example tests pass?</p></li>
-</ul>
-<blockquote>
-<div><ul class="simple">
-<li><p>Run with <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">doctest</span></code> and <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">gallerytest</span></code>, from within the subdirectory
-<code class="docutils literal notranslate"><span class="pre">./docs/iris</span></code>.</p></li>
-<li><p>note that code examples must <em>not</em> raise deprecations.  This is now checked
-and will result in an error.
-When an existing code example encounters a deprecation, it must be fixed.</p></li>
-</ul>
-</div></blockquote>
-<ul class="simple">
-<li><p>Has the travis file been updated to reflect any dependency updates?</p></li>
-</ul>
-<blockquote>
-<div><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">./.travis.yml</span></code> is used to manage the continuous integration testing.</p></li>
-<li><p>the files <code class="docutils literal notranslate"><span class="pre">./conda-requirements.yml</span></code> and
-<code class="docutils literal notranslate"><span class="pre">./minimal-conda-requirements.yml</span></code> are used to define the software
-environments used, using the <a class="reference external" href="https://docs.conda.io/en/latest/">conda</a> package manager.</p></li>
-</ul>
-</div></blockquote>
-<ul class="simple">
-<li><p>Have you provided updates to supporting projects for test or example data?</p></li>
-</ul>
-<blockquote>
-<div><ul class="simple">
-<li><p>the following separate repos are used to manage larger files used by tests
-and code examples :</p></li>
-</ul>
-<blockquote>
-<div><ul class="simple">
-<li><p><a class="reference external" href="https://github.com/SciTools/iris-test-data">iris-test-data</a> is a github project containing all the data to support the
-tests.</p></li>
+<li><p><a class="reference external" href="https://github.com/SciTools/iris-test-data">iris-test-data</a> is a github project containing all the data to support
+the tests.</p></li>
 <li><p><a class="reference external" href="https://github.com/SciTools/iris-sample-data">iris-sample-data</a> is a github project containing all the data to support
 the gallery and examples.</p></li>
-<li><p><a class="reference external" href="https://github.com/SciTools/test-iris-imagehash">test-iris-imagehash</a> is a github project containing reference plot images
-to support iris graphics tests : see <a class="reference internal" href="graphics_tests.html#developer-graphics-tests"><span class="std std-ref">Graphics tests</span></a>.</p></li>
+<li><p><a class="reference external" href="https://github.com/SciTools/test-iris-imagehash">test-iris-imagehash</a> is a github project containing reference plot
+images to support Iris <a class="reference internal" href="contributing_graphics_tests.html#testing-graphics"><span class="std std-ref">Graphics tests</span></a>.</p></li>
 </ul>
 </div></blockquote>
-<ul class="simple">
-<li><p>If new files are required by tests or code examples, they must be added to
-the appropriate supporting project via a suitable pull-request.
-This new ‘supporting pull request’ should be referenced in the main Iris
-pull request, and must be accepted and merged before the Iris one can be.</p></li>
-</ul>
-</div></blockquote>
-</div>
+<p>If new files are required by tests or code examples, they must be added to
+the appropriate supporting project via a suitable pull-request.  This pull
+request should be referenced in the main Iris pull request and must be
+accepted and merged before the Iris one can be.</p>
+</li>
+</ol>
 </div>
 
 
@@ -384,10 +297,10 @@ pull request, and must be accepted and merged before the Iris one can be.</p></l
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="tests.html" class="btn btn-neutral float-right" title="Testing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="release.html" class="btn btn-neutral float-right" title="Releases" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="code_format.html" class="btn btn-neutral float-left" title="Code formatting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="documenting/whats_new_contributions.html" class="btn btn-neutral float-left" title="Contributing a “What’s New” entry" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
