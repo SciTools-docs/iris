@@ -277,33 +277,8 @@
 <h1>v1.4 (14 Jun 2013)<a class="headerlink" href="#v1-4-14-jun-2013" title="Permalink to this headline">¶</a></h1>
 <p>This document explains the changes made to Iris for this release
 (<a class="reference internal" href="index.html"><span class="doc">View all changes</span></a>.)</p>
-<div class="contents local topic" id="skip-to-section">
-<p class="topic-title">Skip to section:</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="#features" id="id3">Features</a></p>
-<ul>
-<li><p><a class="reference internal" href="#experimental-regridding-enhancements" id="id4">Experimental regridding enhancements</a></p></li>
-<li><p><a class="reference internal" href="#bilinear-rectilinear-regridding" id="id5">Bilinear rectilinear regridding</a></p></li>
-<li><p><a class="reference internal" href="#area-weighted-regridding" id="id6">Area-weighted regridding</a></p></li>
-<li><p><a class="reference internal" href="#area-conservative-regridding" id="id7">Area-conservative regridding</a></p></li>
-<li><p><a class="reference internal" href="#iris-pandas-interoperability" id="id8">Iris-Pandas interoperability</a></p></li>
-<li><p><a class="reference internal" href="#load-cubes-from-the-internet-via-opendap" id="id9">Load cubes from the internet via OPeNDAP</a></p></li>
-<li><p><a class="reference internal" href="#geotiff-export" id="id10">GeoTiff export</a></p></li>
-<li><p><a class="reference internal" href="#cube-merge-update" id="id11">Cube merge update</a></p></li>
-<li><p><a class="reference internal" href="#unambiguous-season-year-naming" id="id12">Unambiguous season year naming</a></p></li>
-<li><p><a class="reference internal" href="#cubes-with-no-vertical-coord-can-now-be-exported-to-grib" id="id13">Cubes with no vertical coord can now be exported to GRIB</a></p></li>
-<li><p><a class="reference internal" href="#simplified-resource-configuration" id="id14">Simplified resource configuration</a></p></li>
-<li><p><a class="reference internal" href="#extended-grib-parameter-translation" id="id15">Extended GRIB parameter translation</a></p></li>
-<li><p><a class="reference internal" href="#one-dimensional-linear-interpolation-fix" id="id16">One dimensional linear interpolation fix</a></p></li>
-<li><p><a class="reference internal" href="#fix-for-iris-analysis-calculus-differentiate" id="id17">Fix for iris.analysis.calculus.differentiate</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#incompatible-changes" id="id18">Incompatible changes</a></p></li>
-<li><p><a class="reference internal" href="#deprecations" id="id19">Deprecations</a></p></li>
-</ul>
-</div>
 <div class="section" id="features">
-<h2><a class="toc-backref" href="#id3">Features</a><a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+<h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Multiple cubes can now be exported to a NetCDF file.</p></li>
 <li><p>Correct nearest-neighbour calculation with circular coords.</p></li>
@@ -332,7 +307,7 @@
 <li><p>Use the latest release of Cartopy, v0.8.0.</p></li>
 </ul>
 <div class="section" id="experimental-regridding-enhancements">
-<span id="exp-regrid"></span><h3><a class="toc-backref" href="#id4">Experimental regridding enhancements</a><a class="headerlink" href="#experimental-regridding-enhancements" title="Permalink to this headline">¶</a></h3>
+<span id="exp-regrid"></span><h3>Experimental regridding enhancements<a class="headerlink" href="#experimental-regridding-enhancements" title="Permalink to this headline">¶</a></h3>
 <p>Bilinear, area-weighted and area-conservative regridding functions are now
 available in <a class="reference internal" href="../generated/api/iris/experimental.html#module-iris.experimental" title="iris.experimental"><code class="xref py py-mod docutils literal notranslate"><span class="pre">iris.experimental</span></code></a>. These functions support masked data and
 handle derived coordinates such as hybrid height. The final API is still in
@@ -340,7 +315,7 @@ development.</p>
 <p>In the meantime:</p>
 </div>
 <div class="section" id="bilinear-rectilinear-regridding">
-<h3><a class="toc-backref" href="#id5">Bilinear rectilinear regridding</a><a class="headerlink" href="#bilinear-rectilinear-regridding" title="Permalink to this headline">¶</a></h3>
+<h3>Bilinear rectilinear regridding<a class="headerlink" href="#bilinear-rectilinear-regridding" title="Permalink to this headline">¶</a></h3>
 <p><code class="xref py py-func docutils literal notranslate"><span class="pre">regrid_bilinear_rectilinear_src_and_grid()</span></code>
 can be used to regrid a cube onto a horizontal grid defined in a differentiate
 coordinate system.  The data values are calculated using bilinear interpolation.</p>
@@ -351,7 +326,7 @@ coordinate system.  The data values are calculated using bilinear interpolation.
 </div>
 </div>
 <div class="section" id="area-weighted-regridding">
-<h3><a class="toc-backref" href="#id6">Area-weighted regridding</a><a class="headerlink" href="#area-weighted-regridding" title="Permalink to this headline">¶</a></h3>
+<h3>Area-weighted regridding<a class="headerlink" href="#area-weighted-regridding" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference internal" href="../generated/api/iris/experimental/regrid.html#iris.experimental.regrid.regrid_area_weighted_rectilinear_src_and_grid" title="iris.experimental.regrid.regrid_area_weighted_rectilinear_src_and_grid"><code class="xref py py-func docutils literal notranslate"><span class="pre">regrid_area_weighted_rectilinear_src_and_grid()</span></code></a>
 can be used to regrid a cube such that the data values of the resulting cube
 are calculated using the area-weighted mean.</p>
@@ -362,7 +337,7 @@ are calculated using the area-weighted mean.</p>
 </div>
 </div>
 <div class="section" id="area-conservative-regridding">
-<h3><a class="toc-backref" href="#id7">Area-conservative regridding</a><a class="headerlink" href="#area-conservative-regridding" title="Permalink to this headline">¶</a></h3>
+<h3>Area-conservative regridding<a class="headerlink" href="#area-conservative-regridding" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference internal" href="../generated/api/iris/experimental/regrid_conservative.html#iris.experimental.regrid_conservative.regrid_conservative_via_esmpy" title="iris.experimental.regrid_conservative.regrid_conservative_via_esmpy"><code class="xref py py-func docutils literal notranslate"><span class="pre">regrid_conservative_via_esmpy()</span></code></a>
 can be used for area-conservative regridding between geographical coordinate
 systems.  This uses the ESMF library functions, via the ESMPy interface.</p>
@@ -373,12 +348,12 @@ systems.  This uses the ESMF library functions, via the ESMPy interface.</p>
 </div>
 </div>
 <div class="section" id="iris-pandas-interoperability">
-<span id="iris-pandas"></span><h3><a class="toc-backref" href="#id8">Iris-Pandas interoperability</a><a class="headerlink" href="#iris-pandas-interoperability" title="Permalink to this headline">¶</a></h3>
+<span id="iris-pandas"></span><h3>Iris-Pandas interoperability<a class="headerlink" href="#iris-pandas-interoperability" title="Permalink to this headline">¶</a></h3>
 <p>Conversion to and from Pandas <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/series.html">Series</a> and <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/frame.html">DataFrames</a> is now available.
 See <a class="reference internal" href="../generated/api/iris/pandas.html#module-iris.pandas" title="iris.pandas"><code class="xref py py-mod docutils literal notranslate"><span class="pre">iris.pandas</span></code></a> for more details.</p>
 </div>
 <div class="section" id="load-cubes-from-the-internet-via-opendap">
-<span id="load-opendap"></span><h3><a class="toc-backref" href="#id9">Load cubes from the internet via OPeNDAP</a><a class="headerlink" href="#load-cubes-from-the-internet-via-opendap" title="Permalink to this headline">¶</a></h3>
+<span id="load-opendap"></span><h3>Load cubes from the internet via OPeNDAP<a class="headerlink" href="#load-cubes-from-the-internet-via-opendap" title="Permalink to this headline">¶</a></h3>
 <p>Cubes can now be loaded directly from the internet, via <a class="reference external" href="http://www.opendap.org/about">OPeNDAP</a>.</p>
 <p>For example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cubes</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;http://geoport.whoi.edu/thredds/dodsC/bathy/gom15&quot;</span><span class="p">)</span>
@@ -386,7 +361,7 @@ See <a class="reference internal" href="../generated/api/iris/pandas.html#module
 </div>
 </div>
 <div class="section" id="geotiff-export">
-<span id="id1"></span><h3><a class="toc-backref" href="#id10">GeoTiff export</a><a class="headerlink" href="#geotiff-export" title="Permalink to this headline">¶</a></h3>
+<span id="id1"></span><h3>GeoTiff export<a class="headerlink" href="#geotiff-export" title="Permalink to this headline">¶</a></h3>
 <p>With this experimental feature, two dimensional cubes can now be exported to
 GeoTiff files.</p>
 <p>For example:</p>
@@ -400,7 +375,7 @@ GeoTiff files.</p>
 </div>
 </div>
 <div class="section" id="cube-merge-update">
-<span id="id2"></span><h3><a class="toc-backref" href="#id11">Cube merge update</a><a class="headerlink" href="#cube-merge-update" title="Permalink to this headline">¶</a></h3>
+<span id="id2"></span><h3>Cube merge update<a class="headerlink" href="#cube-merge-update" title="Permalink to this headline">¶</a></h3>
 <p>Cube merging now favours numerical coordinates over string coordinates
 to describe a dimension, and <a class="reference internal" href="../generated/api/iris/coords.html#iris.coords.DimCoord" title="iris.coords.DimCoord"><code class="xref py py-class docutils literal notranslate"><span class="pre">DimCoord</span></code></a> over
 <a class="reference internal" href="../generated/api/iris/coords.html#iris.coords.AuxCoord" title="iris.coords.AuxCoord"><code class="xref py py-class docutils literal notranslate"><span class="pre">AuxCoord</span></code></a>. These modifications prevent the error:
@@ -408,20 +383,20 @@ to describe a dimension, and <a class="reference internal" href="../generated/ap
 dimensions”</em>.</p>
 </div>
 <div class="section" id="unambiguous-season-year-naming">
-<span id="season-year-name"></span><h3><a class="toc-backref" href="#id12">Unambiguous season year naming</a><a class="headerlink" href="#unambiguous-season-year-naming" title="Permalink to this headline">¶</a></h3>
+<span id="season-year-name"></span><h3>Unambiguous season year naming<a class="headerlink" href="#unambiguous-season-year-naming" title="Permalink to this headline">¶</a></h3>
 <p>The default names of categorisation coordinates are now less ambiguous.
 For example, <a class="reference internal" href="../generated/api/iris/coord_categorisation.html#iris.coord_categorisation.add_month_number" title="iris.coord_categorisation.add_month_number"><code class="xref py py-func docutils literal notranslate"><span class="pre">add_month_number()</span></code></a> and
 <a class="reference internal" href="../generated/api/iris/coord_categorisation.html#iris.coord_categorisation.add_month_fullname" title="iris.coord_categorisation.add_month_fullname"><code class="xref py py-func docutils literal notranslate"><span class="pre">add_month_fullname()</span></code></a> now create
 “month_number” and “month_fullname” coordinates.</p>
 </div>
 <div class="section" id="cubes-with-no-vertical-coord-can-now-be-exported-to-grib">
-<span id="grib-novert"></span><h3><a class="toc-backref" href="#id13">Cubes with no vertical coord can now be exported to GRIB</a><a class="headerlink" href="#cubes-with-no-vertical-coord-can-now-be-exported-to-grib" title="Permalink to this headline">¶</a></h3>
+<span id="grib-novert"></span><h3>Cubes with no vertical coord can now be exported to GRIB<a class="headerlink" href="#cubes-with-no-vertical-coord-can-now-be-exported-to-grib" title="Permalink to this headline">¶</a></h3>
 <p>Iris can now export cubes with no vertical coord to GRIB.
 The solution is still under discussion: See
 <a class="reference external" href="https://github.com/SciTools/iris/issues/519">https://github.com/SciTools/iris/issues/519</a>.</p>
 </div>
 <div class="section" id="simplified-resource-configuration">
-<span id="simple-cfg"></span><h3><a class="toc-backref" href="#id14">Simplified resource configuration</a><a class="headerlink" href="#simplified-resource-configuration" title="Permalink to this headline">¶</a></h3>
+<span id="simple-cfg"></span><h3>Simplified resource configuration<a class="headerlink" href="#simplified-resource-configuration" title="Permalink to this headline">¶</a></h3>
 <p>A new configuration variable called <code class="xref py py-data docutils literal notranslate"><span class="pre">iris.config.TEST_DATA_DIR</span></code>
 has been added, replacing the previous combination of
 <code class="xref py py-data docutils literal notranslate"><span class="pre">iris.config.MASTER_DATA_REPOSITORY</span></code> and
@@ -431,7 +406,7 @@ be set by adding a <code class="docutils literal notranslate"><span class="pre">
 <code class="docutils literal notranslate"><span class="pre">site.cfg</span></code>. See <a class="reference internal" href="../generated/api/iris/config.html#module-iris.config" title="iris.config"><code class="xref py py-mod docutils literal notranslate"><span class="pre">iris.config</span></code></a> for more details.</p>
 </div>
 <div class="section" id="extended-grib-parameter-translation">
-<span id="grib-params"></span><h3><a class="toc-backref" href="#id15">Extended GRIB parameter translation</a><a class="headerlink" href="#extended-grib-parameter-translation" title="Permalink to this headline">¶</a></h3>
+<span id="grib-params"></span><h3>Extended GRIB parameter translation<a class="headerlink" href="#extended-grib-parameter-translation" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div><ul class="simple">
 <li><p>More GRIB2 params are recognised on input.</p></li>
@@ -441,21 +416,21 @@ be set by adding a <code class="docutils literal notranslate"><span class="pre">
 </div></blockquote>
 </div>
 <div class="section" id="one-dimensional-linear-interpolation-fix">
-<span id="one-d-linear"></span><h3><a class="toc-backref" href="#id16">One dimensional linear interpolation fix</a><a class="headerlink" href="#one-dimensional-linear-interpolation-fix" title="Permalink to this headline">¶</a></h3>
+<span id="one-d-linear"></span><h3>One dimensional linear interpolation fix<a class="headerlink" href="#one-dimensional-linear-interpolation-fix" title="Permalink to this headline">¶</a></h3>
 <p><code class="xref py py-func docutils literal notranslate"><span class="pre">linear()</span></code> can now extrapolate from a single
 point assuming a gradient of zero. This prevents an issue when loading cross
 sections with a hybrid height coordinate, on a staggered grid and only a single
 orography field.</p>
 </div>
 <div class="section" id="fix-for-iris-analysis-calculus-differentiate">
-<span id="calc-diff-fix"></span><h3><a class="toc-backref" href="#id17">Fix for iris.analysis.calculus.differentiate</a><a class="headerlink" href="#fix-for-iris-analysis-calculus-differentiate" title="Permalink to this headline">¶</a></h3>
+<span id="calc-diff-fix"></span><h3>Fix for iris.analysis.calculus.differentiate<a class="headerlink" href="#fix-for-iris-analysis-calculus-differentiate" title="Permalink to this headline">¶</a></h3>
 <p>A bug in <a class="reference internal" href="../generated/api/iris/analysis/calculus.html#iris.analysis.calculus.differentiate" title="iris.analysis.calculus.differentiate"><code class="xref py py-func docutils literal notranslate"><span class="pre">differentiate()</span></code></a> that had the potential
 to cause the loss of coordinate metadata when calculating the curl or the
 derivative of a cube has been fixed.</p>
 </div>
 </div>
 <div class="section" id="incompatible-changes">
-<h2><a class="toc-backref" href="#id18">Incompatible changes</a><a class="headerlink" href="#incompatible-changes" title="Permalink to this headline">¶</a></h2>
+<h2>Incompatible changes<a class="headerlink" href="#incompatible-changes" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>As part of simplifying the mechanism for accessing test data,
 <code class="xref py py-func docutils literal notranslate"><span class="pre">iris.io.select_data_path()</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">iris.config.DATA_REPOSITORY</span></code>,
@@ -464,7 +439,7 @@ derivative of a cube has been fixed.</p>
 </ul>
 </div>
 <div class="section" id="deprecations">
-<h2><a class="toc-backref" href="#id19">Deprecations</a><a class="headerlink" href="#deprecations" title="Permalink to this headline">¶</a></h2>
+<h2>Deprecations<a class="headerlink" href="#deprecations" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>The <em>add_custom_season_*</em> functions from <a class="reference internal" href="../generated/api/iris/coord_categorisation.html#module-iris.coord_categorisation" title="iris.coord_categorisation"><code class="xref py py-mod docutils literal notranslate"><span class="pre">coord_categorisation</span></code></a>
 have been deprecated in favour of adding their functionality to the
