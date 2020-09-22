@@ -313,6 +313,35 @@ Can be a string, which will be converted to a Unit object.</p>
 </li>
 </ul>
 <dl class="py method">
+<dt id="iris.coords.AncillaryVariable.__binary_operator__">
+<code class="sig-name descname">__binary_operator__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em>, <em class="sig-param"><span class="n">mode_constant</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.AncillaryVariable.__binary_operator__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Common code which is called by add, sub, mul and div</p>
+<p>Mode constant is one of ADD, SUB, MUL, DIV, RDIV</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The unit is <em>not</em> changed when doing scalar operations on a
+metadata object. This means that a metadata object which represents
+“10 meters” when multiplied by a scalar i.e. “1000” would result in
+a metadata object of “10000 meters”. An alternative approach could
+be taken to multiply the <em>unit</em> by 1000 and the resultant metadata
+object would represent “10 kilometers”.</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="iris.coords.AncillaryVariable.__getitem__">
+<code class="sig-name descname">__getitem__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">keys</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.AncillaryVariable.__getitem__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a new dimensional metadata whose values are obtained by
+conventional array indexing.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Indexing of a circular coordinate results in a non-circular
+coordinate if the overall shape of the coordinate changes after
+indexing.</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
 <dt id="iris.coords.AncillaryVariable.convert_units">
 <code class="sig-name descname">convert_units</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">unit</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.AncillaryVariable.convert_units" title="Permalink to this definition">¶</a></dt>
 <dd><p>Change the units, converting the values of the metadata.</p>
@@ -378,8 +407,9 @@ Similarly, calling methods on, or indexing, the returned Array
 will not cause the ancillary variable to have loaded data.</p>
 <p>If the data have already been loaded for the ancillary variable, the
 returned Array will be a new lazy array wrapper.</p>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>A lazy array, representing the ancillary variable data array.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A lazy array, representing the ancillary variable data array.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -408,8 +438,9 @@ raised. Defaults to False.</p>
 </dl>
 </li>
 </ul>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>String.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>String.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -572,6 +603,35 @@ Always False if no bounds exist.</p>
 </dl>
 </li>
 </ul>
+<dl class="py method">
+<dt id="iris.coords.AuxCoord.__binary_operator__">
+<code class="sig-name descname">__binary_operator__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em>, <em class="sig-param"><span class="n">mode_constant</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.AuxCoord.__binary_operator__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Common code which is called by add, sub, mul and div</p>
+<p>Mode constant is one of ADD, SUB, MUL, DIV, RDIV</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The unit is <em>not</em> changed when doing scalar operations on a
+metadata object. This means that a metadata object which represents
+“10 meters” when multiplied by a scalar i.e. “1000” would result in
+a metadata object of “10000 meters”. An alternative approach could
+be taken to multiply the <em>unit</em> by 1000 and the resultant metadata
+object would represent “10 kilometers”.</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="iris.coords.AuxCoord.__getitem__">
+<code class="sig-name descname">__getitem__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">keys</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.AuxCoord.__getitem__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a new dimensional metadata whose values are obtained by
+conventional array indexing.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Indexing of a circular coordinate results in a non-circular
+coordinate if the overall shape of the coordinate changes after
+indexing.</p>
+</div>
+</dd></dl>
+
 <dl class="py method">
 <dt id="iris.coords.AuxCoord.cell">
 <code class="sig-name descname">cell</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">index</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.AuxCoord.cell" title="Permalink to this definition">¶</a></dt>
@@ -782,8 +842,9 @@ attributes, set this to other.attributes.</p>
 </dl>
 </li>
 </ul>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>Boolean.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Boolean.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -812,8 +873,9 @@ corner of the cell above it.</p>
 </dl>
 </li>
 </ul>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>Boolean.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Boolean.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -833,8 +895,9 @@ Similarly, calling methods on, or indexing, the returned Array
 will not cause the coord to have loaded bounds.</p>
 <p>If the data have already been loaded for the coord, the returned
 Array will be a new lazy array wrapper.</p>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>A lazy array representing the coord bounds array or <cite>None</cite> if the
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A lazy array representing the coord bounds array or <cite>None</cite> if the
 coord does not have bounds.</p>
 </dd>
 </dl>
@@ -849,8 +912,9 @@ Similarly, calling methods on, or indexing, the returned Array
 will not cause the coord to have loaded points.</p>
 <p>If the data have already been loaded for the coord, the returned
 Array will be a new lazy array wrapper.</p>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>A lazy array, representing the coord points array.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A lazy array, representing the coord points array.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -879,8 +943,9 @@ raised. Defaults to False.</p>
 </dl>
 </li>
 </ul>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>String.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>String.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1060,6 +1125,28 @@ And <cite>n &gt;= cell</cite> implies either <cite>n &gt; cell</cite> or <cite>n
 <em class="property">class </em><code class="sig-prename descclassname">iris.coords.</code><code class="sig-name descname">Cell</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">point</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">bound</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/iris/coords.html#Cell"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iris.coords.Cell" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct a Cell from point or point-and-bound information.</p>
 <dl class="py method">
+<dt id="iris.coords.Cell.__common_cmp__">
+<code class="sig-name descname">__common_cmp__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em>, <em class="sig-param"><span class="n">operator_method</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/iris/coords.html#Cell.__common_cmp__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iris.coords.Cell.__common_cmp__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Common method called by the rich comparison operators. The method of
+checking equality depends on the type of the object to be compared.</p>
+<p>Cell vs Cell comparison is used to define a strict order.
+Non-Cell vs Cell comparison is used to define Constraint matching.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="iris.coords.Cell.__eq__">
+<code class="sig-name descname">__eq__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/iris/coords.html#Cell.__eq__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iris.coords.Cell.__eq__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compares Cell equality depending on the type of the object to be
+compared.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="iris.coords.Cell.__new__">
+<em class="property">static </em><code class="sig-name descname">__new__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cls</span></em>, <em class="sig-param"><span class="n">point</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">bound</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/iris/coords.html#Cell.__new__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iris.coords.Cell.__new__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct a Cell from point or point-and-bound information.</p>
+</dd></dl>
+
+<dl class="py method">
 <dt id="iris.coords.Cell.contains_point">
 <code class="sig-name descname">contains_point</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">point</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/iris/coords.html#Cell.contains_point"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iris.coords.Cell.contains_point" title="Permalink to this definition">¶</a></dt>
 <dd><p>For a bounded cell, returns whether the given point lies within the
@@ -1155,6 +1242,35 @@ Can be a string, which will be converted to a Unit object.</p>
 </li>
 </ul>
 <dl class="py method">
+<dt id="iris.coords.CellMeasure.__binary_operator__">
+<code class="sig-name descname">__binary_operator__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em>, <em class="sig-param"><span class="n">mode_constant</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.CellMeasure.__binary_operator__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Common code which is called by add, sub, mul and div</p>
+<p>Mode constant is one of ADD, SUB, MUL, DIV, RDIV</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The unit is <em>not</em> changed when doing scalar operations on a
+metadata object. This means that a metadata object which represents
+“10 meters” when multiplied by a scalar i.e. “1000” would result in
+a metadata object of “10000 meters”. An alternative approach could
+be taken to multiply the <em>unit</em> by 1000 and the resultant metadata
+object would represent “10 kilometers”.</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="iris.coords.CellMeasure.__getitem__">
+<code class="sig-name descname">__getitem__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">keys</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.CellMeasure.__getitem__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a new dimensional metadata whose values are obtained by
+conventional array indexing.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Indexing of a circular coordinate results in a non-circular
+coordinate if the overall shape of the coordinate changes after
+indexing.</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
 <dt id="iris.coords.CellMeasure.convert_units">
 <code class="sig-name descname">convert_units</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">unit</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.CellMeasure.convert_units" title="Permalink to this definition">¶</a></dt>
 <dd><p>Change the units, converting the values of the metadata.</p>
@@ -1220,8 +1336,9 @@ Similarly, calling methods on, or indexing, the returned Array
 will not cause the ancillary variable to have loaded data.</p>
 <p>If the data have already been loaded for the ancillary variable, the
 returned Array will be a new lazy array wrapper.</p>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>A lazy array, representing the ancillary variable data array.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A lazy array, representing the ancillary variable data array.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1250,8 +1367,9 @@ raised. Defaults to False.</p>
 </dl>
 </li>
 </ul>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>String.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>String.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1376,6 +1494,12 @@ comments.</p>
 </li>
 </ul>
 <dl class="py method">
+<dt id="iris.coords.CellMethod.__str__">
+<code class="sig-name descname">__str__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/iris/coords.html#CellMethod.__str__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iris.coords.CellMethod.__str__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a custom string representation of CellMethod</p>
+</dd></dl>
+
+<dl class="py method">
 <dt id="iris.coords.CellMethod.xml_element">
 <code class="sig-name descname">xml_element</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">doc</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/iris/coords.html#CellMethod.xml_element"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iris.coords.CellMethod.xml_element" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a dom element describing itself</p>
@@ -1485,6 +1609,35 @@ Always False if no bounds exist.</p>
 </dl>
 </li>
 </ul>
+<dl class="py method">
+<dt id="iris.coords.Coord.__binary_operator__">
+<code class="sig-name descname">__binary_operator__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em>, <em class="sig-param"><span class="n">mode_constant</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.Coord.__binary_operator__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Common code which is called by add, sub, mul and div</p>
+<p>Mode constant is one of ADD, SUB, MUL, DIV, RDIV</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The unit is <em>not</em> changed when doing scalar operations on a
+metadata object. This means that a metadata object which represents
+“10 meters” when multiplied by a scalar i.e. “1000” would result in
+a metadata object of “10000 meters”. An alternative approach could
+be taken to multiply the <em>unit</em> by 1000 and the resultant metadata
+object would represent “10 kilometers”.</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="iris.coords.Coord.__getitem__">
+<code class="sig-name descname">__getitem__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">keys</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.Coord.__getitem__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a new dimensional metadata whose values are obtained by
+conventional array indexing.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Indexing of a circular coordinate results in a non-circular
+coordinate if the overall shape of the coordinate changes after
+indexing.</p>
+</div>
+</dd></dl>
+
 <dl class="py method">
 <dt id="iris.coords.Coord.cell">
 <code class="sig-name descname">cell</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">index</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/iris/coords.html#Coord.cell"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iris.coords.Coord.cell" title="Permalink to this definition">¶</a></dt>
@@ -1695,8 +1848,9 @@ attributes, set this to other.attributes.</p>
 </dl>
 </li>
 </ul>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>Boolean.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Boolean.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1725,8 +1879,9 @@ corner of the cell above it.</p>
 </dl>
 </li>
 </ul>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>Boolean.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Boolean.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1746,8 +1901,9 @@ Similarly, calling methods on, or indexing, the returned Array
 will not cause the coord to have loaded bounds.</p>
 <p>If the data have already been loaded for the coord, the returned
 Array will be a new lazy array wrapper.</p>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>A lazy array representing the coord bounds array or <cite>None</cite> if the
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A lazy array representing the coord bounds array or <cite>None</cite> if the
 coord does not have bounds.</p>
 </dd>
 </dl>
@@ -1762,8 +1918,9 @@ Similarly, calling methods on, or indexing, the returned Array
 will not cause the coord to have loaded points.</p>
 <p>If the data have already been loaded for the coord, the returned
 Array will be a new lazy array wrapper.</p>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>A lazy array, representing the coord points array.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A lazy array, representing the coord points array.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1792,8 +1949,9 @@ raised. Defaults to False.</p>
 </dl>
 </li>
 </ul>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>String.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>String.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1987,6 +2145,47 @@ in the selection. Default is True.</p>
 </li>
 </ul>
 <dl class="py method">
+<dt id="iris.coords.CoordExtent.__new__">
+<em class="property">static </em><code class="sig-name descname">__new__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cls</span></em>, <em class="sig-param"><span class="n">name_or_coord</span></em>, <em class="sig-param"><span class="n">minimum</span></em>, <em class="sig-param"><span class="n">maximum</span></em>, <em class="sig-param"><span class="n">min_inclusive</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">max_inclusive</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/iris/coords.html#CoordExtent.__new__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iris.coords.CoordExtent.__new__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a CoordExtent for the specified coordinate and range of
+values.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>name_or_coord</dt><dd><p>Either a coordinate name or a coordinate, as defined in
+<a class="reference internal" href="cube.html#iris.cube.Cube.coords" title="iris.cube.Cube.coords"><code class="xref py py-meth docutils literal notranslate"><span class="pre">iris.cube.Cube.coords()</span></code></a>.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>minimum</dt><dd><p>The minimum value of the range to select.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>maximum</dt><dd><p>The maximum value of the range to select.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Kwargs:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>min_inclusive</dt><dd><p>If True, coordinate values equal to <cite>minimum</cite> will be included
+in the selection. Default is True.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>max_inclusive</dt><dd><p>If True, coordinate values equal to <cite>maximum</cite> will be included
+in the selection. Default is True.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
 <dt id="iris.coords.CoordExtent.count">
 <code class="sig-name descname">count</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">/</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.CoordExtent.count" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return number of occurrences of value.</p>
@@ -2119,6 +2318,28 @@ Always False if no bounds exist.</p>
 </dl>
 </li>
 </ul>
+<dl class="py method">
+<dt id="iris.coords.DimCoord.__binary_operator__">
+<code class="sig-name descname">__binary_operator__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em>, <em class="sig-param"><span class="n">mode_constant</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.DimCoord.__binary_operator__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Common code which is called by add, sub, mul and div</p>
+<p>Mode constant is one of ADD, SUB, MUL, DIV, RDIV</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The unit is <em>not</em> changed when doing scalar operations on a
+metadata object. This means that a metadata object which represents
+“10 meters” when multiplied by a scalar i.e. “1000” would result in
+a metadata object of “10000 meters”. An alternative approach could
+be taken to multiply the <em>unit</em> by 1000 and the resultant metadata
+object would represent “10 kilometers”.</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="iris.coords.DimCoord.__deepcopy__">
+<code class="sig-name descname">__deepcopy__</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; Deep copy of coordinate.<a class="reference internal" href="../../../_modules/iris/coords.html#DimCoord.__deepcopy__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iris.coords.DimCoord.__deepcopy__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used if copy.deepcopy is called on a coordinate.</p>
+</dd></dl>
+
 <dl class="py method">
 <dt id="iris.coords.DimCoord.cell">
 <code class="sig-name descname">cell</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">index</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.coords.DimCoord.cell" title="Permalink to this definition">¶</a></dt>
@@ -2366,8 +2587,9 @@ attributes, set this to other.attributes.</p>
 </dl>
 </li>
 </ul>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>Boolean.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Boolean.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2396,8 +2618,9 @@ corner of the cell above it.</p>
 </dl>
 </li>
 </ul>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>Boolean.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Boolean.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2417,8 +2640,9 @@ Similarly, calling methods on, or indexing, the returned Array
 will not cause the coord to have loaded bounds.</p>
 <p>If the data have already been loaded for the coord, the returned
 Array will be a new lazy array wrapper.</p>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>A lazy array representing the coord bounds array or <cite>None</cite> if the
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A lazy array representing the coord bounds array or <cite>None</cite> if the
 coord does not have bounds.</p>
 </dd>
 </dl>
@@ -2433,8 +2657,9 @@ Similarly, calling methods on, or indexing, the returned Array
 will not cause the coord to have loaded points.</p>
 <p>If the data have already been loaded for the coord, the returned
 Array will be a new lazy array wrapper.</p>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>A lazy array, representing the coord points array.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A lazy array, representing the coord points array.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2463,8 +2688,9 @@ raised. Defaults to False.</p>
 </dl>
 </li>
 </ul>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>String.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>String.</p>
 </dd>
 </dl>
 </dd></dl>

@@ -516,8 +516,8 @@
 
 <span class="sd">    Args:</span>
 
-<span class="sd">        * file_extension - A string such as &quot;pp&quot; or &quot;my_format&quot;.</span>
-<span class="sd">        * new_saver      - A function of the form ``my_saver(cube, target)``.</span>
+<span class="sd">    * file_extension: A string such as &quot;pp&quot; or &quot;my_format&quot;.</span>
+<span class="sd">    * new_saver:      A function of the form ``my_saver(cube, target)``.</span>
 
 <span class="sd">    See also :func:`iris.io.save`</span>
 
@@ -580,24 +580,27 @@
 
 <span class="sd">    Args:</span>
 
-<span class="sd">        * source    - A :class:`iris.cube.Cube`, :class:`iris.cube.CubeList` or</span>
-<span class="sd">                      sequence of cubes.</span>
-<span class="sd">        * target    - A filename (or writeable, depending on file format).</span>
-<span class="sd">                      When given a filename or file, Iris can determine the</span>
-<span class="sd">                      file format.</span>
+<span class="sd">    * source:</span>
+<span class="sd">        :class:`iris.cube.Cube`, :class:`iris.cube.CubeList` or</span>
+<span class="sd">        sequence of cubes.</span>
+<span class="sd">    * target:</span>
+<span class="sd">        A filename (or writeable, depending on file format).</span>
+<span class="sd">        When given a filename or file, Iris can determine the</span>
+<span class="sd">        file format.</span>
 
 <span class="sd">    Kwargs:</span>
 
-<span class="sd">        * saver     - Optional. Specifies the file format to save.</span>
-<span class="sd">                      If omitted, Iris will attempt to determine the format.</span>
+<span class="sd">    * saver:</span>
+<span class="sd">        Optional. Specifies the file format to save.</span>
+<span class="sd">        If omitted, Iris will attempt to determine the format.</span>
 
-<span class="sd">                      If a string, this is the recognised filename extension</span>
-<span class="sd">                      (where the actual filename may not have it).</span>
-<span class="sd">                      Otherwise the value is a saver function, of the form:</span>
-<span class="sd">                      ``my_saver(cube, target)`` plus any custom keywords. It</span>
-<span class="sd">                      is assumed that a saver will accept an ``append`` keyword</span>
-<span class="sd">                      if it&#39;s file format can handle multiple cubes. See also</span>
-<span class="sd">                      :func:`iris.io.add_saver`.</span>
+<span class="sd">        If a string, this is the recognised filename extension</span>
+<span class="sd">        (where the actual filename may not have it).</span>
+<span class="sd">        Otherwise the value is a saver function, of the form:</span>
+<span class="sd">        ``my_saver(cube, target)`` plus any custom keywords. It</span>
+<span class="sd">        is assumed that a saver will accept an ``append`` keyword</span>
+<span class="sd">        if it&#39;s file format can handle multiple cubes. See also</span>
+<span class="sd">        :func:`iris.io.add_saver`.</span>
 
 <span class="sd">    All other keywords are passed through to the saver function; see the</span>
 <span class="sd">    relevant saver documentation for more information on keyword arguments.</span>

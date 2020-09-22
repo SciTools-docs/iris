@@ -279,8 +279,9 @@ matplotlib cmap and norm keyword arguments.</p>
 </dl>
 </li>
 </ul>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>Closure wrapper function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Closure wrapper function.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -301,8 +302,9 @@ the cube.</p>
 </dl>
 </li>
 </ul>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>Tuple of <a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.colors.LinearSegmentedColormap.html#matplotlib.colors.LinearSegmentedColormap" title="(in Matplotlib v3.3.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.colors.LinearSegmentedColormap</span></code></a> and
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Tuple of <a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.colors.LinearSegmentedColormap.html#matplotlib.colors.LinearSegmentedColormap" title="(in Matplotlib v3.3.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.colors.LinearSegmentedColormap</span></code></a> and
 <a class="reference internal" href="#iris.palette.SymmetricNormalize" title="iris.palette.SymmetricNormalize"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.palette.SymmetricNormalize</span></code></a></p>
 </dd>
 </dl>
@@ -322,8 +324,9 @@ the cube.</p>
 </dl>
 </li>
 </ul>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>Boolean.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Boolean.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -336,6 +339,25 @@ the cube.</p>
 <dt id="iris.palette.SymmetricNormalize">
 <em class="property">class </em><code class="sig-prename descclassname">iris.palette.</code><code class="sig-name descname">SymmetricNormalize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pivot</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/iris/palette.html#SymmetricNormalize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iris.palette.SymmetricNormalize" title="Permalink to this definition">¶</a></dt>
 <dd><p>Provides a symmetric normalization class around a given pivot point.</p>
+<dl class="py method">
+<dt id="iris.palette.SymmetricNormalize.__call__">
+<code class="sig-name descname">__call__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em>, <em class="sig-param"><span class="n">clip</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.palette.SymmetricNormalize.__call__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Normalize <em>value</em> data in the <code class="docutils literal notranslate"><span class="pre">[vmin,</span> <span class="pre">vmax]</span></code> interval into the
+<code class="docutils literal notranslate"><span class="pre">[0.0,</span> <span class="pre">1.0]</span></code> interval and return it.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> – Data to normalize.</p></li>
+<li><p><strong>clip</strong> (<a class="reference external" href="https://docs.python.org/2.7/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) – If <code class="docutils literal notranslate"><span class="pre">None</span></code>, defaults to <code class="docutils literal notranslate"><span class="pre">self.clip</span></code> (which defaults to
+<code class="docutils literal notranslate"><span class="pre">False</span></code>).</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>If not already initialized, <code class="docutils literal notranslate"><span class="pre">self.vmin</span></code> and <code class="docutils literal notranslate"><span class="pre">self.vmax</span></code> are
+initialized using <code class="docutils literal notranslate"><span class="pre">self.autoscale_None(value)</span></code>.</p>
+</dd></dl>
+
 <dl class="py method">
 <dt id="iris.palette.SymmetricNormalize.autoscale">
 <code class="sig-name descname">autoscale</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">A</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.palette.SymmetricNormalize.autoscale" title="Permalink to this definition">¶</a></dt>
@@ -358,12 +380,16 @@ the cube.</p>
 <em class="property">static </em><code class="sig-name descname">process_value</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.palette.SymmetricNormalize.process_value" title="Permalink to this definition">¶</a></dt>
 <dd><p>Homogenize the input <em>value</em> for easy and efficient normalization.</p>
 <p><em>value</em> can be a scalar or sequence.</p>
-<dl class="simple">
-<dt>result<span class="classifier">masked array</span></dt><dd><p>Masked array with the same shape as <em>value</em>.</p>
-</dd>
-<dt>is_scalar<span class="classifier">bool</span></dt><dd><p>Whether <em>value</em> is a scalar.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p><strong>result</strong> (<em>masked array</em>) – Masked array with the same shape as <em>value</em>.</p></li>
+<li><p><strong>is_scalar</strong> (<em>bool</em>) – Whether <em>value</em> is a scalar.</p></li>
+</ul>
+</p>
 </dd>
 </dl>
+<p class="rubric">Notes</p>
 <p>Float dtypes are preserved; integer types with two bytes or smaller are
 converted to np.float32, and larger types are converted to np.float64.
 Preserving float32 when possible, and using in-place operations,

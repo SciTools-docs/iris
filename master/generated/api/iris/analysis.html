@@ -863,8 +863,9 @@ passed through to the data aggregation function.</p>
 </dl>
 </li>
 </ul>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>The aggregated data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The aggregated data.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -878,8 +879,9 @@ passed through to the data aggregation function.</p>
 <li><p>This function is intended to be used in conjunction with aggregate()
 and should be passed the same keywords.</p></li>
 </ul>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>A tuple of the aggregate shape.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A tuple of the aggregate shape.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -917,8 +919,9 @@ function.</p>
 </dl>
 </li>
 </ul>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>A lazy array representing the aggregation operation
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A lazy array representing the aggregation operation
 (<code class="xref py py-class docutils literal notranslate"><span class="pre">dask.array.Array</span></code>).</p>
 </dd>
 </dl>
@@ -958,8 +961,9 @@ function.</p>
 and should be passed the same keywords (for example, the “ddof”
 keyword from a standard deviation aggregator).</p></li>
 </ul>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>The collapsed cube with its aggregated data payload.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The collapsed cube with its aggregated data payload.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1071,8 +1075,9 @@ passed through to the data aggregation function.</p>
 </dl>
 </li>
 </ul>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>The aggregated data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The aggregated data.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1086,8 +1091,9 @@ passed through to the data aggregation function.</p>
 <li><p>This function is intended to be used in conjunction with aggregate()
 and should be passed the same keywords.</p></li>
 </ul>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>A tuple of the aggregate shape.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A tuple of the aggregate shape.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1125,8 +1131,9 @@ function.</p>
 </dl>
 </li>
 </ul>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>A lazy array representing the aggregation operation
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A lazy array representing the aggregation operation
 (<code class="xref py py-class docutils literal notranslate"><span class="pre">dask.array.Array</span></code>).</p>
 </dd>
 </dl>
@@ -1168,8 +1175,9 @@ from <a class="reference internal" href="#iris.analysis.Aggregator.aggregate" ti
 and should be passed the same keywords (for example, the “weights”
 keywords from a mean aggregator).</p></li>
 </ul>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>The collapsed cube with it’s aggregated data payload. Or a tuple
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The collapsed cube with it’s aggregated data payload. Or a tuple
 pair of (cube, weights) if the keyword “returned” is specified
 and True.</p>
 </dd>
@@ -1213,8 +1221,9 @@ keyword for a standard deviation aggregator).</p></li>
 </dl>
 </li>
 </ul>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>Boolean.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Boolean.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1291,11 +1300,9 @@ interpolated over.</p>
 </dl>
 </li>
 </ul>
-<dl>
-<dt>Returns:</dt><dd><p>A callable with the interface:</p>
-<blockquote>
-<div><p><cite>callable(sample_points, collapse_scalar=True)</cite></p>
-</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><p><cite>callable(sample_points, collapse_scalar=True)</cite></p>
 <p>where <cite>sample_points</cite> is a sequence containing an array of values
 for each of the coordinates passed to this method, and
 <cite>collapse_scalar</cite> determines whether to remove length one
@@ -1308,6 +1315,10 @@ cftime.datetime instances.</p>
 <cite>Linear().interpolator(cube, [‘latitude’, ‘longitude’])</cite>,
 sample_points must have the form
 <cite>[new_lat_values, new_lon_values]</cite>.</p>
+</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>A callable with the interface</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1337,13 +1348,15 @@ in horizontal dimensions will be combined before regridding.</p>
 </dl>
 </li>
 </ul>
-<dl>
-<dt>Returns:</dt><dd><p>A callable with the interface:</p>
-<blockquote>
-<div><p><cite>callable(cube)</cite></p>
-</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><p><cite>callable(cube)</cite></p>
 <p>where <cite>cube</cite> is a cube with the same grid as <cite>src_grid</cite>
 that is to be regridded to the <cite>target_grid</cite>.</p>
+</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>A callable with the interface</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1407,13 +1420,15 @@ in horizontal dimensions will be combined before regridding.</p>
 </dl>
 </li>
 </ul>
-<dl>
-<dt>Returns:</dt><dd><p>A callable with the interface:</p>
-<blockquote>
-<div><p><cite>callable(cube)</cite></p>
-</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><p><cite>callable(cube)</cite></p>
 <p>where <cite>cube</cite> is a cube with the same grid as <cite>src_grid_cube</cite>
 that is to be regridded to the grid of <cite>target_grid_cube</cite>.</p>
+</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>A callable with the interface</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1480,11 +1495,9 @@ interpolated over.</p>
 </dl>
 </li>
 </ul>
-<dl>
-<dt>Returns:</dt><dd><p>A callable with the interface:</p>
-<blockquote>
-<div><p><cite>callable(sample_points, collapse_scalar=True)</cite></p>
-</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><p><cite>callable(sample_points, collapse_scalar=True)</cite></p>
 <p>where <cite>sample_points</cite> is a sequence containing an array of values
 for each of the coordinates passed to this method, and
 <cite>collapse_scalar</cite> determines whether to remove length one
@@ -1497,6 +1510,10 @@ cftime.datetime instances.</p>
 <cite>Nearest().interpolator(cube, [‘latitude’, ‘longitude’])</cite>,
 sample_points must have the form
 <cite>[new_lat_values, new_lon_values]</cite>.</p>
+</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>A callable with the interface</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1526,13 +1543,15 @@ in horizontal dimensions will be combined before regridding.</p>
 </dl>
 </li>
 </ul>
-<dl>
-<dt>Returns:</dt><dd><p>A callable with the interface:</p>
-<blockquote>
-<div><p><cite>callable(cube)</cite></p>
-</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><p><cite>callable(cube)</cite></p>
 <p>where <cite>cube</cite> is a cube with the same grid as <cite>src_grid</cite>
 that is to be regridded to the <cite>target_grid</cite>.</p>
+</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>A callable with the interface</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1606,13 +1625,15 @@ All other cube components are ignored.</p>
 </dl>
 </li>
 </ul>
-<dl>
-<dt>Returns:</dt><dd><p>A callable with the interface:</p>
-<blockquote>
-<div><p><cite>callable(cube)</cite></p>
-</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><p><cite>callable(cube)</cite></p>
 <p>where <cite>cube</cite> is a cube with the same grid as <cite>src_cube</cite>
 that is to be regridded to the <cite>target_grid</cite>.</p>
+</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>A callable with the interface</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1676,13 +1697,15 @@ the <a class="reference internal" href="../../../userguide/interpolation_and_reg
 </dl>
 </li>
 </ul>
-<dl>
-<dt>Returns:</dt><dd><p>A callable with the interface:</p>
-<blockquote>
-<div><p><cite>callable(cube)</cite></p>
-</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><p><cite>callable(cube)</cite></p>
 <p>where <cite>cube</cite> is a cube with the same grid as <cite>src_grid</cite>
 that is to be regridded to the <cite>target_grid</cite>.</p>
+</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>A callable with the interface</p>
 </dd>
 </dl>
 </dd></dl>

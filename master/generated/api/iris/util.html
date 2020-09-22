@@ -354,8 +354,9 @@ cubes must have coordinates with the same metadata
 </dl>
 </li>
 </ul>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>A instance of <a class="reference internal" href="cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.cube.Cube</span></code></a> with the same dimensionality as
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A instance of <a class="reference internal" href="cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.cube.Cube</span></code></a> with the same dimensionality as
 <cite>target_cube</cite> but with the data and coordinates from <cite>src_cube</cite>
 suitably reshaped to fit.</p>
 </dd>
@@ -494,8 +495,9 @@ value if not specified.</p>
 </dl>
 </li>
 </ul>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>The string clipped to the required length with a rider appended.
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The string clipped to the required length with a rider appended.
 If the clip length was greater than the original string, the
 original string is returned unaltered.</p>
 </dd>
@@ -525,12 +527,11 @@ approach of [(3, 5), : , (1, 6, 8)] for column based indexing.</p>
 <dt id="iris.util.create_temp_filename">
 <code class="sig-prename descclassname">iris.util.</code><code class="sig-name descname">create_temp_filename</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">suffix</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/iris/util.html#create_temp_filename"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iris.util.create_temp_filename" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a temporary file name.</p>
-<p>Args:</p>
-<blockquote>
-<div><ul class="simple">
-<li><p>suffix  -  Optional filename extension.</p></li>
-</ul>
-</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>suffix  -  Optional filename extension.</strong> (<em>*</em>) – </p>
+</dd>
+</dl>
 </dd></dl>
 
 <p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
@@ -722,10 +723,12 @@ URIs.</p>
 </dl>
 </li>
 </ul>
-<dl>
-<dt>Returns:</dt><dd><p>True if all the sources are older than the result, else False.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><p>True if all the sources are older than the result, else False.</p>
 <p>If any of the file paths describes no existing files, an exception will
 be raised.</p>
+</p>
 </dd>
 </dl>
 <div class="admonition note">
@@ -830,8 +833,9 @@ function on a piecewise basis.</p>
 </dl>
 </li>
 </ul>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>‘T’, ‘Z’, ‘Y’, ‘X’, or None.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>‘T’, ‘Z’, ‘Y’, ‘X’, or None.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -936,8 +940,9 @@ coordinate if specified.</p>
 </dl>
 </li>
 </ul>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>A new <a class="reference internal" href="cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.cube.Cube</span></code></a> instance with one extra leading dimension
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A new <a class="reference internal" href="cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.cube.Cube</span></code></a> instance with one extra leading dimension
 (length 1).</p>
 </dd>
 </dl>
@@ -1102,11 +1107,12 @@ these) may be specified instead.</p>
 </dl>
 </li>
 </ul>
-<p>Returns:</p>
-<blockquote>
-<div><p>Array that is a view of the original array with an added dimension
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Array that is a view of the original array with an added dimension
 of the size of the given window at axis + 1.</p>
-</div></blockquote>
+</dd>
+</dl>
 <p>Examples:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">rolling_window</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
@@ -1137,8 +1143,9 @@ AuxCoord, this becomes a scalar coord.</p>
 </dl>
 </li>
 </ul>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>A new <a class="reference internal" href="cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.cube.Cube</span></code></a> instance without any dimensions of
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A new <a class="reference internal" href="cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.cube.Cube</span></code></a> instance without any dimensions of
 length 1.</p>
 </dd>
 </dl>

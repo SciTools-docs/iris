@@ -281,12 +281,10 @@
 <code class="sig-prename descclassname">iris.io.</code><code class="sig-name descname">add_saver</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">file_extension</span></em>, <em class="sig-param"><span class="n">new_saver</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/iris/io.html#add_saver"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iris.io.add_saver" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a custom saver to the Iris session.</p>
 <p>Args:</p>
-<blockquote>
-<div><ul class="simple">
-<li><p>file_extension - A string such as “pp” or “my_format”.</p></li>
-<li><p>new_saver      - A function of the form <code class="docutils literal notranslate"><span class="pre">my_saver(cube,</span> <span class="pre">target)</span></code>.</p></li>
+<ul class="simple">
+<li><p>file_extension: A string such as “pp” or “my_format”.</p></li>
+<li><p>new_saver:      A function of the form <code class="docutils literal notranslate"><span class="pre">my_saver(cube,</span> <span class="pre">target)</span></code>.</p></li>
 </ul>
-</div></blockquote>
 <p>See also <a class="reference internal" href="#iris.io.save" title="iris.io.save"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.io.save()</span></code></a></p>
 </dd></dl>
 
@@ -298,8 +296,8 @@
 <dd><p>Decodes a single URI into scheme and scheme-specific parts.</p>
 <p>In addition to well-formed URIs, it also supports bare file paths.
 Both Windows and UNIX style paths are accepted.</p>
-<dl>
-<dt>Examples:</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">iris.io</span> <span class="kn">import</span> <span class="n">decode_uri</span>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">iris.io</span> <span class="kn">import</span> <span class="n">decode_uri</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">decode_uri</span><span class="p">(</span><span class="s1">&#39;http://www.thing.com:8080/resource?id=a:b&#39;</span><span class="p">))</span>
 <span class="go">(&#39;http&#39;, &#39;//www.thing.com:8080/resource?id=a:b&#39;)</span>
 </pre></div>
@@ -324,8 +322,6 @@ Both Windows and UNIX style paths are accepted.</p>
 <span class="go">(&#39;file&#39;, &#39;dataZoo/...&#39;)</span>
 </pre></div>
 </div>
-</dd>
-</dl>
 </dd></dl>
 
 <p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
@@ -342,8 +338,9 @@ Both Windows and UNIX style paths are accepted.</p>
 </dl>
 </li>
 </ul>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>A well-ordered list of matching absolute file paths.
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A well-ordered list of matching absolute file paths.
 If any of the file-specs match no existing files, an
 exception is raised.</p>
 </dd>
@@ -356,14 +353,12 @@ exception is raised.</p>
 <dt id="iris.io.find_saver">
 <code class="sig-prename descclassname">iris.io.</code><code class="sig-name descname">find_saver</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filespec</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/iris/io.html#find_saver"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iris.io.find_saver" title="Permalink to this definition">¶</a></dt>
 <dd><p>Find the saver function appropriate to the given filename or extension.</p>
-<p>Args:</p>
-<blockquote>
-<div><ul class="simple">
-<li><p>filespec - A string such as “my_file.pp” or “PP”.</p></li>
-</ul>
-</div></blockquote>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>A save function or None.
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>filespec - A string such as &quot;my_file.pp&quot;</strong><strong> or </strong><strong>&quot;PP&quot;.</strong> (<em>*</em>) – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A save function or None.
 Save functions can be passed to <a class="reference internal" href="#iris.io.save" title="iris.io.save"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.io.save()</span></code></a>.</p>
 </dd>
 </dl>
@@ -465,26 +460,26 @@ recognise by filename extension:</p>
 <p>A custom saver can be provided to the function to write to a different
 file format.</p>
 <p>Args:</p>
-<blockquote>
-<div><ul class="simple">
+<ul class="simple">
 <li><dl class="simple">
-<dt>source    - A <a class="reference internal" href="cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.cube.Cube</span></code></a>, <a class="reference internal" href="cube.html#iris.cube.CubeList" title="iris.cube.CubeList"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.cube.CubeList</span></code></a> or</dt><dd><p>sequence of cubes.</p>
+<dt>source:</dt><dd><p><a class="reference internal" href="cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.cube.Cube</span></code></a>, <a class="reference internal" href="cube.html#iris.cube.CubeList" title="iris.cube.CubeList"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.cube.CubeList</span></code></a> or
+sequence of cubes.</p>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>target    - A filename (or writeable, depending on file format).</dt><dd><p>When given a filename or file, Iris can determine the
+<dt>target:</dt><dd><p>A filename (or writeable, depending on file format).
+When given a filename or file, Iris can determine the
 file format.</p>
 </dd>
 </dl>
 </li>
 </ul>
-</div></blockquote>
 <p>Kwargs:</p>
-<blockquote>
-<div><ul>
+<ul>
 <li><dl>
-<dt>saver     - Optional. Specifies the file format to save.</dt><dd><p>If omitted, Iris will attempt to determine the format.</p>
+<dt>saver:</dt><dd><p>Optional. Specifies the file format to save.
+If omitted, Iris will attempt to determine the format.</p>
 <p>If a string, this is the recognised filename extension
 (where the actual filename may not have it).
 Otherwise the value is a saver function, of the form:
@@ -496,7 +491,6 @@ if it’s file format can handle multiple cubes. See also
 </dl>
 </li>
 </ul>
-</div></blockquote>
 <p>All other keywords are passed through to the saver function; see the
 relevant saver documentation for more information on keyword arguments.</p>
 <p>Examples:</p>

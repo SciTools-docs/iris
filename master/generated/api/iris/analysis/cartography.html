@@ -371,12 +371,11 @@ analyses):</p>
 <dt id="iris.analysis.cartography.get_xy_grids">
 <code class="sig-prename descclassname">iris.analysis.cartography.</code><code class="sig-name descname">get_xy_grids</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cube</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/iris/analysis/cartography.html#get_xy_grids"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iris.analysis.cartography.get_xy_grids" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return 2D X and Y points for a given cube.</p>
-<p>Args:</p>
-<blockquote>
-<div><ul class="simple">
-<li><p>cube - The cube for which to generate 2D X and Y points.</p></li>
-</ul>
-</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cube - The cube for which to generate 2D X and Y points.</strong> (<em>*</em>) – </p>
+</dd>
+</dl>
 <p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">get_xy_grids</span><span class="p">(</span><span class="n">cube</span><span class="p">)</span>
 </pre></div>
@@ -442,9 +441,9 @@ pairs of corners.  The default is ‘mid-lhs, mid-rhs’.</p>
 </dl>
 </li>
 </ul>
-<p>Returns:</p>
-<blockquote>
-<div><p>angles : (2-dimensional cube)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><p>(2-dimensional cube)</p>
 <blockquote>
 <div><p>Cube of angles of grid-x vector from true Eastward direction for
 each gridcell, in degrees.
@@ -460,7 +459,12 @@ output coords have matching points and no bounds.
 When the input is 3d arrays, then the output coords have matching
 bounds, and the centrepoints are an average of the 4 boundpoints.</p>
 </div></blockquote>
-</div></blockquote>
+</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>angles</p>
+</dd>
+</dl>
 </dd></dl>
 
 <p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
@@ -475,22 +479,17 @@ a specified projection e.g. Robinson or Polar Stereographic.
 This function is intended to be used in cases where the cube’s coordinates
 prevent one from directly visualising the data, e.g. when the longitude
 and latitude are two dimensional and do not make up a regular grid.</p>
-<dl class="simple">
-<dt>Args:</dt><dd><ul class="simple">
-<li><dl class="simple">
-<dt>cube</dt><dd><p>An instance of <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.cube.Cube</span></code></a>.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>target_proj</dt><dd><p>An instance of the Cartopy Projection class, or an instance of
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cube</strong> (<em>*</em>) – An instance of <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.cube.Cube</span></code></a>.</p></li>
+<li><p><strong>target_proj</strong> (<em>*</em>) – An instance of the Cartopy Projection class, or an instance of
 <a class="reference internal" href="../coord_systems.html#iris.coord_systems.CoordSystem" title="iris.coord_systems.CoordSystem"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.coord_systems.CoordSystem</span></code></a> from which a projection
-will be obtained.</p>
-</dd>
-</dl>
-</li>
+will be obtained.</p></li>
 </ul>
 </dd>
+</dl>
+<dl class="simple">
 <dt>Kwargs:</dt><dd><ul class="simple">
 <li><dl class="simple">
 <dt>nx</dt><dd><p>Desired number of sample points in the x direction for a domain
@@ -506,7 +505,10 @@ covering the globe.</p>
 </li>
 </ul>
 </dd>
-<dt>Returns:</dt><dd><p>An instance of <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.cube.Cube</span></code></a> and a list describing the
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>An instance of <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.cube.Cube</span></code></a> and a list describing the
 extent of the projection.</p>
 </dd>
 </dl>
@@ -584,10 +586,10 @@ method, if it is used.</p>
 </dl>
 </li>
 </ul>
-<p>Returns:</p>
-<blockquote>
-<div><dl class="simple">
-<dt>true_u, true_v<span class="classifier">(cube)</span></dt><dd><p>Cubes of true-north oriented vector components.
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><dl class="simple">
+<dt>(cube)</dt><dd><p>Cubes of true-north oriented vector components.
 Units are same as inputs.</p>
 </dd>
 </dl>
@@ -595,7 +597,12 @@ Units are same as inputs.</p>
 <p class="admonition-title">Note</p>
 <p>Vector magnitudes will always be the same as the inputs.</p>
 </div>
-</div></blockquote>
+</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>true_u, true_v</p>
+</dd>
+</dl>
 </dd></dl>
 
 <p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
@@ -618,35 +625,19 @@ shape as each other.</p>
 <p class="admonition-title">Note</p>
 <p>Uses proj.4 to perform the conversion.</p>
 </div>
-<p>Args:</p>
-<blockquote>
-<div><ul class="simple">
-<li><dl class="simple">
-<dt>lons:</dt><dd><p>An array of longitude values.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>lats:</dt><dd><p>An array of latitude values.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>pole_lon:</dt><dd><p>The longitude of the rotated pole that the arrays of longitudes and
-latitudes are to be rotated onto.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>pole_lat:</dt><dd><p>The latitude of the rotated pole that the arrays of longitudes and
-latitudes are to be rotated onto.</p>
-</dd>
-</dl>
-</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lons</strong> (<em>*</em>) – An array of longitude values.</p></li>
+<li><p><strong>lats</strong> (<em>*</em>) – An array of latitude values.</p></li>
+<li><p><strong>pole_lon</strong> (<em>*</em>) – The longitude of the rotated pole that the arrays of longitudes and
+latitudes are to be rotated onto.</p></li>
+<li><p><strong>pole_lat</strong> (<em>*</em>) – The latitude of the rotated pole that the arrays of longitudes and
+latitudes are to be rotated onto.</p></li>
 </ul>
-</div></blockquote>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>An array of rotated-pole longitudes and an array of rotated-pole
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>An array of rotated-pole longitudes and an array of rotated-pole
 latitudes.</p>
 </dd>
 </dl>
@@ -688,8 +679,9 @@ the new grid directions.</p>
 </dl>
 </li>
 </ul>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>A (u’, v’) tuple of <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.cube.Cube</span></code></a> instances that are the u
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A (u’, v’) tuple of <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.cube.Cube</span></code></a> instances that are the u
 and v components in the requested target coordinate system.
 The units are the same as the inputs.</p>
 </dd>
@@ -735,35 +727,19 @@ be of the same shape as each other.</p>
 <p class="admonition-title">Note</p>
 <p>Uses proj.4 to perform the conversion.</p>
 </div>
-<p>Args:</p>
-<blockquote>
-<div><ul class="simple">
-<li><dl class="simple">
-<dt>rotated_lons:</dt><dd><p>An array of rotated-pole longitude values.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>rotated_lats:</dt><dd><p>An array of rotated-pole latitude values.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>pole_lon:</dt><dd><p>The longitude of the rotated pole that describes the arrays of
-rotated-pole longitudes and latitudes.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>pole_lat:</dt><dd><p>The latitude of the rotated pole that describes the arrays of
-rotated-pole longitudes and latitudes.</p>
-</dd>
-</dl>
-</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>rotated_lons</strong> (<em>*</em>) – An array of rotated-pole longitude values.</p></li>
+<li><p><strong>rotated_lats</strong> (<em>*</em>) – An array of rotated-pole latitude values.</p></li>
+<li><p><strong>pole_lon</strong> (<em>*</em>) – The longitude of the rotated pole that describes the arrays of
+rotated-pole longitudes and latitudes.</p></li>
+<li><p><strong>pole_lat</strong> (<em>*</em>) – The latitude of the rotated pole that describes the arrays of
+rotated-pole longitudes and latitudes.</p></li>
 </ul>
-</div></blockquote>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>An array of unrotated longitudes and an array of unrotated latitudes.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>An array of unrotated longitudes and an array of unrotated latitudes.</p>
 </dd>
 </dl>
 </dd></dl>

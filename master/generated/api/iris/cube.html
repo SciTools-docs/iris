@@ -388,6 +388,22 @@ and <a class="reference internal" href="#iris.cube.Cube.add_aux_coord" title="ir
 </dd>
 </dl>
 <dl class="py method">
+<dt id="iris.cube.Cube.__copy__">
+<code class="sig-name descname">__copy__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/iris/cube.html#Cube.__copy__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iris.cube.Cube.__copy__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shallow copying is disallowed for Cubes.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="iris.cube.Cube.__getitem__">
+<code class="sig-name descname">__getitem__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">keys</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/iris/cube.html#Cube.__getitem__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iris.cube.Cube.__getitem__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cube indexing (through use of square bracket notation) has been
+implemented at the data level. That is, the indices provided to this
+method should be aligned to the data of the cube, and thus the indices
+requested must be applicable directly to the cube.data attribute. All
+metadata will be subsequently indexed appropriately.</p>
+</dd></dl>
+
+<dl class="py method">
 <dt id="iris.cube.Cube.add_ancillary_variable">
 <code class="sig-name descname">add_ancillary_variable</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ancillary_variable</span></em>, <em class="sig-param"><span class="n">data_dims</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/iris/cube.html#Cube.add_ancillary_variable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iris.cube.Cube.add_ancillary_variable" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adds a CF ancillary variable to the cube.</p>
@@ -544,8 +560,9 @@ performed.</p>
 </dl>
 </li>
 </ul>
-<dl class="simple">
-<dt>Returns:</dt><dd><p><a class="reference internal" href="#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.cube.Cube</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.cube.Cube</span></code></a>.</p>
 </dd>
 </dl>
 <p>For example:</p>
@@ -766,8 +783,9 @@ collapsed.</p>
 </dl>
 </li>
 </ul>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>Collapsed cube.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Collapsed cube.</p>
 </dd>
 </dl>
 <p>For example:</p>
@@ -902,8 +920,9 @@ systems within the <a class="reference internal" href="#iris.cube.Cube" title="i
 </dl>
 </li>
 </ul>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>The <a class="reference internal" href="coord_systems.html#iris.coord_systems.CoordSystem" title="iris.coord_systems.CoordSystem"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.coord_systems.CoordSystem</span></code></a> or None.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The <a class="reference internal" href="coord_systems.html#iris.coord_systems.CoordSystem" title="iris.coord_systems.CoordSystem"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.coord_systems.CoordSystem</span></code></a> or None.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1003,8 +1022,9 @@ returns all coordinates.</p>
 </dl>
 </li>
 </ul>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>A copy instance of the <a class="reference internal" href="#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A copy instance of the <a class="reference internal" href="#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a>.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1031,8 +1051,9 @@ on real or lazy data, and will maintain lazy data if present.</p>
 <dt id="iris.cube.Cube.has_lazy_data">
 <code class="sig-name descname">has_lazy_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/iris/cube.html#Cube.has_lazy_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iris.cube.Cube.has_lazy_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Details whether this <a class="reference internal" href="#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a> has lazy data.</p>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>Boolean.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Boolean.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1075,8 +1096,9 @@ in the resulting cube. Default is True.</p>
 </dl>
 </li>
 </ul>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>A cube interpolated at the given sample points.
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A cube interpolated at the given sample points.
 If <cite>collapse_scalar</cite> is True then the dimensionality of the cube
 will be the number of original cube dimensions minus
 the number of scalar coordinates.</p>
@@ -1185,8 +1207,9 @@ coordinates (as defined in the previous note.)</p>
 <span class="go">[-7.50012207 -3.75012207  0.          3.75        7.5       ]</span>
 </pre></div>
 </div>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>A new <a class="reference internal" href="#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a> giving the subset of the cube
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A new <a class="reference internal" href="#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a> giving the subset of the cube
 which intersects with the requested coordinate intervals.</p>
 </dd>
 </dl>
@@ -1215,8 +1238,9 @@ this to other.attributes.</p>
 </dl>
 </li>
 </ul>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>Boolean.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Boolean.</p>
 </dd>
 </dl>
 <div class="admonition seealso">
@@ -1246,8 +1270,9 @@ will not cause the Cube data to be loaded.</p>
 loaded cube data represented as a lazy array object. Note that this
 does _not_ make the Cube data lazy again; the Cube data remains loaded
 in memory.</p>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>A lazy array, representing the Cube data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A lazy array, representing the Cube data.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1276,8 +1301,9 @@ raised. Defaults to False.</p>
 </dl>
 </li>
 </ul>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>String.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>String.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1311,13 +1337,15 @@ target grid. The regridding schemes in Iris currently include:</p>
 </dl>
 </li>
 </ul>
-<dl>
-<dt>Returns:</dt><dd><p>A cube defined with the horizontal dimensions of the target grid
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><p>A cube defined with the horizontal dimensions of the target grid
 and the other dimensions from this cube. The data values of
 this cube will be converted to values on the new grid
 according to the given regridding scheme.</p>
 <p>The returned cube will have lazy data if the original cube has
 lazy data and the regridding scheme supports lazy regridding.</p>
+</p>
 </dd>
 </dl>
 <div class="admonition note">
@@ -1442,8 +1470,9 @@ same length as the chosen window.</p>
 </dl>
 </li>
 </ul>
-<dl class="simple">
-<dt>Returns:</dt><dd><p><a class="reference internal" href="#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.cube.Cube</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.cube.Cube</span></code></a>.</p>
 </dd>
 </dl>
 <div class="admonition note">
@@ -1525,8 +1554,9 @@ the source cube.  Default is True.</p>
 </dl>
 </li>
 </ul>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>An iterator of subcubes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>An iterator of subcubes.</p>
 </dd>
 </dl>
 <p>For example, to get all 2d longitude/latitude subcubes from a
@@ -1556,8 +1586,9 @@ A mix of input types can also be provided.</p>
 </dl>
 </li>
 </ul>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>An iterator of subcubes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>An iterator of subcubes.</p>
 </dd>
 </dl>
 <p>For example, to get all subcubes along the time dimension:</p>
@@ -1765,6 +1796,37 @@ context.</p>
 <em class="property">class </em><code class="sig-prename descclassname">iris.cube.</code><code class="sig-name descname">CubeList</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">list_of_cubes</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/iris/cube.html#CubeList"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iris.cube.CubeList" title="Permalink to this definition">¶</a></dt>
 <dd><p>Given a <code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code> of cubes, return a CubeList instance.</p>
 <dl class="py method">
+<dt id="iris.cube.CubeList.__getitem__">
+<code class="sig-name descname">__getitem__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">keys</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/iris/cube.html#CubeList.__getitem__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iris.cube.CubeList.__getitem__" title="Permalink to this definition">¶</a></dt>
+<dd><p>x.__getitem__(y) &lt;==&gt; x[y]</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="iris.cube.CubeList.__getslice__">
+<code class="sig-name descname">__getslice__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">start</span></em>, <em class="sig-param"><span class="n">stop</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/iris/cube.html#CubeList.__getslice__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iris.cube.CubeList.__getslice__" title="Permalink to this definition">¶</a></dt>
+<dd><p>x.__getslice__(i, j) &lt;==&gt; x[i:j]</p>
+<p>Use of negative indices is not supported.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="iris.cube.CubeList.__new__">
+<em class="property">static </em><code class="sig-name descname">__new__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cls</span></em>, <em class="sig-param"><span class="n">list_of_cubes</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/iris/cube.html#CubeList.__new__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iris.cube.CubeList.__new__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a <code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code> of cubes, return a CubeList instance.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="iris.cube.CubeList.__repr__">
+<code class="sig-name descname">__repr__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/iris/cube.html#CubeList.__repr__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iris.cube.CubeList.__repr__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Runs repr on every cube.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="iris.cube.CubeList.__str__">
+<code class="sig-name descname">__str__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/iris/cube.html#CubeList.__str__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iris.cube.CubeList.__str__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Runs short <a class="reference internal" href="#iris.cube.Cube.summary" title="iris.cube.Cube.summary"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Cube.summary()</span></code></a> on every cube.</p>
+</dd></dl>
+
+<dl class="py method">
 <dt id="iris.cube.CubeList.append">
 <code class="sig-name descname">append</code><span class="sig-paren">(</span><em class="sig-param">object</em>, <em class="sig-param">/</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.cube.CubeList.append" title="Permalink to this definition">¶</a></dt>
 <dd><p>Append object to the end of the list.</p>
@@ -1804,8 +1866,9 @@ the concatenation is occurring along. Defaults to True.</p>
 </dl>
 </li>
 </ul>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>A new <a class="reference internal" href="#iris.cube.CubeList" title="iris.cube.CubeList"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.cube.CubeList</span></code></a> of concatenated
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A new <a class="reference internal" href="#iris.cube.CubeList" title="iris.cube.CubeList"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.cube.CubeList</span></code></a> of concatenated
 <a class="reference internal" href="#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.cube.Cube</span></code></a> instances.</p>
 </dd>
 </dl>

@@ -382,8 +382,9 @@ documentation for <a class="reference internal" href="#module-iris" title="iris"
 </dl>
 </li>
 </ul>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>An <a class="reference internal" href="iris/cube.html#iris.cube.CubeList" title="iris.cube.CubeList"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.cube.CubeList</span></code></a>. Note that there is no inherent order
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>An <a class="reference internal" href="iris/cube.html#iris.cube.CubeList" title="iris.cube.CubeList"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.cube.CubeList</span></code></a>. Note that there is no inherent order
 to this <a class="reference internal" href="iris/cube.html#iris.cube.CubeList" title="iris.cube.CubeList"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.cube.CubeList</span></code></a> and it should be treated as if it
 were random.</p>
 </dd>
@@ -419,8 +420,9 @@ documentation for <a class="reference internal" href="#module-iris" title="iris"
 </dl>
 </li>
 </ul>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>An <a class="reference internal" href="iris/cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.cube.Cube</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>An <a class="reference internal" href="iris/cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.cube.Cube</span></code></a>.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -454,8 +456,9 @@ documentation for <a class="reference internal" href="#module-iris" title="iris"
 </dl>
 </li>
 </ul>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>An <a class="reference internal" href="iris/cube.html#iris.cube.CubeList" title="iris.cube.CubeList"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.cube.CubeList</span></code></a>. Note that there is no inherent order
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>An <a class="reference internal" href="iris/cube.html#iris.cube.CubeList" title="iris.cube.CubeList"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.cube.CubeList</span></code></a>. Note that there is no inherent order
 to this <a class="reference internal" href="iris/cube.html#iris.cube.CubeList" title="iris.cube.CubeList"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.cube.CubeList</span></code></a> and it should be treated as if it
 were random.</p>
 </dd>
@@ -496,8 +499,9 @@ documentation for <a class="reference internal" href="#module-iris" title="iris"
 </dl>
 </li>
 </ul>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>An <a class="reference internal" href="iris/cube.html#iris.cube.CubeList" title="iris.cube.CubeList"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.cube.CubeList</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>An <a class="reference internal" href="iris/cube.html#iris.cube.CubeList" title="iris.cube.CubeList"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.cube.CubeList</span></code></a>.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -538,26 +542,26 @@ recognise by filename extension:</p>
 <p>A custom saver can be provided to the function to write to a different
 file format.</p>
 <p>Args:</p>
-<blockquote>
-<div><ul class="simple">
+<ul class="simple">
 <li><dl class="simple">
-<dt>source    - A <a class="reference internal" href="iris/cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.cube.Cube</span></code></a>, <a class="reference internal" href="iris/cube.html#iris.cube.CubeList" title="iris.cube.CubeList"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.cube.CubeList</span></code></a> or</dt><dd><p>sequence of cubes.</p>
+<dt>source:</dt><dd><p><a class="reference internal" href="iris/cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.cube.Cube</span></code></a>, <a class="reference internal" href="iris/cube.html#iris.cube.CubeList" title="iris.cube.CubeList"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.cube.CubeList</span></code></a> or
+sequence of cubes.</p>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>target    - A filename (or writeable, depending on file format).</dt><dd><p>When given a filename or file, Iris can determine the
+<dt>target:</dt><dd><p>A filename (or writeable, depending on file format).
+When given a filename or file, Iris can determine the
 file format.</p>
 </dd>
 </dl>
 </li>
 </ul>
-</div></blockquote>
 <p>Kwargs:</p>
-<blockquote>
-<div><ul>
+<ul>
 <li><dl>
-<dt>saver     - Optional. Specifies the file format to save.</dt><dd><p>If omitted, Iris will attempt to determine the format.</p>
+<dt>saver:</dt><dd><p>Optional. Specifies the file format to save.
+If omitted, Iris will attempt to determine the format.</p>
 <p>If a string, this is the recognised filename extension
 (where the actual filename may not have it).
 Otherwise the value is a saver function, of the form:
@@ -569,7 +573,6 @@ if it’s file format can handle multiple cubes. See also
 </dl>
 </li>
 </ul>
-</div></blockquote>
 <p>All other keywords are passed through to the saver function; see the
 relevant saver documentation for more information on keyword arguments.</p>
 <p>Examples:</p>

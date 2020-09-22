@@ -336,8 +336,9 @@ See the description in <a class="reference internal" href="#iris.fileformats.rul
 </dl>
 </li>
 </ul>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>An iterable of (<a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.cube.Cube</span></code></a>, field) pairs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>An iterable of (<a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.cube.Cube</span></code></a>, field) pairs.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -540,6 +541,31 @@ returns an iterable of field objects.</p>
 </dl>
 </li>
 </ul>
+<dl class="py method">
+<dt id="iris.fileformats.rules.Loader.__new__">
+<em class="property">static </em><code class="sig-name descname">__new__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cls</span></em>, <em class="sig-param"><span class="n">field_generator</span></em>, <em class="sig-param"><span class="n">field_generator_kwargs</span></em>, <em class="sig-param"><span class="n">converter</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/iris/fileformats/rules.html#Loader.__new__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iris.fileformats.rules.Loader.__new__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a definition of a field-based Cube loader.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>field_generator</dt><dd><p>A callable that accepts a filename as its first argument and
+returns an iterable of field objects.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>field_generator_kwargs</dt><dd><p>Additional arguments to be passed to the field_generator.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>converter</dt><dd><p>A callable that converts a field object into a Cube.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd></dl>
+
 <dl class="py method">
 <dt id="iris.fileformats.rules.Loader.count">
 <code class="sig-name descname">count</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">/</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.rules.Loader.count" title="Permalink to this definition">¶</a></dt>
