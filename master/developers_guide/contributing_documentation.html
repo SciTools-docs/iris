@@ -269,11 +269,9 @@ achieved via:</p>
 <p>This is useful for a final test before committing your changes.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>In addition to the automated <a class="reference external" href="https://travis-ci.org/github/SciTools/iris">travis-ci</a>  build of the documentation,
-the <a class="reference external" href="https://readthedocs.org/">https://readthedocs.org/</a> service is also used.  The configuration
-of this held in a file in the root of the
-<a class="reference external" href="https://github.com/SciTools/iris">github Iris project</a>  named
-<code class="docutils literal notranslate"><span class="pre">.readthedocs.yml</span></code>.</p>
+<p>In order to preserve a clean build for the html, all <strong>warnings</strong>
+have been promoted to be <strong>errors</strong> to ensure they are addressed.
+This <strong>only</strong> applies when <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">html</span></code> is run.</p>
 </div>
 </div>
 <div class="section" id="testing">
@@ -305,8 +303,12 @@ adding it to the <code class="docutils literal notranslate"><span class="pre">li
 or ignore the url.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>All of the above tests are automatically run as part of the
-<a class="reference external" href="https://travis-ci.org/github/SciTools/iris">travis-ci</a>  automated build.</p>
+<p>In addition to the automated <a class="reference external" href="https://travis-ci.org/github/SciTools/iris">travis-ci</a> build of all the
+documentation build options above, the
+<a class="reference external" href="https://readthedocs.org/">https://readthedocs.org/</a> service is also used.  The configuration
+of this held in a file in the root of the
+<a class="reference external" href="https://github.com/SciTools/iris">github Iris project</a>  named
+<code class="docutils literal notranslate"><span class="pre">.readthedocs.yml</span></code>.</p>
 </div>
 </div>
 <div class="section" id="generating-api-documentation">
