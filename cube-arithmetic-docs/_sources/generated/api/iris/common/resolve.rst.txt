@@ -16,7 +16,7 @@ In this module:
 
 
 At present, :class:`~iris.common.resolve.Resolve` is used by Iris solely
-during cube arithmetic to combine a left-hand :class:`~iris.cube.Cube`
+during cube maths to combine a left-hand :class:`~iris.cube.Cube`
 operand and a right-hand :class:`~iris.cube.Cube` operand into a resultant
 :class:`~iris.cube.Cube` with common metadata, suitably auto-transposed
 dimensions, and an appropriate broadcast shape.
@@ -65,6 +65,7 @@ create the resultant resolved :class:`~iris.cube.Cube`, e.g.,
               source: Data from Met Office Unified Model 6.05
          Cell methods:
               mean: time (6 hour)
+
     >>> print(cube2)
     air_temperature / (K)               (longitude: 49; latitude: 37)
          Dimension coordinates:
@@ -82,6 +83,7 @@ create the resultant resolved :class:`~iris.cube.Cube`, e.g.,
               source: Data from Met Office Unified Model 6.05
          Cell methods:
               mean: time (6 hour)
+
     >>> print(data.shape)
     (240, 37, 49)
     >>> resolver = Resolve(cube1, cube2)

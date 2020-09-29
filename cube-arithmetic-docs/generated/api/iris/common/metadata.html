@@ -112,23 +112,30 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../userguide/loading_iris_cubes.html">Loading Iris cubes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../userguide/saving_iris_cubes.html">Saving Iris cubes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../userguide/navigating_a_cube.html">Navigating a cube</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/subsetting_a_cube.html">Subsetting a Cube</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/real_and_lazy_data.html">Real and Lazy Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/subsetting_a_cube.html">Subsetting a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/real_and_lazy_data.html">Real and lazy data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../userguide/plotting_a_cube.html">Plotting a cube</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../userguide/interpolation_and_regridding.html">Cube interpolation and regridding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../userguide/merge_and_concat.html">Merge and concatenate</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../userguide/cube_statistics.html">Cube statistics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/cube_maths.html">Basic cube mathematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/cube_maths.html">Cube maths</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../userguide/citation.html">Citing Iris</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../userguide/code_maintenance.html">Code maintenance</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Further Topics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../further_topics/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../further_topics/metadata.html">Metadata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../further_topics/lenient_metadata.html">Lenient metadata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../further_topics/lenient_maths.html">Lenient cube maths</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Developers Guide</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../../developers_guide/contributing_documentation.html">Contributing to the documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../developers_guide/documenting/index.html">Documentation in Iris</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../developers_guide/gitwash/index.html">Working with <em>iris</em> source code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developers_guide/gitwash/index.html">Working with Iris source code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../developers_guide/code_format.html">Code formatting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../developers_guide/pulls.html">Pull request check List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developers_guide/pulls.html">Pull request check list</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../developers_guide/tests.html">Testing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../developers_guide/deprecations.html">Deprecations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../developers_guide/release.html">Releases</a></li>
@@ -166,7 +173,7 @@
 <p class="caption"><span class="caption-text">Reference</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../whatsnew/index.html">What’s new in Iris</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../techpapers/index.html">Iris Technical Papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../techpapers/index.html">Iris technical papers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../copyright.html">Iris copyright, licensing and contributors</a></li>
 </ul>
 
@@ -185,13 +192,13 @@
         </p>
         <ul>
             
-                <li class="toctree-l1"><a href="https://github.com/SciTools/iris"><i class="fa fa-github fa-fw"></i> Source Code</a></li>
+                <li class="toctree-l1"><a href="https://github.com/SciTools/iris"><i class="fa fa-github fa-fw"></i> Source code</a></li>
             
                 <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris"><i class="fa fa-comments fa-fw"></i> Users Google Group</a></li>
             
                 <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris-dev"><i class="fa fa-comments fa-fw"></i> Developers Google Group</a></li>
             
-                <li class="toctree-l1"><a href="https://stackoverflow.com/questions/tagged/python-iris"><i class="fa fa-question fa-fw"></i> StackOverflow For "How do I?"</a></li>
+                <li class="toctree-l1"><a href="https://stackoverflow.com/questions/tagged/python-iris"><i class="fa fa-question fa-fw"></i> StackOverflow for "How do I?"</a></li>
             
                 <li class="toctree-l1"><a href="https://scitools.org.uk/iris/docs/v2.4.0/index.html"><i class="fa fa-book fa-fw"></i> Legacy documentation</a></li>
             
@@ -415,7 +422,22 @@ detect whether this lenient operation is enabled.</p>
 <dl class="py method">
 <dt id="iris.common.metadata.AncillaryVariableMetadata.from_metadata">
 <em class="property">classmethod </em><code class="sig-name descname">from_metadata</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.AncillaryVariableMetadata.from_metadata" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Convert the provided metadata instance from a different type
+to this metadata type, using only the relevant metadata members.</p>
+<p>Non-common metadata members are set to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>other (metadata):</dt><dd><p>A metadata instance of any type.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>New metadata instance.</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt id="iris.common.metadata.AncillaryVariableMetadata.index">
@@ -614,7 +636,22 @@ detect whether this lenient operation is enabled.</p>
 <dl class="py method">
 <dt id="iris.common.metadata.BaseMetadata.from_metadata">
 <em class="property">classmethod </em><code class="sig-name descname">from_metadata</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/iris/common/metadata.html#BaseMetadata.from_metadata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iris.common.metadata.BaseMetadata.from_metadata" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Convert the provided metadata instance from a different type
+to this metadata type, using only the relevant metadata members.</p>
+<p>Non-common metadata members are set to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>other (metadata):</dt><dd><p>A metadata instance of any type.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>New metadata instance.</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt id="iris.common.metadata.BaseMetadata.index">
@@ -813,7 +850,22 @@ detect whether this lenient operation is enabled.</p>
 <dl class="py method">
 <dt id="iris.common.metadata.CellMeasureMetadata.from_metadata">
 <em class="property">classmethod </em><code class="sig-name descname">from_metadata</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.CellMeasureMetadata.from_metadata" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Convert the provided metadata instance from a different type
+to this metadata type, using only the relevant metadata members.</p>
+<p>Non-common metadata members are set to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>other (metadata):</dt><dd><p>A metadata instance of any type.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>New metadata instance.</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt id="iris.common.metadata.CellMeasureMetadata.index">
@@ -1018,7 +1070,22 @@ detect whether this lenient operation is enabled.</p>
 <dl class="py method">
 <dt id="iris.common.metadata.CoordMetadata.from_metadata">
 <em class="property">classmethod </em><code class="sig-name descname">from_metadata</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.CoordMetadata.from_metadata" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Convert the provided metadata instance from a different type
+to this metadata type, using only the relevant metadata members.</p>
+<p>Non-common metadata members are set to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>other (metadata):</dt><dd><p>A metadata instance of any type.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>New metadata instance.</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt id="iris.common.metadata.CoordMetadata.index">
@@ -1229,7 +1296,22 @@ detect whether this lenient operation is enabled.</p>
 <dl class="py method">
 <dt id="iris.common.metadata.CubeMetadata.from_metadata">
 <em class="property">classmethod </em><code class="sig-name descname">from_metadata</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.CubeMetadata.from_metadata" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Convert the provided metadata instance from a different type
+to this metadata type, using only the relevant metadata members.</p>
+<p>Non-common metadata members are set to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>other (metadata):</dt><dd><p>A metadata instance of any type.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>New metadata instance.</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt id="iris.common.metadata.CubeMetadata.index">
@@ -1434,7 +1516,22 @@ detect whether this lenient operation is enabled.</p>
 <dl class="py method">
 <dt id="iris.common.metadata.DimCoordMetadata.from_metadata">
 <em class="property">classmethod </em><code class="sig-name descname">from_metadata</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.common.metadata.DimCoordMetadata.from_metadata" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Convert the provided metadata instance from a different type
+to this metadata type, using only the relevant metadata members.</p>
+<p>Non-common metadata members are set to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>other (metadata):</dt><dd><p>A metadata instance of any type.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>New metadata instance.</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt id="iris.common.metadata.DimCoordMetadata.index">
