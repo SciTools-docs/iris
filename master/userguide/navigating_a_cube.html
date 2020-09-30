@@ -49,7 +49,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
-    <link rel="next" title="Subsetting a Cube" href="subsetting_a_cube.html" />
+    <link rel="next" title="Subsetting a cube" href="subsetting_a_cube.html" />
     <link rel="prev" title="Saving Iris cubes" href="saving_iris_cubes.html" /> 
 </head>
 
@@ -122,20 +122,27 @@
 <li class="toctree-l2"><a class="reference internal" href="#adding-and-removing-metadata-to-the-cube-at-load-time">Adding and removing metadata to the cube at load time</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="subsetting_a_cube.html">Subsetting a Cube</a></li>
-<li class="toctree-l1"><a class="reference internal" href="real_and_lazy_data.html">Real and Lazy Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="subsetting_a_cube.html">Subsetting a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="real_and_lazy_data.html">Real and lazy data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plotting_a_cube.html">Plotting a cube</a></li>
 <li class="toctree-l1"><a class="reference internal" href="interpolation_and_regridding.html">Cube interpolation and regridding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="merge_and_concat.html">Merge and concatenate</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cube_statistics.html">Cube statistics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cube_maths.html">Basic cube mathematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cube_maths.html">Cube maths</a></li>
 <li class="toctree-l1"><a class="reference internal" href="citation.html">Citing Iris</a></li>
 <li class="toctree-l1"><a class="reference internal" href="code_maintenance.html">Code maintenance</a></li>
 </ul>
+<p class="caption"><span class="caption-text">Further Topics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../further_topics/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../further_topics/metadata.html">Metadata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../further_topics/lenient_metadata.html">Lenient metadata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../further_topics/lenient_maths.html">Lenient cube maths</a></li>
+</ul>
 <p class="caption"><span class="caption-text">Developers Guide</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../developers_guide/contributing_getting_involved.html">Getting Involved</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../developers_guide/gitwash/index.html">Working with <em>iris</em> source code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/contributing_getting_involved.html">Getting involved</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/gitwash/index.html">Working with Iris source code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developers_guide/contributing_documentation.html">Contributing to the documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developers_guide/contributing_codebase_index.html">Contributing to the code base</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developers_guide/contributing_changes.html">Contributing your changes</a></li>
@@ -145,7 +152,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../generated/api/iris.html">Iris API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../whatsnew/index.html">What’s new in Iris</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../techpapers/index.html">Iris Technical Papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../techpapers/index.html">Iris technical papers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../copyright.html">Iris copyright, licensing and contributors</a></li>
 </ul>
 
@@ -164,13 +171,13 @@
         </p>
         <ul>
             
-                <li class="toctree-l1"><a href="https://github.com/SciTools/iris"><i class="fa fa-github fa-fw"></i> Source Code</a></li>
+                <li class="toctree-l1"><a href="https://github.com/SciTools/iris"><i class="fa fa-github fa-fw"></i> Source code</a></li>
             
                 <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris"><i class="fa fa-comments fa-fw"></i> Users Google Group</a></li>
             
                 <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris-dev"><i class="fa fa-comments fa-fw"></i> Developers Google Group</a></li>
             
-                <li class="toctree-l1"><a href="https://stackoverflow.com/questions/tagged/python-iris"><i class="fa fa-question fa-fw"></i> StackOverflow For "How do I?"</a></li>
+                <li class="toctree-l1"><a href="https://stackoverflow.com/questions/tagged/python-iris"><i class="fa fa-question fa-fw"></i> StackOverflow for "How do I?"</a></li>
             
                 <li class="toctree-l1"><a href="https://scitools.org.uk/iris/docs/v2.4.0/index.html"><i class="fa fa-book fa-fw"></i> Legacy documentation</a></li>
             
@@ -291,7 +298,7 @@ and <a class="reference internal" href="../generated/api/iris/cube.html#iris.cub
 </div>
 <p>Interrogating these with the standard <code class="xref py py-func docutils literal notranslate"><span class="pre">type()</span></code> function will tell you that <code class="docutils literal notranslate"><span class="pre">standard_name</span></code> and <code class="docutils literal notranslate"><span class="pre">long_name</span></code>
 are either a string or <code class="docutils literal notranslate"><span class="pre">None</span></code>, and <code class="docutils literal notranslate"><span class="pre">units</span></code> is an instance of <code class="xref py py-class docutils literal notranslate"><span class="pre">iris.unit.Unit</span></code>. A more in depth discussion on
-the cube units and their functional effects can be found at the end of <a class="reference internal" href="cube_maths.html"><span class="doc">Basic cube mathematics</span></a>.</p>
+the cube units and their functional effects can be found at the end of <a class="reference internal" href="cube_maths.html"><span class="doc">Cube maths</span></a>.</p>
 <p>You can access a string representing the “name” of a cube with the <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.Cube.name" title="iris.cube.Cube.name"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Cube.name()</span></code></a> method:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">name</span><span class="p">())</span>
 </pre></div>
@@ -460,7 +467,7 @@ by field basis <em>before</em> they are automatically merged together:</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="subsetting_a_cube.html" class="btn btn-neutral float-right" title="Subsetting a Cube" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="subsetting_a_cube.html" class="btn btn-neutral float-right" title="Subsetting a cube" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="saving_iris_cubes.html" class="btn btn-neutral float-left" title="Saving Iris cubes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

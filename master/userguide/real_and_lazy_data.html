@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Real and Lazy Data &mdash; Iris 3.0.dev0 documentation</title>
+  <title>Real and lazy data &mdash; Iris 3.0.dev0 documentation</title>
   
 
   
@@ -50,7 +50,7 @@
     <link rel="search" title="Search" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
     <link rel="next" title="Plotting a cube" href="plotting_a_cube.html" />
-    <link rel="prev" title="Subsetting a Cube" href="subsetting_a_cube.html" /> 
+    <link rel="prev" title="Subsetting a cube" href="subsetting_a_cube.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -115,8 +115,8 @@
 <li class="toctree-l1"><a class="reference internal" href="loading_iris_cubes.html">Loading Iris cubes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="saving_iris_cubes.html">Saving Iris cubes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="navigating_a_cube.html">Navigating a cube</a></li>
-<li class="toctree-l1"><a class="reference internal" href="subsetting_a_cube.html">Subsetting a Cube</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Real and Lazy Data</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="subsetting_a_cube.html">Subsetting a cube</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Real and lazy data</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#what-is-real-and-lazy-data">What is real and lazy data?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#benefits">Benefits</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#when-does-my-data-become-real">When does my data become real?</a><ul>
@@ -131,14 +131,21 @@
 <li class="toctree-l1"><a class="reference internal" href="interpolation_and_regridding.html">Cube interpolation and regridding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="merge_and_concat.html">Merge and concatenate</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cube_statistics.html">Cube statistics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cube_maths.html">Basic cube mathematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cube_maths.html">Cube maths</a></li>
 <li class="toctree-l1"><a class="reference internal" href="citation.html">Citing Iris</a></li>
 <li class="toctree-l1"><a class="reference internal" href="code_maintenance.html">Code maintenance</a></li>
 </ul>
+<p class="caption"><span class="caption-text">Further Topics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../further_topics/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../further_topics/metadata.html">Metadata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../further_topics/lenient_metadata.html">Lenient metadata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../further_topics/lenient_maths.html">Lenient cube maths</a></li>
+</ul>
 <p class="caption"><span class="caption-text">Developers Guide</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../developers_guide/contributing_getting_involved.html">Getting Involved</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../developers_guide/gitwash/index.html">Working with <em>iris</em> source code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/contributing_getting_involved.html">Getting involved</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/gitwash/index.html">Working with Iris source code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developers_guide/contributing_documentation.html">Contributing to the documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developers_guide/contributing_codebase_index.html">Contributing to the code base</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developers_guide/contributing_changes.html">Contributing your changes</a></li>
@@ -148,7 +155,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../generated/api/iris.html">Iris API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../whatsnew/index.html">What’s new in Iris</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../techpapers/index.html">Iris Technical Papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../techpapers/index.html">Iris technical papers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../copyright.html">Iris copyright, licensing and contributors</a></li>
 </ul>
 
@@ -167,13 +174,13 @@
         </p>
         <ul>
             
-                <li class="toctree-l1"><a href="https://github.com/SciTools/iris"><i class="fa fa-github fa-fw"></i> Source Code</a></li>
+                <li class="toctree-l1"><a href="https://github.com/SciTools/iris"><i class="fa fa-github fa-fw"></i> Source code</a></li>
             
                 <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris"><i class="fa fa-comments fa-fw"></i> Users Google Group</a></li>
             
                 <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris-dev"><i class="fa fa-comments fa-fw"></i> Developers Google Group</a></li>
             
-                <li class="toctree-l1"><a href="https://stackoverflow.com/questions/tagged/python-iris"><i class="fa fa-question fa-fw"></i> StackOverflow For "How do I?"</a></li>
+                <li class="toctree-l1"><a href="https://stackoverflow.com/questions/tagged/python-iris"><i class="fa fa-question fa-fw"></i> StackOverflow for "How do I?"</a></li>
             
                 <li class="toctree-l1"><a href="https://scitools.org.uk/iris/docs/v2.4.0/index.html"><i class="fa fa-book fa-fw"></i> Legacy documentation</a></li>
             
@@ -222,7 +229,7 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Real and Lazy Data</li>
+      <li>Real and lazy data</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -242,7 +249,7 @@
            <div itemprop="articleBody">
             
   <span class="target" id="real-and-lazy-data"></span><div class="section" id="id1">
-<h1>Real and Lazy Data<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<h1>Real and lazy data<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
 <p>We have seen in the <a class="reference internal" href="iris_cubes.html"><span class="doc">Iris data structures</span></a> section of the user guide that
 Iris cubes contain data and metadata about a phenomenon. The data element of a cube
 is always an array, but the array may be either “real” or “lazy”.</p>
@@ -457,7 +464,7 @@ for more information on setting dask processing options.</p>
         <a href="plotting_a_cube.html" class="btn btn-neutral float-right" title="Plotting a cube" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="subsetting_a_cube.html" class="btn btn-neutral float-left" title="Subsetting a Cube" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="subsetting_a_cube.html" class="btn btn-neutral float-left" title="Subsetting a cube" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

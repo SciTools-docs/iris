@@ -1,0 +1,836 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Lenient metadata &mdash; Iris 3.0.dev0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/theme_override.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-dataframe.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <link rel="next" title="Lenient cube maths" href="lenient_maths.html" />
+    <link rel="prev" title="Metadata" href="metadata.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/iris-logo-title.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installing.html">Installing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../generated/gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/iris_cubes.html">Iris data structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/loading_iris_cubes.html">Loading Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/saving_iris_cubes.html">Saving Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/navigating_a_cube.html">Navigating a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/subsetting_a_cube.html">Subsetting a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/real_and_lazy_data.html">Real and lazy data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/plotting_a_cube.html">Plotting a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/interpolation_and_regridding.html">Cube interpolation and regridding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/merge_and_concat.html">Merge and concatenate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/cube_statistics.html">Cube statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/cube_maths.html">Cube maths</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/citation.html">Citing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/code_maintenance.html">Code maintenance</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Further Topics</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metadata.html">Metadata</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Lenient metadata</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#strict-behaviour">Strict behaviour</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lenient-behaviour">Lenient behaviour</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#lenient-equality">Lenient equality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lenient-difference">Lenient difference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lenient-combination">Lenient combination</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lenient-members">Lenient members</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#special-lenient-name-behaviour">Special lenient name behaviour</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="lenient_maths.html">Lenient cube maths</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developers Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/contributing_getting_involved.html">Getting involved</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/gitwash/index.html">Working with Iris source code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/contributing_documentation.html">Contributing to the documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/contributing_codebase_index.html">Contributing to the code base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/contributing_changes.html">Contributing your changes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/release.html">Releases</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../generated/api/iris.html">Iris API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../whatsnew/index.html">What’s new in Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../techpapers/index.html">Iris technical papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../copyright.html">Iris copyright, licensing and contributors</a></li>
+</ul>
+
+            
+          
+
+    
+    
+    
+        <p class="caption">
+            <span class="caption-text">
+            
+                Support
+            
+            </span>
+        </p>
+        <ul>
+            
+                <li class="toctree-l1"><a href="https://github.com/SciTools/iris"><i class="fa fa-github fa-fw"></i> Source code</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris"><i class="fa fa-comments fa-fw"></i> Users Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris-dev"><i class="fa fa-comments fa-fw"></i> Developers Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://stackoverflow.com/questions/tagged/python-iris"><i class="fa fa-question fa-fw"></i> StackOverflow for "How do I?"</a></li>
+            
+                <li class="toctree-l1"><a href="https://scitools.org.uk/iris/docs/v2.4.0/index.html"><i class="fa fa-book fa-fw"></i> Legacy documentation</a></li>
+            
+        </ul>
+    
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Iris</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Lenient metadata</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/further_topics/lenient_metadata.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="lenient-metadata">
+<span id="id1"></span><h1>Lenient metadata<a class="headerlink" href="#lenient-metadata" title="Permalink to this headline">¶</a></h1>
+<p>This section discusses lenient metadata; what it is, what it means, and how you
+can perform <strong>lenient</strong> rather than <strong>strict</strong> operations with your metadata.</p>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>As discussed in <a class="reference internal" href="metadata.html#metadata"><span class="std std-ref">Metadata</span></a>, a rich, common metadata API is available within
+Iris that supports metadata <a class="reference internal" href="metadata.html#metadata-equality"><span class="std std-ref">equality</span></a>,
+<a class="reference internal" href="metadata.html#metadata-difference"><span class="std std-ref">difference</span></a>, <a class="reference internal" href="metadata.html#metadata-combine"><span class="std std-ref">combination</span></a>,
+and also <a class="reference internal" href="metadata.html#metadata-conversion"><span class="std std-ref">conversion</span></a>.</p>
+<p>The common metadata API is implemented through the <code class="docutils literal notranslate"><span class="pre">metadata</span></code> property
+on each of the Iris <a class="reference external" href="https://cfconventions.org/">CF Conventions</a> class containers
+(<a class="reference internal" href="metadata.html#metadata-classes-table"><span class="std std-numref">Table 2</span></a>), and provides a common gateway for users to
+easily manage and manipulate their metadata in a consistent and unified way.</p>
+<p>This is primarily all thanks to the metadata classes (<a class="reference internal" href="metadata.html#metadata-classes-table"><span class="std std-numref">Table 2</span></a>)
+that support the necessary state and behaviour required by the common metadata
+API. Namely, it is the <code class="docutils literal notranslate"><span class="pre">equal</span></code> (<code class="docutils literal notranslate"><span class="pre">__eq__</span></code>), <code class="docutils literal notranslate"><span class="pre">difference</span></code> and <code class="docutils literal notranslate"><span class="pre">combine</span></code>
+methods that provide this rich metadata behaviour, all of which are explored
+more fully in <a class="reference internal" href="metadata.html#metadata"><span class="std std-ref">Metadata</span></a>.</p>
+</div>
+<div class="section" id="strict-behaviour">
+<h2>Strict behaviour<a class="headerlink" href="#strict-behaviour" title="Permalink to this headline">¶</a></h2>
+<p>The feature that is common between the <code class="docutils literal notranslate"><span class="pre">equal</span></code>, <code class="docutils literal notranslate"><span class="pre">difference</span></code> and
+<code class="docutils literal notranslate"><span class="pre">combine</span></code> metadata class methods, is that they all perform <strong>strict</strong>
+metadata member comparisons <strong>by default</strong>.</p>
+<p>The <strong>strict</strong> behaviour implemented by these methods can be summarised
+as follows, where <code class="docutils literal notranslate"><span class="pre">X</span></code> and <code class="docutils literal notranslate"><span class="pre">Y</span></code> are any objects that are non-identical,</p>
+<span id="strict-equality-table"></span><table class="colwidths-auto docutils align-center" id="id7">
+<caption><span class="caption-number">Table 3 </span><span class="caption-text">- <a class="reference internal" href="metadata.html#metadata-equality"><span class="std std-ref">Strict equality</span></a></span><a class="headerlink" href="#id7" title="Permalink to this table">¶</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Left</p></th>
+<th class="head"><p>Right</p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">equal</span></code></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">X</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Y</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Y</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">X</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">X</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">X</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">X</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">X</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<span id="strict-difference-table"></span><table class="colwidths-auto docutils align-center" id="id8">
+<caption><span class="caption-number">Table 4 </span><span class="caption-text">- <a class="reference internal" href="metadata.html#metadata-difference"><span class="std std-ref">Strict difference</span></a></span><a class="headerlink" href="#id8" title="Permalink to this table">¶</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Left</p></th>
+<th class="head"><p>Right</p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">difference</span></code></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">X</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Y</span></code></p></td>
+<td><p>(<code class="docutils literal notranslate"><span class="pre">X</span></code>, <code class="docutils literal notranslate"><span class="pre">Y</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Y</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">X</span></code></p></td>
+<td><p>(<code class="docutils literal notranslate"><span class="pre">Y</span></code>, <code class="docutils literal notranslate"><span class="pre">X</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">X</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">X</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">X</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p></td>
+<td><p>(<code class="docutils literal notranslate"><span class="pre">X</span></code>, <code class="docutils literal notranslate"><span class="pre">None</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">X</span></code></p></td>
+<td><p>(<code class="docutils literal notranslate"><span class="pre">None</span></code>, <code class="docutils literal notranslate"><span class="pre">X</span></code>)</p></td>
+</tr>
+</tbody>
+</table>
+<span id="strict-combine-table"></span><table class="colwidths-auto docutils align-center" id="id9">
+<caption><span class="caption-number">Table 5 </span><span class="caption-text">- <a class="reference internal" href="metadata.html#metadata-combine"><span class="std std-ref">Strict combination</span></a></span><a class="headerlink" href="#id9" title="Permalink to this table">¶</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Left</p></th>
+<th class="head"><p>Right</p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">combine</span></code></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">X</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Y</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Y</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">X</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">X</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">X</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">X</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">X</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">X</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p id="strict-example">This type of <strong>strict</strong> behaviour does offer obvious benefit and value. However,
+it can be unnecessarily restrictive. For example, consider the metadata of the
+following <code class="docutils literal notranslate"><span class="pre">latitude</span></code> coordinate,</p>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">latitude</span><span class="o">.</span><span class="n">metadata</span>
+<span class="go">DimCoordMetadata(standard_name=&#39;latitude&#39;, long_name=None, var_name=&#39;latitude&#39;, units=Unit(&#39;degrees&#39;), attributes={}, coord_system=GeogCS(6371229.0), climatological=False, circular=False)</span>
+</pre></div>
+</div>
+<p>Now, let’s create a doctored version of this metadata with a different <code class="docutils literal notranslate"><span class="pre">var_name</span></code>,</p>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">metadata</span> <span class="o">=</span> <span class="n">latitude</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">_replace</span><span class="p">(</span><span class="n">var_name</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">metadata</span>
+<span class="go">DimCoordMetadata(standard_name=&#39;latitude&#39;, long_name=None, var_name=None, units=Unit(&#39;degrees&#39;), attributes={}, coord_system=GeogCS(6371229.0), climatological=False, circular=False)</span>
+</pre></div>
+</div>
+<p>Clearly, these metadata are different,</p>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">metadata</span> <span class="o">!=</span> <span class="n">latitude</span><span class="o">.</span><span class="n">metadata</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">metadata</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">latitude</span><span class="o">.</span><span class="n">metadata</span><span class="p">)</span>
+<span class="go">DimCoordMetadata(standard_name=None, long_name=None, var_name=(None, &#39;latitude&#39;), units=None, attributes=None, coord_system=None, climatological=None, circular=None)</span>
+</pre></div>
+</div>
+<p>And yet, they both have the same <code class="docutils literal notranslate"><span class="pre">name</span></code>, which some may find slightly confusing
+(see <a class="reference internal" href="../generated/api/iris/common/metadata.html#iris.common.metadata.BaseMetadata.name" title="iris.common.metadata.BaseMetadata.name"><code class="xref py py-meth docutils literal notranslate"><span class="pre">name()</span></code></a> for clarification)</p>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">metadata</span><span class="o">.</span><span class="n">name</span><span class="p">()</span>
+<span class="go">&#39;latitude&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">latitude</span><span class="o">.</span><span class="n">name</span><span class="p">()</span>
+<span class="go">&#39;latitude&#39;</span>
+</pre></div>
+</div>
+<p>Resolving this metadata inequality can only be overcome by ensuring that each
+metadata member precisely matches.</p>
+<p>If your workflow demands such metadata rigour, then the default strict behaviour
+of the common metadata API will satisfy your needs. Typically though, such
+strictness is not necessary, and as of Iris <code class="docutils literal notranslate"><span class="pre">3.0.0</span></code> an alternative more
+practical behaviour is available.</p>
+</div>
+<div class="section" id="lenient-behaviour">
+<span id="id2"></span><h2>Lenient behaviour<a class="headerlink" href="#lenient-behaviour" title="Permalink to this headline">¶</a></h2>
+<p>Lenient metadata aims to offer a practical, common sense alternative to the
+strict rigour of the default Iris metadata behaviour. It is intended to be
+complementary, and suitable for those users with a more relaxed requirement
+regarding their metadata.</p>
+<p>The lenient behaviour that is implemented as an alternative to the
+<a class="reference internal" href="#strict-equality-table"><span class="std std-ref">strict equality</span></a>, <a class="reference internal" href="#strict-difference-table"><span class="std std-ref">strict difference</span></a>,
+and <a class="reference internal" href="#strict-combine-table"><span class="std std-ref">strict combination</span></a> can be summarised
+as follows,</p>
+<span id="lenient-equality-table"></span><table class="colwidths-auto docutils align-center" id="id10">
+<caption><span class="caption-number">Table 6 </span><span class="caption-text">- Lenient equality</span><a class="headerlink" href="#id10" title="Permalink to this table">¶</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Left</p></th>
+<th class="head"><p>Right</p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">equal</span></code></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">X</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Y</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Y</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">X</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">X</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">X</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">X</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">X</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<span id="lenient-difference-table"></span><table class="colwidths-auto docutils align-center" id="id11">
+<caption><span class="caption-number">Table 7 </span><span class="caption-text">- Lenient difference</span><a class="headerlink" href="#id11" title="Permalink to this table">¶</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Left</p></th>
+<th class="head"><p>Right</p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">difference</span></code></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">X</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Y</span></code></p></td>
+<td><p>(<code class="docutils literal notranslate"><span class="pre">X</span></code>, <code class="docutils literal notranslate"><span class="pre">Y</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Y</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">X</span></code></p></td>
+<td><p>(<code class="docutils literal notranslate"><span class="pre">Y</span></code>, <code class="docutils literal notranslate"><span class="pre">X</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">X</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">X</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">X</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">X</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<span id="lenient-combine-table"></span><table class="colwidths-auto docutils align-center" id="id12">
+<caption><span class="caption-number">Table 8 </span><span class="caption-text">- Lenient combination</span><a class="headerlink" href="#id12" title="Permalink to this table">¶</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Left</p></th>
+<th class="head"><p>Right</p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">combine</span></code></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">X</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Y</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Y</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">X</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">X</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">X</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">X</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">X</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">X</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">X</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">X</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>Lenient behaviour is enabled for the <code class="docutils literal notranslate"><span class="pre">equal</span></code>, <code class="docutils literal notranslate"><span class="pre">difference</span></code>, and <code class="docutils literal notranslate"><span class="pre">combine</span></code>
+metadata class methods via the <code class="docutils literal notranslate"><span class="pre">lenient</span></code> keyword argument, which is <code class="docutils literal notranslate"><span class="pre">False</span></code>
+by default. Let’s first explore some examples of lenient equality, difference
+and combination, before going on to clarify which metadata members adopt
+lenient behaviour for each of the metadata classes.</p>
+<div class="section" id="lenient-equality">
+<span id="id3"></span><h3>Lenient equality<a class="headerlink" href="#lenient-equality" title="Permalink to this headline">¶</a></h3>
+<p>Lenient equality is enabled using the <code class="docutils literal notranslate"><span class="pre">lenient</span></code> keyword argument, therefore
+we are forced to use the <code class="docutils literal notranslate"><span class="pre">equal</span></code> method rather than the <code class="docutils literal notranslate"><span class="pre">==</span></code> operator
+(<code class="docutils literal notranslate"><span class="pre">__eq__</span></code>). Otherwise, the <code class="docutils literal notranslate"><span class="pre">equal</span></code> method and <code class="docutils literal notranslate"><span class="pre">==</span></code> operator are both
+functionally equivalent.</p>
+<p>For example, consider the <a class="reference internal" href="#strict-example"><span class="std std-ref">previous strict example</span></a>,
+where two separate <code class="docutils literal notranslate"><span class="pre">latitude</span></code> coordinates are compared, each with different
+<code class="docutils literal notranslate"><span class="pre">var_name</span></code> members,</p>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">metadata</span><span class="o">.</span><span class="n">equal</span><span class="p">(</span><span class="n">latitude</span><span class="o">.</span><span class="n">metadata</span><span class="p">,</span> <span class="n">lenient</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>Unlike strict comparison, lenient comparison is a little more forgiving. In
+this case, leniently comparing <strong>something</strong> with <strong>nothing</strong> (<code class="docutils literal notranslate"><span class="pre">None</span></code>) will
+always be <code class="docutils literal notranslate"><span class="pre">True</span></code>; it’s the graceful compromise to the strict alternative.</p>
+<p>So let’s take the opportunity to reinforce this a little further before moving on,
+by leniently comparing different <code class="docutils literal notranslate"><span class="pre">attributes</span></code> dictionaries; a constant source
+of strict contention.</p>
+<p>Firstly, populate the metadata of our <code class="docutils literal notranslate"><span class="pre">latitude</span></code> coordinate appropriately,</p>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">attributes</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;grinning face&quot;</span><span class="p">:</span> <span class="s2">&quot;😀&quot;</span><span class="p">,</span> <span class="s2">&quot;neutral face&quot;</span><span class="p">:</span> <span class="s2">&quot;😐&quot;</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">latitude</span><span class="o">.</span><span class="n">attributes</span> <span class="o">=</span> <span class="n">attributes</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">latitude</span><span class="o">.</span><span class="n">metadata</span>  
+<span class="go">DimCoordMetadata(standard_name=&#39;latitude&#39;, long_name=None, var_name=&#39;latitude&#39;, units=Unit(&#39;degrees&#39;), attributes={&#39;grinning face&#39;: &#39;😀&#39;, &#39;neutral face&#39;: &#39;😐&#39;}, coord_system=GeogCS(6371229.0), climatological=False, circular=False)</span>
+</pre></div>
+</div>
+<p>Then create another <a class="reference internal" href="../generated/api/iris/common/metadata.html#iris.common.metadata.DimCoordMetadata" title="iris.common.metadata.DimCoordMetadata"><code class="xref py py-class docutils literal notranslate"><span class="pre">DimCoordMetadata</span></code></a> with a different
+<code class="docutils literal notranslate"><span class="pre">attributes</span></code> <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#mapping-types-dict">dict</a>, namely,</p>
+<ul class="simple">
+<li><p>the <code class="docutils literal notranslate"><span class="pre">grinning</span> <span class="pre">face</span></code> key is <strong>missing</strong>,</p></li>
+<li><p>the <code class="docutils literal notranslate"><span class="pre">neutral</span> <span class="pre">face</span></code> key has the <strong>same value</strong>, and</p></li>
+<li><p>the <code class="docutils literal notranslate"><span class="pre">upside-down</span> <span class="pre">face</span></code> key is <strong>new</strong></p></li>
+</ul>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">attributes</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;neutral face&quot;</span><span class="p">:</span> <span class="s2">&quot;😐&quot;</span><span class="p">,</span> <span class="s2">&quot;upside-down face&quot;</span><span class="p">:</span> <span class="s2">&quot;🙃&quot;</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">metadata</span> <span class="o">=</span> <span class="n">latitude</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">_replace</span><span class="p">(</span><span class="n">attributes</span><span class="o">=</span><span class="n">attributes</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">metadata</span>  
+<span class="go">DimCoordMetadata(standard_name=&#39;latitude&#39;, long_name=None, var_name=&#39;latitude&#39;, units=Unit(&#39;degrees&#39;), attributes={&#39;neutral face&#39;: &#39;😐&#39;, &#39;upside-down face&#39;: &#39;🙃&#39;}, coord_system=GeogCS(6371229.0), climatological=False, circular=False)</span>
+</pre></div>
+</div>
+<p>Now, compare our metadata,</p>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">metadata</span><span class="o">.</span><span class="n">equal</span><span class="p">(</span><span class="n">latitude</span><span class="o">.</span><span class="n">metadata</span><span class="p">)</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">metadata</span><span class="o">.</span><span class="n">equal</span><span class="p">(</span><span class="n">latitude</span><span class="o">.</span><span class="n">metadata</span><span class="p">,</span> <span class="n">lenient</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>Again, lenient equality (<a class="reference internal" href="#lenient-equality-table"><span class="std std-numref">Table 6</span></a>) offers a more
+forgiving and practical alternative to strict behaviour.</p>
+</div>
+<div class="section" id="lenient-difference">
+<span id="id4"></span><h3>Lenient difference<a class="headerlink" href="#lenient-difference" title="Permalink to this headline">¶</a></h3>
+<p>Similar to <a class="reference internal" href="#lenient-equality"><span class="std std-ref">Lenient equality</span></a>, the lenient <code class="docutils literal notranslate"><span class="pre">difference</span></code> method
+(<a class="reference internal" href="#lenient-difference-table"><span class="std std-numref">Table 7</span></a>) considers there to be no difference between
+comparing <strong>something</strong> with <strong>nothing</strong> (<code class="docutils literal notranslate"><span class="pre">None</span></code>). This working assumption is
+not naively applied to all metadata members, but rather a more pragmatic approach
+is adopted, as discussed later in <a class="reference internal" href="#lenient-members"><span class="std std-ref">Lenient members</span></a>.</p>
+<p>Again, lenient behaviour for the <code class="docutils literal notranslate"><span class="pre">difference</span></code> metadata class method is enabled
+by the <code class="docutils literal notranslate"><span class="pre">lenient</span></code> keyword argument. For example, consider again the
+<a class="reference internal" href="#strict-example"><span class="std std-ref">previous strict example</span></a> involving our <code class="docutils literal notranslate"><span class="pre">latitude</span></code>
+coordinate,</p>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">metadata</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">latitude</span><span class="o">.</span><span class="n">metadata</span><span class="p">)</span>
+<span class="go">DimCoordMetadata(standard_name=None, long_name=None, var_name=(None, &#39;latitude&#39;), units=None, attributes=None, coord_system=None, climatological=None, circular=None)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">metadata</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">latitude</span><span class="o">.</span><span class="n">metadata</span><span class="p">,</span> <span class="n">lenient</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>And revisiting our slightly altered <code class="docutils literal notranslate"><span class="pre">attributes</span></code> member comparison example,
+brings home the benefits of the lenient difference behaviour. So, given our
+<code class="docutils literal notranslate"><span class="pre">latitude</span></code> coordinate with its populated <code class="docutils literal notranslate"><span class="pre">attributes</span></code> dictionary,</p>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">latitude</span><span class="o">.</span><span class="n">attributes</span>  
+<span class="go">{&#39;grinning face&#39;: &#39;😀&#39;, &#39;neutral face&#39;: &#39;😐&#39;}</span>
+</pre></div>
+</div>
+<p>We create another <a class="reference internal" href="../generated/api/iris/common/metadata.html#iris.common.metadata.DimCoordMetadata" title="iris.common.metadata.DimCoordMetadata"><code class="xref py py-class docutils literal notranslate"><span class="pre">DimCoordMetadata</span></code></a> with a dissimilar
+<code class="docutils literal notranslate"><span class="pre">attributes</span></code> member, namely,</p>
+<ul class="simple">
+<li><p>the <code class="docutils literal notranslate"><span class="pre">grinning</span> <span class="pre">face</span></code> key is <strong>missing</strong>,</p></li>
+<li><p>the <code class="docutils literal notranslate"><span class="pre">neutral</span> <span class="pre">face</span></code> key has a <strong>different value</strong>, and</p></li>
+<li><p>the <code class="docutils literal notranslate"><span class="pre">upside-down</span> <span class="pre">face</span></code> key is <strong>new</strong></p></li>
+</ul>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">attributes</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;neutral face&quot;</span><span class="p">:</span> <span class="s2">&quot;😜&quot;</span><span class="p">,</span> <span class="s2">&quot;upside-down face&quot;</span><span class="p">:</span> <span class="s2">&quot;🙃&quot;</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">metadata</span> <span class="o">=</span> <span class="n">latitude</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">_replace</span><span class="p">(</span><span class="n">attributes</span><span class="o">=</span><span class="n">attributes</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">metadata</span>  
+<span class="go">DimCoordMetadata(standard_name=&#39;latitude&#39;, long_name=None, var_name=&#39;latitude&#39;, units=Unit(&#39;degrees&#39;), attributes={&#39;neutral face&#39;: &#39;😜&#39;, &#39;upside-down face&#39;: &#39;🙃&#39;}, coord_system=GeogCS(6371229.0), climatological=False, circular=False)</span>
+</pre></div>
+</div>
+<p>Now comparing the strict and lenient behaviour for the <code class="docutils literal notranslate"><span class="pre">difference</span></code> method,
+highlights the change in how such dissimilar metadata is treated gracefully,</p>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">metadata</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">latitude</span><span class="o">.</span><span class="n">metadata</span><span class="p">)</span><span class="o">.</span><span class="n">attributes</span>  
+<span class="go">{&#39;upside-down face&#39;: &#39;🙃&#39;, &#39;neutral face&#39;: &#39;😜&#39;}, {&#39;neutral face&#39;: &#39;😐&#39;, &#39;grinning face&#39;: &#39;😀&#39;}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">metadata</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">latitude</span><span class="o">.</span><span class="n">metadata</span><span class="p">,</span> <span class="n">lenient</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">attributes</span>  
+<span class="go">{&#39;neutral face&#39;: &#39;😜&#39;}, {&#39;neutral face&#39;: &#39;😐&#39;}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="lenient-combination">
+<span id="id5"></span><h3>Lenient combination<a class="headerlink" href="#lenient-combination" title="Permalink to this headline">¶</a></h3>
+<p>The behaviour of the lenient <code class="docutils literal notranslate"><span class="pre">combine</span></code> metadata class method is outlined
+in <a class="reference internal" href="#lenient-combine-table"><span class="std std-numref">Table 8</span></a>, and as with <a class="reference internal" href="#lenient-equality"><span class="std std-ref">Lenient equality</span></a> and
+<a class="reference internal" href="#lenient-difference"><span class="std std-ref">Lenient difference</span></a> is enabled throught the <code class="docutils literal notranslate"><span class="pre">lenient</span></code> keyword argument.</p>
+<p>The difference in behaviour between <strong>lenient</strong> and
+<a class="reference internal" href="#strict-combine-table"><span class="std std-ref">strict combination</span></a> is centered around the lenient
+handling of combining <strong>something</strong> with <strong>nothing</strong> (<code class="docutils literal notranslate"><span class="pre">None</span></code>) to return
+<strong>something</strong>. Whereas strict
+combination will only return a result from combining identical objects.</p>
+<p>Again, this is best demonstrated through a simple example of attempting to combine
+partially overlapping <code class="docutils literal notranslate"><span class="pre">attributes</span></code> member dictionaries. For example, given the
+following <code class="docutils literal notranslate"><span class="pre">attributes</span></code> dictionary of our favoured <code class="docutils literal notranslate"><span class="pre">latitude</span></code> coordinate,</p>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">latitude</span><span class="o">.</span><span class="n">attributes</span>  
+<span class="go">{&#39;grinning face&#39;: &#39;😀&#39;, &#39;neutral face&#39;: &#39;😐&#39;}</span>
+</pre></div>
+</div>
+<p>We create another <a class="reference internal" href="../generated/api/iris/common/metadata.html#iris.common.metadata.DimCoordMetadata" title="iris.common.metadata.DimCoordMetadata"><code class="xref py py-class docutils literal notranslate"><span class="pre">DimCoordMetadata</span></code></a> with overlapping
+keys and values, namely,</p>
+<ul class="simple">
+<li><p>the <code class="docutils literal notranslate"><span class="pre">grinning</span> <span class="pre">face</span></code> key is <strong>missing</strong>,</p></li>
+<li><p>the <code class="docutils literal notranslate"><span class="pre">neutral</span> <span class="pre">face</span></code> key has the <strong>same value</strong>, and</p></li>
+<li><p>the <code class="docutils literal notranslate"><span class="pre">upside-down</span> <span class="pre">face</span></code> key is <strong>new</strong></p></li>
+</ul>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">attributes</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;neutral face&quot;</span><span class="p">:</span> <span class="s2">&quot;😐&quot;</span><span class="p">,</span> <span class="s2">&quot;upside-down face&quot;</span><span class="p">:</span> <span class="s2">&quot;🙃&quot;</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">metadata</span> <span class="o">=</span> <span class="n">latitude</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">_replace</span><span class="p">(</span><span class="n">attributes</span><span class="o">=</span><span class="n">attributes</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">metadata</span>  
+<span class="go">DimCoordMetadata(standard_name=&#39;latitude&#39;, long_name=None, var_name=&#39;latitude&#39;, units=Unit(&#39;degrees&#39;), attributes={&#39;neutral face&#39;: &#39;😐&#39;, &#39;upside-down face&#39;: &#39;🙃&#39;}, coord_system=GeogCS(6371229.0), climatological=False, circular=False)</span>
+</pre></div>
+</div>
+<p>Comparing the strict and lenient behaviour of <code class="docutils literal notranslate"><span class="pre">combine</span></code> side-by-side
+highlights the difference in behaviour, and the advantages of lenient combination
+for more inclusive, richer metadata,</p>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">metadata</span><span class="o">.</span><span class="n">combine</span><span class="p">(</span><span class="n">latitude</span><span class="o">.</span><span class="n">metadata</span><span class="p">)</span><span class="o">.</span><span class="n">attributes</span>
+<span class="go">{&#39;neutral face&#39;: &#39;😐&#39;}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">metadata</span><span class="o">.</span><span class="n">combine</span><span class="p">(</span><span class="n">latitude</span><span class="o">.</span><span class="n">metadata</span><span class="p">,</span> <span class="n">lenient</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">attributes</span>  
+<span class="go">{&#39;neutral face&#39;: &#39;😐&#39;, &#39;upside-down face&#39;: &#39;🙃&#39;, &#39;grinning face&#39;: &#39;😀&#39;}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="lenient-members">
+<span id="id6"></span><h3>Lenient members<a class="headerlink" href="#lenient-members" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference internal" href="#lenient-behaviour"><span class="std std-ref">Lenient behaviour</span></a> is not applied regardlessly across all metadata members
+participating in a lenient <code class="docutils literal notranslate"><span class="pre">equal</span></code>, <code class="docutils literal notranslate"><span class="pre">difference</span></code> or <code class="docutils literal notranslate"><span class="pre">combine</span></code> operation.
+Rather, a more pragmatic application is employed based on the <a class="reference external" href="https://cfconventions.org/">CF Conventions</a>
+definition of the member, and whether being lenient would result in erroneous
+behaviour or interpretation.</p>
+<span id="lenient-members-table"></span><table class="colwidths-auto docutils align-center" id="id13">
+<caption><span class="caption-number">Table 9 </span><span class="caption-text">- Lenient member participation</span><a class="headerlink" href="#id13" title="Permalink to this table">¶</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Metadata Class</p></th>
+<th class="head"><p>Member</p></th>
+<th class="head"><p>Behaviour</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>All metadata classes†</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">standard_name</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">lenient</span></code>‡</p></td>
+</tr>
+<tr class="row-odd"><td><p>All metadata classes†</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">long_name</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">lenient</span></code>‡</p></td>
+</tr>
+<tr class="row-even"><td><p>All metadata classes†</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">var_name</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">lenient</span></code>‡</p></td>
+</tr>
+<tr class="row-odd"><td><p>All metadata classes†</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">units</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">strict</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>All metadata classes†</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">attributes</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">lenient</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../generated/api/iris/common/metadata.html#iris.common.metadata.CellMeasureMetadata" title="iris.common.metadata.CellMeasureMetadata"><code class="xref py py-class docutils literal notranslate"><span class="pre">CellMeasureMetadata</span></code></a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">measure</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">strict</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../generated/api/iris/common/metadata.html#iris.common.metadata.CoordMetadata" title="iris.common.metadata.CoordMetadata"><code class="xref py py-class docutils literal notranslate"><span class="pre">CoordMetadata</span></code></a>, <a class="reference internal" href="../generated/api/iris/common/metadata.html#iris.common.metadata.DimCoordMetadata" title="iris.common.metadata.DimCoordMetadata"><code class="xref py py-class docutils literal notranslate"><span class="pre">DimCoordMetadata</span></code></a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">coord_system</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">strict</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../generated/api/iris/common/metadata.html#iris.common.metadata.CoordMetadata" title="iris.common.metadata.CoordMetadata"><code class="xref py py-class docutils literal notranslate"><span class="pre">CoordMetadata</span></code></a>, <a class="reference internal" href="../generated/api/iris/common/metadata.html#iris.common.metadata.DimCoordMetadata" title="iris.common.metadata.DimCoordMetadata"><code class="xref py py-class docutils literal notranslate"><span class="pre">DimCoordMetadata</span></code></a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">climatological</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">strict</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../generated/api/iris/common/metadata.html#iris.common.metadata.CubeMetadata" title="iris.common.metadata.CubeMetadata"><code class="xref py py-class docutils literal notranslate"><span class="pre">CubeMetadata</span></code></a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">cell_methods</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">strict</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../generated/api/iris/common/metadata.html#iris.common.metadata.DimCoordMetadata" title="iris.common.metadata.DimCoordMetadata"><code class="xref py py-class docutils literal notranslate"><span class="pre">DimCoordMetadata</span></code></a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">circular</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">strict</span></code> §</p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><strong>Key</strong></div>
+<div class="line">† - Applies to all metadata classes including <a class="reference internal" href="../generated/api/iris/common/metadata.html#iris.common.metadata.AncillaryVariableMetadata" title="iris.common.metadata.AncillaryVariableMetadata"><code class="xref py py-class docutils literal notranslate"><span class="pre">AncillaryVariableMetadata</span></code></a>, which has no other specialised members</div>
+<div class="line">‡ - See <a class="reference internal" href="#special-lenient-name"><span class="std std-ref">Special lenient name behaviour</span></a> for <code class="docutils literal notranslate"><span class="pre">standard_name</span></code>, <code class="docutils literal notranslate"><span class="pre">long_name</span></code>, and <code class="docutils literal notranslate"><span class="pre">var_name</span></code></div>
+<div class="line">§ - The <code class="docutils literal notranslate"><span class="pre">circular</span></code> is ignored for operations between <a class="reference internal" href="../generated/api/iris/common/metadata.html#iris.common.metadata.CoordMetadata" title="iris.common.metadata.CoordMetadata"><code class="xref py py-class docutils literal notranslate"><span class="pre">CoordMetadata</span></code></a> and <a class="reference internal" href="../generated/api/iris/common/metadata.html#iris.common.metadata.DimCoordMetadata" title="iris.common.metadata.DimCoordMetadata"><code class="xref py py-class docutils literal notranslate"><span class="pre">DimCoordMetadata</span></code></a></div>
+</div>
+<p>In summary, only <code class="docutils literal notranslate"><span class="pre">standard_name</span></code>, <code class="docutils literal notranslate"><span class="pre">long_name</span></code>, <code class="docutils literal notranslate"><span class="pre">var_name</span></code> and the <code class="docutils literal notranslate"><span class="pre">attributes</span></code>
+members are treated leniently. All other members are considered to represent
+fundamental metadata that cannot, by their nature, be consider equivalent to
+metadata that is missing or <code class="docutils literal notranslate"><span class="pre">None</span></code>. For example, a <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a>
+with <code class="docutils literal notranslate"><span class="pre">units</span></code> of <code class="docutils literal notranslate"><span class="pre">ms-1</span></code> cannot be considered equivalent to another
+<a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a> with <code class="docutils literal notranslate"><span class="pre">units</span></code> of <code class="docutils literal notranslate"><span class="pre">unknown</span></code>; this would be a false
+and dangerous scientific assumption to make.</p>
+<p>Similar arguments can be made for the <code class="docutils literal notranslate"><span class="pre">measure</span></code>, <code class="docutils literal notranslate"><span class="pre">coord_system</span></code>, <code class="docutils literal notranslate"><span class="pre">climatological</span></code>,
+<code class="docutils literal notranslate"><span class="pre">cell_methods</span></code>, and <code class="docutils literal notranslate"><span class="pre">circular</span></code> members, all of which are treated with
+strict behaviour, regardlessly.</p>
+<div class="section" id="special-lenient-name-behaviour">
+<span id="special-lenient-name"></span><h4>Special lenient name behaviour<a class="headerlink" href="#special-lenient-name-behaviour" title="Permalink to this headline">¶</a></h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">standard_name</span></code>, <code class="docutils literal notranslate"><span class="pre">long_name</span></code> and <code class="docutils literal notranslate"><span class="pre">var_name</span></code> have a closer association
+with each other compared to all other metadata members, as they all
+underpin the functionality provided by the <a class="reference internal" href="../generated/api/iris/common/mixin.html#iris.common.mixin.CFVariableMixin.name" title="iris.common.mixin.CFVariableMixin.name"><code class="xref py py-meth docutils literal notranslate"><span class="pre">name()</span></code></a>
+method. It is imperative that the <a class="reference internal" href="../generated/api/iris/common/mixin.html#iris.common.mixin.CFVariableMixin.name" title="iris.common.mixin.CFVariableMixin.name"><code class="xref py py-meth docutils literal notranslate"><span class="pre">name()</span></code></a>
+derived from metadata remains constant for strict and lenient equality alike.</p>
+<p>As such, these metadata members have an additional layer of behaviour enforced
+during <a class="reference internal" href="#lenient-equality"><span class="std std-ref">Lenient equality</span></a> in order to ensure that the identity or name of
+metadata does not change due to a side-effect of lenient comparison.</p>
+<p>For example, if simple <a class="reference internal" href="#lenient-equality-table"><span class="std std-ref">lenient equality</span></a>
+behaviour was applied to the <code class="docutils literal notranslate"><span class="pre">standard_name</span></code>, <code class="docutils literal notranslate"><span class="pre">long_name</span></code> and <code class="docutils literal notranslate"><span class="pre">var_name</span></code>,
+the following would be considered <strong>not</strong> equal,</p>
+<table class="colwidths-auto docutils align-center">
+<thead>
+<tr class="row-odd"><th class="head"><p>Member</p></th>
+<th class="head"><p>Left</p></th>
+<th class="head"><p>Right</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">standard_name</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">latitude</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">long_name</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">latitude</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">var_name</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">lat</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">latitude</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>Both the <strong>Left</strong> and <strong>Right</strong> metadata would have the same
+<a class="reference internal" href="../generated/api/iris/common/mixin.html#iris.common.mixin.CFVariableMixin.name" title="iris.common.mixin.CFVariableMixin.name"><code class="xref py py-meth docutils literal notranslate"><span class="pre">name()</span></code></a> by definition i.e., <code class="docutils literal notranslate"><span class="pre">latitude</span></code>.
+However, lenient equality would fail due to the difference in <code class="docutils literal notranslate"><span class="pre">var_name</span></code>.</p>
+<p>To account for this, lenient equality is performed by two simple consecutive steps:</p>
+<ul class="simple">
+<li><p>ensure that the result returned by the <a class="reference internal" href="../generated/api/iris/common/mixin.html#iris.common.mixin.CFVariableMixin.name" title="iris.common.mixin.CFVariableMixin.name"><code class="xref py py-meth docutils literal notranslate"><span class="pre">name()</span></code></a>
+method is the same for the metadata being compared, then</p></li>
+<li><p>only perform <a class="reference internal" href="#lenient-equality-table"><span class="std std-ref">lenient equality</span></a> between the
+<code class="docutils literal notranslate"><span class="pre">standard_name</span></code> and <code class="docutils literal notranslate"><span class="pre">long_name</span></code> i.e., the <code class="docutils literal notranslate"><span class="pre">var_name</span></code> member is <strong>not</strong>
+compared explicitly, as its value may have been accounted for through
+<a class="reference internal" href="../generated/api/iris/common/mixin.html#iris.common.mixin.CFVariableMixin.name" title="iris.common.mixin.CFVariableMixin.name"><code class="xref py py-meth docutils literal notranslate"><span class="pre">name()</span></code></a> equality</p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="lenient_maths.html" class="btn btn-neutral float-right" title="Lenient cube maths" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="metadata.html" class="btn btn-neutral float-left" title="Metadata" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        
+        &copy; <a href="../copyright.html">Copyright</a> Iris Contributors
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
