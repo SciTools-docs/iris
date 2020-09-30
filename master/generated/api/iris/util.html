@@ -351,6 +351,11 @@ cubes must have coordinates with the same metadata
 <p class="admonition-title">Note</p>
 <p>This function will load and copy the data payload of <cite>src_cube</cite>.</p>
 </div>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 3.0.0: </span>Instead use <a class="reference internal" href="common/resolve.html#iris.common.resolve.Resolve" title="iris.common.resolve.Resolve"><code class="xref py py-class docutils literal notranslate"><span class="pre">Resolve</span></code></a>. For example, rather
+than calling <code class="docutils literal notranslate"><span class="pre">as_compatible_shape(src_cube,</span> <span class="pre">target_cube)</span></code> replace
+with <code class="docutils literal notranslate"><span class="pre">Resolve(src_cube,</span> <span class="pre">target_cube)(target_cube.core_data())</span></code>.</p>
+</div>
 <p>Args:</p>
 <ul class="simple">
 <li><dl class="simple">
