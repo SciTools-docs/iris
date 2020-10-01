@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>&lt;unreleased&gt; &mdash; Iris 3.0.dev0 documentation</title>
+  <title>&lt;unreleased&gt; &mdash; Iris 3.1.dev0 documentation</title>
   
 
   
@@ -49,7 +49,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
-    <link rel="next" title="v2.4 (20 Feb 2020)" href="2.4.html" />
+    <link rel="next" title="v3.0 (01 Oct 2020)" href="3.0.html" />
     <link rel="prev" title="What’s new in Iris" href="index.html" /> 
 </head>
 
@@ -77,7 +77,7 @@
             
             
               <div class="version">
-                3.0
+                3.1
               </div>
             
           
@@ -156,6 +156,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#internal">💼 Internal</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="3.0.html">v3.0 (01 Oct 2020)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="2.4.html">v2.4 (20 Feb 2020)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="2.3.html">v2.3 (19 Dec 2019)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="2.2.html">v2.2 (11 Oct 2018)</a></li>
@@ -279,306 +280,49 @@
 <div class="section" id="announcements">
 <h2>📢 Announcements<a class="headerlink" href="#announcements" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Congratulations to <a class="reference external" href="https://github.com/bouweandela">&#64;bouweandela</a>, <a class="reference external" href="https://github.com/jvegasbsc">&#64;jvegasbsc</a>, and <a class="reference external" href="https://github.com/zklaus">&#64;zklaus</a> who
-recently became Iris core developers. They bring a wealth of expertise to the
-team, and are using Iris to underpin <a class="reference external" href="https://github.com/ESMValGroup/ESMValTool">ESMValTool</a> - “<em>A community diagnostic
-and performance metrics tool for routine evaluation of Earth system models
-in CMIP</em>”. Welcome aboard! 🎉</p></li>
+<li><p>N/A</p></li>
 </ul>
 </div>
 <div class="section" id="features">
 <h2>✨ Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/MoseleyS">&#64;MoseleyS</a> greatly enhanced  the <a class="reference internal" href="../generated/api/iris/fileformats/nimrod.html#module-iris.fileformats.nimrod" title="iris.fileformats.nimrod"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nimrod</span></code></a>
-module to provide richer meta-data translation when loading <code class="docutils literal notranslate"><span class="pre">Nimrod</span></code> data
-into cubes. This covers most known operational use-cases. (<a class="reference external" href="https://github.com/SciTools/iris/pull/3647">PR #3647</a>)</p></li>
-<li><p><a class="reference external" href="https://github.com/stephenworsley">&#64;stephenworsley</a> improved the handling of
-<a class="reference internal" href="../generated/api/iris/coords.html#iris.coords.CellMeasure" title="iris.coords.CellMeasure"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.coords.CellMeasure</span></code></a>s in the <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a>
-statistical operations <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.Cube.collapsed" title="iris.cube.Cube.collapsed"><code class="xref py py-meth docutils literal notranslate"><span class="pre">collapsed()</span></code></a>,
-<a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.Cube.aggregated_by" title="iris.cube.Cube.aggregated_by"><code class="xref py py-meth docutils literal notranslate"><span class="pre">aggregated_by()</span></code></a> and
-<a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.Cube.rolling_window" title="iris.cube.Cube.rolling_window"><code class="xref py py-meth docutils literal notranslate"><span class="pre">rolling_window()</span></code></a>. These previously removed every
-<a class="reference internal" href="../generated/api/iris/coords.html#iris.coords.CellMeasure" title="iris.coords.CellMeasure"><code class="xref py py-class docutils literal notranslate"><span class="pre">CellMeasure</span></code></a> attached to the cube.  Now, a
-<a class="reference internal" href="../generated/api/iris/coords.html#iris.coords.CellMeasure" title="iris.coords.CellMeasure"><code class="xref py py-class docutils literal notranslate"><span class="pre">CellMeasure</span></code></a> will only be removed if it is associated
-with an axis over which the statistic is being run. (<a class="reference external" href="https://github.com/SciTools/iris/pull/3549">PR #3549</a>)</p></li>
-<li><p><a class="reference external" href="https://github.com/stephenworsley">&#64;stephenworsley</a>, <a class="reference external" href="https://github.com/pp-mo">&#64;pp-mo</a> and <a class="reference external" href="https://github.com/abooton">&#64;abooton</a> added support for
-<a class="reference external" href="https://cfconventions.org/Data/cf-conventions/cf-conventions-1.8/cf-conventions.html#ancillary-data">CF Ancillary Data</a> variables.  These are created as
-<a class="reference internal" href="../generated/api/iris/coords.html#iris.coords.AncillaryVariable" title="iris.coords.AncillaryVariable"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.coords.AncillaryVariable</span></code></a>, and appear as components of cubes
-much like <a class="reference internal" href="../generated/api/iris/coords.html#iris.coords.AuxCoord" title="iris.coords.AuxCoord"><code class="xref py py-class docutils literal notranslate"><span class="pre">AuxCoord</span></code></a>s, with the new
-<a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a> methods
-<a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.Cube.add_ancillary_variable" title="iris.cube.Cube.add_ancillary_variable"><code class="xref py py-meth docutils literal notranslate"><span class="pre">add_ancillary_variable()</span></code></a>,
-<a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.Cube.remove_ancillary_variable" title="iris.cube.Cube.remove_ancillary_variable"><code class="xref py py-meth docutils literal notranslate"><span class="pre">remove_ancillary_variable()</span></code></a>,
-<a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.Cube.ancillary_variable" title="iris.cube.Cube.ancillary_variable"><code class="xref py py-meth docutils literal notranslate"><span class="pre">ancillary_variable()</span></code></a>,
-<a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.Cube.ancillary_variables" title="iris.cube.Cube.ancillary_variables"><code class="xref py py-meth docutils literal notranslate"><span class="pre">ancillary_variables()</span></code></a> and
-<a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.Cube.ancillary_variable_dims" title="iris.cube.Cube.ancillary_variable_dims"><code class="xref py py-meth docutils literal notranslate"><span class="pre">ancillary_variable_dims()</span></code></a>.
-They are loaded from and saved to NetCDF-CF files.  Special support for
-<a class="reference external" href="https://cfconventions.org/Data/cf-conventions/cf-conventions-1.8/cf-conventions.html#flags">Quality Flags</a> is also provided, to ensure they load and save with
-appropriate units. (<a class="reference external" href="https://github.com/SciTools/iris/pull/3800">PR #3800</a>)</p></li>
-<li><p><a class="reference external" href="https://github.com/bouweandela">&#64;bouweandela</a> implemented lazy regridding for the
-<a class="reference internal" href="../generated/api/iris/analysis.html#iris.analysis.Linear" title="iris.analysis.Linear"><code class="xref py py-class docutils literal notranslate"><span class="pre">Linear</span></code></a>, <a class="reference internal" href="../generated/api/iris/analysis.html#iris.analysis.Nearest" title="iris.analysis.Nearest"><code class="xref py py-class docutils literal notranslate"><span class="pre">Nearest</span></code></a>, and
-<a class="reference internal" href="../generated/api/iris/analysis.html#iris.analysis.AreaWeighted" title="iris.analysis.AreaWeighted"><code class="xref py py-class docutils literal notranslate"><span class="pre">AreaWeighted</span></code></a> regridding schemes. (<a class="reference external" href="https://github.com/SciTools/iris/pull/3701">PR #3701</a>)</p></li>
-<li><p><a class="reference external" href="https://github.com/bjlittle">&#64;bjlittle</a> added <a class="reference external" href="https://docs.python.org/3/library/logging.html">logging</a> support within <a class="reference internal" href="../generated/api/iris/analysis/maths.html#module-iris.analysis.maths" title="iris.analysis.maths"><code class="xref py py-mod docutils literal notranslate"><span class="pre">iris.analysis.maths</span></code></a>,
-<a class="reference internal" href="../generated/api/iris/common/metadata.html#module-iris.common.metadata" title="iris.common.metadata"><code class="xref py py-mod docutils literal notranslate"><span class="pre">iris.common.metadata</span></code></a>, and <a class="reference internal" href="../generated/api/iris/common/resolve.html#module-iris.common.resolve" title="iris.common.resolve"><code class="xref py py-mod docutils literal notranslate"><span class="pre">iris.common.resolve</span></code></a>. Each module
-defines a <a class="reference external" href="https://docs.python.org/2.7/library/logging.html#logging.Logger" title="(in Python v2.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">logging.Logger</span></code></a> instance called <code class="docutils literal notranslate"><span class="pre">logger</span></code> with a default
-<code class="docutils literal notranslate"><span class="pre">level</span></code> of <code class="docutils literal notranslate"><span class="pre">INFO</span></code>. To enable <code class="docutils literal notranslate"><span class="pre">DEBUG</span></code> logging use
-<code class="docutils literal notranslate"><span class="pre">logger.setLevel(&quot;DEBUG&quot;)</span></code>. (<a class="reference external" href="https://github.com/SciTools/iris/pull/3785">PR #3785</a>)</p></li>
-<li><p><a class="reference external" href="https://github.com/bjlittle">&#64;bjlittle</a> added the <a class="reference internal" href="../generated/api/iris/common/resolve.html#module-iris.common.resolve" title="iris.common.resolve"><code class="xref py py-mod docutils literal notranslate"><span class="pre">iris.common.resolve</span></code></a> module, which provides
-infrastructure to support the analysis, identification and combination
-of metadata common between two <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a> operands into a
-single resultant <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a> that will be auto-transposed,
-and with the appropriate broadcast shape. (<a class="reference external" href="https://github.com/SciTools/iris/pull/3785">PR #3785</a>)</p></li>
-<li><p><a class="reference external" href="https://github.com/bjlittle">&#64;bjlittle</a> added the <a class="reference internal" href="../further_topics/metadata.html#metadata"><span class="std std-ref">common metadata API</span></a>, which provides
-a unified treatment of metadata across Iris, and allows users to easily
-manage and manipulate their metadata in a consistent way. (<a class="reference external" href="https://github.com/SciTools/iris/pull/3785">PR #3785</a>)</p></li>
-<li><p><a class="reference external" href="https://github.com/bjlittle">&#64;bjlittle</a> added <a class="reference internal" href="../further_topics/lenient_metadata.html#lenient-metadata"><span class="std std-ref">lenient metadata</span></a> support, to
-allow users to control <strong>strict</strong> or <strong>lenient</strong> metadata equivalence,
-difference and combination. (<a class="reference external" href="https://github.com/SciTools/iris/pull/3785">PR #3785</a>)</p></li>
-<li><p><a class="reference external" href="https://github.com/bjlittle">&#64;bjlittle</a> added <a class="reference internal" href="../further_topics/lenient_maths.html#lenient-maths"><span class="std std-ref">lenient cube maths</span></a> support and
-resolved several long standing major issues with cube arithmetic regarding
-a more robust treatment of cube broadcasting, cube dimension auto-transposition,
-and preservation of common metadata and coordinates during cube math operations.
-Resolves <a class="reference external" href="https://github.com/SciTools/iris/issues/1887">Issue #1887</a>, <a class="reference external" href="https://github.com/SciTools/iris/issues/2765">Issue #2765</a>, and <a class="reference external" href="https://github.com/SciTools/iris/issues/3478">Issue #3478</a>. (<a class="reference external" href="https://github.com/SciTools/iris/pull/3785">PR #3785</a>)</p></li>
+<li><p>N/A</p></li>
 </ul>
 </div>
 <div class="section" id="bugs-fixed">
 <h2>🐛 Bugs Fixed<a class="headerlink" href="#bugs-fixed" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/stephenworsley">&#64;stephenworsley</a> fixed <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.Cube.remove_coord" title="iris.cube.Cube.remove_coord"><code class="xref py py-meth docutils literal notranslate"><span class="pre">remove_coord()</span></code></a> to now also
-remove derived coordinates by removing aux_factories. (<a class="reference external" href="https://github.com/SciTools/iris/pull/3641">PR #3641</a>)</p></li>
-<li><p><a class="reference external" href="https://github.com/jonseddon">&#64;jonseddon</a> fixed <code class="docutils literal notranslate"><span class="pre">isinstance(cube,</span> <span class="pre">collections.Iterable)</span></code> to now behave
-as expected if a <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a> is iterated over, while also
-ensuring that <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> is still raised. (Fixed by setting the
-<code class="docutils literal notranslate"><span class="pre">__iter__()</span></code> method in <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a> to <code class="docutils literal notranslate"><span class="pre">None</span></code>).
-(<a class="reference external" href="https://github.com/SciTools/iris/pull/3656">PR #3656</a>)</p></li>
-<li><p><a class="reference external" href="https://github.com/stephenworsley">&#64;stephenworsley</a> enabled cube concatenation along an axis shared by cell
-measures; these cell measures are now concatenated together in the resulting
-cube. Such a scenario would previously cause concatenation to inappropriately
-fail. (<a class="reference external" href="https://github.com/SciTools/iris/pull/3566">PR #3566</a>)</p></li>
-<li><p><a class="reference external" href="https://github.com/stephenworsley">&#64;stephenworsley</a> newly included <a class="reference internal" href="../generated/api/iris/coords.html#iris.coords.CellMeasure" title="iris.coords.CellMeasure"><code class="xref py py-class docutils literal notranslate"><span class="pre">CellMeasure</span></code></a>s in
-<a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a> copy operations. Previously copying a
-<a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a> would ignore any attached
-<a class="reference internal" href="../generated/api/iris/coords.html#iris.coords.CellMeasure" title="iris.coords.CellMeasure"><code class="xref py py-class docutils literal notranslate"><span class="pre">CellMeasure</span></code></a>. (<a class="reference external" href="https://github.com/SciTools/iris/pull/3546">PR #3546</a>)</p></li>
-<li><p><a class="reference external" href="https://github.com/bjlittle">&#64;bjlittle</a> set a <a class="reference internal" href="../generated/api/iris/coords.html#iris.coords.CellMeasure" title="iris.coords.CellMeasure"><code class="xref py py-class docutils literal notranslate"><span class="pre">CellMeasure</span></code></a>’s
-<code class="docutils literal notranslate"><span class="pre">measure</span></code> attribute to have a default value of <code class="docutils literal notranslate"><span class="pre">area</span></code>.
-Previously, the <code class="docutils literal notranslate"><span class="pre">measure</span></code> was provided as a keyword argument to
-<a class="reference internal" href="../generated/api/iris/coords.html#iris.coords.CellMeasure" title="iris.coords.CellMeasure"><code class="xref py py-class docutils literal notranslate"><span class="pre">CellMeasure</span></code></a> with a default value of <code class="docutils literal notranslate"><span class="pre">None</span></code>, which
-caused a <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> when no <code class="docutils literal notranslate"><span class="pre">measure</span></code> was provided, since <code class="docutils literal notranslate"><span class="pre">area</span></code> or
-<code class="docutils literal notranslate"><span class="pre">volume</span></code> are the only accepted values. (<a class="reference external" href="https://github.com/SciTools/iris/pull/3533">PR #3533</a>)</p></li>
-<li><p><a class="reference external" href="https://github.com/trexfeathers">&#64;trexfeathers</a> set <strong>all</strong> plot types in <a class="reference internal" href="../generated/api/iris/plot.html#module-iris.plot" title="iris.plot"><code class="xref py py-mod docutils literal notranslate"><span class="pre">iris.plot</span></code></a> to now use
-<a class="reference external" href="https://matplotlib.org/api/dates_api.html#matplotlib.dates.date2num">matplotlib.dates.date2num</a> to format date/time coordinates for use on a plot
-axis (previously <a class="reference internal" href="../generated/api/iris/plot.html#iris.plot.pcolor" title="iris.plot.pcolor"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pcolor()</span></code></a> and <a class="reference internal" href="../generated/api/iris/plot.html#iris.plot.pcolormesh" title="iris.plot.pcolormesh"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pcolormesh()</span></code></a>
-did not include this behaviour). (<a class="reference external" href="https://github.com/SciTools/iris/pull/3762">PR #3762</a>)</p></li>
-<li><p><a class="reference external" href="https://github.com/trexfeathers">&#64;trexfeathers</a> changed date/time axis labels in <a class="reference internal" href="../generated/api/iris/quickplot.html#module-iris.quickplot" title="iris.quickplot"><code class="xref py py-mod docutils literal notranslate"><span class="pre">iris.quickplot</span></code></a> to
-now <strong>always</strong> be based on the <code class="docutils literal notranslate"><span class="pre">epoch</span></code> used in <a class="reference external" href="https://matplotlib.org/api/dates_api.html#matplotlib.dates.date2num">matplotlib.dates.date2num</a>
-(previously would take the unit from a time coordinate, if present, even
-though the coordinate’s value had been changed via <code class="docutils literal notranslate"><span class="pre">date2num</span></code>).
-(<a class="reference external" href="https://github.com/SciTools/iris/pull/3762">PR #3762</a>)</p></li>
-<li><p><a class="reference external" href="https://github.com/pp-mo">&#64;pp-mo</a> newly included attributes of cell measures in NETCDF-CF
-file loading; they were previously being discarded. They are now available on
-the <a class="reference internal" href="../generated/api/iris/coords.html#iris.coords.CellMeasure" title="iris.coords.CellMeasure"><code class="xref py py-class docutils literal notranslate"><span class="pre">CellMeasure</span></code></a> in the loaded <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a>.
-(<a class="reference external" href="https://github.com/SciTools/iris/pull/3800">PR #3800</a>)</p></li>
-<li><p><a class="reference external" href="https://github.com/pp-mo">&#64;pp-mo</a> fixed the netcdf loader to now handle any grid-mapping
-variables with missing <code class="docutils literal notranslate"><span class="pre">false_easting</span></code> and <code class="docutils literal notranslate"><span class="pre">false_northing</span></code> properties,
-which was previously failing for some coordinate systems. See <a class="reference external" href="https://github.com/SciTools/iris/issues/3629">Issue #3629</a>.
-(<a class="reference external" href="https://github.com/SciTools/iris/pull/3804">PR #3804</a>)</p></li>
-<li><p><a class="reference external" href="https://github.com/stephenworsley">&#64;stephenworsley</a> changed the way tick labels are assigned from string coords.
-Previously, the first tick label would occasionally be duplicated. This also
-removes the use of Matplotlib’s deprecated <code class="docutils literal notranslate"><span class="pre">IndexFormatter</span></code>. (<a class="reference external" href="https://github.com/SciTools/iris/pull/3857">PR #3857</a>)</p></li>
+<li><p>N/A</p></li>
 </ul>
 </div>
 <div class="section" id="incompatible-changes">
 <h2>💣 Incompatible Changes<a class="headerlink" href="#incompatible-changes" title="Permalink to this headline">¶</a></h2>
-<ul>
-<li><p><a class="reference external" href="https://github.com/pp-mo">&#64;pp-mo</a> rationalised <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.CubeList" title="iris.cube.CubeList"><code class="xref py py-class docutils literal notranslate"><span class="pre">CubeList</span></code></a> extraction
-methods:</p>
-<p>The former method <code class="docutils literal notranslate"><span class="pre">iris.cube.CubeList.extract_strict</span></code>, and the <code class="docutils literal notranslate"><span class="pre">strict</span></code>
-keyword of the <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.CubeList.extract" title="iris.cube.CubeList.extract"><code class="xref py py-meth docutils literal notranslate"><span class="pre">extract()</span></code></a> method have been removed,
-and are replaced by the new routines <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.CubeList.extract_cube" title="iris.cube.CubeList.extract_cube"><code class="xref py py-meth docutils literal notranslate"><span class="pre">extract_cube()</span></code></a>
-and <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.CubeList.extract_cubes" title="iris.cube.CubeList.extract_cubes"><code class="xref py py-meth docutils literal notranslate"><span class="pre">extract_cubes()</span></code></a>.
-The new routines perform the same operation, but in a style more like other
-<code class="docutils literal notranslate"><span class="pre">Iris</span></code> functions such as <a class="reference internal" href="../generated/api/iris.html#iris.load_cube" title="iris.load_cube"><code class="xref py py-meth docutils literal notranslate"><span class="pre">load_cube()</span></code></a> and <a class="reference internal" href="../generated/api/iris.html#iris.load_cubes" title="iris.load_cubes"><code class="xref py py-meth docutils literal notranslate"><span class="pre">load_cubes()</span></code></a>.
-Unlike <code class="docutils literal notranslate"><span class="pre">strict</span></code> extraction, the type of return value is now completely
-consistent : <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.CubeList.extract_cube" title="iris.cube.CubeList.extract_cube"><code class="xref py py-meth docutils literal notranslate"><span class="pre">extract_cube()</span></code></a> always returns a
-<a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a>, and <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.CubeList.extract_cubes" title="iris.cube.CubeList.extract_cubes"><code class="xref py py-meth docutils literal notranslate"><span class="pre">extract_cubes()</span></code></a>
-always returns an <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.CubeList" title="iris.cube.CubeList"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.cube.CubeList</span></code></a> of a length equal to the
-number of constraints. (<a class="reference external" href="https://github.com/SciTools/iris/pull/3715">PR #3715</a>)</p>
-</li>
-<li><p><a class="reference external" href="https://github.com/pp-mo">&#64;pp-mo</a> removed the former function
-<code class="docutils literal notranslate"><span class="pre">iris.analysis.coord_comparison</span></code>. (<a class="reference external" href="https://github.com/SciTools/iris/pull/3562">PR #3562</a>)</p></li>
-<li><p><a class="reference external" href="https://github.com/bjlittle">&#64;bjlittle</a> moved the
-<a class="reference internal" href="../generated/api/iris/experimental/equalise_cubes.html#iris.experimental.equalise_cubes.equalise_attributes" title="iris.experimental.equalise_cubes.equalise_attributes"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.experimental.equalise_cubes.equalise_attributes()</span></code></a> function from
-the <a class="reference internal" href="../generated/api/iris/experimental.html#module-iris.experimental" title="iris.experimental"><code class="xref py py-mod docutils literal notranslate"><span class="pre">iris.experimental</span></code></a> module into the <a class="reference internal" href="../generated/api/iris/util.html#module-iris.util" title="iris.util"><code class="xref py py-mod docutils literal notranslate"><span class="pre">iris.util</span></code></a> module.  Please
-use the <a class="reference internal" href="../generated/api/iris/util.html#iris.util.equalise_attributes" title="iris.util.equalise_attributes"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.util.equalise_attributes()</span></code></a> function instead.
-(<a class="reference external" href="https://github.com/SciTools/iris/pull/3527">PR #3527</a>)</p></li>
-<li><p><a class="reference external" href="https://github.com/bjlittle">&#64;bjlittle</a> removed the module <code class="docutils literal notranslate"><span class="pre">iris.experimental.concatenate</span></code>. In
-<code class="docutils literal notranslate"><span class="pre">v1.6.0</span></code> the experimental <code class="docutils literal notranslate"><span class="pre">concatenate</span></code> functionality was moved to the
-<a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.CubeList.concatenate" title="iris.cube.CubeList.concatenate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">iris.cube.CubeList.concatenate()</span></code></a> method.  Since then, calling the
-<code class="xref py py-func docutils literal notranslate"><span class="pre">iris.experimental.concatenate.concatenate()</span></code> function raised an
-exception. (<a class="reference external" href="https://github.com/SciTools/iris/pull/3523">PR #3523</a>)</p></li>
-<li><p><a class="reference external" href="https://github.com/stephenworsley">&#64;stephenworsley</a> changed Iris objects loaded from NetCDF-CF files to have
-<code class="docutils literal notranslate"><span class="pre">units='unknown'</span></code> where the corresponding NetCDF variable has no <code class="docutils literal notranslate"><span class="pre">units</span></code>
-property. Previously these cases defaulted to <code class="docutils literal notranslate"><span class="pre">units='1'</span></code>.
-This affects loading of coordinates whose file variable has no “units”
-attribute (not valid, under <a class="reference external" href="https://cfconventions.org/Data/cf-conventions/cf-conventions-1.8/cf-conventions.html#units">CF units rules</a>):  These will now have units
-of <cite>“unknown”</cite>, rather than <cite>“1”</cite>, which <strong>may prevent the creation of
-a hybrid vertical coordinate</strong>.  While these cases used to “work”, this was
-never really correct behaviour. (<a class="reference external" href="https://github.com/SciTools/iris/pull/3795">PR #3795</a>)</p></li>
-<li><p><a class="reference external" href="https://github.com/SimonPeatman">&#64;SimonPeatman</a> added attribute <code class="docutils literal notranslate"><span class="pre">var_name</span></code> to coordinates created by the
-<a class="reference internal" href="../generated/api/iris/analysis/trajectory.html#iris.analysis.trajectory.interpolate" title="iris.analysis.trajectory.interpolate"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.analysis.trajectory.interpolate()</span></code></a> function.  This prevents
-duplicate coordinate errors in certain circumstances. (<a class="reference external" href="https://github.com/SciTools/iris/pull/3718">PR #3718</a>)</p></li>
-<li><p><a class="reference external" href="https://github.com/bjlittle">&#64;bjlittle</a> aligned the <a class="reference internal" href="../generated/api/iris/analysis/maths.html#iris.analysis.maths.apply_ufunc" title="iris.analysis.maths.apply_ufunc"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.analysis.maths.apply_ufunc()</span></code></a> with the
-rest of the <a class="reference internal" href="../generated/api/iris/analysis/maths.html#module-iris.analysis.maths" title="iris.analysis.maths"><code class="xref py py-mod docutils literal notranslate"><span class="pre">iris.analysis.maths</span></code></a> API by changing its keyword argument
-from <code class="docutils literal notranslate"><span class="pre">other_cube</span></code> to <code class="docutils literal notranslate"><span class="pre">other</span></code>. (<a class="reference external" href="https://github.com/SciTools/iris/pull/3785">PR #3785</a>)</p></li>
-<li><p><a class="reference external" href="https://github.com/bjlittle">&#64;bjlittle</a> changed the <a class="reference internal" href="../generated/api/iris/analysis/maths.html#iris.analysis.maths.IFunc.__call__" title="iris.analysis.maths.IFunc.__call__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">iris.analysis.maths.IFunc.__call__()</span></code></a> to ignore
-any surplus <code class="docutils literal notranslate"><span class="pre">other</span></code> keyword argument for a <code class="docutils literal notranslate"><span class="pre">data_func</span></code> that requires
-<strong>only one</strong> argument. This aligns the behaviour of
-<a class="reference internal" href="../generated/api/iris/analysis/maths.html#iris.analysis.maths.IFunc.__call__" title="iris.analysis.maths.IFunc.__call__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">iris.analysis.maths.IFunc.__call__()</span></code></a> with
-<a class="reference internal" href="../generated/api/iris/analysis/maths.html#iris.analysis.maths.apply_ufunc" title="iris.analysis.maths.apply_ufunc"><code class="xref py py-func docutils literal notranslate"><span class="pre">apply_ufunc()</span></code></a>. Previously a <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>
-exception was raised. (<a class="reference external" href="https://github.com/SciTools/iris/pull/3785">PR #3785</a>)</p></li>
+<ul class="simple">
+<li><p>N/A</p></li>
 </ul>
 </div>
 <div class="section" id="deprecations">
 <h2>🔥 Deprecations<a class="headerlink" href="#deprecations" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/stephenworsley">&#64;stephenworsley</a> removed the deprecated <a class="reference internal" href="../generated/api/iris.html#iris.Future" title="iris.Future"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.Future</span></code></a> flags
-<code class="docutils literal notranslate"><span class="pre">cell_date_time_objects</span></code>, <code class="docutils literal notranslate"><span class="pre">netcdf_promote</span></code>, <code class="docutils literal notranslate"><span class="pre">netcdf_no_unlimited</span></code> and
-<code class="docutils literal notranslate"><span class="pre">clip_latitudes</span></code>. (<a class="reference external" href="https://github.com/SciTools/iris/pull/3459">PR #3459</a>)</p></li>
-<li><p><a class="reference external" href="https://github.com/stephenworsley">&#64;stephenworsley</a> changed <a class="reference internal" href="../generated/api/iris/fileformats/pp.html#iris.fileformats.pp.PPField.lbproc" title="iris.fileformats.pp.PPField.lbproc"><code class="xref py py-attr docutils literal notranslate"><span class="pre">iris.fileformats.pp.PPField.lbproc</span></code></a> to be an
-<code class="docutils literal notranslate"><span class="pre">int</span></code>. The deprecated attributes <code class="docutils literal notranslate"><span class="pre">flag1</span></code>, <code class="docutils literal notranslate"><span class="pre">flag2</span></code> etc. have been
-removed from it. (<a class="reference external" href="https://github.com/SciTools/iris/pull/3461">PR #3461</a>)</p></li>
-<li><p><a class="reference external" href="https://github.com/bjlittle">&#64;bjlittle</a> deprecated <a class="reference internal" href="../generated/api/iris/util.html#iris.util.as_compatible_shape" title="iris.util.as_compatible_shape"><code class="xref py py-func docutils literal notranslate"><span class="pre">as_compatible_shape()</span></code></a> in preference
-for <a class="reference internal" href="../generated/api/iris/common/resolve.html#iris.common.resolve.Resolve" title="iris.common.resolve.Resolve"><code class="xref py py-class docutils literal notranslate"><span class="pre">Resolve</span></code></a> e.g., <code class="docutils literal notranslate"><span class="pre">Resolve(src,</span> <span class="pre">tgt)(tgt.core_data())</span></code>.
-The <a class="reference internal" href="../generated/api/iris/util.html#iris.util.as_compatible_shape" title="iris.util.as_compatible_shape"><code class="xref py py-func docutils literal notranslate"><span class="pre">as_compatible_shape()</span></code></a> function will be removed in a future
-release of Iris. (<a class="reference external" href="https://github.com/SciTools/iris/pull/3892">PR #3892</a>)</p></li>
+<li><p>N/A</p></li>
 </ul>
 </div>
 <div class="section" id="dependencies">
 <h2>🔗 Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/stephenworsley">&#64;stephenworsley</a>, <a class="reference external" href="https://github.com/trexfeathers">&#64;trexfeathers</a> and <a class="reference external" href="https://github.com/bjlittle">&#64;bjlittle</a> removed <code class="docutils literal notranslate"><span class="pre">Python2</span></code>
-support, modernising the codebase by switching to exclusive <code class="docutils literal notranslate"><span class="pre">Python3</span></code>
-support. (<a class="reference external" href="https://github.com/SciTools/iris/pull/3513">PR #3513</a>)</p></li>
-<li><p><a class="reference external" href="https://github.com/bjlittle">&#64;bjlittle</a> improved the developer set up process. Configuring Iris and
-<a class="reference internal" href="../installing.html#installing-from-source"><span class="std std-ref">Installing from source (devs)</span></a> as a developer with all the required package
-dependencies is now easier with our curated conda environment YAML files.
-(<a class="reference external" href="https://github.com/SciTools/iris/pull/3812">PR #3812</a>)</p></li>
-<li><p><a class="reference external" href="https://github.com/stephenworsley">&#64;stephenworsley</a> pinned Iris to require <a class="reference external" href="https://github.com/dask/dask">Dask</a> <code class="docutils literal notranslate"><span class="pre">&gt;=2.0</span></code>. (<a class="reference external" href="https://github.com/SciTools/iris/pull/3460">PR #3460</a>)</p></li>
-<li><p><a class="reference external" href="https://github.com/stephenworsley">&#64;stephenworsley</a> and <a class="reference external" href="https://github.com/trexfeathers">&#64;trexfeathers</a> pinned Iris to require
-<a class="reference external" href="https://github.com/SciTools/cartopy">Cartopy</a> <code class="docutils literal notranslate"><span class="pre">&gt;=0.18</span></code>, in order to remain compatible with the latest version
-of <a class="reference external" href="https://matplotlib.org/">Matplotlib</a>. (<a class="reference external" href="https://github.com/SciTools/iris/pull/3762">PR #3762</a>)</p></li>
-<li><p><a class="reference external" href="https://github.com/bjlittle">&#64;bjlittle</a> unpinned Iris to use the latest version of <a class="reference external" href="https://matplotlib.org/">Matplotlib</a>.
-Supporting <code class="docutils literal notranslate"><span class="pre">Iris</span></code> for both <code class="docutils literal notranslate"><span class="pre">Python2</span></code> and <code class="docutils literal notranslate"><span class="pre">Python3</span></code> had resulted in
-pinning our dependency on <a class="reference external" href="https://matplotlib.org/">Matplotlib</a> at <code class="docutils literal notranslate"><span class="pre">v2.x</span></code>.  But this is no longer
-necessary now that <code class="docutils literal notranslate"><span class="pre">Python2</span></code> support has been dropped. (<a class="reference external" href="https://github.com/SciTools/iris/pull/3468">PR #3468</a>)</p></li>
-<li><p><a class="reference external" href="https://github.com/stephenworsley">&#64;stephenworsley</a> and <a class="reference external" href="https://github.com/trexfeathers">&#64;trexfeathers</a> unpinned Iris to use the latest version
-of <a class="reference external" href="https://github.com/OSGeo/PROJ">Proj</a>. (<a class="reference external" href="https://github.com/SciTools/iris/pull/3762">PR #3762</a>)</p></li>
-<li><p><a class="reference external" href="https://github.com/stephenworsley">&#64;stephenworsley</a> and <a class="reference external" href="https://github.com/trexfeathers">&#64;trexfeathers</a> removed GDAL from the extensions
-dependency group. We no longer consider it to be an extension. (<a class="reference external" href="https://github.com/SciTools/iris/pull/3762">PR #3762</a>)</p></li>
+<li><p>N/A</p></li>
 </ul>
 </div>
 <div class="section" id="documentation">
 <h2>📚 Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/tkknight">&#64;tkknight</a> moved the
-<a class="reference internal" href="../generated/gallery/oceanography/plot_orca_projection.html#sphx-glr-generated-gallery-oceanography-plot-orca-projection-py"><span class="std std-ref">Tri-Polar Grid Projected Plotting</span></a>
-from the general part of the gallery to oceanography. (<a class="reference external" href="https://github.com/SciTools/iris/pull/3761">PR #3761</a>)</p></li>
-<li><p><a class="reference external" href="https://github.com/tkknight">&#64;tkknight</a> updated documentation to use a modern sphinx theme and be
-served from <a class="reference external" href="https://scitools-iris.readthedocs.io/en/latest/">https://scitools-iris.readthedocs.io/en/latest/</a>. (<a class="reference external" href="https://github.com/SciTools/iris/pull/3752">PR #3752</a>)</p></li>
-<li><p><a class="reference external" href="https://github.com/bjlittle">&#64;bjlittle</a> added support for the <a class="reference external" href="https://black.readthedocs.io/en/stable/">black</a> code formatter. This is
-now automatically checked on GitHub PRs, replacing the older, unittest-based
-<code class="docutils literal notranslate"><span class="pre">iris.tests.test_coding_standards.TestCodeFormat</span></code>. Black provides automatic
-code format correction for most IDEs.  See the new developer guide section on
-<a class="reference internal" href="../developers_guide/contributing_code_formatting.html#code-formatting"><span class="std std-ref">Code formatting</span></a>. (<a class="reference external" href="https://github.com/SciTools/iris/pull/3518">PR #3518</a>)</p></li>
-<li><p><a class="reference external" href="https://github.com/tkknight">&#64;tkknight</a> and <a class="reference external" href="https://github.com/trexfeathers">&#64;trexfeathers</a> refreshed the <a class="reference internal" href="../developers_guide/documenting/whats_new_contributions.html#whats-new-contributions"><span class="std std-ref">Contributing a “What’s New” entry</span></a>
-for the <a class="reference internal" href="index.html#iris-whatsnew"><span class="std std-ref">What’s new in Iris</span></a>. This includes always creating the <code class="docutils literal notranslate"><span class="pre">latest</span></code>
-what’s new page so it appears on the latest documentation at
-<a class="reference external" href="https://scitools-iris.readthedocs.io/en/latest/whatsnew">https://scitools-iris.readthedocs.io/en/latest/whatsnew</a>. This resolves
-<a class="reference external" href="https://github.com/SciTools/iris/issues/2104">Issue #2104</a>, <a class="reference external" href="https://github.com/SciTools/iris/issues/3451">Issue #3451</a>, <a class="reference external" href="https://github.com/SciTools/iris/issues/3818">Issue #3818</a>, <a class="reference external" href="https://github.com/SciTools/iris/issues/3837">Issue #3837</a>.  Also updated the
-<a class="reference internal" href="../developers_guide/release.html#iris-development-releases-steps"><span class="std std-ref">Maintainer steps</span></a> to follow when making a release.
-(<a class="reference external" href="https://github.com/SciTools/iris/pull/3769">PR #3769</a>, <a class="reference external" href="https://github.com/SciTools/iris/pull/3838">PR #3838</a>, <a class="reference external" href="https://github.com/SciTools/iris/pull/3843">PR #3843</a>)</p></li>
-<li><p><a class="reference external" href="https://github.com/tkknight">&#64;tkknight</a> enabled the PDF creation of the documentation on the
-<a class="reference external" href="https://scitools-iris.readthedocs.io/en/latest/">Read the Docs</a> service. The PDF may be accessed by clicking on the version
-at the bottom of the side bar, then selecting <code class="docutils literal notranslate"><span class="pre">PDF</span></code> from the <code class="docutils literal notranslate"><span class="pre">Downloads</span></code>
-section. (<a class="reference external" href="https://github.com/SciTools/iris/pull/3765">PR #3765</a>)</p></li>
-<li><p><a class="reference external" href="https://github.com/stephenworsley">&#64;stephenworsley</a> added a warning to the
-<a class="reference internal" href="../generated/api/iris/analysis/cartography.html#iris.analysis.cartography.project" title="iris.analysis.cartography.project"><code class="xref py py-func docutils literal notranslate"><span class="pre">iris.analysis.cartography.project()</span></code></a> function regarding its behaviour on
-projections with non-rectangular boundaries. (<a class="reference external" href="https://github.com/SciTools/iris/pull/3762">PR #3762</a>)</p></li>
-<li><p><a class="reference external" href="https://github.com/stephenworsley">&#64;stephenworsley</a> added the <a class="reference internal" href="../userguide/cube_maths.html#cube-maths-combining-units"><span class="std std-ref">Combining units</span></a> section to the
-user guide to clarify how <code class="docutils literal notranslate"><span class="pre">Units</span></code> are handled during cube arithmetic.
-(<a class="reference external" href="https://github.com/SciTools/iris/pull/3803">PR #3803</a>)</p></li>
-<li><p><a class="reference external" href="https://github.com/tkknight">&#64;tkknight</a> overhauled the <a class="reference internal" href="../index.html#developers-guide"><span class="std std-ref">Further Topics</span></a> including information on
-getting involved in becoming a contributor and general structure of the
-guide.  This resolves <a class="reference external" href="https://github.com/SciTools/iris/issues/2170">Issue #2170</a>, <a class="reference external" href="https://github.com/SciTools/iris/issues/2331">Issue #2331</a>, <a class="reference external" href="https://github.com/SciTools/iris/issues/3453">Issue #3453</a>,
-<a class="reference external" href="https://github.com/SciTools/iris/issues/314">Issue #314</a>, <a class="reference external" href="https://github.com/SciTools/iris/issues/2902">Issue #2902</a>. (<a class="reference external" href="https://github.com/SciTools/iris/pull/3852">PR #3852</a>)</p></li>
-<li><p><a class="reference external" href="https://github.com/rcomer">&#64;rcomer</a> added argument descriptions to the <a class="reference internal" href="../generated/api/iris/coords.html#iris.coords.DimCoord" title="iris.coords.DimCoord"><code class="xref py py-class docutils literal notranslate"><span class="pre">DimCoord</span></code></a>
-docstring. (<a class="reference external" href="https://github.com/SciTools/iris/pull/3681">PR #3681</a>)</p></li>
-<li><p><a class="reference external" href="https://github.com/tkknight">&#64;tkknight</a> added two url’s to be ignored for the <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">linkcheck</span></code>.  This
-will ensure the Iris github project is not repeatedly hit during the
-linkcheck for issues and pull requests as it can result in connection
-refused and thus <a class="reference external" href="https://travis-ci.org/github/SciTools/iris">travis-ci</a> job failures.  For more information on linkcheck,
-see <a class="reference internal" href="../developers_guide/contributing_documentation.html#contributing-documentation-testing"><span class="std std-ref">Testing</span></a>.  (<a class="reference external" href="https://github.com/SciTools/iris/pull/3873">PR #3873</a>)</p></li>
-<li><p><a class="reference external" href="https://github.com/tkknight">&#64;tkknight</a> enabled the <a class="reference external" href="https://sphinxcontrib-napoleon.readthedocs.io/en/latest/sphinxcontrib.napoleon.html">napolean</a> package that is used by <a class="reference external" href="https://www.sphinx-doc.org/en/master/">sphinx</a> to cater
-for the existing google style docstrings and to also allow for <a class="reference external" href="https://github.com/numpy/numpy">numpy</a>
-docstrings.  This resolves <a class="reference external" href="https://github.com/SciTools/iris/issues/3841">Issue #3841</a>. (<a class="reference external" href="https://github.com/SciTools/iris/pull/3871">PR #3871</a>)</p></li>
-<li><p><a class="reference external" href="https://github.com/tkknight">&#64;tkknight</a> configured <code class="docutils literal notranslate"><span class="pre">sphinx-build</span></code> to promote warnings to errors when
-building the documentation via <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">html</span></code>.  This will minimise technical
-debt accruing for the documentation.  (<a class="reference external" href="https://github.com/SciTools/iris/pull/3877">PR #3877</a>)</p></li>
-<li><p><a class="reference external" href="https://github.com/tkknight">&#64;tkknight</a> updated <a class="reference internal" href="../installing.html#installing-iris"><span class="std std-ref">Installing Iris</span></a> to include a reference to
-Windows Subsystem for Linux. (<a class="reference external" href="https://github.com/SciTools/iris/pull/3885">PR #3885</a>)</p></li>
-<li><p><a class="reference external" href="https://github.com/tkknight">&#64;tkknight</a> updated the <a class="reference internal" href="../index.html#iris-docs"><span class="std std-ref">Iris Documentation</span></a> homepage to include panels so the
-links are more visible to users.  This uses the <a class="reference external" href="https://sphinx-panels.readthedocs.io/en/latest/">sphinx-panels</a> extension.
-(<a class="reference external" href="https://github.com/SciTools/iris/pull/3884">PR #3884</a>)</p></li>
-<li><p><a class="reference external" href="https://github.com/bjlittle">&#64;bjlittle</a> created the <a class="reference internal" href="../further_topics/index.html#further-topics"><span class="std std-ref">Further topics</span></a> section and
-included documentation for <a class="reference internal" href="../further_topics/metadata.html#metadata"><span class="std std-ref">Metadata</span></a>, <a class="reference internal" href="../further_topics/lenient_metadata.html#lenient-metadata"><span class="std std-ref">Lenient metadata</span></a>, and
-<a class="reference internal" href="../further_topics/lenient_maths.html#lenient-maths"><span class="std std-ref">Lenient cube maths</span></a>. (<a class="reference external" href="https://github.com/SciTools/iris/pull/3890">PR #3890</a>)</p></li>
+<li><p>N/A</p></li>
 </ul>
 </div>
 <div class="section" id="internal">
 <h2>💼 Internal<a class="headerlink" href="#internal" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/pp-mo">&#64;pp-mo</a> and <a class="reference external" href="https://github.com/lbdreyer">&#64;lbdreyer</a> removed all Iris test dependencies on <a class="reference external" href="https://github.com/SciTools/iris-grib">iris-grib</a>
-by transferring all relevant content to the <a class="reference external" href="https://github.com/SciTools/iris-grib">iris-grib</a> repository. (<a class="reference external" href="https://github.com/SciTools/iris/pull/3662">PR #3662</a>,
-<a class="reference external" href="https://github.com/SciTools/iris/pull/3663">PR #3663</a>, <a class="reference external" href="https://github.com/SciTools/iris/pull/3664">PR #3664</a>, <a class="reference external" href="https://github.com/SciTools/iris/pull/3665">PR #3665</a>, <a class="reference external" href="https://github.com/SciTools/iris/pull/3666">PR #3666</a>, <a class="reference external" href="https://github.com/SciTools/iris/pull/3669">PR #3669</a>,
-<a class="reference external" href="https://github.com/SciTools/iris/pull/3670">PR #3670</a>, <a class="reference external" href="https://github.com/SciTools/iris/pull/3671">PR #3671</a>, <a class="reference external" href="https://github.com/SciTools/iris/pull/3672">PR #3672</a>, <a class="reference external" href="https://github.com/SciTools/iris/pull/3742">PR #3742</a>, <a class="reference external" href="https://github.com/SciTools/iris/pull/3746">PR #3746</a>)</p></li>
-<li><p><a class="reference external" href="https://github.com/lbdreyer">&#64;lbdreyer</a> and <a class="reference external" href="https://github.com/pp-mo">&#64;pp-mo</a> overhauled the handling of dimensional
-metadata to remove duplication. (<a class="reference external" href="https://github.com/SciTools/iris/pull/3422">PR #3422</a>, <a class="reference external" href="https://github.com/SciTools/iris/pull/3551">PR #3551</a>)</p></li>
-<li><p><a class="reference external" href="https://github.com/trexfeathers">&#64;trexfeathers</a> simplified the standard license header for all files, which
-removes the need to repeatedly update year numbers in the header.
-(<a class="reference external" href="https://github.com/SciTools/iris/pull/3489">PR #3489</a>)</p></li>
-<li><p><a class="reference external" href="https://github.com/stephenworsley">&#64;stephenworsley</a> changed the numerical values in tests involving the
-Robinson projection due to improvements made in
-<a class="reference external" href="https://github.com/OSGeo/PROJ">Proj</a>. (<a class="reference external" href="https://github.com/SciTools/iris/pull/3762">PR #3762</a>) (see also <a class="reference external" href="https://github.com/OSGeo/PROJ/pull/1292">Proj#1292</a> and <a class="reference external" href="https://github.com/OSGeo/PROJ/pull/2151">Proj#2151</a>)</p></li>
-<li><p><a class="reference external" href="https://github.com/stephenworsley">&#64;stephenworsley</a> changed tests to account for more detailed descriptions of
-projections in <a class="reference external" href="https://github.com/OSGeo/gdal">GDAL</a>. (<a class="reference external" href="https://github.com/SciTools/iris/pull/3762">PR #3762</a>) (see also <a class="reference external" href="https://github.com/OSGeo/gdal/pull/1185">GDAL#1185</a>)</p></li>
-<li><p><a class="reference external" href="https://github.com/stephenworsley">&#64;stephenworsley</a> changed tests to account for <a class="reference external" href="https://github.com/OSGeo/gdal">GDAL</a> now saving fill values
-for data without masked points. (<a class="reference external" href="https://github.com/SciTools/iris/pull/3762">PR #3762</a>)</p></li>
-<li><p><a class="reference external" href="https://github.com/trexfeathers">&#64;trexfeathers</a> changed every graphics test that includes <a class="reference external" href="https://scitools.org.uk/cartopy/docs/latest/matplotlib/geoaxes.html?highlight=coastlines#cartopy.mpl.geoaxes.GeoAxes.coastlines">Cartopy’s coastlines</a>
-to account for new adaptive coastline scaling. (<a class="reference external" href="https://github.com/SciTools/iris/pull/3762">PR #3762</a>)
-(see also <a class="reference external" href="https://github.com/SciTools/cartopy/pull/1105">Cartopy#1105</a>)</p></li>
-<li><p><a class="reference external" href="https://github.com/trexfeathers">&#64;trexfeathers</a> changed graphics tests to account for some new default
-grid-line spacing in <a class="reference external" href="https://github.com/SciTools/cartopy">Cartopy</a>. (<a class="reference external" href="https://github.com/SciTools/iris/pull/3762">PR #3762</a>) (see also <a class="reference external" href="https://github.com/SciTools/cartopy/pull/1117">Cartopy#1117</a>)</p></li>
-<li><p><a class="reference external" href="https://github.com/trexfeathers">&#64;trexfeathers</a> added additional acceptable graphics test targets to account
-for very minor changes in <a class="reference external" href="https://matplotlib.org/">Matplotlib</a> version <code class="docutils literal notranslate"><span class="pre">3.3</span></code> (colormaps, fonts and
-axes borders). (<a class="reference external" href="https://github.com/SciTools/iris/pull/3762">PR #3762</a>)</p></li>
-<li><p><a class="reference external" href="https://github.com/rcomer">&#64;rcomer</a> corrected the Matplotlib backend in Iris tests to ignore
-<a class="reference external" href="https://matplotlib.org/3.1.1/api/matplotlib_configuration_api.html?highlight=rcdefaults#matplotlib.rcdefaults">matplotlib.rcdefaults</a>, instead the tests will <strong>always</strong> use <code class="docutils literal notranslate"><span class="pre">agg</span></code>.
-(<a class="reference external" href="https://github.com/SciTools/iris/pull/3846">PR #3846</a>)</p></li>
-<li><p><a class="reference external" href="https://github.com/bjlittle">&#64;bjlittle</a> migrated the <a class="reference external" href="https://black.readthedocs.io/en/stable/">black</a> support from <code class="docutils literal notranslate"><span class="pre">19.10b0</span></code> to <code class="docutils literal notranslate"><span class="pre">20.8b1</span></code>.
-(<a class="reference external" href="https://github.com/SciTools/iris/pull/3866">PR #3866</a>)</p></li>
-<li><p><a class="reference external" href="https://github.com/lbdreyer">&#64;lbdreyer</a> updated the CF standard name table to the latest version: <a class="reference external" href="https://cfconventions.org/Data/cf-standard-names/75/build/cf-standard-name-table.html">v75</a>.
-(<a class="reference external" href="https://github.com/SciTools/iris/pull/3867">PR #3867</a>)</p></li>
-<li><p><a class="reference external" href="https://github.com/bjlittle">&#64;bjlittle</a> added <span class="target" id="index-0"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0517"><strong>PEP 517</strong></a> and <span class="target" id="index-1"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0518"><strong>PEP 518</strong></a> support for building and
-installing Iris, in particular to handle the <a class="reference external" href="https://pypi.org/project/scitools-pyke/">PyKE</a> package dependency.
-(<a class="reference external" href="https://github.com/SciTools/iris/pull/3812">PR #3812</a>)</p></li>
-<li><p><a class="reference external" href="https://github.com/bjlittle">&#64;bjlittle</a> added metadata support for comparing <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.Cube.attributes" title="iris.cube.Cube.attributes"><code class="xref py py-attr docutils literal notranslate"><span class="pre">attributes</span></code></a>
-dictionaries that contain <a class="reference external" href="https://github.com/numpy/numpy">numpy</a> arrays using <a class="reference external" href="https://github.com/Cyan4973/xxHash">xxHash</a>, an extremely fast
-non-cryptographic hash algorithm, running at RAM speed limits.</p></li>
-<li><p><a class="reference external" href="https://github.com/bjlittle">&#64;bjlittle</a> added the <code class="docutils literal notranslate"><span class="pre">iris.tests.assertDictEqual</span></code> method to override
-<a class="reference external" href="https://docs.python.org/2.7/library/unittest.html#unittest.TestCase.assertDictEqual" title="(in Python v2.7)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">unittest.TestCase.assertDictEqual()</span></code></a> in order to cope with testing
-metadata <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.Cube.attributes" title="iris.cube.Cube.attributes"><code class="xref py py-attr docutils literal notranslate"><span class="pre">attributes</span></code></a> dictionary comparison where
-the value of a key may be a <a class="reference external" href="https://github.com/numpy/numpy">numpy</a> array. (<a class="reference external" href="https://github.com/SciTools/iris/pull/3785">PR #3785</a>)</p></li>
-<li><p><a class="reference external" href="https://github.com/bjlittle">&#64;bjlittle</a> added the <a class="reference internal" href="../generated/api/iris/config.html#iris.config.get_logger" title="iris.config.get_logger"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_logger()</span></code></a> function for creating
-a generic <a class="reference external" href="https://docs.python.org/2.7/library/logging.html#logging.Logger" title="(in Python v2.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">logging.Logger</span></code></a> with a <a class="reference external" href="https://docs.python.org/2.7/library/logging.handlers.html#logging.StreamHandler" title="(in Python v2.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">logging.StreamHandler</span></code></a> and
-custom <a class="reference external" href="https://docs.python.org/2.7/library/logging.html#logging.Formatter" title="(in Python v2.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">logging.Formatter</span></code></a>. (<a class="reference external" href="https://github.com/SciTools/iris/pull/3785">PR #3785</a>)</p></li>
+<li><p>N/A</p></li>
 </ul>
 </div>
 </div>
@@ -591,7 +335,7 @@ custom <a class="reference external" href="https://docs.python.org/2.7/library/l
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="2.4.html" class="btn btn-neutral float-right" title="v2.4 (20 Feb 2020)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="3.0.html" class="btn btn-neutral float-right" title="v3.0 (01 Oct 2020)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="index.html" class="btn btn-neutral float-left" title="What’s new in Iris" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
