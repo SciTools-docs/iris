@@ -1,0 +1,363 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Code formatting &mdash; Iris 3.1.dev0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/theme_override.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-dataframe.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <link rel="next" title="Docstrings" href="documenting/docstrings.html" />
+    <link rel="prev" title="Contributing to the code base" href="contributing_codebase_index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/iris-logo-title.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installing.html">Installing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../generated/gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/iris_cubes.html">Iris data structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/loading_iris_cubes.html">Loading Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/saving_iris_cubes.html">Saving Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/navigating_a_cube.html">Navigating a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/subsetting_a_cube.html">Subsetting a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/real_and_lazy_data.html">Real and lazy data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/plotting_a_cube.html">Plotting a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/interpolation_and_regridding.html">Cube interpolation and regridding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/merge_and_concat.html">Merge and concatenate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/cube_statistics.html">Cube statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/cube_maths.html">Cube maths</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/citation.html">Citing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/code_maintenance.html">Code maintenance</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Further Topics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../further_topics/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../further_topics/metadata.html">Metadata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../further_topics/lenient_metadata.html">Lenient metadata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../further_topics/lenient_maths.html">Lenient cube maths</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developers Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="contributing_getting_involved.html">Getting involved</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gitwash/index.html">Working with Iris source code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing_documentation.html">Contributing to the documentation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="contributing_codebase_index.html">Contributing to the code base</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Code formatting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documenting/docstrings.html">Docstrings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documenting/rest_guide.html">reST quick start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing_deprecations.html">Deprecations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing_testing_index.html">Testing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contributing_changes.html">Contributing your changes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release.html">Releases</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../generated/api/iris.html">Iris API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../whatsnew/index.html">What’s new in Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../techpapers/index.html">Iris technical papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../copyright.html">Iris copyright, licensing and contributors</a></li>
+</ul>
+
+            
+          
+
+    
+    
+    
+        <p class="caption">
+            <span class="caption-text">
+            
+                Support
+            
+            </span>
+        </p>
+        <ul>
+            
+                <li class="toctree-l1"><a href="https://github.com/SciTools/iris"><i class="fa fa-github fa-fw"></i> Source code</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris"><i class="fa fa-comments fa-fw"></i> Users Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris-dev"><i class="fa fa-comments fa-fw"></i> Developers Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://stackoverflow.com/questions/tagged/python-iris"><i class="fa fa-question fa-fw"></i> StackOverflow for "How do I?"</a></li>
+            
+                <li class="toctree-l1"><a href="https://scitools.org.uk/iris/docs/v2.4.0/index.html"><i class="fa fa-book fa-fw"></i> Legacy documentation</a></li>
+            
+        </ul>
+    
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Iris</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="contributing_codebase_index.html">Contributing to the code base</a> &raquo;</li>
+        
+      <li>Code formatting</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/developers_guide/contributing_code_formatting.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="code-formatting">
+<span id="id1"></span><h1>Code formatting<a class="headerlink" href="#code-formatting" title="Permalink to this headline">¶</a></h1>
+<p>To ensure a consistent code format throughout Iris, we recommend using
+tools to check the source directly.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://black.readthedocs.io/en/stable/">black</a> for an opinionated coding auto-formatter</p></li>
+<li><p><a class="reference external" href="https://flake8.pycqa.org/en/stable/">flake8</a> linting checks</p></li>
+</ul>
+<p>The preferred way to run these tools automatically is to setup and configure
+<a class="reference external" href="https://pre-commit.com/">pre-commit</a>.</p>
+<p>You can install <code class="docutils literal notranslate"><span class="pre">pre-commit</span></code> in your development environment using <code class="docutils literal notranslate"><span class="pre">pip</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip install pre-commit
+</pre></div>
+</div>
+<p>or alternatively using <code class="docutils literal notranslate"><span class="pre">conda</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda install -c conda-forge pre-commit
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you have setup your Python environment using the guide
+<a class="reference internal" href="../installing.html#installing-from-source"><span class="std std-ref">Installing from source (devs)</span></a> then <code class="docutils literal notranslate"><span class="pre">pre-commit</span></code> should already
+be present.</p>
+</div>
+<p>In order to install the <code class="docutils literal notranslate"><span class="pre">pre-commit</span></code> git hooks defined in our
+<code class="docutils literal notranslate"><span class="pre">.pre-commit-config.yaml</span></code> file, you must now run the following command from
+the root directory of Iris:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pre-commit install
+</pre></div>
+</div>
+<p>Upon performing a <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code>, your code will now be automatically formatted
+to the <code class="docutils literal notranslate"><span class="pre">black</span></code> configuration defined in our <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> file, and
+linted according to our <code class="docutils literal notranslate"><span class="pre">.flake8</span></code> configuration file. Note that,
+<code class="docutils literal notranslate"><span class="pre">pre-commit</span></code> will automatically download and install the necessary packages
+for each <code class="docutils literal notranslate"><span class="pre">.pre-commit-config.yaml</span></code> git hook.</p>
+<p>Additionally, you may wish to enable <code class="docutils literal notranslate"><span class="pre">black</span></code> for your preferred
+<a class="reference external" href="https://black.readthedocs.io/en/stable/editor_integration.html#editor-integration">editor/IDE</a>.</p>
+<p>With the <code class="docutils literal notranslate"><span class="pre">pre-commit</span></code> configured, the output of performing a <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code>
+will look similar to:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Check</span> <span class="k">for</span> <span class="n">added</span> <span class="n">large</span> <span class="n">files</span><span class="o">..............................................</span><span class="n">Passed</span>
+<span class="n">Check</span> <span class="k">for</span> <span class="n">merge</span> <span class="n">conflicts</span><span class="o">................................................</span><span class="n">Passed</span>
+<span class="n">Debug</span> <span class="n">Statements</span> <span class="p">(</span><span class="n">Python</span><span class="p">)</span><span class="o">............................</span><span class="p">(</span><span class="n">no</span> <span class="n">files</span> <span class="n">to</span> <span class="n">check</span><span class="p">)</span><span class="n">Skipped</span>
+<span class="n">Don</span><span class="s1">&#39;t commit to branch...................................................Passed</span>
+<span class="n">black</span><span class="o">................................................</span><span class="p">(</span><span class="n">no</span> <span class="n">files</span> <span class="n">to</span> <span class="n">check</span><span class="p">)</span><span class="n">Skipped</span>
+<span class="n">flake8</span><span class="o">...............................................</span><span class="p">(</span><span class="n">no</span> <span class="n">files</span> <span class="n">to</span> <span class="n">check</span><span class="p">)</span><span class="n">Skipped</span>
+<span class="p">[</span><span class="n">contribution_overhaul</span> <span class="n">c8513187</span><span class="p">]</span> <span class="n">this</span> <span class="ow">is</span> <span class="n">my</span> <span class="n">commit</span> <span class="n">message</span>
+<span class="mi">2</span> <span class="n">files</span> <span class="n">changed</span><span class="p">,</span> <span class="mi">10</span> <span class="n">insertions</span><span class="p">(</span><span class="o">+</span><span class="p">),</span> <span class="mi">9</span> <span class="n">deletions</span><span class="p">(</span><span class="o">-</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can also run <a class="reference external" href="https://black.readthedocs.io/en/stable/">black</a> and <a class="reference external" href="https://flake8.pycqa.org/en/stable/">flake8</a> manually.  Please see the
+their officially documentation for more information.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="documenting/docstrings.html" class="btn btn-neutral float-right" title="Docstrings" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="contributing_codebase_index.html" class="btn btn-neutral float-left" title="Contributing to the code base" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        
+        &copy; <a href="../copyright.html">Copyright</a> Iris Contributors
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

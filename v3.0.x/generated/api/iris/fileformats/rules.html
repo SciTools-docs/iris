@@ -1,0 +1,731 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>iris.fileformats.rules &mdash; Iris 3.1.dev0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../_static/theme_override.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/gallery-dataframe.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/language_data.js"></script>
+        <script src="../../../../_static/clipboard.min.js"></script>
+        <script src="../../../../_static/copybutton.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="copyright" title="Copyright" href="../../../../copyright.html" />
+    <link rel="next" title="iris.fileformats.um" href="um.html" />
+    <link rel="prev" title="iris.fileformats.pp_save_rules" href="pp_save_rules.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html">
+          
+
+          
+            
+            <img src="../../../../_static/iris-logo-title.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installing.html">Installing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/iris_cubes.html">Iris data structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/loading_iris_cubes.html">Loading Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/saving_iris_cubes.html">Saving Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/navigating_a_cube.html">Navigating a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/subsetting_a_cube.html">Subsetting a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/real_and_lazy_data.html">Real and lazy data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/plotting_a_cube.html">Plotting a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/interpolation_and_regridding.html">Cube interpolation and regridding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/merge_and_concat.html">Merge and concatenate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/cube_statistics.html">Cube statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/cube_maths.html">Cube maths</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/citation.html">Citing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/code_maintenance.html">Code maintenance</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Further Topics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../further_topics/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../further_topics/metadata.html">Metadata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../further_topics/lenient_metadata.html">Lenient metadata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../further_topics/lenient_maths.html">Lenient cube maths</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developers Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developers_guide/contributing_getting_involved.html">Getting involved</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developers_guide/gitwash/index.html">Working with Iris source code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developers_guide/contributing_documentation.html">Contributing to the documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developers_guide/contributing_codebase_index.html">Contributing to the code base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developers_guide/contributing_changes.html">Contributing your changes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developers_guide/release.html">Releases</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../iris.html">Iris API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../analysis.html">iris.analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../aux_factory.html">iris.aux_factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../common.html">iris.common</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../config.html">iris.config</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../coord_categorisation.html">iris.coord_categorisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../coord_systems.html">iris.coord_systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../coords.html">iris.coords</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cube.html">iris.cube</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exceptions.html">iris.exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../experimental.html">iris.experimental</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../fileformats.html">iris.fileformats</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="abf.html">iris.fileformats.abf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cf.html">iris.fileformats.cf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dot.html">iris.fileformats.dot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="name.html">iris.fileformats.name</a></li>
+<li class="toctree-l3"><a class="reference internal" href="name_loaders.html">iris.fileformats.name_loaders</a></li>
+<li class="toctree-l3"><a class="reference internal" href="netcdf.html">iris.fileformats.netcdf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nimrod.html">iris.fileformats.nimrod</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nimrod_load_rules.html">iris.fileformats.nimrod_load_rules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pp.html">iris.fileformats.pp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pp_load_rules.html">iris.fileformats.pp_load_rules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pp_save_rules.html">iris.fileformats.pp_save_rules</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">iris.fileformats.rules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="um.html">iris.fileformats.um</a></li>
+<li class="toctree-l3"><a class="reference internal" href="um_cf_map.html">iris.fileformats.um_cf_map</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../io.html">iris.io</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../iterate.html">iris.iterate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../palette.html">iris.palette</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandas.html">iris.pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plot.html">iris.plot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickplot.html">iris.quickplot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../std_names.html">iris.std_names</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../symbols.html">iris.symbols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../time.html">iris.time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../util.html">iris.util</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../whatsnew/index.html">What’s new in Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../techpapers/index.html">Iris technical papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../copyright.html">Iris copyright, licensing and contributors</a></li>
+</ul>
+
+            
+          
+
+    
+    
+    
+        <p class="caption">
+            <span class="caption-text">
+            
+                Support
+            
+            </span>
+        </p>
+        <ul>
+            
+                <li class="toctree-l1"><a href="https://github.com/SciTools/iris"><i class="fa fa-github fa-fw"></i> Source code</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris"><i class="fa fa-comments fa-fw"></i> Users Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris-dev"><i class="fa fa-comments fa-fw"></i> Developers Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://stackoverflow.com/questions/tagged/python-iris"><i class="fa fa-question fa-fw"></i> StackOverflow for "How do I?"</a></li>
+            
+                <li class="toctree-l1"><a href="https://scitools.org.uk/iris/docs/v2.4.0/index.html"><i class="fa fa-book fa-fw"></i> Legacy documentation</a></li>
+            
+        </ul>
+    
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Iris</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../iris.html">Iris API</a> &raquo;</li>
+        
+          <li><a href="../fileformats.html">iris.fileformats</a> &raquo;</li>
+        
+      <li>iris.fileformats.rules</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/generated/api/iris/fileformats/rules.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="iris-fileformats-rules">
+<span id="id1"></span><h1>iris.fileformats.rules<a class="headerlink" href="#iris-fileformats-rules" title="Permalink to this headline">¶</a></h1>
+<span class="target" id="module-iris.fileformats.rules"></span><p>Generalised mechanisms for metadata translation and cube construction.</p>
+<p>In this module:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference internal" href="#iris.fileformats.rules.aux_factory" title="iris.fileformats.rules.aux_factory"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aux_factory</span></code></a></p></li>
+<li><p><a class="reference internal" href="#iris.fileformats.rules.has_aux_factory" title="iris.fileformats.rules.has_aux_factory"><code class="xref py py-obj docutils literal notranslate"><span class="pre">has_aux_factory</span></code></a></p></li>
+<li><p><a class="reference internal" href="#iris.fileformats.rules.load_cubes" title="iris.fileformats.rules.load_cubes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_cubes</span></code></a></p></li>
+<li><p><a class="reference internal" href="#iris.fileformats.rules.load_pairs_from_fields" title="iris.fileformats.rules.load_pairs_from_fields"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_pairs_from_fields</span></code></a></p></li>
+<li><p><a class="reference internal" href="#iris.fileformats.rules.scalar_cell_method" title="iris.fileformats.rules.scalar_cell_method"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scalar_cell_method</span></code></a></p></li>
+<li><p><a class="reference internal" href="#iris.fileformats.rules.scalar_coord" title="iris.fileformats.rules.scalar_coord"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scalar_coord</span></code></a></p></li>
+<li><p><a class="reference internal" href="#iris.fileformats.rules.vector_coord" title="iris.fileformats.rules.vector_coord"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vector_coord</span></code></a></p></li>
+<li><p><a class="reference internal" href="#iris.fileformats.rules.ConcreteReferenceTarget" title="iris.fileformats.rules.ConcreteReferenceTarget"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ConcreteReferenceTarget</span></code></a></p></li>
+<li><p><a class="reference internal" href="#iris.fileformats.rules.ConversionMetadata" title="iris.fileformats.rules.ConversionMetadata"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ConversionMetadata</span></code></a></p></li>
+<li><p><a class="reference internal" href="#iris.fileformats.rules.Factory" title="iris.fileformats.rules.Factory"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Factory</span></code></a></p></li>
+<li><p><a class="reference internal" href="#iris.fileformats.rules.Loader" title="iris.fileformats.rules.Loader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Loader</span></code></a></p></li>
+<li><p><a class="reference internal" href="#iris.fileformats.rules.Reference" title="iris.fileformats.rules.Reference"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Reference</span></code></a></p></li>
+<li><p><a class="reference internal" href="#iris.fileformats.rules.ReferenceTarget" title="iris.fileformats.rules.ReferenceTarget"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ReferenceTarget</span></code></a></p></li>
+</ul>
+</div></blockquote>
+<dl class="py function">
+<dt id="iris.fileformats.rules.aux_factory">
+<code class="sig-prename descclassname">iris.fileformats.rules.</code><code class="sig-name descname">aux_factory</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cube</span></em>, <em class="sig-param"><span class="n">aux_factory_class</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/iris/fileformats/rules.html#aux_factory"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iris.fileformats.rules.aux_factory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the class:<cite>~iris.aux_factory.AuxCoordFactory</cite> instance of the
+specified type from a cube.</p>
+</dd></dl>
+
+<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
+<!--<hr class="docutils" />
+--><dl class="py function">
+<dt id="iris.fileformats.rules.has_aux_factory">
+<code class="sig-prename descclassname">iris.fileformats.rules.</code><code class="sig-name descname">has_aux_factory</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cube</span></em>, <em class="sig-param"><span class="n">aux_factory_class</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/iris/fileformats/rules.html#has_aux_factory"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iris.fileformats.rules.has_aux_factory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Try to find an class:<cite>~iris.aux_factory.AuxCoordFactory</cite> instance of the
+specified type on the cube.</p>
+</dd></dl>
+
+<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
+<!--<hr class="docutils" />
+--><dl class="py function">
+<dt id="iris.fileformats.rules.load_cubes">
+<code class="sig-prename descclassname">iris.fileformats.rules.</code><code class="sig-name descname">load_cubes</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filenames</span></em>, <em class="sig-param"><span class="n">user_callback</span></em>, <em class="sig-param"><span class="n">loader</span></em>, <em class="sig-param"><span class="n">filter_function</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/iris/fileformats/rules.html#load_cubes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iris.fileformats.rules.load_cubes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
+<!--<hr class="docutils" />
+--><dl class="py function">
+<dt id="iris.fileformats.rules.load_pairs_from_fields">
+<code class="sig-prename descclassname">iris.fileformats.rules.</code><code class="sig-name descname">load_pairs_from_fields</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fields</span></em>, <em class="sig-param"><span class="n">converter</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/iris/fileformats/rules.html#load_pairs_from_fields"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iris.fileformats.rules.load_pairs_from_fields" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert an iterable of fields into an iterable of Cubes using the
+provided convertor.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>fields:</dt><dd><p>An iterable of fields.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>convertor:</dt><dd><p>An Iris convertor function, suitable for use with the supplied fields.
+See the description in <a class="reference internal" href="#iris.fileformats.rules.Loader" title="iris.fileformats.rules.Loader"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.fileformats.rules.Loader</span></code></a>.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>An iterable of (<a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">iris.cube.Cube</span></code></a>, field) pairs.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
+<!--<hr class="docutils" />
+--><dl class="py function">
+<dt id="iris.fileformats.rules.scalar_cell_method">
+<code class="sig-prename descclassname">iris.fileformats.rules.</code><code class="sig-name descname">scalar_cell_method</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cube</span></em>, <em class="sig-param"><span class="n">method</span></em>, <em class="sig-param"><span class="n">coord_name</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/iris/fileformats/rules.html#scalar_cell_method"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iris.fileformats.rules.scalar_cell_method" title="Permalink to this definition">¶</a></dt>
+<dd><p>Try to find the given type of cell method over a single coord with the given name.</p>
+</dd></dl>
+
+<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
+<!--<hr class="docutils" />
+--><dl class="py function">
+<dt id="iris.fileformats.rules.scalar_coord">
+<code class="sig-prename descclassname">iris.fileformats.rules.</code><code class="sig-name descname">scalar_coord</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cube</span></em>, <em class="sig-param"><span class="n">coord_name</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/iris/fileformats/rules.html#scalar_coord"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iris.fileformats.rules.scalar_coord" title="Permalink to this definition">¶</a></dt>
+<dd><p>Try to find a single-valued coord with the given name.</p>
+</dd></dl>
+
+<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
+<!--<hr class="docutils" />
+--><dl class="py function">
+<dt id="iris.fileformats.rules.vector_coord">
+<code class="sig-prename descclassname">iris.fileformats.rules.</code><code class="sig-name descname">vector_coord</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cube</span></em>, <em class="sig-param"><span class="n">coord_name</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/iris/fileformats/rules.html#vector_coord"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iris.fileformats.rules.vector_coord" title="Permalink to this definition">¶</a></dt>
+<dd><p>Try to find a one-dimensional, multi-valued coord with the given name.</p>
+</dd></dl>
+
+<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
+<!--<hr class="docutils" />
+--><p>Everything you need to make a real Cube for a named reference.</p>
+<blockquote>
+<div><dl class="py class">
+<dt id="iris.fileformats.rules.ConcreteReferenceTarget">
+<em class="property">class </em><code class="sig-prename descclassname">iris.fileformats.rules.</code><code class="sig-name descname">ConcreteReferenceTarget</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">transform</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/iris/fileformats/rules.html#ConcreteReferenceTarget"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iris.fileformats.rules.ConcreteReferenceTarget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Everything you need to make a real Cube for a named reference.</p>
+<dl class="py method">
+<dt id="iris.fileformats.rules.ConcreteReferenceTarget.add_cube">
+<code class="sig-name descname">add_cube</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cube</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/iris/fileformats/rules.html#ConcreteReferenceTarget.add_cube"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iris.fileformats.rules.ConcreteReferenceTarget.add_cube" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="iris.fileformats.rules.ConcreteReferenceTarget.as_cube">
+<code class="sig-name descname">as_cube</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/iris/fileformats/rules.html#ConcreteReferenceTarget.as_cube"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iris.fileformats.rules.ConcreteReferenceTarget.as_cube" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="iris.fileformats.rules.ConcreteReferenceTarget.name">
+<code class="sig-name descname">name</code><a class="headerlink" href="#iris.fileformats.rules.ConcreteReferenceTarget.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name used to connect references with references.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="iris.fileformats.rules.ConcreteReferenceTarget.transform">
+<code class="sig-name descname">transform</code><a class="headerlink" href="#iris.fileformats.rules.ConcreteReferenceTarget.transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>An optional transformation to apply to the cubes.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div></blockquote>
+<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
+<!--<hr class="docutils" />
+--><p>ConversionMetadata(factories, references, standard_name, long_name, units, attributes, cell_methods, dim_coords_and_dims, aux_coords_and_dims)</p>
+<blockquote>
+<div><dl class="py class">
+<dt id="iris.fileformats.rules.ConversionMetadata">
+<em class="property">class </em><code class="sig-prename descclassname">iris.fileformats.rules.</code><code class="sig-name descname">ConversionMetadata</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">_cls</span></em>, <em class="sig-param"><span class="n">factories</span></em>, <em class="sig-param"><span class="n">references</span></em>, <em class="sig-param"><span class="n">standard_name</span></em>, <em class="sig-param"><span class="n">long_name</span></em>, <em class="sig-param"><span class="n">units</span></em>, <em class="sig-param"><span class="n">attributes</span></em>, <em class="sig-param"><span class="n">cell_methods</span></em>, <em class="sig-param"><span class="n">dim_coords_and_dims</span></em>, <em class="sig-param"><span class="n">aux_coords_and_dims</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.rules.ConversionMetadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create new instance of ConversionMetadata(factories, references, standard_name, long_name, units, attributes, cell_methods, dim_coords_and_dims, aux_coords_and_dims)</p>
+<dl class="py method">
+<dt id="iris.fileformats.rules.ConversionMetadata.count">
+<code class="sig-name descname">count</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">/</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.rules.ConversionMetadata.count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return number of occurrences of value.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="iris.fileformats.rules.ConversionMetadata.index">
+<code class="sig-name descname">index</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">start=0</em>, <em class="sig-param">stop=9223372036854775807</em>, <em class="sig-param">/</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.rules.ConversionMetadata.index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return first index of value.</p>
+<p>Raises ValueError if the value is not present.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="iris.fileformats.rules.ConversionMetadata.attributes">
+<em class="property">property </em><code class="sig-name descname">attributes</code><a class="headerlink" href="#iris.fileformats.rules.ConversionMetadata.attributes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 5</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="iris.fileformats.rules.ConversionMetadata.aux_coords_and_dims">
+<em class="property">property </em><code class="sig-name descname">aux_coords_and_dims</code><a class="headerlink" href="#iris.fileformats.rules.ConversionMetadata.aux_coords_and_dims" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 8</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="iris.fileformats.rules.ConversionMetadata.cell_methods">
+<em class="property">property </em><code class="sig-name descname">cell_methods</code><a class="headerlink" href="#iris.fileformats.rules.ConversionMetadata.cell_methods" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 6</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="iris.fileformats.rules.ConversionMetadata.dim_coords_and_dims">
+<em class="property">property </em><code class="sig-name descname">dim_coords_and_dims</code><a class="headerlink" href="#iris.fileformats.rules.ConversionMetadata.dim_coords_and_dims" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 7</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="iris.fileformats.rules.ConversionMetadata.factories">
+<em class="property">property </em><code class="sig-name descname">factories</code><a class="headerlink" href="#iris.fileformats.rules.ConversionMetadata.factories" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="iris.fileformats.rules.ConversionMetadata.long_name">
+<em class="property">property </em><code class="sig-name descname">long_name</code><a class="headerlink" href="#iris.fileformats.rules.ConversionMetadata.long_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 3</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="iris.fileformats.rules.ConversionMetadata.references">
+<em class="property">property </em><code class="sig-name descname">references</code><a class="headerlink" href="#iris.fileformats.rules.ConversionMetadata.references" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="iris.fileformats.rules.ConversionMetadata.standard_name">
+<em class="property">property </em><code class="sig-name descname">standard_name</code><a class="headerlink" href="#iris.fileformats.rules.ConversionMetadata.standard_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 2</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="iris.fileformats.rules.ConversionMetadata.units">
+<em class="property">property </em><code class="sig-name descname">units</code><a class="headerlink" href="#iris.fileformats.rules.ConversionMetadata.units" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 4</p>
+</dd></dl>
+
+</dd></dl>
+
+</div></blockquote>
+<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
+<!--<hr class="docutils" />
+--><p>Factory(factory_class, args)</p>
+<blockquote>
+<div><dl class="py class">
+<dt id="iris.fileformats.rules.Factory">
+<em class="property">class </em><code class="sig-prename descclassname">iris.fileformats.rules.</code><code class="sig-name descname">Factory</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">_cls</span></em>, <em class="sig-param"><span class="n">factory_class</span></em>, <em class="sig-param"><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.rules.Factory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create new instance of Factory(factory_class, args)</p>
+<dl class="py method">
+<dt id="iris.fileformats.rules.Factory.count">
+<code class="sig-name descname">count</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">/</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.rules.Factory.count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return number of occurrences of value.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="iris.fileformats.rules.Factory.index">
+<code class="sig-name descname">index</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">start=0</em>, <em class="sig-param">stop=9223372036854775807</em>, <em class="sig-param">/</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.rules.Factory.index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return first index of value.</p>
+<p>Raises ValueError if the value is not present.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="iris.fileformats.rules.Factory.args">
+<em class="property">property </em><code class="sig-name descname">args</code><a class="headerlink" href="#iris.fileformats.rules.Factory.args" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="iris.fileformats.rules.Factory.factory_class">
+<em class="property">property </em><code class="sig-name descname">factory_class</code><a class="headerlink" href="#iris.fileformats.rules.Factory.factory_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+</dd></dl>
+
+</div></blockquote>
+<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
+<!--<hr class="docutils" />
+--><p>Loader(field_generator, field_generator_kwargs, converter)</p>
+<blockquote>
+<div><dl class="py class">
+<dt id="iris.fileformats.rules.Loader">
+<em class="property">class </em><code class="sig-prename descclassname">iris.fileformats.rules.</code><code class="sig-name descname">Loader</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">field_generator</span></em>, <em class="sig-param"><span class="n">field_generator_kwargs</span></em>, <em class="sig-param"><span class="n">converter</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/iris/fileformats/rules.html#Loader"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iris.fileformats.rules.Loader" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a definition of a field-based Cube loader.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>field_generator</dt><dd><p>A callable that accepts a filename as its first argument and
+returns an iterable of field objects.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>field_generator_kwargs</dt><dd><p>Additional arguments to be passed to the field_generator.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>converter</dt><dd><p>A callable that converts a field object into a Cube.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="py method">
+<dt id="iris.fileformats.rules.Loader.__new__">
+<em class="property">static </em><code class="sig-name descname">__new__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cls</span></em>, <em class="sig-param"><span class="n">field_generator</span></em>, <em class="sig-param"><span class="n">field_generator_kwargs</span></em>, <em class="sig-param"><span class="n">converter</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/iris/fileformats/rules.html#Loader.__new__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iris.fileformats.rules.Loader.__new__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a definition of a field-based Cube loader.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>field_generator</dt><dd><p>A callable that accepts a filename as its first argument and
+returns an iterable of field objects.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>field_generator_kwargs</dt><dd><p>Additional arguments to be passed to the field_generator.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>converter</dt><dd><p>A callable that converts a field object into a Cube.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt id="iris.fileformats.rules.Loader.count">
+<code class="sig-name descname">count</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">/</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.rules.Loader.count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return number of occurrences of value.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="iris.fileformats.rules.Loader.index">
+<code class="sig-name descname">index</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">start=0</em>, <em class="sig-param">stop=9223372036854775807</em>, <em class="sig-param">/</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.rules.Loader.index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return first index of value.</p>
+<p>Raises ValueError if the value is not present.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="iris.fileformats.rules.Loader.converter">
+<em class="property">property </em><code class="sig-name descname">converter</code><a class="headerlink" href="#iris.fileformats.rules.Loader.converter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 2</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="iris.fileformats.rules.Loader.field_generator">
+<em class="property">property </em><code class="sig-name descname">field_generator</code><a class="headerlink" href="#iris.fileformats.rules.Loader.field_generator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="iris.fileformats.rules.Loader.field_generator_kwargs">
+<em class="property">property </em><code class="sig-name descname">field_generator_kwargs</code><a class="headerlink" href="#iris.fileformats.rules.Loader.field_generator_kwargs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+</dd></dl>
+
+</div></blockquote>
+<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
+<!--<hr class="docutils" />
+--><p>Convenience class for creating “immutable”, hashable, and ordered classes.</p>
+<p>Instance identity is defined by the specific list of attribute names
+declared in the abstract attribute “_names”. Subclasses must declare the
+attribute “_names” as an iterable containing the names of all the
+attributes relevant to equality/hash-value/ordering.</p>
+<dl class="simple">
+<dt>Initial values should be set by using ::</dt><dd><p>self._init(self, value1, value2, ..)</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It’s the responsibility of the subclass to ensure that the values of
+its attributes are themselves hashable.</p>
+</div>
+<blockquote>
+<div><dl class="py class">
+<dt id="iris.fileformats.rules.Reference">
+<em class="property">class </em><code class="sig-prename descclassname">iris.fileformats.rules.</code><code class="sig-name descname">Reference</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/iris/fileformats/rules.html#Reference"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iris.fileformats.rules.Reference" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div></blockquote>
+<p class="hr_p"><a href="#">&uarr;&#32&#32 top &#32&#32&uarr;</a></p>
+<!--<hr class="docutils" />
+--><p>ReferenceTarget(name, transform)</p>
+<blockquote>
+<div><dl class="py class">
+<dt id="iris.fileformats.rules.ReferenceTarget">
+<em class="property">class </em><code class="sig-prename descclassname">iris.fileformats.rules.</code><code class="sig-name descname">ReferenceTarget</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">_cls</span></em>, <em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">transform</span></em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.rules.ReferenceTarget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create new instance of ReferenceTarget(name, transform)</p>
+<dl class="py method">
+<dt id="iris.fileformats.rules.ReferenceTarget.count">
+<code class="sig-name descname">count</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">/</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.rules.ReferenceTarget.count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return number of occurrences of value.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="iris.fileformats.rules.ReferenceTarget.index">
+<code class="sig-name descname">index</code><span class="sig-paren">(</span><em class="sig-param">value</em>, <em class="sig-param">start=0</em>, <em class="sig-param">stop=9223372036854775807</em>, <em class="sig-param">/</em><span class="sig-paren">)</span><a class="headerlink" href="#iris.fileformats.rules.ReferenceTarget.index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return first index of value.</p>
+<p>Raises ValueError if the value is not present.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="iris.fileformats.rules.ReferenceTarget.name">
+<em class="property">property </em><code class="sig-name descname">name</code><a class="headerlink" href="#iris.fileformats.rules.ReferenceTarget.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="iris.fileformats.rules.ReferenceTarget.transform">
+<em class="property">property </em><code class="sig-name descname">transform</code><a class="headerlink" href="#iris.fileformats.rules.ReferenceTarget.transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+</dd></dl>
+
+</div></blockquote>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="um.html" class="btn btn-neutral float-right" title="iris.fileformats.um" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="pp_save_rules.html" class="btn btn-neutral float-left" title="iris.fileformats.pp_save_rules" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        
+        &copy; <a href="../../../../copyright.html">Copyright</a> Iris Contributors
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
