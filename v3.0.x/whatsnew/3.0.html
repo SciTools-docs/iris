@@ -417,6 +417,7 @@ which was previously failing for some coordinate systems. See <a class="referenc
 <li><p><a class="reference external" href="https://github.com/stephenworsley">&#64;stephenworsley</a> changed the way tick labels are assigned from string coords.
 Previously, the first tick label would occasionally be duplicated. This also
 removes the use of Matplotlib’s deprecated <code class="docutils literal notranslate"><span class="pre">IndexFormatter</span></code>. (<a class="reference external" href="https://github.com/SciTools/iris/pull/3857">PR #3857</a>)</p></li>
+<li><p><a class="reference external" href="https://github.com/znicholls">&#64;znicholls</a> fixed <code class="xref py py-meth docutils literal notranslate"><span class="pre">_title()</span></code> to only check <code class="docutils literal notranslate"><span class="pre">units.is_time_reference</span></code> if the <code class="docutils literal notranslate"><span class="pre">units</span></code> symbol is not used. (<a class="reference external" href="https://github.com/SciTools/iris/pull/3902">PR #3902</a>)</p></li>
 </ul>
 </div>
 <div class="section" id="incompatible-changes">
@@ -615,6 +616,8 @@ a generic <a class="reference external" href="https://docs.python.org/2.7/librar
 custom <a class="reference external" href="https://docs.python.org/2.7/library/logging.html#logging.Formatter" title="(in Python v2.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">logging.Formatter</span></code></a>. (<a class="reference external" href="https://github.com/SciTools/iris/pull/3785">PR #3785</a>)</p></li>
 <li><p><a class="reference external" href="https://github.com/owena11">&#64;owena11</a> identified and optimised a bottleneck in <code class="docutils literal notranslate"><span class="pre">FieldsFile</span></code> header
 loading due to the use of <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.fromfile.html#numpy.fromfile" title="(in NumPy v1.19)"><code class="xref py py-func docutils literal notranslate"><span class="pre">numpy.fromfile()</span></code></a>. (<a class="reference external" href="https://github.com/SciTools/iris/pull/3791">PR #3791</a>)</p></li>
+<li><p><a class="reference external" href="https://github.com/znicholls">&#64;znicholls</a> added a test for plotting with the label being taken from the unit’s symbol, see <code class="xref py py-meth docutils literal notranslate"><span class="pre">test_pcolormesh_str_symbol()</span></code> (<a class="reference external" href="https://github.com/SciTools/iris/pull/3902">PR #3902</a>).</p></li>
+<li><p><a class="reference external" href="https://github.com/znicholls">&#64;znicholls</a> made <code class="xref py py-func docutils literal notranslate"><span class="pre">step_over_diffs()</span></code> robust to hyphens (<code class="docutils literal notranslate"><span class="pre">-</span></code>) in the input path (i.e. the <code class="docutils literal notranslate"><span class="pre">result_dir</span></code> argument) (<a class="reference external" href="https://github.com/SciTools/iris/pull/3902">PR #3902</a>).</p></li>
 </ul>
 </div>
 </div>
