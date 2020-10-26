@@ -1035,7 +1035,11 @@
 
             <span class="c1"># Call a post-processing completion step for each cube, if provided.</span>
             <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">cf</span><span class="p">,</span> <span class="s2">&quot;cube_completion_adjust&quot;</span><span class="p">):</span>
-                <span class="n">cf</span><span class="o">.</span><span class="n">cube_completion_adjust</span><span class="p">(</span><span class="n">cube</span><span class="p">)</span>
+                <span class="c1"># Either &quot;in-place&quot;, or &quot;replacing&quot;, like a load callback.</span>
+                <span class="n">new_cube</span> <span class="o">=</span> <span class="n">cf</span><span class="o">.</span><span class="n">cube_completion_adjust</span><span class="p">(</span><span class="n">cube</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">new_cube</span><span class="p">:</span>
+                    <span class="c1"># If new cube returned, replace the original.</span>
+                    <span class="n">cube</span> <span class="o">=</span> <span class="n">new_cube</span>
 
             <span class="c1"># Process any associated formula terms and attach</span>
             <span class="c1"># the corresponding AuxCoordFactory.</span>
