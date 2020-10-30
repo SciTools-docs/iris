@@ -2494,35 +2494,96 @@
                 <span class="n">new_summary</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">extra</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">new_summary</span>
 
+    <span class="k">def</span> <span class="nf">_summary_dim_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dim</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the dim_coord name that labels a data dimension,</span>
+<span class="sd">        or &quot;-- &quot; if there is none (i.e. dimension is anonymous).</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">dim_coords</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">coords</span><span class="p">(</span><span class="n">contains_dimension</span><span class="o">=</span><span class="n">dim</span><span class="p">,</span> <span class="n">dim_coords</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">dim_coords</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="c1"># Only 1 dimension coordinate can map to a dimension.</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="n">dim_coords</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">name</span><span class="p">()</span>  <span class="c1"># N.B. can only be 1</span>
+        <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">dim_coords</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="c1"># Anonymous dimension : NOTE this has an extra space on the end.</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;-- &quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># &gt;1 matching dim coord : This really can&#39;t happen !</span>
+            <span class="n">names_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">co</span><span class="o">.</span><span class="n">name</span><span class="p">()</span> <span class="k">for</span> <span class="n">co</span> <span class="ow">in</span> <span class="n">dim_coords</span><span class="p">]</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="s2">&quot;Cube logic error : &quot;</span>
+                <span class="s2">&quot;multiple dimension coords map to &quot;</span>
+                <span class="s2">&quot;dimension </span><span class="si">{dim}</span><span class="s2"> : </span><span class="si">{names!r}</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="n">dim</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">names_list</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="n">name</span>
+
+    <span class="n">_VectorSectionSpec</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span>
+        <span class="s2">&quot;Spec&quot;</span><span class="p">,</span> <span class="p">(</span><span class="s2">&quot;title&quot;</span><span class="p">,</span> <span class="s2">&quot;elements&quot;</span><span class="p">,</span> <span class="s2">&quot;add_extra_lines&quot;</span><span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_summary_vector_sections_info</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return a table describing the order and content of the &#39;vector&#39;</span>
+<span class="sd">        sections of the cube summary.</span>
+
+<span class="sd">        Returns:</span>
+
+<span class="sd">            * summary_info (list of cube._VectorSectionSpec)</span>
+<span class="sd">                A list of summary sections info, in summary order.</span>
+
+<span class="sd">        The table entries contain arguments to be passed to the</span>
+<span class="sd">        &#39;vector_summary&#39; inner function, inside cube.summary().</span>
+
+<span class="sd">        Note: provided as a separate function so that derived cube types</span>
+<span class="sd">        (as in iris-ugrid) can override / extend the cube summary.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Construct our lists of different types of element.</span>
+        <span class="n">vector_dim_coords</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim_coords</span>  <span class="c1"># Always cube-dim-mapped.</span>
+
+        <span class="k">def</span> <span class="nf">cube_dimensioned</span><span class="p">(</span><span class="n">elements</span><span class="p">):</span>
+            <span class="c1"># Select only non-scalar coords (and cell-measures, ancils).</span>
+            <span class="c1"># These could in fact have shape (1,) : The key question is whether</span>
+            <span class="c1"># they map to a cube dimension(s) or not.</span>
+            <span class="k">return</span> <span class="p">[</span><span class="n">elem</span> <span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="n">elements</span> <span class="k">if</span> <span class="n">elem</span><span class="o">.</span><span class="n">cube_dims</span><span class="p">(</span><span class="bp">self</span><span class="p">)]</span>
+
+        <span class="n">vector_aux_coords</span> <span class="o">=</span> <span class="n">cube_dimensioned</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">aux_coords</span><span class="p">)</span>
+        <span class="n">vector_derived_coords</span> <span class="o">=</span> <span class="n">cube_dimensioned</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">derived_coords</span><span class="p">)</span>
+        <span class="n">vector_cell_measures</span> <span class="o">=</span> <span class="n">cube_dimensioned</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cell_measures</span><span class="p">())</span>
+        <span class="n">vector_ancillary_variables</span> <span class="o">=</span> <span class="n">cube_dimensioned</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ancillary_variables</span><span class="p">()</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Note: the element lists are in fact all sorted by (cube-dims, name).</span>
+        <span class="c1"># But that is implicit, as the cube access methods ensure it.</span>
+
+        <span class="n">Spec</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_VectorSectionSpec</span>
+        <span class="n">section_specs</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">Spec</span><span class="p">(</span><span class="s2">&quot;Dimension coordinates&quot;</span><span class="p">,</span> <span class="n">vector_dim_coords</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span>
+            <span class="n">Spec</span><span class="p">(</span><span class="s2">&quot;Auxiliary coordinates&quot;</span><span class="p">,</span> <span class="n">vector_aux_coords</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span>
+            <span class="n">Spec</span><span class="p">(</span><span class="s2">&quot;Derived coordinates&quot;</span><span class="p">,</span> <span class="n">vector_derived_coords</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span>
+            <span class="n">Spec</span><span class="p">(</span><span class="s2">&quot;Cell measures&quot;</span><span class="p">,</span> <span class="n">vector_cell_measures</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
+            <span class="n">Spec</span><span class="p">(</span><span class="s2">&quot;Ancillary variables&quot;</span><span class="p">,</span> <span class="n">vector_ancillary_variables</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
+        <span class="p">]</span>
+        <span class="k">return</span> <span class="n">section_specs</span>
+
 <div class="viewcode-block" id="Cube.summary"><a class="viewcode-back" href="../../generated/api/iris/cube.html#iris.cube.Cube.summary">[docs]</a>    <span class="k">def</span> <span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">shorten</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">name_padding</span><span class="o">=</span><span class="mi">35</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Unicode string summary of the Cube with name, a list of dim coord names</span>
 <span class="sd">        versus length and optionally relevant coordinate information.</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="c1"># Create a set to contain the axis names for each data dimension.</span>
-        <span class="n">dim_names</span> <span class="o">=</span> <span class="p">[</span><span class="nb">set</span><span class="p">()</span> <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">))]</span>
-
-        <span class="c1"># Add the dim_coord names that participate in the associated data</span>
-        <span class="c1"># dimensions.</span>
-        <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">)):</span>
-            <span class="n">dim_coords</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">coords</span><span class="p">(</span><span class="n">contains_dimension</span><span class="o">=</span><span class="n">dim</span><span class="p">,</span> <span class="n">dim_coords</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">dim_coords</span><span class="p">:</span>
-                <span class="n">dim_names</span><span class="p">[</span><span class="n">dim</span><span class="p">]</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">dim_coords</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">name</span><span class="p">())</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">dim_names</span><span class="p">[</span><span class="n">dim</span><span class="p">]</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;-- &quot;</span><span class="p">)</span>
-
-        <span class="c1"># Convert axes sets to lists and sort.</span>
-        <span class="n">dim_names</span> <span class="o">=</span> <span class="p">[</span><span class="nb">sorted</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">sorted_axes</span><span class="p">)</span> <span class="k">for</span> <span class="n">names</span> <span class="ow">in</span> <span class="n">dim_names</span><span class="p">]</span>
-
         <span class="c1"># Generate textual summary of the cube dimensionality.</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">():</span>
             <span class="n">dimension_header</span> <span class="o">=</span> <span class="s2">&quot;scalar cube&quot;</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">dimension_header</span> <span class="o">=</span> <span class="s2">&quot;; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
                 <span class="p">[</span>
-                    <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dim_names</span><span class="p">[</span><span class="n">dim</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;: </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">dim_shape</span>
-                    <span class="k">for</span> <span class="n">dim</span><span class="p">,</span> <span class="n">dim_shape</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_summary_dim_name</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;: </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">dim_len</span>
+                    <span class="k">for</span> <span class="n">dim</span><span class="p">,</span> <span class="n">dim_len</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
                 <span class="p">]</span>
             <span class="p">)</span>
 
@@ -2532,6 +2593,7 @@
         <span class="n">cube_header</span> <span class="o">=</span> <span class="s2">&quot;{nameunit!s:</span><span class="si">{length}</span><span class="s2">} (</span><span class="si">{dimension}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
             <span class="n">length</span><span class="o">=</span><span class="n">name_padding</span><span class="p">,</span> <span class="n">nameunit</span><span class="o">=</span><span class="n">nameunit</span><span class="p">,</span> <span class="n">dimension</span><span class="o">=</span><span class="n">dimension_header</span>
         <span class="p">)</span>
+
         <span class="n">summary</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
 
         <span class="c1"># Generate full cube textual summary.</span>
@@ -2539,73 +2601,18 @@
             <span class="n">indent</span> <span class="o">=</span> <span class="mi">10</span>
             <span class="n">extra_indent</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span> <span class="o">*</span> <span class="mi">13</span>
 
-            <span class="c1"># Cache the derived coords so we can rely on consistent</span>
-            <span class="c1"># object IDs.</span>
-            <span class="n">derived_coords</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">derived_coords</span>
-            <span class="c1"># Determine the cube coordinates that are scalar (single-valued)</span>
-            <span class="c1"># AND non-dimensioned.</span>
-            <span class="n">dim_coords</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dim_coords</span>
-            <span class="n">aux_coords</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">aux_coords</span>
-            <span class="n">all_coords</span> <span class="o">=</span> <span class="n">dim_coords</span> <span class="o">+</span> <span class="n">aux_coords</span> <span class="o">+</span> <span class="n">derived_coords</span>
-            <span class="n">scalar_coords</span> <span class="o">=</span> <span class="p">[</span>
-                <span class="n">coord</span>
-                <span class="k">for</span> <span class="n">coord</span> <span class="ow">in</span> <span class="n">all_coords</span>
-                <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">coord_dims</span><span class="p">(</span><span class="n">coord</span><span class="p">)</span> <span class="ow">and</span> <span class="n">coord</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">1</span><span class="p">,)</span>
-            <span class="p">]</span>
-            <span class="c1"># Determine the cube coordinates that are not scalar BUT</span>
-            <span class="c1"># dimensioned.</span>
-            <span class="n">scalar_coord_ids</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">scalar_coords</span><span class="p">))</span>
-            <span class="n">vector_dim_coords</span> <span class="o">=</span> <span class="p">[</span>
-                <span class="n">coord</span>
-                <span class="k">for</span> <span class="n">coord</span> <span class="ow">in</span> <span class="n">dim_coords</span>
-                <span class="k">if</span> <span class="nb">id</span><span class="p">(</span><span class="n">coord</span><span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">scalar_coord_ids</span>
-            <span class="p">]</span>
-            <span class="n">vector_aux_coords</span> <span class="o">=</span> <span class="p">[</span>
-                <span class="n">coord</span>
-                <span class="k">for</span> <span class="n">coord</span> <span class="ow">in</span> <span class="n">aux_coords</span>
-                <span class="k">if</span> <span class="nb">id</span><span class="p">(</span><span class="n">coord</span><span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">scalar_coord_ids</span>
-            <span class="p">]</span>
-            <span class="n">vector_derived_coords</span> <span class="o">=</span> <span class="p">[</span>
-                <span class="n">coord</span>
-                <span class="k">for</span> <span class="n">coord</span> <span class="ow">in</span> <span class="n">derived_coords</span>
-                <span class="k">if</span> <span class="nb">id</span><span class="p">(</span><span class="n">coord</span><span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">scalar_coord_ids</span>
-            <span class="p">]</span>
+            <span class="c1"># Fetch the vector sections information.</span>
+            <span class="n">vector_summary_info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_summary_vector_sections_info</span><span class="p">()</span>
 
-            <span class="c1"># cell measures</span>
-            <span class="n">vector_cell_measures</span> <span class="o">=</span> <span class="p">[</span>
-                <span class="n">cm</span> <span class="k">for</span> <span class="n">cm</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cell_measures</span><span class="p">()</span> <span class="k">if</span> <span class="n">cm</span><span class="o">.</span><span class="n">shape</span> <span class="o">!=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,)</span>
-            <span class="p">]</span>
-
-            <span class="c1"># Ancillary Variables</span>
-            <span class="n">vector_ancillary_variables</span> <span class="o">=</span> <span class="p">[</span>
-                <span class="n">av</span> <span class="k">for</span> <span class="n">av</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">ancillary_variables</span><span class="p">()</span>
-            <span class="p">]</span>
-
-            <span class="c1"># Sort scalar coordinates by name.</span>
-            <span class="n">scalar_coords</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">coord</span><span class="p">:</span> <span class="n">coord</span><span class="o">.</span><span class="n">name</span><span class="p">())</span>
-            <span class="c1"># Sort vector coordinates by data dimension and name.</span>
-            <span class="n">vector_dim_coords</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span>
-                <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">coord</span><span class="p">:</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">coord_dims</span><span class="p">(</span><span class="n">coord</span><span class="p">),</span> <span class="n">coord</span><span class="o">.</span><span class="n">name</span><span class="p">())</span>
-            <span class="p">)</span>
-            <span class="n">vector_aux_coords</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span>
-                <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">coord</span><span class="p">:</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">coord_dims</span><span class="p">(</span><span class="n">coord</span><span class="p">),</span> <span class="n">coord</span><span class="o">.</span><span class="n">name</span><span class="p">())</span>
-            <span class="p">)</span>
-            <span class="n">vector_derived_coords</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span>
-                <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">coord</span><span class="p">:</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">coord_dims</span><span class="p">(</span><span class="n">coord</span><span class="p">),</span> <span class="n">coord</span><span class="o">.</span><span class="n">name</span><span class="p">())</span>
-            <span class="p">)</span>
-
-            <span class="c1">#</span>
-            <span class="c1"># Generate textual summary of cube vector coordinates.</span>
-            <span class="c1">#</span>
+            <span class="c1"># Support routine to format vector summary sections.</span>
             <span class="k">def</span> <span class="nf">vector_summary</span><span class="p">(</span>
-                <span class="n">vector_coords</span><span class="p">,</span>
+                <span class="n">vector_items</span><span class="p">,</span>
                 <span class="n">cube_header</span><span class="p">,</span>
                 <span class="n">max_line_offset</span><span class="p">,</span>
-                <span class="n">cell_measures</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                <span class="n">ancillary_variables</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="n">add_extra_lines</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
             <span class="p">):</span>
                 <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">                Generates a list of suitably aligned strings containing coord</span>
+<span class="sd">                Generates a list of suitably aligned strings containing item</span>
 <span class="sd">                names and dimensions indicated by one or more &#39;x&#39; symbols.</span>
 
 <span class="sd">                .. note::</span>
@@ -2614,12 +2621,7 @@
 <span class="sd">                    returned with the list of strings.</span>
 
 <span class="sd">                &quot;&quot;&quot;</span>
-                <span class="k">if</span> <span class="n">cell_measures</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-                    <span class="n">cell_measures</span> <span class="o">=</span> <span class="p">[]</span>
-                <span class="k">if</span> <span class="n">ancillary_variables</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-                    <span class="n">ancillary_variables</span> <span class="o">=</span> <span class="p">[]</span>
-                <span class="n">vector_summary</span> <span class="o">=</span> <span class="p">[]</span>
-                <span class="n">vectors</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="n">summary_lines</span> <span class="o">=</span> <span class="p">[]</span>
 
                 <span class="c1"># Identify offsets for each dimension text marker.</span>
                 <span class="n">alignment</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
@@ -2630,19 +2632,17 @@
                     <span class="p">]</span>
                 <span class="p">)</span>
 
-                <span class="c1"># Generate basic textual summary for each vector coordinate</span>
+                <span class="c1"># Generate basic textual summary for each vector item</span>
                 <span class="c1"># - WITHOUT dimension markers.</span>
-                <span class="k">for</span> <span class="n">dim_meta</span> <span class="ow">in</span> <span class="p">(</span>
-                    <span class="n">vector_coords</span> <span class="o">+</span> <span class="n">cell_measures</span> <span class="o">+</span> <span class="n">ancillary_variables</span>
-                <span class="p">):</span>
-                    <span class="n">vector_summary</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="k">for</span> <span class="n">dim_meta</span> <span class="ow">in</span> <span class="n">vector_items</span><span class="p">:</span>
+                    <span class="n">summary_lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
                         <span class="s2">&quot;</span><span class="si">%*s%s</span><span class="s2">&quot;</span>
                         <span class="o">%</span> <span class="p">(</span><span class="n">indent</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">clip_string</span><span class="p">(</span><span class="n">dim_meta</span><span class="o">.</span><span class="n">name</span><span class="p">()))</span>
                     <span class="p">)</span>
                 <span class="n">min_alignment</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">alignment</span><span class="p">)</span>
 
                 <span class="c1"># Determine whether the cube header requires realignment</span>
-                <span class="c1"># due to one or more longer vector coordinate summaries.</span>
+                <span class="c1"># due to one or more longer vector item summaries.</span>
                 <span class="k">if</span> <span class="n">max_line_offset</span> <span class="o">&gt;=</span> <span class="n">min_alignment</span><span class="p">:</span>
                     <span class="n">delta</span> <span class="o">=</span> <span class="n">max_line_offset</span> <span class="o">-</span> <span class="n">min_alignment</span> <span class="o">+</span> <span class="mi">5</span>
                     <span class="n">cube_header</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%-*s</span><span class="s2"> (</span><span class="si">%s</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="p">(</span>
@@ -2652,127 +2652,71 @@
                     <span class="p">)</span>
                     <span class="n">alignment</span> <span class="o">+=</span> <span class="n">delta</span>
 
-                <span class="k">if</span> <span class="n">vector_coords</span><span class="p">:</span>
-                    <span class="c1"># Generate full textual summary for each vector coordinate</span>
-                    <span class="c1"># - WITH dimension markers.</span>
-                    <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">coord</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">vector_coords</span><span class="p">):</span>
-                        <span class="n">dims</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">coord_dims</span><span class="p">(</span><span class="n">coord</span><span class="p">)</span>
+                <span class="c1"># Generate full textual summary for each vector item</span>
+                <span class="c1"># - WITH dimension markers.</span>
+                <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">dim_meta</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">vector_items</span><span class="p">):</span>
+                    <span class="n">dims</span> <span class="o">=</span> <span class="n">dim_meta</span><span class="o">.</span><span class="n">cube_dims</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 
-                        <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">)):</span>
-                            <span class="n">width</span> <span class="o">=</span> <span class="n">alignment</span><span class="p">[</span><span class="n">dim</span><span class="p">]</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">vector_summary</span><span class="p">[</span><span class="n">index</span><span class="p">])</span>
-                            <span class="n">char</span> <span class="o">=</span> <span class="s2">&quot;x&quot;</span> <span class="k">if</span> <span class="n">dim</span> <span class="ow">in</span> <span class="n">dims</span> <span class="k">else</span> <span class="s2">&quot;-&quot;</span>
-                            <span class="n">line</span> <span class="o">=</span> <span class="s2">&quot;{pad:</span><span class="si">{width}</span><span class="s2">}</span><span class="si">{char}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-                                <span class="n">pad</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">width</span><span class="p">,</span> <span class="n">char</span><span class="o">=</span><span class="n">char</span>
-                            <span class="p">)</span>
-                            <span class="n">vector_summary</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">+=</span> <span class="n">line</span>
-                    <span class="n">vectors</span> <span class="o">=</span> <span class="n">vectors</span> <span class="o">+</span> <span class="n">vector_coords</span>
-                <span class="k">if</span> <span class="n">cell_measures</span><span class="p">:</span>
-                    <span class="c1"># Generate full textual summary for each vector cell</span>
-                    <span class="c1"># measure - WITH dimension markers.</span>
-                    <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">cell_measure</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">cell_measures</span><span class="p">):</span>
-                        <span class="n">dims</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cell_measure_dims</span><span class="p">(</span><span class="n">cell_measure</span><span class="p">)</span>
+                    <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">)):</span>
+                        <span class="n">width</span> <span class="o">=</span> <span class="n">alignment</span><span class="p">[</span><span class="n">dim</span><span class="p">]</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">summary_lines</span><span class="p">[</span><span class="n">index</span><span class="p">])</span>
+                        <span class="n">char</span> <span class="o">=</span> <span class="s2">&quot;x&quot;</span> <span class="k">if</span> <span class="n">dim</span> <span class="ow">in</span> <span class="n">dims</span> <span class="k">else</span> <span class="s2">&quot;-&quot;</span>
+                        <span class="n">line</span> <span class="o">=</span> <span class="s2">&quot;{pad:</span><span class="si">{width}</span><span class="s2">}</span><span class="si">{char}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                            <span class="n">pad</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">width</span><span class="p">,</span> <span class="n">char</span><span class="o">=</span><span class="n">char</span>
+                        <span class="p">)</span>
+                        <span class="n">summary_lines</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">+=</span> <span class="n">line</span>
 
-                        <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">)):</span>
-                            <span class="n">width</span> <span class="o">=</span> <span class="n">alignment</span><span class="p">[</span><span class="n">dim</span><span class="p">]</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">vector_summary</span><span class="p">[</span><span class="n">index</span><span class="p">])</span>
-                            <span class="n">char</span> <span class="o">=</span> <span class="s2">&quot;x&quot;</span> <span class="k">if</span> <span class="n">dim</span> <span class="ow">in</span> <span class="n">dims</span> <span class="k">else</span> <span class="s2">&quot;-&quot;</span>
-                            <span class="n">line</span> <span class="o">=</span> <span class="s2">&quot;{pad:</span><span class="si">{width}</span><span class="s2">}</span><span class="si">{char}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-                                <span class="n">pad</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">width</span><span class="p">,</span> <span class="n">char</span><span class="o">=</span><span class="n">char</span>
-                            <span class="p">)</span>
-                            <span class="n">vector_summary</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">+=</span> <span class="n">line</span>
-                    <span class="n">vectors</span> <span class="o">=</span> <span class="n">vectors</span> <span class="o">+</span> <span class="n">cell_measures</span>
-                <span class="k">if</span> <span class="n">ancillary_variables</span><span class="p">:</span>
-                    <span class="c1"># Generate full textual summary for each vector ancillary</span>
-                    <span class="c1"># variable - WITH dimension markers.</span>
-                    <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">av</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ancillary_variables</span><span class="p">):</span>
-                        <span class="n">dims</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ancillary_variable_dims</span><span class="p">(</span><span class="n">av</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">add_extra_lines</span><span class="p">:</span>
+                    <span class="c1"># Interleave any extra lines that are needed to distinguish</span>
+                    <span class="c1"># the coordinates.</span>
+                    <span class="c1"># TODO: This should also be done for cell measures and</span>
+                    <span class="c1"># ancillary variables.</span>
+                    <span class="n">summary_lines</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_summary_extra</span><span class="p">(</span>
+                        <span class="n">vector_items</span><span class="p">,</span> <span class="n">summary_lines</span><span class="p">,</span> <span class="n">extra_indent</span>
+                    <span class="p">)</span>
 
-                        <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">)):</span>
-                            <span class="n">width</span> <span class="o">=</span> <span class="n">alignment</span><span class="p">[</span><span class="n">dim</span><span class="p">]</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">vector_summary</span><span class="p">[</span><span class="n">index</span><span class="p">])</span>
-                            <span class="n">char</span> <span class="o">=</span> <span class="s2">&quot;x&quot;</span> <span class="k">if</span> <span class="n">dim</span> <span class="ow">in</span> <span class="n">dims</span> <span class="k">else</span> <span class="s2">&quot;-&quot;</span>
-                            <span class="n">line</span> <span class="o">=</span> <span class="s2">&quot;{pad:</span><span class="si">{width}</span><span class="s2">}</span><span class="si">{char}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-                                <span class="n">pad</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="n">width</span><span class="p">,</span> <span class="n">char</span><span class="o">=</span><span class="n">char</span>
-                            <span class="p">)</span>
-                            <span class="n">vector_summary</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">+=</span> <span class="n">line</span>
-                    <span class="n">vectors</span> <span class="o">=</span> <span class="n">vectors</span> <span class="o">+</span> <span class="n">ancillary_variables</span>
-                <span class="c1"># Interleave any extra lines that are needed to distinguish</span>
-                <span class="c1"># the coordinates.</span>
-                <span class="n">vector_summary</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_summary_extra</span><span class="p">(</span>
-                    <span class="n">vectors</span><span class="p">,</span> <span class="n">vector_summary</span><span class="p">,</span> <span class="n">extra_indent</span>
-                <span class="p">)</span>
-
-                <span class="k">return</span> <span class="n">vector_summary</span><span class="p">,</span> <span class="n">cube_header</span>
+                <span class="k">return</span> <span class="n">summary_lines</span><span class="p">,</span> <span class="n">cube_header</span>
 
             <span class="c1"># Calculate the maximum line offset.</span>
             <span class="n">max_line_offset</span> <span class="o">=</span> <span class="mi">0</span>
-            <span class="k">for</span> <span class="n">coord</span> <span class="ow">in</span> <span class="n">all_coords</span><span class="p">:</span>
-                <span class="n">max_line_offset</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span>
-                    <span class="n">max_line_offset</span><span class="p">,</span>
-                    <span class="nb">len</span><span class="p">(</span>
-                        <span class="s2">&quot;</span><span class="si">%*s%s</span><span class="s2">&quot;</span>
-                        <span class="o">%</span> <span class="p">(</span>
-                            <span class="n">indent</span><span class="p">,</span>
-                            <span class="s2">&quot; &quot;</span><span class="p">,</span>
-                            <span class="n">iris</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">clip_string</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">coord</span><span class="o">.</span><span class="n">name</span><span class="p">())),</span>
-                        <span class="p">)</span>
-                    <span class="p">),</span>
-                <span class="p">)</span>
-
-            <span class="k">if</span> <span class="n">vector_dim_coords</span><span class="p">:</span>
-                <span class="n">dim_coord_summary</span><span class="p">,</span> <span class="n">cube_header</span> <span class="o">=</span> <span class="n">vector_summary</span><span class="p">(</span>
-                    <span class="n">vector_dim_coords</span><span class="p">,</span> <span class="n">cube_header</span><span class="p">,</span> <span class="n">max_line_offset</span>
-                <span class="p">)</span>
-                <span class="n">summary</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">     Dimension coordinates:</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
-                    <span class="n">dim_coord_summary</span>
-                <span class="p">)</span>
-
-            <span class="k">if</span> <span class="n">vector_aux_coords</span><span class="p">:</span>
-                <span class="n">aux_coord_summary</span><span class="p">,</span> <span class="n">cube_header</span> <span class="o">=</span> <span class="n">vector_summary</span><span class="p">(</span>
-                    <span class="n">vector_aux_coords</span><span class="p">,</span> <span class="n">cube_header</span><span class="p">,</span> <span class="n">max_line_offset</span>
-                <span class="p">)</span>
-                <span class="n">summary</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">     Auxiliary coordinates:</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
-                    <span class="n">aux_coord_summary</span>
-                <span class="p">)</span>
-
-            <span class="k">if</span> <span class="n">vector_derived_coords</span><span class="p">:</span>
-                <span class="n">derived_coord_summary</span><span class="p">,</span> <span class="n">cube_header</span> <span class="o">=</span> <span class="n">vector_summary</span><span class="p">(</span>
-                    <span class="n">vector_derived_coords</span><span class="p">,</span> <span class="n">cube_header</span><span class="p">,</span> <span class="n">max_line_offset</span>
-                <span class="p">)</span>
-                <span class="n">summary</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">     Derived coordinates:</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
-                    <span class="n">derived_coord_summary</span>
-                <span class="p">)</span>
+            <span class="k">for</span> <span class="n">spec</span> <span class="ow">in</span> <span class="n">vector_summary_info</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">spec</span><span class="o">.</span><span class="n">elements</span><span class="p">:</span>
+                    <span class="n">max_line_offset</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span>
+                        <span class="n">max_line_offset</span><span class="p">,</span>
+                        <span class="nb">len</span><span class="p">(</span>
+                            <span class="s2">&quot;</span><span class="si">%*s%s</span><span class="s2">&quot;</span>
+                            <span class="o">%</span> <span class="p">(</span>
+                                <span class="n">indent</span><span class="p">,</span>
+                                <span class="s2">&quot; &quot;</span><span class="p">,</span>
+                                <span class="n">iris</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">clip_string</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">element</span><span class="o">.</span><span class="n">name</span><span class="p">())),</span>
+                            <span class="p">)</span>
+                        <span class="p">),</span>
+                    <span class="p">)</span>
 
             <span class="c1">#</span>
-            <span class="c1"># Generate summary of cube cell measures attribute</span>
+            <span class="c1"># Generate textual summaries of cube vector elements.</span>
             <span class="c1">#</span>
-            <span class="k">if</span> <span class="n">vector_cell_measures</span><span class="p">:</span>
-                <span class="n">cell_measure_summary</span><span class="p">,</span> <span class="n">cube_header</span> <span class="o">=</span> <span class="n">vector_summary</span><span class="p">(</span>
-                    <span class="p">[],</span>
-                    <span class="n">cube_header</span><span class="p">,</span>
-                    <span class="n">max_line_offset</span><span class="p">,</span>
-                    <span class="n">cell_measures</span><span class="o">=</span><span class="n">vector_cell_measures</span><span class="p">,</span>
-                <span class="p">)</span>
-                <span class="n">summary</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">     Cell measures:</span><span class="se">\n</span><span class="s2">&quot;</span>
-                <span class="n">summary</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cell_measure_summary</span><span class="p">)</span>
-
-            <span class="c1">#</span>
-            <span class="c1"># Generate summary of cube ancillary variables attribute</span>
-            <span class="c1">#</span>
-            <span class="k">if</span> <span class="n">vector_ancillary_variables</span><span class="p">:</span>
-                <span class="n">ancillary_variable_summary</span><span class="p">,</span> <span class="n">cube_header</span> <span class="o">=</span> <span class="n">vector_summary</span><span class="p">(</span>
-                    <span class="p">[],</span>
-                    <span class="n">cube_header</span><span class="p">,</span>
-                    <span class="n">max_line_offset</span><span class="p">,</span>
-                    <span class="n">ancillary_variables</span><span class="o">=</span><span class="n">vector_ancillary_variables</span><span class="p">,</span>
-                <span class="p">)</span>
-                <span class="n">summary</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">     Ancillary variables:</span><span class="se">\n</span><span class="s2">&quot;</span>
-                <span class="n">summary</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ancillary_variable_summary</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">title</span><span class="p">,</span> <span class="n">elements</span><span class="p">,</span> <span class="n">add_extra_lines</span> <span class="ow">in</span> <span class="n">vector_summary_info</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">elements</span><span class="p">:</span>
+                    <span class="n">summary_lines</span><span class="p">,</span> <span class="n">cube_header</span> <span class="o">=</span> <span class="n">vector_summary</span><span class="p">(</span>
+                        <span class="n">vector_items</span><span class="o">=</span><span class="n">elements</span><span class="p">,</span>
+                        <span class="n">cube_header</span><span class="o">=</span><span class="n">cube_header</span><span class="p">,</span>
+                        <span class="n">max_line_offset</span><span class="o">=</span><span class="n">max_line_offset</span><span class="p">,</span>
+                        <span class="n">add_extra_lines</span><span class="o">=</span><span class="n">add_extra_lines</span><span class="p">,</span>
+                    <span class="p">)</span>
+                    <span class="n">summary</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">     </span><span class="si">{</span><span class="n">title</span><span class="si">}</span><span class="s2">:</span><span class="se">\n</span><span class="s2">&quot;</span>
+                    <span class="n">summary</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">summary_lines</span><span class="p">)</span>
 
             <span class="c1">#</span>
             <span class="c1"># Generate textual summary of cube scalar coordinates.</span>
             <span class="c1">#</span>
+            <span class="n">scalar_coords</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="n">coord</span> <span class="k">for</span> <span class="n">coord</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">coords</span><span class="p">()</span> <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">coord_dims</span><span class="p">(</span><span class="n">coord</span><span class="p">)</span>
+            <span class="p">]</span>
             <span class="n">scalar_summary</span> <span class="o">=</span> <span class="p">[]</span>
-
             <span class="k">if</span> <span class="n">scalar_coords</span><span class="p">:</span>
+                <span class="n">scalar_coords</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span>
+                    <span class="n">scalar_coords</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">coord</span><span class="p">:</span> <span class="n">coord</span><span class="o">.</span><span class="n">name</span><span class="p">()</span>
+                <span class="p">)</span>
                 <span class="k">for</span> <span class="n">coord</span> <span class="ow">in</span> <span class="n">scalar_coords</span><span class="p">:</span>
                     <span class="k">if</span> <span class="p">(</span>
                         <span class="n">coord</span><span class="o">.</span><span class="n">units</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;no_unit&quot;</span><span class="p">,</span> <span class="s2">&quot;unknown&quot;</span><span class="p">]</span>
@@ -2831,15 +2775,34 @@
                     <span class="n">scalar_summary</span>
                 <span class="p">)</span>
 
-            <span class="c1"># cell measures</span>
+            <span class="c1">#</span>
+            <span class="c1"># Generate summary of scalar cube cell measures</span>
+            <span class="c1">#</span>
             <span class="n">scalar_cell_measures</span> <span class="o">=</span> <span class="p">[</span>
-                <span class="n">cm</span> <span class="k">for</span> <span class="n">cm</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cell_measures</span><span class="p">()</span> <span class="k">if</span> <span class="n">cm</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">1</span><span class="p">,)</span>
+                <span class="n">cm</span>
+                <span class="k">for</span> <span class="n">cm</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cell_measures</span><span class="p">()</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">cell_measure_dims</span><span class="p">(</span><span class="n">cm</span><span class="p">)</span>
             <span class="p">]</span>
             <span class="k">if</span> <span class="n">scalar_cell_measures</span><span class="p">:</span>
                 <span class="n">summary</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">     Scalar cell measures:</span><span class="se">\n</span><span class="s2">&quot;</span>
                 <span class="n">scalar_cms</span> <span class="o">=</span> <span class="p">[</span>
                     <span class="s2">&quot;          </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cm</span><span class="o">.</span><span class="n">name</span><span class="p">())</span>
                     <span class="k">for</span> <span class="n">cm</span> <span class="ow">in</span> <span class="n">scalar_cell_measures</span>
+                <span class="p">]</span>
+                <span class="n">summary</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">scalar_cms</span><span class="p">)</span>
+
+            <span class="c1">#</span>
+            <span class="c1"># Generate summary of scalar ancillary variables</span>
+            <span class="c1">#</span>
+            <span class="n">scalar_ancils</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="n">av</span>
+                <span class="k">for</span> <span class="n">av</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">ancillary_variables</span><span class="p">()</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">ancillary_variable_dims</span><span class="p">(</span><span class="n">av</span><span class="p">)</span>
+            <span class="p">]</span>
+            <span class="k">if</span> <span class="n">scalar_ancils</span><span class="p">:</span>
+                <span class="n">summary</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">     Scalar ancillary variables:</span><span class="se">\n</span><span class="s2">&quot;</span>
+                <span class="n">scalar_cms</span> <span class="o">=</span> <span class="p">[</span>
+                    <span class="s2">&quot;          </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">av</span><span class="o">.</span><span class="n">name</span><span class="p">())</span> <span class="k">for</span> <span class="n">av</span> <span class="ow">in</span> <span class="n">scalar_ancils</span>
                 <span class="p">]</span>
                 <span class="n">summary</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">scalar_cms</span><span class="p">)</span>
 

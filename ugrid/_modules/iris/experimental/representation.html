@@ -316,24 +316,18 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">cube_id</span> <span class="o">=</span> <span class="nb">id</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cube</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">cube_str</span> <span class="o">=</span> <span class="n">escape</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cube</span><span class="p">))</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">str_headings</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="s2">&quot;Dimension coordinates:&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
-            <span class="s2">&quot;Auxiliary coordinates:&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
-            <span class="s2">&quot;Derived coordinates:&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
-            <span class="s2">&quot;Cell measures:&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
-            <span class="s2">&quot;Ancillary variables:&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
-            <span class="s2">&quot;Scalar coordinates:&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
-            <span class="s2">&quot;Scalar cell measures:&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
-            <span class="s2">&quot;Attributes:&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
-            <span class="s2">&quot;Cell methods:&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="p">}</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">dim_desc_coords</span> <span class="o">=</span> <span class="p">[</span>
-            <span class="s2">&quot;Dimension coordinates:&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;Auxiliary coordinates:&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;Derived coordinates:&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;Cell measures:&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;Ancillary variables:&quot;</span><span class="p">,</span>
+        <span class="n">vector_sections</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">_summary_vector_sections_info</span><span class="p">()</span>
+        <span class="n">vector_headings</span> <span class="o">=</span> <span class="p">[</span><span class="n">spec</span><span class="o">.</span><span class="n">title</span> <span class="k">for</span> <span class="n">spec</span> <span class="ow">in</span> <span class="n">vector_sections</span><span class="p">]</span>
+        <span class="c1"># TODO: this list of &#39;scalar summary sections&#39; should probably also be</span>
+        <span class="c1"># defined by the cube itself.</span>
+        <span class="n">all_headings</span> <span class="o">=</span> <span class="n">vector_headings</span> <span class="o">+</span> <span class="p">[</span>
+            <span class="s2">&quot;Scalar coordinates&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Scalar cell measures&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Attributes&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Cell methods&quot;</span><span class="p">,</span>
         <span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">str_headings</span> <span class="o">=</span> <span class="p">{</span><span class="n">title</span> <span class="o">+</span> <span class="s2">&quot;:&quot;</span><span class="p">:</span> <span class="kc">None</span> <span class="k">for</span> <span class="n">title</span> <span class="ow">in</span> <span class="n">all_headings</span><span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dim_desc_coords</span> <span class="o">=</span> <span class="p">[</span><span class="n">title</span> <span class="o">+</span> <span class="s2">&quot;:&quot;</span> <span class="k">for</span> <span class="n">title</span> <span class="ow">in</span> <span class="n">vector_headings</span><span class="p">]</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">two_cell_headers</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Scalar coordinates:&quot;</span><span class="p">,</span> <span class="s2">&quot;Attributes:&quot;</span><span class="p">]</span>
 
@@ -348,25 +342,16 @@
 
     <span class="k">def</span> <span class="nf">_get_dim_names</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Get dimension-describing coordinate names, or &#39;--&#39; if no coordinate]</span>
-<span class="sd">        describes the dimension.</span>
-
-<span class="sd">        Note: borrows from `cube.summary`.</span>
+<span class="sd">        Get all the dimension-describing coordinate names, as used by</span>
+<span class="sd">        cube.summary.</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="c1"># Create a set to contain the axis names for each data dimension.</span>
-        <span class="n">dim_names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cube</span><span class="o">.</span><span class="n">shape</span><span class="p">)))</span>
-
-        <span class="c1"># Add the dim_coord names that participate in the associated data</span>
-        <span class="c1"># dimensions.</span>
-        <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cube</span><span class="o">.</span><span class="n">shape</span><span class="p">)):</span>
-            <span class="n">dim_coords</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cube</span><span class="o">.</span><span class="n">coords</span><span class="p">(</span>
-                <span class="n">contains_dimension</span><span class="o">=</span><span class="n">dim</span><span class="p">,</span> <span class="n">dim_coords</span><span class="o">=</span><span class="kc">True</span>
-            <span class="p">)</span>
-            <span class="k">if</span> <span class="n">dim_coords</span><span class="p">:</span>
-                <span class="n">dim_names</span><span class="p">[</span><span class="n">dim</span><span class="p">]</span> <span class="o">=</span> <span class="n">dim_coords</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">name</span><span class="p">()</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">dim_names</span><span class="p">[</span><span class="n">dim</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;--&quot;</span>
+        <span class="c1"># NOTE: use &quot;.strip()&quot; on these, because the name of an anonymous dim</span>
+        <span class="c1"># has an unwanted extra space at the end, i.e. &quot;-- &quot;.</span>
+        <span class="n">dim_names</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cube</span><span class="o">.</span><span class="n">_summary_dim_name</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cube</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+        <span class="p">]</span>
         <span class="k">return</span> <span class="n">dim_names</span>
 
     <span class="k">def</span> <span class="nf">_dim_names</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
