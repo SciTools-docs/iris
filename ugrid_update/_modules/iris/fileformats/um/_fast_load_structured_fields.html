@@ -1,0 +1,613 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>iris.fileformats.um._fast_load_structured_fields &mdash; Iris 3.0.0ugrid1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../_static/theme_override.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/gallery-dataframe.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/language_data.js"></script>
+        <script src="../../../../_static/clipboard.min.js"></script>
+        <script src="../../../../_static/copybutton.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="copyright" title="Copyright" href="../../../../copyright.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html">
+          
+
+          
+            
+            <img src="../../../../_static/iris-logo-title.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installing.html">Installing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../generated/gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/iris_cubes.html">Iris data structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/loading_iris_cubes.html">Loading Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/saving_iris_cubes.html">Saving Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/navigating_a_cube.html">Navigating a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/subsetting_a_cube.html">Subsetting a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/real_and_lazy_data.html">Real and lazy data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/plotting_a_cube.html">Plotting a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/interpolation_and_regridding.html">Cube interpolation and regridding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/merge_and_concat.html">Merge and concatenate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/cube_statistics.html">Cube statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/cube_maths.html">Cube maths</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/citation.html">Citing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/code_maintenance.html">Code maintenance</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Further Topics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../further_topics/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../further_topics/metadata.html">Metadata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../further_topics/lenient_metadata.html">Lenient metadata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../further_topics/lenient_maths.html">Lenient cube maths</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developers Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developers_guide/contributing_getting_involved.html">Getting involved</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developers_guide/gitwash/index.html">Working with Iris source code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developers_guide/contributing_documentation.html">Contributing to the documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developers_guide/contributing_codebase_index.html">Contributing to the code base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developers_guide/contributing_changes.html">Contributing your changes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developers_guide/release.html">Releases</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../generated/api/iris.html">Iris API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../whatsnew/index.html">What’s new in Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../techpapers/index.html">Iris technical papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../copyright.html">Iris copyright, licensing and contributors</a></li>
+</ul>
+
+            
+          
+
+    
+    
+    
+        <p class="caption">
+            <span class="caption-text">
+            
+                Support
+            
+            </span>
+        </p>
+        <ul>
+            
+                <li class="toctree-l1"><a href="https://github.com/SciTools/iris"><i class="fa fa-github fa-fw"></i> Source code</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris"><i class="fa fa-comments fa-fw"></i> Users Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris-dev"><i class="fa fa-comments fa-fw"></i> Developers Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://stackoverflow.com/questions/tagged/python-iris"><i class="fa fa-question fa-fw"></i> StackOverflow for "How do I?"</a></li>
+            
+                <li class="toctree-l1"><a href="https://scitools.org.uk/iris/docs/v2.4.0/index.html"><i class="fa fa-book fa-fw"></i> Legacy documentation</a></li>
+            
+        </ul>
+    
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Iris</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../../../iris.html">iris</a> &raquo;</li>
+        
+      <li>iris.fileformats.um._fast_load_structured_fields</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for iris.fileformats.um._fast_load_structured_fields</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright Iris contributors</span>
+<span class="c1">#</span>
+<span class="c1"># This file is part of Iris and is released under the LGPL license.</span>
+<span class="c1"># See COPYING and COPYING.LESSER in the root of the repository for full</span>
+<span class="c1"># licensing details.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Code for fast loading of structured UM data.</span>
+
+<span class="sd">This module defines which pp-field elements take part in structured loading,</span>
+<span class="sd">and provides creation of :class:`BasicFieldCollation` objects from lists of</span>
+<span class="sd">:class:`iris.fileformats.pp.PPField`.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">itertools</span>
+
+<span class="kn">import</span> <span class="nn">cftime</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">iris._lazy_data</span> <span class="kn">import</span> <span class="n">as_lazy_data</span><span class="p">,</span> <span class="n">multidim_lazy_stack</span>
+<span class="kn">from</span> <span class="nn">iris.fileformats.um._optimal_array_structuring</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">optimal_array_structure</span><span class="p">,</span>
+<span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">BasicFieldCollation</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    An object representing a group of UM fields with array structure that can</span>
+<span class="sd">    be vectorized into a single cube.</span>
+
+<span class="sd">    For example:</span>
+
+<span class="sd">    Suppose we have a set of 28 fields repeating over 7 vertical levels for</span>
+<span class="sd">    each of 4 different data times.  If a BasicFieldCollation is created to</span>
+<span class="sd">    contain these, it can identify that this is a 4*7 regular array structure.</span>
+
+<span class="sd">    This BasicFieldCollation will then have the following properties:</span>
+
+<span class="sd">    * within &#39;element_arrays_and_dims&#39; :</span>
+<span class="sd">        Element &#39;blev&#39; have the array shape (7,) and dims of (1,).</span>
+<span class="sd">        Elements &#39;t1&#39; and &#39;t2&#39; have shape (4,) and dims (0,).</span>
+<span class="sd">        The other elements (lbft, lbrsvd4 and lbuser5) all have scalar array</span>
+<span class="sd">        values and dims=None.</span>
+
+<span class="sd">    .. note::</span>
+
+<span class="sd">        If no array structure is found, the element values are all</span>
+<span class="sd">        either scalar or full-length 1-D vectors.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fields</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Args:</span>
+
+<span class="sd">        * fields (iterable of :class:`iris.fileformats.pp.PPField`):</span>
+<span class="sd">            The fields in the collation.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_fields</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">fields</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_data_cache</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_structure_calculated</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_vector_dims_shape</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_primary_dimension_elements</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_element_arrays_and_dims</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">fields</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fields</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_structure_calculated</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_calculate_structure</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data_cache</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">stack</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vector_dims_shape</span><span class="p">,</span> <span class="s2">&quot;object&quot;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">nd_index</span><span class="p">,</span> <span class="n">field</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">ndindex</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vector_dims_shape</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">fields</span>
+            <span class="p">):</span>
+                <span class="n">stack</span><span class="p">[</span><span class="n">nd_index</span><span class="p">]</span> <span class="o">=</span> <span class="n">as_lazy_data</span><span class="p">(</span><span class="n">field</span><span class="o">.</span><span class="n">_data</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_data_cache</span> <span class="o">=</span> <span class="n">multidim_lazy_stack</span><span class="p">(</span><span class="n">stack</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data_cache</span>
+
+    <span class="k">def</span> <span class="nf">core_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">realised_dtype</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">result_type</span><span class="p">(</span>
+            <span class="o">*</span><span class="p">[</span><span class="n">field</span><span class="o">.</span><span class="n">realised_dtype</span> <span class="k">for</span> <span class="n">field</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fields</span><span class="p">]</span>
+        <span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">data_proxy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">bmdi</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">bmdis</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="n">f</span><span class="o">.</span><span class="n">bmdi</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">])</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">bmdis</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Multiple bmdi values defined in FieldCollection&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">bmdis</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">vector_dims_shape</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;The shape of the array structure.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_structure_calculated</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_calculate_structure</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_vector_dims_shape</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">_UNUSED_primary_dimension_elements</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;A set of names of the elements which are array dimensions.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_structure_calculated</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_calculate_structure</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_primary_dimension_elements</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">element_arrays_and_dims</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Value arrays for vector metadata elements.</span>
+
+<span class="sd">        A dictionary mapping element_name: (value_array, dims).</span>
+
+<span class="sd">        The arrays are reduced to their minimum dimensions.  A scalar array</span>
+<span class="sd">        has an associated &#39;dims&#39; of None (instead of an empty tuple).</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_structure_calculated</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_calculate_structure</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_element_arrays_and_dims</span>
+
+    <span class="k">def</span> <span class="nf">_field_vector_element_arrays</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Define the field components used in the structure analysis.&quot;&quot;&quot;</span>
+        <span class="c1"># Define functions to make t1 and t2 values as date-time tuples.</span>
+        <span class="c1"># These depend on header version (PPField2 has no seconds values).</span>
+        <span class="k">def</span> <span class="nf">t1_fn</span><span class="p">(</span><span class="n">fld</span><span class="p">):</span>
+            <span class="k">return</span> <span class="p">(</span>
+                <span class="n">fld</span><span class="o">.</span><span class="n">lbyr</span><span class="p">,</span>
+                <span class="n">fld</span><span class="o">.</span><span class="n">lbmon</span><span class="p">,</span>
+                <span class="n">fld</span><span class="o">.</span><span class="n">lbdat</span><span class="p">,</span>
+                <span class="n">fld</span><span class="o">.</span><span class="n">lbhr</span><span class="p">,</span>
+                <span class="n">fld</span><span class="o">.</span><span class="n">lbmin</span><span class="p">,</span>
+                <span class="nb">getattr</span><span class="p">(</span><span class="n">fld</span><span class="p">,</span> <span class="s2">&quot;lbsec&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+            <span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">t2_fn</span><span class="p">(</span><span class="n">fld</span><span class="p">):</span>
+            <span class="k">return</span> <span class="p">(</span>
+                <span class="n">fld</span><span class="o">.</span><span class="n">lbyrd</span><span class="p">,</span>
+                <span class="n">fld</span><span class="o">.</span><span class="n">lbmond</span><span class="p">,</span>
+                <span class="n">fld</span><span class="o">.</span><span class="n">lbdatd</span><span class="p">,</span>
+                <span class="n">fld</span><span class="o">.</span><span class="n">lbhrd</span><span class="p">,</span>
+                <span class="n">fld</span><span class="o">.</span><span class="n">lbmind</span><span class="p">,</span>
+                <span class="nb">getattr</span><span class="p">(</span><span class="n">fld</span><span class="p">,</span> <span class="s2">&quot;lbsecd&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+            <span class="p">)</span>
+
+        <span class="c1"># Return a list of (name, array) for the vectorizable elements.</span>
+        <span class="n">component_arrays</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="p">(</span><span class="s2">&quot;t1&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">t1_fn</span><span class="p">(</span><span class="n">fld</span><span class="p">)</span> <span class="k">for</span> <span class="n">fld</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">])),</span>
+            <span class="p">(</span><span class="s2">&quot;t2&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">t2_fn</span><span class="p">(</span><span class="n">fld</span><span class="p">)</span> <span class="k">for</span> <span class="n">fld</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">])),</span>
+            <span class="p">(</span><span class="s2">&quot;lbft&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">fld</span><span class="o">.</span><span class="n">lbft</span> <span class="k">for</span> <span class="n">fld</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">])),</span>
+            <span class="p">(</span><span class="s2">&quot;blev&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">fld</span><span class="o">.</span><span class="n">blev</span> <span class="k">for</span> <span class="n">fld</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">])),</span>
+            <span class="p">(</span><span class="s2">&quot;lblev&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">fld</span><span class="o">.</span><span class="n">lblev</span> <span class="k">for</span> <span class="n">fld</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">])),</span>
+            <span class="p">(</span><span class="s2">&quot;bhlev&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">fld</span><span class="o">.</span><span class="n">bhlev</span> <span class="k">for</span> <span class="n">fld</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">])),</span>
+            <span class="p">(</span><span class="s2">&quot;bhrlev&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">fld</span><span class="o">.</span><span class="n">bhrlev</span> <span class="k">for</span> <span class="n">fld</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">])),</span>
+            <span class="p">(</span><span class="s2">&quot;brsvd1&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">fld</span><span class="o">.</span><span class="n">brsvd</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">fld</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">])),</span>
+            <span class="p">(</span><span class="s2">&quot;brsvd2&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">fld</span><span class="o">.</span><span class="n">brsvd</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">fld</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">])),</span>
+            <span class="p">(</span><span class="s2">&quot;brlev&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">fld</span><span class="o">.</span><span class="n">brlev</span> <span class="k">for</span> <span class="n">fld</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">])),</span>
+        <span class="p">]</span>
+        <span class="k">return</span> <span class="n">component_arrays</span>
+
+    <span class="c1"># Static factors for the _time_comparable_int routine (seconds per period).</span>
+    <span class="n">_TIME_ELEMENT_MULTIPLIERS</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumprod</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">12</span><span class="p">])[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">_time_comparable_int</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">yr</span><span class="p">,</span> <span class="n">mon</span><span class="p">,</span> <span class="n">dat</span><span class="p">,</span> <span class="n">hr</span><span class="p">,</span> <span class="nb">min</span><span class="p">,</span> <span class="n">sec</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return a single unique number representing a date-time tuple.</span>
+
+<span class="sd">        This calculation takes no account of the time field&#39;s real calendar,</span>
+<span class="sd">        instead giving every month 31 days, which preserves the required</span>
+<span class="sd">        time ordering.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">elements</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="n">yr</span><span class="p">,</span> <span class="n">mon</span><span class="p">,</span> <span class="n">dat</span><span class="p">,</span> <span class="n">hr</span><span class="p">,</span> <span class="nb">min</span><span class="p">,</span> <span class="n">sec</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">elements</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_TIME_ELEMENT_MULTIPLIERS</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_calculate_structure</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># Make value arrays for the vectorisable field elements.</span>
+        <span class="n">element_definitions</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_field_vector_element_arrays</span><span class="p">()</span>
+
+        <span class="c1"># Identify the vertical elements and payload.</span>
+        <span class="n">blev_array</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">element_definitions</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;blev&quot;</span><span class="p">)</span>
+        <span class="n">vertical_elements</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="s2">&quot;lblev&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;bhlev&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;bhrlev&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;brsvd1&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;brsvd2&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;brlev&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Make an ordering copy.</span>
+        <span class="n">ordering_definitions</span> <span class="o">=</span> <span class="n">element_definitions</span><span class="p">[:]</span>
+        <span class="c1"># Replace time value tuples with integers and bind the vertical</span>
+        <span class="c1"># elements to the (expected) primary vertical element &quot;blev&quot;.</span>
+        <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">array</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ordering_definitions</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;t1&quot;</span><span class="p">,</span> <span class="s2">&quot;t2&quot;</span><span class="p">):</span>
+                <span class="n">array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+                    <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_time_comparable_int</span><span class="p">(</span><span class="o">*</span><span class="nb">tuple</span><span class="p">(</span><span class="n">val</span><span class="p">))</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">array</span><span class="p">]</span>
+                <span class="p">)</span>
+                <span class="n">ordering_definitions</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">array</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">vertical_elements</span> <span class="ow">and</span> <span class="n">blev_array</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">ordering_definitions</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">blev_array</span><span class="p">)</span>
+
+        <span class="c1"># Perform the main analysis: get vector dimensions, elements, arrays.</span>
+        <span class="p">(</span>
+            <span class="n">dims_shape</span><span class="p">,</span>
+            <span class="n">primary_elements</span><span class="p">,</span>
+            <span class="n">vector_element_arrays_and_dims</span><span class="p">,</span>
+        <span class="p">)</span> <span class="o">=</span> <span class="n">optimal_array_structure</span><span class="p">(</span><span class="n">ordering_definitions</span><span class="p">,</span> <span class="n">element_definitions</span><span class="p">)</span>
+
+        <span class="c1"># Replace time tuples in the result with real datetime-like values.</span>
+        <span class="c1"># N.B. so we *don&#39;t* do this on the whole (expanded) input arrays.</span>
+        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;t1&quot;</span><span class="p">,</span> <span class="s2">&quot;t2&quot;</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">vector_element_arrays_and_dims</span><span class="p">:</span>
+                <span class="n">arr</span><span class="p">,</span> <span class="n">dims</span> <span class="o">=</span> <span class="n">vector_element_arrays_and_dims</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+                <span class="n">arr_shape</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+                <span class="n">extra_length</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+                <span class="c1"># Flatten out the array apart from the last dimension,</span>
+                <span class="c1"># convert to cftime objects, then reshape back.</span>
+                <span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+                    <span class="p">[</span>
+                        <span class="n">cftime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
+                        <span class="k">for</span> <span class="n">args</span> <span class="ow">in</span> <span class="n">arr</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">extra_length</span><span class="p">)</span>
+                    <span class="p">]</span>
+                <span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">arr_shape</span><span class="p">)</span>
+                <span class="n">vector_element_arrays_and_dims</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">dims</span><span class="p">)</span>
+
+        <span class="c1"># Write the private cache values, exposed as public properties.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_vector_dims_shape</span> <span class="o">=</span> <span class="n">dims_shape</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_primary_dimension_elements</span> <span class="o">=</span> <span class="n">primary_elements</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_element_arrays_and_dims</span> <span class="o">=</span> <span class="n">vector_element_arrays_and_dims</span>
+        <span class="c1"># Do all this only once.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_structure_calculated</span> <span class="o">=</span> <span class="kc">True</span>
+
+
+<span class="k">def</span> <span class="nf">_um_collation_key_function</span><span class="p">(</span><span class="n">field</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Standard collation key definition for fast structured field loading.</span>
+
+<span class="sd">    The elements used here are the minimum sufficient to define the</span>
+<span class="sd">    &#39;phenomenon&#39;, as described for :meth:`group_structured_fields`.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="n">field</span><span class="o">.</span><span class="n">lbuser</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span>  <span class="c1"># stashcode first</span>
+        <span class="n">field</span><span class="o">.</span><span class="n">lbproc</span><span class="p">,</span>  <span class="c1"># then stats processing</span>
+        <span class="n">field</span><span class="o">.</span><span class="n">lbuser</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span>  <span class="c1"># then model</span>
+        <span class="n">field</span><span class="o">.</span><span class="n">lbuser</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span>  <span class="c1"># then pseudo-level : this one is a KLUDGE.</span>
+    <span class="p">)</span>
+    <span class="c1"># NOTE: including pseudo-level here makes it treat different pseudo-levels</span>
+    <span class="c1"># as different phenomena.  These will later be merged in the &quot;ordinary&quot;</span>
+    <span class="c1"># post-load merge.</span>
+    <span class="c1"># The current structured-load code fails to handle multiple pseudo-levels</span>
+    <span class="c1"># correctly: because pseudo-level is not on in its list of &quot;things that may</span>
+    <span class="c1"># vary within a phenomenon&quot;, it will create a scalar pseudo-level</span>
+    <span class="c1"># coordinate when it should have been a vector of values.</span>
+    <span class="c1"># This kludge fixes that error, but it is inefficient because it bypasses</span>
+    <span class="c1"># the structured load, producing n-levels times more &#39;raw&#39; cubes.</span>
+    <span class="c1"># It will also fail if any phenomenon occurs with multiple &#39;normal&#39; levels</span>
+    <span class="c1"># (i.e. lblev) *and* pseudo-levels (lbuser[4]).</span>
+    <span class="c1"># TODO: it should be fairly easy to do this properly -- i.e. create a</span>
+    <span class="c1"># vector pseudo-level coordinate directly in the structured load analysis.</span>
+
+
+<span class="k">def</span> <span class="nf">group_structured_fields</span><span class="p">(</span>
+    <span class="n">field_iterator</span><span class="p">,</span> <span class="n">collation_class</span><span class="o">=</span><span class="n">BasicFieldCollation</span><span class="p">,</span> <span class="o">**</span><span class="n">collation_kwargs</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Collect structured fields into identified groups whose fields can be</span>
+<span class="sd">    combined to form a single cube.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">    * field_iterator (iterator of :class:`iris.fileformats.pp.PPField`):</span>
+<span class="sd">        A source of PP or FF fields.  N.B. order is significant.</span>
+
+<span class="sd">    Kwargs:</span>
+
+<span class="sd">    * collation_class (class):</span>
+<span class="sd">        Type of collation wrapper to create from each group of fields.</span>
+<span class="sd">    * collation_kwargs (dict):</span>
+<span class="sd">        Additional constructor keywords for collation creation.</span>
+
+<span class="sd">    The function sorts and collates on phenomenon-relevant metadata only,</span>
+<span class="sd">    defined as the field components: &#39;lbuser[3]&#39; (stash), &#39;lbproc&#39; (statistic),</span>
+<span class="sd">    &#39;lbuser[6]&#39; (model).</span>
+<span class="sd">    Each distinct combination of these defines a specific phenomenon (or</span>
+<span class="sd">    statistical aggregation of one), and those fields appear as a single</span>
+<span class="sd">    iteration result.</span>
+
+<span class="sd">    Implicitly, within each result group, *all* other metadata components</span>
+<span class="sd">    should be either:</span>
+
+<span class="sd">    *  the same for all fields,</span>
+<span class="sd">    *  completely irrelevant, or</span>
+<span class="sd">    *  used by a vectorised rule function (such as</span>
+<span class="sd">       :func:`iris.fileformats.pp_load_rules._convert_time_coords`).</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A generator of &#39;collation_class&#39; objects, each of which contains a</span>
+<span class="sd">        single collated group from the input fields.</span>
+
+<span class="sd">    .. note::</span>
+
+<span class="sd">         At present, fields with different values of &#39;lbuser[4]&#39; (pseudo-level)</span>
+<span class="sd">         are *also* treated as different phenomena.  This is a temporary fix,</span>
+<span class="sd">         standing in place for a more correct handling of pseudo-levels.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_fields</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">field_iterator</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">_um_collation_key_function</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">fields</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">_fields</span><span class="p">,</span> <span class="n">_um_collation_key_function</span><span class="p">):</span>
+        <span class="k">yield</span> <span class="n">collation_class</span><span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="n">fields</span><span class="p">),</span> <span class="o">**</span><span class="n">collation_kwargs</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        
+        &copy; <a href="../../../../copyright.html">Copyright</a> Iris Contributors
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

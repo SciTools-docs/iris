@@ -1,0 +1,748 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>iris.coord_categorisation &mdash; Iris 3.0.0ugrid1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/theme_override.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery-dataframe.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="copyright" title="Copyright" href="../../copyright.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/iris-logo-title.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installing.html">Installing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../generated/gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/iris_cubes.html">Iris data structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/loading_iris_cubes.html">Loading Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/saving_iris_cubes.html">Saving Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/navigating_a_cube.html">Navigating a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/subsetting_a_cube.html">Subsetting a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/real_and_lazy_data.html">Real and lazy data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/plotting_a_cube.html">Plotting a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/interpolation_and_regridding.html">Cube interpolation and regridding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/merge_and_concat.html">Merge and concatenate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/cube_statistics.html">Cube statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/cube_maths.html">Cube maths</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/citation.html">Citing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/code_maintenance.html">Code maintenance</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Further Topics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../further_topics/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../further_topics/metadata.html">Metadata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../further_topics/lenient_metadata.html">Lenient metadata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../further_topics/lenient_maths.html">Lenient cube maths</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developers Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../developers_guide/contributing_getting_involved.html">Getting involved</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developers_guide/gitwash/index.html">Working with Iris source code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developers_guide/contributing_documentation.html">Contributing to the documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developers_guide/contributing_codebase_index.html">Contributing to the code base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developers_guide/contributing_changes.html">Contributing your changes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developers_guide/release.html">Releases</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../generated/api/iris.html">Iris API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../whatsnew/index.html">What’s new in Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../techpapers/index.html">Iris technical papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../copyright.html">Iris copyright, licensing and contributors</a></li>
+</ul>
+
+            
+          
+
+    
+    
+    
+        <p class="caption">
+            <span class="caption-text">
+            
+                Support
+            
+            </span>
+        </p>
+        <ul>
+            
+                <li class="toctree-l1"><a href="https://github.com/SciTools/iris"><i class="fa fa-github fa-fw"></i> Source code</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris"><i class="fa fa-comments fa-fw"></i> Users Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris-dev"><i class="fa fa-comments fa-fw"></i> Developers Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://stackoverflow.com/questions/tagged/python-iris"><i class="fa fa-question fa-fw"></i> StackOverflow for "How do I?"</a></li>
+            
+                <li class="toctree-l1"><a href="https://scitools.org.uk/iris/docs/v2.4.0/index.html"><i class="fa fa-book fa-fw"></i> Legacy documentation</a></li>
+            
+        </ul>
+    
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Iris</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../iris.html">iris</a> &raquo;</li>
+        
+      <li>iris.coord_categorisation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for iris.coord_categorisation</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright Iris contributors</span>
+<span class="c1">#</span>
+<span class="c1"># This file is part of Iris and is released under the LGPL license.</span>
+<span class="c1"># See COPYING and COPYING.LESSER in the root of the repository for full</span>
+<span class="c1"># licensing details.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Cube functions for coordinate categorisation.</span>
+
+<span class="sd">All the functions provided here add a new coordinate to a cube.</span>
+<span class="sd">    * The function :func:`add_categorised_coord` performs a generic</span>
+<span class="sd">      coordinate categorisation.</span>
+<span class="sd">    * The other functions all implement specific common cases</span>
+<span class="sd">      (e.g. :func:`add_day_of_month`).</span>
+<span class="sd">      Currently, these are all calendar functions, so they only apply to</span>
+<span class="sd">      &quot;Time coordinates&quot;.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">calendar</span>
+<span class="kn">import</span> <span class="nn">collections</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">import</span> <span class="nn">iris.coords</span>
+
+
+<div class="viewcode-block" id="add_categorised_coord"><a class="viewcode-back" href="../../generated/api/iris/coord_categorisation.html#iris.coord_categorisation.add_categorised_coord">[docs]</a><span class="k">def</span> <span class="nf">add_categorised_coord</span><span class="p">(</span>
+    <span class="n">cube</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">from_coord</span><span class="p">,</span> <span class="n">category_function</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;1&quot;</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Add a new coordinate to a cube, by categorising an existing one.</span>
+
+<span class="sd">    Make a new :class:`iris.coords.AuxCoord` from mapped values, and add</span>
+<span class="sd">    it to the cube.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">    * cube (:class:`iris.cube.Cube`):</span>
+<span class="sd">        the cube containing &#39;from_coord&#39;.  The new coord will be added into it.</span>
+<span class="sd">    * name (string):</span>
+<span class="sd">        name of the created coordinate</span>
+<span class="sd">    * from_coord (:class:`iris.coords.Coord` or string):</span>
+<span class="sd">        coordinate in &#39;cube&#39;, or the name of one</span>
+<span class="sd">    * category_function (callable):</span>
+<span class="sd">        function(coordinate, value), returning a category value for a</span>
+<span class="sd">        coordinate point-value</span>
+
+<span class="sd">    Kwargs:</span>
+
+<span class="sd">    * units:</span>
+<span class="sd">        units of the category value, typically &#39;no_unit&#39; or &#39;1&#39;.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Interpret coord, if given as a name</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">from_coord</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">from_coord</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="n">from_coord</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">coords</span><span class="p">(</span><span class="n">name</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;A coordinate &quot;</span><span class="si">%s</span><span class="s1">&quot; already exists in the cube.&#39;</span> <span class="o">%</span> <span class="n">name</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+    <span class="c1"># Construct new coordinate by mapping values, using numpy.vectorize to</span>
+    <span class="c1"># support multi-dimensional coords.</span>
+    <span class="c1"># Test whether the result contains strings. If it does we must manually</span>
+    <span class="c1"># force the dtype because of a numpy bug (see numpy #3270 on GitHub).</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">category_function</span><span class="p">(</span><span class="n">from_coord</span><span class="p">,</span> <span class="n">from_coord</span><span class="o">.</span><span class="n">points</span><span class="o">.</span><span class="n">ravel</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">str_vectorised_fn</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="n">category_function</span><span class="p">,</span> <span class="n">otypes</span><span class="o">=</span><span class="p">[</span><span class="nb">object</span><span class="p">])</span>
+
+        <span class="k">def</span> <span class="nf">vectorised_fn</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+            <span class="c1"># Use a common type for string arrays (N.B. limited to 64 chars).</span>
+            <span class="k">return</span> <span class="n">str_vectorised_fn</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;|U64&quot;</span><span class="p">)</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">vectorised_fn</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="n">category_function</span><span class="p">)</span>
+    <span class="n">new_coord</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">coords</span><span class="o">.</span><span class="n">AuxCoord</span><span class="p">(</span>
+        <span class="n">vectorised_fn</span><span class="p">(</span><span class="n">from_coord</span><span class="p">,</span> <span class="n">from_coord</span><span class="o">.</span><span class="n">points</span><span class="p">),</span>
+        <span class="n">units</span><span class="o">=</span><span class="n">units</span><span class="p">,</span>
+        <span class="n">attributes</span><span class="o">=</span><span class="n">from_coord</span><span class="o">.</span><span class="n">attributes</span><span class="o">.</span><span class="n">copy</span><span class="p">(),</span>
+    <span class="p">)</span>
+    <span class="n">new_coord</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+
+    <span class="c1"># Add into the cube</span>
+    <span class="n">cube</span><span class="o">.</span><span class="n">add_aux_coord</span><span class="p">(</span><span class="n">new_coord</span><span class="p">,</span> <span class="n">cube</span><span class="o">.</span><span class="n">coord_dims</span><span class="p">(</span><span class="n">from_coord</span><span class="p">))</span></div>
+
+
+<span class="c1"># ======================================</span>
+<span class="c1"># Specific functions for particular purposes</span>
+<span class="c1">#</span>
+<span class="c1"># NOTE: all the existing ones are calendar operations, so are for &#39;Time&#39;</span>
+<span class="c1"># coordinates only</span>
+<span class="c1">#</span>
+
+<span class="c1"># Private &quot;helper&quot; function</span>
+<span class="k">def</span> <span class="nf">_pt_date</span><span class="p">(</span><span class="n">coord</span><span class="p">,</span> <span class="n">time</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return the date of a time-coordinate point.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">    * coord (Coord):</span>
+<span class="sd">        coordinate (must be Time-type)</span>
+<span class="sd">    * time (float):</span>
+<span class="sd">        value of a coordinate point</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        datetime.date</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># NOTE: All of the currently defined categorisation functions are</span>
+    <span class="c1"># calendar operations on Time coordinates.</span>
+    <span class="c1">#  - All these currently depend on Unit::num2date, which is deprecated (!!)</span>
+    <span class="c1">#  - We will want to do better, when we sort out our own Calendars.</span>
+    <span class="c1">#  - For now, just make sure these all call through this one function.</span>
+    <span class="k">return</span> <span class="n">coord</span><span class="o">.</span><span class="n">units</span><span class="o">.</span><span class="n">num2date</span><span class="p">(</span><span class="n">time</span><span class="p">)</span>
+
+
+<span class="c1"># --------------------------------------------</span>
+<span class="c1"># Time categorisations : calendar date components</span>
+
+
+<div class="viewcode-block" id="add_year"><a class="viewcode-back" href="../../generated/api/iris/coord_categorisation.html#iris.coord_categorisation.add_year">[docs]</a><span class="k">def</span> <span class="nf">add_year</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">coord</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;year&quot;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Add a categorical calendar-year coordinate.&quot;&quot;&quot;</span>
+    <span class="n">add_categorised_coord</span><span class="p">(</span>
+        <span class="n">cube</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">coord</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">coord</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">_pt_date</span><span class="p">(</span><span class="n">coord</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">year</span>
+    <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="add_month_number"><a class="viewcode-back" href="../../generated/api/iris/coord_categorisation.html#iris.coord_categorisation.add_month_number">[docs]</a><span class="k">def</span> <span class="nf">add_month_number</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">coord</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;month_number&quot;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Add a categorical month coordinate, values 1..12.&quot;&quot;&quot;</span>
+    <span class="n">add_categorised_coord</span><span class="p">(</span>
+        <span class="n">cube</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">coord</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">coord</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">_pt_date</span><span class="p">(</span><span class="n">coord</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">month</span>
+    <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="add_month_fullname"><a class="viewcode-back" href="../../generated/api/iris/coord_categorisation.html#iris.coord_categorisation.add_month_fullname">[docs]</a><span class="k">def</span> <span class="nf">add_month_fullname</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">coord</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;month_fullname&quot;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Add a categorical month coordinate, values &#39;January&#39;..&#39;December&#39;.&quot;&quot;&quot;</span>
+    <span class="n">add_categorised_coord</span><span class="p">(</span>
+        <span class="n">cube</span><span class="p">,</span>
+        <span class="n">name</span><span class="p">,</span>
+        <span class="n">coord</span><span class="p">,</span>
+        <span class="k">lambda</span> <span class="n">coord</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">calendar</span><span class="o">.</span><span class="n">month_name</span><span class="p">[</span><span class="n">_pt_date</span><span class="p">(</span><span class="n">coord</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">month</span><span class="p">],</span>
+        <span class="n">units</span><span class="o">=</span><span class="s2">&quot;no_unit&quot;</span><span class="p">,</span>
+    <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="add_month"><a class="viewcode-back" href="../../generated/api/iris/coord_categorisation.html#iris.coord_categorisation.add_month">[docs]</a><span class="k">def</span> <span class="nf">add_month</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">coord</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;month&quot;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Add a categorical month coordinate, values &#39;Jan&#39;..&#39;Dec&#39;.&quot;&quot;&quot;</span>
+    <span class="n">add_categorised_coord</span><span class="p">(</span>
+        <span class="n">cube</span><span class="p">,</span>
+        <span class="n">name</span><span class="p">,</span>
+        <span class="n">coord</span><span class="p">,</span>
+        <span class="k">lambda</span> <span class="n">coord</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">calendar</span><span class="o">.</span><span class="n">month_abbr</span><span class="p">[</span><span class="n">_pt_date</span><span class="p">(</span><span class="n">coord</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">month</span><span class="p">],</span>
+        <span class="n">units</span><span class="o">=</span><span class="s2">&quot;no_unit&quot;</span><span class="p">,</span>
+    <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="add_day_of_month"><a class="viewcode-back" href="../../generated/api/iris/coord_categorisation.html#iris.coord_categorisation.add_day_of_month">[docs]</a><span class="k">def</span> <span class="nf">add_day_of_month</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">coord</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;day_of_month&quot;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Add a categorical day-of-month coordinate, values 1..31.&quot;&quot;&quot;</span>
+    <span class="n">add_categorised_coord</span><span class="p">(</span>
+        <span class="n">cube</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">coord</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">coord</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">_pt_date</span><span class="p">(</span><span class="n">coord</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">day</span>
+    <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="add_day_of_year"><a class="viewcode-back" href="../../generated/api/iris/coord_categorisation.html#iris.coord_categorisation.add_day_of_year">[docs]</a><span class="k">def</span> <span class="nf">add_day_of_year</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">coord</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;day_of_year&quot;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Add a categorical day-of-year coordinate, values 1..365</span>
+<span class="sd">    (1..366 in leap years).</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Note: cftime.datetime objects return a normal tuple from timetuple(),</span>
+    <span class="c1"># unlike datetime.datetime objects that return a namedtuple.</span>
+    <span class="c1"># Index the time tuple (element 7 is day of year) instead of using named</span>
+    <span class="c1"># element tm_yday.</span>
+    <span class="n">add_categorised_coord</span><span class="p">(</span>
+        <span class="n">cube</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">coord</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">coord</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">_pt_date</span><span class="p">(</span><span class="n">coord</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">timetuple</span><span class="p">()[</span><span class="mi">7</span><span class="p">]</span>
+    <span class="p">)</span></div>
+
+
+<span class="c1"># --------------------------------------------</span>
+<span class="c1"># Time categorisations : days of the week</span>
+
+
+<div class="viewcode-block" id="add_weekday_number"><a class="viewcode-back" href="../../generated/api/iris/coord_categorisation.html#iris.coord_categorisation.add_weekday_number">[docs]</a><span class="k">def</span> <span class="nf">add_weekday_number</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">coord</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;weekday_number&quot;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Add a categorical weekday coordinate, values 0..6  [0=Monday].&quot;&quot;&quot;</span>
+    <span class="n">add_categorised_coord</span><span class="p">(</span>
+        <span class="n">cube</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">coord</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">coord</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">_pt_date</span><span class="p">(</span><span class="n">coord</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">dayofwk</span>
+    <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="add_weekday_fullname"><a class="viewcode-back" href="../../generated/api/iris/coord_categorisation.html#iris.coord_categorisation.add_weekday_fullname">[docs]</a><span class="k">def</span> <span class="nf">add_weekday_fullname</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">coord</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;weekday_fullname&quot;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Add a categorical weekday coordinate, values &#39;Monday&#39;..&#39;Sunday&#39;.&quot;&quot;&quot;</span>
+    <span class="n">add_categorised_coord</span><span class="p">(</span>
+        <span class="n">cube</span><span class="p">,</span>
+        <span class="n">name</span><span class="p">,</span>
+        <span class="n">coord</span><span class="p">,</span>
+        <span class="k">lambda</span> <span class="n">coord</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">calendar</span><span class="o">.</span><span class="n">day_name</span><span class="p">[</span><span class="n">_pt_date</span><span class="p">(</span><span class="n">coord</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">dayofwk</span><span class="p">],</span>
+        <span class="n">units</span><span class="o">=</span><span class="s2">&quot;no_unit&quot;</span><span class="p">,</span>
+    <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="add_weekday"><a class="viewcode-back" href="../../generated/api/iris/coord_categorisation.html#iris.coord_categorisation.add_weekday">[docs]</a><span class="k">def</span> <span class="nf">add_weekday</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">coord</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;weekday&quot;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Add a categorical weekday coordinate, values &#39;Mon&#39;..&#39;Sun&#39;.&quot;&quot;&quot;</span>
+    <span class="n">add_categorised_coord</span><span class="p">(</span>
+        <span class="n">cube</span><span class="p">,</span>
+        <span class="n">name</span><span class="p">,</span>
+        <span class="n">coord</span><span class="p">,</span>
+        <span class="k">lambda</span> <span class="n">coord</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">calendar</span><span class="o">.</span><span class="n">day_abbr</span><span class="p">[</span><span class="n">_pt_date</span><span class="p">(</span><span class="n">coord</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">dayofwk</span><span class="p">],</span>
+        <span class="n">units</span><span class="o">=</span><span class="s2">&quot;no_unit&quot;</span><span class="p">,</span>
+    <span class="p">)</span></div>
+
+
+<span class="c1"># --------------------------------------------</span>
+<span class="c1"># Time categorisations : hour of the day</span>
+
+
+<div class="viewcode-block" id="add_hour"><a class="viewcode-back" href="../../generated/api/iris/coord_categorisation.html#iris.coord_categorisation.add_hour">[docs]</a><span class="k">def</span> <span class="nf">add_hour</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">coord</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;hour&quot;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Add a categorical hour coordinate, values 0..23.&quot;&quot;&quot;</span>
+    <span class="n">add_categorised_coord</span><span class="p">(</span>
+        <span class="n">cube</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">coord</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">coord</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">_pt_date</span><span class="p">(</span><span class="n">coord</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">hour</span>
+    <span class="p">)</span></div>
+
+
+<span class="c1"># ----------------------------------------------</span>
+<span class="c1"># Time categorisations : meteorological seasons</span>
+
+
+<span class="k">def</span> <span class="nf">_months_in_season</span><span class="p">(</span><span class="n">season</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns a list of month numbers corresponding to each month in the</span>
+<span class="sd">    given season.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">cyclic_months</span> <span class="o">=</span> <span class="s2">&quot;jfmamjjasondjfmamjjasond&quot;</span>
+    <span class="n">m0</span> <span class="o">=</span> <span class="n">cyclic_months</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">season</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+    <span class="k">if</span> <span class="n">m0</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="c1"># Can&#39;t match the season, raise an error.</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;unrecognised season: </span><span class="si">{!s}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">season</span><span class="p">))</span>
+    <span class="n">m1</span> <span class="o">=</span> <span class="n">m0</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">season</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">[(</span><span class="n">month</span> <span class="o">%</span> <span class="mi">12</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">month</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m0</span><span class="p">,</span> <span class="n">m1</span><span class="p">)]</span>
+
+
+<span class="k">def</span> <span class="nf">_validate_seasons</span><span class="p">(</span><span class="n">seasons</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Check that a set of seasons is valid.</span>
+
+<span class="sd">    Validity means that all months are included in a season, and no</span>
+<span class="sd">    month is assigned to more than one season.</span>
+
+<span class="sd">    Raises ValueError if either of the conditions is not met, returns</span>
+<span class="sd">    None otherwise.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">Counter</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">season</span> <span class="ow">in</span> <span class="n">seasons</span><span class="p">:</span>
+        <span class="n">c</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">_months_in_season</span><span class="p">(</span><span class="n">season</span><span class="p">))</span>
+    <span class="c1"># Make a list of months that are not present...</span>
+    <span class="n">not_present</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">calendar</span><span class="o">.</span><span class="n">month_abbr</span><span class="p">[</span><span class="n">month</span><span class="p">]</span> <span class="k">for</span> <span class="n">month</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">)</span> <span class="k">if</span> <span class="n">month</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">c</span>
+    <span class="p">]</span>
+    <span class="k">if</span> <span class="n">not_present</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">&quot;some months do not appear in any season: &quot;</span>
+            <span class="s2">&quot;</span><span class="si">{!s}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">not_present</span><span class="p">))</span>
+        <span class="p">)</span>
+    <span class="c1"># Make a list of months that appear multiple times...</span>
+    <span class="n">multi_present</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">calendar</span><span class="o">.</span><span class="n">month_abbr</span><span class="p">[</span><span class="n">month</span><span class="p">]</span> <span class="k">for</span> <span class="n">month</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">)</span> <span class="k">if</span> <span class="n">c</span><span class="p">[</span><span class="n">month</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">1</span>
+    <span class="p">]</span>
+    <span class="k">if</span> <span class="n">multi_present</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">&quot;some months appear in more than one season: &quot;</span>
+            <span class="s2">&quot;</span><span class="si">{!s}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">multi_present</span><span class="p">))</span>
+        <span class="p">)</span>
+    <span class="k">return</span>
+
+
+<span class="k">def</span> <span class="nf">_month_year_adjusts</span><span class="p">(</span><span class="n">seasons</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Compute the year adjustments required for each month.</span>
+
+<span class="sd">    These determine whether the month belongs to a season in the same</span>
+<span class="sd">    year or is in the start of a season that counts towards the next</span>
+<span class="sd">    year.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">month_year_adjusts</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">season</span> <span class="ow">in</span> <span class="n">seasons</span><span class="p">:</span>
+        <span class="n">months</span> <span class="o">=</span> <span class="n">_months_in_season</span><span class="p">(</span><span class="n">season</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">month</span> <span class="ow">in</span> <span class="n">months</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">month</span> <span class="o">&gt;</span> <span class="n">months</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+                <span class="n">month_year_adjusts</span><span class="p">[</span><span class="n">month</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">month_year_adjusts</span>
+
+
+<span class="k">def</span> <span class="nf">_month_season_numbers</span><span class="p">(</span><span class="n">seasons</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Compute a mapping between months and season number.</span>
+
+<span class="sd">    Returns a list to be indexed by month number, where the value at</span>
+<span class="sd">    each index is the number of the season that month belongs to.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">month_season_numbers</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">season_number</span><span class="p">,</span> <span class="n">season</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">seasons</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">month</span> <span class="ow">in</span> <span class="n">_months_in_season</span><span class="p">(</span><span class="n">season</span><span class="p">):</span>
+            <span class="n">month_season_numbers</span><span class="p">[</span><span class="n">month</span><span class="p">]</span> <span class="o">=</span> <span class="n">season_number</span>
+    <span class="k">return</span> <span class="n">month_season_numbers</span>
+
+
+<div class="viewcode-block" id="add_season"><a class="viewcode-back" href="../../generated/api/iris/coord_categorisation.html#iris.coord_categorisation.add_season">[docs]</a><span class="k">def</span> <span class="nf">add_season</span><span class="p">(</span>
+    <span class="n">cube</span><span class="p">,</span> <span class="n">coord</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;season&quot;</span><span class="p">,</span> <span class="n">seasons</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;djf&quot;</span><span class="p">,</span> <span class="s2">&quot;mam&quot;</span><span class="p">,</span> <span class="s2">&quot;jja&quot;</span><span class="p">,</span> <span class="s2">&quot;son&quot;</span><span class="p">)</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Add a categorical season-of-year coordinate, with user specified</span>
+<span class="sd">    seasons.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">    * cube (:class:`iris.cube.Cube`):</span>
+<span class="sd">        The cube containing &#39;coord&#39;. The new coord will be added into</span>
+<span class="sd">        it.</span>
+<span class="sd">    * coord (:class:`iris.coords.Coord` or string):</span>
+<span class="sd">        Coordinate in &#39;cube&#39;, or its name, representing time.</span>
+
+<span class="sd">    Kwargs:</span>
+
+<span class="sd">    * name (string):</span>
+<span class="sd">        Name of the created coordinate. Defaults to &quot;season&quot;.</span>
+<span class="sd">    * seasons (:class:`list` of strings):</span>
+<span class="sd">        List of seasons defined by month abbreviations. Each month must</span>
+<span class="sd">        appear once and only once. Defaults to standard meteorological</span>
+<span class="sd">        seasons (&#39;djf&#39;, &#39;mam&#39;, &#39;jja&#39;, &#39;son&#39;).</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Check that the seasons are valid.</span>
+    <span class="n">_validate_seasons</span><span class="p">(</span><span class="n">seasons</span><span class="p">)</span>
+    <span class="c1"># Get a list of the season number each month is is, using month numbers</span>
+    <span class="c1"># as the indices.</span>
+    <span class="n">month_season_numbers</span> <span class="o">=</span> <span class="n">_month_season_numbers</span><span class="p">(</span><span class="n">seasons</span><span class="p">)</span>
+
+    <span class="c1"># Define a categorisation function.</span>
+    <span class="k">def</span> <span class="nf">_season</span><span class="p">(</span><span class="n">coord</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="n">dt</span> <span class="o">=</span> <span class="n">_pt_date</span><span class="p">(</span><span class="n">coord</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">seasons</span><span class="p">[</span><span class="n">month_season_numbers</span><span class="p">[</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span><span class="p">]]</span>
+
+    <span class="c1"># Apply the categorisation.</span>
+    <span class="n">add_categorised_coord</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">coord</span><span class="p">,</span> <span class="n">_season</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;no_unit&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="add_season_number"><a class="viewcode-back" href="../../generated/api/iris/coord_categorisation.html#iris.coord_categorisation.add_season_number">[docs]</a><span class="k">def</span> <span class="nf">add_season_number</span><span class="p">(</span>
+    <span class="n">cube</span><span class="p">,</span> <span class="n">coord</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;season_number&quot;</span><span class="p">,</span> <span class="n">seasons</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;djf&quot;</span><span class="p">,</span> <span class="s2">&quot;mam&quot;</span><span class="p">,</span> <span class="s2">&quot;jja&quot;</span><span class="p">,</span> <span class="s2">&quot;son&quot;</span><span class="p">)</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Add a categorical season-of-year coordinate, values 0..N-1 where</span>
+<span class="sd">    N is the number of user specified seasons.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">    * cube (:class:`iris.cube.Cube`):</span>
+<span class="sd">        The cube containing &#39;coord&#39;. The new coord will be added into</span>
+<span class="sd">        it.</span>
+<span class="sd">    * coord (:class:`iris.coords.Coord` or string):</span>
+<span class="sd">        Coordinate in &#39;cube&#39;, or its name, representing time.</span>
+
+<span class="sd">    Kwargs:</span>
+
+<span class="sd">    * name (string):</span>
+<span class="sd">        Name of the created coordinate. Defaults to &quot;season_number&quot;.</span>
+<span class="sd">    * seasons (:class:`list` of strings):</span>
+<span class="sd">        List of seasons defined by month abbreviations. Each month must</span>
+<span class="sd">        appear once and only once. Defaults to standard meteorological</span>
+<span class="sd">        seasons (&#39;djf&#39;, &#39;mam&#39;, &#39;jja&#39;, &#39;son&#39;).</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Check that the seasons are valid.</span>
+    <span class="n">_validate_seasons</span><span class="p">(</span><span class="n">seasons</span><span class="p">)</span>
+    <span class="c1"># Get a list of the season number each month is is, using month numbers</span>
+    <span class="c1"># as the indices.</span>
+    <span class="n">month_season_numbers</span> <span class="o">=</span> <span class="n">_month_season_numbers</span><span class="p">(</span><span class="n">seasons</span><span class="p">)</span>
+
+    <span class="c1"># Define a categorisation function.</span>
+    <span class="k">def</span> <span class="nf">_season_number</span><span class="p">(</span><span class="n">coord</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="n">dt</span> <span class="o">=</span> <span class="n">_pt_date</span><span class="p">(</span><span class="n">coord</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">month_season_numbers</span><span class="p">[</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span><span class="p">]</span>
+
+    <span class="c1"># Apply the categorisation.</span>
+    <span class="n">add_categorised_coord</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">coord</span><span class="p">,</span> <span class="n">_season_number</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="add_season_year"><a class="viewcode-back" href="../../generated/api/iris/coord_categorisation.html#iris.coord_categorisation.add_season_year">[docs]</a><span class="k">def</span> <span class="nf">add_season_year</span><span class="p">(</span>
+    <span class="n">cube</span><span class="p">,</span> <span class="n">coord</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;season_year&quot;</span><span class="p">,</span> <span class="n">seasons</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;djf&quot;</span><span class="p">,</span> <span class="s2">&quot;mam&quot;</span><span class="p">,</span> <span class="s2">&quot;jja&quot;</span><span class="p">,</span> <span class="s2">&quot;son&quot;</span><span class="p">)</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Add a categorical year-of-season coordinate, with user specified</span>
+<span class="sd">    seasons.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">    * cube (:class:`iris.cube.Cube`):</span>
+<span class="sd">        The cube containing &#39;coord&#39;. The new coord will be added into</span>
+<span class="sd">        it.</span>
+<span class="sd">    * coord (:class:`iris.coords.Coord` or string):</span>
+<span class="sd">        Coordinate in &#39;cube&#39;, or its name, representing time.</span>
+
+<span class="sd">    Kwargs:</span>
+
+<span class="sd">    * name (string):</span>
+<span class="sd">        Name of the created coordinate. Defaults to &quot;season_year&quot;.</span>
+<span class="sd">    * seasons (:class:`list` of strings):</span>
+<span class="sd">        List of seasons defined by month abbreviations. Each month must</span>
+<span class="sd">        appear once and only once. Defaults to standard meteorological</span>
+<span class="sd">        seasons (&#39;djf&#39;, &#39;mam&#39;, &#39;jja&#39;, &#39;son&#39;).</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Check that the seasons are valid.</span>
+    <span class="n">_validate_seasons</span><span class="p">(</span><span class="n">seasons</span><span class="p">)</span>
+    <span class="c1"># Define the adjustments to be made to the year.</span>
+    <span class="n">month_year_adjusts</span> <span class="o">=</span> <span class="n">_month_year_adjusts</span><span class="p">(</span><span class="n">seasons</span><span class="p">)</span>
+
+    <span class="c1"># Define a categorisation function.</span>
+    <span class="k">def</span> <span class="nf">_season_year</span><span class="p">(</span><span class="n">coord</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="n">dt</span> <span class="o">=</span> <span class="n">_pt_date</span><span class="p">(</span><span class="n">coord</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+        <span class="n">year</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">year</span>
+        <span class="n">year</span> <span class="o">+=</span> <span class="n">month_year_adjusts</span><span class="p">[</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">year</span>
+
+    <span class="c1"># Apply the categorisation.</span>
+    <span class="n">add_categorised_coord</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">coord</span><span class="p">,</span> <span class="n">_season_year</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="add_season_membership"><a class="viewcode-back" href="../../generated/api/iris/coord_categorisation.html#iris.coord_categorisation.add_season_membership">[docs]</a><span class="k">def</span> <span class="nf">add_season_membership</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">coord</span><span class="p">,</span> <span class="n">season</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;season_membership&quot;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Add a categorical season membership coordinate for a user specified</span>
+<span class="sd">    season.</span>
+
+<span class="sd">    The coordinate has the value True for every time that is within the</span>
+<span class="sd">    given season, and the value False otherwise.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">    * cube (:class:`iris.cube.Cube`):</span>
+<span class="sd">        The cube containing &#39;coord&#39;. The new coord will be added into</span>
+<span class="sd">        it.</span>
+<span class="sd">    * coord (:class:`iris.coords.Coord` or string):</span>
+<span class="sd">        Coordinate in &#39;cube&#39;, or its name, representing time.</span>
+<span class="sd">    * season (string):</span>
+<span class="sd">        Season defined by month abbreviations.</span>
+
+<span class="sd">    Kwargs:</span>
+
+<span class="sd">    * name (string):</span>
+<span class="sd">        Name of the created coordinate. Defaults to &quot;season_membership&quot;.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">months</span> <span class="o">=</span> <span class="n">_months_in_season</span><span class="p">(</span><span class="n">season</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_season_membership</span><span class="p">(</span><span class="n">coord</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="n">dt</span> <span class="o">=</span> <span class="n">_pt_date</span><span class="p">(</span><span class="n">coord</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">dt</span><span class="o">.</span><span class="n">month</span> <span class="ow">in</span> <span class="n">months</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="n">add_categorised_coord</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">coord</span><span class="p">,</span> <span class="n">_season_membership</span><span class="p">)</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        
+        &copy; <a href="../../copyright.html">Copyright</a> Iris Contributors
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

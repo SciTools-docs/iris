@@ -1,0 +1,403 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Running the tests &mdash; Iris 3.0.0ugrid1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/theme_override.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-dataframe.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <link rel="next" title="Continuous Integration (CI) Testing" href="contributing_ci_tests.html" />
+    <link rel="prev" title="Graphics tests" href="contributing_graphics_tests.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/iris-logo-title.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installing.html">Installing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../generated/gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/iris_cubes.html">Iris data structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/loading_iris_cubes.html">Loading Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/saving_iris_cubes.html">Saving Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/navigating_a_cube.html">Navigating a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/subsetting_a_cube.html">Subsetting a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/real_and_lazy_data.html">Real and lazy data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/plotting_a_cube.html">Plotting a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/interpolation_and_regridding.html">Cube interpolation and regridding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/merge_and_concat.html">Merge and concatenate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/cube_statistics.html">Cube statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/cube_maths.html">Cube maths</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/citation.html">Citing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/code_maintenance.html">Code maintenance</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Further Topics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../further_topics/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../further_topics/metadata.html">Metadata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../further_topics/lenient_metadata.html">Lenient metadata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../further_topics/lenient_maths.html">Lenient cube maths</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developers Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="contributing_getting_involved.html">Getting involved</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gitwash/index.html">Working with Iris source code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing_documentation.html">Contributing to the documentation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="contributing_codebase_index.html">Contributing to the code base</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="contributing_code_formatting.html">Code formatting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documenting/docstrings.html">Docstrings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="documenting/rest_guide.html">reST quick start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing_deprecations.html">Deprecations</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="contributing_testing_index.html">Testing</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="contributing_testing.html">Test categories</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contributing_graphics_tests.html">Graphics tests</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Running the tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="contributing_ci_tests.html">Continuous Integration (CI) Testing</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contributing_changes.html">Contributing your changes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release.html">Releases</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../generated/api/iris.html">Iris API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../whatsnew/index.html">What’s new in Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../techpapers/index.html">Iris technical papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../copyright.html">Iris copyright, licensing and contributors</a></li>
+</ul>
+
+            
+          
+
+    
+    
+    
+        <p class="caption">
+            <span class="caption-text">
+            
+                Support
+            
+            </span>
+        </p>
+        <ul>
+            
+                <li class="toctree-l1"><a href="https://github.com/SciTools/iris"><i class="fa fa-github fa-fw"></i> Source code</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris"><i class="fa fa-comments fa-fw"></i> Users Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris-dev"><i class="fa fa-comments fa-fw"></i> Developers Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://stackoverflow.com/questions/tagged/python-iris"><i class="fa fa-question fa-fw"></i> StackOverflow for "How do I?"</a></li>
+            
+                <li class="toctree-l1"><a href="https://scitools.org.uk/iris/docs/v2.4.0/index.html"><i class="fa fa-book fa-fw"></i> Legacy documentation</a></li>
+            
+        </ul>
+    
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Iris</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="contributing_codebase_index.html">Contributing to the code base</a> &raquo;</li>
+        
+          <li><a href="contributing_testing_index.html">Testing</a> &raquo;</li>
+        
+      <li>Running the tests</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/developers_guide/contributing_running_tests.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="running-the-tests">
+<span id="developer-running-tests"></span><h1>Running the tests<a class="headerlink" href="#running-the-tests" title="Permalink to this headline">¶</a></h1>
+<p>A prerequisite of running the tests is to have the Python environment
+setup.  For more information on this see <a class="reference internal" href="../installing.html#installing-from-source"><span class="std std-ref">Installing from source (devs)</span></a>.</p>
+<p>Many Iris tests will use data that may be defined in the test itself, however
+this is not always the case as sometimes example files may be used.  Due to
+the size of some of the files used these are not kept in the Iris repository.
+A separate repository under the <a class="reference external" href="https://github.com/SciTools">SciTools</a> organisation is used, see
+<a class="reference external" href="https://github.com/SciTools/iris-test-data">https://github.com/SciTools/iris-test-data</a>.</p>
+<p>In order to run the tests with <strong>all</strong> the test data you must clone the
+<code class="docutils literal notranslate"><span class="pre">iris-test-data</span></code> repository and then configure your shell to ensure the Iris
+tests can find it by using the shell environment variable named
+<strong>OVERRIDE_TEST_DATA_REPOSITORY</strong>.  The example command below uses
+<code class="docutils literal notranslate"><span class="pre">~/projects</span></code> as the parent directory:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">projects</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">git</span><span class="nd">@github</span><span class="o">.</span><span class="n">com</span><span class="p">:</span><span class="n">SciTools</span><span class="o">/</span><span class="n">iris</span><span class="o">-</span><span class="n">test</span><span class="o">-</span><span class="n">data</span><span class="o">.</span><span class="n">git</span>
+<span class="n">export</span> <span class="n">OVERRIDE_TEST_DATA_REPOSITORY</span><span class="o">=~/</span><span class="n">projects</span><span class="o">/</span><span class="n">iris</span><span class="o">-</span><span class="n">test</span><span class="o">-</span><span class="n">data</span><span class="o">/</span><span class="n">test_data</span>
+</pre></div>
+</div>
+<p>All the Iris tests may be run from the root <code class="docutils literal notranslate"><span class="pre">iris</span></code> project directory via:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">test</span>
+</pre></div>
+</div>
+<p>You can also run a specific test, the example below runs the tests for
+mapping:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">lib</span><span class="o">/</span><span class="n">iris</span><span class="o">/</span><span class="n">tests</span>
+<span class="n">python</span> <span class="n">test_mapping</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>When running the test directly as above you can view the command line options
+using the commands <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">test_mapping.py</span> <span class="pre">-h</span></code> or
+<code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">test_mapping.py</span> <span class="pre">--help</span></code>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>A useful command line option to use is <code class="docutils literal notranslate"><span class="pre">-d</span></code>.  This will display
+<a class="reference external" href="https://matplotlib.org/">matplotlib</a> figures as the tests are run.  For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">test_mapping</span><span class="o">.</span><span class="n">py</span> <span class="o">-</span><span class="n">d</span>
+</pre></div>
+</div>
+<p>You can also use the <code class="docutils literal notranslate"><span class="pre">-d</span></code> command line option when running all
+the tests but this will take a while to run and will require the
+manual closing of each of the figures for the tests to continue.</p>
+</div>
+<p>The output from running the tests is verbose as it will run ~5000 separate
+tests.  Below is a trimmed example of the output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">running</span> <span class="n">test</span>
+<span class="n">Running</span> <span class="n">test</span> <span class="n">suite</span><span class="p">(</span><span class="n">s</span><span class="p">):</span> <span class="n">default</span>
+
+<span class="n">Running</span> <span class="n">test</span> <span class="n">discovery</span> <span class="n">on</span> <span class="n">iris</span><span class="o">.</span><span class="n">tests</span> <span class="k">with</span> <span class="mi">2</span> <span class="n">processors</span><span class="o">.</span>
+<span class="n">test_circular_subset</span> <span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">tests</span><span class="o">.</span><span class="n">experimental</span><span class="o">.</span><span class="n">regrid</span><span class="o">.</span><span class="n">test_regrid_area_weighted_rectilinear_src_and_grid</span><span class="o">.</span><span class="n">TestAreaWeightedRegrid</span><span class="p">)</span> <span class="o">...</span> <span class="n">ok</span>
+<span class="n">test_cross_section</span> <span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">tests</span><span class="o">.</span><span class="n">experimental</span><span class="o">.</span><span class="n">regrid</span><span class="o">.</span><span class="n">test_regrid_area_weighted_rectilinear_src_and_grid</span><span class="o">.</span><span class="n">TestAreaWeightedRegrid</span><span class="p">)</span> <span class="o">...</span> <span class="n">ok</span>
+<span class="n">test_different_cs</span> <span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">tests</span><span class="o">.</span><span class="n">experimental</span><span class="o">.</span><span class="n">regrid</span><span class="o">.</span><span class="n">test_regrid_area_weighted_rectilinear_src_and_grid</span><span class="o">.</span><span class="n">TestAreaWeightedRegrid</span><span class="p">)</span> <span class="o">...</span> <span class="n">ok</span>
+<span class="o">...</span>
+<span class="o">...</span>
+<span class="n">test_ellipsoid</span> <span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">tests</span><span class="o">.</span><span class="n">unit</span><span class="o">.</span><span class="n">experimental</span><span class="o">.</span><span class="n">raster</span><span class="o">.</span><span class="n">test_export_geotiff</span><span class="o">.</span><span class="n">TestProjection</span><span class="p">)</span> <span class="o">...</span> <span class="n">SKIP</span><span class="p">:</span> <span class="n">Test</span> <span class="n">requires</span> <span class="s1">&#39;gdal&#39;</span><span class="o">.</span>
+<span class="n">test_no_ellipsoid</span> <span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">tests</span><span class="o">.</span><span class="n">unit</span><span class="o">.</span><span class="n">experimental</span><span class="o">.</span><span class="n">raster</span><span class="o">.</span><span class="n">test_export_geotiff</span><span class="o">.</span><span class="n">TestProjection</span><span class="p">)</span> <span class="o">...</span> <span class="n">SKIP</span><span class="p">:</span> <span class="n">Test</span> <span class="n">requires</span> <span class="s1">&#39;gdal&#39;</span><span class="o">.</span>
+<span class="o">...</span>
+<span class="o">...</span>
+<span class="n">test_slice</span> <span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">tests</span><span class="o">.</span><span class="n">test_util</span><span class="o">.</span><span class="n">TestAsCompatibleShape</span><span class="p">)</span> <span class="o">...</span> <span class="n">ok</span>
+<span class="n">test_slice_and_transpose</span> <span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">tests</span><span class="o">.</span><span class="n">test_util</span><span class="o">.</span><span class="n">TestAsCompatibleShape</span><span class="p">)</span> <span class="o">...</span> <span class="n">ok</span>
+<span class="n">test_transpose</span> <span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">tests</span><span class="o">.</span><span class="n">test_util</span><span class="o">.</span><span class="n">TestAsCompatibleShape</span><span class="p">)</span> <span class="o">...</span> <span class="n">ok</span>
+
+<span class="o">----------------------------------------------------------------------</span>
+<span class="n">Ran</span> <span class="mi">4762</span> <span class="n">tests</span> <span class="ow">in</span> <span class="mf">238.649</span><span class="n">s</span>
+
+<span class="n">OK</span> <span class="p">(</span><span class="n">SKIP</span><span class="o">=</span><span class="mi">22</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>There may be some tests that have been <strong>skipped</strong>.  This is due to a Python
+decorator being present in the test script that will intentionally skip a test
+if a certain condition is not met.  In the example output above there are
+<strong>22</strong> skipped tests, at the point in time when this was run this was primarily
+due to an experimental dependency not being present.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The most common reason for tests to be skipped is when the directory for the
+<code class="docutils literal notranslate"><span class="pre">iris-test-data</span></code> has not been set which would shows output such as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">test_coord_coord_map</span> <span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">tests</span><span class="o">.</span><span class="n">test_plot</span><span class="o">.</span><span class="n">Test1dScatter</span><span class="p">)</span> <span class="o">...</span> <span class="n">SKIP</span><span class="p">:</span> <span class="n">Test</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="n">require</span> <span class="n">external</span> <span class="n">data</span><span class="o">.</span>
+<span class="n">test_coord_coord</span> <span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">tests</span><span class="o">.</span><span class="n">test_plot</span><span class="o">.</span><span class="n">Test1dScatter</span><span class="p">)</span> <span class="o">...</span> <span class="n">SKIP</span><span class="p">:</span> <span class="n">Test</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="n">require</span> <span class="n">external</span> <span class="n">data</span><span class="o">.</span>
+<span class="n">test_coord_cube</span> <span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">tests</span><span class="o">.</span><span class="n">test_plot</span><span class="o">.</span><span class="n">Test1dScatter</span><span class="p">)</span> <span class="o">...</span> <span class="n">SKIP</span><span class="p">:</span> <span class="n">Test</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="n">require</span> <span class="n">external</span> <span class="n">data</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>All Python decorators that skip tests will be defined in
+<code class="docutils literal notranslate"><span class="pre">lib/iris/tests/__init__.py</span></code> with a function name with a prefix of
+<code class="docutils literal notranslate"><span class="pre">skip_</span></code>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="contributing_ci_tests.html" class="btn btn-neutral float-right" title="Continuous Integration (CI) Testing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="contributing_graphics_tests.html" class="btn btn-neutral float-left" title="Graphics tests" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        
+        &copy; <a href="../copyright.html">Copyright</a> Iris Contributors
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

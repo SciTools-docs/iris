@@ -1,0 +1,763 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>iris.analysis._grid_angles &mdash; Iris 3.0.0ugrid1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/theme_override.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery-dataframe.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script src="../../../_static/clipboard.min.js"></script>
+        <script src="../../../_static/copybutton.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="copyright" title="Copyright" href="../../../copyright.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html">
+          
+
+          
+            
+            <img src="../../../_static/iris-logo-title.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installing.html">Installing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../generated/gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/iris_cubes.html">Iris data structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/loading_iris_cubes.html">Loading Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/saving_iris_cubes.html">Saving Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/navigating_a_cube.html">Navigating a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/subsetting_a_cube.html">Subsetting a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/real_and_lazy_data.html">Real and lazy data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/plotting_a_cube.html">Plotting a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/interpolation_and_regridding.html">Cube interpolation and regridding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/merge_and_concat.html">Merge and concatenate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/cube_statistics.html">Cube statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/cube_maths.html">Cube maths</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/citation.html">Citing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/code_maintenance.html">Code maintenance</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Further Topics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../further_topics/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../further_topics/metadata.html">Metadata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../further_topics/lenient_metadata.html">Lenient metadata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../further_topics/lenient_maths.html">Lenient cube maths</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developers Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/contributing_getting_involved.html">Getting involved</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/gitwash/index.html">Working with Iris source code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/contributing_documentation.html">Contributing to the documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/contributing_codebase_index.html">Contributing to the code base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/contributing_changes.html">Contributing your changes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/release.html">Releases</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../generated/api/iris.html">Iris API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../whatsnew/index.html">What’s new in Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../techpapers/index.html">Iris technical papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../copyright.html">Iris copyright, licensing and contributors</a></li>
+</ul>
+
+            
+          
+
+    
+    
+    
+        <p class="caption">
+            <span class="caption-text">
+            
+                Support
+            
+            </span>
+        </p>
+        <ul>
+            
+                <li class="toctree-l1"><a href="https://github.com/SciTools/iris"><i class="fa fa-github fa-fw"></i> Source code</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris"><i class="fa fa-comments fa-fw"></i> Users Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris-dev"><i class="fa fa-comments fa-fw"></i> Developers Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://stackoverflow.com/questions/tagged/python-iris"><i class="fa fa-question fa-fw"></i> StackOverflow for "How do I?"</a></li>
+            
+                <li class="toctree-l1"><a href="https://scitools.org.uk/iris/docs/v2.4.0/index.html"><i class="fa fa-book fa-fw"></i> Legacy documentation</a></li>
+            
+        </ul>
+    
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Iris</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../../iris.html">iris</a> &raquo;</li>
+        
+          <li><a href="../analysis.html">iris.analysis</a> &raquo;</li>
+        
+      <li>iris.analysis._grid_angles</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for iris.analysis._grid_angles</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright Iris contributors</span>
+<span class="c1">#</span>
+<span class="c1"># This file is part of Iris and is released under the LGPL license.</span>
+<span class="c1"># See COPYING and COPYING.LESSER in the root of the repository for full</span>
+<span class="c1"># licensing details.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Code to implement vector rotation by angles, and inferring gridcell angles</span>
+<span class="sd">from coordinate points and bounds.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="k">as</span> <span class="nn">ccrs</span>
+<span class="kn">import</span> <span class="nn">iris</span>
+
+
+<span class="k">def</span> <span class="nf">_3d_xyz_from_latlon</span><span class="p">(</span><span class="n">lon</span><span class="p">,</span> <span class="n">lat</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return locations of (lon, lat) in 3D space.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">    * lon, lat: (float array)</span>
+<span class="sd">        Arrays of longitudes and latitudes, in degrees.</span>
+<span class="sd">        Both the same shape.</span>
+
+<span class="sd">    Returns:</span>
+
+<span class="sd">    * xyz : (array, dtype=float64)</span>
+<span class="sd">        Cartesian coordinates on a unit sphere.</span>
+<span class="sd">        Shape is (3, &lt;input-shape&gt;).</span>
+<span class="sd">        The x / y / z coordinates are in xyz[0 / 1 / 2].</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">lon1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">lon</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+    <span class="n">lat1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">lat</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">lat1</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">lon1</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">lat1</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">lon1</span><span class="p">)</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">lat1</span><span class="p">)</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">array</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span> <span class="k">for</span> <span class="n">array</span> <span class="ow">in</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)])</span>
+
+    <span class="k">return</span> <span class="n">result</span>
+
+
+<span class="k">def</span> <span class="nf">_latlon_from_xyz</span><span class="p">(</span><span class="n">xyz</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return arrays of lons+lats angles from xyz locations.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">    * xyz: (array)</span>
+<span class="sd">        Array of 3-D cartesian coordinates.</span>
+<span class="sd">        Shape (3, &lt;input_points_dimensions&gt;).</span>
+<span class="sd">        x / y / z values are in xyz[0 / 1 / 2],</span>
+
+<span class="sd">    Returns:</span>
+
+<span class="sd">    * lonlat : (array)</span>
+<span class="sd">        longitude and latitude position angles, in degrees.</span>
+<span class="sd">        Shape (2, &lt;input_points_dimensions&gt;).</span>
+<span class="sd">        The longitudes / latitudes are in lonlat[0 / 1].</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">lons</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">rad2deg</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">xyz</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">xyz</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+    <span class="n">radii</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">xyz</span> <span class="o">*</span> <span class="n">xyz</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+    <span class="n">lats</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">rad2deg</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arcsin</span><span class="p">(</span><span class="n">xyz</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">/</span> <span class="n">radii</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">lons</span><span class="p">,</span> <span class="n">lats</span><span class="p">])</span>
+
+
+<span class="k">def</span> <span class="nf">_angle</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">r</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Estimate grid-angles to true-Eastward direction from positions in the same</span>
+<span class="sd">    grid row, but at increasing column (grid-Eastward) positions.</span>
+
+<span class="sd">    {P, Q, R} are locations of consecutive points in the same grid row.</span>
+<span class="sd">    These could be successive points in a single grid,</span>
+<span class="sd">        e.g. {T(i-1,j), T(i,j), T(i+1,j)}</span>
+<span class="sd">    or a mixture of U/V and T gridpoints if row positions are aligned,</span>
+<span class="sd">        e.g. {v(i,j), f(i,j), v(i+1,j)}.</span>
+
+<span class="sd">    Method:</span>
+
+<span class="sd">        Calculate dot product of a unit-vector parallel to P--&gt;R, unit-scaled,</span>
+<span class="sd">        with the unit eastward (true longitude) vector at Q.</span>
+<span class="sd">        This value is cos(required angle).</span>
+<span class="sd">        Discriminate between +/- angles by comparing latitudes of P and R.</span>
+<span class="sd">        Return NaN where any P--&gt;R are zero.</span>
+
+<span class="sd">        .. NOTE::</span>
+
+<span class="sd">            This method assumes that the vector PR is parallel to the surface</span>
+<span class="sd">            at the longitude of Q, as it uses the length of PR as the basis for</span>
+<span class="sd">            the cosine ratio.</span>
+<span class="sd">            That is only exact when Q is at the same longitude as the midpoint</span>
+<span class="sd">            of PR, and this typically causes errors which grow with increasing</span>
+<span class="sd">            gridcell angle.</span>
+<span class="sd">            However, we retain this method because it reproduces the &quot;standard&quot;</span>
+<span class="sd">            gridcell-orientation-angle arrays found in files output by the CICE</span>
+<span class="sd">            model, which presumably uses an equivalent calculation.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">    * p, q, r : (float array)</span>
+<span class="sd">        Arrays of angles, in degrees.</span>
+<span class="sd">        All the same shape.</span>
+<span class="sd">        Shape is (2, &lt;input_points_dimensions&gt;).</span>
+<span class="sd">        Longitudes / latitudes are in array[0 / 1].</span>
+
+<span class="sd">    Returns:</span>
+
+<span class="sd">    * angle : (float array)</span>
+<span class="sd">        Grid angles relative to true-East, in degrees.</span>
+<span class="sd">        Positive when grid-East is anticlockwise from true-East.</span>
+<span class="sd">        Shape is same as &lt;input_points_dimensions&gt;.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">mid_lons</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">q</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+    <span class="n">pr</span> <span class="o">=</span> <span class="n">_3d_xyz_from_latlon</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">-</span> <span class="n">_3d_xyz_from_latlon</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">pr_norm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">pr</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+    <span class="n">pr_top</span> <span class="o">=</span> <span class="n">pr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">mid_lons</span><span class="p">)</span> <span class="o">-</span> <span class="n">pr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">mid_lons</span><span class="p">)</span>
+
+    <span class="n">index</span> <span class="o">=</span> <span class="n">pr_norm</span> <span class="o">==</span> <span class="mi">0</span>
+    <span class="n">pr_norm</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="n">cosine</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">minimum</span><span class="p">(</span><span class="n">pr_top</span> <span class="o">/</span> <span class="n">pr_norm</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">cosine</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="n">psi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arccos</span><span class="p">(</span><span class="n">cosine</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">psi</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">rad2deg</span><span class="p">(</span><span class="n">psi</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="gridcell_angles"><a class="viewcode-back" href="../../../generated/api/iris/analysis/cartography.html#iris.analysis.cartography.gridcell_angles">[docs]</a><span class="k">def</span> <span class="nf">gridcell_angles</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cell_angle_boundpoints</span><span class="o">=</span><span class="s2">&quot;mid-lhs, mid-rhs&quot;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate gridcell orientations for an arbitrary 2-dimensional grid.</span>
+
+<span class="sd">    The input grid is defined by two 2-dimensional coordinate arrays with the</span>
+<span class="sd">    same dimensions (ny, nx), specifying the geolocations of a 2D mesh.</span>
+
+<span class="sd">    Input values may be coordinate points (ny, nx) or bounds (ny, nx, 4).</span>
+<span class="sd">    However, if points, the edges in the X direction are assumed to be</span>
+<span class="sd">    connected by wraparound.</span>
+
+<span class="sd">    Input can be either two arrays, two coordinates, or a single cube</span>
+<span class="sd">    containing two suitable coordinates identified with the &#39;x&#39; and &#39;y&#39; axes.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">    The inputs (x [,y]) can be any of the following :</span>
+
+<span class="sd">    * x (:class:`~iris.cube.Cube`):</span>
+<span class="sd">        a grid cube with 2D X and Y coordinates, identified by &#39;axis&#39;.</span>
+<span class="sd">        The coordinates must be 2-dimensional with the same shape.</span>
+<span class="sd">        The two dimensions represent grid dimensions in the order Y, then X.</span>
+
+<span class="sd">    * x, y (:class:`~iris.coords.Coord`):</span>
+<span class="sd">        X and Y coordinates, specifying grid locations on the globe.</span>
+<span class="sd">        The coordinates must be 2-dimensional with the same shape.</span>
+<span class="sd">        The two dimensions represent grid dimensions in the order Y, then X.</span>
+<span class="sd">        If there is no coordinate system, they are assumed to be true</span>
+<span class="sd">        longitudes and latitudes.  Units must convertible to &#39;degrees&#39;.</span>
+
+<span class="sd">    * x, y (2-dimensional arrays of same shape (ny, nx)):</span>
+<span class="sd">        longitude and latitude cell center locations, in degrees.</span>
+<span class="sd">        The two dimensions represent grid dimensions in the order Y, then X.</span>
+
+<span class="sd">    * x, y (3-dimensional arrays of same shape (ny, nx, 4)):</span>
+<span class="sd">        longitude and latitude cell bounds, in degrees.</span>
+<span class="sd">        The first two dimensions are grid dimensions in the order Y, then X.</span>
+<span class="sd">        The last index maps cell corners anticlockwise from bottom-left.</span>
+
+<span class="sd">    Optional Args:</span>
+
+<span class="sd">    * cell_angle_boundpoints (string):</span>
+<span class="sd">        Controls which gridcell bounds locations are used to calculate angles,</span>
+<span class="sd">        if the inputs are bounds or bounded coordinates.</span>
+<span class="sd">        Valid values are &#39;lower-left, lower-right&#39;, which takes the angle from</span>
+<span class="sd">        the lower left to the lower right corner, and &#39;mid-lhs, mid-rhs&#39; which</span>
+<span class="sd">        takes an angles between the average of the left-hand and right-hand</span>
+<span class="sd">        pairs of corners.  The default is &#39;mid-lhs, mid-rhs&#39;.</span>
+
+<span class="sd">    Returns:</span>
+
+<span class="sd">        angles : (2-dimensional cube)</span>
+
+<span class="sd">            Cube of angles of grid-x vector from true Eastward direction for</span>
+<span class="sd">            each gridcell, in degrees.</span>
+<span class="sd">            It also has &quot;true&quot; longitude and latitude coordinates, with no</span>
+<span class="sd">            coordinate system.</span>
+<span class="sd">            When the input has coords, then the output ones are identical if</span>
+<span class="sd">            the inputs are true-latlons, otherwise they are transformed</span>
+<span class="sd">            true-latlon versions.</span>
+<span class="sd">            When the input has bounded coords, then the output coords have</span>
+<span class="sd">            matching bounds and centrepoints (possibly transformed).</span>
+<span class="sd">            When the input is 2d arrays, or has unbounded coords, then the</span>
+<span class="sd">            output coords have matching points and no bounds.</span>
+<span class="sd">            When the input is 3d arrays, then the output coords have matching</span>
+<span class="sd">            bounds, and the centrepoints are an average of the 4 boundpoints.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">cube</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s2">&quot;add_aux_coord&quot;</span><span class="p">):</span>
+        <span class="c1"># Passed a cube : extract &#39;x&#39; and ;&#39;y&#39; axis coordinates.</span>
+        <span class="n">cube</span> <span class="o">=</span> <span class="n">x</span>  <span class="c1"># Save for later checking.</span>
+        <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">),</span> <span class="n">cube</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Now should have either 2 coords or 2 arrays.</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s2">&quot;shape&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="s2">&quot;shape&quot;</span><span class="p">):</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="s2">&quot;Inputs (x,y) must have array shape property.&quot;</span>
+            <span class="s2">&quot;Got type(x)=</span><span class="si">{}</span><span class="s2"> and type(y)=</span><span class="si">{}</span><span class="s2">.&quot;</span>
+        <span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="n">y</span><span class="p">)))</span>
+
+    <span class="n">x_coord</span><span class="p">,</span> <span class="n">y_coord</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s2">&quot;bounds&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="s2">&quot;bounds&quot;</span><span class="p">):</span>
+        <span class="c1"># x and y are Coords.</span>
+        <span class="n">x_coord</span><span class="p">,</span> <span class="n">y_coord</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">copy</span><span class="p">(),</span> <span class="n">y</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+        <span class="c1"># They must be angles : convert into degrees</span>
+        <span class="k">for</span> <span class="n">coord</span> <span class="ow">in</span> <span class="p">(</span><span class="n">x_coord</span><span class="p">,</span> <span class="n">y_coord</span><span class="p">):</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">coord</span><span class="o">.</span><span class="n">units</span><span class="o">.</span><span class="n">is_convertible</span><span class="p">(</span><span class="s2">&quot;degrees&quot;</span><span class="p">):</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="s2">&quot;Input X and Y coordinates must have angular &quot;</span>
+                    <span class="s1">&#39;units. Got units of &quot;</span><span class="si">{!s}</span><span class="s1">&quot; and &quot;</span><span class="si">{!s}</span><span class="s1">&quot;.&#39;</span>
+                <span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x_coord</span><span class="o">.</span><span class="n">units</span><span class="p">,</span> <span class="n">y_coord</span><span class="o">.</span><span class="n">units</span><span class="p">))</span>
+            <span class="n">coord</span><span class="o">.</span><span class="n">convert_units</span><span class="p">(</span><span class="s2">&quot;degrees&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">x_coord</span><span class="o">.</span><span class="n">ndim</span> <span class="o">!=</span> <span class="mi">2</span> <span class="ow">or</span> <span class="n">y_coord</span><span class="o">.</span><span class="n">ndim</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="s2">&quot;Coordinate inputs must have 2-dimensional shape. &quot;</span>
+                <span class="s2">&quot;Got x-shape of </span><span class="si">{}</span><span class="s2"> and y-shape of </span><span class="si">{}</span><span class="s2">.&quot;</span>
+            <span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x_coord</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y_coord</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">x_coord</span><span class="o">.</span><span class="n">shape</span> <span class="o">!=</span> <span class="n">y_coord</span><span class="o">.</span><span class="n">shape</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="s2">&quot;Coordinate inputs must have same shape. &quot;</span>
+                <span class="s2">&quot;Got x-shape of </span><span class="si">{}</span><span class="s2"> and y-shape of </span><span class="si">{}</span><span class="s2">.&quot;</span>
+            <span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x_coord</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y_coord</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">cube</span><span class="p">:</span>
+            <span class="n">x_dims</span><span class="p">,</span> <span class="n">y_dims</span> <span class="o">=</span> <span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">coord_dims</span><span class="p">(</span><span class="n">co</span><span class="p">)</span> <span class="k">for</span> <span class="n">co</span> <span class="ow">in</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+            <span class="k">if</span> <span class="n">x_dims</span> <span class="o">!=</span> <span class="n">y_dims</span><span class="p">:</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="s2">&quot;X and Y coordinates must have the same cube &quot;</span>
+                    <span class="s2">&quot;dimensions.  Got x-dims = </span><span class="si">{}</span><span class="s2"> and y-dims = </span><span class="si">{}</span><span class="s2">.&quot;</span>
+                <span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x_dims</span><span class="p">,</span> <span class="n">y_dims</span><span class="p">))</span>
+        <span class="n">cs</span> <span class="o">=</span> <span class="n">x_coord</span><span class="o">.</span><span class="n">coord_system</span>
+        <span class="k">if</span> <span class="n">y_coord</span><span class="o">.</span><span class="n">coord_system</span> <span class="o">!=</span> <span class="n">cs</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="s2">&quot;Coordinate inputs must have same coordinate system. &quot;</span>
+                <span class="s2">&quot;Got x of </span><span class="si">{}</span><span class="s2"> and y of </span><span class="si">{}</span><span class="s2">.&quot;</span>
+            <span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cs</span><span class="p">,</span> <span class="n">y_coord</span><span class="o">.</span><span class="n">coord_system</span><span class="p">))</span>
+
+        <span class="c1"># Base calculation on bounds if we have them, or points as a fallback.</span>
+        <span class="k">if</span> <span class="n">x_coord</span><span class="o">.</span><span class="n">has_bounds</span><span class="p">()</span> <span class="ow">and</span> <span class="n">y_coord</span><span class="o">.</span><span class="n">has_bounds</span><span class="p">():</span>
+            <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">x_coord</span><span class="o">.</span><span class="n">bounds</span><span class="p">,</span> <span class="n">y_coord</span><span class="o">.</span><span class="n">bounds</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">x_coord</span><span class="o">.</span><span class="n">points</span><span class="p">,</span> <span class="n">y_coord</span><span class="o">.</span><span class="n">points</span>
+
+        <span class="c1"># Make sure these arrays are ordinary lats+lons, in degrees.</span>
+        <span class="k">if</span> <span class="n">cs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># Transform points into true lats + lons.</span>
+            <span class="n">crs_src</span> <span class="o">=</span> <span class="n">cs</span><span class="o">.</span><span class="n">as_cartopy_crs</span><span class="p">()</span>
+            <span class="n">crs_pc</span> <span class="o">=</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">()</span>
+
+            <span class="k">def</span> <span class="nf">transform_xy_arrays</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+                <span class="c1"># Note: flatten, as transform_points is limited to 2D arrays.</span>
+                <span class="n">shape</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span>
+                <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">arr</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span> <span class="k">for</span> <span class="n">arr</span> <span class="ow">in</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+                <span class="n">pts</span> <span class="o">=</span> <span class="n">crs_pc</span><span class="o">.</span><span class="n">transform_points</span><span class="p">(</span><span class="n">crs_src</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+                <span class="n">x</span> <span class="o">=</span> <span class="n">pts</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
+                <span class="n">y</span> <span class="o">=</span> <span class="n">pts</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>
+
+            <span class="c1"># Transform the main reference points into standard lats+lons.</span>
+            <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">transform_xy_arrays</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+            <span class="c1"># Likewise replace the original coordinates with transformed ones,</span>
+            <span class="c1"># because the calculation also needs the centrepoint values.</span>
+            <span class="n">xpts</span><span class="p">,</span> <span class="n">ypts</span> <span class="o">=</span> <span class="p">(</span><span class="n">coord</span><span class="o">.</span><span class="n">points</span> <span class="k">for</span> <span class="n">coord</span> <span class="ow">in</span> <span class="p">(</span><span class="n">x_coord</span><span class="p">,</span> <span class="n">y_coord</span><span class="p">))</span>
+            <span class="n">xbds</span><span class="p">,</span> <span class="n">ybds</span> <span class="o">=</span> <span class="p">(</span><span class="n">coord</span><span class="o">.</span><span class="n">bounds</span> <span class="k">for</span> <span class="n">coord</span> <span class="ow">in</span> <span class="p">(</span><span class="n">x_coord</span><span class="p">,</span> <span class="n">y_coord</span><span class="p">))</span>
+            <span class="n">xpts</span><span class="p">,</span> <span class="n">ypts</span> <span class="o">=</span> <span class="n">transform_xy_arrays</span><span class="p">(</span><span class="n">xpts</span><span class="p">,</span> <span class="n">ypts</span><span class="p">)</span>
+            <span class="n">xbds</span><span class="p">,</span> <span class="n">ybds</span> <span class="o">=</span> <span class="n">transform_xy_arrays</span><span class="p">(</span><span class="n">xbds</span><span class="p">,</span> <span class="n">ybds</span><span class="p">)</span>
+            <span class="n">x_coord</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">coords</span><span class="o">.</span><span class="n">AuxCoord</span><span class="p">(</span>
+                <span class="n">points</span><span class="o">=</span><span class="n">xpts</span><span class="p">,</span>
+                <span class="n">bounds</span><span class="o">=</span><span class="n">xbds</span><span class="p">,</span>
+                <span class="n">standard_name</span><span class="o">=</span><span class="s2">&quot;longitude&quot;</span><span class="p">,</span>
+                <span class="n">units</span><span class="o">=</span><span class="s2">&quot;degrees&quot;</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="n">y_coord</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">coords</span><span class="o">.</span><span class="n">AuxCoord</span><span class="p">(</span>
+                <span class="n">points</span><span class="o">=</span><span class="n">ypts</span><span class="p">,</span>
+                <span class="n">bounds</span><span class="o">=</span><span class="n">ybds</span><span class="p">,</span>
+                <span class="n">standard_name</span><span class="o">=</span><span class="s2">&quot;latitude&quot;</span><span class="p">,</span>
+                <span class="n">units</span><span class="o">=</span><span class="s2">&quot;degrees&quot;</span><span class="p">,</span>
+            <span class="p">)</span>
+
+    <span class="k">elif</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s2">&quot;bounds&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="s2">&quot;bounds&quot;</span><span class="p">):</span>
+        <span class="c1"># One was a Coord, and the other not ?</span>
+        <span class="n">is_and_not</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="s2">&quot;bounds&quot;</span><span class="p">):</span>
+            <span class="n">is_and_not</span> <span class="o">=</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">is_and_not</span><span class="p">)</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Input </span><span class="si">{!r}</span><span class="s2"> is a Coordinate, but </span><span class="si">{!r}</span><span class="s2"> is not.&quot;</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="n">is_and_not</span><span class="p">))</span>
+
+    <span class="c1"># Now have either 2 points arrays (ny, nx) or 2 bounds arrays (ny, nx, 4).</span>
+    <span class="c1"># Construct (lhs, mid, rhs) where these represent 3 points at increasing</span>
+    <span class="c1"># grid-x indices (columns).</span>
+    <span class="c1"># Also make suitable X and Y coordinates for the result cube.</span>
+    <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="c1"># Data is points arrays.</span>
+        <span class="c1"># Use previous + subsequent points along grid-x-axis as references.</span>
+
+        <span class="c1"># PROBLEM: we assume that the rhs connects to the lhs, so we should</span>
+        <span class="c1"># really only use this if data is full-longitudes (as a &#39;circular&#39;</span>
+        <span class="c1"># coordinate).</span>
+        <span class="c1"># This is mentioned in the docstring, but we have no general means of</span>
+        <span class="c1"># checking it.</span>
+
+        <span class="c1"># NOTE: we take the 2d grid as presented, so the second dimension is</span>
+        <span class="c1"># the &#39;X&#39; dim.  Again, that is implicit + can&#39;t be checked.</span>
+        <span class="n">mid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">])</span>
+        <span class="n">lhs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">mid</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">rhs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">mid</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">x_coord</span><span class="p">:</span>
+            <span class="c1"># Create coords for result cube : with no bounds.</span>
+            <span class="n">y_coord</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">coords</span><span class="o">.</span><span class="n">AuxCoord</span><span class="p">(</span>
+                <span class="n">x</span><span class="p">,</span> <span class="n">standard_name</span><span class="o">=</span><span class="s2">&quot;latitude&quot;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;degrees&quot;</span>
+            <span class="p">)</span>
+            <span class="n">x_coord</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">coords</span><span class="o">.</span><span class="n">AuxCoord</span><span class="p">(</span>
+                <span class="n">y</span><span class="p">,</span> <span class="n">standard_name</span><span class="o">=</span><span class="s2">&quot;longitude&quot;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;degrees&quot;</span>
+            <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># Data is bounds arrays.</span>
+        <span class="c1"># Use gridcell corners at different grid-x positions as references.</span>
+        <span class="c1"># NOTE: so with bounds, we *don&#39;t* need full circular longitudes.</span>
+        <span class="n">xyz</span> <span class="o">=</span> <span class="n">_3d_xyz_from_latlon</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+        <span class="c1"># Support two different choices of reference points locations.</span>
+        <span class="n">angle_boundpoints_vals</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;mid-lhs, mid-rhs&quot;</span><span class="p">:</span> <span class="s2">&quot;03_to_12&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;lower-left, lower-right&quot;</span><span class="p">:</span> <span class="s2">&quot;0_to_1&quot;</span><span class="p">,</span>
+        <span class="p">}</span>
+        <span class="n">bounds_pos</span> <span class="o">=</span> <span class="n">angle_boundpoints_vals</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">cell_angle_boundpoints</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">bounds_pos</span> <span class="o">==</span> <span class="s2">&quot;0_to_1&quot;</span><span class="p">:</span>
+            <span class="n">lhs_xyz</span> <span class="o">=</span> <span class="n">xyz</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+            <span class="n">rhs_xyz</span> <span class="o">=</span> <span class="n">xyz</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="n">bounds_pos</span> <span class="o">==</span> <span class="s2">&quot;03_to_12&quot;</span><span class="p">:</span>
+            <span class="n">lhs_xyz</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">xyz</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">xyz</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+            <span class="n">rhs_xyz</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">xyz</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">xyz</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="s1">&#39;unrecognised cell_angle_boundpoints of &quot;</span><span class="si">{}</span><span class="s1">&quot;, &#39;</span>
+                <span class="s2">&quot;must be one of </span><span class="si">{}</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="n">cell_angle_boundpoints</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">angle_boundpoints_vals</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">x_coord</span><span class="p">:</span>
+            <span class="c1"># Create bounded coords for result cube.</span>
+            <span class="c1"># Use average of lhs+rhs points in 3d to get &#39;mid&#39; points,</span>
+            <span class="c1"># as coords without points are not allowed.</span>
+            <span class="n">mid_xyz</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">lhs_xyz</span> <span class="o">+</span> <span class="n">rhs_xyz</span><span class="p">)</span>
+            <span class="n">mid_latlons</span> <span class="o">=</span> <span class="n">_latlon_from_xyz</span><span class="p">(</span><span class="n">mid_xyz</span><span class="p">)</span>
+            <span class="c1"># Create coords with given bounds, and averaged centrepoints.</span>
+            <span class="n">x_coord</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">coords</span><span class="o">.</span><span class="n">AuxCoord</span><span class="p">(</span>
+                <span class="n">points</span><span class="o">=</span><span class="n">mid_latlons</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                <span class="n">bounds</span><span class="o">=</span><span class="n">x</span><span class="p">,</span>
+                <span class="n">standard_name</span><span class="o">=</span><span class="s2">&quot;longitude&quot;</span><span class="p">,</span>
+                <span class="n">units</span><span class="o">=</span><span class="s2">&quot;degrees&quot;</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="n">y_coord</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">coords</span><span class="o">.</span><span class="n">AuxCoord</span><span class="p">(</span>
+                <span class="n">points</span><span class="o">=</span><span class="n">mid_latlons</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                <span class="n">bounds</span><span class="o">=</span><span class="n">y</span><span class="p">,</span>
+                <span class="n">standard_name</span><span class="o">=</span><span class="s2">&quot;latitude&quot;</span><span class="p">,</span>
+                <span class="n">units</span><span class="o">=</span><span class="s2">&quot;degrees&quot;</span><span class="p">,</span>
+            <span class="p">)</span>
+
+        <span class="c1"># Convert lhs and rhs points back to latlon form -- IN DEGREES !</span>
+        <span class="n">lhs</span> <span class="o">=</span> <span class="n">_latlon_from_xyz</span><span class="p">(</span><span class="n">lhs_xyz</span><span class="p">)</span>
+        <span class="n">rhs</span> <span class="o">=</span> <span class="n">_latlon_from_xyz</span><span class="p">(</span><span class="n">rhs_xyz</span><span class="p">)</span>
+        <span class="c1"># &#39;mid&#39; is coord.points, whether from input or just made up.</span>
+        <span class="n">mid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">x_coord</span><span class="o">.</span><span class="n">points</span><span class="p">,</span> <span class="n">y_coord</span><span class="o">.</span><span class="n">points</span><span class="p">])</span>
+
+    <span class="c1"># Do the angle calcs, and return as a suitable cube.</span>
+    <span class="n">angles</span> <span class="o">=</span> <span class="n">_angle</span><span class="p">(</span><span class="n">lhs</span><span class="p">,</span> <span class="n">mid</span><span class="p">,</span> <span class="n">rhs</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">cube</span><span class="o">.</span><span class="n">Cube</span><span class="p">(</span>
+        <span class="n">angles</span><span class="p">,</span> <span class="n">long_name</span><span class="o">=</span><span class="s2">&quot;gridcell_angle_from_true_east&quot;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;degrees&quot;</span>
+    <span class="p">)</span>
+    <span class="n">result</span><span class="o">.</span><span class="n">add_aux_coord</span><span class="p">(</span><span class="n">x_coord</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="n">result</span><span class="o">.</span><span class="n">add_aux_coord</span><span class="p">(</span><span class="n">y_coord</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">result</span></div>
+
+
+<div class="viewcode-block" id="rotate_grid_vectors"><a class="viewcode-back" href="../../../generated/api/iris/analysis/cartography.html#iris.analysis.cartography.rotate_grid_vectors">[docs]</a><span class="k">def</span> <span class="nf">rotate_grid_vectors</span><span class="p">(</span>
+    <span class="n">u_cube</span><span class="p">,</span> <span class="n">v_cube</span><span class="p">,</span> <span class="n">grid_angles_cube</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">grid_angles_kwargs</span><span class="o">=</span><span class="kc">None</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Rotate distance vectors from grid-oriented to true-latlon-oriented.</span>
+
+<span class="sd">    Can also rotate by arbitrary angles, if they are passed in.</span>
+
+<span class="sd">    .. Note::</span>
+
+<span class="sd">        This operation overlaps somewhat in function with</span>
+<span class="sd">        :func:`iris.analysis.cartography.rotate_winds`.</span>
+<span class="sd">        However, that routine only rotates vectors according to transformations</span>
+<span class="sd">        between coordinate systems.</span>
+<span class="sd">        This function, by contrast, can rotate vectors by arbitrary angles.</span>
+<span class="sd">        Most commonly, the angles are estimated solely from grid sampling</span>
+<span class="sd">        points, using :func:`gridcell_angles` :  This allows operation on</span>
+<span class="sd">        complex meshes defined by two-dimensional coordinates, such as most</span>
+<span class="sd">        ocean grids.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">    * u_cube, v_cube : (cube)</span>
+<span class="sd">        Cubes of grid-u and grid-v vector components.</span>
+<span class="sd">        Units should be differentials of true-distance, e.g. &#39;m/s&#39;.</span>
+
+<span class="sd">    Optional args:</span>
+
+<span class="sd">    * grid_angles_cube : (cube)</span>
+<span class="sd">        gridcell orientation angles.</span>
+<span class="sd">        Units must be angular, i.e. can be converted to &#39;radians&#39;.</span>
+<span class="sd">        If not provided, grid angles are estimated from &#39;u_cube&#39; using the</span>
+<span class="sd">        :func:`gridcell_angles` method.</span>
+
+<span class="sd">    * grid_angles_kwargs : (dict or None)</span>
+<span class="sd">        Additional keyword args to be passed to the :func:`gridcell_angles`</span>
+<span class="sd">        method, if it is used.</span>
+
+<span class="sd">    Returns:</span>
+
+<span class="sd">        true_u, true_v : (cube)</span>
+<span class="sd">            Cubes of true-north oriented vector components.</span>
+<span class="sd">            Units are same as inputs.</span>
+
+<span class="sd">        .. Note::</span>
+
+<span class="sd">            Vector magnitudes will always be the same as the inputs.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">u_out</span><span class="p">,</span> <span class="n">v_out</span> <span class="o">=</span> <span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="k">for</span> <span class="n">cube</span> <span class="ow">in</span> <span class="p">(</span><span class="n">u_cube</span><span class="p">,</span> <span class="n">v_cube</span><span class="p">))</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">grid_angles_cube</span><span class="p">:</span>
+        <span class="n">grid_angles_kwargs</span> <span class="o">=</span> <span class="n">grid_angles_kwargs</span> <span class="ow">or</span> <span class="p">{}</span>
+        <span class="n">grid_angles_cube</span> <span class="o">=</span> <span class="n">gridcell_angles</span><span class="p">(</span><span class="n">u_cube</span><span class="p">,</span> <span class="o">**</span><span class="n">grid_angles_kwargs</span><span class="p">)</span>
+    <span class="n">gridangles</span> <span class="o">=</span> <span class="n">grid_angles_cube</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">gridangles</span><span class="o">.</span><span class="n">convert_units</span><span class="p">(</span><span class="s2">&quot;radians&quot;</span><span class="p">)</span>
+    <span class="n">uu</span><span class="p">,</span> <span class="n">vv</span><span class="p">,</span> <span class="n">aa</span> <span class="o">=</span> <span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">data</span> <span class="k">for</span> <span class="n">cube</span> <span class="ow">in</span> <span class="p">(</span><span class="n">u_out</span><span class="p">,</span> <span class="n">v_out</span><span class="p">,</span> <span class="n">gridangles</span><span class="p">))</span>
+    <span class="n">mags</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">uu</span> <span class="o">*</span> <span class="n">uu</span> <span class="o">+</span> <span class="n">vv</span> <span class="o">*</span> <span class="n">vv</span><span class="p">)</span>
+    <span class="n">angs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">vv</span><span class="p">,</span> <span class="n">uu</span><span class="p">)</span> <span class="o">+</span> <span class="n">aa</span>
+    <span class="n">uu</span><span class="p">,</span> <span class="n">vv</span> <span class="o">=</span> <span class="n">mags</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">angs</span><span class="p">),</span> <span class="n">mags</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">angs</span><span class="p">)</span>
+
+    <span class="c1"># Promote all to masked arrays, and also apply mask at bad (NaN) angles.</span>
+    <span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">aa</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">cube</span> <span class="ow">in</span> <span class="p">(</span><span class="n">u_out</span><span class="p">,</span> <span class="n">v_out</span><span class="p">,</span> <span class="n">aa</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="s2">&quot;mask&quot;</span><span class="p">):</span>
+            <span class="n">mask</span> <span class="o">|=</span> <span class="n">cube</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">mask</span>
+    <span class="n">u_out</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_array</span><span class="p">(</span><span class="n">uu</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">)</span>
+    <span class="n">v_out</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_array</span><span class="p">(</span><span class="n">vv</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">u_out</span><span class="p">,</span> <span class="n">v_out</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        
+        &copy; <a href="../../../copyright.html">Copyright</a> Iris Contributors
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

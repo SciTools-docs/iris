@@ -1,0 +1,609 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>iris.quickplot &mdash; Iris 3.0.0ugrid1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/theme_override.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery-dataframe.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="copyright" title="Copyright" href="../../copyright.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/iris-logo-title.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installing.html">Installing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../generated/gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/iris_cubes.html">Iris data structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/loading_iris_cubes.html">Loading Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/saving_iris_cubes.html">Saving Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/navigating_a_cube.html">Navigating a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/subsetting_a_cube.html">Subsetting a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/real_and_lazy_data.html">Real and lazy data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/plotting_a_cube.html">Plotting a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/interpolation_and_regridding.html">Cube interpolation and regridding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/merge_and_concat.html">Merge and concatenate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/cube_statistics.html">Cube statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/cube_maths.html">Cube maths</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/citation.html">Citing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/code_maintenance.html">Code maintenance</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Further Topics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../further_topics/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../further_topics/metadata.html">Metadata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../further_topics/lenient_metadata.html">Lenient metadata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../further_topics/lenient_maths.html">Lenient cube maths</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developers Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../developers_guide/contributing_getting_involved.html">Getting involved</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developers_guide/gitwash/index.html">Working with Iris source code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developers_guide/contributing_documentation.html">Contributing to the documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developers_guide/contributing_codebase_index.html">Contributing to the code base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developers_guide/contributing_changes.html">Contributing your changes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developers_guide/release.html">Releases</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../generated/api/iris.html">Iris API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../whatsnew/index.html">What’s new in Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../techpapers/index.html">Iris technical papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../copyright.html">Iris copyright, licensing and contributors</a></li>
+</ul>
+
+            
+          
+
+    
+    
+    
+        <p class="caption">
+            <span class="caption-text">
+            
+                Support
+            
+            </span>
+        </p>
+        <ul>
+            
+                <li class="toctree-l1"><a href="https://github.com/SciTools/iris"><i class="fa fa-github fa-fw"></i> Source code</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris"><i class="fa fa-comments fa-fw"></i> Users Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris-dev"><i class="fa fa-comments fa-fw"></i> Developers Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://stackoverflow.com/questions/tagged/python-iris"><i class="fa fa-question fa-fw"></i> StackOverflow for "How do I?"</a></li>
+            
+                <li class="toctree-l1"><a href="https://scitools.org.uk/iris/docs/v2.4.0/index.html"><i class="fa fa-book fa-fw"></i> Legacy documentation</a></li>
+            
+        </ul>
+    
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Iris</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../iris.html">iris</a> &raquo;</li>
+        
+      <li>iris.quickplot</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for iris.quickplot</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright Iris contributors</span>
+<span class="c1">#</span>
+<span class="c1"># This file is part of Iris and is released under the LGPL license.</span>
+<span class="c1"># See COPYING and COPYING.LESSER in the root of the repository for full</span>
+<span class="c1"># licensing details.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">High-level plotting extensions to :mod:`iris.plot`.</span>
+
+<span class="sd">These routines work much like their :mod:`iris.plot` counterparts, but they</span>
+<span class="sd">automatically add a plot title, axis titles, and a colour bar when appropriate.</span>
+
+<span class="sd">See also: :ref:`matplotlib &lt;matplotlib:users-guide-index&gt;`.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">packaging</span> <span class="kn">import</span> <span class="n">version</span>
+
+<span class="kn">import</span> <span class="nn">cf_units</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">__version__</span> <span class="k">as</span> <span class="n">_mpl_version</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">import</span> <span class="nn">iris.config</span>
+<span class="kn">import</span> <span class="nn">iris.coords</span>
+<span class="kn">import</span> <span class="nn">iris.plot</span> <span class="k">as</span> <span class="nn">iplt</span>
+
+
+<span class="k">def</span> <span class="nf">_use_symbol</span><span class="p">(</span><span class="n">units</span><span class="p">):</span>
+    <span class="c1"># For non-time units use the shortest unit representation.</span>
+    <span class="c1"># E.g. prefer &#39;K&#39; over &#39;kelvin&#39;, but not &#39;0.0174532925199433 rad&#39;</span>
+    <span class="c1"># over &#39;degrees&#39;</span>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="ow">not</span> <span class="n">units</span><span class="o">.</span><span class="n">is_time</span><span class="p">()</span>
+        <span class="ow">and</span> <span class="ow">not</span> <span class="n">units</span><span class="o">.</span><span class="n">is_time_reference</span><span class="p">()</span>
+        <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">units</span><span class="o">.</span><span class="n">symbol</span><span class="p">)</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">units</span><span class="p">))</span>
+    <span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_title</span><span class="p">(</span><span class="n">cube_or_coord</span><span class="p">,</span> <span class="n">with_units</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">cube_or_coord</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">cube_or_coord</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">title</span> <span class="o">=</span> <span class="n">cube_or_coord</span><span class="o">.</span><span class="n">name</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
+        <span class="n">units</span> <span class="o">=</span> <span class="n">cube_or_coord</span><span class="o">.</span><span class="n">units</span>
+        <span class="k">if</span> <span class="n">with_units</span> <span class="ow">and</span> <span class="ow">not</span> <span class="p">(</span>
+            <span class="n">units</span><span class="o">.</span><span class="n">is_unknown</span><span class="p">()</span>
+            <span class="ow">or</span> <span class="n">units</span><span class="o">.</span><span class="n">is_no_unit</span><span class="p">()</span>
+            <span class="ow">or</span> <span class="n">units</span> <span class="o">==</span> <span class="n">cf_units</span><span class="o">.</span><span class="n">Unit</span><span class="p">(</span><span class="s2">&quot;1&quot;</span><span class="p">)</span>
+        <span class="p">):</span>
+
+            <span class="k">if</span> <span class="n">_use_symbol</span><span class="p">(</span><span class="n">units</span><span class="p">):</span>
+                <span class="n">units</span> <span class="o">=</span> <span class="n">units</span><span class="o">.</span><span class="n">symbol</span>
+            <span class="k">if</span> <span class="n">units</span><span class="o">.</span><span class="n">is_time_reference</span><span class="p">():</span>
+                <span class="c1"># iris.plot uses matplotlib.dates.date2num, which is fixed to the below unit.</span>
+                <span class="k">if</span> <span class="n">version</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">_mpl_version</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">version</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="s2">&quot;3.3&quot;</span><span class="p">):</span>
+                    <span class="n">days_since</span> <span class="o">=</span> <span class="s2">&quot;1970-01-01&quot;</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">days_since</span> <span class="o">=</span> <span class="s2">&quot;0001-01-01&quot;</span>
+                <span class="n">units</span> <span class="o">=</span> <span class="s2">&quot;days since </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">days_since</span><span class="p">)</span>
+            <span class="n">title</span> <span class="o">+=</span> <span class="s2">&quot; / </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">units</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">title</span>
+
+
+<span class="k">def</span> <span class="nf">_label</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">result</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ndims</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">coords</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">axes</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Puts labels on the current plot using the given cube.&quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">axes</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+
+    <span class="n">axes</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">_title</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">with_units</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+
+    <span class="k">if</span> <span class="n">result</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">draw_edges</span> <span class="o">=</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">iris</span><span class="o">.</span><span class="n">coords</span><span class="o">.</span><span class="n">POINT_MODE</span>
+        <span class="n">bar</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span>
+            <span class="n">result</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="s2">&quot;horizontal&quot;</span><span class="p">,</span> <span class="n">drawedges</span><span class="o">=</span><span class="n">draw_edges</span>
+        <span class="p">)</span>
+        <span class="n">has_known_units</span> <span class="o">=</span> <span class="ow">not</span> <span class="p">(</span>
+            <span class="n">cube</span><span class="o">.</span><span class="n">units</span><span class="o">.</span><span class="n">is_unknown</span><span class="p">()</span> <span class="ow">or</span> <span class="n">cube</span><span class="o">.</span><span class="n">units</span><span class="o">.</span><span class="n">is_no_unit</span><span class="p">()</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="n">has_known_units</span> <span class="ow">and</span> <span class="n">cube</span><span class="o">.</span><span class="n">units</span> <span class="o">!=</span> <span class="n">cf_units</span><span class="o">.</span><span class="n">Unit</span><span class="p">(</span><span class="s2">&quot;1&quot;</span><span class="p">):</span>
+            <span class="c1"># Use shortest unit representation for anything other than time</span>
+            <span class="k">if</span> <span class="n">_use_symbol</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">units</span><span class="p">):</span>
+                <span class="n">bar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">units</span><span class="o">.</span><span class="n">symbol</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">bar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">units</span><span class="p">)</span>
+        <span class="c1"># Remove the tick which is put on the colorbar by default.</span>
+        <span class="n">bar</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">length</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">coords</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">plot_defn</span> <span class="o">=</span> <span class="n">iplt</span><span class="o">.</span><span class="n">_get_plot_defn</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">ndims</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">plot_defn</span> <span class="o">=</span> <span class="n">iplt</span><span class="o">.</span><span class="n">_get_plot_defn_custom_coords_picked</span><span class="p">(</span>
+            <span class="n">cube</span><span class="p">,</span> <span class="n">coords</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">ndims</span><span class="o">=</span><span class="n">ndims</span>
+        <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">ndims</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">iplt</span><span class="o">.</span><span class="n">_can_draw_map</span><span class="p">(</span><span class="n">plot_defn</span><span class="o">.</span><span class="n">coords</span><span class="p">):</span>
+            <span class="n">axes</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">_title</span><span class="p">(</span><span class="n">plot_defn</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">with_units</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+            <span class="n">axes</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="n">_title</span><span class="p">(</span><span class="n">plot_defn</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">with_units</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+    <span class="k">elif</span> <span class="n">ndims</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">axes</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="n">_title</span><span class="p">(</span><span class="n">plot_defn</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">with_units</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+        <span class="n">axes</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">_title</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">with_units</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="s2">&quot;Unexpected number of dimensions (</span><span class="si">{}</span><span class="s2">) given to &quot;</span>
+            <span class="s2">&quot;_label.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ndims</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_label_with_bounds</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">result</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ndims</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">coords</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">axes</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="n">_label</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">coords</span><span class="o">.</span><span class="n">BOUND_MODE</span><span class="p">,</span> <span class="n">result</span><span class="p">,</span> <span class="n">ndims</span><span class="p">,</span> <span class="n">coords</span><span class="p">,</span> <span class="n">axes</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_label_with_points</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">result</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ndims</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">coords</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">axes</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="n">_label</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">coords</span><span class="o">.</span><span class="n">POINT_MODE</span><span class="p">,</span> <span class="n">result</span><span class="p">,</span> <span class="n">ndims</span><span class="p">,</span> <span class="n">coords</span><span class="p">,</span> <span class="n">axes</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_get_titles</span><span class="p">(</span><span class="n">u_object</span><span class="p">,</span> <span class="n">v_object</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">u_object</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">u_object</span> <span class="o">=</span> <span class="n">iplt</span><span class="o">.</span><span class="n">_u_object_from_v_object</span><span class="p">(</span><span class="n">v_object</span><span class="p">)</span>
+    <span class="n">xunits</span> <span class="o">=</span> <span class="n">u_object</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">u_object</span><span class="o">.</span><span class="n">units</span><span class="o">.</span><span class="n">is_time_reference</span><span class="p">()</span>
+    <span class="n">yunits</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">v_object</span><span class="o">.</span><span class="n">units</span><span class="o">.</span><span class="n">is_time_reference</span><span class="p">()</span>
+    <span class="n">xlabel</span> <span class="o">=</span> <span class="n">_title</span><span class="p">(</span><span class="n">u_object</span><span class="p">,</span> <span class="n">with_units</span><span class="o">=</span><span class="n">xunits</span><span class="p">)</span>
+    <span class="n">ylabel</span> <span class="o">=</span> <span class="n">_title</span><span class="p">(</span><span class="n">v_object</span><span class="p">,</span> <span class="n">with_units</span><span class="o">=</span><span class="n">yunits</span><span class="p">)</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">u_object</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">title</span> <span class="o">=</span> <span class="n">_title</span><span class="p">(</span><span class="n">v_object</span><span class="p">,</span> <span class="n">with_units</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">u_object</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">cube</span><span class="o">.</span><span class="n">Cube</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span>
+        <span class="n">v_object</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">cube</span><span class="o">.</span><span class="n">Cube</span>
+    <span class="p">):</span>
+        <span class="n">title</span> <span class="o">=</span> <span class="n">_title</span><span class="p">(</span><span class="n">u_object</span><span class="p">,</span> <span class="n">with_units</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v_object</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">cube</span><span class="o">.</span><span class="n">Cube</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span>
+        <span class="n">u_object</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">cube</span><span class="o">.</span><span class="n">Cube</span>
+    <span class="p">):</span>
+        <span class="n">title</span> <span class="o">=</span> <span class="n">_title</span><span class="p">(</span><span class="n">v_object</span><span class="p">,</span> <span class="n">with_units</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">xlabel</span><span class="p">,</span> <span class="n">ylabel</span><span class="p">,</span> <span class="n">title</span>
+
+
+<span class="k">def</span> <span class="nf">_label_1d_plot</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span>
+        <span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">cube</span><span class="o">.</span><span class="n">Cube</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">coords</span><span class="o">.</span><span class="n">Coord</span><span class="p">)</span>
+    <span class="p">):</span>
+        <span class="n">xlabel</span><span class="p">,</span> <span class="n">ylabel</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="n">_get_titles</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">[:</span><span class="mi">2</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">xlabel</span><span class="p">,</span> <span class="n">ylabel</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="n">_get_titles</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+    <span class="n">axes</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;axes&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Unexpected kwargs </span><span class="si">{}</span><span class="s2"> given to _label_1d_plot&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="n">kwargs</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+        <span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">axes</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+
+    <span class="n">axes</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+    <span class="n">axes</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="n">xlabel</span><span class="p">)</span>
+    <span class="n">axes</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">ylabel</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="contour"><a class="viewcode-back" href="../../generated/api/iris/quickplot.html#iris.quickplot.contour">[docs]</a><span class="k">def</span> <span class="nf">contour</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Draws contour lines on a labelled plot based on the given Cube.</span>
+
+<span class="sd">    With the basic call signature, contour &quot;level&quot; values are chosen</span>
+<span class="sd">    automatically::</span>
+
+<span class="sd">        contour(cube)</span>
+
+<span class="sd">    Supply a number to use *N* automatically chosen levels::</span>
+
+<span class="sd">        contour(cube, N)</span>
+
+<span class="sd">    Supply a sequence *V* to use explicitly defined levels::</span>
+
+<span class="sd">        contour(cube, V)</span>
+
+<span class="sd">    See :func:`iris.plot.contour` for details of valid keyword arguments.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">coords</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;coords&quot;</span><span class="p">)</span>
+    <span class="n">axes</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;axes&quot;</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">iplt</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">_label_with_points</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">coords</span><span class="o">=</span><span class="n">coords</span><span class="p">,</span> <span class="n">axes</span><span class="o">=</span><span class="n">axes</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span></div>
+
+
+<div class="viewcode-block" id="contourf"><a class="viewcode-back" href="../../generated/api/iris/quickplot.html#iris.quickplot.contourf">[docs]</a><span class="k">def</span> <span class="nf">contourf</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Draws filled contours on a labelled plot based on the given Cube.</span>
+
+<span class="sd">    With the basic call signature, contour &quot;level&quot; values are chosen</span>
+<span class="sd">    automatically::</span>
+
+<span class="sd">        contour(cube)</span>
+
+<span class="sd">    Supply a number to use *N* automatically chosen levels::</span>
+
+<span class="sd">        contour(cube, N)</span>
+
+<span class="sd">    Supply a sequence *V* to use explicitly defined levels::</span>
+
+<span class="sd">        contour(cube, V)</span>
+
+<span class="sd">    See :func:`iris.plot.contourf` for details of valid keyword arguments.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">coords</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;coords&quot;</span><span class="p">)</span>
+    <span class="n">axes</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;axes&quot;</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">iplt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">_label_with_points</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">result</span><span class="p">,</span> <span class="n">coords</span><span class="o">=</span><span class="n">coords</span><span class="p">,</span> <span class="n">axes</span><span class="o">=</span><span class="n">axes</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span></div>
+
+
+<div class="viewcode-block" id="outline"><a class="viewcode-back" href="../../generated/api/iris/quickplot.html#iris.quickplot.outline">[docs]</a><span class="k">def</span> <span class="nf">outline</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">coords</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">axes</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Draws cell outlines on a labelled plot based on the given Cube.</span>
+
+<span class="sd">    Kwargs:</span>
+
+<span class="sd">    * coords: list of :class:`~iris.coords.Coord` objects or coordinate names</span>
+<span class="sd">        Use the given coordinates as the axes for the plot. The order of the</span>
+<span class="sd">        given coordinates indicates which axis to use for each, where the first</span>
+<span class="sd">        element is the horizontal axis of the plot and the second element is</span>
+<span class="sd">        the vertical axis of the plot.</span>
+
+<span class="sd">    * color: None or mpl color</span>
+<span class="sd">        The color of the cell outlines. If None, the matplotlibrc setting</span>
+<span class="sd">        patch.edgecolor is used by default.</span>
+
+<span class="sd">    * linewidth: None or number</span>
+<span class="sd">        The width of the lines showing the cell outlines. If None, the default</span>
+<span class="sd">        width in patch.linewidth in matplotlibrc is used.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">iplt</span><span class="o">.</span><span class="n">outline</span><span class="p">(</span>
+        <span class="n">cube</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="n">linewidth</span><span class="p">,</span> <span class="n">coords</span><span class="o">=</span><span class="n">coords</span><span class="p">,</span> <span class="n">axes</span><span class="o">=</span><span class="n">axes</span>
+    <span class="p">)</span>
+
+    <span class="n">_label_with_bounds</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">coords</span><span class="o">=</span><span class="n">coords</span><span class="p">,</span> <span class="n">axes</span><span class="o">=</span><span class="n">axes</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span></div>
+
+
+<div class="viewcode-block" id="pcolor"><a class="viewcode-back" href="../../generated/api/iris/quickplot.html#iris.quickplot.pcolor">[docs]</a><span class="k">def</span> <span class="nf">pcolor</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Draws a labelled pseudocolor plot based on the given Cube.</span>
+
+<span class="sd">    See :func:`iris.plot.pcolor` for details of valid keyword arguments.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">coords</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;coords&quot;</span><span class="p">)</span>
+    <span class="n">axes</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;axes&quot;</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">iplt</span><span class="o">.</span><span class="n">pcolor</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">_label_with_bounds</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">result</span><span class="p">,</span> <span class="n">coords</span><span class="o">=</span><span class="n">coords</span><span class="p">,</span> <span class="n">axes</span><span class="o">=</span><span class="n">axes</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span></div>
+
+
+<div class="viewcode-block" id="pcolormesh"><a class="viewcode-back" href="../../generated/api/iris/quickplot.html#iris.quickplot.pcolormesh">[docs]</a><span class="k">def</span> <span class="nf">pcolormesh</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Draws a labelled pseudocolour plot based on the given Cube.</span>
+
+<span class="sd">    See :func:`iris.plot.pcolormesh` for details of valid keyword arguments.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">coords</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;coords&quot;</span><span class="p">)</span>
+    <span class="n">axes</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;axes&quot;</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">iplt</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">_label_with_bounds</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">result</span><span class="p">,</span> <span class="n">coords</span><span class="o">=</span><span class="n">coords</span><span class="p">,</span> <span class="n">axes</span><span class="o">=</span><span class="n">axes</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span></div>
+
+
+<div class="viewcode-block" id="points"><a class="viewcode-back" href="../../generated/api/iris/quickplot.html#iris.quickplot.points">[docs]</a><span class="k">def</span> <span class="nf">points</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Draws sample point positions on a labelled plot based on the given Cube.</span>
+
+<span class="sd">    See :func:`iris.plot.points` for details of valid keyword arguments.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">coords</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;coords&quot;</span><span class="p">)</span>
+    <span class="n">axes</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;axes&quot;</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">iplt</span><span class="o">.</span><span class="n">points</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">_label_with_points</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">coords</span><span class="o">=</span><span class="n">coords</span><span class="p">,</span> <span class="n">axes</span><span class="o">=</span><span class="n">axes</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span></div>
+
+
+<div class="viewcode-block" id="plot"><a class="viewcode-back" href="../../generated/api/iris/quickplot.html#iris.quickplot.plot">[docs]</a><span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Draws a labelled line plot based on the given cube(s) or</span>
+<span class="sd">    coordinate(s).</span>
+
+<span class="sd">    See :func:`iris.plot.plot` for details of valid arguments and</span>
+<span class="sd">    keyword arguments.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">axes</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;axes&quot;</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">iplt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">_label_1d_plot</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">axes</span><span class="o">=</span><span class="n">axes</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span></div>
+
+
+<div class="viewcode-block" id="scatter"><a class="viewcode-back" href="../../generated/api/iris/quickplot.html#iris.quickplot.scatter">[docs]</a><span class="k">def</span> <span class="nf">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Draws a labelled scatter plot based on the given cubes or</span>
+<span class="sd">    coordinates.</span>
+
+<span class="sd">    See :func:`iris.plot.scatter` for details of valid arguments and</span>
+<span class="sd">    keyword arguments.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">axes</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;axes&quot;</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">iplt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">_label_1d_plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">axes</span><span class="o">=</span><span class="n">axes</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span></div>
+
+
+<span class="c1"># Provide a convenience show method from pyplot.</span>
+<span class="n">show</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        
+        &copy; <a href="../../copyright.html">Copyright</a> Iris Contributors
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
