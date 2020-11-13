@@ -17,6 +17,7 @@ GloSea4 model, which is then used to produce two types of plot:
    model, from each ensemble member.
 
 """
+
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -40,7 +41,7 @@ def realization_metadata(cube, field, fname):
         import iris.coords
 
         realization_coord = iris.coords.AuxCoord(
-            np.int32(realization_number), "realization"
+            np.int32(realization_number), "realization", units="1"
         )
         cube.add_aux_coord(realization_coord)
 

@@ -1,0 +1,803 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>iris.common.resolve &mdash; Iris 3.0.0ugrid1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../_static/theme_override.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/gallery-dataframe.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/language_data.js"></script>
+        <script src="../../../../_static/clipboard.min.js"></script>
+        <script src="../../../../_static/copybutton.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="copyright" title="Copyright" href="../../../../copyright.html" />
+    <link rel="next" title="iris.config" href="../config.html" />
+    <link rel="prev" title="iris.common.mixin" href="mixin.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html">
+          
+
+          
+            
+            <img src="../../../../_static/iris-logo-title.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installing.html">Installing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/iris_cubes.html">Iris data structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/loading_iris_cubes.html">Loading Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/saving_iris_cubes.html">Saving Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/navigating_a_cube.html">Navigating a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/subsetting_a_cube.html">Subsetting a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/real_and_lazy_data.html">Real and lazy data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/plotting_a_cube.html">Plotting a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/interpolation_and_regridding.html">Cube interpolation and regridding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/merge_and_concat.html">Merge and concatenate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/cube_statistics.html">Cube statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/cube_maths.html">Cube maths</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/citation.html">Citing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../userguide/code_maintenance.html">Code maintenance</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Further Topics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../further_topics/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../further_topics/metadata.html">Metadata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../further_topics/lenient_metadata.html">Lenient metadata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../further_topics/lenient_maths.html">Lenient cube maths</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developers Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developers_guide/contributing_getting_involved.html">Getting involved</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developers_guide/gitwash/index.html">Working with Iris source code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developers_guide/contributing_documentation.html">Contributing to the documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developers_guide/contributing_codebase_index.html">Contributing to the code base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developers_guide/contributing_changes.html">Contributing your changes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developers_guide/release.html">Releases</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../iris.html">Iris API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../analysis.html">iris.analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../aux_factory.html">iris.aux_factory</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../common.html">iris.common</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="lenient.html">iris.common.lenient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="metadata.html">iris.common.metadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mixin.html">iris.common.mixin</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">iris.common.resolve</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../config.html">iris.config</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../coord_categorisation.html">iris.coord_categorisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../coord_systems.html">iris.coord_systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../coords.html">iris.coords</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cube.html">iris.cube</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exceptions.html">iris.exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../experimental.html">iris.experimental</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fileformats.html">iris.fileformats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../io.html">iris.io</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../iterate.html">iris.iterate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../palette.html">iris.palette</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandas.html">iris.pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plot.html">iris.plot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickplot.html">iris.quickplot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../std_names.html">iris.std_names</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../symbols.html">iris.symbols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../time.html">iris.time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../util.html">iris.util</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../whatsnew/index.html">What’s new in Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../techpapers/index.html">Iris technical papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../copyright.html">Iris copyright, licensing and contributors</a></li>
+</ul>
+
+            
+          
+
+    
+    
+    
+        <p class="caption">
+            <span class="caption-text">
+            
+                Support
+            
+            </span>
+        </p>
+        <ul>
+            
+                <li class="toctree-l1"><a href="https://github.com/SciTools/iris"><i class="fa fa-github fa-fw"></i> Source code</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris"><i class="fa fa-comments fa-fw"></i> Users Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris-dev"><i class="fa fa-comments fa-fw"></i> Developers Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://stackoverflow.com/questions/tagged/python-iris"><i class="fa fa-question fa-fw"></i> StackOverflow for "How do I?"</a></li>
+            
+                <li class="toctree-l1"><a href="https://scitools.org.uk/iris/docs/v2.4.0/index.html"><i class="fa fa-book fa-fw"></i> Legacy documentation</a></li>
+            
+        </ul>
+    
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Iris</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../iris.html">Iris API</a> &raquo;</li>
+        
+          <li><a href="../common.html">iris.common</a> &raquo;</li>
+        
+      <li>iris.common.resolve</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/generated/api/iris/common/resolve.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="iris-common-resolve">
+<span id="id1"></span><h1>iris.common.resolve<a class="headerlink" href="#iris-common-resolve" title="Permalink to this headline">¶</a></h1>
+<span class="target" id="module-iris.common.resolve"></span><p>Provides the infrastructure to support the analysis, identification and
+combination of metadata common between two <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a>
+operands into a single resultant <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a>, which will be
+auto-transposed, and with the appropriate broadcast shape.</p>
+<p>In this module:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference internal" href="#iris.common.resolve.Resolve" title="iris.common.resolve.Resolve"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Resolve</span></code></a></p></li>
+</ul>
+</div></blockquote>
+<p>At present, <a class="reference internal" href="#iris.common.resolve.Resolve" title="iris.common.resolve.Resolve"><code class="xref py py-class docutils literal notranslate"><span class="pre">Resolve</span></code></a> is used by Iris solely
+during cube maths to combine a left-hand <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a>
+operand and a right-hand <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a> operand into a resultant
+<a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a> with common metadata, suitably auto-transposed
+dimensions, and an appropriate broadcast shape.</p>
+<p>However, the capability and benefit provided by <a class="reference internal" href="#iris.common.resolve.Resolve" title="iris.common.resolve.Resolve"><code class="xref py py-class docutils literal notranslate"><span class="pre">Resolve</span></code></a>
+may be exercised as a general means to easily and consistently combine the metadata
+of two <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a> operands together into a single resultant
+<a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a>. This is highlighted through the following use case
+patterns.</p>
+<p>Firstly, creating a <code class="docutils literal notranslate"><span class="pre">resolver</span></code> instance with <em>specific</em> <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a>
+operands, and then supplying <code class="docutils literal notranslate"><span class="pre">data</span></code> with suitable dimensionality and shape to
+create the resultant resolved <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a>, e.g.,</p>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">cube1</span><span class="p">)</span>
+<span class="go">air_temperature / (K)               (time: 240; latitude: 37; longitude: 49)</span>
+<span class="go">     Dimension coordinates:</span>
+<span class="go">          time                           x              -              -</span>
+<span class="go">          latitude                       -              x              -</span>
+<span class="go">          longitude                      -              -              x</span>
+<span class="go">     Auxiliary coordinates:</span>
+<span class="go">          forecast_period                x              -              -</span>
+<span class="go">     Scalar coordinates:</span>
+<span class="go">          forecast_reference_time: 1859-09-01 06:00:00</span>
+<span class="go">          height: 1.5 m</span>
+<span class="go">     Attributes:</span>
+<span class="go">          Conventions: CF-1.5</span>
+<span class="go">          Model scenario: A1B</span>
+<span class="go">          STASH: m01s03i236</span>
+<span class="go">          source: Data from Met Office Unified Model 6.05</span>
+<span class="go">     Cell methods:</span>
+<span class="go">          mean: time (6 hour)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">cube2</span><span class="p">)</span>
+<span class="go">air_temperature / (K)               (longitude: 49; latitude: 37)</span>
+<span class="go">     Dimension coordinates:</span>
+<span class="go">          longitude                           x             -</span>
+<span class="go">          latitude                            -             x</span>
+<span class="go">     Scalar coordinates:</span>
+<span class="go">          forecast_period: 10794 hours</span>
+<span class="go">          forecast_reference_time: 1859-09-01 06:00:00</span>
+<span class="go">          height: 1.5 m</span>
+<span class="go">          time: 1860-06-01 00:00:00, bound=(1859-12-01 00:00:00, 1860-12-01 00:00:00)</span>
+<span class="go">     Attributes:</span>
+<span class="go">          Conventions: CF-1.5</span>
+<span class="go">          Model scenario: E1</span>
+<span class="go">          STASH: m01s03i236</span>
+<span class="go">          source: Data from Met Office Unified Model 6.05</span>
+<span class="go">     Cell methods:</span>
+<span class="go">          mean: time (6 hour)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="go">(240, 37, 49)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">resolver</span> <span class="o">=</span> <span class="n">Resolve</span><span class="p">(</span><span class="n">cube1</span><span class="p">,</span> <span class="n">cube2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">resolver</span><span class="o">.</span><span class="n">cube</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="go">air_temperature / (K)               (time: 240; latitude: 37; longitude: 49)</span>
+<span class="go">     Dimension coordinates:</span>
+<span class="go">          time                           x              -              -</span>
+<span class="go">          latitude                       -              x              -</span>
+<span class="go">          longitude                      -              -              x</span>
+<span class="go">     Auxiliary coordinates:</span>
+<span class="go">          forecast_period                x              -              -</span>
+<span class="go">     Scalar coordinates:</span>
+<span class="go">          forecast_reference_time: 1859-09-01 06:00:00</span>
+<span class="go">          height: 1.5 m</span>
+<span class="go">     Attributes:</span>
+<span class="go">          Conventions: CF-1.5</span>
+<span class="go">          STASH: m01s03i236</span>
+<span class="go">          source: Data from Met Office Unified Model 6.05</span>
+<span class="go">     Cell methods:</span>
+<span class="go">          mean: time (6 hour)</span>
+</pre></div>
+</div>
+<p>Secondly, creating an <em>empty</em> <code class="docutils literal notranslate"><span class="pre">resolver</span></code> instance, that may be called <em>multiple</em>
+times with <em>different</em> <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a> operands and <em>different</em> <code class="docutils literal notranslate"><span class="pre">data</span></code>,
+e.g.,</p>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">resolver</span> <span class="o">=</span> <span class="n">Resolve</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result1</span> <span class="o">=</span> <span class="n">resolver</span><span class="p">(</span><span class="n">cube1</span><span class="p">,</span> <span class="n">cube2</span><span class="p">)</span><span class="o">.</span><span class="n">cube</span><span class="p">(</span><span class="n">data1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result2</span> <span class="o">=</span> <span class="n">resolver</span><span class="p">(</span><span class="n">cube3</span><span class="p">,</span> <span class="n">cube4</span><span class="p">)</span><span class="o">.</span><span class="n">cube</span><span class="p">(</span><span class="n">data2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Lastly, creating a <code class="docutils literal notranslate"><span class="pre">resolver</span></code> instance with <em>specific</em> <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a>
+operands, and then supply <em>different</em> <code class="docutils literal notranslate"><span class="pre">data</span></code> <em>multiple</em> times, e.g.,</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">payload</span> <span class="o">=</span> <span class="p">(</span><span class="n">data1</span><span class="p">,</span> <span class="n">data2</span><span class="p">,</span> <span class="n">data3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">resolver</span> <span class="o">=</span> <span class="n">Resolve</span><span class="p">(</span><span class="n">cube1</span><span class="p">,</span> <span class="n">cube2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">results</span> <span class="o">=</span> <span class="p">[</span><span class="n">resolver</span><span class="o">.</span><span class="n">cube</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">payload</span><span class="p">]</span>
+</pre></div>
+</div>
+<blockquote>
+<div><dl class="py class">
+<dt id="iris.common.resolve.Resolve">
+<em class="property">class </em><code class="sig-prename descclassname">iris.common.resolve.</code><code class="sig-name descname">Resolve</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lhs</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">rhs</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/iris/common/resolve.html#Resolve"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iris.common.resolve.Resolve" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resolve the provided <code class="docutils literal notranslate"><span class="pre">lhs</span></code> <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a> operand and
+<code class="docutils literal notranslate"><span class="pre">rhs</span></code> <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a> operand to determine the metadata
+that is common between them, and the auto-transposed, broadcast shape
+of the resultant <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a>.</p>
+<p>This includes the identification of common <a class="reference internal" href="metadata.html#iris.common.metadata.CubeMetadata" title="iris.common.metadata.CubeMetadata"><code class="xref py py-class docutils literal notranslate"><span class="pre">CubeMetadata</span></code></a>,
+<a class="reference internal" href="../coords.html#iris.coords.DimCoord" title="iris.coords.DimCoord"><code class="xref py py-class docutils literal notranslate"><span class="pre">DimCoord</span></code></a>, <a class="reference internal" href="../coords.html#iris.coords.AuxCoord" title="iris.coords.AuxCoord"><code class="xref py py-class docutils literal notranslate"><span class="pre">AuxCoord</span></code></a>, and
+<a class="reference internal" href="../aux_factory.html#iris.aux_factory.AuxCoordFactory" title="iris.aux_factory.AuxCoordFactory"><code class="xref py py-class docutils literal notranslate"><span class="pre">AuxCoordFactory</span></code></a> metadata.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Resolving common <a class="reference internal" href="../coords.html#iris.coords.AncillaryVariable" title="iris.coords.AncillaryVariable"><code class="xref py py-class docutils literal notranslate"><span class="pre">AncillaryVariable</span></code></a> and
+<a class="reference internal" href="../coords.html#iris.coords.CellMeasure" title="iris.coords.CellMeasure"><code class="xref py py-class docutils literal notranslate"><span class="pre">CellMeasure</span></code></a> metadata is not supported at
+this time. (<a class="reference external" href="https://github.com/SciTools/iris/issues/3839">Issue #3839</a>)</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A <a class="reference internal" href="#iris.common.resolve.Resolve" title="iris.common.resolve.Resolve"><code class="xref py py-class docutils literal notranslate"><span class="pre">Resolve</span></code></a> instance is <strong>callable</strong>,
+allowing two new <code class="docutils literal notranslate"><span class="pre">lhs</span></code> and <code class="docutils literal notranslate"><span class="pre">rhs</span></code> <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a> operands
+to be resolved. Note that, <a class="reference internal" href="#iris.common.resolve.Resolve" title="iris.common.resolve.Resolve"><code class="xref py py-class docutils literal notranslate"><span class="pre">Resolve</span></code></a> only
+supports resolving <strong>two</strong> operands at a time, and no more.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><a class="reference internal" href="#iris.common.resolve.Resolve" title="iris.common.resolve.Resolve"><code class="xref py py-class docutils literal notranslate"><span class="pre">Resolve</span></code></a> attempts to preserve commutativity,
+but this may not be possible when auto-transposition or extended broadcasting
+is involved during the operation.</p>
+</div>
+<p>For example:</p>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cube1</span>
+<span class="go">&lt;iris &#39;Cube&#39; of air_temperature / (K) (time: 240; latitude: 37; longitude: 49)&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cube2</span>
+<span class="go">&lt;iris &#39;Cube&#39; of air_temperature / (K) (longitude: 49; latitude: 37)&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result1</span> <span class="o">=</span> <span class="n">Resolve</span><span class="p">(</span><span class="n">cube1</span><span class="p">,</span> <span class="n">cube2</span><span class="p">)</span><span class="o">.</span><span class="n">cube</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result2</span> <span class="o">=</span> <span class="n">Resolve</span><span class="p">(</span><span class="n">cube2</span><span class="p">,</span> <span class="n">cube1</span><span class="p">)</span><span class="o">.</span><span class="n">cube</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result1</span> <span class="o">==</span> <span class="n">result2</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>Kwargs:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>lhs:</dt><dd><p>The left-hand-side <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a> operand.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>rhs:</dt><dd><p>The right-hand-side <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a> operand.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="py method">
+<dt id="iris.common.resolve.Resolve.cube">
+<code class="sig-name descname">cube</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em>, <em class="sig-param"><span class="n">in_place</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/iris/common/resolve.html#Resolve.cube"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#iris.common.resolve.Resolve.cube" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create the resultant <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a> from the resolved <code class="docutils literal notranslate"><span class="pre">lhs</span></code>
+and <code class="docutils literal notranslate"><span class="pre">rhs</span></code> <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a> operands, using the provided
+<code class="docutils literal notranslate"><span class="pre">data</span></code>.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>data:</dt><dd><p>The data payload for the resultant <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a>, which
+<strong>must match</strong> the expected resolved
+<a class="reference internal" href="#iris.common.resolve.Resolve.shape" title="iris.common.resolve.Resolve.shape"><code class="xref py py-attr docutils literal notranslate"><span class="pre">shape</span></code></a>.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Kwargs:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>in_place:</dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, the <code class="docutils literal notranslate"><span class="pre">data</span></code> is inserted into the <code class="docutils literal notranslate"><span class="pre">tgt</span></code>
+<a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a>. The existing metadata of the <code class="docutils literal notranslate"><span class="pre">tgt</span></code>
+<a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a> is replaced with the resolved metadata from
+the <code class="docutils literal notranslate"><span class="pre">lhs</span></code> and <code class="docutils literal notranslate"><span class="pre">rhs</span></code> <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a> operands. Otherwise,
+a <strong>new</strong> <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a> instance is returned.
+Default is <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a></p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><a class="reference internal" href="#iris.common.resolve.Resolve" title="iris.common.resolve.Resolve"><code class="xref py py-class docutils literal notranslate"><span class="pre">Resolve</span></code></a> will determine whether the
+<code class="docutils literal notranslate"><span class="pre">lhs</span></code> <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a> operand is mapped to the
+<code class="docutils literal notranslate"><span class="pre">rhs</span></code> <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a> operand, or vice versa.
+In general, the <strong>lower rank</strong> operand (<code class="docutils literal notranslate"><span class="pre">src</span></code>) is mapped to the
+<strong>higher rank</strong> operand (<code class="docutils literal notranslate"><span class="pre">tgt</span></code>). Therefore, the <code class="docutils literal notranslate"><span class="pre">src</span></code>
+<a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a> may be either the <code class="docutils literal notranslate"><span class="pre">lhs</span></code> or the <code class="docutils literal notranslate"><span class="pre">rhs</span></code>
+<a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a> operand, given the direction of the
+mapping. See <a class="reference internal" href="#iris.common.resolve.Resolve.map_rhs_to_lhs" title="iris.common.resolve.Resolve.map_rhs_to_lhs"><code class="xref py py-attr docutils literal notranslate"><span class="pre">map_rhs_to_lhs</span></code></a>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It may not be possible to perform an <code class="docutils literal notranslate"><span class="pre">in_place</span></code> operation,
+due to any transposition or extended broadcasting that requires
+to be performed i.e., the <code class="docutils literal notranslate"><span class="pre">tgt</span></code> <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a> <strong>must
+match</strong> the expected resolved
+<a class="reference internal" href="#iris.common.resolve.Resolve.shape" title="iris.common.resolve.Resolve.shape"><code class="xref py py-attr docutils literal notranslate"><span class="pre">shape</span></code></a>.</p>
+</div>
+<p>For example:</p>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">resolver</span> <span class="o">=</span> <span class="n">Resolve</span><span class="p">(</span><span class="n">cube1</span><span class="p">,</span> <span class="n">cube2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">resolver</span><span class="o">.</span><span class="n">map_rhs_to_lhs</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cube1</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="go">124652160.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">zeros</span><span class="o">.</span><span class="n">shape</span>
+<span class="go">(240, 37, 49)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">zeros</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="go">0.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">resolver</span><span class="o">.</span><span class="n">cube</span><span class="p">(</span><span class="n">zeros</span><span class="p">,</span> <span class="n">in_place</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="ow">is</span> <span class="n">cube1</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cube1</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="go">0.0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="iris.common.resolve.Resolve.category_common">
+<code class="sig-name descname">category_common</code><a class="headerlink" href="#iris.common.resolve.Resolve.category_common" title="Permalink to this definition">¶</a></dt>
+<dd><p>Categorised dim, aux and scalar coordinate items <strong>common</strong> to both
+the <code class="docutils literal notranslate"><span class="pre">lhs</span></code> <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a> and the <code class="docutils literal notranslate"><span class="pre">rhs</span></code> <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="iris.common.resolve.Resolve.lhs_cube">
+<code class="sig-name descname">lhs_cube</code><a class="headerlink" href="#iris.common.resolve.Resolve.lhs_cube" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <code class="docutils literal notranslate"><span class="pre">lhs</span></code> operand to be resolved into the resultant <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="iris.common.resolve.Resolve.lhs_cube_aux_coverage">
+<code class="sig-name descname">lhs_cube_aux_coverage</code><a class="headerlink" href="#iris.common.resolve.Resolve.lhs_cube_aux_coverage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Analysis of aux and scalar coordinates spanning the <code class="docutils literal notranslate"><span class="pre">lhs</span></code> <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="iris.common.resolve.Resolve.lhs_cube_category">
+<code class="sig-name descname">lhs_cube_category</code><a class="headerlink" href="#iris.common.resolve.Resolve.lhs_cube_category" title="Permalink to this definition">¶</a></dt>
+<dd><p>Categorised dim, aux and scalar coordinate items for <code class="docutils literal notranslate"><span class="pre">lhs</span></code> <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="iris.common.resolve.Resolve.lhs_cube_category_local">
+<code class="sig-name descname">lhs_cube_category_local</code><a class="headerlink" href="#iris.common.resolve.Resolve.lhs_cube_category_local" title="Permalink to this definition">¶</a></dt>
+<dd><p>Categorised dim, aux and scalar coordinate items <strong>local</strong> to the
+<code class="docutils literal notranslate"><span class="pre">lhs</span></code> <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a> only.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="iris.common.resolve.Resolve.lhs_cube_dim_coverage">
+<code class="sig-name descname">lhs_cube_dim_coverage</code><a class="headerlink" href="#iris.common.resolve.Resolve.lhs_cube_dim_coverage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Analysis of dim coordinates spanning the <code class="docutils literal notranslate"><span class="pre">lhs</span></code> <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="iris.common.resolve.Resolve.lhs_cube_resolved">
+<code class="sig-name descname">lhs_cube_resolved</code><a class="headerlink" href="#iris.common.resolve.Resolve.lhs_cube_resolved" title="Permalink to this definition">¶</a></dt>
+<dd><p>The transposed/reshaped (if required) <code class="docutils literal notranslate"><span class="pre">lhs</span></code> <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a>, which
+can be broadcast with the <code class="docutils literal notranslate"><span class="pre">rhs</span></code> <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="iris.common.resolve.Resolve.map_rhs_to_lhs">
+<code class="sig-name descname">map_rhs_to_lhs</code><a class="headerlink" href="#iris.common.resolve.Resolve.map_rhs_to_lhs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Map <strong>common</strong> metadata from the <code class="docutils literal notranslate"><span class="pre">rhs</span></code> <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a> to
+the <code class="docutils literal notranslate"><span class="pre">lhs</span></code> <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a> if <code class="docutils literal notranslate"><span class="pre">lhs-rank</span></code> &gt;= <code class="docutils literal notranslate"><span class="pre">rhs-rank</span></code>,
+otherwise map <strong>common</strong> metadata from the <code class="docutils literal notranslate"><span class="pre">lhs</span></code> <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a>
+to the <code class="docutils literal notranslate"><span class="pre">rhs</span></code> <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="iris.common.resolve.Resolve.mapped">
+<em class="property">property </em><code class="sig-name descname">mapped</code><a class="headerlink" href="#iris.common.resolve.Resolve.mapped" title="Permalink to this definition">¶</a></dt>
+<dd><p>Boolean state representing whether <strong>all</strong> <code class="docutils literal notranslate"><span class="pre">src</span></code> <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a>
+dimensions have been associated with relevant <code class="docutils literal notranslate"><span class="pre">tgt</span></code>
+<a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a> dimensions.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><a class="reference internal" href="#iris.common.resolve.Resolve" title="iris.common.resolve.Resolve"><code class="xref py py-class docutils literal notranslate"><span class="pre">Resolve</span></code></a> will determine whether the
+<code class="docutils literal notranslate"><span class="pre">lhs</span></code> <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a> operand is mapped to the
+<code class="docutils literal notranslate"><span class="pre">rhs</span></code> <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a> operand, or vice versa.
+In general, the <strong>lower rank</strong> operand (<code class="docutils literal notranslate"><span class="pre">src</span></code>) is mapped to the
+<strong>higher rank</strong> operand (<code class="docutils literal notranslate"><span class="pre">tgt</span></code>). Therefore, the <code class="docutils literal notranslate"><span class="pre">src</span></code>
+<a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a> may be either the <code class="docutils literal notranslate"><span class="pre">lhs</span></code> or the <code class="docutils literal notranslate"><span class="pre">rhs</span></code>
+<a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a> operand, given the direction of the
+mapping. See <a class="reference internal" href="#iris.common.resolve.Resolve.map_rhs_to_lhs" title="iris.common.resolve.Resolve.map_rhs_to_lhs"><code class="xref py py-attr docutils literal notranslate"><span class="pre">map_rhs_to_lhs</span></code></a>.</p>
+</div>
+<p>If no <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a> operands have been provided, then
+<code class="docutils literal notranslate"><span class="pre">mapped</span></code> is <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+<p>For example:</p>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">cube1</span><span class="p">)</span>
+<span class="go">air_temperature / (K)               (time: 240; latitude: 37; longitude: 49)</span>
+<span class="go">     Dimension coordinates:</span>
+<span class="go">          time                           x              -              -</span>
+<span class="go">          latitude                       -              x              -</span>
+<span class="go">          longitude                      -              -              x</span>
+<span class="go">     Auxiliary coordinates:</span>
+<span class="go">          forecast_period                x              -              -</span>
+<span class="go">     Scalar coordinates:</span>
+<span class="go">          forecast_reference_time: 1859-09-01 06:00:00</span>
+<span class="go">          height: 1.5 m</span>
+<span class="go">     Attributes:</span>
+<span class="go">          Conventions: CF-1.5</span>
+<span class="go">          Model scenario: A1B</span>
+<span class="go">          STASH: m01s03i236</span>
+<span class="go">          source: Data from Met Office Unified Model 6.05</span>
+<span class="go">     Cell methods:</span>
+<span class="go">          mean: time (6 hour)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">cube2</span><span class="p">)</span>
+<span class="go">air_temperature / (K)               (longitude: 49; latitude: 37)</span>
+<span class="go">     Dimension coordinates:</span>
+<span class="go">          longitude                           x             -</span>
+<span class="go">          latitude                            -             x</span>
+<span class="go">     Scalar coordinates:</span>
+<span class="go">          forecast_period: 10794 hours</span>
+<span class="go">          forecast_reference_time: 1859-09-01 06:00:00</span>
+<span class="go">          height: 1.5 m</span>
+<span class="go">          time: 1860-06-01 00:00:00, bound=(1859-12-01 00:00:00, 1860-12-01 00:00:00)</span>
+<span class="go">     Attributes:</span>
+<span class="go">          Conventions: CF-1.5</span>
+<span class="go">          Model scenario: E1</span>
+<span class="go">          STASH: m01s03i236</span>
+<span class="go">          source: Data from Met Office Unified Model 6.05</span>
+<span class="go">     Cell methods:</span>
+<span class="go">          mean: time (6 hour)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Resolve</span><span class="p">()</span><span class="o">.</span><span class="n">mapped</span> <span class="ow">is</span> <span class="kc">None</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">resolver</span> <span class="o">=</span> <span class="n">Resolve</span><span class="p">(</span><span class="n">cube1</span><span class="p">,</span> <span class="n">cube2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">resolver</span><span class="o">.</span><span class="n">mapped</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">resolver</span><span class="o">.</span><span class="n">map_rhs_to_lhs</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">resolver</span> <span class="o">=</span> <span class="n">Resolve</span><span class="p">(</span><span class="n">cube2</span><span class="p">,</span> <span class="n">cube1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">resolver</span><span class="o">.</span><span class="n">mapped</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">resolver</span><span class="o">.</span><span class="n">map_rhs_to_lhs</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="iris.common.resolve.Resolve.mapping">
+<code class="sig-name descname">mapping</code><a class="headerlink" href="#iris.common.resolve.Resolve.mapping" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mapping of the dimensions between <strong>common</strong> metadata for the <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a>
+operands, where the direction of the mapping is governed by
+<a class="reference internal" href="#iris.common.resolve.Resolve.map_rhs_to_lhs" title="iris.common.resolve.Resolve.map_rhs_to_lhs"><code class="xref py py-attr docutils literal notranslate"><span class="pre">map_rhs_to_lhs</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="iris.common.resolve.Resolve.prepared_category">
+<code class="sig-name descname">prepared_category</code><a class="headerlink" href="#iris.common.resolve.Resolve.prepared_category" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cache containing a list of dim, aux and scalar coordinates prepared
+and ready for creating and attaching to the resultant resolved
+<a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="iris.common.resolve.Resolve.prepared_factories">
+<code class="sig-name descname">prepared_factories</code><a class="headerlink" href="#iris.common.resolve.Resolve.prepared_factories" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cache containing a list of aux factories prepared and ready for
+creating and attaching to the resultant resolved
+<a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="iris.common.resolve.Resolve.rhs_cube">
+<code class="sig-name descname">rhs_cube</code><a class="headerlink" href="#iris.common.resolve.Resolve.rhs_cube" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <code class="docutils literal notranslate"><span class="pre">rhs</span></code> operand to be resolved into the resultant <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="iris.common.resolve.Resolve.rhs_cube_aux_coverage">
+<code class="sig-name descname">rhs_cube_aux_coverage</code><a class="headerlink" href="#iris.common.resolve.Resolve.rhs_cube_aux_coverage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Analysis of aux and scalar coordinates spanning the <code class="docutils literal notranslate"><span class="pre">rhs</span></code> <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="iris.common.resolve.Resolve.rhs_cube_category">
+<code class="sig-name descname">rhs_cube_category</code><a class="headerlink" href="#iris.common.resolve.Resolve.rhs_cube_category" title="Permalink to this definition">¶</a></dt>
+<dd><p>Categorised dim, aux and scalar coordinate items for <code class="docutils literal notranslate"><span class="pre">rhs</span></code> <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="iris.common.resolve.Resolve.rhs_cube_category_local">
+<code class="sig-name descname">rhs_cube_category_local</code><a class="headerlink" href="#iris.common.resolve.Resolve.rhs_cube_category_local" title="Permalink to this definition">¶</a></dt>
+<dd><p>Categorised dim, aux and scalar coordinate items <strong>local</strong> to the
+<code class="docutils literal notranslate"><span class="pre">rhs</span></code> <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a> only.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="iris.common.resolve.Resolve.rhs_cube_dim_coverage">
+<code class="sig-name descname">rhs_cube_dim_coverage</code><a class="headerlink" href="#iris.common.resolve.Resolve.rhs_cube_dim_coverage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Analysis of dim coordinates spanning the <code class="docutils literal notranslate"><span class="pre">rhs</span></code> <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="iris.common.resolve.Resolve.rhs_cube_resolved">
+<code class="sig-name descname">rhs_cube_resolved</code><a class="headerlink" href="#iris.common.resolve.Resolve.rhs_cube_resolved" title="Permalink to this definition">¶</a></dt>
+<dd><p>The transposed/reshaped (if required) <code class="docutils literal notranslate"><span class="pre">rhs</span></code> <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a>, which
+can be broadcast with the <code class="docutils literal notranslate"><span class="pre">lhs</span></code> <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="iris.common.resolve.Resolve.shape">
+<em class="property">property </em><code class="sig-name descname">shape</code><a class="headerlink" href="#iris.common.resolve.Resolve.shape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Proposed shape of the final resolved cube given the <code class="docutils literal notranslate"><span class="pre">lhs</span></code>
+<a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a> operand and the <code class="docutils literal notranslate"><span class="pre">rhs</span></code> <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a>
+operand.</p>
+<p>If no <a class="reference internal" href="../cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a> operands have been provided, then
+<code class="docutils literal notranslate"><span class="pre">shape</span></code> is <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+<p>For example:</p>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">cube1</span><span class="p">)</span>
+<span class="go">air_temperature / (K)               (time: 240; latitude: 37; longitude: 49)</span>
+<span class="go">     Dimension coordinates:</span>
+<span class="go">          time                           x              -              -</span>
+<span class="go">          latitude                       -              x              -</span>
+<span class="go">          longitude                      -              -              x</span>
+<span class="go">     Auxiliary coordinates:</span>
+<span class="go">          forecast_period                x              -              -</span>
+<span class="go">     Scalar coordinates:</span>
+<span class="go">          forecast_reference_time: 1859-09-01 06:00:00</span>
+<span class="go">          height: 1.5 m</span>
+<span class="go">     Attributes:</span>
+<span class="go">          Conventions: CF-1.5</span>
+<span class="go">          Model scenario: A1B</span>
+<span class="go">          STASH: m01s03i236</span>
+<span class="go">          source: Data from Met Office Unified Model 6.05</span>
+<span class="go">     Cell methods:</span>
+<span class="go">          mean: time (6 hour)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">cube2</span><span class="p">)</span>
+<span class="go">air_temperature / (K)               (longitude: 49; latitude: 37)</span>
+<span class="go">     Dimension coordinates:</span>
+<span class="go">          longitude                           x             -</span>
+<span class="go">          latitude                            -             x</span>
+<span class="go">     Scalar coordinates:</span>
+<span class="go">          forecast_period: 10794 hours</span>
+<span class="go">          forecast_reference_time: 1859-09-01 06:00:00</span>
+<span class="go">          height: 1.5 m</span>
+<span class="go">          time: 1860-06-01 00:00:00, bound=(1859-12-01 00:00:00, 1860-12-01 00:00:00)</span>
+<span class="go">     Attributes:</span>
+<span class="go">          Conventions: CF-1.5</span>
+<span class="go">          Model scenario: E1</span>
+<span class="go">          STASH: m01s03i236</span>
+<span class="go">          source: Data from Met Office Unified Model 6.05</span>
+<span class="go">     Cell methods:</span>
+<span class="go">          mean: time (6 hour)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Resolve</span><span class="p">()</span><span class="o">.</span><span class="n">shape</span> <span class="ow">is</span> <span class="kc">None</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Resolve</span><span class="p">(</span><span class="n">cube1</span><span class="p">,</span> <span class="n">cube2</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span>
+<span class="go">(240, 37, 49)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Resolve</span><span class="p">(</span><span class="n">cube2</span><span class="p">,</span> <span class="n">cube1</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span>
+<span class="go">(240, 37, 49)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div></blockquote>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../config.html" class="btn btn-neutral float-right" title="iris.config" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="mixin.html" class="btn btn-neutral float-left" title="iris.common.mixin" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        
+        &copy; <a href="../../../../copyright.html">Copyright</a> Iris Contributors
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

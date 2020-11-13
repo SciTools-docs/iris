@@ -48,10 +48,12 @@ depth values intuitively increase downward on the y-axis.
 
 .. code-block:: default
 
+
+    import matplotlib.pyplot as plt
+
     import iris
     import iris.iterate
     import iris.plot as iplt
-    import matplotlib.pyplot as plt
 
 
     def main():
@@ -89,6 +91,7 @@ depth values intuitively increase downward on the y-axis.
         ax1.set_ylabel("Depth / m")
         for ticklabel in ax1.get_xticklabels():
             ticklabel.set_color(temperature_color)
+
         # To plot salinity in the same axes we use twiny(). We'll use a different
         # color to identify salinity.
         salinity_color = (0.6, 0.1, 0.15)
@@ -127,7 +130,7 @@ depth values intuitively increase downward on the y-axis.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  1.143 seconds)
+   **Total running time of the script:** ( 0 minutes  1.079 seconds)
 
 
 .. _sphx_glr_download_generated_gallery_oceanography_plot_atlantic_profiles.py:

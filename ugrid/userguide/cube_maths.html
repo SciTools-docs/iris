@@ -7,13 +7,16 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Basic cube mathematics &mdash; Iris 3.0.0ugrid1 documentation</title>
+  <title>Cube maths &mdash; Iris 3.0.0ugrid1 documentation</title>
   
 
   
   <link rel="stylesheet" href="../_static/theme_override.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
   <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
   <link rel="stylesheet" href="../_static/gallery-binder.css" type="text/css" />
   <link rel="stylesheet" href="../_static/gallery-dataframe.css" type="text/css" />
@@ -112,37 +115,43 @@
 <li class="toctree-l1"><a class="reference internal" href="loading_iris_cubes.html">Loading Iris cubes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="saving_iris_cubes.html">Saving Iris cubes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="navigating_a_cube.html">Navigating a cube</a></li>
-<li class="toctree-l1"><a class="reference internal" href="subsetting_a_cube.html">Subsetting a Cube</a></li>
-<li class="toctree-l1"><a class="reference internal" href="real_and_lazy_data.html">Real and Lazy Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="subsetting_a_cube.html">Subsetting a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="real_and_lazy_data.html">Real and lazy data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plotting_a_cube.html">Plotting a cube</a></li>
 <li class="toctree-l1"><a class="reference internal" href="interpolation_and_regridding.html">Cube interpolation and regridding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="merge_and_concat.html">Merge and concatenate</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cube_statistics.html">Cube statistics</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Basic cube mathematics</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Cube maths</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#calculating-the-difference-between-two-cubes">Calculating the difference between two cubes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#calculating-a-cube-anomaly">Calculating a cube anomaly</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#combining-multiple-phenomena-to-form-a-new-one">Combining multiple phenomena to form a new one</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#combining-units">Combining units</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="citation.html">Citing Iris</a></li>
 <li class="toctree-l1"><a class="reference internal" href="code_maintenance.html">Code maintenance</a></li>
 </ul>
+<p class="caption"><span class="caption-text">Further Topics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../further_topics/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../further_topics/metadata.html">Metadata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../further_topics/lenient_metadata.html">Lenient metadata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../further_topics/lenient_maths.html">Lenient cube maths</a></li>
+</ul>
 <p class="caption"><span class="caption-text">Developers Guide</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/contributing_getting_involved.html">Getting involved</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/gitwash/index.html">Working with Iris source code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developers_guide/contributing_documentation.html">Contributing to the documentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../developers_guide/documenting/index.html">Documentation in Iris</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../developers_guide/gitwash/index.html">Working with <em>iris</em> source code</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../developers_guide/code_format.html">Code formatting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../developers_guide/pulls.html">Pull request check List</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../developers_guide/tests.html">Testing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../developers_guide/deprecations.html">Deprecations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/contributing_codebase_index.html">Contributing to the code base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/contributing_changes.html">Contributing your changes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../developers_guide/release.html">Releases</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../generated/api/iris.html">Iris API</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Reference</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../generated/api/iris.html">Iris API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../whatsnew/index.html">What’s new in Iris</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../techpapers/index.html">Iris Technical Papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../techpapers/index.html">Iris technical papers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../copyright.html">Iris copyright, licensing and contributors</a></li>
 </ul>
 
@@ -161,13 +170,13 @@
         </p>
         <ul>
             
-                <li class="toctree-l1"><a href="https://github.com/SciTools/iris"><i class="fa fa-github fa-fw"></i> Source Code</a></li>
+                <li class="toctree-l1"><a href="https://github.com/SciTools/iris"><i class="fa fa-github fa-fw"></i> Source code</a></li>
             
                 <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris"><i class="fa fa-comments fa-fw"></i> Users Google Group</a></li>
             
                 <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris-dev"><i class="fa fa-comments fa-fw"></i> Developers Google Group</a></li>
             
-                <li class="toctree-l1"><a href="https://stackoverflow.com/questions/tagged/python-iris"><i class="fa fa-question fa-fw"></i> StackOverflow For "How do I?"</a></li>
+                <li class="toctree-l1"><a href="https://stackoverflow.com/questions/tagged/python-iris"><i class="fa fa-question fa-fw"></i> StackOverflow for "How do I?"</a></li>
             
                 <li class="toctree-l1"><a href="https://scitools.org.uk/iris/docs/v2.4.0/index.html"><i class="fa fa-book fa-fw"></i> Legacy documentation</a></li>
             
@@ -216,7 +225,7 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Basic cube mathematics</li>
+      <li>Cube maths</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -235,8 +244,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="basic-cube-mathematics">
-<h1>Basic cube mathematics<a class="headerlink" href="#basic-cube-mathematics" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="cube-maths">
+<span id="id1"></span><h1>Cube maths<a class="headerlink" href="#cube-maths" title="Permalink to this headline">¶</a></h1>
 <p>The section <a class="reference internal" href="navigating_a_cube.html"><span class="doc">Navigating a cube</span></a> highlighted that
 every cube has a data attribute;
 this attribute can then be manipulated directly:</p>
@@ -269,7 +278,7 @@ and multiplication can be applied directly to any cube.</p>
 </pre></div>
 </div>
 <p>We can now get the first and last time slices using indexing
-(see <a class="reference internal" href="subsetting_a_cube.html#subsetting-a-cube"><span class="std std-ref">Subsetting a Cube</span></a> for a reminder):</p>
+(see <a class="reference internal" href="subsetting_a_cube.html#subsetting-a-cube"><span class="std std-ref">Subsetting a cube</span></a> for a reminder):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">t_first</span> <span class="o">=</span> <span class="n">air_temp</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span>
 <span class="n">t_last</span> <span class="o">=</span> <span class="n">air_temp</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span>
 </pre></div>
@@ -285,6 +294,10 @@ but with the data representing their difference:</p>
 <span class="go">     Scalar coordinates:</span>
 <span class="go">          forecast_reference_time: 1859-09-01 06:00:00</span>
 <span class="go">          height: 1.5 m</span>
+<span class="go">     Attributes:</span>
+<span class="go">          Conventions: CF-1.5</span>
+<span class="go">          Model scenario: E1</span>
+<span class="go">          source: Data from Met Office Unified Model 6.05</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -419,6 +432,37 @@ using the equation above:</p>
 <p>A very similar example to this can be found in
 <a class="reference internal" href="../generated/gallery/meteorology/plot_deriving_phenomena.html#sphx-glr-generated-gallery-meteorology-plot-deriving-phenomena-py"><span class="std std-ref">Deriving Exner Pressure and Air Temperature</span></a>.</p>
 </div>
+<div class="section" id="combining-units">
+<span id="cube-maths-combining-units"></span><h2>Combining units<a class="headerlink" href="#combining-units" title="Permalink to this headline">¶</a></h2>
+<p>It should be noted that when combining cubes by multiplication, division or
+power operations, the resulting cube will have a unit which is an appropriate
+combination of the constituent units. In the above example, since <code class="docutils literal notranslate"><span class="pre">pressure</span></code>
+and <code class="docutils literal notranslate"><span class="pre">p0</span></code> have the same unit, then <code class="docutils literal notranslate"><span class="pre">pressure</span> <span class="pre">/</span> <span class="pre">p0</span></code> has a dimensionless
+unit of <code class="docutils literal notranslate"><span class="pre">'1'</span></code>. Since <code class="docutils literal notranslate"><span class="pre">(pressure</span> <span class="pre">/</span> <span class="pre">p0)</span></code> has a unit of <code class="docutils literal notranslate"><span class="pre">'1'</span></code>, this does
+not change under power operations and so
+<code class="docutils literal notranslate"><span class="pre">(</span> <span class="pre">(pressure</span> <span class="pre">/</span> <span class="pre">p0)</span> <span class="pre">**</span> <span class="pre">(287.05</span> <span class="pre">/</span> <span class="pre">1005)</span> <span class="pre">)</span></code> also has unit <code class="docutils literal notranslate"><span class="pre">1</span></code>. Multiplying
+by a cube with unit <code class="docutils literal notranslate"><span class="pre">'1'</span></code> will preserve units, so the cube <code class="docutils literal notranslate"><span class="pre">temperature</span></code>
+will be given the same units as are in <code class="docutils literal notranslate"><span class="pre">pot_temperature</span></code>. It should be
+noted that some combinations of units, particularly those involving power
+operations, will not result in a valid unit and will cause the calculation
+to fail. For example, a cube <code class="docutils literal notranslate"><span class="pre">a</span></code> had units <code class="docutils literal notranslate"><span class="pre">'m'</span></code> then <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">**</span> <span class="pre">0.5</span></code>
+would result in an error since the square root of a meter has no meaningful
+unit (if <code class="docutils literal notranslate"><span class="pre">a</span></code> had units <code class="docutils literal notranslate"><span class="pre">'m2'</span></code> then <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">**</span> <span class="pre">0.5</span></code> would result in a cube
+with units <code class="docutils literal notranslate"><span class="pre">'m'</span></code>).</p>
+<p>Iris inherits units from <a class="reference external" href="https://scitools.org.uk/cf-units/docs/latest/">cf_units</a>
+which in turn inherits from <a class="reference external" href="https://www.unidata.ucar.edu/software/udunits/udunits-current/doc/udunits/udunits2.html">UDUNITS</a>.
+As well as the units UDUNITS provides, cf units also provides the units
+<code class="docutils literal notranslate"><span class="pre">'no-unit'</span></code> and <code class="docutils literal notranslate"><span class="pre">'unknown'</span></code>. A unit of <code class="docutils literal notranslate"><span class="pre">'no-unit'</span></code> means that the
+associated data is not suitable for describing with a unit, cf units
+considers <code class="docutils literal notranslate"><span class="pre">'no-unit'</span></code> unsuitable for combining and therefore any
+arithmetic done on a cube with <code class="docutils literal notranslate"><span class="pre">'no-unit'</span></code> will fail. A unit of
+<code class="docutils literal notranslate"><span class="pre">'unknown'</span></code> means that the unit describing the associated data
+cannot be determined. cf units and Iris will allow arithmetic on cubes
+with a unit of <code class="docutils literal notranslate"><span class="pre">'unknown'</span></code>, but the resulting cube will always have
+a unit of <code class="docutils literal notranslate"><span class="pre">'unknown'</span></code>. If a calculation is prevented because it would
+result in inappropriate units, it may be forced by setting the units of
+the original cubes to be <code class="docutils literal notranslate"><span class="pre">'unknown'</span></code>.</p>
+</div>
 </div>
 
 
@@ -443,7 +487,7 @@ using the equation above:</p>
     <p>
         
         
-        &copy; <a href="../copyright.html">Copyright</a> Iris contributors
+        &copy; <a href="../copyright.html">Copyright</a> Iris Contributors
 
     </p>
   </div>

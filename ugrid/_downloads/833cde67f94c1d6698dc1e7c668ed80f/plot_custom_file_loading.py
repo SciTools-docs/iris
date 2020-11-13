@@ -54,12 +54,12 @@ function which automatically invokes the ``FormatSpecification`` we defined.
 The cube returned from the load function is then used to produce a plot.
 
 """
+
 import datetime
 
+from cf_units import Unit, CALENDAR_GREGORIAN
 import matplotlib.pyplot as plt
 import numpy as np
-
-from cf_units import Unit, CALENDAR_GREGORIAN
 
 import iris
 import iris.coords as icoords
@@ -314,7 +314,9 @@ def main():
     # draw contour levels for the data (the top level is just a catch-all)
     levels = (0.0002, 0.002, 0.004, 1e10)
     cs = iplt.contourf(
-        cube, levels=levels, colors=("#80ffff", "#939598", "#e00404"),
+        cube,
+        levels=levels,
+        colors=("#80ffff", "#939598", "#e00404"),
     )
 
     # draw a black outline at the lowest contour to highlight affected areas
