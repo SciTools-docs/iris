@@ -1,0 +1,1191 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Metadata &mdash; Iris 3.1.dev0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/theme_override.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-dataframe.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <link rel="next" title="Lenient metadata" href="lenient_metadata.html" />
+    <link rel="prev" title="Introduction" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/iris-logo-title.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installing.html">Installing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../generated/gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/iris_cubes.html">Iris data structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/loading_iris_cubes.html">Loading Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/saving_iris_cubes.html">Saving Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/navigating_a_cube.html">Navigating a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/subsetting_a_cube.html">Subsetting a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/real_and_lazy_data.html">Real and lazy data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/plotting_a_cube.html">Plotting a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/interpolation_and_regridding.html">Cube interpolation and regridding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/merge_and_concat.html">Merge and concatenate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/cube_statistics.html">Cube statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/cube_maths.html">Cube maths</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/citation.html">Citing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/code_maintenance.html">Code maintenance</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Further Topics</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Metadata</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#common-metadata">Common metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#common-metadata-api">Common metadata API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#metadata-classes">Metadata classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#metadata-class-behaviour">Metadata class behaviour</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#richer-metadata-behaviour">Richer metadata behaviour</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#metadata-equality">Metadata equality</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#metadata-difference">Metadata difference</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#metadata-combination">Metadata combination</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#metadata-conversion">Metadata conversion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#metadata-assignment">Metadata assignment</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="lenient_metadata.html">Lenient metadata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lenient_maths.html">Lenient cube maths</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developers Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/contributing_getting_involved.html">Getting involved</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/gitwash/index.html">Working with Iris source code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/contributing_documentation.html">Contributing to the documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/contributing_codebase_index.html">Contributing to the code base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/contributing_changes.html">Contributing your changes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/release.html">Releases</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../generated/api/iris.html">Iris API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../whatsnew/index.html">What’s new in Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../techpapers/index.html">Iris technical papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../copyright.html">Iris copyright, licensing and contributors</a></li>
+</ul>
+
+            
+          
+
+    
+    
+    
+        <p class="caption">
+            <span class="caption-text">
+            
+                Support
+            
+            </span>
+        </p>
+        <ul>
+            
+                <li class="toctree-l1"><a href="https://github.com/SciTools/iris"><i class="fa fa-github fa-fw"></i> Source code</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris"><i class="fa fa-comments fa-fw"></i> Users Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris-dev"><i class="fa fa-comments fa-fw"></i> Developers Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://stackoverflow.com/questions/tagged/python-iris"><i class="fa fa-question fa-fw"></i> StackOverflow for "How do I?"</a></li>
+            
+                <li class="toctree-l1"><a href="https://scitools.org.uk/iris/docs/v2.4.0/index.html"><i class="fa fa-book fa-fw"></i> Legacy documentation</a></li>
+            
+        </ul>
+    
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Iris</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Metadata</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/further_topics/metadata.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="metadata">
+<span id="id1"></span><h1>Metadata<a class="headerlink" href="#metadata" title="Permalink to this headline">¶</a></h1>
+<p>This section provides a detailed overview of how your metadata is managed
+within Iris. In particular, it discusses what metadata is, where it fits
+into Iris, and more importantly how you can create, access, manipulate,
+and analyse your metadata.</p>
+<p>All the finer details covered here may not be entirely relevant to your use
+case, but it’s here if you ever need it. In fact, you may want to skip
+straight ahead to <a class="reference internal" href="#richer-metadata"><span class="std std-ref">Richer metadata behaviour</span></a>, and take it from there.</p>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>As discussed in <a class="reference internal" href="../userguide/iris_cubes.html#iris-data-structures"><span class="std std-ref">Iris data structures</span></a>, Iris draws heavily from the
+<a class="reference external" href="https://cfconventions.org/">NetCDF CF Metadata Conventions</a> as a source for its data model, thus building
+on the widely recognised and understood terminology defined within those
+<a class="reference external" href="https://cfconventions.org/">CF Conventions</a> by the scientific community.</p>
+<p>In <a class="reference internal" href="../userguide/iris_cubes.html#iris-data-structures"><span class="std std-ref">Iris data structures</span></a> we introduced several fundamental classes in Iris
+that care about your <code class="docutils literal notranslate"><span class="pre">data</span></code>, and also your <code class="docutils literal notranslate"><span class="pre">metadata</span></code> i.e., <a class="reference external" href="https://en.wikipedia.org/wiki/Metadata">data about data</a>.
+These are the <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a>, the <a class="reference internal" href="../generated/api/iris/coords.html#iris.coords.AuxCoord" title="iris.coords.AuxCoord"><code class="xref py py-class docutils literal notranslate"><span class="pre">AuxCoord</span></code></a>, and the
+<a class="reference internal" href="../generated/api/iris/coords.html#iris.coords.DimCoord" title="iris.coords.DimCoord"><code class="xref py py-class docutils literal notranslate"><span class="pre">DimCoord</span></code></a>, all of which should be familiar to you now. In
+addition to these, Iris models several other classes of <a class="reference external" href="https://cfconventions.org/">CF Conventions</a>
+metadata. Namely,</p>
+<ul class="simple">
+<li><p>the <a class="reference internal" href="../generated/api/iris/coords.html#iris.coords.AncillaryVariable" title="iris.coords.AncillaryVariable"><code class="xref py py-class docutils literal notranslate"><span class="pre">AncillaryVariable</span></code></a>, see <a class="reference external" href="https://cfconventions.org/Data/cf-conventions/cf-conventions-1.8/cf-conventions.html#ancillary-data">Ancillary Data</a> and <a class="reference external" href="https://cfconventions.org/Data/cf-conventions/cf-conventions-1.8/cf-conventions.html#flags">Flags</a>,</p></li>
+<li><p>the <a class="reference internal" href="../generated/api/iris/coords.html#iris.coords.CellMeasure" title="iris.coords.CellMeasure"><code class="xref py py-class docutils literal notranslate"><span class="pre">CellMeasure</span></code></a>, see <a class="reference external" href="https://cfconventions.org/Data/cf-conventions/cf-conventions-1.8/cf-conventions.html#cell-measures">Cell Measures</a>,</p></li>
+<li><p>the <a class="reference internal" href="../generated/api/iris/aux_factory.html#iris.aux_factory.AuxCoordFactory" title="iris.aux_factory.AuxCoordFactory"><code class="xref py py-class docutils literal notranslate"><span class="pre">AuxCoordFactory</span></code></a>, see <a class="reference external" href="https://cfconventions.org/Data/cf-conventions/cf-conventions-1.8/cf-conventions.html#parametric-vertical-coordinate">Parametric Vertical Coordinate</a></p></li>
+</ul>
+<p>Collectively, the aforementioned classes will be known here as the Iris
+<a class="reference external" href="https://cfconventions.org/">CF Conventions</a> classes.</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>If there are any <a class="reference external" href="https://cfconventions.org/">CF Conventions</a> metadata missing from Iris that you
+care about, then please let us know by raising a <a class="reference external" href="https://github.com/SciTools/iris/issues/new/choose">GitHub Issue</a> on
+<a class="reference external" href="https://github.com/SciTools/iris">SciTools/iris</a></p>
+</div>
+</div>
+<div class="section" id="common-metadata">
+<h2>Common metadata<a class="headerlink" href="#common-metadata" title="Permalink to this headline">¶</a></h2>
+<p>Each of the Iris <a class="reference external" href="https://cfconventions.org/">CF Conventions</a> classes use <strong>metadata</strong> to define them and
+give them meaning.</p>
+<p>The <strong>metadata</strong> used to define an Iris <a class="reference external" href="https://cfconventions.org/">CF Conventions</a> class is composed of
+individual <strong>metadata members</strong>, almost all of which reference specific
+<a class="reference external" href="https://cfconventions.org/">CF Conventions</a> terms. The individual metadata members used to define each of
+the Iris <a class="reference external" href="https://cfconventions.org/">CF Conventions</a> classes are shown in <a class="reference internal" href="#metadata-members-table"><span class="std std-numref">Table 1</span></a>.</p>
+<p>As <a class="reference internal" href="#metadata-members-table"><span class="std std-numref">Table 1</span></a> highlights, <strong>specific</strong> metadata is used to
+define and represent each Iris <a class="reference external" href="https://cfconventions.org/">CF Conventions</a> class. This means that metadata
+alone, can be used to easily <strong>identify</strong>, <strong>compare</strong> and <strong>differentiate</strong>
+between individual class instances.</p>
+<p>For example, the collective metadata used to define an
+<a class="reference internal" href="../generated/api/iris/coords.html#iris.coords.AncillaryVariable" title="iris.coords.AncillaryVariable"><code class="xref py py-class docutils literal notranslate"><span class="pre">AncillaryVariable</span></code></a> are the <code class="docutils literal notranslate"><span class="pre">standard_name</span></code>, <code class="docutils literal notranslate"><span class="pre">long_name</span></code>,
+<code class="docutils literal notranslate"><span class="pre">var_name</span></code>, <code class="docutils literal notranslate"><span class="pre">units</span></code>, and <code class="docutils literal notranslate"><span class="pre">attributes</span></code> members. Note that, these are the
+actual <a class="reference external" href="https://docs.python.org/3/tutorial/classes.html#instance-objects">data attribute</a> names of the metadata members on the Iris class.</p>
+<span id="metadata-members-table"></span><table class="colwidths-auto docutils align-center" id="id7">
+<caption><span class="caption-number">Table 1 </span><span class="caption-text">- Iris classes that model <a class="reference external" href="https://cfconventions.org/">CF Conventions</a> metadata</span><a class="headerlink" href="#id7" title="Permalink to this table">¶</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Metadata members</p></th>
+<th class="head"><p><a class="reference internal" href="../generated/api/iris/coords.html#iris.coords.AncillaryVariable" title="iris.coords.AncillaryVariable"><code class="xref py py-class docutils literal notranslate"><span class="pre">AncillaryVariable</span></code></a></p></th>
+<th class="head"><p><a class="reference internal" href="../generated/api/iris/coords.html#iris.coords.AuxCoord" title="iris.coords.AuxCoord"><code class="xref py py-class docutils literal notranslate"><span class="pre">AuxCoord</span></code></a></p></th>
+<th class="head"><p><a class="reference internal" href="../generated/api/iris/aux_factory.html#iris.aux_factory.AuxCoordFactory" title="iris.aux_factory.AuxCoordFactory"><code class="xref py py-class docutils literal notranslate"><span class="pre">AuxCoordFactory</span></code></a></p></th>
+<th class="head"><p><a class="reference internal" href="../generated/api/iris/coords.html#iris.coords.CellMeasure" title="iris.coords.CellMeasure"><code class="xref py py-class docutils literal notranslate"><span class="pre">CellMeasure</span></code></a></p></th>
+<th class="head"><p><a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a></p></th>
+<th class="head"><p><a class="reference internal" href="../generated/api/iris/coords.html#iris.coords.DimCoord" title="iris.coords.DimCoord"><code class="xref py py-class docutils literal notranslate"><span class="pre">DimCoord</span></code></a></p></th>
+<th class="head"><p>Metadata members</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">standard_name</span></code></p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">standard_name</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">long_name</span></code></p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">long_name</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">var_name</span></code></p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">var_name</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">units</span></code></p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">units</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">attributes</span></code></p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">attributes</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">coord_system</span></code></p></td>
+<td></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td></td>
+<td></td>
+<td><p>✔</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">coord_system</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">climatological</span></code></p></td>
+<td></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+<td></td>
+<td></td>
+<td><p>✔</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">climatological</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">measure</span></code></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>✔</p></td>
+<td></td>
+<td></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">measure</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">cell_methods</span></code></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>✔</p></td>
+<td></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">cell_methods</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">circular</span></code></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>✔</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">circular</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <a class="reference internal" href="../generated/api/iris/coords.html#iris.coords.DimCoord.var_name" title="iris.coords.DimCoord.var_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">var_name</span></code></a> and <a class="reference internal" href="../generated/api/iris/coords.html#iris.coords.DimCoord.circular" title="iris.coords.DimCoord.circular"><code class="xref py py-attr docutils literal notranslate"><span class="pre">circular</span></code></a>
+metadata members are Iris specific terms, rather than recognised <a class="reference external" href="https://cfconventions.org/">CF Conventions</a>
+terms.</p>
+</div>
+</div>
+<div class="section" id="common-metadata-api">
+<h2>Common metadata API<a class="headerlink" href="#common-metadata-api" title="Permalink to this headline">¶</a></h2>
+<p>As of Iris <code class="docutils literal notranslate"><span class="pre">3.0.0</span></code>, a unified treatment of metadata has been applied
+across each Iris class (<a class="reference internal" href="#metadata-members-table"><span class="std std-numref">Table 1</span></a>) to allow users
+to easily manage and manipulate their metadata in a consistent way.</p>
+<p>This is achieved through the <code class="docutils literal notranslate"><span class="pre">metadata</span></code> property, which allows you to
+manipulate the associated underlying metadata members as a collective.
+For example, given the following <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a>,</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">cube</span><span class="p">)</span>
+<span class="go">air_temperature / (K)               (time: 240; latitude: 37; longitude: 49)</span>
+<span class="go">     Dimension coordinates:</span>
+<span class="go">          time                           x              -              -</span>
+<span class="go">          latitude                       -              x              -</span>
+<span class="go">          longitude                      -              -              x</span>
+<span class="go">     Auxiliary coordinates:</span>
+<span class="go">          forecast_period                x              -              -</span>
+<span class="go">     Scalar coordinates:</span>
+<span class="go">          forecast_reference_time: 1859-09-01 06:00:00</span>
+<span class="go">          height: 1.5 m</span>
+<span class="go">     Attributes:</span>
+<span class="go">          Conventions: CF-1.5</span>
+<span class="go">          Model scenario: A1B</span>
+<span class="go">          STASH: m01s03i236</span>
+<span class="go">          source: Data from Met Office Unified Model 6.05</span>
+<span class="go">     Cell methods:</span>
+<span class="go">          mean: time (6 hour)</span>
+</pre></div>
+</div>
+<p>We can easily get all of the associated metadata of the <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a>
+using the <code class="docutils literal notranslate"><span class="pre">metadata</span></code> property:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cube</span><span class="o">.</span><span class="n">metadata</span>
+<span class="go">CubeMetadata(standard_name=&#39;air_temperature&#39;, long_name=None, var_name=&#39;air_temperature&#39;, units=Unit(&#39;K&#39;), attributes={&#39;Conventions&#39;: &#39;CF-1.5&#39;, &#39;STASH&#39;: STASH(model=1, section=3, item=236), &#39;Model scenario&#39;: &#39;A1B&#39;, &#39;source&#39;: &#39;Data from Met Office Unified Model 6.05&#39;}, cell_methods=(CellMethod(method=&#39;mean&#39;, coord_names=(&#39;time&#39;,), intervals=(&#39;6 hour&#39;,), comments=()),))</span>
+</pre></div>
+</div>
+<p>We can also inspect the <code class="docutils literal notranslate"><span class="pre">metadata</span></code> of the <code class="docutils literal notranslate"><span class="pre">longitude</span></code>
+<a class="reference internal" href="../generated/api/iris/coords.html#iris.coords.DimCoord" title="iris.coords.DimCoord"><code class="xref py py-class docutils literal notranslate"><span class="pre">DimCoord</span></code></a> attached to the <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a> in the same way:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cube</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="s2">&quot;longitude&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">metadata</span>
+<span class="go">DimCoordMetadata(standard_name=&#39;longitude&#39;, long_name=None, var_name=&#39;longitude&#39;, units=Unit(&#39;degrees&#39;), attributes={}, coord_system=GeogCS(6371229.0), climatological=False, circular=False)</span>
+</pre></div>
+</div>
+<p>Or use the <code class="docutils literal notranslate"><span class="pre">metadata</span></code> property again, but this time on the <code class="docutils literal notranslate"><span class="pre">forecast_period</span></code>
+<a class="reference internal" href="../generated/api/iris/coords.html#iris.coords.AuxCoord" title="iris.coords.AuxCoord"><code class="xref py py-class docutils literal notranslate"><span class="pre">AuxCoord</span></code></a> attached to the <a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a>:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cube</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="s2">&quot;forecast_period&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">metadata</span>
+<span class="go">CoordMetadata(standard_name=&#39;forecast_period&#39;, long_name=None, var_name=&#39;forecast_period&#39;, units=Unit(&#39;hours&#39;), attributes={}, coord_system=None, climatological=False)</span>
+</pre></div>
+</div>
+<p>Note that, the <code class="docutils literal notranslate"><span class="pre">metadata</span></code> property is available on each of the Iris <a class="reference external" href="https://cfconventions.org/">CF Conventions</a>
+class containers referenced in <a class="reference internal" href="#metadata-members-table"><span class="std std-numref">Table 1</span></a>, and thus provides
+a <strong>common</strong> and <strong>consistent</strong> approach to managing your metadata, which we’ll
+now explore a little more fully.</p>
+<div class="section" id="metadata-classes">
+<h3>Metadata classes<a class="headerlink" href="#metadata-classes" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">metadata</span></code> property will return an appropriate <a class="reference external" href="https://docs.python.org/3/library/collections.html#collections.namedtuple">namedtuple</a> metadata class
+for each Iris <a class="reference external" href="https://cfconventions.org/">CF Conventions</a> class container. The metadata class returned by
+each container class is shown in <a class="reference internal" href="#metadata-classes-table"><span class="std std-numref">Table 2</span></a> below,</p>
+<span id="metadata-classes-table"></span><table class="colwidths-auto docutils align-center" id="id8">
+<caption><span class="caption-number">Table 2 </span><span class="caption-text">- Iris namedtuple metadata classes</span><a class="headerlink" href="#id8" title="Permalink to this table">¶</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Container class</p></th>
+<th class="head"><p>Metadata class</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="../generated/api/iris/coords.html#iris.coords.AncillaryVariable" title="iris.coords.AncillaryVariable"><code class="xref py py-class docutils literal notranslate"><span class="pre">AncillaryVariable</span></code></a></p></td>
+<td><p><a class="reference internal" href="../generated/api/iris/common/metadata.html#iris.common.metadata.AncillaryVariableMetadata" title="iris.common.metadata.AncillaryVariableMetadata"><code class="xref py py-class docutils literal notranslate"><span class="pre">AncillaryVariableMetadata</span></code></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../generated/api/iris/coords.html#iris.coords.AuxCoord" title="iris.coords.AuxCoord"><code class="xref py py-class docutils literal notranslate"><span class="pre">AuxCoord</span></code></a></p></td>
+<td><p><a class="reference internal" href="../generated/api/iris/common/metadata.html#iris.common.metadata.CoordMetadata" title="iris.common.metadata.CoordMetadata"><code class="xref py py-class docutils literal notranslate"><span class="pre">CoordMetadata</span></code></a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../generated/api/iris/aux_factory.html#iris.aux_factory.AuxCoordFactory" title="iris.aux_factory.AuxCoordFactory"><code class="xref py py-class docutils literal notranslate"><span class="pre">AuxCoordFactory</span></code></a></p></td>
+<td><p><a class="reference internal" href="../generated/api/iris/common/metadata.html#iris.common.metadata.CoordMetadata" title="iris.common.metadata.CoordMetadata"><code class="xref py py-class docutils literal notranslate"><span class="pre">CoordMetadata</span></code></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../generated/api/iris/coords.html#iris.coords.CellMeasure" title="iris.coords.CellMeasure"><code class="xref py py-class docutils literal notranslate"><span class="pre">CellMeasure</span></code></a></p></td>
+<td><p><a class="reference internal" href="../generated/api/iris/common/metadata.html#iris.common.metadata.CellMeasureMetadata" title="iris.common.metadata.CellMeasureMetadata"><code class="xref py py-class docutils literal notranslate"><span class="pre">CellMeasureMetadata</span></code></a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a></p></td>
+<td><p><a class="reference internal" href="../generated/api/iris/common/metadata.html#iris.common.metadata.CubeMetadata" title="iris.common.metadata.CubeMetadata"><code class="xref py py-class docutils literal notranslate"><span class="pre">CubeMetadata</span></code></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../generated/api/iris/coords.html#iris.coords.DimCoord" title="iris.coords.DimCoord"><code class="xref py py-class docutils literal notranslate"><span class="pre">DimCoord</span></code></a></p></td>
+<td><p><a class="reference internal" href="../generated/api/iris/common/metadata.html#iris.common.metadata.DimCoordMetadata" title="iris.common.metadata.DimCoordMetadata"><code class="xref py py-class docutils literal notranslate"><span class="pre">DimCoordMetadata</span></code></a></p></td>
+</tr>
+</tbody>
+</table>
+<p>Akin to the behaviour of a <a class="reference external" href="https://docs.python.org/3/library/collections.html#collections.namedtuple">namedtuple</a>, the metadata classes in
+<a class="reference internal" href="#metadata-classes-table"><span class="std std-numref">Table 2</span></a> create <strong>tuple-like</strong> instances i.e., they provide a
+<strong>snapshot</strong> of the associated metadata member <strong>values</strong>, which are <strong>not
+settable</strong>, but they <strong>may be mutable</strong> depending on the data-type of the member.
+For example, given the following <code class="docutils literal notranslate"><span class="pre">metadata</span></code> of a <a class="reference internal" href="../generated/api/iris/coords.html#iris.coords.DimCoord" title="iris.coords.DimCoord"><code class="xref py py-class docutils literal notranslate"><span class="pre">DimCoord</span></code></a>,</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">longitude</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="s2">&quot;longitude&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">metadata</span> <span class="o">=</span> <span class="n">longitude</span><span class="o">.</span><span class="n">metadata</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">metadata</span>
+<span class="go">DimCoordMetadata(standard_name=&#39;longitude&#39;, long_name=None, var_name=&#39;longitude&#39;, units=Unit(&#39;degrees&#39;), attributes={}, coord_system=GeogCS(6371229.0), climatological=False, circular=False)</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">metadata</span></code> member value <strong>is</strong> the same as the container class member value,</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">metadata</span><span class="o">.</span><span class="n">attributes</span> <span class="ow">is</span> <span class="n">longitude</span><span class="o">.</span><span class="n">attributes</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">metadata</span><span class="o">.</span><span class="n">circular</span> <span class="ow">is</span> <span class="n">longitude</span><span class="o">.</span><span class="n">circular</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>Like a <a class="reference external" href="https://docs.python.org/3/library/collections.html#collections.namedtuple">namedtuple</a>, the <code class="docutils literal notranslate"><span class="pre">metadata</span></code> member is <strong>not settable</strong>,</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">metadata</span><span class="o">.</span><span class="n">attributes</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;grinning face&quot;</span><span class="p">:</span> <span class="s2">&quot;🙂&quot;</span><span class="p">}</span>
+<span class="gt">Traceback (most recent call last):</span>
+<span class="gr">AttributeError</span>: <span class="n">can&#39;t set attribute</span>
+</pre></div>
+</div>
+<p>However, for a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#mapping-types-dict">dict</a> member, it <strong>is mutable</strong>,</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">metadata</span><span class="o">.</span><span class="n">attributes</span>
+<span class="go">{}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">longitude</span><span class="o">.</span><span class="n">attributes</span><span class="p">[</span><span class="s2">&quot;grinning face&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;🙂&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">metadata</span><span class="o">.</span><span class="n">attributes</span>
+<span class="go">{&#39;grinning face&#39;: &#39;🙂&#39;}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">metadata</span><span class="o">.</span><span class="n">attributes</span><span class="p">[</span><span class="s2">&quot;grinning face&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;🙃&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">longitude</span><span class="o">.</span><span class="n">attributes</span>
+<span class="go">{&#39;grinning face&#39;: &#39;🙃&#39;}</span>
+</pre></div>
+</div>
+<p>But <code class="docutils literal notranslate"><span class="pre">metadata</span></code> members with simple values are <strong>not</strong> mutable,</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">metadata</span><span class="o">.</span><span class="n">circular</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">longitude</span><span class="o">.</span><span class="n">circular</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">metadata</span><span class="o">.</span><span class="n">circular</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+<p>And of course, they’re also <strong>not</strong> settable,</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">metadata</span><span class="o">.</span><span class="n">circular</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="gt">Traceback (most recent call last):</span>
+<span class="gr">AttributeError</span>: <span class="n">can&#39;t set attribute</span>
+</pre></div>
+</div>
+<p>Note that, the <code class="docutils literal notranslate"><span class="pre">metadata</span></code> property re-creates a <strong>new</strong> instance per invocation,
+with a <strong>snapshot</strong> of the container class metadata values at that point in time,</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">longitude</span><span class="o">.</span><span class="n">metadata</span>
+<span class="go">DimCoordMetadata(standard_name=&#39;longitude&#39;, long_name=None, var_name=&#39;longitude&#39;, units=Unit(&#39;degrees&#39;), attributes={&#39;grinning face&#39;: &#39;🙃&#39;}, coord_system=GeogCS(6371229.0), climatological=False, circular=True)</span>
+</pre></div>
+</div>
+<p>Skip ahead to <a class="reference internal" href="#metadata-assignment"><span class="std std-ref">metadata assignment</span></a> for a fuller
+discussion on options how to <strong>set</strong> and <strong>get</strong> metadata on the instance of
+an Iris <a class="reference external" href="https://cfconventions.org/">CF Conventions</a> container class (<a class="reference internal" href="#metadata-classes-table"><span class="std std-numref">Table 2</span></a>).</p>
+</div>
+<div class="section" id="metadata-class-behaviour">
+<h3>Metadata class behaviour<a class="headerlink" href="#metadata-class-behaviour" title="Permalink to this headline">¶</a></h3>
+<p>As mentioned previously, the metadata classes in <a class="reference internal" href="#metadata-classes-table"><span class="std std-numref">Table 2</span></a>
+inherit the behaviour of a <a class="reference external" href="https://docs.python.org/3/library/collections.html#collections.namedtuple">namedtuple</a>, and so act and feel like a <a class="reference external" href="https://docs.python.org/3/library/collections.html#collections.namedtuple">namedtuple</a>,
+just as you might expect. For example, given the following <code class="docutils literal notranslate"><span class="pre">metadata</span></code>,</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">metadata</span>
+<span class="go">DimCoordMetadata(standard_name=&#39;longitude&#39;, long_name=None, var_name=&#39;longitude&#39;, units=Unit(&#39;degrees&#39;), attributes={&#39;grinning face&#39;: &#39;🙃&#39;}, coord_system=GeogCS(6371229.0), climatological=False, circular=False)</span>
+</pre></div>
+</div>
+<p>We can use the <a class="reference external" href="https://docs.python.org/3/library/collections.html#collections.somenamedtuple._make">namedtuple._make</a> method to create a <strong>new</strong>
+<a class="reference internal" href="../generated/api/iris/common/metadata.html#iris.common.metadata.DimCoordMetadata" title="iris.common.metadata.DimCoordMetadata"><code class="xref py py-class docutils literal notranslate"><span class="pre">DimCoordMetadata</span></code></a> instance from an existing sequence
+or iterable. The number and order of the values used in the iterable must match that
+of the associated <a class="reference external" href="https://docs.python.org/3/library/collections.html#collections.somenamedtuple._fields">namedtuple._fields</a>, which is discussed later,</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">values</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">metadata</span><span class="o">.</span><span class="n">_make</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+<span class="go">DimCoordMetadata(standard_name=1, long_name=2, var_name=3, units=4, attributes=5, coord_system=6, climatological=7, circular=8)</span>
+</pre></div>
+</div>
+<p>Note that, <a class="reference external" href="https://docs.python.org/3/library/collections.html#collections.somenamedtuple._make">namedtuple._make</a> is a class method, and so it is possible to
+create a <strong>new</strong> instance directly from the metadata class itself,</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">iris.common</span> <span class="kn">import</span> <span class="n">DimCoordMetadata</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">DimCoordMetadata</span><span class="o">.</span><span class="n">_make</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+<span class="go">DimCoordMetadata(standard_name=1, long_name=2, var_name=3, units=4, attributes=5, coord_system=6, climatological=7, circular=8)</span>
+</pre></div>
+</div>
+<p>It is also possible to easily convert <code class="docutils literal notranslate"><span class="pre">metadata</span></code> to an <a class="reference external" href="https://docs.python.org/3/library/collections.html#collections.OrderedDict">OrderedDict</a>
+using the <a class="reference external" href="https://docs.python.org/3/library/collections.html#collections.somenamedtuple._asdict">namedtuple._asdict</a> method. This can be particularly handy when a
+standard Python built-in container is required to represent your <code class="docutils literal notranslate"><span class="pre">metadata</span></code>,</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">metadata</span><span class="o">.</span><span class="n">_asdict</span><span class="p">()</span>
+<span class="go">OrderedDict([(&#39;standard_name&#39;, &#39;longitude&#39;), (&#39;long_name&#39;, None), (&#39;var_name&#39;, &#39;longitude&#39;), (&#39;units&#39;, Unit(&#39;degrees&#39;)), (&#39;attributes&#39;, {&#39;grinning face&#39;: &#39;🙃&#39;}), (&#39;coord_system&#39;, GeogCS(6371229.0)), (&#39;climatological&#39;, False), (&#39;circular&#39;, False)])</span>
+</pre></div>
+</div>
+<p>Using the <a class="reference external" href="https://docs.python.org/3/library/collections.html#collections.somenamedtuple._replace">namedtuple._replace</a> method allows you to create a new metadata
+class instance, but replacing specified members with <strong>new</strong> associated values,</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">metadata</span>
+<span class="go">DimCoordMetadata(standard_name=&#39;longitude&#39;, long_name=None, var_name=&#39;longitude&#39;, units=Unit(&#39;degrees&#39;), attributes={&#39;grinning face&#39;: &#39;🙃&#39;}, coord_system=GeogCS(6371229.0), climatological=False, circular=False)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">metadata</span><span class="o">.</span><span class="n">_replace</span><span class="p">(</span><span class="n">standard_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="go">DimCoordMetadata(standard_name=None, long_name=None, var_name=&#39;longitude&#39;, units=None, attributes={&#39;grinning face&#39;: &#39;🙃&#39;}, coord_system=GeogCS(6371229.0), climatological=False, circular=False)</span>
+</pre></div>
+</div>
+<p>Another very useful method from the <a class="reference external" href="https://docs.python.org/3/library/collections.html#collections.namedtuple">namedtuple</a> toolkit is <a class="reference external" href="https://docs.python.org/3/library/collections.html#collections.somenamedtuple._fields">namedtuple._fields</a>.
+This method returns a tuple of strings listing the <code class="docutils literal notranslate"><span class="pre">metadata</span></code> members, in a
+fixed order. This allows you to easily iterate over the metadata class members,
+for what ever purpose you may require, e.g.,</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">metadata</span><span class="o">.</span><span class="n">_fields</span>
+<span class="go">(&#39;standard_name&#39;, &#39;long_name&#39;, &#39;var_name&#39;, &#39;units&#39;, &#39;attributes&#39;, &#39;coord_system&#39;, &#39;climatological&#39;, &#39;circular&#39;)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">tuple</span><span class="p">([</span><span class="nb">getattr</span><span class="p">(</span><span class="n">metadata</span><span class="p">,</span> <span class="n">member</span><span class="p">)</span> <span class="k">for</span> <span class="n">member</span> <span class="ow">in</span> <span class="n">metadata</span><span class="o">.</span><span class="n">_fields</span><span class="p">])</span>
+<span class="go">(&#39;longitude&#39;, None, &#39;longitude&#39;, Unit(&#39;degrees&#39;), {&#39;grinning face&#39;: &#39;🙃&#39;}, GeogCS(6371229.0), False, False)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">tuple</span><span class="p">([</span><span class="nb">getattr</span><span class="p">(</span><span class="n">metadata</span><span class="p">,</span> <span class="n">member</span><span class="p">)</span> <span class="k">for</span> <span class="n">member</span> <span class="ow">in</span> <span class="n">metadata</span><span class="o">.</span><span class="n">_fields</span> <span class="k">if</span> <span class="n">member</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)])</span>
+<span class="go">(&#39;longitude&#39;, None, &#39;longitude&#39;)</span>
+</pre></div>
+</div>
+<p>Note that, <a class="reference external" href="https://docs.python.org/3/library/collections.html#collections.somenamedtuple._fields">namedtuple._fields</a> is also a class method, so you don’t need
+an instance to determine the members of a metadata class, e.g.,</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">iris.common</span> <span class="kn">import</span> <span class="n">CubeMetadata</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">CubeMetadata</span><span class="o">.</span><span class="n">_fields</span>
+<span class="go">(&#39;standard_name&#39;, &#39;long_name&#39;, &#39;var_name&#39;, &#39;units&#39;, &#39;attributes&#39;, &#39;cell_methods&#39;)</span>
+</pre></div>
+</div>
+<p>Aside from the benefit of metadata classes inheriting behaviour and state
+from <a class="reference external" href="https://docs.python.org/3/library/collections.html#collections.namedtuple">namedtuple</a>, further additional rich behaviour is also available,
+which we explore next.</p>
+</div>
+<div class="section" id="richer-metadata-behaviour">
+<span id="richer-metadata"></span><h3>Richer metadata behaviour<a class="headerlink" href="#richer-metadata-behaviour" title="Permalink to this headline">¶</a></h3>
+<p>The metadata classes from <a class="reference internal" href="#metadata-classes-table"><span class="std std-numref">Table 2</span></a> support additional
+behaviour above and beyond that of the  standard Python <a class="reference external" href="https://docs.python.org/3/library/collections.html#collections.namedtuple">namedtuple</a>, which
+allows you to easily <strong>compare</strong>, <strong>combine</strong>, <strong>convert</strong> and understand the
+<strong>difference</strong> between your <code class="docutils literal notranslate"><span class="pre">metadata</span></code> instances.</p>
+<div class="section" id="metadata-equality">
+<span id="id2"></span><h4>Metadata equality<a class="headerlink" href="#metadata-equality" title="Permalink to this headline">¶</a></h4>
+<p>The metadata classes support both <strong>equality</strong> (<code class="docutils literal notranslate"><span class="pre">__eq__</span></code>) and <strong>inequality</strong>
+(<code class="docutils literal notranslate"><span class="pre">__ne__</span></code>), but no other <a class="reference external" href="https://www.python.org/dev/peps/pep-0207/">rich comparison</a> operators are implemented.
+This is simply because there is no obvious ordering to any collective of metadata
+members, as defined in <a class="reference internal" href="#metadata-members-table"><span class="std std-numref">Table 1</span></a>.</p>
+<p>For example, given the following <a class="reference internal" href="../generated/api/iris/coords.html#iris.coords.DimCoord" title="iris.coords.DimCoord"><code class="xref py py-class docutils literal notranslate"><span class="pre">DimCoord</span></code></a>,</p>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">longitude</span><span class="o">.</span><span class="n">metadata</span>
+<span class="go">DimCoordMetadata(standard_name=&#39;longitude&#39;, long_name=None, var_name=&#39;longitude&#39;, units=Unit(&#39;degrees&#39;), attributes={}, coord_system=GeogCS(6371229.0), climatological=False, circular=False)</span>
+</pre></div>
+</div>
+<p>We can compare <code class="docutils literal notranslate"><span class="pre">metadata</span></code> using the <code class="docutils literal notranslate"><span class="pre">==</span></code> operator, as you may naturally
+expect,</p>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">longitude</span><span class="o">.</span><span class="n">metadata</span> <span class="o">==</span> <span class="n">longitude</span><span class="o">.</span><span class="n">metadata</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>Or alternatively, using the <code class="docutils literal notranslate"><span class="pre">equal</span></code> method instead,</p>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">longitude</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">equal</span><span class="p">(</span><span class="n">longitude</span><span class="o">.</span><span class="n">metadata</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>Note that, the <code class="docutils literal notranslate"><span class="pre">==</span></code> operator (<code class="docutils literal notranslate"><span class="pre">__eq__</span></code>) and the <code class="docutils literal notranslate"><span class="pre">equal</span></code> method are
+both functionally equivalent. However, the <code class="docutils literal notranslate"><span class="pre">equal</span></code> method also provides
+a means to enable <strong>lenient</strong> equality, as discussed in <a class="reference internal" href="lenient_metadata.html#lenient-equality"><span class="std std-ref">Lenient equality</span></a>.</p>
+<div class="section" id="strict-equality">
+<span id="id3"></span><h5>Strict equality<a class="headerlink" href="#strict-equality" title="Permalink to this headline">¶</a></h5>
+<p>By default, metadata class equality will perform a <strong>strict</strong> comparison between
+each associated <code class="docutils literal notranslate"><span class="pre">metadata</span></code> member. If <strong>any</strong> <code class="docutils literal notranslate"><span class="pre">metadata</span></code> member has a
+different value, then the result of the operation will be <code class="docutils literal notranslate"><span class="pre">False</span></code>. For example,</p>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">other</span> <span class="o">=</span> <span class="n">longitude</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">_replace</span><span class="p">(</span><span class="n">standard_name</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">other</span>
+<span class="go">DimCoordMetadata(standard_name=None, long_name=None, var_name=&#39;longitude&#39;, units=Unit(&#39;degrees&#39;), attributes={}, coord_system=GeogCS(6371229.0), climatological=False, circular=False)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">longitude</span><span class="o">.</span><span class="n">metadata</span> <span class="o">==</span> <span class="n">other</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">longitude</span><span class="o">.</span><span class="n">attributes</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;grinning face&quot;</span><span class="p">:</span> <span class="s2">&quot;🙂&quot;</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">other</span> <span class="o">=</span> <span class="n">longitude</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">_replace</span><span class="p">(</span><span class="n">attributes</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;grinning face&quot;</span><span class="p">:</span>  <span class="s2">&quot;🙃&quot;</span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">other</span>
+<span class="go">DimCoordMetadata(standard_name=&#39;longitude&#39;, long_name=None, var_name=&#39;longitude&#39;, units=Unit(&#39;degrees&#39;), attributes={&#39;grinning face&#39;: &#39;🙃&#39;}, coord_system=GeogCS(6371229.0), climatological=False, circular=False)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">longitude</span><span class="o">.</span><span class="n">metadata</span> <span class="o">==</span> <span class="n">other</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+<p>One further point worth highlighting is it is possible for <a class="reference external" href="https://github.com/numpy/numpy">NumPy</a> scalars
+and arrays to appear in the <code class="docutils literal notranslate"><span class="pre">attributes</span></code> <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#mapping-types-dict">dict</a> of some Iris metadata class
+instances. Normally, this would cause issues. For example,</p>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">simply</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;one&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">int</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="s2">&quot;two&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">])}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">simply</span>
+<span class="go">{&#39;one&#39;: 1, &#39;two&#39;: array([1., 2.])}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fruity</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;one&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">int</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="s2">&quot;two&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">])}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fruity</span>
+<span class="go">{&#39;one&#39;: 1, &#39;two&#39;: array([1., 2.])}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">simply</span> <span class="o">==</span> <span class="n">fruity</span>
+<span class="gt">Traceback (most recent call last):</span>
+<span class="gr">ValueError</span>: <span class="n">The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()</span>
+</pre></div>
+</div>
+<p>However, metadata class equality is rich enough to handle this eventuality,</p>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">metadata1</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">_replace</span><span class="p">(</span><span class="n">attributes</span><span class="o">=</span><span class="n">simply</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">metadata2</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">_replace</span><span class="p">(</span><span class="n">attributes</span><span class="o">=</span><span class="n">fruity</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">metadata1</span>
+<span class="go">CubeMetadata(standard_name=&#39;air_temperature&#39;, long_name=None, var_name=&#39;air_temperature&#39;, units=Unit(&#39;K&#39;), attributes={&#39;one&#39;: 1, &#39;two&#39;: array([1., 2.])}, cell_methods=(CellMethod(method=&#39;mean&#39;, coord_names=(&#39;time&#39;,), intervals=(&#39;6 hour&#39;,), comments=()),))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">metadata2</span>
+<span class="go">CubeMetadata(standard_name=&#39;air_temperature&#39;, long_name=None, var_name=&#39;air_temperature&#39;, units=Unit(&#39;K&#39;), attributes={&#39;one&#39;: 1, &#39;two&#39;: array([1., 2.])}, cell_methods=(CellMethod(method=&#39;mean&#39;, coord_names=(&#39;time&#39;,), intervals=(&#39;6 hour&#39;,), comments=()),))</span>
+</pre></div>
+</div>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">metadata1</span> <span class="o">==</span> <span class="n">metadata2</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">metadata1</span>
+<span class="go">CubeMetadata(standard_name=&#39;air_temperature&#39;, long_name=None, var_name=&#39;air_temperature&#39;, units=Unit(&#39;K&#39;), attributes={&#39;one&#39;: 1, &#39;two&#39;: array([1., 2.])}, cell_methods=(CellMethod(method=&#39;mean&#39;, coord_names=(&#39;time&#39;,), intervals=(&#39;6 hour&#39;,), comments=()),))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">metadata2</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">_replace</span><span class="p">(</span><span class="n">attributes</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;one&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">int</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="s2">&quot;two&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1000.0</span><span class="p">,</span> <span class="mf">2000.0</span><span class="p">])})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">metadata2</span>
+<span class="go">CubeMetadata(standard_name=&#39;air_temperature&#39;, long_name=None, var_name=&#39;air_temperature&#39;, units=Unit(&#39;K&#39;), attributes={&#39;one&#39;: 1, &#39;two&#39;: array([1000., 2000.])}, cell_methods=(CellMethod(method=&#39;mean&#39;, coord_names=(&#39;time&#39;,), intervals=(&#39;6 hour&#39;,), comments=()),))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">metadata1</span> <span class="o">==</span> <span class="n">metadata2</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="comparing-like-with-like">
+<span id="compare-like"></span><h5>Comparing like with like<a class="headerlink" href="#comparing-like-with-like" title="Permalink to this headline">¶</a></h5>
+<p>So far in our journey through metadata class equality, we have only considered
+cases where the operands are instances of the <strong>same</strong> type. It is possible to
+compare instances of <strong>different</strong> metadata classes, but the result will always
+be <code class="docutils literal notranslate"><span class="pre">False</span></code>,</p>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cube</span><span class="o">.</span><span class="n">metadata</span> <span class="o">==</span> <span class="n">longitude</span><span class="o">.</span><span class="n">metadata</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+<p>The reason different metadata classes cannot be compared is simply because each
+metadata class contains <strong>different</strong> members, as shown in
+<a class="reference internal" href="#metadata-members-table"><span class="std std-numref">Table 1</span></a>. However, there is an exception to the rule…</p>
+<div class="section" id="exception-to-the-rule">
+<span id="exception-rule"></span><h6>Exception to the rule<a class="headerlink" href="#exception-to-the-rule" title="Permalink to this headline">¶</a></h6>
+<p>In general, <strong>different</strong> metadata classes cannot be compared, however support
+is provided for comparing <a class="reference internal" href="../generated/api/iris/common/metadata.html#iris.common.metadata.CoordMetadata" title="iris.common.metadata.CoordMetadata"><code class="xref py py-class docutils literal notranslate"><span class="pre">CoordMetadata</span></code></a> and
+<a class="reference internal" href="../generated/api/iris/common/metadata.html#iris.common.metadata.DimCoordMetadata" title="iris.common.metadata.DimCoordMetadata"><code class="xref py py-class docutils literal notranslate"><span class="pre">DimCoordMetadata</span></code></a> metadata classes. For example,
+consider the following <a class="reference internal" href="../generated/api/iris/common/metadata.html#iris.common.metadata.DimCoordMetadata" title="iris.common.metadata.DimCoordMetadata"><code class="xref py py-class docutils literal notranslate"><span class="pre">DimCoordMetadata</span></code></a>,</p>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">latitude</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="s2">&quot;latitude&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">latitude</span><span class="o">.</span><span class="n">metadata</span>
+<span class="go">DimCoordMetadata(standard_name=&#39;latitude&#39;, long_name=None, var_name=&#39;latitude&#39;, units=Unit(&#39;degrees&#39;), attributes={}, coord_system=GeogCS(6371229.0), climatological=False, circular=False)</span>
+</pre></div>
+</div>
+<p>Next we create a new <a class="reference internal" href="../generated/api/iris/common/metadata.html#iris.common.metadata.CoordMetadata" title="iris.common.metadata.CoordMetadata"><code class="xref py py-class docutils literal notranslate"><span class="pre">CoordMetadata</span></code></a> instance from
+the <a class="reference internal" href="../generated/api/iris/common/metadata.html#iris.common.metadata.DimCoordMetadata" title="iris.common.metadata.DimCoordMetadata"><code class="xref py py-class docutils literal notranslate"><span class="pre">DimCoordMetadata</span></code></a> instance,</p>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">kwargs</span> <span class="o">=</span> <span class="n">latitude</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">_asdict</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">del</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;circular&quot;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">metadata</span> <span class="o">=</span> <span class="n">CoordMetadata</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">metadata</span>
+<span class="go">CoordMetadata(standard_name=&#39;latitude&#39;, long_name=None, var_name=&#39;latitude&#39;, units=Unit(&#39;degrees&#39;), attributes={}, coord_system=GeogCS(6371229.0), climatological=False)</span>
+</pre></div>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Alternatively, use the <code class="docutils literal notranslate"><span class="pre">from_metadata</span></code> class method instead, see
+<a class="reference internal" href="#metadata-conversion"><span class="std std-ref">Metadata conversion</span></a>.</p>
+</div>
+<p>Comparing the instances confirms that equality is indeed supported between
+<a class="reference internal" href="../generated/api/iris/common/metadata.html#iris.common.metadata.DimCoordMetadata" title="iris.common.metadata.DimCoordMetadata"><code class="xref py py-class docutils literal notranslate"><span class="pre">DimCoordMetadata</span></code></a> and <a class="reference internal" href="../generated/api/iris/common/metadata.html#iris.common.metadata.CoordMetadata" title="iris.common.metadata.CoordMetadata"><code class="xref py py-class docutils literal notranslate"><span class="pre">CoordMetadata</span></code></a>
+classes,</p>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">latitude</span><span class="o">.</span><span class="n">metadata</span> <span class="o">==</span> <span class="n">metadata</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>The reason for this behaviour is primarily historical. The <code class="docutils literal notranslate"><span class="pre">circular</span></code>
+member has <strong>never</strong> been used by the <code class="docutils literal notranslate"><span class="pre">__eq__</span></code> operator when comparing an
+<a class="reference internal" href="../generated/api/iris/coords.html#iris.coords.AuxCoord" title="iris.coords.AuxCoord"><code class="xref py py-class docutils literal notranslate"><span class="pre">AuxCoord</span></code></a> and a <a class="reference internal" href="../generated/api/iris/coords.html#iris.coords.DimCoord" title="iris.coords.DimCoord"><code class="xref py py-class docutils literal notranslate"><span class="pre">DimCoord</span></code></a>. Therefore
+for consistency, this behaviour is also extended to <code class="docutils literal notranslate"><span class="pre">__eq__</span></code> for the associated
+container metadata classes.</p>
+<p>However, note that the <code class="docutils literal notranslate"><span class="pre">circular</span></code> member <strong>is used</strong> by the <code class="docutils literal notranslate"><span class="pre">__eq__</span></code> operator
+when comparing one <a class="reference internal" href="../generated/api/iris/coords.html#iris.coords.DimCoord" title="iris.coords.DimCoord"><code class="xref py py-class docutils literal notranslate"><span class="pre">DimCoord</span></code></a> to another. This also applies
+when comparing <a class="reference internal" href="../generated/api/iris/common/metadata.html#iris.common.metadata.DimCoordMetadata" title="iris.common.metadata.DimCoordMetadata"><code class="xref py py-class docutils literal notranslate"><span class="pre">DimCoordMetadata</span></code></a>.</p>
+<p>This exception to the rule for <a class="reference internal" href="#metadata-equality"><span class="std std-ref">equality</span></a> also applies
+to the <a class="reference internal" href="#metadata-difference"><span class="std std-ref">difference</span></a> and <a class="reference internal" href="#metadata-combine"><span class="std std-ref">combine</span></a>
+methods of metadata classes.</p>
+</div>
+</div>
+</div>
+<div class="section" id="metadata-difference">
+<span id="id4"></span><h4>Metadata difference<a class="headerlink" href="#metadata-difference" title="Permalink to this headline">¶</a></h4>
+<p>Being able to compare metadata is valuable, especially when we have the
+convenience of being able to do this easily with metadata classes. However,
+when the result of comparing two metadata instances is <code class="docutils literal notranslate"><span class="pre">False</span></code>, it begs
+the question, “<strong>what’s the difference?</strong>”</p>
+<p>Well, this is where we pull the <code class="docutils literal notranslate"><span class="pre">difference</span></code> method out of the metadata
+toolbox. First, let’s create some <code class="docutils literal notranslate"><span class="pre">metadata</span></code> to compare,</p>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">longitude</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="s2">&quot;longitude&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">longitude</span><span class="o">.</span><span class="n">metadata</span>
+<span class="go">DimCoordMetadata(standard_name=&#39;longitude&#39;, long_name=None, var_name=&#39;longitude&#39;, units=Unit(&#39;degrees&#39;), attributes={&#39;grinning face&#39;: &#39;🙂&#39;}, coord_system=GeogCS(6371229.0), climatological=False, circular=False)</span>
+</pre></div>
+</div>
+<p>Now, we replace some members of the <a class="reference internal" href="../generated/api/iris/common/metadata.html#iris.common.metadata.DimCoordMetadata" title="iris.common.metadata.DimCoordMetadata"><code class="xref py py-class docutils literal notranslate"><span class="pre">DimCoordMetadata</span></code></a> with
+different values,</p>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">cf_units</span> <span class="kn">import</span> <span class="n">Unit</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">metadata</span> <span class="o">=</span> <span class="n">longitude</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">_replace</span><span class="p">(</span><span class="n">long_name</span><span class="o">=</span><span class="s2">&quot;lon&quot;</span><span class="p">,</span> <span class="n">var_name</span><span class="o">=</span><span class="s2">&quot;lon&quot;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="n">Unit</span><span class="p">(</span><span class="s2">&quot;radians&quot;</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">metadata</span>
+<span class="go">DimCoordMetadata(standard_name=&#39;longitude&#39;, long_name=&#39;lon&#39;, var_name=&#39;lon&#39;, units=Unit(&#39;radians&#39;), attributes={&#39;grinning face&#39;: &#39;🙂&#39;}, coord_system=GeogCS(6371229.0), climatological=False, circular=False)</span>
+</pre></div>
+</div>
+<p>First, confirm that the <code class="docutils literal notranslate"><span class="pre">metadata</span></code> is different,</p>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">longitude</span><span class="o">.</span><span class="n">metadata</span> <span class="o">!=</span> <span class="n">metadata</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>As expected, the <code class="docutils literal notranslate"><span class="pre">metadata</span></code> is different. Now, let’s answer the question,
+“<strong>what’s the difference?</strong>”,</p>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">longitude</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">metadata</span><span class="p">)</span>
+<span class="go">DimCoordMetadata(standard_name=None, long_name=(None, &#39;lon&#39;), var_name=(&#39;longitude&#39;, &#39;lon&#39;), units=(Unit(&#39;degrees&#39;), Unit(&#39;radians&#39;)), attributes=None, coord_system=None, climatological=None, circular=None)</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">difference</span></code> method returns a <a class="reference internal" href="../generated/api/iris/common/metadata.html#iris.common.metadata.DimCoordMetadata" title="iris.common.metadata.DimCoordMetadata"><code class="xref py py-class docutils literal notranslate"><span class="pre">DimCoordMetadata</span></code></a> instance, when
+there is <strong>at least</strong> one <code class="docutils literal notranslate"><span class="pre">metadata</span></code> member with a different value, where,</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">None</span></code> means that there was <strong>no</strong> difference for the member,</p></li>
+<li><p>a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuples">tuple</a> contains the two different associated values for the member</p></li>
+</ul>
+<p>Given our example, only the <code class="docutils literal notranslate"><span class="pre">long_name</span></code>, <code class="docutils literal notranslate"><span class="pre">var_name</span></code> and <code class="docutils literal notranslate"><span class="pre">units</span></code> members
+have different values, as expected. Note that, the <code class="docutils literal notranslate"><span class="pre">difference</span></code> method <strong>is
+not</strong> commutative. The order of the tuple member values is the same order
+of the metadata class instances being compared, e.g., changing the
+<code class="docutils literal notranslate"><span class="pre">difference</span></code> instance order is reflected in the result,</p>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">metadata</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">longitude</span><span class="o">.</span><span class="n">metadata</span><span class="p">)</span>
+<span class="go">DimCoordMetadata(standard_name=None, long_name=(&#39;lon&#39;, None), var_name=(&#39;lon&#39;, &#39;longitude&#39;), units=(Unit(&#39;radians&#39;), Unit(&#39;degrees&#39;)), attributes=None, coord_system=None, climatological=None, circular=None)</span>
+</pre></div>
+</div>
+<p>Also, when the <code class="docutils literal notranslate"><span class="pre">metadata</span></code> being compared <strong>is identical</strong>, then <code class="docutils literal notranslate"><span class="pre">None</span></code>
+is simply returned,</p>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">metadata</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">metadata</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>It’s worth highlighting that for the <code class="docutils literal notranslate"><span class="pre">attributes</span></code> <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#mapping-types-dict">dict</a> member, only
+those keys with <strong>different values</strong> or <strong>missing keys</strong> will be returned by the
+<code class="docutils literal notranslate"><span class="pre">difference</span></code> method. For example, let’s customise the <code class="docutils literal notranslate"><span class="pre">attributes</span></code> member of
+the following <a class="reference internal" href="../generated/api/iris/common/metadata.html#iris.common.metadata.DimCoordMetadata" title="iris.common.metadata.DimCoordMetadata"><code class="xref py py-class docutils literal notranslate"><span class="pre">DimCoordMetadata</span></code></a>,</p>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">attributes</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;grinning face&quot;</span><span class="p">:</span> <span class="s2">&quot;😀&quot;</span><span class="p">,</span> <span class="s2">&quot;neutral face&quot;</span><span class="p">:</span> <span class="s2">&quot;😐&quot;</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">longitude</span><span class="o">.</span><span class="n">attributes</span> <span class="o">=</span> <span class="n">attributes</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">longitude</span><span class="o">.</span><span class="n">metadata</span>
+<span class="go">DimCoordMetadata(standard_name=&#39;longitude&#39;, long_name=None, var_name=&#39;longitude&#39;, units=Unit(&#39;degrees&#39;), attributes={&#39;grinning face&#39;: &#39;😀&#39;, &#39;neutral face&#39;: &#39;😐&#39;}, coord_system=GeogCS(6371229.0), climatological=False, circular=False)</span>
+</pre></div>
+</div>
+<p>Then create another <a class="reference internal" href="../generated/api/iris/common/metadata.html#iris.common.metadata.DimCoordMetadata" title="iris.common.metadata.DimCoordMetadata"><code class="xref py py-class docutils literal notranslate"><span class="pre">DimCoordMetadata</span></code></a> with a different
+<code class="docutils literal notranslate"><span class="pre">attributes</span></code> <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#mapping-types-dict">dict</a>, namely,</p>
+<ul class="simple">
+<li><p>the <code class="docutils literal notranslate"><span class="pre">grinning</span> <span class="pre">face</span></code> key has the <strong>same value</strong>,</p></li>
+<li><p>the <code class="docutils literal notranslate"><span class="pre">neutral</span> <span class="pre">face</span></code> key has a <strong>different value</strong>,</p></li>
+<li><p>the <code class="docutils literal notranslate"><span class="pre">upside-down</span> <span class="pre">face</span></code> key is <strong>new</strong></p></li>
+</ul>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">attributes</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;grinning face&quot;</span><span class="p">:</span> <span class="s2">&quot;😀&quot;</span><span class="p">,</span> <span class="s2">&quot;neutral face&quot;</span><span class="p">:</span> <span class="s2">&quot;😜&quot;</span><span class="p">,</span> <span class="s2">&quot;upside-down face&quot;</span><span class="p">:</span> <span class="s2">&quot;🙃&quot;</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">metadata</span> <span class="o">=</span> <span class="n">longitude</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">_replace</span><span class="p">(</span><span class="n">attributes</span><span class="o">=</span><span class="n">attributes</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">metadata</span>
+<span class="go">DimCoordMetadata(standard_name=&#39;longitude&#39;, long_name=None, var_name=&#39;longitude&#39;, units=Unit(&#39;degrees&#39;), attributes={&#39;grinning face&#39;: &#39;😀&#39;, &#39;neutral face&#39;: &#39;😜&#39;, &#39;upside-down face&#39;: &#39;🙃&#39;}, coord_system=GeogCS(6371229.0), climatological=False, circular=False)</span>
+</pre></div>
+</div>
+<p>Now, let’s compare the two above instances and see what <code class="docutils literal notranslate"><span class="pre">attributes</span></code> member differences we get,</p>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">longitude</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">metadata</span><span class="p">)</span>  
+<span class="go">DimCoordMetadata(standard_name=None, long_name=None, var_name=None, units=None, attributes=({&#39;neutral face&#39;: &#39;😐&#39;}, {&#39;neutral face&#39;: &#39;😜&#39;, &#39;upside-down face&#39;: &#39;🙃&#39;}), coord_system=None, climatological=None, circular=None)</span>
+</pre></div>
+</div>
+<div class="section" id="diffing-like-with-like">
+<span id="diff-like"></span><h5>Diffing like with like<a class="headerlink" href="#diffing-like-with-like" title="Permalink to this headline">¶</a></h5>
+<p>As discussed in <a class="reference internal" href="#compare-like"><span class="std std-ref">Comparing like with like</span></a>, it only makes sense to determine the
+<code class="docutils literal notranslate"><span class="pre">difference</span></code> between <strong>similar</strong> metadata class instances. However, note that
+the <a class="reference internal" href="#exception-rule"><span class="std std-ref">exception to the rule</span></a> still applies here i.e.,
+support is provided between <a class="reference internal" href="../generated/api/iris/common/metadata.html#iris.common.metadata.CoordMetadata" title="iris.common.metadata.CoordMetadata"><code class="xref py py-class docutils literal notranslate"><span class="pre">CoordMetadata</span></code></a> and
+<a class="reference internal" href="../generated/api/iris/common/metadata.html#iris.common.metadata.DimCoordMetadata" title="iris.common.metadata.DimCoordMetadata"><code class="xref py py-class docutils literal notranslate"><span class="pre">DimCoordMetadata</span></code></a> metadata classes.</p>
+<p>For example, given the following <a class="reference internal" href="../generated/api/iris/coords.html#iris.coords.AuxCoord" title="iris.coords.AuxCoord"><code class="xref py py-class docutils literal notranslate"><span class="pre">AuxCoord</span></code></a> and
+<a class="reference internal" href="../generated/api/iris/coords.html#iris.coords.DimCoord" title="iris.coords.DimCoord"><code class="xref py py-class docutils literal notranslate"><span class="pre">DimCoord</span></code></a>,</p>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">forecast_period</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="s2">&quot;forecast_period&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">latitude</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="s2">&quot;latitude&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We can inspect their associated <code class="docutils literal notranslate"><span class="pre">metadata</span></code>,</p>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">forecast_period</span><span class="o">.</span><span class="n">metadata</span>
+<span class="go">CoordMetadata(standard_name=&#39;forecast_period&#39;, long_name=None, var_name=&#39;forecast_period&#39;, units=Unit(&#39;hours&#39;), attributes={}, coord_system=None, climatological=False)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">latitude</span><span class="o">.</span><span class="n">metadata</span>
+<span class="go">DimCoordMetadata(standard_name=&#39;latitude&#39;, long_name=None, var_name=&#39;latitude&#39;, units=Unit(&#39;degrees&#39;), attributes={}, coord_system=GeogCS(6371229.0), climatological=False, circular=False)</span>
+</pre></div>
+</div>
+<p>Before comparing them to determine the values of metadata members that are different,</p>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">forecast_period</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">latitude</span><span class="o">.</span><span class="n">metadata</span><span class="p">)</span>
+<span class="go">CoordMetadata(standard_name=(&#39;forecast_period&#39;, &#39;latitude&#39;), long_name=None, var_name=(&#39;forecast_period&#39;, &#39;latitude&#39;), units=(Unit(&#39;hours&#39;), Unit(&#39;degrees&#39;)), attributes=None, coord_system=(None, GeogCS(6371229.0)), climatological=None)</span>
+</pre></div>
+</div>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">latitude</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">forecast_period</span><span class="o">.</span><span class="n">metadata</span><span class="p">)</span>
+<span class="go">DimCoordMetadata(standard_name=(&#39;latitude&#39;, &#39;forecast_period&#39;), long_name=None, var_name=(&#39;latitude&#39;, &#39;forecast_period&#39;), units=(Unit(&#39;degrees&#39;), Unit(&#39;hours&#39;)), attributes=None, coord_system=(GeogCS(6371229.0), None), climatological=None, circular=(False, None))</span>
+</pre></div>
+</div>
+<p>In general, however, comparing <strong>different</strong> metadata classes will result in a
+<code class="docutils literal notranslate"><span class="pre">TypeError</span></code> being raised,</p>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cube</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">longitude</span><span class="o">.</span><span class="n">metadata</span><span class="p">)</span>
+<span class="gt">Traceback (most recent call last):</span>
+<span class="gr">TypeError</span>: <span class="n">Cannot differ &#39;CubeMetadata&#39; with &lt;class &#39;iris.common.metadata.DimCoordMetadata&#39;&gt;.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="metadata-combination">
+<span id="metadata-combine"></span><h4>Metadata combination<a class="headerlink" href="#metadata-combination" title="Permalink to this headline">¶</a></h4>
+<p>So far we’ve seen how to <a class="reference internal" href="#metadata-equality"><span class="std std-ref">compare metadata</span></a>, and also how
+to determine the <a class="reference internal" href="#metadata-difference"><span class="std std-ref">difference between metadata</span></a>. Now we
+take the next step, and explore how to combine metadata together using the <code class="docutils literal notranslate"><span class="pre">combine</span></code>
+metadata class method.</p>
+<p>For example, consider the following <a class="reference internal" href="../generated/api/iris/common/metadata.html#iris.common.metadata.CubeMetadata" title="iris.common.metadata.CubeMetadata"><code class="xref py py-class docutils literal notranslate"><span class="pre">CubeMetadata</span></code></a>,</p>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cube</span><span class="o">.</span><span class="n">metadata</span>  
+<span class="go">CubeMetadata(standard_name=&#39;air_temperature&#39;, long_name=None, var_name=&#39;air_temperature&#39;, units=Unit(&#39;K&#39;), attributes={&#39;Conventions&#39;: &#39;CF-1.5&#39;, &#39;STASH&#39;: STASH(model=1, section=3, item=236), &#39;Model scenario&#39;: &#39;A1B&#39;, &#39;source&#39;: &#39;Data from Met Office Unified Model 6.05&#39;}, cell_methods=(CellMethod(method=&#39;mean&#39;, coord_names=(&#39;time&#39;,), intervals=(&#39;6 hour&#39;,), comments=()),))</span>
+</pre></div>
+</div>
+<p>We can perform the <strong>identity function</strong> by comparing the metadata with itself,</p>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">metadata</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">combine</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">metadata</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cube</span><span class="o">.</span><span class="n">metadata</span> <span class="o">==</span> <span class="n">metadata</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>As you might expect, combining identical metadata returns metadata that is
+also identical.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">combine</span></code> method will always return <strong>a new</strong> metadata class instance,
+where each metadata member is either <code class="docutils literal notranslate"><span class="pre">None</span></code> or populated with a <strong>common value</strong>.
+Let’s clarify this, by combining our above <a class="reference internal" href="../generated/api/iris/common/metadata.html#iris.common.metadata.CubeMetadata" title="iris.common.metadata.CubeMetadata"><code class="xref py py-class docutils literal notranslate"><span class="pre">CubeMetadata</span></code></a>
+with another instance that’s identical apart from its <code class="docutils literal notranslate"><span class="pre">standard_name</span></code> member,
+which is replaced with a <strong>different value</strong>,</p>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">metadata</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">_replace</span><span class="p">(</span><span class="n">standard_name</span><span class="o">=</span><span class="s2">&quot;air_pressure_at_sea_level&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">metadata</span> <span class="o">!=</span> <span class="n">cube</span><span class="o">.</span><span class="n">metadata</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">metadata</span><span class="o">.</span><span class="n">combine</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">metadata</span><span class="p">)</span>  
+<span class="go">CubeMetadata(standard_name=None, long_name=None, var_name=&#39;air_temperature&#39;, units=Unit(&#39;K&#39;), attributes={&#39;STASH&#39;: STASH(model=1, section=3, item=236), &#39;source&#39;: &#39;Data from Met Office Unified Model 6.05&#39;, &#39;Model scenario&#39;: &#39;A1B&#39;, &#39;Conventions&#39;: &#39;CF-1.5&#39;}, cell_methods=(CellMethod(method=&#39;mean&#39;, coord_names=(&#39;time&#39;,), intervals=(&#39;6 hour&#39;,), comments=()),))</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">combine</span></code> method combines metadata by performing a <strong>strict</strong> comparison
+between each of the associated metadata member values,</p>
+<ul class="simple">
+<li><p>if the values are <strong>different</strong>, then the combined result is <code class="docutils literal notranslate"><span class="pre">None</span></code></p></li>
+<li><p>otherwise, the combined result is the <strong>common value</strong></p></li>
+</ul>
+<p>Let’s reinforce this behaviour, but this time by combining metadata where the
+<code class="docutils literal notranslate"><span class="pre">attributes</span></code> <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#mapping-types-dict">dict</a> member is different, where,</p>
+<ul class="simple">
+<li><p>the <code class="docutils literal notranslate"><span class="pre">STASH</span></code> and <code class="docutils literal notranslate"><span class="pre">source</span></code> keys are <strong>missing</strong>,</p></li>
+<li><p>the <code class="docutils literal notranslate"><span class="pre">Model</span> <span class="pre">scenario</span></code> key has the <strong>same value</strong>,</p></li>
+<li><p>the <code class="docutils literal notranslate"><span class="pre">Conventions</span></code> key has a <strong>different value</strong>,</p></li>
+<li><p>the <code class="docutils literal notranslate"><span class="pre">grinning</span> <span class="pre">face</span></code> key is <strong>new</strong></p></li>
+</ul>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">attributes</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Model scenario&quot;</span><span class="p">:</span> <span class="s2">&quot;A1B&quot;</span><span class="p">,</span> <span class="s2">&quot;Conventions&quot;</span><span class="p">:</span> <span class="s2">&quot;CF-1.8&quot;</span><span class="p">,</span> <span class="s2">&quot;grinning face&quot;</span><span class="p">:</span> <span class="s2">&quot;🙂&quot;</span> <span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">metadata</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">_replace</span><span class="p">(</span><span class="n">attributes</span><span class="o">=</span><span class="n">attributes</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">metadata</span> <span class="o">!=</span> <span class="n">cube</span><span class="o">.</span><span class="n">metadata</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">metadata</span><span class="o">.</span><span class="n">combine</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">metadata</span><span class="p">)</span><span class="o">.</span><span class="n">attributes</span>
+<span class="go">{&#39;Model scenario&#39;: &#39;A1B&#39;}</span>
+</pre></div>
+</div>
+<p>The combined result for the <code class="docutils literal notranslate"><span class="pre">attributes</span></code> member only contains those
+<strong>common keys</strong> with <strong>common values</strong>.</p>
+<p>Note that, the <code class="docutils literal notranslate"><span class="pre">combine</span></code> method is <strong>commutative</strong>,</p>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cube</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">combine</span><span class="p">(</span><span class="n">metadata</span><span class="p">)</span> <span class="o">==</span> <span class="n">metadata</span><span class="o">.</span><span class="n">combine</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">metadata</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>Although, this is only the case when combining instances of the <strong>same</strong>
+metadata class. This is explored in a little further detail next.</p>
+<div class="section" id="combine-like-with-like">
+<span id="combine-like"></span><h5>Combine like with like<a class="headerlink" href="#combine-like-with-like" title="Permalink to this headline">¶</a></h5>
+<p>Akin to the <a class="reference internal" href="#metadata-equality"><span class="std std-ref">equal</span></a> and
+<a class="reference internal" href="#metadata-difference"><span class="std std-ref">difference</span></a> methods, only instances of <strong>similar</strong>
+metadata classes can be combined, otherwise a <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> is raised,</p>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cube</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">combine</span><span class="p">(</span><span class="n">longitude</span><span class="o">.</span><span class="n">metadata</span><span class="p">)</span>
+<span class="gt">Traceback (most recent call last):</span>
+<span class="gr">TypeError</span>: <span class="n">Cannot combine &#39;CubeMetadata&#39; with &lt;class &#39;iris.common.metadata.DimCoordMetadata&#39;&gt;.</span>
+</pre></div>
+</div>
+<p>Again, however, the <a class="reference internal" href="#exception-rule"><span class="std std-ref">exception to the rule</span></a> also applies
+here i.e., support is provided between <a class="reference internal" href="../generated/api/iris/common/metadata.html#iris.common.metadata.CoordMetadata" title="iris.common.metadata.CoordMetadata"><code class="xref py py-class docutils literal notranslate"><span class="pre">CoordMetadata</span></code></a> and
+<a class="reference internal" href="../generated/api/iris/common/metadata.html#iris.common.metadata.DimCoordMetadata" title="iris.common.metadata.DimCoordMetadata"><code class="xref py py-class docutils literal notranslate"><span class="pre">DimCoordMetadata</span></code></a> metadata classes.</p>
+<p>For example, we can <code class="docutils literal notranslate"><span class="pre">combine</span></code> the metadata of the following
+<a class="reference internal" href="../generated/api/iris/coords.html#iris.coords.AuxCoord" title="iris.coords.AuxCoord"><code class="xref py py-class docutils literal notranslate"><span class="pre">AuxCoord</span></code></a> and <a class="reference internal" href="../generated/api/iris/coords.html#iris.coords.DimCoord" title="iris.coords.DimCoord"><code class="xref py py-class docutils literal notranslate"><span class="pre">DimCoord</span></code></a>,</p>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">forecast_period</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="s2">&quot;forecast_period&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">longitude</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="s2">&quot;longitude&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>First, let’s see their associated metadata,</p>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">forecast_period</span><span class="o">.</span><span class="n">metadata</span>
+<span class="go">CoordMetadata(standard_name=&#39;forecast_period&#39;, long_name=None, var_name=&#39;forecast_period&#39;, units=Unit(&#39;hours&#39;), attributes={}, coord_system=None, climatological=False)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">longitude</span><span class="o">.</span><span class="n">metadata</span>
+<span class="go">DimCoordMetadata(standard_name=&#39;longitude&#39;, long_name=None, var_name=&#39;longitude&#39;, units=Unit(&#39;degrees&#39;), attributes={}, coord_system=GeogCS(6371229.0), climatological=False, circular=False)</span>
+</pre></div>
+</div>
+<p>Before combining their metadata together,</p>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">forecast_period</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">combine</span><span class="p">(</span><span class="n">longitude</span><span class="o">.</span><span class="n">metadata</span><span class="p">)</span>
+<span class="go">CoordMetadata(standard_name=None, long_name=None, var_name=None, units=None, attributes={}, coord_system=None, climatological=False)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">longitude</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">combine</span><span class="p">(</span><span class="n">forecast_period</span><span class="o">.</span><span class="n">metadata</span><span class="p">)</span>
+<span class="go">DimCoordMetadata(standard_name=None, long_name=None, var_name=None, units=None, attributes={}, coord_system=None, climatological=False, circular=None)</span>
+</pre></div>
+</div>
+<p>However, note that commutativity in this case cannot be honoured, for obvious reasons.</p>
+</div>
+</div>
+<div class="section" id="metadata-conversion">
+<span id="id5"></span><h4>Metadata conversion<a class="headerlink" href="#metadata-conversion" title="Permalink to this headline">¶</a></h4>
+<p>In general, the <a class="reference internal" href="#metadata-equality"><span class="std std-ref">equal</span></a>, <a class="reference internal" href="#metadata-difference"><span class="std std-ref">difference</span></a>,
+and <a class="reference internal" href="#metadata-combine"><span class="std std-ref">combine</span></a> methods only support operations on instances
+of the same metadata class (see <a class="reference internal" href="#exception-rule"><span class="std std-ref">exception to the rule</span></a>).</p>
+<p>However, metadata may be converted from one metadata class to another using
+the <code class="docutils literal notranslate"><span class="pre">from_metadata</span></code> class method. For example, given the following
+<a class="reference internal" href="../generated/api/iris/common/metadata.html#iris.common.metadata.CubeMetadata" title="iris.common.metadata.CubeMetadata"><code class="xref py py-class docutils literal notranslate"><span class="pre">CubeMetadata</span></code></a>,</p>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cube</span><span class="o">.</span><span class="n">metadata</span>  
+<span class="go">CubeMetadata(standard_name=&#39;air_temperature&#39;, long_name=None, var_name=&#39;air_temperature&#39;, units=Unit(&#39;K&#39;), attributes={&#39;Conventions&#39;: &#39;CF-1.5&#39;, &#39;STASH&#39;: STASH(model=1, section=3, item=236), &#39;Model scenario&#39;: &#39;A1B&#39;, &#39;source&#39;: &#39;Data from Met Office Unified Model 6.05&#39;}, cell_methods=(CellMethod(method=&#39;mean&#39;, coord_names=(&#39;time&#39;,), intervals=(&#39;6 hour&#39;,), comments=()),))</span>
+</pre></div>
+</div>
+<p>We can easily convert it to a <a class="reference internal" href="../generated/api/iris/common/metadata.html#iris.common.metadata.DimCoordMetadata" title="iris.common.metadata.DimCoordMetadata"><code class="xref py py-class docutils literal notranslate"><span class="pre">DimCoordMetadata</span></code></a> instance
+using <code class="docutils literal notranslate"><span class="pre">from_metadata</span></code>,</p>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">DimCoordMetadata</span><span class="o">.</span><span class="n">from_metadata</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">metadata</span><span class="p">)</span>  
+<span class="go">DimCoordMetadata(standard_name=&#39;air_temperature&#39;, long_name=None, var_name=&#39;air_temperature&#39;, units=Unit(&#39;K&#39;), attributes={&#39;Conventions&#39;: &#39;CF-1.5&#39;, &#39;STASH&#39;: STASH(model=1, section=3, item=236), &#39;Model scenario&#39;: &#39;A1B&#39;, &#39;source&#39;: &#39;Data from Met Office Unified Model 6.05&#39;}, coord_system=None, climatological=None, circular=None)</span>
+</pre></div>
+</div>
+<p>By examining <a class="reference internal" href="#metadata-members-table"><span class="std std-numref">Table 1</span></a>, we can see that the
+<a class="reference internal" href="../generated/api/iris/cube.html#iris.cube.Cube" title="iris.cube.Cube"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cube</span></code></a> and <a class="reference internal" href="../generated/api/iris/coords.html#iris.coords.DimCoord" title="iris.coords.DimCoord"><code class="xref py py-class docutils literal notranslate"><span class="pre">DimCoord</span></code></a> container
+classes share the following common metadata members,</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">standard_name</span></code>,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">long_name</span></code>,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">var_name</span></code>,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">units</span></code>,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">attributes</span></code></p></li>
+</ul>
+<p>As such, all of these metadata members of the resultant
+<a class="reference internal" href="../generated/api/iris/common/metadata.html#iris.common.metadata.DimCoordMetadata" title="iris.common.metadata.DimCoordMetadata"><code class="xref py py-class docutils literal notranslate"><span class="pre">DimCoordMetadata</span></code></a> instance are populated from the associated
+<a class="reference internal" href="../generated/api/iris/common/metadata.html#iris.common.metadata.CubeMetadata" title="iris.common.metadata.CubeMetadata"><code class="xref py py-class docutils literal notranslate"><span class="pre">CubeMetadata</span></code></a> instance members. However, a
+<a class="reference internal" href="../generated/api/iris/common/metadata.html#iris.common.metadata.CubeMetadata" title="iris.common.metadata.CubeMetadata"><code class="xref py py-class docutils literal notranslate"><span class="pre">CubeMetadata</span></code></a> class does not contain the following
+<a class="reference internal" href="../generated/api/iris/common/metadata.html#iris.common.metadata.DimCoordMetadata" title="iris.common.metadata.DimCoordMetadata"><code class="xref py py-class docutils literal notranslate"><span class="pre">DimCoordMetadata</span></code></a> members,</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">coords_system</span></code>,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">climatological</span></code>,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">circular</span></code></p></li>
+</ul>
+<p>Thus these particular metadata members are set to <code class="docutils literal notranslate"><span class="pre">None</span></code> in the resultant
+<a class="reference internal" href="../generated/api/iris/common/metadata.html#iris.common.metadata.DimCoordMetadata" title="iris.common.metadata.DimCoordMetadata"><code class="xref py py-class docutils literal notranslate"><span class="pre">DimCoordMetadata</span></code></a> instance.</p>
+<p>Note that, the <code class="docutils literal notranslate"><span class="pre">from_metadata</span></code> method is also available on a metadata
+class instance,</p>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">longitude</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">from_metadata</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">metadata</span><span class="p">)</span>
+<span class="go">DimCoordMetadata(standard_name=&#39;air_temperature&#39;, long_name=None, var_name=&#39;air_temperature&#39;, units=Unit(&#39;K&#39;), attributes={&#39;Conventions&#39;: &#39;CF-1.5&#39;, &#39;STASH&#39;: STASH(model=1, section=3, item=236), &#39;Model scenario&#39;: &#39;A1B&#39;, &#39;source&#39;: &#39;Data from Met Office Unified Model 6.05&#39;}, coord_system=None, climatological=None, circular=None)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="metadata-assignment">
+<span id="id6"></span><h4>Metadata assignment<a class="headerlink" href="#metadata-assignment" title="Permalink to this headline">¶</a></h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">metadata</span></code> property available on each Iris <a class="reference external" href="https://cfconventions.org/">CF Conventions</a> container
+class (<a class="reference internal" href="#metadata-classes-table"><span class="std std-numref">Table 2</span></a>) can not only be used <strong>to get</strong>
+the metadata of an instance, but also <strong>to set</strong> the metadata on an instance.</p>
+<p>For example, given the following <a class="reference internal" href="../generated/api/iris/common/metadata.html#iris.common.metadata.DimCoordMetadata" title="iris.common.metadata.DimCoordMetadata"><code class="xref py py-class docutils literal notranslate"><span class="pre">DimCoordMetadata</span></code></a> of the
+<code class="docutils literal notranslate"><span class="pre">longitude</span></code> coordinate,</p>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">longitude</span><span class="o">.</span><span class="n">metadata</span>
+<span class="go">DimCoordMetadata(standard_name=&#39;longitude&#39;, long_name=None, var_name=&#39;longitude&#39;, units=Unit(&#39;degrees&#39;), attributes={}, coord_system=GeogCS(6371229.0), climatological=False, circular=False)</span>
+</pre></div>
+</div>
+<p>We can assign to it directly using the <a class="reference internal" href="../generated/api/iris/common/metadata.html#iris.common.metadata.DimCoordMetadata" title="iris.common.metadata.DimCoordMetadata"><code class="xref py py-class docutils literal notranslate"><span class="pre">DimCoordMetadata</span></code></a> of the <code class="docutils literal notranslate"><span class="pre">latitude</span></code>
+coordinate,</p>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">latitude</span><span class="o">.</span><span class="n">metadata</span>
+<span class="go">DimCoordMetadata(standard_name=&#39;latitude&#39;, long_name=None, var_name=&#39;latitude&#39;, units=Unit(&#39;degrees&#39;), attributes={}, coord_system=GeogCS(6371229.0), climatological=False, circular=False)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">longitude</span><span class="o">.</span><span class="n">metadata</span> <span class="o">=</span> <span class="n">latitude</span><span class="o">.</span><span class="n">metadata</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">longitude</span><span class="o">.</span><span class="n">metadata</span>
+<span class="go">DimCoordMetadata(standard_name=&#39;latitude&#39;, long_name=None, var_name=&#39;latitude&#39;, units=Unit(&#39;degrees&#39;), attributes={}, coord_system=GeogCS(6371229.0), climatological=False, circular=False)</span>
+</pre></div>
+</div>
+<div class="section" id="assign-by-iterable">
+<h5>Assign by iterable<a class="headerlink" href="#assign-by-iterable" title="Permalink to this headline">¶</a></h5>
+<p>It is also possible to assign to the <code class="docutils literal notranslate"><span class="pre">metadata</span></code> property of an Iris
+<a class="reference external" href="https://cfconventions.org/">CF Conventions</a> container with an iterable containing the <strong>correct
+number</strong> of associated member values, e.g.,</p>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="nb">getattr</span><span class="p">(</span><span class="n">latitude</span><span class="p">,</span> <span class="n">member</span><span class="p">)</span> <span class="k">for</span> <span class="n">member</span> <span class="ow">in</span> <span class="n">latitude</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">_fields</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">longitude</span><span class="o">.</span><span class="n">metadata</span> <span class="o">=</span> <span class="n">values</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">longitude</span><span class="o">.</span><span class="n">metadata</span>
+<span class="go">DimCoordMetadata(standard_name=&#39;latitude&#39;, long_name=None, var_name=&#39;latitude&#39;, units=Unit(&#39;degrees&#39;), attributes={}, coord_system=GeogCS(6371229.0), climatological=False, circular=False)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="assign-by-namedtuple">
+<h5>Assign by namedtuple<a class="headerlink" href="#assign-by-namedtuple" title="Permalink to this headline">¶</a></h5>
+<p>A <a class="reference external" href="https://docs.python.org/3/library/collections.html#collections.namedtuple">namedtuple</a> may also be used to assign to the <code class="docutils literal notranslate"><span class="pre">metadata</span></code> property of an
+Iris <a class="reference external" href="https://cfconventions.org/">CF Conventions</a> container. For example, let’s first create a custom
+namedtuple class,</p>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Metadata</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s2">&quot;Metadata&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;standard_name&quot;</span><span class="p">,</span> <span class="s2">&quot;long_name&quot;</span><span class="p">,</span> <span class="s2">&quot;var_name&quot;</span><span class="p">,</span> <span class="s2">&quot;units&quot;</span><span class="p">,</span> <span class="s2">&quot;attributes&quot;</span><span class="p">,</span> <span class="s2">&quot;coord_system&quot;</span><span class="p">,</span> <span class="s2">&quot;climatological&quot;</span><span class="p">,</span> <span class="s2">&quot;circular&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Now create an instance of this custom namedtuple class, and populate it,</p>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">metadata</span> <span class="o">=</span> <span class="n">Metadata</span><span class="p">(</span><span class="o">*</span><span class="n">values</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">metadata</span>
+<span class="go">Metadata(standard_name=&#39;latitude&#39;, long_name=None, var_name=&#39;latitude&#39;, units=Unit(&#39;degrees&#39;), attributes={}, coord_system=GeogCS(6371229.0), climatological=False, circular=False)</span>
+</pre></div>
+</div>
+<p>Now we can use the custom namedtuple instance to assign directly to the metadata
+of the <code class="docutils literal notranslate"><span class="pre">longitude</span></code> coordinate,</p>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">longitude</span><span class="o">.</span><span class="n">metadata</span> <span class="o">=</span> <span class="n">metadata</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">longitude</span><span class="o">.</span><span class="n">metadata</span>
+<span class="go">DimCoordMetadata(standard_name=&#39;latitude&#39;, long_name=None, var_name=&#39;latitude&#39;, units=Unit(&#39;degrees&#39;), attributes={}, coord_system=GeogCS(6371229.0), climatological=False, circular=False)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="assign-by-mapping">
+<h5>Assign by mapping<a class="headerlink" href="#assign-by-mapping" title="Permalink to this headline">¶</a></h5>
+<p>It is also possible to assign to the <code class="docutils literal notranslate"><span class="pre">metadata</span></code> property using a <a class="reference external" href="https://docs.python.org/3/glossary.html#term-mapping">mapping</a>,
+such as a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#mapping-types-dict">dict</a>,</p>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mapping</span> <span class="o">=</span> <span class="n">latitude</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">_asdict</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mapping</span>
+<span class="go">OrderedDict([(&#39;standard_name&#39;, &#39;latitude&#39;), (&#39;long_name&#39;, None), (&#39;var_name&#39;, &#39;latitude&#39;), (&#39;units&#39;, Unit(&#39;degrees&#39;)), (&#39;attributes&#39;, {}), (&#39;coord_system&#39;, GeogCS(6371229.0)), (&#39;climatological&#39;, False), (&#39;circular&#39;, False)])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">longitude</span><span class="o">.</span><span class="n">metadata</span> <span class="o">=</span> <span class="n">mapping</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">longitude</span><span class="o">.</span><span class="n">metadata</span>
+<span class="go">DimCoordMetadata(standard_name=&#39;latitude&#39;, long_name=None, var_name=&#39;latitude&#39;, units=Unit(&#39;degrees&#39;), attributes={}, coord_system=GeogCS(6371229.0), climatological=False, circular=False)</span>
+</pre></div>
+</div>
+<p>Support is also provided for assigning a <strong>partial</strong> mapping, for example,</p>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">longitude</span><span class="o">.</span><span class="n">metadata</span>
+<span class="go">DimCoordMetadata(standard_name=&#39;longitude&#39;, long_name=None, var_name=&#39;longitude&#39;, units=Unit(&#39;degrees&#39;), attributes={}, coord_system=GeogCS(6371229.0), climatological=False, circular=False)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">longitude</span><span class="o">.</span><span class="n">metadata</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">var_name</span><span class="o">=</span><span class="s2">&quot;lat&quot;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s2">&quot;radians&quot;</span><span class="p">,</span> <span class="n">circular</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">longitude</span><span class="o">.</span><span class="n">metadata</span>
+<span class="go">DimCoordMetadata(standard_name=&#39;longitude&#39;, long_name=None, var_name=&#39;lat&#39;, units=Unit(&#39;radians&#39;), attributes={}, coord_system=GeogCS(6371229.0), climatological=False, circular=True)</span>
+</pre></div>
+</div>
+<p>Indeed, it’s also possible to assign to the <code class="docutils literal notranslate"><span class="pre">metadata</span></code> property with a
+<strong>different</strong> metadata class instance,</p>
+<div class="highlight-pycon3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">longitude</span><span class="o">.</span><span class="n">metadata</span>
+<span class="go">DimCoordMetadata(standard_name=&#39;longitude&#39;, long_name=None, var_name=&#39;longitude&#39;, units=Unit(&#39;degrees&#39;), attributes={}, coord_system=GeogCS(6371229.0), climatological=False, circular=False)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">longitude</span><span class="o">.</span><span class="n">metadata</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">metadata</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">longitude</span><span class="o">.</span><span class="n">metadata</span>  
+<span class="go">DimCoordMetadata(standard_name=&#39;air_temperature&#39;, long_name=None, var_name=&#39;air_temperature&#39;, units=Unit(&#39;K&#39;), attributes={&#39;Conventions&#39;: &#39;CF-1.5&#39;, &#39;STASH&#39;: STASH(model=1, section=3, item=236), &#39;Model scenario&#39;: &#39;A1B&#39;, &#39;source&#39;: &#39;Data from Met Office Unified Model 6.05&#39;}, coord_system=GeogCS(6371229.0), climatological=False, circular=False)</span>
+</pre></div>
+</div>
+<p>Note that, only <strong>common</strong> metadata members will be assigned new associated
+values. All other metadata members will be left unaltered.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="lenient_metadata.html" class="btn btn-neutral float-right" title="Lenient metadata" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        
+        &copy; <a href="../copyright.html">Copyright</a> Iris Contributors
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

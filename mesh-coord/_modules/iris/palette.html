@@ -1,0 +1,634 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>iris.palette &mdash; Iris 3.1.dev0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/theme_override.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/gallery-dataframe.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="copyright" title="Copyright" href="../../copyright.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/iris-logo-title.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installing.html">Installing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../generated/gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/iris_cubes.html">Iris data structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/loading_iris_cubes.html">Loading Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/saving_iris_cubes.html">Saving Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/navigating_a_cube.html">Navigating a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/subsetting_a_cube.html">Subsetting a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/real_and_lazy_data.html">Real and lazy data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/plotting_a_cube.html">Plotting a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/interpolation_and_regridding.html">Cube interpolation and regridding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/merge_and_concat.html">Merge and concatenate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/cube_statistics.html">Cube statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/cube_maths.html">Cube maths</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/citation.html">Citing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../userguide/code_maintenance.html">Code maintenance</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Further Topics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../further_topics/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../further_topics/metadata.html">Metadata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../further_topics/lenient_metadata.html">Lenient metadata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../further_topics/lenient_maths.html">Lenient cube maths</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developers Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../developers_guide/contributing_getting_involved.html">Getting involved</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developers_guide/gitwash/index.html">Working with Iris source code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developers_guide/contributing_documentation.html">Contributing to the documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developers_guide/contributing_codebase_index.html">Contributing to the code base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developers_guide/contributing_changes.html">Contributing your changes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developers_guide/release.html">Releases</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../generated/api/iris.html">Iris API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../whatsnew/index.html">What’s new in Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../techpapers/index.html">Iris technical papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../copyright.html">Iris copyright, licensing and contributors</a></li>
+</ul>
+
+            
+          
+
+    
+    
+    
+        <p class="caption">
+            <span class="caption-text">
+            
+                Support
+            
+            </span>
+        </p>
+        <ul>
+            
+                <li class="toctree-l1"><a href="https://github.com/SciTools/iris"><i class="fa fa-github fa-fw"></i> Source code</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris"><i class="fa fa-comments fa-fw"></i> Users Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris-dev"><i class="fa fa-comments fa-fw"></i> Developers Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://stackoverflow.com/questions/tagged/python-iris"><i class="fa fa-question fa-fw"></i> StackOverflow for "How do I?"</a></li>
+            
+                <li class="toctree-l1"><a href="https://scitools.org.uk/iris/docs/v2.4.0/index.html"><i class="fa fa-book fa-fw"></i> Legacy documentation</a></li>
+            
+        </ul>
+    
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Iris</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../iris.html">iris</a> &raquo;</li>
+        
+      <li>iris.palette</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for iris.palette</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright Iris contributors</span>
+<span class="c1">#</span>
+<span class="c1"># This file is part of Iris and is released under the LGPL license.</span>
+<span class="c1"># See COPYING and COPYING.LESSER in the root of the repository for full</span>
+<span class="c1"># licensing details.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Load, configure and register color map palettes and initialise</span>
+<span class="sd">color map meta-data mappings.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">wraps</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">os.path</span>
+<span class="kn">import</span> <span class="nn">re</span>
+
+<span class="kn">import</span> <span class="nn">cf_units</span>
+<span class="kn">import</span> <span class="nn">matplotlib.cm</span> <span class="k">as</span> <span class="nn">mpl_cm</span>
+<span class="kn">import</span> <span class="nn">matplotlib.colors</span> <span class="k">as</span> <span class="nn">mpl_colors</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">import</span> <span class="nn">iris.cube</span>
+<span class="kn">import</span> <span class="nn">iris.config</span>
+
+
+<span class="c1"># Symmetric normalization function pivot points by SI unit.</span>
+<span class="n">PIVOT_BY_UNIT</span> <span class="o">=</span> <span class="p">{</span><span class="n">cf_units</span><span class="o">.</span><span class="n">Unit</span><span class="p">(</span><span class="s2">&quot;K&quot;</span><span class="p">):</span> <span class="mf">273.15</span><span class="p">}</span>
+
+<span class="c1"># Color map names by palette file metadata field value.</span>
+<span class="n">CMAP_BREWER</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<span class="n">_CMAP_BY_SCHEME</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">_CMAP_BY_KEYWORD</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">_CMAP_BY_STD_NAME</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="n">_MISSING_KWARG_CMAP</span> <span class="o">=</span> <span class="s2">&quot;missing kwarg cmap&quot;</span>
+<span class="n">_MISSING_KWARG_NORM</span> <span class="o">=</span> <span class="s2">&quot;missing kwarg norm&quot;</span>
+
+
+<div class="viewcode-block" id="is_brewer"><a class="viewcode-back" href="../../generated/api/iris/palette.html#iris.palette.is_brewer">[docs]</a><span class="k">def</span> <span class="nf">is_brewer</span><span class="p">(</span><span class="n">cmap</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Determine whether the color map is a Cynthia Brewer color map.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">    * cmap:</span>
+<span class="sd">        The color map instance.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Boolean.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">if</span> <span class="n">cmap</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">cmap</span><span class="o">.</span><span class="n">name</span> <span class="ow">in</span> <span class="n">CMAP_BREWER</span>
+    <span class="k">return</span> <span class="n">result</span></div>
+
+
+<span class="k">def</span> <span class="nf">_default_cmap_norm</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function injects default cmap and norm behavour into the keyword</span>
+<span class="sd">    arguments, based on the cube referenced within the positional arguments.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">cube</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="c1"># Find the single cube reference within the positional arguments.</span>
+    <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">cube</span><span class="o">.</span><span class="n">Cube</span><span class="p">):</span>
+            <span class="n">cube</span> <span class="o">=</span> <span class="n">arg</span>
+            <span class="k">break</span>
+
+    <span class="c1"># Find the keyword arguments of interest.</span>
+    <span class="n">colors</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;colors&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="c1"># cmap = None to disable default behaviour.</span>
+    <span class="n">cmap</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;cmap&quot;</span><span class="p">,</span> <span class="n">_MISSING_KWARG_CMAP</span><span class="p">)</span>
+    <span class="c1"># norm = None to disable default behaviour.</span>
+    <span class="n">norm</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;norm&quot;</span><span class="p">,</span> <span class="n">_MISSING_KWARG_NORM</span><span class="p">)</span>
+
+    <span class="c1"># Note that &quot;colors&quot; and &quot;cmap&quot; keywords are mutually exclusive.</span>
+    <span class="k">if</span> <span class="n">colors</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">cube</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">std_name</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">standard_name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">if</span> <span class="n">cube</span><span class="o">.</span><span class="n">standard_name</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span>
+
+        <span class="c1"># Perform default &quot;cmap&quot; keyword behaviour.</span>
+        <span class="k">if</span> <span class="n">cmap</span> <span class="o">==</span> <span class="n">_MISSING_KWARG_CMAP</span><span class="p">:</span>
+            <span class="c1"># Check for an exact match against standard name.</span>
+            <span class="n">cmaps</span> <span class="o">=</span> <span class="n">_CMAP_BY_STD_NAME</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">std_name</span><span class="p">,</span> <span class="nb">set</span><span class="p">())</span>
+
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">cmaps</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="c1"># Check for a fuzzy match against a keyword.</span>
+                <span class="k">for</span> <span class="n">keyword</span> <span class="ow">in</span> <span class="n">_CMAP_BY_KEYWORD</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                    <span class="k">if</span> <span class="n">keyword</span> <span class="ow">in</span> <span class="n">std_name</span><span class="p">:</span>
+                        <span class="n">cmaps</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">_CMAP_BY_KEYWORD</span><span class="p">[</span><span class="n">keyword</span><span class="p">])</span>
+
+            <span class="c1"># Add default color map to keyword arguments.</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">cmaps</span><span class="p">):</span>
+                <span class="n">cmap</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">cmaps</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;cmap&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mpl_cm</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="n">cmap</span><span class="p">)</span>
+
+        <span class="c1"># Perform default &quot;norm&quot; keyword behaviour.</span>
+        <span class="k">if</span> <span class="n">norm</span> <span class="o">==</span> <span class="n">_MISSING_KWARG_NORM</span><span class="p">:</span>
+            <span class="k">if</span> <span class="s2">&quot;anomaly&quot;</span> <span class="ow">in</span> <span class="n">std_name</span><span class="p">:</span>
+                <span class="c1"># Determine the pivot point.</span>
+                <span class="n">pivot</span> <span class="o">=</span> <span class="n">PIVOT_BY_UNIT</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">units</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+                <span class="n">norm</span> <span class="o">=</span> <span class="n">SymmetricNormalize</span><span class="p">(</span><span class="n">pivot</span><span class="p">)</span>
+                <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;norm&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">norm</span>
+
+    <span class="k">return</span> <span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span>
+
+
+<div class="viewcode-block" id="cmap_norm"><a class="viewcode-back" href="../../generated/api/iris/palette.html#iris.palette.cmap_norm">[docs]</a><span class="k">def</span> <span class="nf">cmap_norm</span><span class="p">(</span><span class="n">cube</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Determine the default :class:`matplotlib.colors.LinearSegmentedColormap`</span>
+<span class="sd">    and :class:`iris.palette.SymmetricNormalize` instances associated with</span>
+<span class="sd">    the cube.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">    * cube (:class:`iris.cube.Cube`):</span>
+<span class="sd">        Source cube to generate default palette from.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Tuple of :class:`matplotlib.colors.LinearSegmentedColormap` and</span>
+<span class="sd">        :class:`iris.palette.SymmetricNormalize`</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span> <span class="o">=</span> <span class="n">_default_cmap_norm</span><span class="p">((</span><span class="n">cube</span><span class="p">,),</span> <span class="p">{})</span>
+    <span class="k">return</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;cmap&quot;</span><span class="p">),</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;norm&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="auto_palette"><a class="viewcode-back" href="../../generated/api/iris/palette.html#iris.palette.auto_palette">[docs]</a><span class="k">def</span> <span class="nf">auto_palette</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Decorator wrapper function to control the default behaviour of the</span>
+<span class="sd">    matplotlib cmap and norm keyword arguments.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">    * func (callable):</span>
+<span class="sd">        Callable function to be wrapped by the decorator.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Closure wrapper function.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="nd">@wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">wrapper_func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Closure wrapper function to provide default keyword argument</span>
+<span class="sd">        behaviour.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Update the keyword arguments with defaults.</span>
+        <span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span> <span class="o">=</span> <span class="n">_default_cmap_norm</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
+        <span class="c1"># Call the wrapped function and return its result.</span>
+        <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="c1"># Return the closure wrapper function.</span>
+    <span class="k">return</span> <span class="n">wrapper_func</span></div>
+
+
+<div class="viewcode-block" id="SymmetricNormalize"><a class="viewcode-back" href="../../generated/api/iris/palette.html#iris.palette.SymmetricNormalize">[docs]</a><span class="k">class</span> <span class="nc">SymmetricNormalize</span><span class="p">(</span><span class="n">mpl_colors</span><span class="o">.</span><span class="n">Normalize</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Provides a symmetric normalization class around a given pivot point.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pivot</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pivot</span> <span class="o">=</span> <span class="n">pivot</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_vmin</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_vmax</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">mpl_colors</span><span class="o">.</span><span class="n">Normalize</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">(</span><span class="si">%r</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pivot</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">val</span><span class="p">,</span> <span class="n">update_min</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">update_max</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="c1"># Update both _vmin and _vmax from given value.</span>
+        <span class="n">val_diff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">val</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">pivot</span><span class="p">)</span>
+        <span class="n">vmin_diff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_vmin</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">pivot</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_vmin</span> <span class="k">else</span> <span class="mf">0.0</span>
+        <span class="n">vmax_diff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_vmax</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">pivot</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_vmax</span> <span class="k">else</span> <span class="mf">0.0</span>
+        <span class="n">diff</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">val_diff</span><span class="p">,</span> <span class="n">vmin_diff</span><span class="p">,</span> <span class="n">vmax_diff</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">update_min</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_vmin</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pivot</span> <span class="o">-</span> <span class="n">diff</span>
+        <span class="k">if</span> <span class="n">update_max</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_vmax</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pivot</span> <span class="o">+</span> <span class="n">diff</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">vmin</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;_vmin&quot;</span><span class="p">)</span>
+
+    <span class="nd">@vmin</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">vmin</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">val</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_vmin</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">_vmax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># Don&#39;t set _vmax, it&#39;ll stop matplotlib from giving us one.</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_update</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">update_max</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Set both _vmin and _vmax from value</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_update</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">vmax</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;_vmax&quot;</span><span class="p">)</span>
+
+    <span class="nd">@vmax</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">vmax</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">val</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_vmax</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">_vmin</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># Don&#39;t set _vmin, it&#39;ll stop matplotlib from giving us one.</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_update</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">update_min</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Set both _vmin and _vmax from value</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_update</span><span class="p">(</span><span class="n">val</span><span class="p">)</span></div>
+
+
+<span class="k">def</span> <span class="nf">_load_palette</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Load, configure and register color map palettes and initialise</span>
+<span class="sd">    color map metadata mappings.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Reference these module level namespace variables.</span>
+    <span class="k">global</span> <span class="n">CMAP_BREWER</span><span class="p">,</span> <span class="n">_CMAP_BY_SCHEME</span><span class="p">,</span> <span class="n">_CMAP_BY_KEYWORD</span><span class="p">,</span> <span class="n">_CMAP_BY_STD_NAME</span>
+
+    <span class="n">_CMAP_BY_SCHEME</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">_CMAP_BY_KEYWORD</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">_CMAP_BY_STD_NAME</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="n">filenames</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># Identify all .txt color map palette files.</span>
+    <span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">PALETTE_PATH</span><span class="p">):</span>
+        <span class="c1"># Prune any .svn directory from the tree walk.</span>
+        <span class="k">if</span> <span class="s2">&quot;.svn&quot;</span> <span class="ow">in</span> <span class="n">dirs</span><span class="p">:</span>
+            <span class="k">del</span> <span class="n">dirs</span><span class="p">[</span><span class="n">dirs</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;.svn&quot;</span><span class="p">)]</span>
+        <span class="c1"># Identify any target .txt color map palette files.</span>
+        <span class="n">filenames</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
+            <span class="p">[</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">files</span>
+                <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">filename</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;.txt&quot;</span>
+            <span class="p">]</span>
+        <span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">filenames</span><span class="p">:</span>
+        <span class="c1"># Default color map name based on the file base-name (case-SENSITIVE).</span>
+        <span class="n">cmap_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">filename</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">cmap_scheme</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">cmap_keywords</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">cmap_std_names</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">cmap_type</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="c1"># Perform default color map interpolation for quantization</span>
+        <span class="c1"># levels per primary color.</span>
+        <span class="n">interpolate_flag</span> <span class="o">=</span> <span class="kc">True</span>
+
+        <span class="c1"># Read the file header.</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">file_handle</span><span class="p">:</span>
+            <span class="n">header</span> <span class="o">=</span> <span class="nb">filter</span><span class="p">(</span>
+                <span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;^\s*#.*:\s+.*$&quot;</span><span class="p">,</span> <span class="n">line</span><span class="p">),</span>
+                <span class="n">file_handle</span><span class="o">.</span><span class="n">readlines</span><span class="p">(),</span>
+            <span class="p">)</span>
+
+        <span class="c1"># Extract the file header metadata.</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">header</span><span class="p">:</span>
+            <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;#&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+            <span class="n">head</span> <span class="o">=</span> <span class="n">line</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+            <span class="n">body</span> <span class="o">=</span> <span class="n">line</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+            <span class="k">if</span> <span class="n">head</span> <span class="o">==</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span>
+                <span class="c1"># Case-SENSITIVE.</span>
+                <span class="n">cmap_name</span> <span class="o">=</span> <span class="s2">&quot;brewer_</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">head</span> <span class="o">==</span> <span class="s2">&quot;scheme&quot;</span><span class="p">:</span>
+                <span class="c1"># Case-insensitive.</span>
+                <span class="n">cmap_scheme</span> <span class="o">=</span> <span class="n">body</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+
+            <span class="k">if</span> <span class="n">head</span> <span class="o">==</span> <span class="s2">&quot;keyword&quot;</span><span class="p">:</span>
+                <span class="c1"># Case-insensitive.</span>
+                <span class="n">keywords</span> <span class="o">=</span> <span class="p">[</span><span class="n">part</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">part</span> <span class="ow">in</span> <span class="n">body</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)]</span>
+                <span class="n">cmap_keywords</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">keywords</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">head</span> <span class="o">==</span> <span class="s2">&quot;std_name&quot;</span><span class="p">:</span>
+                <span class="c1"># Case-insensitive.</span>
+                <span class="n">std_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">part</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">part</span> <span class="ow">in</span> <span class="n">body</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)]</span>
+                <span class="n">cmap_std_names</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">std_names</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">head</span> <span class="o">==</span> <span class="s2">&quot;interpolate&quot;</span><span class="p">:</span>
+                <span class="c1"># Case-insensitive.</span>
+                <span class="n">interpolate_flag</span> <span class="o">=</span> <span class="n">body</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">!=</span> <span class="s2">&quot;off&quot;</span>
+
+            <span class="k">if</span> <span class="n">head</span> <span class="o">==</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span>
+                <span class="c1"># Case-insensitive.</span>
+                <span class="n">cmap_type</span> <span class="o">=</span> <span class="n">body</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+
+        <span class="c1"># Integrity check for meta-data &#39;type&#39; field.</span>
+        <span class="k">assert</span> <span class="n">cmap_type</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="p">(</span>
+            <span class="s1">&#39;Missing meta-data &quot;type&quot; keyword for color map file, &quot;</span><span class="si">%s</span><span class="s1">&quot;&#39;</span>
+            <span class="o">%</span> <span class="n">filename</span>
+        <span class="p">)</span>
+        <span class="k">assert</span> <span class="p">(</span>
+            <span class="n">cmap_type</span> <span class="o">==</span> <span class="s2">&quot;rgb&quot;</span>
+        <span class="p">),</span> <span class="s1">&#39;Invalid type [</span><span class="si">%s</span><span class="s1">] for color map file &quot;</span><span class="si">%s</span><span class="s1">&quot;&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">cmap_type</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+
+        <span class="c1"># Update the color map look-up dictionaries.</span>
+        <span class="n">CMAP_BREWER</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">cmap_name</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">cmap_scheme</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">scheme_group</span> <span class="o">=</span> <span class="n">_CMAP_BY_SCHEME</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">cmap_scheme</span><span class="p">,</span> <span class="nb">set</span><span class="p">())</span>
+            <span class="n">scheme_group</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">cmap_name</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">keyword</span> <span class="ow">in</span> <span class="n">cmap_keywords</span><span class="p">:</span>
+            <span class="n">keyword_group</span> <span class="o">=</span> <span class="n">_CMAP_BY_KEYWORD</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">keyword</span><span class="p">,</span> <span class="nb">set</span><span class="p">())</span>
+            <span class="n">keyword_group</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">cmap_name</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">std_name</span> <span class="ow">in</span> <span class="n">cmap_std_names</span><span class="p">:</span>
+            <span class="n">std_name_group</span> <span class="o">=</span> <span class="n">_CMAP_BY_STD_NAME</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">std_name</span><span class="p">,</span> <span class="nb">set</span><span class="p">())</span>
+            <span class="n">std_name_group</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">cmap_name</span><span class="p">)</span>
+
+        <span class="c1"># Load palette data and create the associated color map.</span>
+        <span class="n">cmap_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+        <span class="c1"># Ensure to restrict the number of RGB quantization levels to</span>
+        <span class="c1"># prevent color map interpolation.</span>
+
+        <span class="k">if</span> <span class="n">interpolate_flag</span><span class="p">:</span>
+            <span class="c1"># Perform default color map interpolation for quantization</span>
+            <span class="c1"># levels per primary color.</span>
+            <span class="n">cmap</span> <span class="o">=</span> <span class="n">mpl_colors</span><span class="o">.</span><span class="n">LinearSegmentedColormap</span><span class="o">.</span><span class="n">from_list</span><span class="p">(</span>
+                <span class="n">cmap_name</span><span class="p">,</span> <span class="n">cmap_data</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Restrict quantization levels per primary color (turn-off</span>
+            <span class="c1"># interpolation).</span>
+            <span class="c1"># Typically used for Brewer color maps.</span>
+            <span class="n">cmap</span> <span class="o">=</span> <span class="n">mpl_colors</span><span class="o">.</span><span class="n">LinearSegmentedColormap</span><span class="o">.</span><span class="n">from_list</span><span class="p">(</span>
+                <span class="n">cmap_name</span><span class="p">,</span> <span class="n">cmap_data</span><span class="p">,</span> <span class="n">N</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">cmap_data</span><span class="p">)</span>
+            <span class="p">)</span>
+
+        <span class="c1"># Register the color map for use.</span>
+        <span class="n">mpl_cm</span><span class="o">.</span><span class="n">register_cmap</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">)</span>
+
+
+<span class="c1"># Ensure to load the color map palettes.</span>
+<span class="n">_load_palette</span><span class="p">()</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        
+        &copy; <a href="../../copyright.html">Copyright</a> Iris Contributors
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,590 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>iris.experimental.regrid_conservative &mdash; Iris 3.1.dev0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/theme_override.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/gallery-dataframe.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+        <script src="../../../_static/clipboard.min.js"></script>
+        <script src="../../../_static/copybutton.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="copyright" title="Copyright" href="../../../copyright.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html">
+          
+
+          
+            
+            <img src="../../../_static/iris-logo-title.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installing.html">Installing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../generated/gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/iris_cubes.html">Iris data structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/loading_iris_cubes.html">Loading Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/saving_iris_cubes.html">Saving Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/navigating_a_cube.html">Navigating a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/subsetting_a_cube.html">Subsetting a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/real_and_lazy_data.html">Real and lazy data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/plotting_a_cube.html">Plotting a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/interpolation_and_regridding.html">Cube interpolation and regridding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/merge_and_concat.html">Merge and concatenate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/cube_statistics.html">Cube statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/cube_maths.html">Cube maths</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/citation.html">Citing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../userguide/code_maintenance.html">Code maintenance</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Further Topics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../further_topics/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../further_topics/metadata.html">Metadata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../further_topics/lenient_metadata.html">Lenient metadata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../further_topics/lenient_maths.html">Lenient cube maths</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developers Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/contributing_getting_involved.html">Getting involved</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/gitwash/index.html">Working with Iris source code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/contributing_documentation.html">Contributing to the documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/contributing_codebase_index.html">Contributing to the code base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/contributing_changes.html">Contributing your changes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers_guide/release.html">Releases</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../generated/api/iris.html">Iris API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../whatsnew/index.html">What’s new in Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../techpapers/index.html">Iris technical papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../copyright.html">Iris copyright, licensing and contributors</a></li>
+</ul>
+
+            
+          
+
+    
+    
+    
+        <p class="caption">
+            <span class="caption-text">
+            
+                Support
+            
+            </span>
+        </p>
+        <ul>
+            
+                <li class="toctree-l1"><a href="https://github.com/SciTools/iris"><i class="fa fa-github fa-fw"></i> Source code</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris"><i class="fa fa-comments fa-fw"></i> Users Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris-dev"><i class="fa fa-comments fa-fw"></i> Developers Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://stackoverflow.com/questions/tagged/python-iris"><i class="fa fa-question fa-fw"></i> StackOverflow for "How do I?"</a></li>
+            
+                <li class="toctree-l1"><a href="https://scitools.org.uk/iris/docs/v2.4.0/index.html"><i class="fa fa-book fa-fw"></i> Legacy documentation</a></li>
+            
+        </ul>
+    
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Iris</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../../iris.html">iris</a> &raquo;</li>
+        
+      <li>iris.experimental.regrid_conservative</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for iris.experimental.regrid_conservative</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright Iris contributors</span>
+<span class="c1">#</span>
+<span class="c1"># This file is part of Iris and is released under the LGPL license.</span>
+<span class="c1"># See COPYING and COPYING.LESSER in the root of the repository for full</span>
+<span class="c1"># licensing details.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Support for conservative regridding via ESMPy.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="k">as</span> <span class="nn">ccrs</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">import</span> <span class="nn">iris</span>
+<span class="kn">from</span> <span class="nn">iris.analysis._interpolation</span> <span class="kn">import</span> <span class="n">get_xy_dim_coords</span>
+<span class="kn">from</span> <span class="nn">iris.analysis._regrid</span> <span class="kn">import</span> <span class="n">RectilinearRegridder</span>
+<span class="kn">from</span> <span class="nn">iris.util</span> <span class="kn">import</span> <span class="n">_meshgrid</span>
+
+
+<span class="c1">#: A static Cartopy Geodetic() instance for transforming to true-lat-lons.</span>
+<span class="n">_CRS_TRUELATLON</span> <span class="o">=</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">Geodetic</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">_convert_latlons</span><span class="p">(</span><span class="n">crs</span><span class="p">,</span> <span class="n">x_array</span><span class="p">,</span> <span class="n">y_array</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert x+y coords in a given crs to (x,y) values in true-lat-lons.</span>
+
+<span class="sd">    .. note::</span>
+
+<span class="sd">        Uses a plain Cartopy Geodetic to convert to true-lat-lons.  This makes</span>
+<span class="sd">        no allowance for a non-spherical earth.  But then, neither does ESMF.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">ll_values</span> <span class="o">=</span> <span class="n">_CRS_TRUELATLON</span><span class="o">.</span><span class="n">transform_points</span><span class="p">(</span><span class="n">crs</span><span class="p">,</span> <span class="n">x_array</span><span class="p">,</span> <span class="n">y_array</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ll_values</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">ll_values</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+
+
+<span class="k">def</span> <span class="nf">_make_esmpy_field</span><span class="p">(</span>
+    <span class="n">x_coord</span><span class="p">,</span> <span class="n">y_coord</span><span class="p">,</span> <span class="n">ref_name</span><span class="o">=</span><span class="s2">&quot;field&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="kc">None</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create an ESMPy ESMF.Field on given coordinates.</span>
+
+<span class="sd">    Create a ESMF.Grid from the coordinates, defining corners and centre</span>
+<span class="sd">    positions as lats+lons.</span>
+<span class="sd">    Add a grid mask if provided.</span>
+<span class="sd">    Create and return a Field mapped on this Grid, setting data if provided.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">    * x_coord, y_coord (:class:`iris.coords.Coord`):</span>
+<span class="sd">        One-dimensional coordinates of shape (nx,) and (ny,).</span>
+<span class="sd">        Their contiguous bounds define an ESMF.Grid of shape (nx, ny).</span>
+
+<span class="sd">    Kwargs:</span>
+
+<span class="sd">    * data (:class:`numpy.ndarray`, shape (nx,ny)):</span>
+<span class="sd">        Set the Field data content.</span>
+<span class="sd">    * mask (:class:`numpy.ndarray`, boolean, shape (nx,ny)):</span>
+<span class="sd">        Add a mask item to the grid, assigning it 0/1 where mask=False/True.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Lazy import so we can build the docs with no ESMF.</span>
+    <span class="kn">import</span> <span class="nn">ESMF</span>
+
+    <span class="c1"># Create a Grid object describing the coordinate cells.</span>
+    <span class="n">dims</span> <span class="o">=</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">coord</span><span class="o">.</span><span class="n">points</span><span class="p">)</span> <span class="k">for</span> <span class="n">coord</span> <span class="ow">in</span> <span class="p">(</span><span class="n">x_coord</span><span class="p">,</span> <span class="n">y_coord</span><span class="p">)]</span>
+    <span class="n">dims</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">dims</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>  <span class="c1"># specific type required by ESMF.</span>
+    <span class="n">grid</span> <span class="o">=</span> <span class="n">ESMF</span><span class="o">.</span><span class="n">Grid</span><span class="p">(</span><span class="n">dims</span><span class="p">)</span>
+
+    <span class="c1"># Get all cell corner coordinates as true-lat-lons</span>
+    <span class="n">x_bounds</span><span class="p">,</span> <span class="n">y_bounds</span> <span class="o">=</span> <span class="n">_meshgrid</span><span class="p">(</span>
+        <span class="n">x_coord</span><span class="o">.</span><span class="n">contiguous_bounds</span><span class="p">(),</span> <span class="n">y_coord</span><span class="o">.</span><span class="n">contiguous_bounds</span><span class="p">()</span>
+    <span class="p">)</span>
+    <span class="n">grid_crs</span> <span class="o">=</span> <span class="n">x_coord</span><span class="o">.</span><span class="n">coord_system</span><span class="o">.</span><span class="n">as_cartopy_crs</span><span class="p">()</span>
+    <span class="n">lon_bounds</span><span class="p">,</span> <span class="n">lat_bounds</span> <span class="o">=</span> <span class="n">_convert_latlons</span><span class="p">(</span><span class="n">grid_crs</span><span class="p">,</span> <span class="n">x_bounds</span><span class="p">,</span> <span class="n">y_bounds</span><span class="p">)</span>
+
+    <span class="c1"># Add grid &#39;coord&#39; element for corners, and fill with corner values.</span>
+    <span class="n">grid</span><span class="o">.</span><span class="n">add_coords</span><span class="p">(</span><span class="n">staggerloc</span><span class="o">=</span><span class="n">ESMF</span><span class="o">.</span><span class="n">StaggerLoc</span><span class="o">.</span><span class="n">CORNER</span><span class="p">)</span>
+    <span class="n">grid_corners_x</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">get_coords</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">ESMF</span><span class="o">.</span><span class="n">StaggerLoc</span><span class="o">.</span><span class="n">CORNER</span><span class="p">)</span>
+    <span class="n">grid_corners_x</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">lon_bounds</span><span class="o">.</span><span class="n">T</span>
+    <span class="n">grid_corners_y</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">get_coords</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">ESMF</span><span class="o">.</span><span class="n">StaggerLoc</span><span class="o">.</span><span class="n">CORNER</span><span class="p">)</span>
+    <span class="n">grid_corners_y</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">lat_bounds</span><span class="o">.</span><span class="n">T</span>
+
+    <span class="c1"># calculate the cell centre-points</span>
+    <span class="c1"># NOTE: we don&#39;t care about Iris&#39; idea of where the points &#39;really&#39; are</span>
+    <span class="c1"># *but* ESMF requires the data in the CENTER for conservative regrid,</span>
+    <span class="c1"># according to the documentation :</span>
+    <span class="c1">#  - http://www.earthsystemmodeling.org/</span>
+    <span class="c1">#        esmf_releases/public/last/ESMF_refdoc.pdf</span>
+    <span class="c1">#  - section  22.2.3 : ESMF_REGRIDMETHOD</span>
+    <span class="c1">#</span>
+    <span class="c1"># We are currently determining cell centres in native coords, then</span>
+    <span class="c1"># converting these into true-lat-lons.</span>
+    <span class="c1"># It is confirmed by experiment that moving these centre location *does*</span>
+    <span class="c1"># changes the regrid results.</span>
+    <span class="c1"># TODO: work out why this is needed, and whether these centres are &#39;right&#39;.</span>
+
+    <span class="c1"># Average cell corners in native coordinates, then translate to lats+lons</span>
+    <span class="c1"># (more costly, but presumably &#39;more correct&#39; than averaging lats+lons).</span>
+    <span class="n">x_centres</span> <span class="o">=</span> <span class="n">x_coord</span><span class="o">.</span><span class="n">contiguous_bounds</span><span class="p">()</span>
+    <span class="n">x_centres</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">x_centres</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">x_centres</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+    <span class="n">y_centres</span> <span class="o">=</span> <span class="n">y_coord</span><span class="o">.</span><span class="n">contiguous_bounds</span><span class="p">()</span>
+    <span class="n">y_centres</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">y_centres</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">y_centres</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+    <span class="n">x_points</span><span class="p">,</span> <span class="n">y_points</span> <span class="o">=</span> <span class="n">_meshgrid</span><span class="p">(</span><span class="n">x_centres</span><span class="p">,</span> <span class="n">y_centres</span><span class="p">)</span>
+    <span class="n">lon_points</span><span class="p">,</span> <span class="n">lat_points</span> <span class="o">=</span> <span class="n">_convert_latlons</span><span class="p">(</span><span class="n">grid_crs</span><span class="p">,</span> <span class="n">x_points</span><span class="p">,</span> <span class="n">y_points</span><span class="p">)</span>
+
+    <span class="c1"># Add grid &#39;coord&#39; element for centres + fill with centre-points values.</span>
+    <span class="n">grid</span><span class="o">.</span><span class="n">add_coords</span><span class="p">(</span><span class="n">staggerloc</span><span class="o">=</span><span class="n">ESMF</span><span class="o">.</span><span class="n">StaggerLoc</span><span class="o">.</span><span class="n">CENTER</span><span class="p">)</span>
+    <span class="n">grid_centers_x</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">get_coords</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">ESMF</span><span class="o">.</span><span class="n">StaggerLoc</span><span class="o">.</span><span class="n">CENTER</span><span class="p">)</span>
+    <span class="n">grid_centers_x</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">lon_points</span><span class="o">.</span><span class="n">T</span>
+    <span class="n">grid_centers_y</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">get_coords</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">ESMF</span><span class="o">.</span><span class="n">StaggerLoc</span><span class="o">.</span><span class="n">CENTER</span><span class="p">)</span>
+    <span class="n">grid_centers_y</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">lat_points</span><span class="o">.</span><span class="n">T</span>
+
+    <span class="c1"># Add a mask item, if requested</span>
+    <span class="k">if</span> <span class="n">mask</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">grid</span><span class="o">.</span><span class="n">add_item</span><span class="p">(</span><span class="n">ESMF</span><span class="o">.</span><span class="n">GridItem</span><span class="o">.</span><span class="n">MASK</span><span class="p">,</span> <span class="p">[</span><span class="n">ESMF</span><span class="o">.</span><span class="n">StaggerLoc</span><span class="o">.</span><span class="n">CENTER</span><span class="p">])</span>
+        <span class="n">grid_mask</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">get_item</span><span class="p">(</span><span class="n">ESMF</span><span class="o">.</span><span class="n">GridItem</span><span class="o">.</span><span class="n">MASK</span><span class="p">)</span>
+        <span class="n">grid_mask</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+    <span class="c1"># create a Field based on this grid</span>
+    <span class="n">field</span> <span class="o">=</span> <span class="n">ESMF</span><span class="o">.</span><span class="n">Field</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">ref_name</span><span class="p">)</span>
+
+    <span class="c1"># assign data content, if provided</span>
+    <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">field</span><span class="o">.</span><span class="n">data</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">data</span>
+
+    <span class="k">return</span> <span class="n">field</span>
+
+
+<div class="viewcode-block" id="regrid_conservative_via_esmpy"><a class="viewcode-back" href="../../../generated/api/iris/experimental/regrid_conservative.html#iris.experimental.regrid_conservative.regrid_conservative_via_esmpy">[docs]</a><span class="k">def</span> <span class="nf">regrid_conservative_via_esmpy</span><span class="p">(</span><span class="n">source_cube</span><span class="p">,</span> <span class="n">grid_cube</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Perform a conservative regridding with ESMPy.</span>
+
+<span class="sd">    Regrids the data of a source cube onto a new grid defined by a destination</span>
+<span class="sd">    cube.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">    * source_cube (:class:`iris.cube.Cube`):</span>
+<span class="sd">        Source data.  Must have two identifiable horizontal dimension</span>
+<span class="sd">        coordinates.</span>
+<span class="sd">    * grid_cube (:class:`iris.cube.Cube`):</span>
+<span class="sd">        Define the target horizontal grid:  Only the horizontal dimension</span>
+<span class="sd">        coordinates are actually used.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A new cube derived from source_cube, regridded onto the specified</span>
+<span class="sd">        horizontal grid.</span>
+
+<span class="sd">    Any additional coordinates which map onto the horizontal dimensions are</span>
+<span class="sd">    removed, while all other metadata is retained.</span>
+<span class="sd">    If there are coordinate factories with 2d horizontal reference surfaces,</span>
+<span class="sd">    the reference surfaces are also regridded, using ordinary bilinear</span>
+<span class="sd">    interpolation.</span>
+
+<span class="sd">    .. note::</span>
+
+<span class="sd">        Both source and destination cubes must have two dimension coordinates</span>
+<span class="sd">        identified with axes &#39;X&#39; and &#39;Y&#39; which share a coord_system with a</span>
+<span class="sd">        Cartopy CRS.</span>
+<span class="sd">        The grids are defined by :meth:`iris.coords.Coord.contiguous_bounds` of</span>
+<span class="sd">        these.</span>
+
+<span class="sd">    .. note::</span>
+
+<span class="sd">        Initialises the ESMF Manager, if it was not already called.</span>
+<span class="sd">        This implements default Manager operations (e.g. logging).</span>
+
+<span class="sd">        To alter this, make a prior call to ESMF.Manager().</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Lazy import so we can build the docs with no ESMF.</span>
+    <span class="kn">import</span> <span class="nn">ESMF</span>
+
+    <span class="c1"># Get source + target XY coordinate pairs and check they are suitable.</span>
+    <span class="n">src_coords</span> <span class="o">=</span> <span class="n">get_xy_dim_coords</span><span class="p">(</span><span class="n">source_cube</span><span class="p">)</span>
+    <span class="n">dst_coords</span> <span class="o">=</span> <span class="n">get_xy_dim_coords</span><span class="p">(</span><span class="n">grid_cube</span><span class="p">)</span>
+    <span class="n">src_cs</span> <span class="o">=</span> <span class="n">src_coords</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">coord_system</span>
+    <span class="n">grid_cs</span> <span class="o">=</span> <span class="n">dst_coords</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">coord_system</span>
+    <span class="k">if</span> <span class="n">src_cs</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">grid_cs</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">&quot;Both &#39;src&#39; and &#39;grid&#39; Cubes must have a&quot;</span>
+            <span class="s2">&quot; coordinate system for their rectilinear grid&quot;</span>
+            <span class="s2">&quot; coordinates.&quot;</span>
+        <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">src_cs</span><span class="o">.</span><span class="n">as_cartopy_crs</span><span class="p">()</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">grid_cs</span><span class="o">.</span><span class="n">as_cartopy_crs</span><span class="p">()</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">&quot;Both &#39;src&#39; and &#39;grid&#39; Cubes coord_systems must have &quot;</span>
+            <span class="s2">&quot;a valid associated Cartopy CRS.&quot;</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_valid_units</span><span class="p">(</span><span class="n">coord</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span>
+            <span class="n">coord</span><span class="o">.</span><span class="n">coord_system</span><span class="p">,</span>
+            <span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">coord_systems</span><span class="o">.</span><span class="n">GeogCS</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">coord_systems</span><span class="o">.</span><span class="n">RotatedGeogCS</span><span class="p">),</span>
+        <span class="p">):</span>
+            <span class="n">valid_units</span> <span class="o">=</span> <span class="s2">&quot;degrees&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">valid_units</span> <span class="o">=</span> <span class="s2">&quot;m&quot;</span>
+        <span class="k">return</span> <span class="n">coord</span><span class="o">.</span><span class="n">units</span> <span class="o">==</span> <span class="n">valid_units</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="n">_valid_units</span><span class="p">(</span><span class="n">coord</span><span class="p">)</span> <span class="k">for</span> <span class="n">coord</span> <span class="ow">in</span> <span class="n">src_coords</span> <span class="o">+</span> <span class="n">dst_coords</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Unsupported units: must be &#39;degrees&#39; or &#39;m&#39;.&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Initialise the ESMF manager in case it was not already done.</span>
+    <span class="n">ESMF</span><span class="o">.</span><span class="n">Manager</span><span class="p">()</span>
+
+    <span class="c1"># Create a data array for the output cube.</span>
+    <span class="n">src_dims_xy</span> <span class="o">=</span> <span class="p">[</span><span class="n">source_cube</span><span class="o">.</span><span class="n">coord_dims</span><span class="p">(</span><span class="n">coord</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">coord</span> <span class="ow">in</span> <span class="n">src_coords</span><span class="p">]</span>
+    <span class="c1"># Size matches source, except for X+Y dimensions</span>
+    <span class="n">dst_shape</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">source_cube</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="n">dst_shape</span><span class="p">[</span><span class="n">src_dims_xy</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">coord</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">coord</span> <span class="ow">in</span> <span class="n">dst_coords</span><span class="p">]</span>
+    <span class="c1"># NOTE: result array is masked -- fix this afterward if all unmasked</span>
+    <span class="n">fullcube_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">dst_shape</span><span class="p">)</span>
+
+    <span class="c1"># Iterate 2d slices over all possible indices of the &#39;other&#39; dimensions</span>
+    <span class="n">all_other_dims</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">i_dim</span> <span class="k">for</span> <span class="n">i_dim</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">source_cube</span><span class="o">.</span><span class="n">ndim</span><span class="p">)</span> <span class="k">if</span> <span class="n">i_dim</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">src_dims_xy</span>
+    <span class="p">]</span>
+    <span class="n">all_combinations_of_other_inds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ndindex</span><span class="p">(</span><span class="o">*</span><span class="n">dst_shape</span><span class="p">[</span><span class="n">all_other_dims</span><span class="p">])</span>
+    <span class="k">for</span> <span class="n">other_indices</span> <span class="ow">in</span> <span class="n">all_combinations_of_other_inds</span><span class="p">:</span>
+        <span class="c1"># Construct a tuple of slices to address the 2d xy field</span>
+        <span class="n">slice_indices_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">)]</span> <span class="o">*</span> <span class="n">source_cube</span><span class="o">.</span><span class="n">ndim</span><span class="p">)</span>
+        <span class="n">slice_indices_array</span><span class="p">[</span><span class="n">all_other_dims</span><span class="p">]</span> <span class="o">=</span> <span class="n">other_indices</span>
+        <span class="n">slice_indices_tuple</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">slice_indices_array</span><span class="p">)</span>
+
+        <span class="c1"># Get the source data, reformed into the right dimension order, (x,y).</span>
+        <span class="n">src_data_2d</span> <span class="o">=</span> <span class="n">source_cube</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">slice_indices_tuple</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">src_dims_xy</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">src_dims_xy</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="n">src_data_2d</span> <span class="o">=</span> <span class="n">src_data_2d</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+
+        <span class="c1"># Work out whether we have missing data to define a source grid mask.</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">is_masked</span><span class="p">(</span><span class="n">src_data_2d</span><span class="p">):</span>
+            <span class="n">srcdata_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">getmask</span><span class="p">(</span><span class="n">src_data_2d</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">srcdata_mask</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="c1"># Construct ESMF Field objects on source and destination grids.</span>
+        <span class="n">src_field</span> <span class="o">=</span> <span class="n">_make_esmpy_field</span><span class="p">(</span>
+            <span class="n">src_coords</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">src_coords</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">data</span><span class="o">=</span><span class="n">src_data_2d</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">srcdata_mask</span>
+        <span class="p">)</span>
+        <span class="n">dst_field</span> <span class="o">=</span> <span class="n">_make_esmpy_field</span><span class="p">(</span><span class="n">dst_coords</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dst_coords</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+        <span class="c1"># Make Field for destination coverage fraction (for missing data calc).</span>
+        <span class="n">coverage_field</span> <span class="o">=</span> <span class="n">ESMF</span><span class="o">.</span><span class="n">Field</span><span class="p">(</span><span class="n">dst_field</span><span class="o">.</span><span class="n">grid</span><span class="p">,</span> <span class="s2">&quot;validmask_dst&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Do the actual regrid with ESMF.</span>
+        <span class="n">mask_flag_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+        <span class="n">regrid_method</span> <span class="o">=</span> <span class="n">ESMF</span><span class="o">.</span><span class="n">Regrid</span><span class="p">(</span>
+            <span class="n">src_field</span><span class="p">,</span>
+            <span class="n">dst_field</span><span class="p">,</span>
+            <span class="n">src_mask_values</span><span class="o">=</span><span class="n">mask_flag_values</span><span class="p">,</span>
+            <span class="n">regrid_method</span><span class="o">=</span><span class="n">ESMF</span><span class="o">.</span><span class="n">RegridMethod</span><span class="o">.</span><span class="n">CONSERVE</span><span class="p">,</span>
+            <span class="n">unmapped_action</span><span class="o">=</span><span class="n">ESMF</span><span class="o">.</span><span class="n">UnmappedAction</span><span class="o">.</span><span class="n">IGNORE</span><span class="p">,</span>
+            <span class="n">dst_frac_field</span><span class="o">=</span><span class="n">coverage_field</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">regrid_method</span><span class="p">(</span><span class="n">src_field</span><span class="p">,</span> <span class="n">dst_field</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_array</span><span class="p">(</span><span class="n">dst_field</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+
+        <span class="c1"># Convert destination &#39;coverage fraction&#39; into a missing-data mask.</span>
+        <span class="c1"># Set = wherever part of cell goes outside source grid, or overlaps a</span>
+        <span class="c1"># masked source cell.</span>
+        <span class="n">coverage_tolerance_threshold</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="mf">1.0e-8</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">mask</span> <span class="o">=</span> <span class="n">coverage_field</span><span class="o">.</span><span class="n">data</span> <span class="o">&lt;</span> <span class="n">coverage_tolerance_threshold</span>
+
+        <span class="c1"># Transpose ESMF result dims (X,Y) back to the order of the source</span>
+        <span class="k">if</span> <span class="n">src_dims_xy</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">src_dims_xy</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+
+        <span class="c1"># Paste regridded slice back into parent array</span>
+        <span class="n">fullcube_data</span><span class="p">[</span><span class="n">slice_indices_tuple</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span>
+
+    <span class="c1"># Remove the data mask if completely unused.</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">is_masked</span><span class="p">(</span><span class="n">fullcube_data</span><span class="p">):</span>
+        <span class="n">fullcube_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">fullcube_data</span><span class="p">)</span>
+
+    <span class="c1"># Generate a full 2d sample grid, as required for regridding orography</span>
+    <span class="c1"># NOTE: as seen in &quot;regrid_bilinear_rectilinear_src_and_grid&quot;</span>
+    <span class="c1"># TODO: can this not also be wound into the _create_cube method ?</span>
+    <span class="n">src_cs</span> <span class="o">=</span> <span class="n">src_coords</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">coord_system</span>
+    <span class="n">sample_grid_x</span><span class="p">,</span> <span class="n">sample_grid_y</span> <span class="o">=</span> <span class="n">RectilinearRegridder</span><span class="o">.</span><span class="n">_sample_grid</span><span class="p">(</span>
+        <span class="n">src_cs</span><span class="p">,</span> <span class="n">dst_coords</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dst_coords</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Return result as a new cube based on the source.</span>
+    <span class="c1"># TODO: please tidy this interface !!!</span>
+    <span class="k">return</span> <span class="n">RectilinearRegridder</span><span class="o">.</span><span class="n">_create_cube</span><span class="p">(</span>
+        <span class="n">fullcube_data</span><span class="p">,</span>
+        <span class="n">src</span><span class="o">=</span><span class="n">source_cube</span><span class="p">,</span>
+        <span class="n">x_dim</span><span class="o">=</span><span class="n">src_dims_xy</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+        <span class="n">y_dim</span><span class="o">=</span><span class="n">src_dims_xy</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+        <span class="n">src_x_coord</span><span class="o">=</span><span class="n">src_coords</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+        <span class="n">src_y_coord</span><span class="o">=</span><span class="n">src_coords</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+        <span class="n">grid_x_coord</span><span class="o">=</span><span class="n">dst_coords</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+        <span class="n">grid_y_coord</span><span class="o">=</span><span class="n">dst_coords</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+        <span class="n">sample_grid_x</span><span class="o">=</span><span class="n">sample_grid_x</span><span class="p">,</span>
+        <span class="n">sample_grid_y</span><span class="o">=</span><span class="n">sample_grid_y</span><span class="p">,</span>
+        <span class="n">regrid_callback</span><span class="o">=</span><span class="n">RectilinearRegridder</span><span class="o">.</span><span class="n">_regrid</span><span class="p">,</span>
+    <span class="p">)</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        
+        &copy; <a href="../../../copyright.html">Copyright</a> Iris Contributors
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

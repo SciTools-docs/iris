@@ -1,0 +1,743 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>iris &mdash; Iris 3.1.dev0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/theme_override.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-binder.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/gallery-dataframe.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="copyright" title="Copyright" href="../copyright.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/iris-logo-title.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+    
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installing.html">Installing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../generated/gallery/index.html">Gallery</a></li>
+</ul>
+<p class="caption"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/iris_cubes.html">Iris data structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/loading_iris_cubes.html">Loading Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/saving_iris_cubes.html">Saving Iris cubes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/navigating_a_cube.html">Navigating a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/subsetting_a_cube.html">Subsetting a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/real_and_lazy_data.html">Real and lazy data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/plotting_a_cube.html">Plotting a cube</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/interpolation_and_regridding.html">Cube interpolation and regridding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/merge_and_concat.html">Merge and concatenate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/cube_statistics.html">Cube statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/cube_maths.html">Cube maths</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/citation.html">Citing Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide/code_maintenance.html">Code maintenance</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Further Topics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../further_topics/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../further_topics/metadata.html">Metadata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../further_topics/lenient_metadata.html">Lenient metadata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../further_topics/lenient_maths.html">Lenient cube maths</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developers Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/contributing_getting_involved.html">Getting involved</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/gitwash/index.html">Working with Iris source code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/contributing_documentation.html">Contributing to the documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/contributing_codebase_index.html">Contributing to the code base</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/contributing_changes.html">Contributing your changes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers_guide/release.html">Releases</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../generated/api/iris.html">Iris API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../whatsnew/index.html">What’s new in Iris</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../techpapers/index.html">Iris technical papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../copyright.html">Iris copyright, licensing and contributors</a></li>
+</ul>
+
+            
+          
+
+    
+    
+    
+        <p class="caption">
+            <span class="caption-text">
+            
+                Support
+            
+            </span>
+        </p>
+        <ul>
+            
+                <li class="toctree-l1"><a href="https://github.com/SciTools/iris"><i class="fa fa-github fa-fw"></i> Source code</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris"><i class="fa fa-comments fa-fw"></i> Users Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://groups.google.com/forum/#!forum/scitools-iris-dev"><i class="fa fa-comments fa-fw"></i> Developers Google Group</a></li>
+            
+                <li class="toctree-l1"><a href="https://stackoverflow.com/questions/tagged/python-iris"><i class="fa fa-question fa-fw"></i> StackOverflow for "How do I?"</a></li>
+            
+                <li class="toctree-l1"><a href="https://scitools.org.uk/iris/docs/v2.4.0/index.html"><i class="fa fa-book fa-fw"></i> Legacy documentation</a></li>
+            
+        </ul>
+    
+
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Iris</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Module code</a> &raquo;</li>
+        
+      <li>iris</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for iris</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright Iris contributors</span>
+<span class="c1">#</span>
+<span class="c1"># This file is part of Iris and is released under the LGPL license.</span>
+<span class="c1"># See COPYING and COPYING.LESSER in the root of the repository for full</span>
+<span class="c1"># licensing details.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">A package for handling multi-dimensional data and associated metadata.</span>
+
+<span class="sd">.. note ::</span>
+
+<span class="sd">    The Iris documentation has further usage information, including</span>
+<span class="sd">    a :ref:`user guide &lt;user_guide_index&gt;` which should be the first port of</span>
+<span class="sd">    call for new users.</span>
+
+<span class="sd">The functions in this module provide the main way to load and/or save</span>
+<span class="sd">your data.</span>
+
+<span class="sd">The :func:`load` function provides a simple way to explore data from</span>
+<span class="sd">the interactive Python prompt. It will convert the source data into</span>
+<span class="sd">:class:`Cubes &lt;iris.cube.Cube&gt;`, and combine those cubes into</span>
+<span class="sd">higher-dimensional cubes where possible.</span>
+
+<span class="sd">The :func:`load_cube` and :func:`load_cubes` functions are similar to</span>
+<span class="sd">:func:`load`, but they raise an exception if the number of cubes is not</span>
+<span class="sd">what was expected. They are more useful in scripts, where they can</span>
+<span class="sd">provide an early sanity check on incoming data.</span>
+
+<span class="sd">The :func:`load_raw` function is provided for those occasions where the</span>
+<span class="sd">automatic combination of cubes into higher-dimensional cubes is</span>
+<span class="sd">undesirable. However, it is intended as a tool of last resort! If you</span>
+<span class="sd">experience a problem with the automatic combination process then please</span>
+<span class="sd">raise an issue with the Iris developers.</span>
+
+<span class="sd">To persist a cube to the file-system, use the :func:`save` function.</span>
+
+<span class="sd">All the load functions share very similar arguments:</span>
+
+<span class="sd">    * uris:</span>
+<span class="sd">        Either a single filename/URI expressed as a string, or an</span>
+<span class="sd">        iterable of filenames/URIs.</span>
+
+<span class="sd">        Filenames can contain `~` or `~user` abbreviations, and/or</span>
+<span class="sd">        Unix shell-style wildcards (e.g. `*` and `?`). See the</span>
+<span class="sd">        standard library function :func:`os.path.expanduser` and</span>
+<span class="sd">        module :mod:`fnmatch` for more details.</span>
+
+<span class="sd">    * constraints:</span>
+<span class="sd">        Either a single constraint, or an iterable of constraints.</span>
+<span class="sd">        Each constraint can be either a string, an instance of</span>
+<span class="sd">        :class:`iris.Constraint`, or an instance of</span>
+<span class="sd">        :class:`iris.AttributeConstraint`.  If the constraint is a string</span>
+<span class="sd">        it will be used to match against cube.name().</span>
+
+<span class="sd">        .. _constraint_egs:</span>
+
+<span class="sd">        For example::</span>
+
+<span class="sd">            # Load air temperature data.</span>
+<span class="sd">            load_cube(uri, &#39;air_temperature&#39;)</span>
+
+<span class="sd">            # Load data with a specific model level number.</span>
+<span class="sd">            load_cube(uri, iris.Constraint(model_level_number=1))</span>
+
+<span class="sd">            # Load data with a specific STASH code.</span>
+<span class="sd">            load_cube(uri, iris.AttributeConstraint(STASH=&#39;m01s00i004&#39;))</span>
+
+<span class="sd">    * callback:</span>
+<span class="sd">        A function to add metadata from the originating field and/or URI which</span>
+<span class="sd">        obeys the following rules:</span>
+
+<span class="sd">        1. Function signature must be: ``(cube, field, filename)``.</span>
+<span class="sd">        2. Modifies the given cube inplace, unless a new cube is</span>
+<span class="sd">           returned by the function.</span>
+<span class="sd">        3. If the cube is to be rejected the callback must raise</span>
+<span class="sd">           an :class:`iris.exceptions.IgnoreCubeException`.</span>
+
+<span class="sd">        For example::</span>
+
+<span class="sd">            def callback(cube, field, filename):</span>
+<span class="sd">                # Extract ID from filenames given as: &lt;prefix&gt;__&lt;exp_id&gt;</span>
+<span class="sd">                experiment_id = filename.split(&#39;__&#39;)[1]</span>
+<span class="sd">                experiment_coord = iris.coords.AuxCoord(</span>
+<span class="sd">                    experiment_id, long_name=&#39;experiment_id&#39;)</span>
+<span class="sd">                cube.add_aux_coord(experiment_coord)</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">contextlib</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">import</span> <span class="nn">itertools</span>
+<span class="kn">import</span> <span class="nn">os.path</span>
+<span class="kn">import</span> <span class="nn">threading</span>
+
+<span class="kn">import</span> <span class="nn">iris.config</span>
+<span class="kn">import</span> <span class="nn">iris.cube</span>
+<span class="kn">import</span> <span class="nn">iris._constraints</span>
+<span class="kn">from</span> <span class="nn">iris._deprecation</span> <span class="kn">import</span> <span class="n">IrisDeprecation</span><span class="p">,</span> <span class="n">warn_deprecated</span>
+<span class="kn">import</span> <span class="nn">iris.fileformats</span>
+<span class="kn">import</span> <span class="nn">iris.io</span>
+
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">iris_sample_data</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="n">iris_sample_data</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+<span class="c1"># Iris revision.</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s2">&quot;3.1.dev0&quot;</span>
+
+<span class="c1"># Restrict the names imported when using &quot;from iris import *&quot;</span>
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;load&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;load_cube&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;load_cubes&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;load_raw&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;save&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Constraint&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;AttributeConstraint&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;NameConstraint&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;sample_data_path&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;site_configuration&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Future&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;FUTURE&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;IrisDeprecation&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+
+
+<span class="n">Constraint</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">_constraints</span><span class="o">.</span><span class="n">Constraint</span>
+<span class="n">AttributeConstraint</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">_constraints</span><span class="o">.</span><span class="n">AttributeConstraint</span>
+<span class="n">NameConstraint</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">_constraints</span><span class="o">.</span><span class="n">NameConstraint</span>
+
+
+<div class="viewcode-block" id="Future"><a class="viewcode-back" href="../generated/api/iris.html#iris.Future">[docs]</a><span class="k">class</span> <span class="nc">Future</span><span class="p">(</span><span class="n">threading</span><span class="o">.</span><span class="n">local</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Run-time configuration controller.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        A container for run-time options controls.</span>
+
+<span class="sd">        To adjust the values simply update the relevant attribute from</span>
+<span class="sd">        within your code. For example::</span>
+
+<span class="sd">            iris.FUTURE.example_future_flag = False</span>
+
+<span class="sd">        If Iris code is executed with multiple threads, note the values of</span>
+<span class="sd">        these options are thread-specific.</span>
+
+<span class="sd">        .. note::</span>
+
+<span class="sd">            iris.FUTURE.example_future_flag does not exist. It is provided</span>
+<span class="sd">            as an example because there are currently no flags in</span>
+<span class="sd">            iris.Future.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># The flag &#39;example_future_flag&#39; is provided as a future reference</span>
+        <span class="c1"># for the structure of this class.</span>
+        <span class="c1">#</span>
+        <span class="c1"># self.__dict__[&#39;example_future_flag&#39;] = example_future_flag</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="c1"># msg = (&#39;Future(example_future_flag={})&#39;)</span>
+        <span class="c1"># return msg.format(self.example_future_flag)</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Future()&quot;</span>
+        <span class="k">return</span> <span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">()</span>
+
+    <span class="c1"># deprecated_options = {&#39;example_future_flag&#39;: &#39;warning&#39;,}</span>
+    <span class="n">deprecated_options</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">def</span> <span class="fm">__setattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">deprecated_options</span><span class="p">:</span>
+            <span class="n">level</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">deprecated_options</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">level</span> <span class="o">==</span> <span class="s2">&quot;error&quot;</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">value</span><span class="p">:</span>
+                <span class="n">emsg</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="s2">&quot;setting the &#39;Future&#39; property </span><span class="si">{prop!r}</span><span class="s2"> has been &quot;</span>
+                    <span class="s2">&quot;deprecated to be removed in a future release, and &quot;</span>
+                    <span class="s2">&quot;deprecated </span><span class="si">{prop!r}</span><span class="s2"> behaviour has been removed. &quot;</span>
+                    <span class="s2">&quot;Please remove code that sets this property.&quot;</span>
+                <span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="n">emsg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">prop</span><span class="o">=</span><span class="n">name</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="s2">&quot;setting the &#39;Future&#39; property </span><span class="si">{!r}</span><span class="s2"> is deprecated &quot;</span>
+                    <span class="s2">&quot;and will be removed in a future release. &quot;</span>
+                    <span class="s2">&quot;Please remove code that sets this property.&quot;</span>
+                <span class="p">)</span>
+                <span class="n">warn_deprecated</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;&#39;Future&#39; object has no attribute </span><span class="si">{!r}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+
+<div class="viewcode-block" id="Future.context"><a class="viewcode-back" href="../generated/api/iris.html#iris.Future.context">[docs]</a>    <span class="nd">@contextlib</span><span class="o">.</span><span class="n">contextmanager</span>
+    <span class="k">def</span> <span class="nf">context</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return a context manager which allows temporary modification of</span>
+<span class="sd">        the option values for the active thread.</span>
+
+<span class="sd">        On entry to the `with` statement, all keyword arguments are</span>
+<span class="sd">        applied to the Future object. On exit from the `with`</span>
+<span class="sd">        statement, the previous state is restored.</span>
+
+<span class="sd">        For example::</span>
+<span class="sd">            with iris.FUTURE.context(example_future_flag=False):</span>
+<span class="sd">                # ... code that expects some past behaviour</span>
+
+<span class="sd">        .. note::</span>
+
+<span class="sd">            iris.FUTURE.example_future_flag does not exist and is</span>
+<span class="sd">            provided only as an example since there are currently no</span>
+<span class="sd">            flags in Future.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Save the current context</span>
+        <span class="n">current_state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="c1"># Update the state</span>
+        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">yield</span>
+        <span class="k">finally</span><span class="p">:</span>
+            <span class="c1"># Return the state</span>
+            <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">current_state</span><span class="p">)</span></div></div>
+
+
+<span class="c1">#: Object containing all the Iris run-time options.</span>
+<span class="n">FUTURE</span> <span class="o">=</span> <span class="n">Future</span><span class="p">()</span>
+
+
+<span class="c1"># Initialise the site configuration dictionary.</span>
+<span class="c1">#: Iris site configuration dictionary.</span>
+<span class="n">site_configuration</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">iris.site_config</span> <span class="kn">import</span> <span class="n">update</span> <span class="k">as</span> <span class="n">_update</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="k">pass</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">_update</span><span class="p">(</span><span class="n">site_configuration</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_generate_cubes</span><span class="p">(</span><span class="n">uris</span><span class="p">,</span> <span class="n">callback</span><span class="p">,</span> <span class="n">constraints</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Returns a generator of cubes given the URIs and a callback.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">uris</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">uris</span> <span class="o">=</span> <span class="p">[</span><span class="n">uris</span><span class="p">]</span>
+
+    <span class="c1"># Group collections of uris by their iris handler</span>
+    <span class="c1"># Create list of tuples relating schemes to part names</span>
+    <span class="n">uri_tuples</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">decode_uri</span><span class="p">(</span><span class="n">uri</span><span class="p">)</span> <span class="k">for</span> <span class="n">uri</span> <span class="ow">in</span> <span class="n">uris</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">scheme</span><span class="p">,</span> <span class="n">groups</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">uri_tuples</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+        <span class="c1"># Call each scheme handler with the appropriate URIs</span>
+        <span class="k">if</span> <span class="n">scheme</span> <span class="o">==</span> <span class="s2">&quot;file&quot;</span><span class="p">:</span>
+            <span class="n">part_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">groups</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">cube</span> <span class="ow">in</span> <span class="n">iris</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">load_files</span><span class="p">(</span><span class="n">part_names</span><span class="p">,</span> <span class="n">callback</span><span class="p">,</span> <span class="n">constraints</span><span class="p">):</span>
+                <span class="k">yield</span> <span class="n">cube</span>
+        <span class="k">elif</span> <span class="n">scheme</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;http&quot;</span><span class="p">,</span> <span class="s2">&quot;https&quot;</span><span class="p">]:</span>
+            <span class="n">urls</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;:&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">groups</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">cube</span> <span class="ow">in</span> <span class="n">iris</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">load_http</span><span class="p">(</span><span class="n">urls</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
+                <span class="k">yield</span> <span class="n">cube</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Iris cannot handle the URI scheme: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">scheme</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_load_collection</span><span class="p">(</span><span class="n">uris</span><span class="p">,</span> <span class="n">constraints</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">cubes</span> <span class="o">=</span> <span class="n">_generate_cubes</span><span class="p">(</span><span class="n">uris</span><span class="p">,</span> <span class="n">callback</span><span class="p">,</span> <span class="n">constraints</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">cube</span><span class="o">.</span><span class="n">_CubeFilterCollection</span><span class="o">.</span><span class="n">from_cubes</span><span class="p">(</span><span class="n">cubes</span><span class="p">,</span> <span class="n">constraints</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">EOFError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">iris</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">TranslationError</span><span class="p">(</span>
+            <span class="s2">&quot;The file appears empty or incomplete: </span><span class="si">{!r}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+        <span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+
+<div class="viewcode-block" id="load"><a class="viewcode-back" href="../generated/api/iris.html#iris.load">[docs]</a><span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="n">uris</span><span class="p">,</span> <span class="n">constraints</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Loads any number of Cubes for each constraint.</span>
+
+<span class="sd">    For a full description of the arguments, please see the module</span>
+<span class="sd">    documentation for :mod:`iris`.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">    * uris:</span>
+<span class="sd">        One or more filenames/URIs.</span>
+
+<span class="sd">    Kwargs:</span>
+
+<span class="sd">    * constraints:</span>
+<span class="sd">        One or more constraints.</span>
+<span class="sd">    * callback:</span>
+<span class="sd">        A modifier/filter function.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        An :class:`iris.cube.CubeList`. Note that there is no inherent order</span>
+<span class="sd">        to this :class:`iris.cube.CubeList` and it should be treated as if it</span>
+<span class="sd">        were random.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_load_collection</span><span class="p">(</span><span class="n">uris</span><span class="p">,</span> <span class="n">constraints</span><span class="p">,</span> <span class="n">callback</span><span class="p">)</span><span class="o">.</span><span class="n">merged</span><span class="p">()</span><span class="o">.</span><span class="n">cubes</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="load_cube"><a class="viewcode-back" href="../generated/api/iris.html#iris.load_cube">[docs]</a><span class="k">def</span> <span class="nf">load_cube</span><span class="p">(</span><span class="n">uris</span><span class="p">,</span> <span class="n">constraint</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Loads a single cube.</span>
+
+<span class="sd">    For a full description of the arguments, please see the module</span>
+<span class="sd">    documentation for :mod:`iris`.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">    * uris:</span>
+<span class="sd">        One or more filenames/URIs.</span>
+
+<span class="sd">    Kwargs:</span>
+
+<span class="sd">    * constraints:</span>
+<span class="sd">        A constraint.</span>
+<span class="sd">    * callback:</span>
+<span class="sd">        A modifier/filter function.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        An :class:`iris.cube.Cube`.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">constraints</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">_constraints</span><span class="o">.</span><span class="n">list_of_constraints</span><span class="p">(</span><span class="n">constraint</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">constraints</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;only a single constraint is allowed&quot;</span><span class="p">)</span>
+
+    <span class="n">cubes</span> <span class="o">=</span> <span class="n">_load_collection</span><span class="p">(</span><span class="n">uris</span><span class="p">,</span> <span class="n">constraints</span><span class="p">,</span> <span class="n">callback</span><span class="p">)</span><span class="o">.</span><span class="n">cubes</span><span class="p">()</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">cube</span> <span class="o">=</span> <span class="n">cubes</span><span class="o">.</span><span class="n">merge_cube</span><span class="p">()</span>
+    <span class="k">except</span> <span class="n">iris</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">MergeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">iris</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">ConstraintMismatchError</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">iris</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">ConstraintMismatchError</span><span class="p">(</span><span class="s2">&quot;no cubes found&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">cube</span></div>
+
+
+<div class="viewcode-block" id="load_cubes"><a class="viewcode-back" href="../generated/api/iris.html#iris.load_cubes">[docs]</a><span class="k">def</span> <span class="nf">load_cubes</span><span class="p">(</span><span class="n">uris</span><span class="p">,</span> <span class="n">constraints</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Loads exactly one Cube for each constraint.</span>
+
+<span class="sd">    For a full description of the arguments, please see the module</span>
+<span class="sd">    documentation for :mod:`iris`.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">    * uris:</span>
+<span class="sd">        One or more filenames/URIs.</span>
+
+<span class="sd">    Kwargs:</span>
+
+<span class="sd">    * constraints:</span>
+<span class="sd">        One or more constraints.</span>
+<span class="sd">    * callback:</span>
+<span class="sd">        A modifier/filter function.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        An :class:`iris.cube.CubeList`. Note that there is no inherent order</span>
+<span class="sd">        to this :class:`iris.cube.CubeList` and it should be treated as if it</span>
+<span class="sd">        were random.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Merge the incoming cubes</span>
+    <span class="n">collection</span> <span class="o">=</span> <span class="n">_load_collection</span><span class="p">(</span><span class="n">uris</span><span class="p">,</span> <span class="n">constraints</span><span class="p">,</span> <span class="n">callback</span><span class="p">)</span><span class="o">.</span><span class="n">merged</span><span class="p">()</span>
+
+    <span class="c1"># Make sure we have exactly one merged cube per constraint</span>
+    <span class="n">bad_pairs</span> <span class="o">=</span> <span class="p">[</span><span class="n">pair</span> <span class="k">for</span> <span class="n">pair</span> <span class="ow">in</span> <span class="n">collection</span><span class="o">.</span><span class="n">pairs</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">pair</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">bad_pairs</span><span class="p">:</span>
+        <span class="n">fmt</span> <span class="o">=</span> <span class="s2">&quot;   </span><span class="si">{}</span><span class="s2"> -&gt; </span><span class="si">{}</span><span class="s2"> cubes&quot;</span>
+        <span class="n">bits</span> <span class="o">=</span> <span class="p">[</span><span class="n">fmt</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pair</span><span class="o">.</span><span class="n">constraint</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">pair</span><span class="p">))</span> <span class="k">for</span> <span class="n">pair</span> <span class="ow">in</span> <span class="n">bad_pairs</span><span class="p">]</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">bits</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="n">iris</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">ConstraintMismatchError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">collection</span><span class="o">.</span><span class="n">cubes</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="load_raw"><a class="viewcode-back" href="../generated/api/iris.html#iris.load_raw">[docs]</a><span class="k">def</span> <span class="nf">load_raw</span><span class="p">(</span><span class="n">uris</span><span class="p">,</span> <span class="n">constraints</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Loads non-merged cubes.</span>
+
+<span class="sd">    This function is provided for those occasions where the automatic</span>
+<span class="sd">    combination of cubes into higher-dimensional cubes is undesirable.</span>
+<span class="sd">    However, it is intended as a tool of last resort! If you experience</span>
+<span class="sd">    a problem with the automatic combination process then please raise</span>
+<span class="sd">    an issue with the Iris developers.</span>
+
+<span class="sd">    For a full description of the arguments, please see the module</span>
+<span class="sd">    documentation for :mod:`iris`.</span>
+
+<span class="sd">    Args:</span>
+
+<span class="sd">    * uris:</span>
+<span class="sd">        One or more filenames/URIs.</span>
+
+<span class="sd">    Kwargs:</span>
+
+<span class="sd">    * constraints:</span>
+<span class="sd">        One or more constraints.</span>
+<span class="sd">    * callback:</span>
+<span class="sd">        A modifier/filter function.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        An :class:`iris.cube.CubeList`.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">from</span> <span class="nn">iris.fileformats.um._fast_load</span> <span class="kn">import</span> <span class="n">_raw_structured_loading</span>
+
+    <span class="k">with</span> <span class="n">_raw_structured_loading</span><span class="p">():</span>
+        <span class="k">return</span> <span class="n">_load_collection</span><span class="p">(</span><span class="n">uris</span><span class="p">,</span> <span class="n">constraints</span><span class="p">,</span> <span class="n">callback</span><span class="p">)</span><span class="o">.</span><span class="n">cubes</span><span class="p">()</span></div>
+
+
+<span class="n">save</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">save</span>
+
+
+<div class="viewcode-block" id="sample_data_path"><a class="viewcode-back" href="../generated/api/iris.html#iris.sample_data_path">[docs]</a><span class="k">def</span> <span class="nf">sample_data_path</span><span class="p">(</span><span class="o">*</span><span class="n">path_to_join</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Given the sample data resource, returns the full path to the file.</span>
+
+<span class="sd">    .. note::</span>
+
+<span class="sd">        This function is only for locating files in the iris sample data</span>
+<span class="sd">        collection (installed separately from iris). It is not needed or</span>
+<span class="sd">        appropriate for general file access.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">target</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="o">*</span><span class="n">path_to_join</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isabs</span><span class="p">(</span><span class="n">target</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">&quot;Absolute paths, such as </span><span class="si">{!r}</span><span class="s2">, are not supported.</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="s2">&quot;NB. This function is only for locating files in the &quot;</span>
+            <span class="s2">&quot;iris sample data collection. It is not needed or &quot;</span>
+            <span class="s2">&quot;appropriate for general file access.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
+        <span class="p">)</span>
+    <span class="k">if</span> <span class="n">iris_sample_data</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">target</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">iris_sample_data</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span>
+            <span class="s2">&quot;Please install the &#39;iris-sample-data&#39; package to &quot;</span>
+            <span class="s2">&quot;access sample data.&quot;</span>
+        <span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">target</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">&quot;Sample data file(s) at </span><span class="si">{!r}</span><span class="s2"> not found.</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="s2">&quot;NB. This function is only for locating files in the &quot;</span>
+            <span class="s2">&quot;iris sample data collection. It is not needed or &quot;</span>
+            <span class="s2">&quot;appropriate for general file access.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
+        <span class="p">)</span>
+    <span class="k">return</span> <span class="n">target</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        
+        &copy; <a href="../copyright.html">Copyright</a> Iris Contributors
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
